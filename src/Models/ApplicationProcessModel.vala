@@ -66,6 +66,7 @@ namespace elementarySystemMonitor {
 
         private void handle_process_added (int pid, Process process) {
             debug ("handle_process_added %d".printf(pid));
+            add_process (pid);
         }
 
         private void handle_process_removed (int pid) {
@@ -169,6 +170,55 @@ namespace elementarySystemMonitor {
             app_rows.unset (desktop_file);
 
             return true;
+        }
+
+        private string? get_desktop_file_from_pid (int pid) {
+            // go through our app_pid cache and find desktop file, if it exists
+            // FIXME: this is gross
+            foreach (var entry in app_pids.entries) {
+                foreach (var _pid in entry.value) {
+                    if (pid == _pid) {
+                        return entry.key;
+                    }
+                }
+            }
+            return null;
+        }
+
+        private bool add_process (int pid) {
+            if (process_rows.has_key (pid)) {
+                // process already in process rows
+                return false;
+            }
+
+            var process = process_monitor.get_process (pid);
+
+            if (process != null) {
+                if (process.ppid > 1) {
+                    // is a sub process of something
+                    if (process_rows.has_key (process.ppid)) {
+                        // we have the parent pid in the row cache
+                        var desktop_file = get_desktop_file_from_pid (process.ppid);
+                        if (desktop_file != null) {
+                            // add it to that application
+                            add_process_to_application (desktop_file, process_rows[process.ppid].iter, pid);
+                        }
+                        else {
+                            warning ("Not adding process because it doesn't belong to an application");
+                        }
+                    }
+                    else {
+                        warning ("Not adding because parent process (%d) isn't in process_rows", process.ppid);
+                    }
+                }
+                else {
+                    warning ("Not adding a process because it isn't a sub process to something else");
+                }
+
+                return true;
+            }
+
+            return false;
         }
 
         private bool add_process_to_application (string desktop_file, Gtk.TreeIter row, int pid) {
