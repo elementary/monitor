@@ -1,0 +1,64 @@
+-----------
+
+Have three different concepts:
+
+Applications (by which I mean graphical applications)
+Windows
+Processes
+
+An application is a group of windows and associated processes. We can use libbamf
+to enumerate applications (and their windows) as well as monitor for changes; we
+can also use libbamf's get_pid () function to grab associated Window->PIDs and
+group the related process trees (there may be several) underneath the application.
+
+-----------
+
+Listed in the main window, we will enumerate all applications under which we
+will list the windows and process trees (which we got using get_pid () on each
+window)
+
+Application
+    Window1
+    Window2
+    Processes
+        Process1
+            Process2
+            Process3
+            Process4
+        Process5
+            Process6
+            
+            
+Process trees that are not grabbed by an application will be enumerated in a 
+special category ("Background Processes", "Other", ?) located at the bottom of
+the application list. It may be that some processes are parents of other processes
+that have been moved up into an Application. In this case, the child process
+'owned' by an Application will not be displayed as a child process -- in effect,
+the process will have been 'moved' up into the application.
+
+-----------
+
+We could also monitor network and disk resource usage. This may be out of scope.
+
+-----------
+
+Perhaps we should have a couple different view modes, because grouping processes
+into Applications is a touchy business (as sometimes windows can't be tied to a
+PID, and thus, Applications can't be tied to processes). View modes could include:
+
+Group by Application (default behavior)
+Group by Process Tree (shows only processes)
+No grouping (shows only processes)
+
+-----------
+
+What kind of data do we need to fetch and maintain?
+
+All running Bamf.Applications
+    their Bamf.Windows
+    
+All running processes
+    their CPU load
+    their memory load
+    
+-----------
