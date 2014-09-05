@@ -20,7 +20,6 @@ namespace elementarySystemMonitor {
         private ProcessMonitor process_monitor;
         private Bamf.Matcher matcher;
         private Gee.Map<string, ApplicationProcessRow> app_rows;
-        private Gee.Map<string, Gee.Set<int>> app_pids;
         private Gee.Map<int, ApplicationProcessRow> process_rows;
         private Gtk.TreeIter background_applications;
 
@@ -35,15 +34,18 @@ namespace elementarySystemMonitor {
         public ApplicationProcessModel (ProcessMonitor _monitor) {
             process_monitor = _monitor;
 
-            model = new Gtk.TreeStore (ProcessColumns.NUM_COLUMNS, typeof (string), typeof (string), typeof (string));
+            model = new Gtk.TreeStore (ProcessColumns.NUM_COLUMNS, typeof (string), typeof (string), typeof(int), typeof (double), typeof (int64));
             model.append (out background_applications, null);
-            model.set (background_applications, 0, _("Background Applications"), 1, "", 2, "", -1);
+            model.set (background_applications, ProcessColumns.NAME, _("Background Applications"),
+                                                ProcessColumns.ICON, "system-run",
+                                                ProcessColumns.MEMORY, (uint64)0,
+                                                ProcessColumns.CPU, -4.0,
+                                                -1);
 
             matcher = Bamf.Matcher.get_default ();
 
             app_rows = new Gee.HashMap<string, ApplicationProcessRow> ();
             process_rows = new Gee.HashMap<int, ApplicationProcessRow> ();
-            app_pids = new Gee.HashMap<string, Gee.Set<int>> ();
 
             // handle views closing and opening
             matcher.view_opened.connect (handle_view_opened);
@@ -55,20 +57,34 @@ namespace elementarySystemMonitor {
             process_monitor.updated.connect (handle_monitor_update);
 
             // run when application is done loading to populate list
-            Idle.add (() => { add_running_applications(); return false; } );
+            Idle.add (() => { add_running_applications (); return false; } );
+            Idle.add (() => { add_running_processes (); return false; } );
         }
 
+        /**
+         * Handles a updated signal from ProcessMonitor by refreshing all of the process rows in the list
+         */
         private void handle_monitor_update () {
             foreach (var pid in process_rows.keys) {
                 update_process (pid);
             }
+
+            foreach (var desktop_file in app_rows.keys) {
+                update_application (desktop_file);
+            }
         }
 
+        /**
+         * Handles a process-added signal from ProcessMonitor by adding the process to our list
+         */
         private void handle_process_added (int pid, Process process) {
             debug ("handle_process_added %d".printf(pid));
             add_process (pid);
         }
 
+        /**
+         * Handles a process-removed signal from ProcessMonitor by removing the process from our list
+         */
         private void handle_process_removed (int pid) {
             debug ("handle_process_removed %d".printf(pid));
             remove_process (pid);
@@ -101,10 +117,22 @@ namespace elementarySystemMonitor {
          * Adds all running applications to the list.
          */
         private void add_running_applications () {
+            debug ("add_running_applications");
             // get all running applications and add them to the tree store
             var running_applications = matcher.get_running_applications ();
             foreach (var app in running_applications) {
                 add_application (app);
+            }
+        }
+
+        /**
+         * Adds all running processes to the list.
+         */
+        private void add_running_processes () {
+            debug ("add_running_processes");
+            var running_processes = process_monitor.get_process_list ();
+            foreach (var pid in running_processes.keys) {
+                add_process (pid);
             }
         }
 
@@ -116,6 +144,7 @@ namespace elementarySystemMonitor {
             string? desktop_file = app.get_desktop_file ();
 
             // make sure application has desktop file, if it doesn't, then we won't display it
+            // TODO: this might be a bad decision, revisit
             if (desktop_file == null || desktop_file == "" || app_rows.has_key (desktop_file)) {
                 return false;
             }
@@ -123,7 +152,9 @@ namespace elementarySystemMonitor {
             // add the application to the model
             Gtk.TreeIter iter;
             model.append (out iter, null);
-            model.set (iter, 0, app.get_name (), 1, "", 2, "", -1);
+            model.set (iter, ProcessColumns.NAME, app.get_name (),
+                             ProcessColumns.ICON, app.get_icon (),
+                             -1);
 
             // add the application to our cache of app_rows
             var row = new ApplicationProcessRow (iter);
@@ -132,10 +163,43 @@ namespace elementarySystemMonitor {
             // go through the windows of the application and add all of the pids
             var windows = app.get_windows ();
             foreach (var window in windows) {
-                add_process_to_application (desktop_file, iter, (int) window.get_pid ());
+                add_process_to_row (iter, (int) window.get_pid ());
             }
 
             return true;
+        }
+
+        private void get_children_total (Gtk.TreeIter iter, ref int64 memory, ref double cpu) {
+            // go through all children and add up CPU/Memory usage
+            // TODO: this is a naive way to do things
+            Gtk.TreeIter child_iter;
+            
+            if (model.iter_children (out child_iter, iter)) {
+                do {
+                    get_children_total (child_iter, ref memory, ref cpu);
+                    Value cpu_value;
+                    Value memory_value;
+                    model.get_value (child_iter, ProcessColumns.CPU, out cpu_value);
+                    model.get_value (child_iter, ProcessColumns.MEMORY, out memory_value);
+                    memory += memory_value.get_int64 ();
+                    cpu += cpu_value.get_double ();
+                } while (model.iter_next (ref child_iter));
+            }
+        }
+
+        private void update_application (string desktop_file) {
+            if (!app_rows.has_key (desktop_file))
+                return;
+
+            var iter = app_rows[desktop_file].iter;
+            int64 total_mem = 0;
+            double total_cpu = 0;
+
+            get_children_total (iter, ref total_mem, ref total_cpu);
+
+            model.set (iter, ProcessColumns.MEMORY, total_mem,
+                             ProcessColumns.CPU, total_cpu,
+                             -1);
         }
 
         /**
@@ -153,14 +217,12 @@ namespace elementarySystemMonitor {
             var row = app_rows.get (desktop_file);
             var iter = row.iter;
 
-            // remove pids
-            if (app_pids.has_key (desktop_file)) {
-                // remove each process
-                foreach (var pid in app_pids[desktop_file]) {
-                    // TODO: really should reparent to background process
-                    remove_process (pid);
-                }
-                app_pids.unset (desktop_file);
+            // reparent children to background processes; let the ProcessMonitor take care of removing them
+            Gtk.TreeIter child_iter;
+            while (model.iter_children (out child_iter, iter)) {
+                Value pid_value;
+                model.get_value (child_iter, ProcessColumns.PID, out pid_value);
+                add_process_to_row (background_applications, pid_value.get_int ());
             }
 
             // remove row from model
@@ -172,47 +234,32 @@ namespace elementarySystemMonitor {
             return true;
         }
 
-        private string? get_desktop_file_from_pid (int pid) {
-            // go through our app_pid cache and find desktop file, if it exists
-            // FIXME: this is gross
-            foreach (var entry in app_pids.entries) {
-                foreach (var _pid in entry.value) {
-                    if (pid == _pid) {
-                        return entry.key;
-                    }
-                }
-            }
-            return null;
-        }
-
+        /**
+         * Adds a process by pid, making sure to parent it to the right process
+         */
         private bool add_process (int pid) {
+            debug ("add_process %d", pid);
             if (process_rows.has_key (pid)) {
-                // process already in process rows
+                // process already in process rows, no need to add
+                debug ("SKIPPING");
                 return false;
             }
 
             var process = process_monitor.get_process (pid);
 
-            if (process != null) {
+            if (process != null && process.pid != 1) {
                 if (process.ppid > 1) {
                     // is a sub process of something
                     if (process_rows.has_key (process.ppid)) {
-                        // we have the parent pid in the row cache
-                        var desktop_file = get_desktop_file_from_pid (process.ppid);
-                        if (desktop_file != null) {
-                            // add it to that application
-                            add_process_to_application (desktop_file, process_rows[process.ppid].iter, pid);
-                        }
-                        else {
-                            warning ("Not adding process because it doesn't belong to an application");
-                        }
+                        // is a subprocess of something in the rows
+                        add_process_to_row (process_rows[process.ppid].iter, pid);
                     }
-                    else {
-                        warning ("Not adding because parent process (%d) isn't in process_rows", process.ppid);
-                    }
+                    // if parent not in yet, then child will be added in after
                 }
                 else {
-                    warning ("Not adding a process because it isn't a sub process to something else");
+                    // isn't a subprocess of something, put it into background processes
+                    // it can be moved afterwards to an application
+                    add_process_to_row (background_applications, pid);
                 }
 
                 return true;
@@ -221,55 +268,77 @@ namespace elementarySystemMonitor {
             return false;
         }
 
-        private bool add_process_to_application (string desktop_file, Gtk.TreeIter row, int pid) {
-            debug ("add_process_to_application %s %d".printf(desktop_file, pid));
-            if (process_rows.has_key (pid)) {
-                // TODO: deal with reparenting existing process row to this row
-                return false;
-            }
-
+        /**
+         * Addes a process to an existing row; reparenting it and it's children it it already exists.
+         */
+        private bool add_process_to_row (Gtk.TreeIter row, int pid) {
+            debug ("add_process_to_row %d".printf(pid));
             var process = process_monitor.get_process (pid);
 
             if (process != null)
             {
-                // get the application's pid list
-                Gee.Set<int> pids;
-                if (app_pids.has_key (desktop_file)) {
-                    pids = app_pids[desktop_file];
-                }
-                else {
-                    pids = new Gee.HashSet<int> ();
-                    app_pids.set (desktop_file, pids);
+                // if process is already in list, then we need to reparent it and it's children
+                // can't remove it now because we need to remove all of the children first.
+                Gtk.TreeIter? old_location = null;
+                if (process_rows.has_key (pid)) {
+                    old_location = process_rows[pid].iter;
                 }
 
                 // add the process to the model
                 Gtk.TreeIter iter;
                 model.append (out iter, row);
-                model.set (iter, 0, process.command, 1, "%0.f%%".printf (process.cpu_usage * 100.0), 2, "%0.2f MiB".printf (process.mem_usage / 1024.0), -1);
-
-                // add all subprocesses to this row
-                var sub_processes = process_monitor.get_sub_processes (pid);
-                foreach (var sub_pid in sub_processes) {
-                    add_process_to_application (desktop_file, iter, sub_pid);
-                }
+                model.set (iter, ProcessColumns.NAME, process.command,
+                                 ProcessColumns.ICON, "application-default-icon",
+                                 ProcessColumns.PID, process.pid,
+                                 ProcessColumns.CPU, process.cpu_usage,
+                                 ProcessColumns.MEMORY, process.mem_usage,
+                                 -1);
 
                 // add the process to our cache of process_rows
                 var process_row = new ApplicationProcessRow (iter);
                 process_rows.set (pid, process_row);
 
-                // add this pid to the application pid list
-                pids.add (pid);
+                // add all subprocesses to this row, recursively
+                var sub_processes = process_monitor.get_sub_processes (pid);
+                foreach (var sub_pid in sub_processes) {
+                    // only add subprocesses that either arn't in yet or are parented to the old location
+                    // i.e. skip if subprocess is already in but isn't an ancestor of this process row
+                    if (process_rows.has_key (sub_pid) && (
+                             (old_location != null && !model.is_ancestor (old_location, process_rows[sub_pid].iter))
+                             || old_location == null))
+                        continue;
+
+                    add_process_to_row (iter, sub_pid);
+                }
+
+                // remove old row where the process used to be
+                if (old_location != null) {
+                    model.remove (ref old_location);
+                }
+
+                return true;
             }
 
-            return true;
+            return false;
         }
 
+        /**
+         * Removes a process from the model by pid
+         */
         private void remove_process (int pid) {
             debug ("remove process %d".printf(pid));
             // if process rows has pid
             if (process_rows.has_key (pid)) {
                 var row = process_rows.get (pid);
                 var iter = row.iter;
+
+                // reparent children to background processes; let the ProcessMonitor take care of removing them
+                Gtk.TreeIter child_iter;
+                while (model.iter_children (out child_iter, iter)) {
+                    Value pid_value;
+                    model.get_value (child_iter, ProcessColumns.PID, out pid_value);
+                    add_process_to_row (background_applications, pid_value.get_int ());
+                }
 
                 // remove row from model
                 model.remove (ref iter);
@@ -279,13 +348,18 @@ namespace elementarySystemMonitor {
             }
         }
 
+        /**
+         * Updates a process by pid
+         */
         private void update_process (int pid) {
             Gtk.TreeIter row;
             var process = process_monitor.get_process (pid);
 
             if (process_rows.has_key (pid) && process != null) {
                 row = process_rows[pid].iter;
-                model.set (row, 0, process.command, 1, "%0.f%%".printf (process.cpu_usage * 100.0), 2, "%0.2f MiB".printf (process.mem_usage / 1024.0), -1);
+                model.set (row, ProcessColumns.CPU, process.cpu_usage,
+                                ProcessColumns.MEMORY, process.mem_usage,
+                                 -1);
             }
         }
     }

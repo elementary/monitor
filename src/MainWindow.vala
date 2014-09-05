@@ -26,6 +26,7 @@ namespace elementarySystemMonitor {
             this.set_application (app);
             this.set_default_size (400, 600);
             this.window_position = Gtk.WindowPosition.CENTER;
+            set_icon_name (app.app_icon);
 
             // setup header bar
             header_bar = new Gtk.HeaderBar ();

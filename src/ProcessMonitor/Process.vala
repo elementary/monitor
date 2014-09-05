@@ -126,6 +126,7 @@ namespace elementarySystemMonitor {
                 // if last_monotonic_time is 0, then we've never run this calculation before
                 // so we should skip it
                 if (last_monotonic_time != 0) {
+                    // TODO: need to somehow grab the offical cpu time or have it passed in to us
                     double time_gap_seconds = (cur_monotonic_time - last_monotonic_time) / 1000000.0; // number of seconds between measurements
                     double cpu_seconds = (((utime + stime) - last_total) * 1.0) / (TICKS_PER_SEC * 1.0);
                     cpu_usage = cpu_seconds / time_gap_seconds;

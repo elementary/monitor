@@ -37,7 +37,10 @@ namespace elementarySystemMonitor {
             }
 
             // else return the result of add_process
-            return add_process (pid);
+            // make sure to lazily call the callback since this is a greedy add
+            // this way we don't interrupt whatever this method is being called for
+            // with a handle_add_process
+            return add_process (pid, true);
         }
 
         /**
@@ -123,7 +126,7 @@ namespace elementarySystemMonitor {
          *
          * returns the created process
          */
-        private Process? add_process (int pid) {
+        private Process? add_process (int pid, bool lazy_signal = false) {
             // create the process
             var process = new Process (pid);
 
@@ -132,8 +135,12 @@ namespace elementarySystemMonitor {
                     // regular process, add it to our cache
                     process_list.set (pid, process);
 
-                    // call the signal
-                    process_added (pid, process);
+                    // call the signal, lazily if needed
+                    if (lazy_signal)
+                        Idle.add (() => { process_added (pid, process); return false; });
+                    else
+                        process_added (pid, process);
+
                     return process;
                 } else {
                     // add it to our kernel processes blacklist
