@@ -166,6 +166,9 @@ namespace elementarySystemMonitor {
                 add_process_to_row (iter, (int) window.get_pid ());
             }
 
+            // update the application columns
+            update_application (desktop_file);
+
             return true;
         }
 
