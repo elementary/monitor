@@ -29,14 +29,16 @@ namespace elementarySystemMonitor {
             // setup name column
             name_column = new Gtk.TreeViewColumn ();
             name_column.title = _("Application/Process Name");
-            name_column.fixed_width = 300;
-            name_column.max_width = 300;
+            name_column.expand = true;
+            name_column.min_width = 250;
+            name_column.set_sort_column_id (ProcessColumns.NAME);
 
             var icon_cell = new Gtk.CellRendererPixbuf ();
             name_column.pack_start (icon_cell, false);
             name_column.add_attribute (icon_cell, "icon_name", ProcessColumns.ICON);
 
             var name_cell = new Gtk.CellRendererText ();
+            name_cell.ellipsize = Pango.EllipsizeMode.END;
             name_column.pack_start (name_cell, false);
             name_column.add_attribute (name_cell, "text", ProcessColumns.NAME);
 
@@ -45,17 +47,25 @@ namespace elementarySystemMonitor {
             // setup cpu column
             var cpu_cell = new Gtk.CellRendererText ();
             cpu_cell.xalign = 0.5f;
+
             cpu_column = new Gtk.TreeViewColumn.with_attributes (_("CPU (%)"), cpu_cell);
+            cpu_column.expand = false;
             cpu_column.set_cell_data_func (cpu_cell, cpu_usage_cell_layout);
             cpu_column.alignment = 0.5f;
+            cpu_column.set_sort_column_id (ProcessColumns.CPU);
+
             insert_column (cpu_column, -1);
 
             // setup memory column
             var memory_cell = new Gtk.CellRendererText ();
             memory_cell.xalign = 0.5f;
+
             memory_column = new Gtk.TreeViewColumn.with_attributes (_("Memory Usage"), memory_cell);
-            cpu_column.set_cell_data_func (memory_cell, memory_usage_cell_layout);
+            memory_column.expand = false;
+            memory_column.set_cell_data_func (memory_cell, memory_usage_cell_layout);
             memory_column.alignment = 0.5f;
+            memory_column.set_sort_column_id (ProcessColumns.MEMORY);
+
             insert_column (memory_column, -1);
 
             // resize all of the columns
@@ -86,13 +96,13 @@ namespace elementarySystemMonitor {
 
             // convert to MiB if needed
             if (memory_usage_double > 1024.0) {
-                memory_usage_double /= 1024.0; 
+                memory_usage_double /= 1024.0;
                 units = _("MiB");
             }
-            
+
             // convert to GiB if needed
             if (memory_usage_double > 1024.0) {
-                memory_usage_double /= 1024.0; 
+                memory_usage_double /= 1024.0;
                 units = _("GiB");
             }
 
