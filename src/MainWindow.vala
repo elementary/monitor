@@ -43,13 +43,13 @@ namespace elementarySystemMonitor {
             var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
             button_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
 
-            // setup kill process button
-            kill_process_button = new Gtk.Button.from_icon_name ("process-stop", Gtk.IconSize.LARGE_TOOLBAR);
-            button_box.add (kill_process_button);
-
             // setup process info button
-            process_info_button = new Gtk.Button.from_icon_name ("help-info", Gtk.IconSize.LARGE_TOOLBAR);
+            process_info_button = new Gtk.Button.from_icon_name ("dialog-information-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
             button_box.add (process_info_button);
+            
+            // setup kill process button
+            kill_process_button = new Gtk.Button.from_icon_name ("process-stop-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
+            button_box.add (kill_process_button);
 
             // put the buttons in the headerbar
             header_bar.pack_start (button_box);
