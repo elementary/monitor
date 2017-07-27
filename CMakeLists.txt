@@ -1,4 +1,4 @@
-set (PROJECT_NAME "elementary-system-monitor")
+set (PROJECT_NAME "com.github.stsdc.monitor")
 project (${PROJECT_NAME})
 
 cmake_minimum_required (VERSION 2.8)
@@ -10,12 +10,12 @@ set (EXEC_NAME "${PROJECT_NAME}")
 set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
 set (PKGDATADIR "${DATADIR}/${PROJECT_NAME}")
 set (GETTEXT_PACKAGE ${PROJECT_NAME})
-set (RELEASE_NAME "${PROJECT_NAME}")
+set (RELEASE_NAME "Monitor")
 set (VERSION "0.1")
-set (VERSION_INFO "dev")
+set (VERSION_INFO "Alpha")
 set (DOLLAR "$")
 
-enable_testing ()
+# enable_testing ()
 
 add_definitions ("-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\"" -DWNCK_I_KNOW_THIS_IS_UNSTABLE)
 
@@ -23,7 +23,7 @@ set (SYSTEM_MONITOR_DEPS
     gtk+-3.0
     gee-0.8
     libbamf3
-    libwnck-3.0
+    # libwnck-3.0
     gobject-2.0
     glib-2.0
     gio-2.0
@@ -40,4 +40,3 @@ link_directories (${DEPS_LIBRARY_DIRS} ${LIBSOURCE_LIBRARY_DIRS} ${GCONF_LIBRARY
 add_subdirectory (src)
 add_subdirectory (po)
 add_subdirectory (data)
-

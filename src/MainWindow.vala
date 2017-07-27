@@ -24,7 +24,7 @@ namespace elementarySystemMonitor {
         public MainWindow (elementarySystemMonitorApp app) {
             this.app = app;
             this.set_application (app);
-            this.set_default_size (400, 600);
+            this.set_default_size (800, 600);
             this.window_position = Gtk.WindowPosition.CENTER;
             set_icon_name (app.app_icon);
 
@@ -78,7 +78,7 @@ namespace elementarySystemMonitor {
         private bool key_press_event_handler (Gdk.EventKey event) {
             char typed = event.str[0];
 
-            // if the character typed is an alpha-numeric and the search doesn't currently have focuss
+            // if the character typed is an alpha-numeric and the search doesn't currently have focus
             if (typed.isalnum () && !search.is_focus ) {
                 // reset filter, grab focus and insert the character
                 search.text = "";

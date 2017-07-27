@@ -1,5 +1,3 @@
-
-
 namespace elementarySystemMonitor {
 
     public class elementarySystemMonitorApp : Granite.Application {
@@ -16,28 +14,11 @@ namespace elementarySystemMonitor {
             build_version = Constants.VERSION;
             build_version_info = Constants.VERSION_INFO;
 
-            app_copyright = "2014";
-            app_years = "2014";
-            // TODO: GIVE ME REAL ICON
-            app_icon = "application-default-icon";
-            // TODO: GIVE ME REAL DESKTOP FILE
-            app_launcher = "elementarySystemMonitor.desktop";
-            // TODO: CHANGE ME TO REAL NAME
-            application_id = "net.launchpad.elementarySystemMonitor";
+            app_years = "2014-2017";
+            app_icon = "com.github.stsdc.monitor";
+            app_launcher = application_id + ".desktop";
+            application_id = "com.github.stsdc.monitor";
 
-            // TODO: CHANGE ME TO REAL NAME
-            main_url = "https://code.launchpad.net/elementarySystemMonitor";
-            bug_url = "https://bugs.launchpad.net/elementarySystemMonitor";
-            help_url = "https://code.launchpad.net/elementarySystemMonitor";
-            translate_url = "https://translations.launchpad.net/elementarySystemMonitor";
-
-            about_authors = {"Michael P. Starkweather <mpstark@gmail.com>"};
-            about_documenters = {"Michael P. Starkweather <mpstark@gmail.com>"};
-            about_artists = {"Michael P. Starkweather <mpstark@gmail.com>"};
-            about_comments = "System Monitor for the Modern Desktop"; // TODO
-            about_translators = null;
-            about_license = "to be selected";
-            about_license_type = Gtk.License.GPL_3_0; // TODO
         }
 
         public elementarySystemMonitorApp () {

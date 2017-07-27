@@ -1,6 +1,4 @@
 
-
-
 namespace elementarySystemMonitor {
 
     /**
@@ -28,7 +26,7 @@ namespace elementarySystemMonitor {
 
             // setup name column
             name_column = new Gtk.TreeViewColumn ();
-            name_column.title = _("Application/Process Name");
+            name_column.title = _("Process Name");
             name_column.expand = true;
             name_column.min_width = 250;
             name_column.set_sort_column_id (ProcessColumns.NAME);

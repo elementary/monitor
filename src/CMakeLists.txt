@@ -2,7 +2,7 @@ configure_file (${CMAKE_SOURCE_DIR}/src/config.vala.cmake ${CMAKE_BINARY_DIR}/sr
 
 find_package(Vala REQUIRED)
 include(ValaVersion)
-ensure_vala_version("0.22" MINIMUM)
+ensure_vala_version("0.26" MINIMUM)
 
 include(ValaPrecompile)
 vala_precompile(VALA_C ${EXEC_NAME}
@@ -20,6 +20,7 @@ OPTIONS
     --thread
     --enable-checking
     -v
+    -g
 )
 
 add_executable(${EXEC_NAME} ${VALA_C})
