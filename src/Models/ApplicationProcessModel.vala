@@ -276,7 +276,7 @@ namespace elementarySystemMonitor {
          */
         private bool add_process_to_row (Gtk.TreeIter row, int pid) {
             var process = process_monitor.get_process (pid);
-            debug ("add_process_to_row %d %s", pid, process.command);
+            debug ("add_process_to_row %d", pid);
 
             if (process != null)
             {
@@ -290,7 +290,6 @@ namespace elementarySystemMonitor {
                 // add the process to the model
                 Gtk.TreeIter iter;
                 model.append (out iter, row);
-                // debug ("%i", process.pid);
                 model.set (iter, ProcessColumns.NAME, process.command,
                                  ProcessColumns.ICON, "application-x-executable",
                                  ProcessColumns.PID, process.pid,

@@ -92,15 +92,7 @@ namespace elementarySystemMonitor {
         }
 
         private void kill_process (Gtk.Button button) {
-            Gtk.TreeModel model;
-            string str = "";
-            var selection = process_view.get_selection ().get_selected_rows (out model);
-            foreach (var path in selection) {
-                Gtk.TreeIter iter;
-		        model.get_iter (out iter, path);
-		        model.get (iter, 1, out str);
-            }
-            debug ("Button clicked %s", str);
+            debug ("Button clicked %d", process_view.selected ());
         }
     }
 }
