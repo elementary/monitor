@@ -88,6 +88,18 @@ namespace elementarySystemMonitor {
         }
 
         /**
+         * Kills the process
+         * 
+         * Returns if the update was successful
+         */
+        public bool kill () {
+            if (Posix.kill (pid, Posix.SIGINT) == 0) {
+                return true;
+            }
+            return false;
+        }
+
+        /**
          * Reads the /proc/%pid%/stat file and updates the process with the information therein.
          */
         private bool read_stat () {

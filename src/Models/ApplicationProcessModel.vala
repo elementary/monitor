@@ -78,7 +78,7 @@ namespace elementarySystemMonitor {
          * Handles a process-added signal from ProcessMonitor by adding the process to our list
          */
         private void handle_process_added (int pid, Process process) {
-            debug ("handle_process_added %d".printf(pid));
+            debug ("handle_process_added %d ".printf(pid));
             add_process (pid);
         }
 
@@ -176,7 +176,7 @@ namespace elementarySystemMonitor {
             // go through all children and add up CPU/Memory usage
             // TODO: this is a naive way to do things
             Gtk.TreeIter child_iter;
-            
+
             if (model.iter_children (out child_iter, iter)) {
                 do {
                     get_children_total (child_iter, ref memory, ref cpu);
@@ -275,8 +275,8 @@ namespace elementarySystemMonitor {
          * Addes a process to an existing row; reparenting it and it's children it it already exists.
          */
         private bool add_process_to_row (Gtk.TreeIter row, int pid) {
-            debug ("add_process_to_row %d".printf(pid));
             var process = process_monitor.get_process (pid);
+            debug ("add_process_to_row %d %s", pid, process.command);
 
             if (process != null)
             {
@@ -290,8 +290,9 @@ namespace elementarySystemMonitor {
                 // add the process to the model
                 Gtk.TreeIter iter;
                 model.append (out iter, row);
+                // debug ("%i", process.pid);
                 model.set (iter, ProcessColumns.NAME, process.command,
-                                 ProcessColumns.ICON, "application-default-icon",
+                                 ProcessColumns.ICON, "application-x-executable",
                                  ProcessColumns.PID, process.pid,
                                  ProcessColumns.CPU, process.cpu_usage,
                                  ProcessColumns.MEMORY, process.mem_usage,

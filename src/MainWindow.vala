@@ -35,20 +35,21 @@ namespace elementarySystemMonitor {
 
             // setup search in header bar
             search = new Gtk.SearchEntry ();
-            search.placeholder_text = _("Filter Processes");
+            search.placeholder_text = _("Search Process");
             header_bar.pack_end (search);
             this.key_press_event.connect (key_press_event_handler);
 
             // setup buttons
             var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-            button_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+            button_box.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
             // setup process info button
             process_info_button = new Gtk.Button.from_icon_name ("dialog-information-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
             button_box.add (process_info_button);
-            
+
             // setup kill process button
             kill_process_button = new Gtk.Button.from_icon_name ("process-stop-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
+            kill_process_button.clicked.connect (kill_process);
             button_box.add (kill_process_button);
 
             // put the buttons in the headerbar
@@ -88,6 +89,18 @@ namespace elementarySystemMonitor {
             }
 
             return false; // tells the window that the event wasn't handled, pass it on
+        }
+
+        private void kill_process (Gtk.Button button) {
+            Gtk.TreeModel model;
+            string str = "";
+            var selection = process_view.get_selection ().get_selected_rows (out model);
+            foreach (var path in selection) {
+                Gtk.TreeIter iter;
+		        model.get_iter (out iter, path);
+		        model.get (iter, 1, out str);
+            }
+            debug ("Button clicked %s", str);
         }
     }
 }

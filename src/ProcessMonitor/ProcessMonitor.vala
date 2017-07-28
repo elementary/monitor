@@ -78,18 +78,18 @@ namespace elementarySystemMonitor {
          * Gets all new process and adds them
          */
         private void update_processes () {
-            var remove_me = new Gee.HashSet<int>();
+            var processes_to_remove = new Gee.HashSet<int>();
 
             // go through each process and update it, removing the old ones
             foreach (var process in process_list.values) {
                 if (!process.update ()) {
                     // process doesn't exist any more, flag it for removal!
-                    remove_me.add (process.pid);
+                    processes_to_remove.add (process.pid);
                 }
             }
 
             // remove everything from flags
-            foreach (var pid in remove_me) {
+            foreach (var pid in processes_to_remove) {
                 remove_process (pid);
             }
 

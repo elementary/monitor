@@ -17,6 +17,7 @@ namespace elementarySystemMonitor {
         private Gtk.TreeViewColumn name_column;
         private Gtk.TreeViewColumn cpu_column;
         private Gtk.TreeViewColumn memory_column;
+        private Gtk.TreeViewColumn pid_column;
 
         /**
          * Constructs a new ProcessView
@@ -39,32 +40,40 @@ namespace elementarySystemMonitor {
             name_cell.ellipsize = Pango.EllipsizeMode.END;
             name_column.pack_start (name_cell, false);
             name_column.add_attribute (name_cell, "text", ProcessColumns.NAME);
-
             insert_column (name_column, -1);
 
             // setup cpu column
             var cpu_cell = new Gtk.CellRendererText ();
             cpu_cell.xalign = 0.5f;
 
-            cpu_column = new Gtk.TreeViewColumn.with_attributes (_("CPU (%)"), cpu_cell);
+            cpu_column = new Gtk.TreeViewColumn.with_attributes (_("CPU"), cpu_cell);
             cpu_column.expand = false;
             cpu_column.set_cell_data_func (cpu_cell, cpu_usage_cell_layout);
             cpu_column.alignment = 0.5f;
             cpu_column.set_sort_column_id (ProcessColumns.CPU);
-
             insert_column (cpu_column, -1);
 
             // setup memory column
             var memory_cell = new Gtk.CellRendererText ();
             memory_cell.xalign = 0.5f;
 
-            memory_column = new Gtk.TreeViewColumn.with_attributes (_("Memory Usage"), memory_cell);
+            memory_column = new Gtk.TreeViewColumn.with_attributes (_("Memory"), memory_cell);
             memory_column.expand = false;
             memory_column.set_cell_data_func (memory_cell, memory_usage_cell_layout);
             memory_column.alignment = 0.5f;
             memory_column.set_sort_column_id (ProcessColumns.MEMORY);
-
             insert_column (memory_column, -1);
+
+            // setup PID column
+            var pid_cell = new Gtk.CellRendererText ();
+            pid_cell.xalign = 0.5f;
+            pid_column = new Gtk.TreeViewColumn.with_attributes (_("PID"), pid_cell);
+            pid_column.expand = false;
+            pid_column.alignment = 0.5f;
+            pid_column.set_sort_column_id (ProcessColumns.PID);
+            pid_column.pack_start (pid_cell, false);
+            pid_column.add_attribute (pid_cell, "text", ProcessColumns.PID);
+            insert_column (pid_column, -1);
 
             // resize all of the columns
             columns_autosize ();
