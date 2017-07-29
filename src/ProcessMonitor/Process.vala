@@ -90,7 +90,7 @@ namespace elementarySystemMonitor {
         /**
          * Kills the process
          * 
-         * Returns if the update was successful
+         * Returns if kill was successful
          */
         public bool kill () {
             if (Posix.kill (pid, Posix.SIGINT) == 0) {

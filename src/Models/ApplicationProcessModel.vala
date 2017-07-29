@@ -1,6 +1,3 @@
-
-
-
 namespace elementarySystemMonitor {
 
     // can't use TreeIter in HashMap for some reason, wrap it in a class
@@ -34,13 +31,21 @@ namespace elementarySystemMonitor {
         public ApplicationProcessModel (ProcessMonitor _monitor) {
             process_monitor = _monitor;
 
-            model = new Gtk.TreeStore (ProcessColumns.NUM_COLUMNS, typeof (string), typeof (string), typeof(int), typeof (double), typeof (int64));
+            model = new Gtk.TreeStore (
+                ProcessColumns.NUM_COLUMNS,
+                typeof (string),
+                typeof (string),
+                typeof(int),
+                typeof (double),
+                typeof (int64));
+
             model.append (out background_applications, null);
-            model.set (background_applications, ProcessColumns.NAME, _("Background Applications"),
-                                                ProcessColumns.ICON, "system-run",
-                                                ProcessColumns.MEMORY, (uint64)0,
-                                                ProcessColumns.CPU, -4.0,
-                                                -1);
+            model.set (background_applications,
+                ProcessColumns.NAME, _("Background Applications"),
+                ProcessColumns.ICON, "system-run",
+                ProcessColumns.MEMORY, (uint64)0,
+                ProcessColumns.CPU, -4.0,
+                -1);
 
             matcher = Bamf.Matcher.get_default ();
 
@@ -366,6 +371,12 @@ namespace elementarySystemMonitor {
                                 ProcessColumns.MEMORY, process.mem_usage,
                                  -1);
             }
+        }
+
+        public void kill_process (int pid) {
+            var process = process_monitor.get_process (pid);
+            process.kill ();
+            debug ("Kill:%d",process.pid);
         }
     }
 }

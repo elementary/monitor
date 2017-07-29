@@ -120,23 +120,16 @@ namespace elementarySystemMonitor {
                 (cell as Gtk.CellRendererText).text = "%.1f %s".printf (memory_usage_double, units);
         }
 
-        public int selected () {
+        public int get_pid_of_selected () {
             Gtk.TreeModel model;
-            int str = 0;
+            int pid = 0;
             var selection = this.get_selection ().get_selected_rows(out model);
             foreach (var sel in selection) {
                 Gtk.TreeIter iter;
 		        model.get_iter (out iter, sel);
-		        model.get (iter, 2, out str);
+		        model.get (iter, 2, out pid);
             }
-
-            return str;
+            return pid;
         }
-
-        // private static Gtk.TreeViewColumn get_selection (Gtk.TreeModel model, Gtk.TreeIter iter) {
-        // var column = new Gtk.TreeViewColumn ();
-        // model.get (iter, 0, out column.NAME, 1, out column.ICON, 2, out column.PID, 3, out column.CPU, 4, out column.MEMORY);
-        // return column;
-        // }
     }
 }

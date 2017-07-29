@@ -1,6 +1,3 @@
-
-
-
 namespace elementarySystemMonitor {
 
     public class ProcessMonitor {

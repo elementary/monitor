@@ -92,7 +92,8 @@ namespace elementarySystemMonitor {
         }
 
         private void kill_process (Gtk.Button button) {
-            debug ("Button clicked %d", process_view.selected ());
+            int pid = process_view.get_pid_of_selected ();
+            app_model.kill_process (pid);
         }
     }
 }
