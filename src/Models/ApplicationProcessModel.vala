@@ -258,11 +258,14 @@ namespace elementarySystemMonitor {
             var process = process_monitor.get_process (pid);
 
             if (process != null && process.pid != 1) {
+                debug ("Parent PID: %d", process.pid);
                 if (process.ppid > 1) {
                     // is a sub process of something
                     if (process_rows.has_key (process.ppid)) {
                         // is a subprocess of something in the rows
                         add_process_to_row (process_rows[process.ppid].iter, pid);
+                    } else {
+                        debug ("IS A SUBPROCESS OF SOMETHING BUT NO PARENT");
                     }
                     // if parent not in yet, then child will be added in after
                 }
@@ -376,7 +379,7 @@ namespace elementarySystemMonitor {
         public void kill_process (int pid) {
             var process = process_monitor.get_process (pid);
             process.kill ();
-            debug ("Kill:%d",process.pid);
+            info ("Kill:%d",process.pid);
         }
     }
 }
