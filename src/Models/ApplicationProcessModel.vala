@@ -164,6 +164,8 @@ namespace elementarySystemMonitor {
             var windows = app.get_windows ();
             foreach (var window in windows) {
                 add_process_to_row (iter, (int) window.get_pid ());
+                // adds pid to application, not only to expanded process
+                model.set (iter, ProcessColumns.PID, window.get_pid ());
             }
 
             // update the application columns
