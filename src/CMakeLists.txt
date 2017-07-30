@@ -15,7 +15,6 @@ vala_precompile(VALA_C ${EXEC_NAME}
     ${CMAKE_BINARY_DIR}/src/config.vala
 PACKAGES
     ${SYSTEM_MONITOR_DEPS}
-    posix
 OPTIONS
     --thread
     --enable-checking

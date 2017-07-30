@@ -128,6 +128,11 @@ namespace elementarySystemMonitor {
             foreach (var app in running_applications) {
                 add_application (app);
             }
+
+            var screen = Wnck.Screen.get_default ();
+            foreach (var w in screen.get_windows ()) {
+                debug (w.get_name ());
+            }
         }
 
         /**
@@ -258,7 +263,7 @@ namespace elementarySystemMonitor {
             var process = process_monitor.get_process (pid);
 
             if (process != null && process.pid != 1) {
-                debug ("Parent PID: %d", process.pid);
+                debug ("Parent PID: %d", process.ppid);
                 if (process.ppid > 1) {
                     // is a sub process of something
                     if (process_rows.has_key (process.ppid)) {
