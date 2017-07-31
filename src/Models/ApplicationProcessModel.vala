@@ -14,6 +14,7 @@ namespace elementarySystemMonitor {
      * and their processes to be displayed in a TreeView.
      */
     public class ApplicationProcessModel : Object {
+        private Wnck.Window window;
         private ProcessMonitor process_monitor;
         private Bamf.Matcher matcher;
         private Gee.Map<string, ApplicationProcessRow> app_rows;
@@ -128,11 +129,6 @@ namespace elementarySystemMonitor {
             foreach (var app in running_applications) {
                 add_application (app);
             }
-
-            var screen = Wnck.Screen.get_default ();
-            foreach (var w in screen.get_windows ()) {
-                debug (w.get_name ());
-            }
         }
 
         /**
@@ -180,6 +176,11 @@ namespace elementarySystemMonitor {
 
             // update the application columns
             update_application (desktop_file);
+
+            Wnck.Screen screen = Wnck.Screen.get_default ();
+            foreach (var w in screen.get_windows ()) {
+                debug ("------ %s", w.get_name ());
+            }
 
             return true;
         }

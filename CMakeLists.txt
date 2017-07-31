@@ -1,15 +1,15 @@
-set (PROJECT_NAME "com.github.stsdc.monitor")
-project (${PROJECT_NAME})
+project (com.github.stsdc.monitor)
 
 cmake_minimum_required (VERSION 2.8)
 cmake_policy (VERSION 2.6)
 
+include (GNUInstallDirs)
 list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
-set (EXEC_NAME "${PROJECT_NAME}")
+set (EXEC_NAME ${CMAKE_PROJECT_NAME})
 set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
 set (PKGDATADIR "${DATADIR}/${PROJECT_NAME}")
-set (GETTEXT_PACKAGE ${PROJECT_NAME})
+set (GETTEXT_PACKAGE ${CMAKE_PROJECT_NAME})
 set (RELEASE_NAME "Monitor")
 set (VERSION "0.1")
 set (VERSION_INFO "Alpha")
@@ -30,19 +30,17 @@ set (SYSTEM_MONITOR_DEPS
     granite
     posix
 )
-# find_package (libwnck-3.0)
-# if (WNCK_FOUND)
-#   include_directories(${WNCK_INCLUDE_DIRS})
-#   target_link_libraries (${PROJECT_NAME} ${WNCK_LIBRARIES})
-# endif (WNCK_FOUND)
 
 find_package (PkgConfig)
 # pkg_check_modules(WNCK REQUIRED libwnck-3.0)
 pkg_check_modules (DEPS REQUIRED ${SYSTEM_MONITOR_DEPS})
 
-add_definitions (${DEPS_CFLAGS} ${LIBSOURCE_CFLAGS} ${GCONF_CFLAGS} )
-link_libraries (${DEPS_LIBRARIES} ${LIBSOURCE_LIBRARIES} ${GCONF_LIBRARIES})
-link_directories (${DEPS_LIBRARY_DIRS} ${LIBSOURCE_LIBRARY_DIRS} ${GCONF_LIBRARY_DIRS} )
+# Comment this out to enable C compiler warnings
+add_definitions (-w)
+
+add_definitions (${DEPS_CFLAGS} ${WNCK_CFLAGS})
+link_libraries (${DEPS_LIBRARIES} ${WNCK_LIBRARIES})
+link_directories (${DEPS_LIBRARY_DIRS})
 
 add_subdirectory (src)
 add_subdirectory (po)

@@ -18,6 +18,7 @@ PACKAGES
 OPTIONS
     --thread
     --enable-checking
+    --enable-experimental
     -v
     -g
 )
