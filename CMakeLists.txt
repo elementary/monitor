@@ -16,7 +16,7 @@ set (VERSION_INFO "Alpha")
 set (DOLLAR "$")
 
 # enable_testing ()
-
+set (CMAKE_BUILD_TYPE Debug)
 add_definitions ("-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\"" -DWNCK_I_KNOW_THIS_IS_UNSTABLE)
 
 set (SYSTEM_MONITOR_DEPS

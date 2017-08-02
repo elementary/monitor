@@ -14,7 +14,8 @@ namespace elementarySystemMonitor {
      * and their processes to be displayed in a TreeView.
      */
     public class ApplicationProcessModel : Object {
-        private Wnck.Window window;
+        private Wnck.Screen screen;
+        private AppManager app_manager;
         private ProcessMonitor process_monitor;
         private Bamf.Matcher matcher;
         private Gee.Map<string, ApplicationProcessRow> app_rows;
@@ -48,10 +49,18 @@ namespace elementarySystemMonitor {
                 ProcessColumns.CPU, -4.0,
                 -1);
 
+            // The App Manager
+            app_manager = AppManager.get_default ();
+            app_manager.application_opened.connect (handle_application_opened);
+
+            screen = Wnck.Screen.get_default ();
             matcher = Bamf.Matcher.get_default ();
 
             app_rows = new Gee.HashMap<string, ApplicationProcessRow> ();
             process_rows = new Gee.HashMap<int, ApplicationProcessRow> ();
+
+            // handle opened applications with Wnck
+            // screen.application_opened.connect (handle_application_opened);
 
             // handle views closing and opening
             matcher.view_opened.connect (handle_view_opened);
@@ -102,9 +111,25 @@ namespace elementarySystemMonitor {
         private void handle_view_opened (Bamf.View view) {
             debug ("handle_view_opened %s".printf(view.get_name ()));
             // if the view added was an application, then add it
-            var app = view as Bamf.Application;
-            if (app != null) {
-                add_application (app);
+            if (view is Bamf.Application) {
+                add_application ((Bamf.Application)view);
+            } else {
+                warning ("Not an app!!!");
+            }
+
+            if (view is Bamf.Window) {
+                var w = (Bamf.Window)view;
+                debug ("Is a win %d", (int)w.get_xid());
+                Wnck.Screen.get_default().force_update();
+                unowned Wnck.Window ww = Wnck.Window.@get (w.get_xid());
+                debug ("Is a win %d", (int)ww.get_pid());
+
+            }
+        }
+
+        private void handle_application_opened (App app) {
+            for (var i = 0; i < app.pids.length; i++) {
+                debug ("APPMANAGER %s %d", app.name, app.pids[i]);
             }
         }
 
@@ -148,6 +173,26 @@ namespace elementarySystemMonitor {
         private bool add_application (Bamf.Application app) {
             debug ("add_application %s".printf(app.get_name ()));
             string? desktop_file = app.get_desktop_file ();
+            Array<uint32>? xids = app.get_xids ();
+            xids = app.get_xids ();
+            if (xids.length == 0) {
+                warning ("No xids from BAMF!!!");
+            }
+
+            for (var i = 0; xids != null && i < xids.length; i++) {
+                // Wnck.Application wnck_app = Wnck.Application.@get (xids.index (i));
+                unowned Wnck.Window w = Wnck.Window.@get (xids.index (i));
+                debug (">>>handle_application_opened - xid %d".printf((int)xids.index (i)));
+                if (w == null)
+                {
+                    Wnck.Screen.get_default().force_update();
+                    w = Wnck.Window.@get (xids.index (i));
+                    debug (">>>handle_application_opened - xid %s", w.get_name ());
+                }
+
+            }
+
+            // Wnck.Application wnck_app = Wnck.Application.get ((ulong)xids);
 
             // make sure application has desktop file, if it doesn't, then we won't display it
             // TODO: this might be a bad decision, revisit
@@ -176,11 +221,6 @@ namespace elementarySystemMonitor {
 
             // update the application columns
             update_application (desktop_file);
-
-            Wnck.Screen screen = Wnck.Screen.get_default ();
-            foreach (var w in screen.get_windows ()) {
-                debug ("------ %s", w.get_name ());
-            }
 
             return true;
         }
