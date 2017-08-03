@@ -3,6 +3,7 @@ namespace elementarySystemMonitor {
     public struct App {
         public string name;
         public string icon;
+        public string? desktop_file;
         public int[] pids;
     }
 	/**
@@ -62,6 +63,7 @@ namespace elementarySystemMonitor {
                 debug ("***handle_view_opened: is an app: %s", view.get_name());
 
                 var app = (Bamf.Application)view;
+
                 // go through the windows of the application and add all of the pids
                 var windows = app.get_windows ();
                 foreach (var window in windows) {
@@ -71,6 +73,7 @@ namespace elementarySystemMonitor {
                     App () {
                         name = app.get_name (),
                         icon = app.get_icon (),
+                        desktop_file = app.get_desktop_file (),
                         pids = win_pids
                     }
                 );
@@ -83,6 +86,7 @@ namespace elementarySystemMonitor {
                     App () {
                         name = window.get_name (),
                         icon = window.get_icon (),
+                        desktop_file = "",
                         pids = win_pids
                     }
                 );

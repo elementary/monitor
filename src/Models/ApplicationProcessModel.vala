@@ -63,7 +63,7 @@ namespace elementarySystemMonitor {
             // screen.application_opened.connect (handle_application_opened);
 
             // handle views closing and opening
-            matcher.view_opened.connect (handle_view_opened);
+            // matcher.view_opened.connect (handle_view_opened);
             matcher.view_closed.connect (handle_view_closed);
 
             // handle processes being added and removed
@@ -128,9 +128,27 @@ namespace elementarySystemMonitor {
         }
 
         private void handle_application_opened (App app) {
+            // add the application to the model
+            Gtk.TreeIter iter;
+            model.append (out iter, null);
+            model.set (iter,
+                ProcessColumns.NAME, app.name,
+                ProcessColumns.ICON, app.icon,
+                -1);
+
+            // add the application to our cache of app_rows
+            var row = new ApplicationProcessRow (iter);
+            app_rows.set (app.desktop_file, row);
+
+            // go through the windows of the application and add all of the pids
             for (var i = 0; i < app.pids.length; i++) {
                 debug ("APPMANAGER %s %d", app.name, app.pids[i]);
+                add_process_to_row (iter, app.pids[i]);
+                // adds pid to application, not only to expanded process
+                model.set (iter, ProcessColumns.PID, app.pids[i]);
             }
+            // update the application columns
+            update_application (app.desktop_file);
         }
 
         /**
@@ -177,19 +195,6 @@ namespace elementarySystemMonitor {
             xids = app.get_xids ();
             if (xids.length == 0) {
                 warning ("No xids from BAMF!!!");
-            }
-
-            for (var i = 0; xids != null && i < xids.length; i++) {
-                // Wnck.Application wnck_app = Wnck.Application.@get (xids.index (i));
-                unowned Wnck.Window w = Wnck.Window.@get (xids.index (i));
-                debug (">>>handle_application_opened - xid %d".printf((int)xids.index (i)));
-                if (w == null)
-                {
-                    Wnck.Screen.get_default().force_update();
-                    w = Wnck.Window.@get (xids.index (i));
-                    debug (">>>handle_application_opened - xid %s", w.get_name ());
-                }
-
             }
 
             // Wnck.Application wnck_app = Wnck.Application.get ((ulong)xids);
