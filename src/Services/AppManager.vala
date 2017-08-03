@@ -61,7 +61,7 @@ namespace elementarySystemMonitor {
             int[] win_pids = {};
             var app = (Bamf.Application)view;
             if (view is Bamf.Window) {
-                debug ("***handle_view_opened: is a win: %s", view.get_name());
+                debug ("Handle View Opened: %s", view.get_name());
                 var window = (Bamf.Window)view;
                 app = matcher.get_application_for_window (window);
                 win_pids += (int)window.get_pid();
@@ -89,5 +89,27 @@ namespace elementarySystemMonitor {
             return true;
         }
 
+        // Getting all apps with desktop_file and returning array of apps
+        public App[] get_running_applications () {
+            debug ("---Get Running Apps---");
+            App[] apps = {};
+            foreach (var bamf_app in matcher.get_running_applications ()) {
+                int[] win_pids = {};
+                // go through the windows of the application and add all of the pids
+                var windows = bamf_app.get_windows ();
+                foreach (var window in windows) {
+                    win_pids += (int)window.get_pid ();
+                }
+                if (has_desktop_file (bamf_app.get_desktop_file ())) {
+                    apps += App () {
+                                name = bamf_app.get_name (),
+                                icon = bamf_app.get_icon (),
+                                desktop_file = bamf_app.get_desktop_file (),
+                                pids = win_pids
+                            };
+                }
+            }
+            return apps;
+        }
 	}
 }

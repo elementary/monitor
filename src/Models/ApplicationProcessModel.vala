@@ -106,47 +106,11 @@ namespace elementarySystemMonitor {
         }
 
         /**
-         * Handle the view-opened signal from libbamf and add an application to the list when it is opened
+         * Handle the application-opened signal and add an application to the list when it is opened
          */
-        private void handle_view_opened (Bamf.View view) {
-            debug ("handle_view_opened %s".printf(view.get_name ()));
-            // if the view added was an application, then add it
-            if (view is Bamf.Application) {
-                add_application ((Bamf.Application)view);
-            } else {
-                warning ("Not an app!!!");
-            }
-
-            if (view is Bamf.Window) {
-                var w = (Bamf.Window)view;
-                debug ("Is a win %d", (int)w.get_xid());
-                Wnck.Screen.get_default().force_update();
-                unowned Wnck.Window ww = Wnck.Window.@get (w.get_xid());
-                debug ("Is a win %d", (int)ww.get_pid());
-
-            }
-        }
-
         private void handle_application_opened (App app) {
-            // add the application to the model
-            Gtk.TreeIter iter;
-            model.append (out iter, null);
-            model.set (iter,
-                ProcessColumns.NAME, app.name,
-                ProcessColumns.ICON, app.icon,
-                -1);
-
-            // add the application to our cache of app_rows
-            var row = new ApplicationProcessRow (iter);
-            app_rows.set (app.desktop_file, row);
-
-            // go through the windows of the application and add all of the pids
-            for (var i = 0; i < app.pids.length; i++) {
-                debug ("APPMANAGER %s %d", app.name, app.pids[i]);
-                add_process_to_row (iter, app.pids[i]);
-                // adds pid to application, not only to expanded process
-                model.set (iter, ProcessColumns.PID, app.pids[i]);
-            }
+            debug ("add_applications");
+            add_application (app);
             // update the application columns
             update_application (app.desktop_file);
         }
@@ -168,7 +132,7 @@ namespace elementarySystemMonitor {
         private void add_running_applications () {
             debug ("add_running_applications");
             // get all running applications and add them to the tree store
-            var running_applications = matcher.get_running_applications ();
+            var running_applications = app_manager.get_running_applications ();
             foreach (var app in running_applications) {
                 add_application (app);
             }
@@ -186,48 +150,28 @@ namespace elementarySystemMonitor {
         }
 
         /**
-         * Adds an application to the list, assuming that it has a desktop file and that isn't already on the list.
+         * Adds an application to the list
          */
-        private bool add_application (Bamf.Application app) {
-            debug ("add_application %s".printf(app.get_name ()));
-            string? desktop_file = app.get_desktop_file ();
-            Array<uint32>? xids = app.get_xids ();
-            xids = app.get_xids ();
-            if (xids.length == 0) {
-                warning ("No xids from BAMF!!!");
-            }
-
-            // Wnck.Application wnck_app = Wnck.Application.get ((ulong)xids);
-
-            // make sure application has desktop file, if it doesn't, then we won't display it
-            // TODO: this might be a bad decision, revisit
-            if (desktop_file == null || desktop_file == "" || app_rows.has_key (desktop_file)) {
-                return false;
-            }
-
+        private void add_application (App app) {
             // add the application to the model
             Gtk.TreeIter iter;
             model.append (out iter, null);
-            model.set (iter, ProcessColumns.NAME, app.get_name (),
-                             ProcessColumns.ICON, app.get_icon (),
-                             -1);
+            model.set (iter,
+                ProcessColumns.NAME, app.name,
+                ProcessColumns.ICON, app.icon,
+                -1);
 
             // add the application to our cache of app_rows
             var row = new ApplicationProcessRow (iter);
-            app_rows.set (desktop_file, row);
+            app_rows.set (app.desktop_file, row);
 
             // go through the windows of the application and add all of the pids
-            var windows = app.get_windows ();
-            foreach (var window in windows) {
-                add_process_to_row (iter, (int) window.get_pid ());
+            for (var i = 0; i < app.pids.length; i++) {
+                debug ("APPMANAGER %s %d", app.name, app.pids[i]);
+                add_process_to_row (iter, app.pids[i]);
                 // adds pid to application, not only to expanded process
-                model.set (iter, ProcessColumns.PID, window.get_pid ());
+                model.set (iter, ProcessColumns.PID, app.pids[i]);
             }
-
-            // update the application columns
-            update_application (desktop_file);
-
-            return true;
         }
 
         private void get_children_total (Gtk.TreeIter iter, ref int64 memory, ref double cpu) {
