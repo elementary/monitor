@@ -57,44 +57,36 @@ namespace elementarySystemMonitor {
         // Why so complicated ? Some apps opened thru Slingshot aren't
         // recognized as apps, but windows.
 
-		void handle_view_opened (Bamf.View view) {
+		private void handle_view_opened (Bamf.View view) {
             int[] win_pids = {};
-            if (view is Bamf.Application) {
-                debug ("***handle_view_opened: is an app: %s", view.get_name());
-
-                var app = (Bamf.Application)view;
-
-                // go through the windows of the application and add all of the pids
-                var windows = app.get_windows ();
-                foreach (var window in windows) {
-                    win_pids += (int)window.get_pid ();
-                }
-                application_opened (
-                    App () {
-                        name = app.get_name (),
-                        icon = app.get_icon (),
-                        desktop_file = app.get_desktop_file (),
-                        pids = win_pids
-                    }
-                );
-            }
+            var app = (Bamf.Application)view;
             if (view is Bamf.Window) {
                 debug ("***handle_view_opened: is a win: %s", view.get_name());
                 var window = (Bamf.Window)view;
+                app = matcher.get_application_for_window (window);
                 win_pids += (int)window.get_pid();
-                application_opened (
-                    App () {
-                        name = window.get_name (),
-                        icon = window.get_icon (),
-                        desktop_file = "",
-                        pids = win_pids
-                    }
-                );
+                if (has_desktop_file (app.get_desktop_file ())) {
+                    application_opened (
+                        App () {
+                            name = app.get_name (),
+                            icon = app.get_icon (),
+                            desktop_file = app.get_desktop_file (),
+                            pids = win_pids
+                        }
+                    );
+                }
             }
 		}
 
 		void handle_view_closed (Bamf.View arg1) {
 
+        }
+
+        private bool has_desktop_file (string desktop_file) {
+            if (desktop_file == null || desktop_file == "") {
+                return false;
+            }
+            return true;
         }
 
 	}

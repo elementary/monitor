@@ -64,16 +64,16 @@ namespace elementarySystemMonitor {
             memory_column.set_sort_column_id (ProcessColumns.MEMORY);
             insert_column (memory_column, -1);
 
-            // // setup PID column
-            // var pid_cell = new Gtk.CellRendererText ();
-            // pid_cell.xalign = 0.5f;
-            // pid_column = new Gtk.TreeViewColumn.with_attributes (_("PID"), pid_cell);
-            // pid_column.expand = false;
-            // pid_column.alignment = 0.5f;
-            // pid_column.set_sort_column_id (ProcessColumns.PID);
-            // pid_column.pack_start (pid_cell, false);
-            // pid_column.add_attribute (pid_cell, "text", ProcessColumns.PID);
-            // insert_column (pid_column, -1);
+            // setup PID column
+            var pid_cell = new Gtk.CellRendererText ();
+            pid_cell.xalign = 0.5f;
+            pid_column = new Gtk.TreeViewColumn.with_attributes (_("PID"), pid_cell);
+            pid_column.expand = false;
+            pid_column.alignment = 0.5f;
+            pid_column.set_sort_column_id (ProcessColumns.PID);
+            pid_column.pack_start (pid_cell, false);
+            pid_column.add_attribute (pid_cell, "text", ProcessColumns.PID);
+            insert_column (pid_column, -1);
 
             // resize all of the columns
             columns_autosize ();
