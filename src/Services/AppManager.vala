@@ -17,7 +17,7 @@ namespace elementarySystemMonitor {
         //
 		// public signal void active_application_changed (Bamf.Application? old_app, Bamf.Application? new_app);
 		public signal void application_opened (App app);
-		// public signal void application_closed (Bamf.Application app);
+		public signal void application_closed (App app);
 
 		static AppManager? app_manager = null;
         Bamf.Matcher? matcher;
@@ -35,7 +35,7 @@ namespace elementarySystemMonitor {
 			// matcher.active_application_changed.connect_after (handle_active_application_changed);
 			// matcher.active_window_changed.connect_after (handle_active_window_changed);
             matcher.view_opened.connect (handle_view_opened);
-			// matcher.view_closed.connect_after (handle_view_closed);
+			matcher.view_closed.connect_after (handle_view_closed);
             //
 			// pending_views = new Gee.HashSet<Bamf.View> ();
 		}
@@ -52,8 +52,9 @@ namespace elementarySystemMonitor {
 			// matcher = null;
 		// }
 
-        // Function retrieves a Bamf.view, checks if it's an app or a window,
-        // then extracts name, icon and pid. After that, sends signal.
+        // Function retrieves a Bamf.view, checks if it's a window,
+        // then extracts name, icon, desktop_file and pid. After that,
+        // sends signal.
         // Why so complicated ? Some apps opened thru Slingshot aren't
         // recognized as apps, but windows.
 
@@ -61,11 +62,11 @@ namespace elementarySystemMonitor {
             int[] win_pids = {};
             var app = (Bamf.Application)view;
             if (view is Bamf.Window) {
-                debug ("Handle View Opened: %s", view.get_name());
                 var window = (Bamf.Window)view;
                 app = matcher.get_application_for_window (window);
                 win_pids += (int)window.get_pid();
                 if (has_desktop_file (app.get_desktop_file ())) {
+                    debug ("Handle View Opened: %s", view.get_name());
                     application_opened (
                         App () {
                             name = app.get_name (),
@@ -78,8 +79,25 @@ namespace elementarySystemMonitor {
             }
 		}
 
-		void handle_view_closed (Bamf.View arg1) {
-
+		private void handle_view_closed (Bamf.View view) {
+            int[] win_pids = {};
+                var app = (Bamf.Application)view;
+                if (view is Bamf.Window) {
+                var window = (Bamf.Window)view;
+                app = matcher.get_application_for_window (window);
+                win_pids += (int)window.get_pid();
+                if (has_desktop_file (app.get_desktop_file ())) {
+                    debug ("Handle View Opened: %s", view.get_name());
+                    application_closed (
+                        App () {
+                            name = app.get_name (),
+                            icon = app.get_icon (),
+                            desktop_file = app.get_desktop_file (),
+                            pids = win_pids
+                        }
+                    );
+                }
+            }
         }
 
         private bool has_desktop_file (string desktop_file) {

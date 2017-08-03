@@ -49,22 +49,14 @@ namespace elementarySystemMonitor {
                 ProcessColumns.CPU, -4.0,
                 -1);
 
-            // The App Manager
+            // The Great App Manager
             app_manager = AppManager.get_default ();
             app_manager.application_opened.connect (handle_application_opened);
-
-            screen = Wnck.Screen.get_default ();
-            matcher = Bamf.Matcher.get_default ();
+            app_manager.application_closed.connect (handle_application_closed);
 
             app_rows = new Gee.HashMap<string, ApplicationProcessRow> ();
             process_rows = new Gee.HashMap<int, ApplicationProcessRow> ();
 
-            // handle opened applications with Wnck
-            // screen.application_opened.connect (handle_application_opened);
-
-            // handle views closing and opening
-            // matcher.view_opened.connect (handle_view_opened);
-            matcher.view_closed.connect (handle_view_closed);
 
             // handle processes being added and removed
             process_monitor.process_added.connect (handle_process_added);
@@ -89,17 +81,13 @@ namespace elementarySystemMonitor {
             }
         }
 
-        /**
-         * Handles a process-added signal from ProcessMonitor by adding the process to our list
-         */
+        // Handles a process-added signal from ProcessMonitor by adding the process to our list
         private void handle_process_added (int pid, Process process) {
             debug ("handle_process_added %d ".printf(pid));
             add_process (pid);
         }
 
-        /**
-         * Handles a process-removed signal from ProcessMonitor by removing the process from our list
-         */
+        // Handles a process-removed signal from ProcessMonitor by removing the process from our list
         private void handle_process_removed (int pid) {
             debug ("handle_process_removed %d".printf(pid));
             remove_process (pid);
@@ -109,26 +97,19 @@ namespace elementarySystemMonitor {
          * Handle the application-opened signal and add an application to the list when it is opened
          */
         private void handle_application_opened (App app) {
-            debug ("add_applications");
+            debug ("Handle Application Opened");
             add_application (app);
             // update the application columns
             update_application (app.desktop_file);
         }
 
-        /**
-         * Handle the view-closed signal from libbamf and remove an application from the list when it is closed.
-         */
-        private void handle_view_closed (Bamf.View view) {
-            debug ("handle_view_closed %s".printf(view.get_name ()));
-            var app = view as Bamf.Application;
-            if (app != null) {
-                remove_application (app);
-            }
+        // Handle the application-closed signal and remove an application from the list when it is closed
+        private void handle_application_closed (App app) {
+            debug ("Handle Application Closed");
+            remove_application (app);
         }
 
-        /**
-         * Adds all running applications to the list.
-         */
+        // Adds all running applications to the list.
         private void add_running_applications () {
             debug ("add_running_applications");
             // get all running applications and add them to the tree store
@@ -149,9 +130,7 @@ namespace elementarySystemMonitor {
             }
         }
 
-        /**
-         * Adds an application to the list
-         */
+        // Adds an application to the list
         private void add_application (App app) {
             // add the application to the model
             Gtk.TreeIter iter;
@@ -167,9 +146,9 @@ namespace elementarySystemMonitor {
 
             // go through the windows of the application and add all of the pids
             for (var i = 0; i < app.pids.length; i++) {
-                debug ("APPMANAGER %s %d", app.name, app.pids[i]);
+                debug ("Add App: %s %d", app.name, app.pids[i]);
                 add_process_to_row (iter, app.pids[i]);
-                // adds pid to application, not only to expanded process
+                // adds pid to application
                 model.set (iter, ProcessColumns.PID, app.pids[i]);
             }
         }
@@ -210,16 +189,15 @@ namespace elementarySystemMonitor {
         /**
          * Removes an application from the list.
          */
-        private bool remove_application (Bamf.Application app) {
-            debug ("remove_application %s".printf(app.get_name ()));
-            string? desktop_file = app.get_desktop_file ();
+        private bool remove_application (App app) {
+            debug ("Remove App: %s", app.name);
 
             // check if desktop file is in our row cache
-            if (desktop_file == null || desktop_file == "" || !app_rows.has_key (desktop_file)) {
+            if (!app_rows.has_key (app.desktop_file)) {
                 return false;
             }
 
-            var row = app_rows.get (desktop_file);
+            var row = app_rows.get (app.desktop_file);
             var iter = row.iter;
 
             // reparent children to background processes; let the ProcessMonitor take care of removing them
@@ -234,7 +212,7 @@ namespace elementarySystemMonitor {
             model.remove (ref iter);
 
             // remove row from row cache
-            app_rows.unset (desktop_file);
+            app_rows.unset (app.desktop_file);
 
             return true;
         }
