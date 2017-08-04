@@ -17,16 +17,35 @@ namespace elementarySystemMonitor {
         private ProcessMonitor process_monitor;
         private ApplicationProcessModel app_model;
 
+        // taken from Torrential
+        private SimpleActionGroup actions = new SimpleActionGroup ();
+        private const string ACTION_GROUP_PREFIX_NAME = "mon";
+        private const string ACTION_GROUP_PREFIX = ACTION_GROUP_PREFIX_NAME + ".";
+        private const string ACTION_SEARCH = "search";
 
-        /**
-         * Constructs a main window
-         */
+        private const ActionEntry[] action_entries = {
+            {ACTION_SEARCH,                on_search          }
+        };
+
+        public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
+
+        static construct {
+            action_accelerators.set (ACTION_SEARCH, "<Ctrl>f");
+        }
+
+        // Constructs a main window
         public MainWindow (elementarySystemMonitorApp app) {
             this.app = app;
             this.set_application (app);
             this.set_default_size (800, 600);
             this.window_position = Gtk.WindowPosition.CENTER;
             set_icon_name (app.app_icon);
+
+            actions.add_action_entries (action_entries, this);
+            insert_action_group (ACTION_GROUP_PREFIX_NAME, actions);
+            foreach (var action in action_accelerators.get_keys ()) {
+                app.set_accels_for_action (ACTION_GROUP_PREFIX + action, action_accelerators[action].to_array ());
+            }
 
             // setup header bar
             header_bar = new Gtk.HeaderBar ();
@@ -94,6 +113,11 @@ namespace elementarySystemMonitor {
         private void kill_process (Gtk.Button button) {
             int pid = process_view.get_pid_of_selected ();
             app_model.kill_process (pid);
+        }
+
+        private void on_search (SimpleAction action) {
+            search.text = "";
+            search.grab_focus ();
         }
     }
 }
