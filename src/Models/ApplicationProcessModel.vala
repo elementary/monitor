@@ -14,10 +14,8 @@ namespace elementarySystemMonitor {
      * and their processes to be displayed in a TreeView.
      */
     public class ApplicationProcessModel : Object {
-        private Wnck.Screen screen;
         private AppManager app_manager;
         private ProcessMonitor process_monitor;
-        private Bamf.Matcher matcher;
         private Gee.Map<string, ApplicationProcessRow> app_rows;
         private Gee.Map<int, ApplicationProcessRow> process_rows;
         private Gtk.TreeIter background_applications;
