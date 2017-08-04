@@ -130,6 +130,11 @@ namespace elementarySystemMonitor {
 
         // Adds an application to the list
         private void add_application (App app) {
+            if (app_rows.has_key (app.desktop_file)) {
+                // App already in application rows, no need to add
+                debug ("Skip App");
+                return;
+            }
             // add the application to the model
             Gtk.TreeIter iter;
             model.append (out iter, null);
