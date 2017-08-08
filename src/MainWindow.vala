@@ -95,17 +95,7 @@ namespace elementarySystemMonitor {
             });
 
 
-            filter.set_visible_func((m, i) => {
-                string haystack;
-                var needle = search_entry.text;
-                if ( needle.len() == 0 ) {
-                  return true;
-                }
-
-                m.get( i, ProcessColumns.NAME, out haystack, -1 );
-                bool found = haystack.casefold().contains( needle.casefold());
-                return found;
-            });
+            filter.set_visible_func(filter_func);
 
             process_view.set_model (filter);
 
@@ -141,6 +131,22 @@ namespace elementarySystemMonitor {
         private void on_search (SimpleAction action) {
             search_entry.text = "";
             search_entry.grab_focus ();
+        }
+
+        private bool filter_func (Gtk.TreeModel model, Gtk.TreeIter iter) {
+            string name_haystack;
+            int pid_haystack;
+            var needle = search_entry.text;
+            if ( needle.length == 0 ) {
+                return true;
+            }
+
+            model.get( iter, ProcessColumns.NAME, out name_haystack, -1 );
+            model.get( iter, ProcessColumns.PID, out pid_haystack, -1 );
+            bool name_found = name_haystack.casefold().contains( needle.casefold());
+            bool pid_found = pid_haystack.to_string().casefold().contains( needle.casefold());
+            bool found = name_found || pid_found;
+            return found;
         }
 
 
