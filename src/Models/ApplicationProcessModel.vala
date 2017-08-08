@@ -64,6 +64,7 @@ namespace elementarySystemMonitor {
             // run when application is done loading to populate list
             Idle.add (() => { add_running_applications (); return false; } );
             Idle.add (() => { add_running_processes (); return false; } );
+
         }
 
         /**

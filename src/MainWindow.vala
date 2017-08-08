@@ -8,7 +8,7 @@ namespace elementarySystemMonitor {
 
         // Widgets
         private Gtk.HeaderBar header_bar;
-        private Gtk.SearchEntry search;
+        private Gtk.SearchEntry search_entry;
         private Gtk.Button kill_process_button;
         private Gtk.Button process_info_button;
         private Gtk.ScrolledWindow process_view_window;
@@ -16,6 +16,8 @@ namespace elementarySystemMonitor {
 
         private ProcessMonitor process_monitor;
         private ApplicationProcessModel app_model;
+
+        public Gtk.TreeModelFilter filter;
 
         // taken from Torrential
         private SimpleActionGroup actions = new SimpleActionGroup ();
@@ -52,12 +54,6 @@ namespace elementarySystemMonitor {
             header_bar.show_close_button = true;
             header_bar.title = _("Monitor");
 
-            // setup search in header bar
-            search = new Gtk.SearchEntry ();
-            search.placeholder_text = _("Search Process");
-            header_bar.pack_end (search);
-            this.key_press_event.connect (key_press_event_handler);
-
             // setup buttons
             var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
             button_box.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
@@ -86,6 +82,33 @@ namespace elementarySystemMonitor {
             process_view = new ProcessView ();
             process_view.set_model (app_model.model);
 
+            // setup search in header bar
+            search_entry = new Gtk.SearchEntry ();
+            search_entry.placeholder_text = _("Search Process");
+            header_bar.pack_end (search_entry);
+            this.key_press_event.connect (key_press_event_handler);
+
+            filter = new Gtk.TreeModelFilter( app_model.model, null );
+
+            search_entry.search_changed.connect (() => {
+                filter.refilter ();
+            });
+
+
+            filter.set_visible_func((m, i) => {
+                string haystack;
+                var needle = search_entry.text;
+                if ( needle.len() == 0 ) {
+                  return true;
+                }
+
+                m.get( i, ProcessColumns.NAME, out haystack, -1 );
+                bool found = haystack.casefold().contains( needle.casefold());
+                return found;
+            });
+
+            process_view.set_model (filter);
+
             process_view_window.add (process_view);
             this.add (process_view_window);
 
@@ -99,11 +122,11 @@ namespace elementarySystemMonitor {
             char typed = event.str[0];
 
             // if the character typed is an alpha-numeric and the search doesn't currently have focus
-            if (typed.isalnum () && !search.is_focus ) {
+            if (typed.isalnum () && !search_entry.is_focus ) {
                 // reset filter, grab focus and insert the character
-                search.text = "";
-                search.grab_focus ();
-                search.insert_at_cursor (event.str);
+                search_entry.text = "";
+                search_entry.grab_focus ();
+                search_entry.insert_at_cursor (event.str);
                 return true; // tells the window that the event was handled, don't pass it on
             }
 
@@ -116,8 +139,10 @@ namespace elementarySystemMonitor {
         }
 
         private void on_search (SimpleAction action) {
-            search.text = "";
-            search.grab_focus ();
+            search_entry.text = "";
+            search_entry.grab_focus ();
         }
+
+
     }
 }
