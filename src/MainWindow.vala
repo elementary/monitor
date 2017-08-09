@@ -134,10 +134,12 @@ namespace elementarySystemMonitor {
         }
 
         private bool filter_func (Gtk.TreeModel model, Gtk.TreeIter iter) {
+            Gtk.TreePath? path = model.get_path (iter);
             string name_haystack;
             int pid_haystack;
             var needle = search_entry.text;
             if ( needle.length == 0 ) {
+                process_view.collapse_all ();
                 return true;
             }
 
@@ -153,9 +155,13 @@ namespace elementarySystemMonitor {
             if (model.iter_children (out child_iter, iter)) {
                 do {
                     child_found = filter_func (model, child_iter);
-
                 } while (model.iter_next (ref child_iter) && !child_found);
             }
+
+            if (child_found && needle.length > 0) {
+                process_view.expand_all ();
+            }
+
             return found || child_found;
         }
 
