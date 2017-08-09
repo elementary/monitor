@@ -25,4 +25,5 @@ OPTIONS
 )
 
 add_executable(${EXEC_NAME} ${VALA_C})
+# install the binaries we just made
 install (TARGETS ${EXEC_NAME} RUNTIME DESTINATION bin)

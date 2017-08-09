@@ -45,3 +45,6 @@ link_directories (${DEPS_LIBRARY_DIRS})
 add_subdirectory (src)
 add_subdirectory (po)
 add_subdirectory (data)
+
+# install our .desktop file so the Applications menu will see it
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.stsdc.monitor.desktop DESTINATION ${DATADIR}/applications/)

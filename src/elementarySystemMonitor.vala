@@ -16,8 +16,8 @@ namespace elementarySystemMonitor {
 
             app_years = "2014-2017";
             app_icon = "com.github.stsdc.monitor";
-            app_launcher = application_id + ".desktop";
             application_id = "com.github.stsdc.monitor";
+            app_launcher = application_id + ".desktop";
 
         }
 
