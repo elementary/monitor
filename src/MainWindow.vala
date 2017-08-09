@@ -146,7 +146,17 @@ namespace elementarySystemMonitor {
             bool name_found = name_haystack.casefold().contains( needle.casefold());
             bool pid_found = pid_haystack.to_string().casefold().contains( needle.casefold());
             bool found = name_found || pid_found;
-            return found;
+
+            Gtk.TreeIter child_iter;
+            bool child_found = false;
+
+            if (model.iter_children (out child_iter, iter)) {
+                do {
+                    child_found = filter_func (model, child_iter);
+
+                } while (model.iter_next (ref child_iter) && !child_found);
+            }
+            return found || child_found;
         }
 
 

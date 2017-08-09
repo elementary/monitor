@@ -67,9 +67,7 @@ namespace elementarySystemMonitor {
 
         }
 
-        /**
-         * Handles a updated signal from ProcessMonitor by refreshing all of the process rows in the list
-         */
+        // Handles a updated signal from ProcessMonitor by refreshing all of the process rows in the list
         private void handle_monitor_update () {
             foreach (var pid in process_rows.keys) {
                 update_process (pid);
