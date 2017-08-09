@@ -59,12 +59,13 @@ namespace elementarySystemMonitor {
             button_box.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
             // setup process info button
-            process_info_button = new Gtk.Button.from_icon_name ("dialog-information-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
-            button_box.add (process_info_button);
+            // process_info_button = new Gtk.Button.from_icon_name ("dialog-information-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
+            // button_box.add (process_info_button);
 
             // setup kill process button
             kill_process_button = new Gtk.Button.from_icon_name ("process-stop-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
             kill_process_button.clicked.connect (kill_process);
+            kill_process_button.tooltip_text = (_("Kill process"));
             button_box.add (kill_process_button);
 
             // put the buttons in the headerbar
@@ -91,6 +92,7 @@ namespace elementarySystemMonitor {
             filter = new Gtk.TreeModelFilter( app_model.model, null );
 
             search_entry.search_changed.connect (() => {
+                // collapse tree only when search is focused and changed
                 if (search_entry.is_focus) {
                     process_view.collapse_all ();
                 }
@@ -99,7 +101,6 @@ namespace elementarySystemMonitor {
 
 
             filter.set_visible_func(filter_func);
-
             process_view.set_model (filter);
 
             process_view_window.add (process_view);
