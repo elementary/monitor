@@ -91,6 +91,9 @@ namespace elementarySystemMonitor {
             filter = new Gtk.TreeModelFilter( app_model.model, null );
 
             search_entry.search_changed.connect (() => {
+                if (search_entry.is_focus) {
+                    process_view.collapse_all ();
+                }
                 filter.refilter ();
             });
 
@@ -139,7 +142,6 @@ namespace elementarySystemMonitor {
             int pid_haystack;
             var needle = search_entry.text;
             if ( needle.length == 0 ) {
-                process_view.collapse_all ();
                 return true;
             }
 
