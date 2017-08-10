@@ -24,6 +24,7 @@ set (SYSTEM_MONITOR_DEPS
     gee-0.8
     libbamf3
     libwnck-3.0
+    libgtop-2.0
     gobject-2.0
     glib-2.0
     gio-2.0
@@ -41,6 +42,8 @@ add_definitions (-w)
 add_definitions (${DEPS_CFLAGS} ${WNCK_CFLAGS})
 link_libraries (${DEPS_LIBRARIES} ${WNCK_LIBRARIES})
 link_directories (${DEPS_LIBRARY_DIRS})
+
+include_directories(/usr/include/libgtop-2.0)
 
 add_subdirectory (src)
 add_subdirectory (po)
