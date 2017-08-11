@@ -16,9 +16,10 @@ vala_precompile(VALA_C ${EXEC_NAME}
     ${CMAKE_BINARY_DIR}/src/config.vala
 PACKAGES
     ${SYSTEM_MONITOR_DEPS}
-CUSTOM_VAPIS
-    vapi/libgtop-2.0.vapi
+# CUSTOM_VAPIS
+#     ../vapi/libgtop-2.0.vapi
 OPTIONS
+    --vapidir=${CMAKE_SOURCE_DIR}/vapi/
     --thread
     --enable-checking
     --enable-experimental
