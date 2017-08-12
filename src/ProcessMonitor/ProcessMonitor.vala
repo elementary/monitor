@@ -1,6 +1,14 @@
 namespace elementarySystemMonitor {
 
     public class ProcessMonitor {
+        public double cpu_load { get; private set; }
+        public double[] cpu_loads { get; private set; }
+
+        uint64 cpu_last_used = 0;
+        uint64 cpu_last_total = 0;
+        uint64[] cpu_last_useds = new uint64[32];
+        uint64[] cpu_last_totals = new uint64[32];
+
         private Gee.HashMap<int, Process> process_list;
         private Gee.HashSet<int> kernel_process_blacklist;
 
@@ -8,9 +16,7 @@ namespace elementarySystemMonitor {
         public signal void process_removed (int pid);
         public signal void updated ();
 
-        /**
-         * Construct a new ProcessMonitor
-         */
+        // Construct a new ProcessMonitor
         public ProcessMonitor () {
             process_list = new Gee.HashMap<int, Process> ();
             kernel_process_blacklist = new Gee.HashSet<int> ();
@@ -74,47 +80,57 @@ namespace elementarySystemMonitor {
         /**
          * Gets all new process and adds them
          */
-        private void update_processes () {
-            var processes_to_remove = new Gee.HashSet<int>();
+        private async void update_processes () {
+        /* CPU */
+            GTop.Cpu cpu_data;
+            GTop.get_cpu (out cpu_data);
+            var used = cpu_data.user + cpu_data.nice + cpu_data.sys;
+            cpu_load = ((double)(used - cpu_last_used)) / (cpu_data.total - cpu_last_total);
+            cpu_loads = new double[cpu_data.xcpu_user.length];
+            var useds = new uint64[cpu_data.xcpu_user.length];
 
-            // go through each process and update it, removing the old ones
+            for (int i = 0; i < cpu_data.xcpu_user.length; i++) {
+                useds[i] = cpu_data.xcpu_user[i] + cpu_data.xcpu_nice[i] + cpu_data.xcpu_sys[i];
+            }
+
+            for (int i = 0; i < cpu_data.xcpu_user.length; i++) {
+                cpu_loads[i] = ((double)(useds[i] - cpu_last_useds[i])) /
+                            (cpu_data.xcpu_total[i] - cpu_last_totals[i]);
+            }
+
+            var remove_me = new Gee.HashSet<int> ();
+
+            /* go through each process and update it, removing the old ones */
             foreach (var process in process_list.values) {
-                if (!process.update ()) {
-                    // process doesn't exist any more, flag it for removal!
-                    processes_to_remove.add (process.pid);
+                if (!process.update (cpu_data.total, cpu_last_total)) {
+                    /* process doesn't exist any more, flag it for removal! */
+                    remove_me.add (process.pid);
                 }
             }
 
-            // remove everything from flags
-            foreach (var pid in processes_to_remove) {
+            /* remove everything from flags */
+            foreach (var pid in remove_me) {
                 remove_process (pid);
             }
 
-            try {
-                var proc_dir = File.new_for_path ("/proc/");
-                var dir_enumerator = proc_dir.enumerate_children ("standard::*", 0);
+            var uid = Posix.getuid ();
+            GTop.ProcList proclist;
+            var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_UID, uid);
 
-                FileInfo info;
+            for (int i = 0; i < proclist.number; i++) {
+                int pid = pids[i];
 
-                // go through the files
-                while ((info = dir_enumerator.next_file ()) != null) {
-                    int pid = 0;
-
-                    // if file is a directory and the name is a number
-                    if ((info.get_file_type () == FileType.DIRECTORY)
-                            && ((pid = int.parse (info.get_name ())) != 0)) {
-                        // got a process id, does it belong to a process that we already have?
-                        if (!process_list.has_key (pid) && !kernel_process_blacklist.contains (pid)) {
-                            add_process (pid);
-                        }
-                    }
+                if (!process_list.has_key (pid) && !kernel_process_blacklist.contains (pid)) {
+                    add_process (pid);
                 }
             }
-            catch (Error e) {
-                stderr.printf ("Error: %s\n", e.message);
-            }
 
-            // call the updated signal so that subscribers can update
+            cpu_last_used = used;
+            cpu_last_total = cpu_data.total;
+            cpu_last_useds = useds;
+            cpu_last_totals = cpu_data.xcpu_total;
+
+            /* call the updated signal so that subscribers can update */
             updated ();
         }
 

@@ -1,7 +1,7 @@
 project (com.github.stsdc.monitor)
 
 cmake_minimum_required (VERSION 2.8)
-cmake_policy (VERSION 2.6)
+cmake_policy(VERSION 2.8)
 
 include (GNUInstallDirs)
 list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
@@ -24,7 +24,6 @@ set (SYSTEM_MONITOR_DEPS
     gee-0.8
     libbamf3
     libwnck-3.0
-    libgtop-2.0
     gobject-2.0
     glib-2.0
     gio-2.0
@@ -40,7 +39,7 @@ pkg_check_modules (DEPS REQUIRED ${SYSTEM_MONITOR_DEPS})
 add_definitions (-w)
 
 add_definitions (${DEPS_CFLAGS} ${WNCK_CFLAGS})
-link_libraries (${DEPS_LIBRARIES} ${WNCK_LIBRARIES})
+link_libraries (${DEPS_LIBRARIES} ${WNCK_LIBRARIES} gtop-2.0)
 link_directories (${DEPS_LIBRARY_DIRS})
 
 include_directories(/usr/include/libgtop-2.0)

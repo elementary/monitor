@@ -5,7 +5,7 @@ include(ValaVersion)
 ensure_vala_version("0.26" MINIMUM)
 
 include(ValaPrecompile)
-vala_precompile(VALA_C ${EXEC_NAME}
+vala_precompile(VALA_C ${CMAKE_PROJECT_NAME}
     ./elementarySystemMonitor.vala
     ./MainWindow.vala
     ./ProcessMonitor/ProcessMonitor.vala
@@ -16,10 +16,10 @@ vala_precompile(VALA_C ${EXEC_NAME}
     ${CMAKE_BINARY_DIR}/src/config.vala
 PACKAGES
     ${SYSTEM_MONITOR_DEPS}
-# CUSTOM_VAPIS
-#     ../vapi/libgtop-2.0.vapi
+CUSTOM_VAPIS
+    ../vapi/libgtop-2.0.vapi
 OPTIONS
-    --vapidir=${CMAKE_SOURCE_DIR}/vapi/
+    # --vapidir=${CMAKE_SOURCE_DIR}/vapi/
     --thread
     --enable-checking
     --enable-experimental
