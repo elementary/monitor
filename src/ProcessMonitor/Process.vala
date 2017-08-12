@@ -9,11 +9,6 @@ namespace elementarySystemMonitor {
         private static long PAGESIZE = Posix.sysconf (Posix._SC_PAGESIZE);
 
         /**
-         * Number of 'clock ticks' a second. Generally about 100
-         */
-        private static long TICKS_PER_SEC = Posix.sysconf (Posix._SC_CLK_TCK);
-
-        /**
          * Whether or not the PID leads to something
          */
         public bool exists { get; private set; }
@@ -59,10 +54,7 @@ namespace elementarySystemMonitor {
          */
         public uint64 mem_usage { get; private set; }
 
-        private uint64 utime;
-        private uint64 stime;
         private uint64 last_total;
-        private int64 last_monotonic_time;
 
         private uint64 rss;
 
@@ -73,7 +65,6 @@ namespace elementarySystemMonitor {
         public Process (int _pid) {
             pid = _pid;
             last_total = 0;
-            last_monotonic_time = 0;
 
             exists = read_stat (0, 1);
             read_cmdline ();
@@ -130,11 +121,21 @@ namespace elementarySystemMonitor {
                 ppid = int.parse (stat[3]);
                 pgrp = int.parse (stat[4]);
 
+                // Processor usage
                 GTop.ProcTime proc_time;
-                GTop.close ();
                 GTop.get_proc_time (out proc_time, pid);
                 cpu_usage = ((double)(proc_time.rtime - cpu_last_used)) / (cpu_total - cpu_last_total);
                 cpu_last_used = proc_time.rtime;
+
+                // Memory usage
+                GTop.Memory mem;
+                GTop.get_mem (out mem);
+
+                GTop.ProcMem proc_mem;
+                GTop.get_proc_mem (out proc_mem, pid);
+                mem_usage = (proc_mem.resident - proc_mem.share)/1024; // in KiB
+                debug ("%d", (int)mem_usage);
+                
             } catch (Error e) {
                 stderr.printf ("Error reading stat file '%s': %s\n", stat_file.get_path (), e.message);
 

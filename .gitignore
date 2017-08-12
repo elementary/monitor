@@ -2,3 +2,4 @@ build
 .atom-dbg.cson
 .vscode
 *~
+.goutputstream-*
