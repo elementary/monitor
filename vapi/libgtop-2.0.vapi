@@ -1279,6 +1279,8 @@ namespace GTop {
     public static uint16 get_proc_affinity (out GTop.ProcAffinity buf, int pid);
     [CCode (cheader_filename = "glibtop.h", cname = "glibtop_get_proc_args")]
     public static string get_proc_args (out GTop.ProcArgs buf, int pid, uint max_len);
+    [CCode (cheader_filename = "glibtop.h", cname = "glibtop_get_proc_argv")]
+    public static string get_proc_argv (out GTop.ProcArgs buf, int pid, uint max_len);
     [CCode (cheader_filename = "glibtop.h", cname = "glibtop_get_proc_kernel")]
     public static void get_proc_kernel (out GTop.ProcKernel buf, int pid);
     [CCode (cheader_filename = "glibtop.h", cname = "glibtop_get_proc_mem")]

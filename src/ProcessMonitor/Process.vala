@@ -118,23 +118,26 @@ namespace elementarySystemMonitor {
 
                 comm = stat[1][1 : -1];
 
-                ppid = int.parse (stat[3]);
-                pgrp = int.parse (stat[4]);
+                // Process UID
+                GTop.ProcUid uid;
+                GTop.get_proc_uid (out uid, pid);
+                ppid = uid.ppid; // pid of parent process
+                pgrp = uid.pgrp; // process group id
 
-                // Processor usage
+
+                // CPU usage by process
                 GTop.ProcTime proc_time;
                 GTop.get_proc_time (out proc_time, pid);
                 cpu_usage = ((double)(proc_time.rtime - cpu_last_used)) / (cpu_total - cpu_last_total);
                 cpu_last_used = proc_time.rtime;
 
-                // Memory usage
+                // Memory usage by process
                 GTop.Memory mem;
                 GTop.get_mem (out mem);
 
                 GTop.ProcMem proc_mem;
                 GTop.get_proc_mem (out proc_mem, pid);
                 mem_usage = (proc_mem.resident - proc_mem.share)/1024; // in KiB
-                debug ("%d", (int)mem_usage);
                 
             } catch (Error e) {
                 stderr.printf ("Error reading stat file '%s': %s\n", stat_file.get_path (), e.message);
@@ -157,7 +160,6 @@ namespace elementarySystemMonitor {
                 stderr.printf ("File '%s' doesn't exist.\n", cmdline_file.get_path ());
                 return false;
             }
-
             try {
                 // read the single line from the file
                 var dis = new DataInputStream (cmdline_file.read ());
