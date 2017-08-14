@@ -39,12 +39,10 @@ namespace elementarySystemMonitor {
         // Function retrieves a Bamf.view, checks if it's a window,
         // then extracts name, icon, desktop_file and pid. After that,
         // sends signal.
-        // Why so complicated ? Some apps opened thru Slingshot aren't
-        // recognized as apps, but windows.
 
 		private void handle_view_opened (Bamf.View view) {
-            int[] win_pids = {};
             if (view is Bamf.Window && is_main_window (view)) {
+                int[] win_pids = {};
                 var window = (Bamf.Window)view;
                 var app = matcher.get_application_for_window (window);
                 win_pids += (int)window.get_pid();
@@ -63,8 +61,8 @@ namespace elementarySystemMonitor {
 		}
 
 		private void handle_view_closed (Bamf.View view) {
-            int[] win_pids = {};
             if (view is Bamf.Window && is_main_window (view)) {
+                int[] win_pids = {};
                 var window = (Bamf.Window)view;
                 var app = matcher.get_application_for_window (window);
                 win_pids += (int)window.get_pid();
@@ -83,10 +81,7 @@ namespace elementarySystemMonitor {
         }
 
         private bool has_desktop_file (string desktop_file) {
-            if (desktop_file == null || desktop_file == "") {
-                return false;
-            }
-            return true;
+            return !(desktop_file == null || desktop_file == "");
         }
 
         // Getting all apps with desktop_file and returning array of apps
