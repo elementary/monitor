@@ -80,13 +80,13 @@ namespace elementarySystemMonitor {
 
         // Handles a process-added signal from ProcessMonitor by adding the process to our list
         private void handle_process_added (int pid, Process process) {
-            debug ("handle_process_added %d ".printf(pid));
+            debug ("Handle: Process Added %d ".printf(pid));
             add_process (pid);
         }
 
         // Handles a process-removed signal from ProcessMonitor by removing the process from our list
         private void handle_process_removed (int pid) {
-            debug ("handle_process_removed %d".printf(pid));
+            debug ("Handle: Process Removed %d".printf(pid));
             remove_process (pid);
         }
 
@@ -94,7 +94,7 @@ namespace elementarySystemMonitor {
          * Handle the application-opened signal and add an application to the list when it is opened
          */
         private void handle_application_opened (App app) {
-            debug ("Handle Application Opened");
+            debug ("Handle: Application Opened");
             add_application (app);
             // update the application columns
             update_application (app.desktop_file);
@@ -102,7 +102,7 @@ namespace elementarySystemMonitor {
 
         // Handle the application-closed signal and remove an application from the list when it is closed
         private void handle_application_closed (App app) {
-            debug ("Handle Application Closed");
+            debug ("Handle: Application Closed");
             remove_application (app);
         }
 
@@ -207,6 +207,7 @@ namespace elementarySystemMonitor {
             while (model.iter_children (out child_iter, iter)) {
                 Value pid_value;
                 model.get_value (child_iter, ProcessColumns.PID, out pid_value);
+                debug ("Reparent Process to Background: %d", pid_value.get_int ());
                 add_process_to_row (background_applications, pid_value.get_int ());
             }
 
@@ -226,7 +227,7 @@ namespace elementarySystemMonitor {
             debug ("add_process %d", pid);
             if (process_rows.has_key (pid)) {
                 // process already in process rows, no need to add
-                debug ("SKIPPING");
+                debug ("Skipping Add Process %d", pid);
                 return false;
             }
 
@@ -240,11 +241,11 @@ namespace elementarySystemMonitor {
                         // is a subprocess of something in the rows
                         add_process_to_row (process_rows[process.ppid].iter, pid);
                     } else {
-                        debug ("IS A SUBPROCESS OF SOMETHING BUT NO PARENT");
+                        add_process_to_row (background_applications, pid);
+                        debug ("Is a subprocess of something but has no parent");
                     }
                     // if parent not in yet, then child will be added in after
-                }
-                else {
+                } else {
                     // isn't a subprocess of something, put it into background processes
                     // it can be moved afterwards to an application
                     add_process_to_row (background_applications, pid);
@@ -263,8 +264,7 @@ namespace elementarySystemMonitor {
             var process = process_monitor.get_process (pid);
             debug ("add_process_to_row %d", pid);
 
-            if (process != null)
-            {
+            if (process != null) {
                 // if process is already in list, then we need to reparent it and it's children
                 // can't remove it now because we need to remove all of the children first.
                 Gtk.TreeIter? old_location = null;

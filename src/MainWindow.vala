@@ -63,9 +63,12 @@ namespace elementarySystemMonitor {
             // button_box.add (process_info_button);
 
             // setup kill process button
-            kill_process_button = new Gtk.Button.from_icon_name ("process-stop-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
+            Gtk.Image stop_icon = new Gtk.Image ();
+            stop_icon.set_from_file("../data/stop.svg");
+            kill_process_button = new Gtk.Button.with_label (_("End process"));
+            //  kill_process_button.set_image (stop_icon);
             kill_process_button.clicked.connect (kill_process);
-            kill_process_button.tooltip_text = (_("Kill process"));
+            //  kill_process_button.tooltip_text = (_("Kill process"));
             button_box.add (kill_process_button);
 
             // put the buttons in the headerbar
@@ -129,7 +132,9 @@ namespace elementarySystemMonitor {
 
         private void kill_process (Gtk.Button button) {
             int pid = process_view.get_pid_of_selected ();
-            app_model.kill_process (pid);
+            if (pid > 0) {
+                app_model.kill_process (pid);
+            }
         }
 
         private void on_search (SimpleAction action) {
@@ -138,7 +143,6 @@ namespace elementarySystemMonitor {
         }
 
         private bool filter_func (Gtk.TreeModel model, Gtk.TreeIter iter) {
-            Gtk.TreePath? path = model.get_path (iter);
             string name_haystack;
             int pid_haystack;
             var needle = search_entry.text;

@@ -68,8 +68,24 @@ namespace elementarySystemMonitor {
 
         // Reads the /proc/%pid%/stat file and updates the process with the information therein.
         private bool read_stat (uint64 cpu_total, uint64 cpu_last_total) {
+            /* grab the stat file from /proc/%pid%/stat */
+            var stat_file = File.new_for_path ("/proc/%d/stat".printf (pid));
+
+            /* make sure that it exists, not an error if it doesn't */
+            if (!stat_file.query_exists ()) {
+                return false;
+            }
 
             try {
+                // read the single line from the file 
+                var dis = new DataInputStream (stat_file.read ());
+                string? stat_contents = dis.read_line ();
+
+                if (stat_contents == null) {
+                    stderr.printf ("Error reading stat file '%s': couldn't read_line ()\n", stat_file.get_path ());
+                    return false;
+                }
+
                 // Get process UID
                 GTop.ProcUid uid;
                 GTop.get_proc_uid (out uid, pid);
@@ -92,7 +108,7 @@ namespace elementarySystemMonitor {
                 mem_usage = (proc_mem.resident - proc_mem.share) / 1024; // in KiB
 
             } catch (Error e) {
-                error ("Can't read process stat: '%s'", e.message);
+                warning ("Can't read process stat: '%s'", e.message);
                 return false;
             }
 

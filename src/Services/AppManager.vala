@@ -71,7 +71,7 @@ namespace elementarySystemMonitor {
                 app = matcher.get_application_for_window (window);
                 win_pids += (int)window.get_pid();
                 if (has_desktop_file (app.get_desktop_file ())) {
-                    debug ("Handle View Opened: %s", view.get_name());
+                    debug ("Handle View Closed: %s", view.get_name());
                     application_closed (
                         App () {
                             name = app.get_name (),

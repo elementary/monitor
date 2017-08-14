@@ -115,7 +115,8 @@ namespace elementarySystemMonitor {
 
             var uid = Posix.getuid ();
             GTop.ProcList proclist;
-            var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_UID, uid);
+            //  var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_UID, uid);
+            var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_ALL, 0);
 
             for (int i = 0; i < proclist.number; i++) {
                 int pid = pids[i];
