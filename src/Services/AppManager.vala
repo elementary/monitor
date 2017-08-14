@@ -44,10 +44,9 @@ namespace elementarySystemMonitor {
 
 		private void handle_view_opened (Bamf.View view) {
             int[] win_pids = {};
-            var app = (Bamf.Application)view;
-            if (view is Bamf.Window) {
+            if (view is Bamf.Window && is_main_window (view)) {
                 var window = (Bamf.Window)view;
-                app = matcher.get_application_for_window (window);
+                var app = matcher.get_application_for_window (window);
                 win_pids += (int)window.get_pid();
                 if (has_desktop_file (app.get_desktop_file ())) {
                     debug ("Handle View Opened: %s", view.get_name());
@@ -65,10 +64,9 @@ namespace elementarySystemMonitor {
 
 		private void handle_view_closed (Bamf.View view) {
             int[] win_pids = {};
-            if (view is Bamf.Window) {
-                var app = (Bamf.Application)view;
+            if (view is Bamf.Window && is_main_window (view)) {
                 var window = (Bamf.Window)view;
-                app = matcher.get_application_for_window (window);
+                var app = matcher.get_application_for_window (window);
                 win_pids += (int)window.get_pid();
                 if (has_desktop_file (app.get_desktop_file ())) {
                     debug ("Handle View Closed: %s", view.get_name());
@@ -112,6 +110,10 @@ namespace elementarySystemMonitor {
                 }
             }
             return apps;
+        }
+
+        private bool is_main_window (Bamf.View view) {
+            return ((Bamf.Window)view).get_window_type () == Bamf.WindowType.NORMAL;
         }
 	}
 }

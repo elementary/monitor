@@ -113,7 +113,7 @@ namespace elementarySystemMonitor {
                 remove_process (pid);
             }
 
-            var uid = Posix.getuid ();
+            //  var uid = Posix.getuid ();
             GTop.ProcList proclist;
             //  var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_UID, uid);
             var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_ALL, 0);
