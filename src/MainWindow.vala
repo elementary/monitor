@@ -16,6 +16,7 @@ namespace elementarySystemMonitor {
 
         private ProcessMonitor process_monitor;
         private ApplicationProcessModel app_model;
+        private Gtk.TreeModelSort sort_model;
 
         public Gtk.TreeModelFilter filter;
 
@@ -104,11 +105,14 @@ namespace elementarySystemMonitor {
 
 
             filter.set_visible_func(filter_func);
-            process_view.set_model (filter);
+            
 
             process_view_window.add (process_view);
             this.add (process_view_window);
 
+            sort_model = new Gtk.TreeModelSort.with_model(filter);
+            process_view.set_model (sort_model);
+            
             this.show_all ();
         }
 
