@@ -8,7 +8,7 @@ namespace elementarySystemMonitor {
 
         // Widgets
         private Gtk.HeaderBar header_bar;
-        private Gtk.SearchEntry search_entry;
+        private Search search;
         private Gtk.Button kill_process_button;
         private Gtk.Button process_info_button;
         private Gtk.ScrolledWindow process_view_window;
@@ -88,31 +88,16 @@ namespace elementarySystemMonitor {
             process_view.set_model (app_model.model);
 
             // setup search in header bar
-            search_entry = new Gtk.SearchEntry ();
-            search_entry.placeholder_text = _("Search Process");
-            header_bar.pack_end (search_entry);
+            search = new Search (process_view, app_model.model);
+            header_bar.pack_end (search);
             this.key_press_event.connect (key_press_event_handler);
-
-            filter = new Gtk.TreeModelFilter( app_model.model, null );
-
-            search_entry.search_changed.connect (() => {
-                // collapse tree only when search is focused and changed
-                if (search_entry.is_focus) {
-                    process_view.collapse_all ();
-                }
-                filter.refilter ();
-            });
-
-
-            filter.set_visible_func(filter_func);
-            
 
             process_view_window.add (process_view);
             this.add (process_view_window);
 
-            sort_model = new Gtk.TreeModelSort.with_model(filter);
+            sort_model = new Gtk.TreeModelSort.with_model(search.filter_model);
             process_view.set_model (sort_model);
-            
+
             this.show_all ();
         }
 
@@ -123,11 +108,11 @@ namespace elementarySystemMonitor {
             char typed = event.str[0];
 
             // if the character typed is an alpha-numeric and the search doesn't currently have focus
-            if (typed.isalnum () && !search_entry.is_focus ) {
+            if (typed.isalnum () && !search.is_focus ) {
                 // reset filter, grab focus and insert the character
-                search_entry.text = "";
-                search_entry.grab_focus ();
-                search_entry.insert_at_cursor (event.str);
+                search.text = "";
+                search.grab_focus ();
+                search.insert_at_cursor (event.str);
                 return true; // tells the window that the event was handled, don't pass it on
             }
 
@@ -142,40 +127,8 @@ namespace elementarySystemMonitor {
         }
 
         private void on_search (SimpleAction action) {
-            search_entry.text = "";
-            search_entry.grab_focus ();
+            search.text = "";
+            search.grab_focus ();
         }
-
-        private bool filter_func (Gtk.TreeModel model, Gtk.TreeIter iter) {
-            string name_haystack;
-            int pid_haystack;
-            var needle = search_entry.text;
-            if ( needle.length == 0 ) {
-                return true;
-            }
-
-            model.get( iter, ProcessColumns.NAME, out name_haystack, -1 );
-            model.get( iter, ProcessColumns.PID, out pid_haystack, -1 );
-            bool name_found = name_haystack.casefold().contains( needle.casefold());
-            bool pid_found = pid_haystack.to_string().casefold().contains( needle.casefold());
-            bool found = name_found || pid_found;
-
-            Gtk.TreeIter child_iter;
-            bool child_found = false;
-
-            if (model.iter_children (out child_iter, iter)) {
-                do {
-                    child_found = filter_func (model, child_iter);
-                } while (model.iter_next (ref child_iter) && !child_found);
-            }
-
-            if (child_found && needle.length > 0) {
-                process_view.expand_all ();
-            }
-
-            return found || child_found;
-        }
-
-
     }
 }
