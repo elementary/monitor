@@ -12,6 +12,7 @@ You'll need the following dependencies to build:
 * libgranite-dev
 * libbamf3-dev
 * libwnck-3-dev
+* libgtop2-dev
 
 ## How To Build
 
