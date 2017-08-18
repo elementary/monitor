@@ -10,8 +10,8 @@ You'll need the following dependencies to build:
 * libgtk-3-dev
 * valac
 * libgranite-dev
-* libbamf3
-* libwnck-3.0
+* libbamf3-dev
+* libwnck-3-dev
 
 ## How To Build
 
