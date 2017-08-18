@@ -28,7 +28,6 @@ set (SYSTEM_MONITOR_DEPS
     glib-2.0
     gio-2.0
     granite
-    posix
 )
 
 find_package (PkgConfig)

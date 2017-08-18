@@ -17,6 +17,7 @@ vala_precompile(VALA_C ${CMAKE_PROJECT_NAME}
     ${CMAKE_BINARY_DIR}/src/config.vala
 PACKAGES
     ${SYSTEM_MONITOR_DEPS}
+    posix
 CUSTOM_VAPIS
     ../vapi/libgtop-2.0.vapi
 OPTIONS
