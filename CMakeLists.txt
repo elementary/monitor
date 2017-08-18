@@ -11,7 +11,7 @@ set (DATADIR "${CMAKE_INSALL_PREFIX}/share")
 set (PKGDATADIR "${DATADIR}/${PROJECT_NAME}")
 set (GETTEXT_PACKAGE ${CMAKE_PROJECT_NAME})
 set (RELEASE_NAME "Monitor")
-set (VERSION "0.2.5")
+set (VERSION "0.2.6")
 set (VERSION_INFO "Alpha")
 set (DOLLAR "$")
 
@@ -48,7 +48,6 @@ add_subdirectory (po)
 add_subdirectory (data)
 
 # install our .desktop file so the Applications menu will see it
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.stsdc.monitor.desktop DESTINATION /usr/share
-/applications/)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.stsdc.monitor.desktop DESTINATION /usr/share/applications/)
 # install our .appdata.xml file so AppCenter will see it
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.stsdc.monitor.appdata.xml DESTINATION /usr/share/metainfo/)
