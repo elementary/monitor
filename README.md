@@ -1,5 +1,5 @@
 # Monitor
-Manage processes and monitor resource usage of the system.
+Manage processes and monitor system resources.
 
 ![Monitor Screenshot](https://github.com/stsdc/monitor/raw/master/data/com.github.stsdc.monitor.screenshot.png)
 

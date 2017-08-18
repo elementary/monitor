@@ -1,0 +1,7 @@
+Format: http://dep.debian.net/deps/dep5
+Upstream-Name: com.github.stsdc.monitor
+Source: https://github.com/stsdc/monitor
+
+Files: *
+Copyright: 2017 Stanisław Dac
+License: GPL-3.0+

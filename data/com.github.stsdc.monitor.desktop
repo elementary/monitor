@@ -7,6 +7,6 @@ Exec=com.github.stsdc.monitor %U
 Icon=utilities-system-monitor
 Terminal=false
 Type=Application
-X-GNOME-Gettext-Domain=torrential
+X-GNOME-Gettext-Domain=monitor
 Keywords=System monitor;System usage;Task manager;
 X-GNOME-UsesNotifications=true

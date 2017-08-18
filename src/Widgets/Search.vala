@@ -34,8 +34,8 @@ namespace elementarySystemMonitor {
 
             model.get( iter, ProcessColumns.NAME, out name_haystack, -1 );
             model.get( iter, ProcessColumns.PID, out pid_haystack, -1 );
-            bool name_found = name_haystack.casefold().contains( needle.casefold());
-            bool pid_found = pid_haystack.to_string().casefold().contains( needle.casefold());
+            bool name_found = name_haystack.casefold().contains(needle.casefold());
+            bool pid_found = pid_haystack.to_string().casefold().contains(needle.casefold());
             bool found = name_found || pid_found;
 
             Gtk.TreeIter child_iter;
@@ -53,5 +53,6 @@ namespace elementarySystemMonitor {
 
             return found || child_found;
         }
+
     }
 }
