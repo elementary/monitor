@@ -11,7 +11,7 @@ set (DATADIR "${CMAKE_INSALL_PREFIX}/share")
 set (PKGDATADIR "${DATADIR}/${PROJECT_NAME}")
 set (GETTEXT_PACKAGE ${CMAKE_PROJECT_NAME})
 set (RELEASE_NAME "Monitor")
-set (VERSION "0.2")
+set (VERSION "0.2.3")
 set (VERSION_INFO "Alpha")
 set (DOLLAR "$")
 
