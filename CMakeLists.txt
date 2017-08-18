@@ -48,4 +48,6 @@ add_subdirectory (po)
 add_subdirectory (data)
 
 # install our .desktop file so the Applications menu will see it
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.stsdc.monitor.desktop DESTINATION ${DATADIR}/applications/)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.stsdc.monitor.desktop DESTINATION /usr/share/applications/)
+# install our .appdata.xml file so AppCenter will see it
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.stsdc.monitor.appdata.xml DESTINATION /usr/share/metainfo/)
