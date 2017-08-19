@@ -57,11 +57,12 @@ namespace elementarySystemMonitor {
 
             // setup buttons
             var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-            //  button_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+            button_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
 
             // setup process info button
-            //  process_info_button = new Gtk.Button.from_icon_name ("dialog-information-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
-            //  button_box.add (process_info_button);
+            process_info_button = new Gtk.Button.from_icon_name ("dialog-information-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
+            process_info_button.get_style_context ().remove_class ("image-button");
+            button_box.add (process_info_button);
 
             // setup kill process button
 
