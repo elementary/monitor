@@ -51,3 +51,10 @@ add_subdirectory (data)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.stsdc.monitor.desktop DESTINATION /usr/share/applications/)
 # install our .appdata.xml file so AppCenter will see it
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.stsdc.monitor.appdata.xml DESTINATION /usr/share/metainfo/)
+
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/16/com.github.stsdc.monitor.svg DESTINATION share/icons/hicolor/16x16/apps)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/24/com.github.stsdc.monitor.svg DESTINATION share/icons/hicolor/24x24/apps)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/32/com.github.stsdc.monitor.svg DESTINATION share/icons/hicolor/32x32/apps)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/48/com.github.stsdc.monitor.svg DESTINATION share/icons/hicolor/48x48/apps)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/64/com.github.stsdc.monitor.svg DESTINATION share/icons/hicolor/64x64/apps)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/128/com.github.stsdc.monitor.svg DESTINATION share/icons/hicolor/128x128/apps)
