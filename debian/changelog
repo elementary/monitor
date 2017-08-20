@@ -1,3 +1,9 @@
+com.github.stsdc.monitor (0.2.7) xenial; urgency=low
+
+  * Initial Release.
+
+ -- Stanisław Dac <stanislawdac@gmail.com>  Sun, 20 Aug 2017 12:41:59 +0200
+
 com.github.stsdc.monitor (0.2.6) xenial; urgency=low
 
   * Initial Release.
