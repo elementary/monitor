@@ -6,7 +6,7 @@
   <name>Monitor</name>
   <summary>Manage processes and monitor system resources</summary>
   <description>
-    <p>A quick summary of your app's main selling points and features. Just a couple sentences per paragraph is best.</p>
+    <p>Display usage of system resources, filter and manage processes.</p>
   </description>
     <custom>
      <value key="x-appcenter-color-primary">#2196f3</value>

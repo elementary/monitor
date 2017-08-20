@@ -14,7 +14,8 @@ namespace elementarySystemMonitor {
 		public signal void application_closed (App app);
 
 		static AppManager? app_manager = null;
-        Bamf.Matcher? matcher;
+        private Bamf.Matcher? matcher;
+        private Gee.ArrayList<uint> transient_xids;
 
 		public static AppManager get_default ()	{
 			if (app_manager == null)
@@ -24,6 +25,8 @@ namespace elementarySystemMonitor {
 
 
 		public AppManager () {
+            transient_xids = new Gee.ArrayList<uint> ();
+
 			matcher = Bamf.Matcher.get_default ();
             matcher.view_opened.connect (handle_view_opened);
 			matcher.view_closed.connect_after (handle_view_closed);
@@ -108,7 +111,20 @@ namespace elementarySystemMonitor {
         }
 
         private bool is_main_window (Bamf.View view) {
-            return ((Bamf.Window)view).get_window_type () == Bamf.WindowType.NORMAL;
+            var window_type = ((Bamf.Window)view).get_window_type ();
+            return window_type == Bamf.WindowType.NORMAL && !is_transient(view);
+        }
+
+        // if window is transient add its xid to array and return true
+        private bool is_transient (Bamf.View view) {
+            if(transient_xids.size > 0 && transient_xids.contains(((Bamf.Window)view).get_xid())) {
+                return true;
+            }
+            if (((Bamf.Window)view).get_transient () != null) {
+                transient_xids.add (((Bamf.Window)view).get_xid());
+                return true;
+            }
+            return false;
         }
 	}
 }
