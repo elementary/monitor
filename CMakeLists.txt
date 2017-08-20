@@ -7,8 +7,9 @@ include (GNUInstallDirs)
 list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 set (EXEC_NAME ${CMAKE_PROJECT_NAME})
-set (DATADIR "${CMAKE_INSALL_PREFIX}/share")
+set (DATADIR ${CMAKE_INSTALL_FULL_DATAROOTDIR})
 set (PKGDATADIR "${DATADIR}/${PROJECT_NAME}")
+set (PREFIX ${CMAKE_INSTALL_PREFIX})
 set (GETTEXT_PACKAGE ${CMAKE_PROJECT_NAME})
 set (RELEASE_NAME "Monitor")
 set (VERSION "0.2.6")
@@ -47,14 +48,11 @@ add_subdirectory (src)
 add_subdirectory (po)
 add_subdirectory (data)
 
-# install our .desktop file so the Applications menu will see it
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.stsdc.monitor.desktop DESTINATION /usr/share/applications/)
-# install our .appdata.xml file so AppCenter will see it
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.stsdc.monitor.appdata.xml DESTINATION /usr/share/metainfo/)
+# uninstall target
+configure_file (
+    "${CMAKE_SOURCE_DIR}/cmake/Uninstall.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/Uninstall.cmake"
+    IMMEDIATE @ONLY)
 
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/16/com.github.stsdc.monitor.svg DESTINATION share/icons/hicolor/16x16/apps)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/24/com.github.stsdc.monitor.svg DESTINATION share/icons/hicolor/24x24/apps)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/32/com.github.stsdc.monitor.svg DESTINATION share/icons/hicolor/32x32/apps)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/48/com.github.stsdc.monitor.svg DESTINATION share/icons/hicolor/48x48/apps)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/64/com.github.stsdc.monitor.svg DESTINATION share/icons/hicolor/64x64/apps)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/128/com.github.stsdc.monitor.svg DESTINATION share/icons/hicolor/128x128/apps)
+add_custom_target (uninstall
+COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/Uninstall.cmake)

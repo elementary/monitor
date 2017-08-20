@@ -9,4 +9,4 @@ Terminal=false
 Type=Application
 X-GNOME-Gettext-Domain=monitor
 Keywords=System monitor;System usage;Task manager;
-X-GNOME-UsesNotifications=true
+X-GNOME-UsesNotifications=false

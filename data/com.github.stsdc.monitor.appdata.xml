@@ -13,4 +13,13 @@
      <value key="x-appcenter-color-primary-text">rgb(255, 255, 255)</value>
      <value key="x-appcenter-suggested-price">0</value>
   </custom>
+    <screenshots>
+    <screenshot type="default">
+      <image>https://github.com/stsdc/monitor/raw/master/data/com.github.stsdc.monitor.screenshot.png</image>
+    </screenshot>
+  </screenshots>
+  <developer_name>Stanisław Dac</developer_name>
+  <url type="homepage">https://github.com/stsdc/monitor</url>
+  <url type="bugtracker">https://github.com/stsdc/monitor/issues</url>
+<url type="help">https://github.com/stsdc/monitor/issues</url>
 </component>
