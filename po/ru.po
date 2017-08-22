@@ -1,4 +1,61 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-22 21:39+0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Андрей Культяпов <camellan@yandex.ru>\n"
+"Language-Team: \n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0\n"
+
+#: ../src/MainWindow.vala:56
+msgid "Monitor"
+msgstr "Monitor"
+
+#: ../src/MainWindow.vala:69
+msgid "End process"
+msgstr "Завершить процесс"
+
+#: ../src/Widgets/ProcessView.vala:30
+msgid "Process Name"
+msgstr "Имя процесса"
+
+#: ../src/Widgets/ProcessView.vala:49
+msgid "CPU"
+msgstr "ЦПУ"
+
+#: ../src/Widgets/ProcessView.vala:60
+msgid "Memory"
+msgstr "Память"
+
+#: ../src/Widgets/ProcessView.vala:70
+msgid "PID"
+msgstr "ИД"
+
+#: ../src/Widgets/ProcessView.vala:102
+msgid "KiB"
+msgstr "К|Б"
+
+#: ../src/Widgets/ProcessView.vala:107
+msgid "MiB"
+msgstr "М|Б"
+
+#: ../src/Widgets/ProcessView.vala:113
+msgid "GiB"
+msgstr "Г|Б"
+
+#: ../src/Widgets/Search.vala:9
+msgid "Search Process"
+msgstr "Найти процесс"
+
+#: ../src/Widgets/Search.vala:10
+msgid "Type Process Name or PID"
+msgstr "Введите имя или ИД процесса"
+
+#: ../src/Models/ApplicationProcessModel.vala:44
+msgid "Background Applications"
+msgstr "Фоновые приложения"
