@@ -6,6 +6,9 @@ namespace elementarySystemMonitor {
         // application reference
         private elementarySystemMonitorApp app;
 
+        // Settings
+        private Settings saved_state;
+
         // Widgets
         private Gtk.HeaderBar header_bar;
         private Search search;
@@ -40,7 +43,16 @@ namespace elementarySystemMonitor {
         public MainWindow (elementarySystemMonitorApp app) {
             this.app = app;
             this.set_application (app);
-            this.set_default_size (800, 600);
+            saved_state = Settings.get_default ();
+            this.set_default_size (saved_state.window_width, saved_state.window_height);
+            // Maximize window if necessary
+            switch (saved_state.window_state) {
+                case Settings.WindowState.MAXIMIZED:
+                    this.maximize ();
+                    break;
+                default:
+                    break;
+            }
             this.window_position = Gtk.WindowPosition.CENTER;
             set_icon_name (app.app_icon);
 
@@ -94,15 +106,27 @@ namespace elementarySystemMonitor {
             process_view_window.add (process_view);
             this.add (process_view_window);
 
-            sort_model = new Gtk.TreeModelSort.with_model(search.filter_model);
+            sort_model = new Gtk.TreeModelSort.with_model (search.filter_model);
             process_view.set_model (sort_model);
 
             this.show_all ();
+
+            delete_event.connect (() => {
+                    int window_width;
+                    int window_height;
+                    get_size (out window_width, out window_height);
+                    saved_state.window_width = window_width;
+                    saved_state.window_height = window_height;
+                    if (is_maximized) {
+                        saved_state.window_state = Settings.WindowState.MAXIMIZED;
+                    } else {
+                        saved_state.window_state = Settings.WindowState.NORMAL;
+                    }
+                    return false;
+            });
         }
 
-        /**
-         * Handle key presses on window, so that the filter search entry is updated
-         */
+        // Handle key presses on window, so that the filter search entry is updated
         private bool key_press_event_handler (Gdk.EventKey event) {
             char typed = event.str[0];
 

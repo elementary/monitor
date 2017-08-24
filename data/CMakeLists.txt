@@ -11,3 +11,6 @@ install (FILES icons/64/com.github.stsdc.monitor.svg DESTINATION share/icons/hic
 install (FILES icons/128/com.github.stsdc.monitor.svg DESTINATION share/icons/hicolor/128x128/apps)
 
 install (FILES icons/64/com.github.stsdc.monitor.svg DESTINATION share/icons/hicolor/scalable/apps)
+
+include (GSettings)
+add_schema (com.github.stsdc.monitor.gschema.xml)

@@ -14,6 +14,7 @@ vala_precompile(VALA_C ${CMAKE_PROJECT_NAME}
     ./Widgets/Search.vala
     ./Models/ApplicationProcessModel.vala
     ./Services/AppManager.vala
+    ./Services/Settings.vala
     ${CMAKE_BINARY_DIR}/src/config.vala
 PACKAGES
     ${SYSTEM_MONITOR_DEPS}
