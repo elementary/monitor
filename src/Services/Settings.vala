@@ -8,7 +8,7 @@ namespace elementarySystemMonitor {
         public int window_width { get; set; }
         public int window_height { get; set; }
         public WindowState window_state { get; set; }
-        
+
         private static Settings _settings;
         public static unowned Settings get_default () {
             if (_settings == null) {
@@ -20,6 +20,8 @@ namespace elementarySystemMonitor {
         private Settings ()  {
             base ("com.github.stsdc.monitor.settings");
 
+            // Controls the direction of the sort indicators
+            Gtk.Settings.get_default ().set ("gtk-alternative-sort-arrows", true, null);
         }
     }
 }
