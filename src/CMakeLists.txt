@@ -8,12 +8,12 @@ include(ValaPrecompile)
 vala_precompile(VALA_C ${CMAKE_PROJECT_NAME}
     ./elementarySystemMonitor.vala
     ./MainWindow.vala
-    ./ProcessMonitor/ProcessMonitor.vala
-    ./ProcessMonitor/Process.vala
     ./Widgets/ProcessView.vala
     ./Widgets/Search.vala
     ./Models/ApplicationProcessModel.vala
-    ./Services/AppManager.vala
+    ./Managers/AppManager.vala
+    ./Managers/ProcessManager.vala
+    ./Managers/Process.vala
     ./Services/Settings.vala
     ${CMAKE_BINARY_DIR}/src/config.vala
 PACKAGES

@@ -35,9 +35,10 @@ namespace elementarySystemMonitor {
                 ProcessColumns.NUM_COLUMNS,
                 typeof (string),
                 typeof (string),
-                typeof(int),
+                typeof (int),
                 typeof (double),
-                typeof (int64));
+                typeof (int64)
+                );
 
             model.append (out background_applications, null);
             model.set (background_applications,
@@ -177,15 +178,30 @@ namespace elementarySystemMonitor {
             if (!app_rows.has_key (desktop_file))
                 return;
 
-            var iter = app_rows[desktop_file].iter;
+            var row = app_rows.get (desktop_file);
+            var iter = row.iter;
             int64 total_mem = 0;
             double total_cpu = 0;
+            int pid = 0;
 
-            get_children_total (iter, ref total_mem, ref total_cpu);
+            model.get (iter, 2, out pid);
+            var process = process_monitor.get_process (pid);
+            if (process != null && pid > 0 ) {
+                get_children_total (iter, ref total_mem, ref total_cpu);
 
-            model.set (iter, ProcessColumns.MEMORY, total_mem,
-                             ProcessColumns.CPU, total_cpu,
-                             -1);
+                model.set (iter, ProcessColumns.MEMORY, total_mem,
+                                 ProcessColumns.CPU, total_cpu,
+                                 ProcessColumns.PID, pid,
+                                 -1);
+            } else {
+                debug ("%s Has no process", desktop_file);
+                // remove row from model
+                model.remove (ref iter);
+
+                // remove row from row cache
+                app_rows.unset (desktop_file);
+
+            }
         }
 
         /**
@@ -198,7 +214,6 @@ namespace elementarySystemMonitor {
             if (!app_rows.has_key (app.desktop_file)) {
                 return false;
             }
-
             var row = app_rows.get (app.desktop_file);
             var iter = row.iter;
 
@@ -336,9 +351,7 @@ namespace elementarySystemMonitor {
             }
         }
 
-        /**
-         * Updates a process by pid
-         */
+        // Updates a process by pid
         private void update_process (int pid) {
             Gtk.TreeIter row;
             var process = process_monitor.get_process (pid);

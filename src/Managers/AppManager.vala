@@ -5,6 +5,7 @@ namespace elementarySystemMonitor {
         public string icon;
         public string? desktop_file;
         public int[] pids;
+        public uint32 xid;
     }
 	/**
 	 * Wrapper for Bamf.Matcher
@@ -56,7 +57,8 @@ namespace elementarySystemMonitor {
                             name = app.get_name (),
                             icon = app.get_icon (),
                             desktop_file = app.get_desktop_file (),
-                            pids = win_pids
+                            pids = win_pids,
+                            xid = app.get_xids ().index(0)
                         }
                     );
                 }
@@ -76,7 +78,8 @@ namespace elementarySystemMonitor {
                             name = app.get_name (),
                             icon = app.get_icon (),
                             desktop_file = app.get_desktop_file (),
-                            pids = win_pids
+                            pids = win_pids,
+                            xid = app.get_xids ().index(0)
                         }
                     );
                 }
@@ -103,7 +106,8 @@ namespace elementarySystemMonitor {
                                 name = bamf_app.get_name (),
                                 icon = bamf_app.get_icon (),
                                 desktop_file = bamf_app.get_desktop_file (),
-                                pids = win_pids
+                                pids = win_pids,
+                                xid = bamf_app.get_xids ().index(0)
                             };
                 }
             }

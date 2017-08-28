@@ -124,7 +124,7 @@ namespace elementarySystemMonitor {
 
             // make sure that it exists
             if (!cmdline_file.query_exists ()) {
-                stderr.printf ("File '%s' doesn't exist.\n", cmdline_file.get_path ());
+                warning ("File '%s' doesn't exist.\n", cmdline_file.get_path ());
                 return false;
             }
             try {
