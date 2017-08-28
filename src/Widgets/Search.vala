@@ -27,6 +27,7 @@ namespace elementarySystemMonitor {
         private bool filter_func (Gtk.TreeModel model, Gtk.TreeIter iter) {
             string name_haystack;
             int pid_haystack;
+            bool found = false;
             var needle = this.text;
             if ( needle.length == 0 ) {
                 return true;
@@ -34,9 +35,14 @@ namespace elementarySystemMonitor {
 
             model.get( iter, ProcessColumns.NAME, out name_haystack, -1 );
             model.get( iter, ProcessColumns.PID, out pid_haystack, -1 );
-            bool name_found = name_haystack.casefold().contains(needle.casefold());
-            bool pid_found = pid_haystack.to_string().casefold().contains(needle.casefold());
-            bool found = name_found || pid_found;
+            
+            // sometimes name_haystack is null
+            if (name_haystack != null) {
+                bool name_found = name_haystack.casefold().contains(needle.casefold()) || false;
+                bool pid_found = pid_haystack.to_string().casefold().contains(needle.casefold()) || false;
+                found = name_found || pid_found;
+            }
+            
 
             Gtk.TreeIter child_iter;
             bool child_found = false;
