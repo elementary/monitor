@@ -29,7 +29,7 @@ namespace elementarySystemMonitor {
             transient_xids = new Gee.ArrayList<uint> ();
 
 			matcher = Bamf.Matcher.get_default ();
-            matcher.view_opened.connect (handle_view_opened);
+            matcher.view_opened.connect_after (handle_view_opened);
 			matcher.view_closed.connect_after (handle_view_closed);
 		}
 
@@ -116,7 +116,9 @@ namespace elementarySystemMonitor {
 
         private bool is_main_window (Bamf.View view) {
             var window_type = ((Bamf.Window)view).get_window_type ();
-            return window_type == Bamf.WindowType.NORMAL && !is_transient(view);
+            debug ("WINDOW TYPE: %d, TRANSIENT: %d", window_type, (int)is_transient(view));
+            return (window_type == Bamf.WindowType.NORMAL ||
+                    window_type == Bamf.WindowType.DOCK) && !is_transient(view);
         }
 
         // if window is transient add its xid to array and return true
