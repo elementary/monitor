@@ -116,7 +116,7 @@ namespace elementarySystemMonitor {
 
         private bool is_main_window (Bamf.View view) {
             var window_type = ((Bamf.Window)view).get_window_type ();
-            debug ("WINDOW TYPE: %d, TRANSIENT: %d", window_type, (int)is_transient(view));
+            debug ("Window type: %d, Is transient: %d", window_type, (int)is_transient(view));
             return (window_type == Bamf.WindowType.NORMAL ||
                     window_type == Bamf.WindowType.DOCK) && !is_transient(view);
         }

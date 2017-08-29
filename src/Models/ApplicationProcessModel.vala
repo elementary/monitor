@@ -40,13 +40,7 @@ namespace elementarySystemMonitor {
                 typeof (int64)
                 );
 
-            model.append (out background_applications, null);
-            model.set (background_applications,
-                ProcessColumns.NAME, _("Background Applications"),
-                ProcessColumns.ICON, "system-run",
-                ProcessColumns.MEMORY, (uint64)0,
-                ProcessColumns.CPU, -4.0,
-                -1);
+            set_background_apps ();
 
             // The Great App Manager
             app_manager = AppManager.get_default ();
@@ -68,6 +62,25 @@ namespace elementarySystemMonitor {
 
         }
 
+        private void set_background_apps () {
+            model.append (out background_applications, null);
+            model.set (background_applications,
+                ProcessColumns.NAME, _("Background Applications"),
+                ProcessColumns.ICON, "system-run",
+                ProcessColumns.MEMORY, (uint64)0,
+                ProcessColumns.CPU, -4.0,
+                -1);
+        }
+
+        private void update_row (Gtk.TreeIter iter) {
+            int64 total_mem = 0;
+            double total_cpu = 0;
+            get_children_total (iter, ref total_mem, ref total_cpu);
+            model.set (iter, ProcessColumns.MEMORY, total_mem,
+                                                ProcessColumns.CPU, total_cpu,
+                                                -1);
+        }
+
         // Handles a updated signal from ProcessMonitor by refreshing all of the process rows in the list
         private void handle_monitor_update () {
             foreach (var pid in process_rows.keys) {
@@ -77,6 +90,7 @@ namespace elementarySystemMonitor {
             foreach (var desktop_file in app_rows.keys) {
                 update_application (desktop_file);
             }
+            update_row (background_applications);
         }
 
         // Handles a process-added signal from ProcessMonitor by adding the process to our list
@@ -178,30 +192,8 @@ namespace elementarySystemMonitor {
             if (!app_rows.has_key (desktop_file))
                 return;
 
-            var row = app_rows.get (desktop_file);
-            var iter = row.iter;
-            int64 total_mem = 0;
-            double total_cpu = 0;
-            int pid = 0;
-
-            model.get (iter, 2, out pid);
-            var process = process_monitor.get_process (pid);
-            if (process != null && pid > 0 ) {
-                get_children_total (iter, ref total_mem, ref total_cpu);
-
-                model.set (iter, ProcessColumns.MEMORY, total_mem,
-                                 ProcessColumns.CPU, total_cpu,
-                                 ProcessColumns.PID, pid,
-                                 -1);
-            } else {
-                debug ("%s Has no process", desktop_file);
-                // remove row from model
-                model.remove (ref iter);
-
-                // remove row from row cache
-                app_rows.unset (desktop_file);
-
-            }
+            var apps = app_rows[desktop_file].iter;
+            update_row (apps);
         }
 
         /**
