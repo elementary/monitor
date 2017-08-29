@@ -18,7 +18,7 @@ namespace elementarySystemMonitor {
         private ProcessMonitor process_monitor;
         private Gee.Map<string, ApplicationProcessRow> app_rows;
         private Gee.Map<int, ApplicationProcessRow> process_rows;
-        private Gtk.TreeIter background_applications;
+        private Gtk.TreeIter background_apps_iter;
 
         /**
          * The tree store that will be passed to a TreeView to be displayed.
@@ -63,8 +63,8 @@ namespace elementarySystemMonitor {
         }
 
         private void set_background_apps () {
-            model.append (out background_applications, null);
-            model.set (background_applications,
+            model.append (out background_apps_iter, null);
+            model.set (background_apps_iter,
                 ProcessColumns.NAME, _("Background Applications"),
                 ProcessColumns.ICON, "system-run",
                 ProcessColumns.MEMORY, (uint64)0,
@@ -72,7 +72,7 @@ namespace elementarySystemMonitor {
                 -1);
         }
 
-        private void update_row (Gtk.TreeIter iter) {
+        private void update_app_row (Gtk.TreeIter iter) {
             int64 total_mem = 0;
             double total_cpu = 0;
             get_children_total (iter, ref total_mem, ref total_cpu);
@@ -90,7 +90,7 @@ namespace elementarySystemMonitor {
             foreach (var desktop_file in app_rows.keys) {
                 update_application (desktop_file);
             }
-            update_row (background_applications);
+            update_app_row (background_apps_iter);
         }
 
         // Handles a process-added signal from ProcessMonitor by adding the process to our list
@@ -193,7 +193,7 @@ namespace elementarySystemMonitor {
                 return;
 
             var app_iter = app_rows[desktop_file].iter;
-            update_row (app_iter);
+            update_app_row (app_iter);
         }
 
         /**
@@ -214,7 +214,7 @@ namespace elementarySystemMonitor {
                 Value pid_value;
                 model.get_value (child_iter, ProcessColumns.PID, out pid_value);
                 debug ("Reparent Process to Background: %d", pid_value.get_int ());
-                add_process_to_row (background_applications, pid_value.get_int ());
+                add_process_to_row (background_apps_iter, pid_value.get_int ());
             }
 
             // remove row from model
@@ -245,14 +245,14 @@ namespace elementarySystemMonitor {
                         // is a subprocess of something in the rows
                         add_process_to_row (process_rows[process.ppid].iter, pid);
                     } else {
-                        add_process_to_row (background_applications, pid);
+                        add_process_to_row (background_apps_iter, pid);
                         debug ("Is a subprocess of something but has no parent");
                     }
                     // if parent not in yet, then child will be added in after
                 } else {
                     // isn't a subprocess of something, put it into background processes
                     // it can be moved afterwards to an application
-                    add_process_to_row (background_applications, pid);
+                    add_process_to_row (background_apps_iter, pid);
                 }
 
                 return true;
@@ -325,7 +325,7 @@ namespace elementarySystemMonitor {
                 while (model.iter_children (out child_iter, iter)) {
                     Value pid_value;
                     model.get_value (child_iter, ProcessColumns.PID, out pid_value);
-                    add_process_to_row (background_applications, pid_value.get_int ());
+                    add_process_to_row (background_apps_iter, pid_value.get_int ());
                 }
 
                 // remove row from model
