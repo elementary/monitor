@@ -19,6 +19,8 @@ namespace elementarySystemMonitor {
         private Gtk.TreeViewColumn memory_column;
         private Gtk.TreeViewColumn pid_column;
 
+        const string NO_DATA = "\u2014";
+
         /**
          * Constructs a new ProcessView
          */
@@ -68,6 +70,7 @@ namespace elementarySystemMonitor {
             var pid_cell = new Gtk.CellRendererText ();
             pid_cell.xalign = 0.5f;
             pid_column = new Gtk.TreeViewColumn.with_attributes (_("PID"), pid_cell);
+            pid_column.set_cell_data_func (pid_cell, pid_cell_layout);
             pid_column.expand = false;
             pid_column.alignment = 0.5f;
             pid_column.set_sort_column_id (ProcessColumns.PID);
@@ -88,7 +91,7 @@ namespace elementarySystemMonitor {
 
             // format the double into a string
             if (cpu_usage < 0.0)
-                (cell as Gtk.CellRendererText).text = "-";
+                (cell as Gtk.CellRendererText).text = NO_DATA;
             else
                 (cell as Gtk.CellRendererText).text = "%.0f%%".printf (cpu_usage * 100.0);
         }
@@ -115,9 +118,19 @@ namespace elementarySystemMonitor {
 
             // format the double into a string
             if (memory_usage == 0)
-                (cell as Gtk.CellRendererText).text = "-";
+                (cell as Gtk.CellRendererText).text = NO_DATA;
             else
                 (cell as Gtk.CellRendererText).text = "%.1f %s".printf (memory_usage_double, units);
+        }
+
+        private void pid_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
+            Value pid_value;
+            model.get_value (iter, ProcessColumns.PID, out pid_value);
+            int pid = pid_value.get_int ();
+            // format the double into a string
+            if (pid == 0) {
+                (cell as Gtk.CellRendererText).text = NO_DATA;
+            } 
         }
 
         public int get_pid_of_selected () {
