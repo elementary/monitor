@@ -192,8 +192,8 @@ namespace elementarySystemMonitor {
             if (!app_rows.has_key (desktop_file))
                 return;
 
-            var apps = app_rows[desktop_file].iter;
-            update_row (apps);
+            var app_iter = app_rows[desktop_file].iter;
+            update_row (app_iter);
         }
 
         /**
@@ -206,12 +206,11 @@ namespace elementarySystemMonitor {
             if (!app_rows.has_key (app.desktop_file)) {
                 return false;
             }
-            var row = app_rows.get (app.desktop_file);
-            var iter = row.iter;
+            var app_iter = app_rows[app.desktop_file].iter;
 
             // reparent children to background processes; let the ProcessMonitor take care of removing them
             Gtk.TreeIter child_iter;
-            while (model.iter_children (out child_iter, iter)) {
+            while (model.iter_children (out child_iter, app_iter)) {
                 Value pid_value;
                 model.get_value (child_iter, ProcessColumns.PID, out pid_value);
                 debug ("Reparent Process to Background: %d", pid_value.get_int ());
@@ -219,7 +218,7 @@ namespace elementarySystemMonitor {
             }
 
             // remove row from model
-            model.remove (ref iter);
+            model.remove (ref app_iter);
 
             // remove row from row cache
             app_rows.unset (app.desktop_file);
@@ -227,9 +226,7 @@ namespace elementarySystemMonitor {
             return true;
         }
 
-        /**
-         * Adds a process by pid, making sure to parent it to the right process
-         */
+        // Adds a process by pid, making sure to parent it to the right process
         private bool add_process (int pid) {
             debug ("add_process %d", pid);
             if (process_rows.has_key (pid)) {
@@ -264,9 +261,7 @@ namespace elementarySystemMonitor {
             return false;
         }
 
-        /**
-         * Addes a process to an existing row; reparenting it and it's children it it already exists.
-         */
+        // Addes a process to an existing row; reparenting it and it's children it it already exists.
         private bool add_process_to_row (Gtk.TreeIter row, int pid) {
             var process = process_monitor.get_process (pid);
             debug ("add_process_to_row %d", pid);
@@ -317,9 +312,7 @@ namespace elementarySystemMonitor {
             return false;
         }
 
-        /**
-         * Removes a process from the model by pid
-         */
+        // Removes a process from the model by pid
         private void remove_process (int pid) {
             debug ("remove process %d".printf(pid));
             // if process rows has pid
@@ -345,12 +338,12 @@ namespace elementarySystemMonitor {
 
         // Updates a process by pid
         private void update_process (int pid) {
-            Gtk.TreeIter row;
             var process = process_monitor.get_process (pid);
 
             if (process_rows.has_key (pid) && process != null) {
-                row = process_rows[pid].iter;
-                model.set (row, ProcessColumns.CPU, process.cpu_usage,
+                Gtk.TreeIter process_iter = process_rows[pid].iter;
+                model.set (process_iter, 
+                                ProcessColumns.CPU, process.cpu_usage,
                                 ProcessColumns.MEMORY, process.mem_usage,
                                  -1);
             }
