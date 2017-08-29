@@ -3,7 +3,7 @@ Manage processes and monitor system resources.
 
 ![Monitor Screenshot](https://github.com/stsdc/monitor/raw/master/data/com.github.stsdc.monitor.screenshot.png)
 
-## Building, Testing, and Installation
+## Building and Installation
 
 You'll need the following dependencies to build:
 * cmake
