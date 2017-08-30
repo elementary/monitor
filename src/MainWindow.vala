@@ -9,11 +9,14 @@ namespace elementarySystemMonitor {
         // Settings
         private Settings saved_state;
 
+        // Shortcuts LOL
+        private Shortcuts shortcuts;
+
         // Widgets
         private Gtk.HeaderBar header_bar;
         private Search search;
         private Gtk.Button kill_process_button;
-        private Gtk.Button process_info_button;
+        //  private Gtk.Button process_info_button;
         private Gtk.ScrolledWindow process_view_window;
         private ProcessView process_view;
 
@@ -23,21 +26,6 @@ namespace elementarySystemMonitor {
 
         public Gtk.TreeModelFilter filter;
 
-        // taken from Torrential
-        private SimpleActionGroup actions = new SimpleActionGroup ();
-        private const string ACTION_GROUP_PREFIX_NAME = "mon";
-        private const string ACTION_GROUP_PREFIX = ACTION_GROUP_PREFIX_NAME + ".";
-        private const string ACTION_SEARCH = "search";
-
-        private const ActionEntry[] action_entries = {
-            {ACTION_SEARCH,                on_search          }
-        };
-
-        public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
-
-        static construct {
-            action_accelerators.set (ACTION_SEARCH, "<Ctrl>f");
-        }
 
         // Constructs a main window
         public MainWindow (elementarySystemMonitorApp app) {
@@ -56,11 +44,10 @@ namespace elementarySystemMonitor {
             this.window_position = Gtk.WindowPosition.CENTER;
             set_icon_name (app.app_icon);
 
-            actions.add_action_entries (action_entries, this);
-            insert_action_group (ACTION_GROUP_PREFIX_NAME, actions);
-            foreach (var action in action_accelerators.get_keys ()) {
-                app.set_accels_for_action (ACTION_GROUP_PREFIX + action, action_accelerators[action].to_array ());
-            }
+            shortcuts = new Shortcuts (this, app);
+            shortcuts.search_signal.connect (() => {
+                search.activate_entry ();
+            });
 
             // setup header bar
             header_bar = new Gtk.HeaderBar ();
@@ -111,6 +98,7 @@ namespace elementarySystemMonitor {
 
             this.show_all ();
 
+            // Maybe move it from here to Settings
             delete_event.connect (() => {
                     int window_width;
                     int window_height;
@@ -132,10 +120,7 @@ namespace elementarySystemMonitor {
 
             // if the character typed is an alpha-numeric and the search doesn't currently have focus
             if (typed.isalnum () && !search.is_focus ) {
-                // reset filter, grab focus and insert the character
-                search.text = "";
-                search.grab_focus ();
-                search.insert_at_cursor (event.str);
+                search.activate_entry (event.str);
                 return true; // tells the window that the event was handled, don't pass it on
             }
 
@@ -147,11 +132,6 @@ namespace elementarySystemMonitor {
             if (pid > 0) {
                 app_model.kill_process (pid);
             }
-        }
-
-        private void on_search (SimpleAction action) {
-            search.text = "";
-            search.grab_focus ();
         }
     }
 }

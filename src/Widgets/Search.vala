@@ -60,5 +60,12 @@ namespace elementarySystemMonitor {
             return found || child_found;
         }
 
+        // reset filter, grab focus and insert the character
+        public void activate_entry (string search_text = "") {
+            this.text = "";
+            this.grab_focus ();
+            this.insert_at_cursor (search_text);
+        }
+
     }
 }
