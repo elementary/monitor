@@ -44,11 +44,6 @@ namespace elementarySystemMonitor {
             this.window_position = Gtk.WindowPosition.CENTER;
             set_icon_name (app.app_icon);
 
-            shortcuts = new Shortcuts (this, app);
-            shortcuts.search_signal.connect (() => {
-                search.activate_entry ();
-            });
-
             // setup header bar
             header_bar = new Gtk.HeaderBar ();
             header_bar.show_close_button = true;
@@ -98,6 +93,20 @@ namespace elementarySystemMonitor {
 
             this.show_all ();
 
+            shortcuts = new Shortcuts (this, app);
+            shortcuts.search_signal.connect (() => {
+                search.activate_entry ();
+            });
+            shortcuts.expand_row_signal.connect (() => {
+                process_view.expand ();
+            });
+            shortcuts.collapse_row_signal.connect (() => {
+                process_view.collapse ();
+            });
+            shortcuts.end_process_signal.connect (() => {
+                kill_process ();
+            });
+
             // Maybe move it from here to Settings
             delete_event.connect (() => {
                     int window_width;
@@ -127,7 +136,7 @@ namespace elementarySystemMonitor {
             return false; // tells the window that the event wasn't handled, pass it on
         }
 
-        private void kill_process (Gtk.Button button) {
+        private void kill_process () {
             int pid = process_view.get_pid_of_selected ();
             if (pid > 0) {
                 app_model.kill_process (pid);

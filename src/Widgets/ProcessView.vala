@@ -134,15 +134,28 @@ namespace elementarySystemMonitor {
         }
 
         public int get_pid_of_selected () {
+            Gtk.TreeIter iter;
             Gtk.TreeModel model;
             int pid = 0;
-            var selection = this.get_selection ().get_selected_rows(out model);
-            foreach (var sel in selection) {
-                Gtk.TreeIter iter;
-		        model.get_iter (out iter, sel);
-		        model.get (iter, 2, out pid);
-            }
+            var selection = this.get_selection ().get_selected_rows(out model).nth_data(0);
+		    model.get_iter (out iter, selection);
+		    model.get (iter, 2, out pid);
             return pid;
         }
+
+        // How about GtkTreeSelection ?
+
+        public void expand () {
+            Gtk.TreeModel model;
+            var selection = this.get_selection ().get_selected_rows(out model).nth_data(0);
+		    this.expand_row (selection, false);
+        }
+
+        public void collapse () {
+            Gtk.TreeModel model;
+            var selection = this.get_selection ().get_selected_rows(out model).nth_data(0);
+		    this.collapse_row (selection);
+        }
+
     }
 }
