@@ -19,6 +19,7 @@ namespace elementarySystemMonitor {
         //  private Gtk.Button process_info_button;
         private Gtk.ScrolledWindow process_view_window;
         private ProcessView process_view;
+        private Statusbar statusbar;
 
         private ProcessMonitor process_monitor;
         private ApplicationProcessModel app_model;
@@ -44,6 +45,8 @@ namespace elementarySystemMonitor {
             this.window_position = Gtk.WindowPosition.CENTER;
             set_icon_name (app.app_icon);
 
+            get_style_context ().add_class ("rounded");
+
             // setup header bar
             header_bar = new Gtk.HeaderBar ();
             header_bar.show_close_button = true;
@@ -62,7 +65,7 @@ namespace elementarySystemMonitor {
 
             kill_process_button = new Gtk.Button.with_label (_("End process"));
             kill_process_button.clicked.connect (kill_process);
-            //  kill_process_button.tooltip_text = (_("Kill process"));
+            kill_process_button.tooltip_text = (_("Ctrl+E"));
             button_box.add (kill_process_button);
 
             // put the buttons in the headerbar
@@ -86,10 +89,15 @@ namespace elementarySystemMonitor {
             this.key_press_event.connect (key_press_event_handler);
 
             process_view_window.add (process_view);
-            this.add (process_view_window);
 
             sort_model = new Gtk.TreeModelSort.with_model (search.filter_model);
             process_view.set_model (sort_model);
+            statusbar = new Statusbar ();
+
+            var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+            main_box.pack_start (process_view_window, true, true, 0);
+            main_box.pack_start (statusbar, false, true, 0);
+            this.add (main_box);
 
             this.show_all ();
 

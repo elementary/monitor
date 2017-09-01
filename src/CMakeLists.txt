@@ -10,6 +10,7 @@ vala_precompile(VALA_C ${CMAKE_PROJECT_NAME}
     ./MainWindow.vala
     ./Widgets/ProcessView.vala
     ./Widgets/Search.vala
+    ./Widgets/Statusbar.vala
     ./Models/ApplicationProcessModel.vala
     ./Managers/AppManager.vala
     ./Managers/ProcessManager.vala
