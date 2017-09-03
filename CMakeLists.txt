@@ -39,7 +39,7 @@ pkg_check_modules (DEPS REQUIRED ${SYSTEM_MONITOR_DEPS})
 add_definitions (-w)
 
 add_definitions (${DEPS_CFLAGS} ${WNCK_CFLAGS})
-link_libraries (${DEPS_LIBRARIES} ${WNCK_LIBRARIES} gtop-2.0)
+link_libraries (${DEPS_LIBRARIES} ${WNCK_LIBRARIES} gtop-2.0 -lm)
 link_directories (${DEPS_LIBRARY_DIRS})
 
 include_directories(/usr/include/libgtop-2.0)

@@ -2,11 +2,14 @@
 namespace elementarySystemMonitor {
 
     public class Statusbar : Gtk.ActionBar {
+        Resources res;
+        Gtk.Label cpu_usage_label;
+        Gtk.Label memory_usage_label;
         public Statusbar () {
+            res = new Resources ();
 
                 // Memory status
-                Gtk.Label memory_usage = new Gtk.Label ("Memory: 53%");
-                Gtk.Label cpu_usage = new Gtk.Label ("CPU: 53%");
+
                 
                 //ADD BUTTON
                 //  var add_img = new Gtk.Image ();
@@ -15,10 +18,29 @@ namespace elementarySystemMonitor {
                 //  add_button.set_image (add_img);
                 //  add_button.tooltip_text = "Add Folder";
 
+            set_cpu_usage_label ();
+            set_memory_usage_label ();
 
-                this.pack_start (memory_usage);
-                this.pack_start (cpu_usage);
+            Timeout.add_seconds (2, () => {
+                cpu_usage_label.set_text (("%s %d%%").printf (_("CPU:"), res.get_cpu_usage()));
+                memory_usage_label.set_text (("%s %d%%").printf (_("Memory:"), res.get_memory_usage()));
+                string tooltip_text = ("%.1f %s / %.1f %s").printf (res.used_memory, _("GiB"), res.total_memory, _("GiB"));
+                memory_usage_label.tooltip_text = tooltip_text;
+                return true;
+            });
+        }
 
+        private void set_memory_usage_label () {
+            string memory_text = ("%s %d%%").printf (_("Memory:"), res.get_memory_usage());
+            memory_usage_label = new Gtk.Label (memory_text);
+            memory_usage_label.margin_left = 12;
+            pack_start (memory_usage_label);
+        }
+
+        private void set_cpu_usage_label () {
+            string cpu_text = ("%s %d%%").printf (_("CPU:"), (int) (res.get_cpu_usage()));
+            cpu_usage_label = new Gtk.Label (cpu_text);
+            pack_start (cpu_usage_label);
         }
     }
 }
