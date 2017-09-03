@@ -16,7 +16,7 @@ namespace elementarySystemMonitor {
     		GTop.get_mem (out mem);
                     
     		total_memory = (float) (mem.total / 1024 / 1024) / 1000;
-            used_memory = (float) ((mem.user) / 1024/ 1024) / 1000;
+            used_memory = (float) ((mem.total - (mem.free + mem.cached + mem.buffer)) / 1024/ 1024) / 1000;
 
             return (int) (Math.round((used_memory / total_memory) * 100));
         }
