@@ -1,0 +1,14 @@
+language: generic
+
+services:
+ - docker
+
+env:
+ - DEPENDENCY_PACKAGES="cmake cmake-elementary valac libgtk-3-dev libglib2.0-dev libgranite-dev libbamf3-dev libwnck-3-dev libgtop2-dev"
+
+install:
+ - docker pull elementary/docker:loki
+ - docker run -v "$PWD":/tmp/build-dir elementary/docker:loki /bin/sh -c "apt-get update && apt-get -y install $DEPENDENCY_PACKAGES && cd /tmp/build-dir && cmake . && env CTEST_OUTPUT_ON_FAILURE=true make all test"
+ 
+script:
+- echo BUILDS PASSED
