@@ -1,4 +1,4 @@
-# Monitor
+# Monitor [![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.stsdc.monitor)
 Manage processes and monitor system resources.
 
 ![Monitor Screenshot](https://github.com/stsdc/monitor/raw/master/data/com.github.stsdc.monitor.screenshot.png)
