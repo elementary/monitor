@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-04 13:25+0200\n"
+"POT-Creation-Date: 2017-09-04 21:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,20 +17,20 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/MainWindow.vala:53
-msgid "Monitor"
-msgstr ""
-
-#: ../src/MainWindow.vala:66
-msgid "End process"
-msgstr ""
-
-#: ../src/MainWindow.vala:68
-msgid "Ctrl+E"
-msgstr ""
-
 #: ../src/Models/ApplicationProcessModel.vala:68
 msgid "Background Applications"
+msgstr ""
+
+#: ../src/Widgets/Statusbar.vala:25 ../src/Widgets/Statusbar.vala:41
+msgid "CPU:"
+msgstr ""
+
+#: ../src/Widgets/Statusbar.vala:26 ../src/Widgets/Statusbar.vala:34
+msgid "Memory:"
+msgstr ""
+
+#: ../src/Widgets/Statusbar.vala:27 ../src/Widgets/ProcessView.vala:116
+msgid "GiB"
 msgstr ""
 
 #: ../src/Widgets/ProcessView.vala:32
@@ -57,10 +57,6 @@ msgstr ""
 msgid "MiB"
 msgstr ""
 
-#: ../src/Widgets/ProcessView.vala:116 ../src/Widgets/Statusbar.vala:27
-msgid "GiB"
-msgstr ""
-
 #: ../src/Widgets/Search.vala:9
 msgid "Search Process"
 msgstr ""
@@ -69,10 +65,14 @@ msgstr ""
 msgid "Type Process Name or PID"
 msgstr ""
 
-#: ../src/Widgets/Statusbar.vala:25 ../src/Widgets/Statusbar.vala:41
-msgid "CPU:"
+#: ../src/MainWindow.vala:53
+msgid "Monitor"
 msgstr ""
 
-#: ../src/Widgets/Statusbar.vala:26 ../src/Widgets/Statusbar.vala:34
-msgid "Memory:"
+#: ../src/MainWindow.vala:66
+msgid "End process"
+msgstr ""
+
+#: ../src/MainWindow.vala:68
+msgid "Ctrl+E"
 msgstr ""

@@ -1,6 +1,6 @@
 project (com.github.stsdc.monitor)
 
-cmake_minimum_required (VERSION 2.8)
+cmake_minimum_required (VERSION 2.8.9)
 cmake_policy(VERSION 2.8)
 
 include (GNUInstallDirs)
