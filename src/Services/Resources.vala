@@ -11,11 +11,11 @@ namespace elementarySystemMonitor {
         public Resources () { }
 
         public int get_memory_usage () {
-            GTop.Memory mem;
-    		GTop.get_mem (out mem);
+            GTop.Memory memory;
+    		GTop.get_mem (out memory);
                     
-    		total_memory = (float) (mem.total / 1024 / 1024) / 1000;
-            used_memory = (float) (mem.user / 1024 / 1024) / 1000;
+    		total_memory = (float) (memory.total / 1024 / 1024) / 1000;
+            used_memory = (float) (memory.user / 1024 / 1024) / 1000;
 
             return (int) (Math.round((used_memory / total_memory) * 100));
         }
