@@ -1,3 +1,12 @@
+com.github.stsdc.monitor (0.3.0) xenial; urgency=low
+
+  * A few bugs fixed
+  * Added dutch and polish translation
+  * Added shortcuts (CTRL + E to end process, arrows to nawigate in tree)
+  * Added statusbar showing CPU and RAM usage
+
+ -- Stanisław Dac <stanislawdac@gmail.com>  Tue, 05 Sep 2017 12:20:33 +0200
+
 com.github.stsdc.monitor (0.2.10) xenial; urgency=low
 
   * Update screenshot.
