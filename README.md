@@ -5,6 +5,10 @@ Manage processes and monitor system resources.
 
 ![Monitor Screenshot](https://github.com/stsdc/monitor/raw/master/data/com.github.stsdc.monitor.screenshot.png)
 
+## For coffee
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/stsdc)
+
+
 ## Building and Installation
 
 You'll need the following dependencies to build:
