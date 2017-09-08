@@ -68,7 +68,7 @@ msgstr "Įrašykite proceso pavadinimą ar PID"
 
 #: ../src/MainWindow.vala:53
 msgid "Monitor"
-msgstr "Monitorius"
+msgstr "Monitor"
 
 #: ../src/MainWindow.vala:66
 msgid "End process"
