@@ -15,7 +15,7 @@ msgstr ""
 
 #: ../src/Widgets/Statusbar.vala:26 ../src/Widgets/Statusbar.vala:34
 msgid "Memory:"
-msgstr "Pamięć"
+msgstr "Pamięć:"
 
 #: ../src/Widgets/Statusbar.vala:27 ../src/Widgets/ProcessView.vala:116
 msgid "GiB"
