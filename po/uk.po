@@ -7,7 +7,7 @@ msgstr ""
 
 #: ../src/Models/ApplicationProcessModel.vala:68
 msgid "Background Applications"
-msgstr ""
+msgstr "Фонові додатки"
 
 #: ../src/Widgets/Statusbar.vala:25 ../src/Widgets/Statusbar.vala:41
 msgid "CPU:"
