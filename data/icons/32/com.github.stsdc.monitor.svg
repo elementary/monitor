@@ -25,8 +25,8 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1440"
-     inkscape:window-height="837"
+     inkscape:window-width="1920"
+     inkscape:window-height="962"
      id="namedview43"
      showgrid="false"
      showguides="true"
@@ -348,7 +348,7 @@
        id="linearGradient2867-449-88-871-390-598-476-591-434-148-57-177-8-3-3-6-4-8-8-8-5-3">
       <stop
          id="stop3750-1-0-7-6-6-1-3-9-3-6"
-         style="stop-color:#1d1d34;stop-opacity:1"
+         style="stop-color:#0e141f;stop-opacity:1"
          offset="0" />
       <stop
          offset="0.35503367"
@@ -356,7 +356,7 @@
          id="stop4207" />
       <stop
          id="stop3756-1-6-2-6-6-1-96-6-0-7"
-         style="stop-color:#1b3545;stop-opacity:1"
+         style="stop-color:#273445;stop-opacity:1"
          offset="1" />
     </linearGradient>
     <linearGradient
@@ -387,28 +387,6 @@
          style="stop-color:#ffffff;stop-opacity:0.39215687"
          id="stop3130" />
     </linearGradient>
-    <linearGradient
-       gradientTransform="translate(-7.803833e-6,-0.09361045)"
-       gradientUnits="userSpaceOnUse"
-       y2="67.094139"
-       x2="125.06124"
-       y1="67.094139"
-       x1="2.9387488"
-       id="linearGradient8832"
-       xlink:href="#linearGradient8794"
-       inkscape:collect="always" />
-    <linearGradient
-       id="linearGradient8794"
-       inkscape:collect="always">
-      <stop
-         id="stop8796"
-         offset="0"
-         style="stop-color:#2196f3;stop-opacity:0.55769229" />
-      <stop
-         id="stop8798"
-         offset="1"
-         style="stop-color:#c9c3f3;stop-opacity:1" />
-    </linearGradient>
     <filter
        id="filter7132"
        inkscape:label="Blur"
@@ -418,16 +396,6 @@
          result="blur"
          stdDeviation="1 1" />
     </filter>
-    <linearGradient
-       gradientTransform="matrix(0.35180272,0,0,0.35180272,-17.419985,36.974628)"
-       gradientUnits="userSpaceOnUse"
-       y2="66.999771"
-       x2="107.8418"
-       y1="67.118408"
-       x1="12.500007"
-       id="linearGradient8800"
-       xlink:href="#linearGradient8794"
-       inkscape:collect="always" />
   </defs>
   <g
      style="display:inline;enable-background:new"
@@ -497,14 +465,7 @@
          height="36.23568"
          width="36.23568" />
       <path
-         style="display:inline;fill:none;fill-rule:evenodd;stroke:url(#linearGradient8832);stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter7132)"
-         d="M 13.115622,66.922523 C 13.115622,66.922523 15.874432,66.917062 19.770642,66.914519 C 27.624512,66.909393 40.100002,66.916122 43.916502,67.003329 C 49.626322,67.133799 53.654122,47.297546 56.980212,38.135694 C 58.263462,33.891365 63.943062,77.926519 70.786002,95.610019 C 72.960542,100.81087 71.803332,66.860769 82.099702,66.867379 C 90.634184,66.872859 114.88436,66.872856 114.88436,66.872856"
-         id="path7088-6"
-         inkscape:connector-curvature="0"
-         sodipodi:nodetypes="cssccsc"
-         transform="matrix(0.35180272,0,0,0.35180272,-17.382887,36.972701)" />
-      <path
-         style="fill:none;fill-rule:evenodd;stroke:url(#linearGradient8800);stroke-width:1.83039141;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="fill:none;fill-rule:evenodd;stroke:#9bdb4d;stroke-width:1.83039141;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="M -12.84655,60.545411 C -12.84655,60.545411 -3.9376451,60.545411 -1.9289167,60.591312 C 0.0798131,60.637216 1.4968042,53.658763 2.6669321,50.4356 C 2.9455444,49.514096 3.9011782,54.709819 5.0905894,60.554952 C 5.8284515,64.181035 6.6021788,68.273452 7.523845,70.655223 C 8.2888567,72.48489 7.8817445,60.541157 11.504038,60.543483 C 14.506491,60.545411 23.037327,60.545411 23.037327,60.545411"
          id="path7088"
          inkscape:connector-curvature="0"
