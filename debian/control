@@ -1,7 +1,7 @@
 Source: com.github.stsdc.monitor
 Section: system
 Priority: extra
-Maintainer: David Hewitt <davidmhewitt@gmail.com>
+Maintainer: Stanisław Dac <stanislawdac@gmail.com>
 Build-Depends: cmake (>= 2.8),
                cmake-elementary,
                debhelper (>= 9),
