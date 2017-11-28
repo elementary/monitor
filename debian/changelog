@@ -1,3 +1,13 @@
+com.github.stsdc.monitor (0.3.2) xenial; urgency=low
+
+  * Ukrainian translation
+  * French translation
+  * Lithuanian translation
+  * German translation
+  * Spanish translation
+
+ -- Stanisław Dac <stanislawdac@gmail.com>  Tue, 28 Nov 2017 18:17:00 +0100
+
 com.github.stsdc.monitor (0.3.1) xenial; urgency=low
 
   * Added Russian translation
