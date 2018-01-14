@@ -12,7 +12,7 @@ namespace elementarySystemMonitor {
         }
 
         public elementarySystemMonitorApp () {
-            Granite.Services.Logger.initialize ("LOL");
+            Granite.Services.Logger.initialize ("Monitor");
             Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.DEBUG;
         }
 
