@@ -4,8 +4,6 @@ project('com.github.stsdc.monitor', 'vala', 'c', version: '0.3.1')
 gnome = import('gnome')
 i18n = import('i18n')
 
-add_project_arguments(['--vapidir', join_paths(meson.current_source_dir(), 'vapi')], language: 'vala')
-
 conf = configuration_data()
 conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 configure_file(output: 'config.h', configuration: conf)
@@ -14,6 +12,7 @@ config_h_dir = include_directories('.')
 c_args = [
     '-include', 'config.h',
     '-DWNCK_I_KNOW_THIS_IS_UNSTABLE',
+    '-w'
 ]
 
 executable(
@@ -45,7 +44,14 @@ executable(
         meson.get_compiler('c').find_library('m', required : false),
         meson.get_compiler('vala').find_library('posix')
     ],
+    vala_args: [
+        '--vapidir=' + meson.source_root() + '/vapi/',
+    ],
     install: true
 )
+
+# Add in a post install script
+meson.add_install_script('meson/post_install.py')
+
 subdir('data')
 subdir('po')
