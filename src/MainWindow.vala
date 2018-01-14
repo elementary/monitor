@@ -9,7 +9,7 @@ namespace elementarySystemMonitor {
         // Settings
         private Settings saved_state;
 
-        // Shortcuts LOL
+        // Shortcuts 
         private Shortcuts shortcuts;
 
         // Widgets

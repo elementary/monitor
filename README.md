@@ -24,7 +24,6 @@ You'll need the following dependencies to build:
 
     git clone https://github.com/stsdc/monitor
     cd monitor
-    mkdir build && cd build
-    cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-    make
-    sudo make install
+    meson build --prefix=/usr
+    cd build
+    sudo ninja install
