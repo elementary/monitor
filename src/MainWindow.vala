@@ -50,7 +50,7 @@ namespace elementarySystemMonitor {
             // setup header bar
             header_bar = new Gtk.HeaderBar ();
             header_bar.show_close_button = true;
-            header_bar.title = _("Monitor");
+            header_bar.title = _("LOL");
 
             // setup buttons
             var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
