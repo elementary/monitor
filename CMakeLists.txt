@@ -1,6 +1,6 @@
 project (com.github.stsdc.monitor)
 
-cmake_minimum_required (VERSION 2.8)
+cmake_minimum_required (VERSION 2.8.9)
 cmake_policy(VERSION 2.8)
 
 include (GNUInstallDirs)
@@ -12,7 +12,7 @@ set (PKGDATADIR "${DATADIR}/${PROJECT_NAME}")
 set (PREFIX ${CMAKE_INSTALL_PREFIX})
 set (GETTEXT_PACKAGE ${CMAKE_PROJECT_NAME})
 set (RELEASE_NAME "Monitor")
-set (VERSION "0.2.10")
+set (VERSION "0.3.2")
 set (VERSION_INFO "Alpha")
 set (DOLLAR "$")
 
