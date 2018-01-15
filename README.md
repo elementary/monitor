@@ -13,7 +13,6 @@ Manage processes and monitor system resources.
 
 You'll need the following dependencies to build:
 * valac
-* cmake
 * libgtk-3-dev
 * libgranite-dev
 * libbamf3-dev
