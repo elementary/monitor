@@ -4,7 +4,7 @@ services:
  - docker
 
 env:
- - DEPENDENCY_PACKAGES="appstream desktop-file-utils meson libgtk-3-dev libglib2.0-dev libgranite-dev libbamf3-dev libwnck-3-dev libgtop2-dev"
+ - DEPENDENCY_PACKAGES="appstream desktop-file-utils valac meson libgtk-3-dev libglib2.0-dev libgranite-dev libbamf3-dev libwnck-3-dev libgtop2-dev"
 
 install:
  - docker pull elementary/docker:loki
