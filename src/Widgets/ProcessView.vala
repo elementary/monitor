@@ -1,5 +1,5 @@
 
-namespace elementarySystemMonitor {
+namespace Monitor {
 
     /**
      * What columns are expected for a TreeView/TreeModel for Processes

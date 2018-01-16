@@ -1,15 +1,9 @@
-
-
-namespace elementarySystemMonitor {
+namespace Monitor {
 
     public class MainWindow : Gtk.Window {
         // application reference
-        private elementarySystemMonitorApp app;
-
-        // Settings
+        private MonitorApp app;
         private Settings saved_state;
-
-        // Shortcuts 
         private Shortcuts shortcuts;
 
         // Widgets
@@ -29,7 +23,7 @@ namespace elementarySystemMonitor {
 
 
         // Constructs a main window
-        public MainWindow (elementarySystemMonitorApp app) {
+        public MainWindow (MonitorApp app) {
             this.app = app;
             this.set_application (app);
             saved_state = Settings.get_default ();
@@ -102,18 +96,10 @@ namespace elementarySystemMonitor {
             this.show_all ();
 
             shortcuts = new Shortcuts (this, app);
-            shortcuts.search_signal.connect (() => {
-                search.activate_entry ();
-            });
-            shortcuts.expand_row_signal.connect (() => {
-                process_view.expand ();
-            });
-            shortcuts.collapse_row_signal.connect (() => {
-                process_view.collapse ();
-            });
-            shortcuts.end_process_signal.connect (() => {
-                kill_process ();
-            });
+            shortcuts.search_signal.connect (() => { search.activate_entry (); });
+            shortcuts.expand_row_signal.connect (() => { process_view.expand (); });
+            shortcuts.collapse_row_signal.connect (() => { process_view.collapse (); });
+            shortcuts.end_process_signal.connect (() => { kill_process (); });
 
             // Maybe move it from here to Settings
             delete_event.connect (() => {

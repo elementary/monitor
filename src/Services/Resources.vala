@@ -1,5 +1,5 @@
 
-namespace elementarySystemMonitor {
+namespace Monitor {
 
     public class Resources {
         // CPU usage info

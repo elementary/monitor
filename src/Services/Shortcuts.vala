@@ -1,4 +1,4 @@
-namespace elementarySystemMonitor {
+namespace Monitor {
     public class Shortcuts {
 
         public signal void search_signal ();
@@ -32,7 +32,7 @@ namespace elementarySystemMonitor {
             action_accelerators.set (ACTION_END_PROCESS, "<Ctrl>E");
         }
 
-        public Shortcuts(Gtk.Window window, elementarySystemMonitorApp app) {
+        public Shortcuts(Gtk.Window window, MonitorApp app) {
             actions.add_action_entries (action_entries, this);
             window.insert_action_group (ACTION_GROUP_PREFIX_NAME, actions);
             foreach (var action in action_accelerators.get_keys ()) {

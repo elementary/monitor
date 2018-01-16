@@ -1,4 +1,4 @@
-namespace elementarySystemMonitor {
+namespace Monitor {
 
     public class ProcessMonitor {
         public double cpu_load { get; private set; }

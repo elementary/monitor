@@ -17,7 +17,7 @@ c_args = [
 
 executable(
     meson.project_name(),
-    'src/elementarySystemMonitor.vala',
+    'src/Monitor.vala',
     'src/MainWindow.vala',
     'src/Widgets/ProcessView.vala',
     'src/Widgets/Search.vala',

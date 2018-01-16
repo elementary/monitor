@@ -1,6 +1,6 @@
 
 
-namespace elementarySystemMonitor {
+namespace Monitor {
 
     public class Process {
         // The size of each RSS page, in bytes

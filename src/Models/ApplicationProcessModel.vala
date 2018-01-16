@@ -1,4 +1,4 @@
-namespace elementarySystemMonitor {
+namespace Monitor {
 
     // can't use TreeIter in HashMap for some reason, wrap it in a class
     public class ApplicationProcessRow {

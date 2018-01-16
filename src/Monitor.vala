@@ -1,18 +1,18 @@
-namespace elementarySystemMonitor {
+namespace Monitor {
 
-    public class elementarySystemMonitorApp : Granite.Application {
+    public class MonitorApp : Granite.Application {
         private MainWindow window = null;
         public string[] args;
 
         construct {
-            app_years = "2014-2017";
-            app_icon = "com.github.stsdc.monitor";
+            program_name = "Monitor";
             application_id = "com.github.stsdc.monitor";
+            exec_name = "com.github.stsdc.monitor";
             app_launcher = application_id + ".desktop";
         }
 
-        public elementarySystemMonitorApp () {
-            Granite.Services.Logger.initialize ("Monitor");
+        public MonitorApp () {
+            Granite.Services.Logger.initialize (this.program_name);
             Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.DEBUG;
         }
 
@@ -27,8 +27,7 @@ namespace elementarySystemMonitor {
         }
 
         public static int main (string [] args) {
-            var app = new elementarySystemMonitorApp ();
-            app.args = args;
+            var app = new MonitorApp ();
             return app.run (args);
         }
     }

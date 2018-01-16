@@ -1,4 +1,4 @@
-namespace elementarySystemMonitor {
+namespace Monitor {
 
     public class Search :  Gtk.SearchEntry {
         public Gtk.TreeModelFilter filter_model { get; private set; }

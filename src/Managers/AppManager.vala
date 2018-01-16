@@ -1,4 +1,4 @@
-namespace elementarySystemMonitor {
+namespace Monitor {
 
     public struct App {
         public string name;
