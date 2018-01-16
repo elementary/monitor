@@ -15,7 +15,6 @@ namespace Monitor {
         private ProcessView process_view;
         private Statusbar statusbar;
 
-        private ApplicationProcessModel app_model;
         private GenericModel generic_model;
         private Gtk.TreeModelSort sort_model;
 
@@ -72,16 +71,16 @@ namespace Monitor {
 
             // add a process view
             process_view_window = new Gtk.ScrolledWindow (null, null);
-            app_model = new ApplicationProcessModel (new Type[] {typeof (string),
+            generic_model = new GenericModel (new Type[] {typeof (string),
                 typeof (string),
                 typeof (int),
                 typeof (double),
                 typeof (int64)});
             process_view = new ProcessView ();
-            process_view.set_model (app_model.model);
+            process_view.set_model (generic_model.model);
 
             // setup search in header bar
-            search = new Search (process_view, app_model.model);
+            search = new Search (process_view, generic_model.model);
             header_bar.pack_end (search);
             this.key_press_event.connect (key_press_event_handler);
 
@@ -136,7 +135,7 @@ namespace Monitor {
         private void kill_process () {
             int pid = process_view.get_pid_of_selected ();
             if (pid > 0) {
-                app_model.kill_process (pid);
+                // app_model.kill_process (pid);
             }
         }
     }
