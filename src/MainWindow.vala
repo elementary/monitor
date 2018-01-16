@@ -15,8 +15,8 @@ namespace Monitor {
         private ProcessView process_view;
         private Statusbar statusbar;
 
-        private ProcessMonitor process_monitor;
         private ApplicationProcessModel app_model;
+        private GenericModel generic_model;
         private Gtk.TreeModelSort sort_model;
 
         public Gtk.TreeModelFilter filter;
@@ -72,8 +72,11 @@ namespace Monitor {
 
             // add a process view
             process_view_window = new Gtk.ScrolledWindow (null, null);
-            process_monitor = new ProcessMonitor ();
-            app_model = new ApplicationProcessModel (process_monitor);
+            app_model = new ApplicationProcessModel (new Type[] {typeof (string),
+                typeof (string),
+                typeof (int),
+                typeof (double),
+                typeof (int64)});
             process_view = new ProcessView ();
             process_view.set_model (app_model.model);
 

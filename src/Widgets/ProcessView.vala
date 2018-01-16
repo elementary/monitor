@@ -130,7 +130,7 @@ namespace Monitor {
             // format the double into a string
             if (pid == 0) {
                 (cell as Gtk.CellRendererText).text = NO_DATA;
-            } 
+            }
         }
 
         public int get_pid_of_selected () {

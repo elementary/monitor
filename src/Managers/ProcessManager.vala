@@ -1,6 +1,6 @@
 namespace Monitor {
 
-    public class ProcessMonitor {
+    public class ProcessManager {
         public double cpu_load { get; private set; }
         public double[] cpu_loads { get; private set; }
 
@@ -16,14 +16,22 @@ namespace Monitor {
         public signal void process_removed (int pid);
         public signal void updated ();
 
-        // Construct a new ProcessMonitor
-        public ProcessMonitor () {
+        static ProcessManager? process_manager = null;
+
+        // Construct a new ProcessManager
+        public ProcessManager () {
             process_list = new Gee.HashMap<int, Process> ();
             kernel_process_blacklist = new Gee.HashSet<int> ();
             update_processes ();
 
             Timeout.add (2000, handle_timeout);
         }
+
+        public static ProcessManager get_default ()	{
+			if (process_manager == null)
+				process_manager = new ProcessManager ();
+			return process_manager;
+		}
 
         /**
          * Gets a process by its pid, making sure that it's updated.

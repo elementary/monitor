@@ -15,7 +15,7 @@ namespace Monitor {
      */
     public class ApplicationProcessModel : Object {
         private AppManager app_manager;
-        private ProcessMonitor process_monitor;
+        private ProcessManager process_manager;
         private Gee.Map<string, ApplicationProcessRow> app_rows;
         private Gee.Map<int, ApplicationProcessRow> process_rows;
         private Gtk.TreeIter background_apps_iter;
@@ -26,20 +26,12 @@ namespace Monitor {
         public Gtk.TreeStore model { get; private set; }
 
         /**
-         * Constuct an ApplicationProcessModel given a ProcessMonitor
+         * Constuct an ApplicationProcessModel given a ProcessManager
          */
-        public ApplicationProcessModel (ProcessMonitor _monitor) {
-            process_monitor = _monitor;
+        public ApplicationProcessModel (Type[] types) {
+            model = new Gtk.TreeStore.newv (types);
 
-            model = new Gtk.TreeStore (
-                ProcessColumns.NUM_COLUMNS,
-                typeof (string),
-                typeof (string),
-                typeof (int),
-                typeof (double),
-                typeof (int64)
-                );
-
+            process_manager = ProcessManager.get_default ();
             set_background_apps ();
 
             // The Great App Manager
@@ -52,11 +44,12 @@ namespace Monitor {
 
 
             // handle processes being added and removed
-            process_monitor.process_added.connect (handle_process_added);
-            process_monitor.process_removed.connect (handle_process_removed);
-            process_monitor.updated.connect (handle_monitor_update);
+            process_manager.process_added.connect (handle_process_added);
+            process_manager.process_removed.connect (handle_process_removed);
+            process_manager.updated.connect (handle_monitor_update);
 
             // run when application is done loading to populate list
+            // move to MainWindow ???
             Idle.add (() => { add_running_applications (); return false; } );
             Idle.add (() => { add_running_processes (); return false; } );
 
@@ -81,7 +74,7 @@ namespace Monitor {
                                                 -1);
         }
 
-        // Handles a updated signal from ProcessMonitor by refreshing all of the process rows in the list
+        // Handles a updated signal from ProcessManager by refreshing all of the process rows in the list
         private void handle_monitor_update () {
             foreach (var pid in process_rows.keys) {
                 update_process (pid);
@@ -93,13 +86,13 @@ namespace Monitor {
             update_app_row (background_apps_iter);
         }
 
-        // Handles a process-added signal from ProcessMonitor by adding the process to our list
+        // Handles a process-added signal from ProcessManager by adding the process to our list
         private void handle_process_added (int pid, Process process) {
             debug ("Handle: Process Added %d ".printf(pid));
             add_process (pid);
         }
 
-        // Handles a process-removed signal from ProcessMonitor by removing the process from our list
+        // Handles a process-removed signal from ProcessManager by removing the process from our list
         private void handle_process_removed (int pid) {
             debug ("Handle: Process Removed %d".printf(pid));
             remove_process (pid);
@@ -136,7 +129,7 @@ namespace Monitor {
          */
         private void add_running_processes () {
             debug ("add_running_processes");
-            var running_processes = process_monitor.get_process_list ();
+            var running_processes = process_manager.get_process_list ();
             foreach (var pid in running_processes.keys) {
                 add_process (pid);
             }
@@ -208,7 +201,7 @@ namespace Monitor {
             }
             var app_iter = app_rows[app.desktop_file].iter;
 
-            // reparent children to background processes; let the ProcessMonitor take care of removing them
+            // reparent children to background processes; let the ProcessManager take care of removing them
             Gtk.TreeIter child_iter;
             while (model.iter_children (out child_iter, app_iter)) {
                 Value pid_value;
@@ -235,7 +228,7 @@ namespace Monitor {
                 return false;
             }
 
-            var process = process_monitor.get_process (pid);
+            var process = process_manager.get_process (pid);
 
             if (process != null && process.pid != 1) {
                 debug ("Parent PID: %d", process.ppid);
@@ -263,7 +256,7 @@ namespace Monitor {
 
         // Addes a process to an existing row; reparenting it and it's children it it already exists.
         private bool add_process_to_row (Gtk.TreeIter row, int pid) {
-            var process = process_monitor.get_process (pid);
+            var process = process_manager.get_process (pid);
             debug ("add_process_to_row %d", pid);
 
             if (process != null) {
@@ -289,7 +282,7 @@ namespace Monitor {
                 process_rows.set (pid, process_row);
 
                 // add all subprocesses to this row, recursively
-                var sub_processes = process_monitor.get_sub_processes (pid);
+                var sub_processes = process_manager.get_sub_processes (pid);
                 foreach (var sub_pid in sub_processes) {
                     // only add subprocesses that either arn't in yet or are parented to the old location
                     // i.e. skip if subprocess is already in but isn't an ancestor of this process row
@@ -320,7 +313,7 @@ namespace Monitor {
                 var row = process_rows.get (pid);
                 var iter = row.iter;
 
-                // reparent children to background processes; let the ProcessMonitor take care of removing them
+                // reparent children to background processes; let the ProcessManager take care of removing them
                 Gtk.TreeIter child_iter;
                 while (model.iter_children (out child_iter, iter)) {
                     Value pid_value;
@@ -338,11 +331,11 @@ namespace Monitor {
 
         // Updates a process by pid
         private void update_process (int pid) {
-            var process = process_monitor.get_process (pid);
+            var process = process_manager.get_process (pid);
 
             if (process_rows.has_key (pid) && process != null) {
                 Gtk.TreeIter process_iter = process_rows[pid].iter;
-                model.set (process_iter, 
+                model.set (process_iter,
                                 ProcessColumns.CPU, process.cpu_usage,
                                 ProcessColumns.MEMORY, process.mem_usage,
                                  -1);
@@ -350,7 +343,7 @@ namespace Monitor {
         }
 
         public void kill_process (int pid) {
-            var process = process_monitor.get_process (pid);
+            var process = process_manager.get_process (pid);
             process.kill ();
             info ("Kill:%d",process.pid);
         }
