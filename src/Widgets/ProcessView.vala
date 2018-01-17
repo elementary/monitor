@@ -7,10 +7,9 @@ namespace Monitor {
     public enum ProcessColumns {
         ICON,
         NAME,
-        PID,
         CPU,
         MEMORY,
-        NUM_COLUMNS
+        PID,
     }
 
     public class ProcessView : Gtk.TreeView {

@@ -77,7 +77,7 @@ namespace Monitor {
             }
 
             try {
-                // read the single line from the file 
+                // read the single line from the file
                 var dis = new DataInputStream (stat_file.read ());
                 string? stat_contents = dis.read_line ();
 

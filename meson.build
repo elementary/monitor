@@ -23,6 +23,7 @@ executable(
     'src/Widgets/Search.vala',
     'src/Widgets/Statusbar.vala',
     'src/Models/GenericModel.vala',
+    'src/Models/ModelUtils.vala',
     'src/Managers/AppManager.vala',
     'src/Managers/ProcessManager.vala',
     'src/Managers/Process.vala',

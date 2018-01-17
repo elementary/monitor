@@ -12,7 +12,7 @@ namespace Monitor {
         private Gee.HashMap<int, Process> process_list;
         private Gee.HashSet<int> kernel_process_blacklist;
 
-        public signal void process_added (int pid, Process process);
+        public signal void process_added (Process process);
         public signal void process_removed (int pid);
         public signal void updated ();
 
@@ -159,9 +159,9 @@ namespace Monitor {
 
                     // call the signal, lazily if needed
                     if (lazy_signal)
-                        Idle.add (() => { process_added (pid, process); return false; });
+                        Idle.add (() => { process_added (process); return false; });
                     else
-                        process_added (pid, process);
+                        process_added (process);
 
                     return process;
                 } else {

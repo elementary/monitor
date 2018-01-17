@@ -9,6 +9,7 @@ namespace Monitor {
             }
     }
     public class GenericModel : Gtk.TreeStore {
+        ModelUtils utils;
         private AppManager app_manager;
         private ProcessManager process_manager;
         private Gee.Map<string, ApplicationProcessRow> app_rows;
@@ -23,15 +24,17 @@ namespace Monitor {
             types = new Type[] {
                 typeof (string),
                 typeof (string),
-                typeof (int),
                 typeof (double),
-                typeof (int64)
+                typeof (int64),
+                typeof (int),
             };
             set_column_types(types);
 
+            utils = new ModelUtils(this);
+
             process_manager = ProcessManager.get_default ();
-            process_manager.process_added.connect ((pid) => { add_process (pid); });
-            process_manager.process_removed.connect ((pid) => { remove_process (pid); });
+            process_manager.process_added.connect ((process) => add_process (process));
+            process_manager.process_removed.connect ((pid) => remove_process (pid));
             process_manager.updated.connect (update_model);
 
             app_manager = AppManager.get_default ();
@@ -58,13 +61,13 @@ namespace Monitor {
         private void add_running_processes () {
             debug ("add_running_processes");
             var running_processes = process_manager.get_process_list ();
-            foreach (var pid in running_processes.keys) {
-                add_process (pid);
+            foreach (var process in running_processes.values) {
+                add_process (process);
             }
         }
 
         private void update_model () {
-            foreach (var pid in process_rows.keys) {
+            foreach (int pid in process_rows.keys) {
                 update_process (pid);
             }
 
@@ -79,10 +82,7 @@ namespace Monitor {
 
             if (process_rows.has_key (pid) && process != null) {
                 Gtk.TreeIter process_iter = process_rows[pid].iter;
-                set (process_iter,
-                                ProcessColumns.CPU, process.cpu_usage,
-                                ProcessColumns.MEMORY, process.mem_usage,
-                                 -1);
+                utils.set_dynamic_columns (process_iter, process.cpu_usage, process.mem_usage);
             }
         }
 
@@ -130,23 +130,17 @@ namespace Monitor {
             // add the application to the model
             Gtk.TreeIter iter;
             append (out iter, null);
-            set (iter,
-                ProcessColumns.NAME, app.name,
-                ProcessColumns.ICON, app.icon,
-                -1);
+            utils.set_static_columns (iter, app.icon, app.name, app.pids[0]);
 
             // add the application to our cache of app_rows
             var row = new ApplicationProcessRow (iter);
             app_rows.set (app.desktop_file, row);
 
             // go through the windows of the application and add all of the pids
-            for (var i = 0; i < app.pids.length; i++) {
-                debug ("Add App: %s %d", app.name, app.pids[i]);
-                add_process_to_row (iter, app.pids[i]);
-                // adds pid to application
-                set (iter, ProcessColumns.PID, app.pids[i]);
+            foreach (var pid in app.pids) {
+                debug ("Add App: %s %d", app.name, pid);
+                add_process_to_row (iter, pid);
             }
-
             update_app (app.desktop_file);
         }
 
@@ -201,15 +195,15 @@ namespace Monitor {
             }
         }
 
-        private bool add_process (int pid) {
-            debug ("add_process %d to model", pid);
-            if (process_rows.has_key (pid)) {
+        private bool add_process (Process process) {
+            debug ("add_process %d to model", process.pid);
+            if (process_rows.has_key (process.pid)) {
                 // process already in process rows, no need to add
-                debug ("Skipping Add Process %d", pid);
+                debug ("Skipping Add Process %d", process.pid);
                 return false;
             }
 
-            var process = process_manager.get_process (pid);
+            // var process = process_manager.get_process (pid);
 
             if (process != null && process.pid != 1) {
                 debug ("Parent PID: %d", process.ppid);
@@ -217,16 +211,16 @@ namespace Monitor {
                     // is a sub process of something
                     if (process_rows.has_key (process.ppid)) {
                         // is a subprocess of something in the rows
-                        add_process_to_row (process_rows[process.ppid].iter, pid);
+                        add_process_to_row (process_rows[process.ppid].iter, process.pid);
                     } else {
-                        add_process_to_row (background_apps_iter, pid);
+                        add_process_to_row (background_apps_iter, process.pid);
                         debug ("Is a subprocess of something but has no parent");
                     }
                     // if parent not in yet, then child will be added in after
                 } else {
                     // isn't a subprocess of anything, put it into background processes
                     // it can be moved afterwards to an application
-                    add_process_to_row (background_apps_iter, pid);
+                    add_process_to_row (background_apps_iter, process.pid);
                 }
 
                 return true;
@@ -252,12 +246,10 @@ namespace Monitor {
                 // add the process to the model
                 Gtk.TreeIter iter;
                 append (out iter, row);
-                set (iter, ProcessColumns.NAME, process.command,
-                                 ProcessColumns.ICON, "application-x-executable",
-                                 ProcessColumns.PID, process.pid,
-                                 ProcessColumns.CPU, process.cpu_usage,
-                                 ProcessColumns.MEMORY, process.mem_usage,
-                                 -1);
+
+                utils.set_static_columns (iter, "application-x-executable", process.command, process.pid);
+
+                utils.set_dynamic_columns (iter, process.cpu_usage, process.mem_usage);
 
                 // add the process to our cache of process_rows
                 var process_row = new ApplicationProcessRow (iter);
