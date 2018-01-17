@@ -19,7 +19,7 @@ executable(
     meson.project_name(),
     'src/Monitor.vala',
     'src/MainWindow.vala',
-    'src/Widgets/ProcessView.vala',
+    'src/Widgets/OverallView.vala',
     'src/Widgets/Search.vala',
     'src/Widgets/Statusbar.vala',
     'src/Models/GenericModel.vala',

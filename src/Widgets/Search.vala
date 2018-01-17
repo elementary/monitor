@@ -2,9 +2,9 @@ namespace Monitor {
 
     public class Search :  Gtk.SearchEntry {
         public Gtk.TreeModelFilter filter_model { get; private set; }
-        private ProcessView process_view;
+        private OverallView process_view;
 
-        public Search (ProcessView _process_view, Gtk.TreeModel model) {
+        public Search (OverallView _process_view, Gtk.TreeModel model) {
             process_view = _process_view;
             this.placeholder_text = _("Search Process");
             this.set_tooltip_text (_("Type Process Name or PID"));

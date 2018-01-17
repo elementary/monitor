@@ -30,31 +30,31 @@ msgstr "CPU:"
 msgid "Memory:"
 msgstr "Atmintis:"
 
-#: ../src/Widgets/Statusbar.vala:27 ../src/Widgets/ProcessView.vala:116
+#: ../src/Widgets/Statusbar.vala:27 ../src/Widgets/OverallView.vala:116
 msgid "GiB"
 msgstr "GiB"
 
-#: ../src/Widgets/ProcessView.vala:32
+#: ../src/Widgets/OverallView.vala:32
 msgid "Process Name"
 msgstr "Proceso pavadinimas"
 
-#: ../src/Widgets/ProcessView.vala:51
+#: ../src/Widgets/OverallView.vala:51
 msgid "CPU"
 msgstr "CPU"
 
-#: ../src/Widgets/ProcessView.vala:62
+#: ../src/Widgets/OverallView.vala:62
 msgid "Memory"
 msgstr "Atmintis"
 
-#: ../src/Widgets/ProcessView.vala:72
+#: ../src/Widgets/OverallView.vala:72
 msgid "PID"
 msgstr "PID"
 
-#: ../src/Widgets/ProcessView.vala:105
+#: ../src/Widgets/OverallView.vala:105
 msgid "KiB"
 msgstr "KiB"
 
-#: ../src/Widgets/ProcessView.vala:110
+#: ../src/Widgets/OverallView.vala:110
 msgid "MiB"
 msgstr "MiB"
 

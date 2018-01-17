@@ -12,7 +12,7 @@ namespace Monitor {
         private Gtk.Button kill_process_button;
         //  private Gtk.Button process_info_button;
         private Gtk.ScrolledWindow process_view_window;
-        private ProcessView process_view;
+        private OverallView process_view;
         private Statusbar statusbar;
 
         private GenericModel generic_model;
@@ -36,7 +36,6 @@ namespace Monitor {
                     break;
             }
             this.window_position = Gtk.WindowPosition.CENTER;
-            set_icon_name (app.app_icon);
 
             get_style_context ().add_class ("rounded");
 
@@ -72,7 +71,7 @@ namespace Monitor {
             // add a process view
             process_view_window = new Gtk.ScrolledWindow (null, null);
             generic_model = new GenericModel ();
-            process_view = new ProcessView ();
+            process_view = new OverallView ();
             process_view.set_model (generic_model);
 
             // setup search in header bar
@@ -95,7 +94,7 @@ namespace Monitor {
 
             shortcuts = new Shortcuts (this, app);
             shortcuts.search_signal.connect (() => { search.activate_entry (); });
-            shortcuts.expand_row_signal.connect (() => { process_view.expand (); });
+            shortcuts.expand_row_signal.connect (() => { process_view.expanded (); });
             shortcuts.collapse_row_signal.connect (() => { process_view.collapse (); });
             shortcuts.end_process_signal.connect (() => { kill_process (); });
 

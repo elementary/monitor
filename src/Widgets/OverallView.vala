@@ -12,7 +12,7 @@ namespace Monitor {
         PID,
     }
 
-    public class ProcessView : Gtk.TreeView {
+    public class OverallView : Gtk.TreeView {
         private Gtk.TreeViewColumn name_column;
         private Gtk.TreeViewColumn cpu_column;
         private Gtk.TreeViewColumn memory_column;
@@ -21,9 +21,9 @@ namespace Monitor {
         const string NO_DATA = "\u2014";
 
         /**
-         * Constructs a new ProcessView
+         * Constructs a new OverallView
          */
-        public ProcessView () {
+        public OverallView () {
             rules_hint = true;
 
             // setup name column
@@ -144,7 +144,7 @@ namespace Monitor {
 
         // How about GtkTreeSelection ?
 
-        public void expand () {
+        public void expanded () {
             Gtk.TreeModel model;
             var selection = this.get_selection ().get_selected_rows(out model).nth_data(0);
 		    this.expand_row (selection, false);
