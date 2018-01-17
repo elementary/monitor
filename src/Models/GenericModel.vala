@@ -1,15 +1,7 @@
 namespace Monitor {
 
-    // can't use TreeIter in HashMap for some reason, wrap it in a class
-        public class ApplicationProcessRow {
-            public Gtk.TreeIter iter;
-
-            public ApplicationProcessRow (Gtk.TreeIter iter) {
-                this.iter = iter;
-            }
-    }
     public class GenericModel : Gtk.TreeStore {
-        ModelUtils utils;
+        ModelHelper helper;
         private AppManager app_manager;
         private ProcessManager process_manager;
         private Gee.Map<string, ApplicationProcessRow> app_rows;
@@ -30,7 +22,7 @@ namespace Monitor {
             };
             set_column_types(types);
 
-            utils = new ModelUtils(this);
+            helper = new ModelHelper(this);
 
             process_manager = ProcessManager.get_default ();
             process_manager.process_added.connect ((process) => add_process (process));
@@ -82,7 +74,7 @@ namespace Monitor {
 
             if (process_rows.has_key (pid) && process != null) {
                 Gtk.TreeIter process_iter = process_rows[pid].iter;
-                utils.set_dynamic_columns (process_iter, process.cpu_usage, process.mem_usage);
+                helper.set_dynamic_columns (process_iter, process.cpu_usage, process.mem_usage);
             }
         }
 
@@ -98,9 +90,7 @@ namespace Monitor {
             int64 total_mem = 0;
             double total_cpu = 0;
             get_children_total (iter, ref total_mem, ref total_cpu);
-            set (iter, ProcessColumns.MEMORY, total_mem,
-                             ProcessColumns.CPU, total_cpu,
-                            -1);
+            helper.set_dynamic_columns (iter, total_cpu, total_mem);
         }
 
         private void get_children_total (Gtk.TreeIter iter, ref int64 memory, ref double cpu) {
@@ -130,7 +120,7 @@ namespace Monitor {
             // add the application to the model
             Gtk.TreeIter iter;
             append (out iter, null);
-            utils.set_static_columns (iter, app.icon, app.name, app.pids[0]);
+            helper.set_static_columns (iter, app.icon, app.name, app.pids[0]);
 
             // add the application to our cache of app_rows
             var row = new ApplicationProcessRow (iter);
@@ -247,9 +237,9 @@ namespace Monitor {
                 Gtk.TreeIter iter;
                 append (out iter, row);
 
-                utils.set_static_columns (iter, "application-x-executable", process.command, process.pid);
+                helper.set_static_columns (iter, "application-x-executable", process.command, process.pid);
 
-                utils.set_dynamic_columns (iter, process.cpu_usage, process.mem_usage);
+                helper.set_dynamic_columns (iter, process.cpu_usage, process.mem_usage);
 
                 // add the process to our cache of process_rows
                 var process_row = new ApplicationProcessRow (iter);
@@ -281,12 +271,7 @@ namespace Monitor {
 
         private void add_background_apps_row () {
             append (out background_apps_iter, null);
-            set (background_apps_iter,
-                ProcessColumns.NAME, _("Background Applications"),
-                ProcessColumns.ICON, "system-run",
-                ProcessColumns.MEMORY, (uint64)0,
-                ProcessColumns.CPU, -4.0,
-                -1);
+            helper.set_static_columns (background_apps_iter, "system-run", _("Background Applications"));
         }
     }
 

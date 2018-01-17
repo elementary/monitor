@@ -1,13 +1,17 @@
 namespace Monitor {
 
-    public class ModelUtils {
+    // can't use TreeIter in HashMap for some reason, wrap it in a class
+    public class ApplicationProcessRow {
+        public Gtk.TreeIter iter;
+        public ApplicationProcessRow (Gtk.TreeIter iter) { this.iter = iter; }
+    }
+
+    public class ModelHelper {
         private Gtk.TreeStore model;
 
-        public ModelUtils (Gtk.TreeStore _model) {
-            model = _model;
-        }
+        public ModelHelper (Gtk.TreeStore model) { this.model = model; }
 
-        public void set_static_columns (Gtk.TreeIter iter, string icon, string name, int pid) {
+        public void set_static_columns (Gtk.TreeIter iter, string icon, string name, int pid=0) {
             model.set (iter,
                 ProcessColumns.NAME, name,
                 ProcessColumns.ICON, icon,
@@ -21,7 +25,5 @@ namespace Monitor {
                 ProcessColumns.MEMORY, mem,
                 -1);
         }
-
-
     }
 }
