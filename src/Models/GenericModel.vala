@@ -8,17 +8,26 @@ namespace Monitor {
                 this.iter = iter;
             }
     }
-    public class GenericModel : Object {
+    public class GenericModel : Gtk.TreeStore {
         private AppManager app_manager;
         private ProcessManager process_manager;
         private Gee.Map<string, ApplicationProcessRow> app_rows;
         private Gee.Map<int, ApplicationProcessRow> process_rows;
         private Gtk.TreeIter background_apps_iter;
         public Gtk.TreeStore model { get; private set; }
-
+        private Type[] types;
         construct {
             app_rows = new Gee.HashMap<string, ApplicationProcessRow> ();
             process_rows = new Gee.HashMap<int, ApplicationProcessRow> ();
+
+            types = new Type[] {
+                typeof (string),
+                typeof (string),
+                typeof (int),
+                typeof (double),
+                typeof (int64)
+            };
+            set_column_types(types);
 
             process_manager = ProcessManager.get_default ();
             process_manager.process_added.connect ((pid) => { add_process (pid); });
@@ -26,19 +35,14 @@ namespace Monitor {
             process_manager.updated.connect (update_model);
 
             app_manager = AppManager.get_default ();
-            app_manager.application_opened.connect ((app) => {
-                add_app (app);
-                // update the application columns
-                update_app (app.desktop_file);
-            });
+            app_manager.application_opened.connect ((app) => { add_app (app); });
             app_manager.application_closed.connect ((app) => { remove_app (app); });
 
             Idle.add (() => { add_running_apps (); return false; } );
             Idle.add (() => { add_running_processes (); return false; } );
         }
 
-        public GenericModel (Type[] types) {
-            model = new Gtk.TreeStore.newv (types);
+        public GenericModel () {
             add_background_apps_row ();
         }
 
@@ -75,7 +79,7 @@ namespace Monitor {
 
             if (process_rows.has_key (pid) && process != null) {
                 Gtk.TreeIter process_iter = process_rows[pid].iter;
-                model.set (process_iter,
+                set (process_iter,
                                 ProcessColumns.CPU, process.cpu_usage,
                                 ProcessColumns.MEMORY, process.mem_usage,
                                  -1);
@@ -94,7 +98,7 @@ namespace Monitor {
             int64 total_mem = 0;
             double total_cpu = 0;
             get_children_total (iter, ref total_mem, ref total_cpu);
-            model.set (iter, ProcessColumns.MEMORY, total_mem,
+            set (iter, ProcessColumns.MEMORY, total_mem,
                              ProcessColumns.CPU, total_cpu,
                             -1);
         }
@@ -104,16 +108,16 @@ namespace Monitor {
             // TODO: this is a naive way to do things
             Gtk.TreeIter child_iter;
 
-            if (model.iter_children (out child_iter, iter)) {
+            if (iter_children (out child_iter, iter)) {
                 do {
                     get_children_total (child_iter, ref memory, ref cpu);
                     Value cpu_value;
                     Value memory_value;
-                    model.get_value (child_iter, ProcessColumns.CPU, out cpu_value);
-                    model.get_value (child_iter, ProcessColumns.MEMORY, out memory_value);
+                    get_value (child_iter, ProcessColumns.CPU, out cpu_value);
+                    get_value (child_iter, ProcessColumns.MEMORY, out memory_value);
                     memory += memory_value.get_int64 ();
                     cpu += cpu_value.get_double ();
-                } while (model.iter_next (ref child_iter));
+                } while (iter_next (ref child_iter));
             }
         }
 
@@ -125,8 +129,8 @@ namespace Monitor {
             }
             // add the application to the model
             Gtk.TreeIter iter;
-            model.append (out iter, null);
-            model.set (iter,
+            append (out iter, null);
+            set (iter,
                 ProcessColumns.NAME, app.name,
                 ProcessColumns.ICON, app.icon,
                 -1);
@@ -140,8 +144,10 @@ namespace Monitor {
                 debug ("Add App: %s %d", app.name, app.pids[i]);
                 add_process_to_row (iter, app.pids[i]);
                 // adds pid to application
-                model.set (iter, ProcessColumns.PID, app.pids[i]);
+                set (iter, ProcessColumns.PID, app.pids[i]);
             }
+
+            update_app (app.desktop_file);
         }
 
         private bool remove_app (App app) {
@@ -155,15 +161,15 @@ namespace Monitor {
 
             // reparent children to background processes; let the ProcessManager take care of removing them
             Gtk.TreeIter child_iter;
-            while (model.iter_children (out child_iter, app_iter)) {
+            while (iter_children (out child_iter, app_iter)) {
                 Value pid_value;
-                model.get_value (child_iter, ProcessColumns.PID, out pid_value);
+                get_value (child_iter, ProcessColumns.PID, out pid_value);
                 debug ("Reparent Process to Background: %d", pid_value.get_int ());
                 add_process_to_row (background_apps_iter, pid_value.get_int ());
             }
 
             // remove row from model
-            model.remove (ref app_iter);
+            remove (ref app_iter);
 
             // remove row from row cache
             app_rows.unset (app.desktop_file);
@@ -174,9 +180,9 @@ namespace Monitor {
         // reparent children to background processes
         private void reparent (Gtk.TreeIter iter) {
             Gtk.TreeIter child_iter;
-            while (model.iter_children (out child_iter, iter)) {
+            while (iter_children (out child_iter, iter)) {
                 Value pid_value;
-                model.get_value (child_iter, ProcessColumns.PID, out pid_value);
+                get_value (child_iter, ProcessColumns.PID, out pid_value);
                 add_process_to_row (background_apps_iter, pid_value.get_int ());
             }
         }
@@ -189,7 +195,7 @@ namespace Monitor {
                 var iter = row.iter;
                 reparent (iter);
                 // remove row from model
-                model.remove (ref iter);
+                remove (ref iter);
                 // remove row from row cache
                 process_rows.unset (pid);
             }
@@ -245,8 +251,8 @@ namespace Monitor {
 
                 // add the process to the model
                 Gtk.TreeIter iter;
-                model.append (out iter, row);
-                model.set (iter, ProcessColumns.NAME, process.command,
+                append (out iter, row);
+                set (iter, ProcessColumns.NAME, process.command,
                                  ProcessColumns.ICON, "application-x-executable",
                                  ProcessColumns.PID, process.pid,
                                  ProcessColumns.CPU, process.cpu_usage,
@@ -263,7 +269,7 @@ namespace Monitor {
                     // only add subprocesses that either arn't in yet or are parented to the old location
                     // i.e. skip if subprocess is already in but isn't an ancestor of this process row
                     if (process_rows.has_key (sub_pid) && (
-                             (old_location != null && !model.is_ancestor (old_location, process_rows[sub_pid].iter))
+                             (old_location != null && !is_ancestor (old_location, process_rows[sub_pid].iter))
                              || old_location == null))
                         continue;
 
@@ -272,7 +278,7 @@ namespace Monitor {
 
                 // remove old row where the process used to be
                 if (old_location != null) {
-                    model.remove (ref old_location);
+                    remove (ref old_location);
                 }
 
                 return true;
@@ -282,8 +288,8 @@ namespace Monitor {
         }
 
         private void add_background_apps_row () {
-            model.append (out background_apps_iter, null);
-            model.set (background_apps_iter,
+            append (out background_apps_iter, null);
+            set (background_apps_iter,
                 ProcessColumns.NAME, _("Background Applications"),
                 ProcessColumns.ICON, "system-run",
                 ProcessColumns.MEMORY, (uint64)0,

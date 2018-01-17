@@ -71,16 +71,12 @@ namespace Monitor {
 
             // add a process view
             process_view_window = new Gtk.ScrolledWindow (null, null);
-            generic_model = new GenericModel (new Type[] {typeof (string),
-                typeof (string),
-                typeof (int),
-                typeof (double),
-                typeof (int64)});
+            generic_model = new GenericModel ();
             process_view = new ProcessView ();
-            process_view.set_model (generic_model.model);
+            process_view.set_model (generic_model);
 
             // setup search in header bar
-            search = new Search (process_view, generic_model.model);
+            search = new Search (process_view, generic_model);
             header_bar.pack_end (search);
             this.key_press_event.connect (key_press_event_handler);
 
