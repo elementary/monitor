@@ -8,11 +8,11 @@ namespace Monitor {
 
         // Widgets
         private Gtk.HeaderBar header_bar;
-        private Search search;
+        public Search search;
         private Gtk.Button kill_process_button;
         //  private Gtk.Button process_info_button;
         private Gtk.ScrolledWindow process_view_window;
-        private OverallView process_view;
+        public OverallView process_view;
         private Statusbar statusbar;
 
         private GenericModel generic_model;
@@ -92,11 +92,8 @@ namespace Monitor {
 
             this.show_all ();
 
-            shortcuts = new Shortcuts (this, app);
-            shortcuts.search_signal.connect (() => { search.activate_entry (); });
-            shortcuts.expand_row_signal.connect (() => { process_view.expanded (); });
-            shortcuts.collapse_row_signal.connect (() => { process_view.collapse (); });
-            shortcuts.end_process_signal.connect (() => { kill_process (); });
+            shortcuts = new Shortcuts (this);
+            key_press_event.connect ( (e) => shortcuts.handle (e));
 
             // Maybe move it from here to Settings
             delete_event.connect (() => {
@@ -127,11 +124,9 @@ namespace Monitor {
             return false; // tells the window that the event wasn't handled, pass it on
         }
 
-        private void kill_process () {
+        public void kill_process () {
             int pid = process_view.get_pid_of_selected ();
-            if (pid > 0) {
-                // app_model.kill_process (pid);
-            }
+            generic_model.kill_process (pid);
         }
     }
 }

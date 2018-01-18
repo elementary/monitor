@@ -273,6 +273,14 @@ namespace Monitor {
             append (out background_apps_iter, null);
             helper.set_static_columns (background_apps_iter, "system-run", _("Background Applications"));
         }
+
+        public void kill_process (int pid) {
+            if (pid > 0) {
+                var process = process_manager.get_process (pid);
+                process.kill ();
+                info ("Kill:%d",process.pid);
+            }
+}
     }
 
 }

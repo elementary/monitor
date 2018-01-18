@@ -77,7 +77,8 @@ namespace Monitor {
             Value icon_name;
             model.get_value (iter, Column.ICON, out icon_name);
             if (regex.match ((string) icon_name)) {
-                Gdk.Pixbuf icon = new Gdk.Pixbuf.from_file_at_size ((string) icon_name, 16, 16);
+                string path = Filename.to_uri (((string) icon_name));
+                Gdk.Pixbuf icon = new Gdk.Pixbuf.from_file_at_size (path, 16, -1);
                 (icon_cell as Gtk.CellRendererPixbuf).pixbuf = icon;
             } else {
                 (icon_cell as Gtk.CellRendererPixbuf).icon_name = (string) icon_name;
@@ -139,7 +140,7 @@ namespace Monitor {
             int pid = 0;
             var selection = this.get_selection ().get_selected_rows(out model).nth_data(0);
 		    model.get_iter (out iter, selection);
-		    model.get (iter, 2, out pid);
+		    model.get (iter, Column.PID, out pid);
             return pid;
         }
 
