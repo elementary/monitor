@@ -6,7 +6,7 @@ namespace Monitor {
         private Gtk.TreeViewColumn cpu_column;
         private Gtk.TreeViewColumn memory_column;
         private Gtk.TreeViewColumn pid_column;
-        private Regex regex;
+        private Regex? regex;
 
         const string NO_DATA = "\u2014";
 
@@ -15,9 +15,7 @@ namespace Monitor {
          */
         public OverallView () {
             rules_hint = true;
-            
-            // var regex = new Regex ("^(.+)/([^/]+)\.(xpm|png)$");
-            regex = new Regex ("""(?i:^.*\.(xpm|png)$)""");
+            regex = /(?i:^.*\.(xpm|png)$)/;
 
             // setup name column
             name_column = new Gtk.TreeViewColumn ();
