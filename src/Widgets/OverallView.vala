@@ -6,6 +6,7 @@ namespace Monitor {
         private Gtk.TreeViewColumn cpu_column;
         private Gtk.TreeViewColumn memory_column;
         private Gtk.TreeViewColumn pid_column;
+        private Regex regex;
 
         const string NO_DATA = "\u2014";
 
@@ -14,6 +15,9 @@ namespace Monitor {
          */
         public OverallView () {
             rules_hint = true;
+            
+            // var regex = new Regex ("^(.+)/([^/]+)\.(xpm|png)$");
+            regex = new Regex ("""(?i:^.*\.(xpm|png)$)""");
 
             // setup name column
             name_column = new Gtk.TreeViewColumn ();
@@ -24,7 +28,8 @@ namespace Monitor {
 
             var icon_cell = new Gtk.CellRendererPixbuf ();
             name_column.pack_start (icon_cell, false);
-            name_column.add_attribute (icon_cell, "icon_name", Column.ICON);
+            // name_column.add_attribute (icon_cell, "icon_name", Column.ICON);
+            name_column.set_cell_data_func (icon_cell, icon_cell_layout);
 
             var name_cell = new Gtk.CellRendererText ();
             name_cell.ellipsize = Pango.EllipsizeMode.END;
@@ -70,7 +75,16 @@ namespace Monitor {
             // resize all of the columns
             columns_autosize ();
         }
-
+        public void icon_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer icon_cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
+            Value icon_name;
+            model.get_value (iter, Column.ICON, out icon_name);
+            if (regex.match ((string) icon_name)) {
+                Gdk.Pixbuf icon = new Gdk.Pixbuf.from_file_at_size ((string) icon_name, 16, 16);
+                (icon_cell as Gtk.CellRendererPixbuf).pixbuf = icon;
+            } else {
+                (icon_cell as Gtk.CellRendererPixbuf).icon_name = (string) icon_name;
+            }
+        }
         public void cpu_usage_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
             // grab the value that was store in the model and convert it down to a usable format
             Value cpu_usage_value;
