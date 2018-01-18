@@ -3,6 +3,7 @@
 <component type="desktop">
   <id>com.github.stsdc.monitor.desktop</id>
   <metadata_license>CC0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
   <name>Monitor</name>
   <summary>Manage processes and monitor system resources</summary>
   <description>
@@ -22,4 +23,14 @@
   <url type="homepage">https://github.com/stsdc/monitor</url>
   <url type="bugtracker">https://github.com/stsdc/monitor/issues</url>
 <url type="help">https://github.com/stsdc/monitor/issues</url>
+
+<releases>
+​    <release version="0.3.2" date="2018-01-29">
+​      <description>
+​         <ul>
+            <li>Fix showing icon for some apps</li>
+        </ul>
+​      </description>
+​    </release>
+​  </releases>
 </component>
