@@ -1,17 +1,6 @@
 
 namespace Monitor {
 
-    /**
-     * What columns are expected for a TreeView/TreeModel for Processes
-     */
-    public enum ProcessColumns {
-        ICON,
-        NAME,
-        CPU,
-        MEMORY,
-        PID,
-    }
-
     public class OverallView : Gtk.TreeView {
         private Gtk.TreeViewColumn name_column;
         private Gtk.TreeViewColumn cpu_column;
@@ -31,16 +20,17 @@ namespace Monitor {
             name_column.title = _("Process Name");
             name_column.expand = true;
             name_column.min_width = 250;
-            name_column.set_sort_column_id (ProcessColumns.NAME);
+            name_column.set_sort_column_id (Column.NAME);
 
             var icon_cell = new Gtk.CellRendererPixbuf ();
             name_column.pack_start (icon_cell, false);
-            name_column.add_attribute (icon_cell, "icon_name", ProcessColumns.ICON);
+            name_column.add_attribute (icon_cell, "icon_name", Column.ICON);
 
             var name_cell = new Gtk.CellRendererText ();
             name_cell.ellipsize = Pango.EllipsizeMode.END;
+            name_cell.set_fixed_height_from_font (1);
             name_column.pack_start (name_cell, false);
-            name_column.add_attribute (name_cell, "text", ProcessColumns.NAME);
+            name_column.add_attribute (name_cell, "text", Column.NAME);
             insert_column (name_column, -1);
 
             // setup cpu column
@@ -51,7 +41,7 @@ namespace Monitor {
             cpu_column.expand = false;
             cpu_column.set_cell_data_func (cpu_cell, cpu_usage_cell_layout);
             cpu_column.alignment = 0.5f;
-            cpu_column.set_sort_column_id (ProcessColumns.CPU);
+            cpu_column.set_sort_column_id (Column.CPU);
             insert_column (cpu_column, -1);
 
             // setup memory column
@@ -62,7 +52,7 @@ namespace Monitor {
             memory_column.expand = false;
             memory_column.set_cell_data_func (memory_cell, memory_usage_cell_layout);
             memory_column.alignment = 0.5f;
-            memory_column.set_sort_column_id (ProcessColumns.MEMORY);
+            memory_column.set_sort_column_id (Column.MEMORY);
             insert_column (memory_column, -1);
 
             // setup PID column
@@ -72,20 +62,19 @@ namespace Monitor {
             pid_column.set_cell_data_func (pid_cell, pid_cell_layout);
             pid_column.expand = false;
             pid_column.alignment = 0.5f;
-            pid_column.set_sort_column_id (ProcessColumns.PID);
+            pid_column.set_sort_column_id (Column.PID);
             pid_column.pack_start (pid_cell, false);
-            pid_column.add_attribute (pid_cell, "text", ProcessColumns.PID);
+            pid_column.add_attribute (pid_cell, "text", Column.PID);
             insert_column (pid_column, -1);
 
             // resize all of the columns
             columns_autosize ();
         }
 
-
         public void cpu_usage_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
             // grab the value that was store in the model and convert it down to a usable format
             Value cpu_usage_value;
-            model.get_value (iter, ProcessColumns.CPU, out cpu_usage_value);
+            model.get_value (iter, Column.CPU, out cpu_usage_value);
             double cpu_usage = cpu_usage_value.get_double ();
 
             // format the double into a string
@@ -98,7 +87,7 @@ namespace Monitor {
         public void memory_usage_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
             // grab the value that was store in the model and convert it down to a usable format
             Value memory_usage_value;
-            model.get_value (iter, ProcessColumns.MEMORY, out memory_usage_value);
+            model.get_value (iter, Column.MEMORY, out memory_usage_value);
             int64 memory_usage = memory_usage_value.get_int64 ();
             double memory_usage_double = (double) memory_usage;
             string units = _("KiB");
@@ -124,7 +113,7 @@ namespace Monitor {
 
         private void pid_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
             Value pid_value;
-            model.get_value (iter, ProcessColumns.PID, out pid_value);
+            model.get_value (iter, Column.PID, out pid_value);
             int pid = pid_value.get_int ();
             // format the double into a string
             if (pid == 0) {

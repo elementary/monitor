@@ -103,8 +103,8 @@ namespace Monitor {
                     get_children_total (child_iter, ref memory, ref cpu);
                     Value cpu_value;
                     Value memory_value;
-                    get_value (child_iter, ProcessColumns.CPU, out cpu_value);
-                    get_value (child_iter, ProcessColumns.MEMORY, out memory_value);
+                    get_value (child_iter, Column.CPU, out cpu_value);
+                    get_value (child_iter, Column.MEMORY, out memory_value);
                     memory += memory_value.get_int64 ();
                     cpu += cpu_value.get_double ();
                 } while (iter_next (ref child_iter));
@@ -147,7 +147,7 @@ namespace Monitor {
             Gtk.TreeIter child_iter;
             while (iter_children (out child_iter, app_iter)) {
                 Value pid_value;
-                get_value (child_iter, ProcessColumns.PID, out pid_value);
+                get_value (child_iter, Column.PID, out pid_value);
                 debug ("Reparent Process to Background: %d", pid_value.get_int ());
                 add_process_to_row (background_apps_iter, pid_value.get_int ());
             }
@@ -166,7 +166,7 @@ namespace Monitor {
             Gtk.TreeIter child_iter;
             while (iter_children (out child_iter, iter)) {
                 Value pid_value;
-                get_value (child_iter, ProcessColumns.PID, out pid_value);
+                get_value (child_iter, Column.PID, out pid_value);
                 add_process_to_row (background_apps_iter, pid_value.get_int ());
             }
         }

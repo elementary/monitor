@@ -33,8 +33,8 @@ namespace Monitor {
                 return true;
             }
 
-            model.get( iter, ProcessColumns.NAME, out name_haystack, -1 );
-            model.get( iter, ProcessColumns.PID, out pid_haystack, -1 );
+            model.get( iter, Column.NAME, out name_haystack, -1 );
+            model.get( iter, Column.PID, out pid_haystack, -1 );
             
             // sometimes name_haystack is null
             if (name_haystack != null) {

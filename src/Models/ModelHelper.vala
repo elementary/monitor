@@ -1,5 +1,13 @@
 namespace Monitor {
 
+    public enum Column {
+        ICON,
+        NAME,
+        CPU,
+        MEMORY,
+        PID,
+    }
+
     // can't use TreeIter in HashMap for some reason, wrap it in a class
     public class ApplicationProcessRow {
         public Gtk.TreeIter iter;
@@ -13,16 +21,16 @@ namespace Monitor {
 
         public void set_static_columns (Gtk.TreeIter iter, string icon, string name, int pid=0) {
             model.set (iter,
-                ProcessColumns.NAME, name,
-                ProcessColumns.ICON, icon,
-                ProcessColumns.PID, pid,
+                Column.NAME, name,
+                Column.ICON, icon,
+                Column.PID, pid,
                 -1);
         }
 
         public void set_dynamic_columns (Gtk.TreeIter iter, double cpu, uint64 mem) {
             model.set (iter,
-                ProcessColumns.CPU, cpu,
-                ProcessColumns.MEMORY, mem,
+                Column.CPU, cpu,
+                Column.MEMORY, mem,
                 -1);
         }
     }
