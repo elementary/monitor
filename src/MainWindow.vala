@@ -7,16 +7,14 @@ namespace Monitor {
         private Shortcuts shortcuts;
 
         // Widgets
-        private Gtk.HeaderBar header_bar;
-        public Search search;
-        private Gtk.Button kill_process_button;
+        public Headerbar headerbar;
         //  private Gtk.Button process_info_button;
         private Gtk.ScrolledWindow process_view_window;
         public OverallView process_view;
         private Statusbar statusbar;
 
-        private GenericModel generic_model;
-        private Gtk.TreeModelSort sort_model;
+        public GenericModel generic_model;
+        public Gtk.TreeModelSort sort_model;
 
         public Gtk.TreeModelFilter filter;
 
@@ -40,12 +38,7 @@ namespace Monitor {
             get_style_context ().add_class ("rounded");
 
             // setup header bar
-            header_bar = new Gtk.HeaderBar ();
-            header_bar.show_close_button = true;
-            header_bar.title = _("Monitor");
 
-            // setup buttons
-            var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
             //  button_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
 
             // setup process info button
@@ -55,16 +48,6 @@ namespace Monitor {
 
             // setup kill process button
 
-            kill_process_button = new Gtk.Button.with_label (_("End process"));
-            kill_process_button.clicked.connect (kill_process);
-            kill_process_button.tooltip_text = (_("Ctrl+E"));
-            button_box.add (kill_process_button);
-
-            // put the buttons in the headerbar
-            header_bar.pack_start (button_box);
-
-            // set the headerbar as the titlebar
-            this.set_titlebar (header_bar);
 
             // TODO: Granite.Widgets.ModeButton to switch between view modes
 
@@ -74,14 +57,11 @@ namespace Monitor {
             process_view = new OverallView ();
             process_view.set_model (generic_model);
 
-            // setup search in header bar
-            search = new Search (process_view, generic_model);
-            header_bar.pack_end (search);
+            headerbar = new Headerbar (this);
+            set_titlebar (headerbar);
 
             process_view_window.add (process_view);
 
-            sort_model = new Gtk.TreeModelSort.with_model (search.filter_model);
-            process_view.set_model (sort_model);
             statusbar = new Statusbar ();
 
             var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
