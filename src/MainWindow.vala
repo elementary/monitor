@@ -54,9 +54,8 @@ namespace Monitor {
             // add a process view
             process_view_window = new Gtk.ScrolledWindow (null, null);
             generic_model = new GenericModel ();
-            process_view = new OverallView ();
-            process_view.set_model (generic_model);
-
+            process_view = new OverallView (generic_model);
+            
             headerbar = new Headerbar (this);
             set_titlebar (headerbar);
 
@@ -88,11 +87,6 @@ namespace Monitor {
                     }
                     return false;
             });
-        }
-
-        public void kill_process () {
-            int pid = process_view.get_pid_of_selected ();
-            generic_model.kill_process (pid);
         }
     }
 }

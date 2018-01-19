@@ -22,7 +22,7 @@ namespace Monitor {
                         handled = true;
                         break;
                     case Gdk.Key.e:
-                        window.kill_process ();
+                        window.process_view.kill_process ();
                         handled = true;
                         break;
                     case Gdk.Key.comma:

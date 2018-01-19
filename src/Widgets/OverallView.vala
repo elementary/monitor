@@ -2,6 +2,7 @@
 namespace Monitor {
 
     public class OverallView : Gtk.TreeView {
+        private GenericModel model;
         private Gtk.TreeViewColumn name_column;
         private Gtk.TreeViewColumn cpu_column;
         private Gtk.TreeViewColumn memory_column;
@@ -10,10 +11,9 @@ namespace Monitor {
 
         const string NO_DATA = "\u2014";
 
-        /**
-         * Constructs a new OverallView
-         */
-        public OverallView () {
+
+        public OverallView (GenericModel model) {
+            this.model = model;
             rules_hint = true;
             regex = /(?i:^.*\.(xpm|png)$)/;
 
@@ -72,6 +72,8 @@ namespace Monitor {
 
             // resize all of the columns
             columns_autosize ();
+
+            set_model (model);
         }
         public void icon_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer icon_cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
             Value icon_name;
@@ -156,6 +158,11 @@ namespace Monitor {
             Gtk.TreeModel model;
             var selection = this.get_selection ().get_selected_rows(out model).nth_data(0);
 		    this.collapse_row (selection);
+        }
+
+        public void kill_process () {
+            int pid = get_pid_of_selected ();
+            model.kill_process (pid);
         }
 
     }
