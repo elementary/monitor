@@ -77,7 +77,6 @@ namespace Monitor {
             // setup search in header bar
             search = new Search (process_view, generic_model);
             header_bar.pack_end (search);
-            this.key_press_event.connect (key_press_event_handler);
 
             process_view_window.add (process_view);
 
@@ -93,7 +92,7 @@ namespace Monitor {
             this.show_all ();
 
             shortcuts = new Shortcuts (this);
-            key_press_event.connect ( (e) => shortcuts.handle (e));
+            key_press_event.connect ((e) => shortcuts.handle (e));
 
             // Maybe move it from here to Settings
             delete_event.connect (() => {
@@ -109,19 +108,6 @@ namespace Monitor {
                     }
                     return false;
             });
-        }
-
-        // Handle key presses on window, so that the filter search entry is updated
-        private bool key_press_event_handler (Gdk.EventKey event) {
-            char typed = event.str[0];
-
-            // if the character typed is an alpha-numeric and the search doesn't currently have focus
-            if (typed.isalnum () && !search.is_focus ) {
-                search.activate_entry (event.str);
-                return true; // tells the window that the event was handled, don't pass it on
-            }
-
-            return false; // tells the window that the event wasn't handled, pass it on
         }
 
         public void kill_process () {

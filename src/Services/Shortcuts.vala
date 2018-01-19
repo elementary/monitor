@@ -8,6 +8,12 @@ namespace Monitor {
 
         public bool handle (Gdk.EventKey e) {
             handled = false;
+            char typed = e.str[0];
+
+            if (typed.isalnum () && !window.search.is_focus ) {
+                window.search.activate_entry (e.str);
+                handled = true;
+            }
 
             if((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
                 switch (e.keyval) {
