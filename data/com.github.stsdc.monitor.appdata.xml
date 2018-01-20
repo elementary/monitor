@@ -25,7 +25,7 @@
 <url type="help">https://github.com/stsdc/monitor/issues</url>
 
 <releases>
-​    <release version="0.3.3" date="2018-01-29">
+​    <release version="0.3.4" date="2018-01-29">
 ​      <description>
 ​         <ul>
             <li>Fix showing icon for some apps</li>

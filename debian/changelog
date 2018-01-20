@@ -1,3 +1,11 @@
+com.github.stsdc.monitor (0.3.4) xenial; urgency=low
+
+    * Fix showing icon for some apps
+    * Pressing Enter focuses on process list
+    * Filtering: process will be highlighted if its group has no other processes
+
+-- Stanisław Dac <stanislawdac@gmail.com>  Sat, 20 Jan 2018 14:01:21 +0100
+
 com.github.stsdc.monitor (0.3.2) xenial; urgency=low
 
   * Ukrainian translation
