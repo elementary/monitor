@@ -2,7 +2,7 @@
 namespace Monitor {
 
     public class OverallView : Gtk.TreeView {
-        private GenericModel model;
+        private new GenericModel model;
         private Gtk.TreeViewColumn name_column;
         private Gtk.TreeViewColumn cpu_column;
         private Gtk.TreeViewColumn memory_column;
