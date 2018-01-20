@@ -1,5 +1,5 @@
 
-project('com.github.stsdc.monitor', 'vala', 'c', version: '0.3.1')
+project('com.github.stsdc.monitor', 'vala', 'c', version: '0.3.3')
 
 gnome = import('gnome')
 i18n = import('i18n')

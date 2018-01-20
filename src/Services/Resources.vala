@@ -2,19 +2,12 @@
 namespace Monitor {
 
     public class Resources {
-        // CPU usage info
-        long total_cpu = 0;
-        long idle_cpu = 0;
+
         public float total_memory;
         public float used_memory;
 
-        private double cpu_load;
-        private double[] x_cpu_load;
         private float last_used = 0;
         private float last_total = 0;
-        private long cpu_last_used = 0;
-        private long cpu_last_total = 0;
-        private uint64 cpu_last_total_step = 0;
 
         public Resources () { }
 
