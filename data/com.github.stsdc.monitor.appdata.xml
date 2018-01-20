@@ -25,10 +25,12 @@
 <url type="help">https://github.com/stsdc/monitor/issues</url>
 
 <releases>
-​    <release version="0.3.2" date="2018-01-29">
+​    <release version="0.3.3" date="2018-01-29">
 ​      <description>
 ​         <ul>
             <li>Fix showing icon for some apps</li>
+            <li>Pressing Enter focuses on process list</li>
+            <li>Filtering: process will be highlighted if its group has no other processes</li>
         </ul>
 ​      </description>
 ​    </release>
