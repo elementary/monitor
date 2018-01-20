@@ -8,12 +8,20 @@ namespace Monitor {
         public float total_memory;
         public float used_memory;
 
+        private double cpu_load;
+        private double[] x_cpu_load;
+        private float last_used = 0;
+        private float last_total = 0;
+        private long cpu_last_used = 0;
+        private long cpu_last_total = 0;
+        private uint64 cpu_last_total_step = 0;
+
         public Resources () { }
 
         public int get_memory_usage () {
             GTop.Memory memory;
     		GTop.get_mem (out memory);
-                    
+
     		total_memory = (float) (memory.total / 1024 / 1024) / 1000;
             used_memory = (float) (memory.user / 1024 / 1024) / 1000;
 
@@ -25,19 +33,20 @@ namespace Monitor {
             // CPU
     			GTop.Cpu cpu;
                 GTop.get_cpu (out cpu);
-                
-    			var newTotalCPU = cpu.total;
-    			var newIdleCPU = cpu.idle;
 
-    			var total_cpu_diff = (total_cpu - (long)cpu.total).abs();
-    			var idle_cpu_diff  = (idle_cpu  - (long)cpu.idle).abs();
+    			var used = (float) (cpu.user + cpu.sys + cpu.nice + cpu.irq + cpu.softirq);
+    			var idle = (float) (cpu.idle + cpu.iowait);
+                var total = used + idle;
 
-    			var percentage = cpu.frequency - (idle_cpu_diff * 100 / total_cpu_diff);
+                var diff_used = used - last_used;
+                var diff_total = total - last_total;
 
-    			total_cpu = (long)newTotalCPU;
-                idle_cpu = (long)newIdleCPU;
+                var load = diff_used.abs () / diff_total.abs ();
 
-                return (int) (Math.round(percentage));
+                last_used = used;
+                last_total = total;
+
+                return (int) (Math.round(load * 100));
         }
     }
 }
