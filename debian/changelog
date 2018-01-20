@@ -1,4 +1,4 @@
-com.github.stsdc.monitor (0.3.4) xenial; urgency=low
+com.github.stsdc.monitor (0.3.5) xenial; urgency=low
 
     * Fix showing icon for some apps
     * Pressing Enter focuses on process list
