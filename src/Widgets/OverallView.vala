@@ -142,6 +142,12 @@ namespace Monitor {
             grab_focus ();
         }
 
+        public void focus_on_child_row () {
+            Gtk.TreePath tree_path = new Gtk.TreePath.from_indices (0, 0);
+            this.set_cursor (tree_path, null, false);
+            grab_focus ();
+        }
+
         public int get_pid_of_selected () {
             Gtk.TreeIter iter;
             Gtk.TreeModel model;

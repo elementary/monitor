@@ -24,6 +24,10 @@ namespace Monitor {
                     process_view.collapse_all ();
                 }
                 filter_model.refilter ();
+                // if only one parent row, focus on child row
+                if (filter_model.iter_n_children (null) == 1) {
+                    process_view.focus_on_child_row ();
+                }
             });
         }
 
