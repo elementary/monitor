@@ -7,6 +7,7 @@ namespace Monitor {
 
         construct {
             show_close_button = true;
+            header_bar.has_subtitle = false;
             title = _("Monitor");
         }
 
