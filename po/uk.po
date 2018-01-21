@@ -17,31 +17,31 @@ msgstr "ЦП"
 msgid "Memory:"
 msgstr "Пам'ять:"
 
-#: ../src/Widgets/Statusbar.vala:27 ../src/Widgets/ProcessView.vala:116
+#: ../src/Widgets/Statusbar.vala:27 ../src/Widgets/OverallView.vala:116
 msgid "GiB"
 msgstr "ГіБ"
 
-#: ../src/Widgets/ProcessView.vala:32
+#: ../src/Widgets/OverallView.vala:32
 msgid "Process Name"
 msgstr "Назва процесу"
 
-#: ../src/Widgets/ProcessView.vala:51
+#: ../src/Widgets/OverallView.vala:51
 msgid "CPU"
 msgstr "ЦП"
 
-#: ../src/Widgets/ProcessView.vala:62
+#: ../src/Widgets/OverallView.vala:62
 msgid "Memory"
 msgstr "Пам'ять"
 
-#: ../src/Widgets/ProcessView.vala:72
+#: ../src/Widgets/OverallView.vala:72
 msgid "PID"
 msgstr ""
 
-#: ../src/Widgets/ProcessView.vala:105
+#: ../src/Widgets/OverallView.vala:105
 msgid "KiB"
 msgstr "КіБ"
 
-#: ../src/Widgets/ProcessView.vala:110
+#: ../src/Widgets/OverallView.vala:110
 msgid "MiB"
 msgstr "МіБ"
 

@@ -1,4 +1,4 @@
-namespace elementarySystemMonitor {
+namespace Monitor {
     public class Settings : Granite.Services.Settings {
         public enum WindowState {
             NORMAL,
