@@ -1,17 +1,20 @@
-namespace elementarySystemMonitor {
+namespace Monitor {
 
     public class Search :  Gtk.SearchEntry {
         public Gtk.TreeModelFilter filter_model { get; private set; }
-        private ProcessView process_view;
+        private OverallView process_view;
 
-        public Search (ProcessView _process_view, Gtk.TreeModel model) {
-            process_view = _process_view;
+        public Search (OverallView process_view, Gtk.TreeModel model) {
+            this.process_view = process_view;
             this.placeholder_text = _("Search Process");
             this.set_tooltip_text (_("Type Process Name or PID"));
-            filter_model = new Gtk.TreeModelFilter( model, null );
+            filter_model = new Gtk.TreeModelFilter (model, null);
             connect_signal ();
             filter_model.set_visible_func(filter_func);
             process_view.set_model (filter_model);
+
+            var sort_model = new Gtk.TreeModelSort.with_model (filter_model);
+            process_view.set_model (sort_model);
         }
 
         private void connect_signal () {
@@ -21,6 +24,10 @@ namespace elementarySystemMonitor {
                     process_view.collapse_all ();
                 }
                 filter_model.refilter ();
+                // if only one parent row, focus on child row
+                if (filter_model.iter_n_children (null) == 1) {
+                    process_view.focus_on_child_row ();
+                }
             });
         }
 
@@ -33,16 +40,16 @@ namespace elementarySystemMonitor {
                 return true;
             }
 
-            model.get( iter, ProcessColumns.NAME, out name_haystack, -1 );
-            model.get( iter, ProcessColumns.PID, out pid_haystack, -1 );
-            
+            model.get( iter, Column.NAME, out name_haystack, -1 );
+            model.get( iter, Column.PID, out pid_haystack, -1 );
+
             // sometimes name_haystack is null
             if (name_haystack != null) {
                 bool name_found = name_haystack.casefold().contains(needle.casefold()) || false;
                 bool pid_found = pid_haystack.to_string().casefold().contains(needle.casefold()) || false;
                 found = name_found || pid_found;
             }
-            
+
 
             Gtk.TreeIter child_iter;
             bool child_found = false;

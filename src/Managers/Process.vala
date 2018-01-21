@@ -1,6 +1,6 @@
 
 
-namespace elementarySystemMonitor {
+namespace Monitor {
 
     public class Process {
         // The size of each RSS page, in bytes
@@ -77,7 +77,7 @@ namespace elementarySystemMonitor {
             }
 
             try {
-                // read the single line from the file 
+                // read the single line from the file
                 var dis = new DataInputStream (stat_file.read ());
                 string? stat_contents = dis.read_line ();
 

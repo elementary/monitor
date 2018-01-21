@@ -1,5 +1,5 @@
 
-namespace elementarySystemMonitor {
+namespace Monitor {
 
     public class Statusbar : Gtk.ActionBar {
         Resources res;

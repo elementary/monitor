@@ -12,9 +12,8 @@ Manage processes and monitor system resources.
 ## Building and Installation
 
 You'll need the following dependencies to build:
-* cmake
-* libgtk-3-dev
 * valac
+* libgtk-3-dev
 * libgranite-dev
 * libbamf3-dev
 * libwnck-3-dev
@@ -24,7 +23,6 @@ You'll need the following dependencies to build:
 
     git clone https://github.com/stsdc/monitor
     cd monitor
-    mkdir build && cd build
-    cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-    make
-    sudo make install
+    meson build --prefix=/usr
+    cd build
+    sudo ninja install
