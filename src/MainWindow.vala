@@ -37,8 +37,6 @@ namespace Monitor {
 
             get_style_context ().add_class ("rounded");
 
-            // setup header bar
-
             //  button_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
 
             // setup process info button
