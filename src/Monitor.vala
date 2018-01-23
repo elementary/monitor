@@ -6,6 +6,7 @@ namespace Monitor {
 
         construct {
             program_name = "Monitor";
+            build_version = "0.4.0";
             application_id = "com.github.stsdc.monitor";
             exec_name = "com.github.stsdc.monitor";
             app_launcher = application_id + ".desktop";

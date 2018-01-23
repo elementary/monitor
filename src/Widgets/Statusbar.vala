@@ -2,15 +2,22 @@
 namespace Monitor {
 
     public class Statusbar : Gtk.ActionBar {
-        Resources res;
+        private CPU cpu;
+        private Memory memory;
+        
         Gtk.Label cpu_usage_label;
         Gtk.Label memory_usage_label;
+
+        construct {
+            memory = new Memory ();
+            cpu = new CPU ();
+        }
+
         public Statusbar () {
-            res = new Resources ();
 
                 // Memory status
 
-                
+
                 //ADD BUTTON
                 //  var add_img = new Gtk.Image ();
                 //  add_img.set_from_icon_name ("list-add-symbolic", Gtk.IconSize.MENU);
@@ -22,23 +29,23 @@ namespace Monitor {
             set_memory_usage_label ();
 
             Timeout.add_seconds (2, () => {
-                cpu_usage_label.set_text (("%s %d%%").printf (_("CPU:"), res.get_cpu_usage()));
-                memory_usage_label.set_text (("%s %d%%").printf (_("Memory:"), res.get_memory_usage()));
-                string tooltip_text = ("%.1f %s / %.1f %s").printf (res.used_memory, _("GiB"), res.total_memory, _("GiB"));
+                cpu_usage_label.set_text (("%s %d%%").printf (_("CPU:"), cpu.percentage));
+                memory_usage_label.set_text (("%s %d%%").printf (_("Memory:"), memory.percentage));
+                string tooltip_text = ("%.1f %s / %.1f %s").printf (memory.used, _("GiB"), memory.total, _("GiB"));
                 memory_usage_label.tooltip_text = tooltip_text;
                 return true;
             });
         }
 
         private void set_memory_usage_label () {
-            string memory_text = ("%s %d%%").printf (_("Memory:"), res.get_memory_usage());
+            string memory_text = ("%s %d%%").printf (_("Memory:"), memory.percentage);
             memory_usage_label = new Gtk.Label (memory_text);
             memory_usage_label.margin_left = 12;
             pack_start (memory_usage_label);
         }
 
         private void set_cpu_usage_label () {
-            string cpu_text = ("%s %d%%").printf (_("CPU:"), (int) (res.get_cpu_usage()));
+            string cpu_text = ("%s %d%%").printf (_("CPU:"), (int) (cpu.percentage));
             cpu_usage_label = new Gtk.Label (cpu_text);
             pack_start (cpu_usage_label);
         }

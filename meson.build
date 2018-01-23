@@ -1,5 +1,5 @@
 
-project('com.github.stsdc.monitor', 'vala', 'c', version: '0.3.5')
+project('com.github.stsdc.monitor', 'vala', 'c', version: '0.4.0')
 
 gnome = import('gnome')
 i18n = import('i18n')
@@ -30,7 +30,9 @@ executable(
     'src/Managers/Process.vala',
     'src/Services/Settings.vala',
     'src/Services/Shortcuts.vala',
-    'src/Services/Resources.vala',
+    'src/Services/CPU.vala',
+    'src/Services/Memory.vala',
+    'src/Services/Indicator.vala',
     c_args: c_args,
     dependencies: [
         dependency('glib-2.0'),
@@ -43,6 +45,7 @@ executable(
         dependency('libbamf3'),
         dependency('libgtop-2.0'),
         dependency('libwnck-3.0'),
+        dependency('wingpanel-2.0'),
         meson.get_compiler('c').find_library('m', required : false),
         meson.get_compiler('vala').find_library('posix')
     ],
