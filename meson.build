@@ -53,12 +53,32 @@ executable(
     install: true,
 )
 
+shared_module(
+    'monitor',
+    'src/Indicator/Indicator.vala',
+    # 'src/Services/ColorInterface.vala',
+    # 'src/Widgets/PopoverWidget.vala',
+    # 'src/Widgets/RevealerSwitch.vala',
+    # asresources,
+    c_args: c_args,
+    dependencies: [
+        dependency('glib-2.0'),
+        dependency('gobject-2.0'),
+        dependency('granite'),
+        dependency('gtk+-3.0'),
+        dependency('wingpanel-2.0')
+    ],
+    install: true,
+    # install_dir : dependency('wingpanel-2.0').get_pkgconfig_variable('indicatorsdir'), <- installs to /usr/local/
+    install_dir : '/usr/lib/x86_64-linux-gnu/wingpanel/'
+
+)
+
 # Add in a post install script
 meson.add_install_script('meson/post_install.py')
 
 subdir('data')
 subdir('po')
-subdir('src/Indicator')
 
 # shows size of binary
 # meson.add_postconf_script('du', '-h', meson.project_name())
