@@ -32,7 +32,6 @@ executable(
     'src/Services/Shortcuts.vala',
     'src/Services/CPU.vala',
     'src/Services/Memory.vala',
-    'src/Services/Indicator.vala',
     c_args: c_args,
     dependencies: [
         dependency('glib-2.0'),
@@ -45,14 +44,13 @@ executable(
         dependency('libbamf3'),
         dependency('libgtop-2.0'),
         dependency('libwnck-3.0'),
-        dependency('wingpanel-2.0'),
         meson.get_compiler('c').find_library('m', required : false),
         meson.get_compiler('vala').find_library('posix')
     ],
     vala_args: [
         '--vapidir=' + meson.source_root() + '/vapi/',
     ],
-    install: true
+    install: true,
 )
 
 # Add in a post install script
@@ -60,3 +58,7 @@ meson.add_install_script('meson/post_install.py')
 
 subdir('data')
 subdir('po')
+subdir('src/Indicator')
+
+# shows size of binary
+# meson.add_postconf_script('du', '-h', meson.project_name())

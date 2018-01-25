@@ -1,10 +1,9 @@
-
 namespace Monitor {
 
     public class Statusbar : Gtk.ActionBar {
         private CPU cpu;
         private Memory memory;
-        
+
         Gtk.Label cpu_usage_label;
         Gtk.Label memory_usage_label;
 
