@@ -1,7 +1,7 @@
 
 public class Monitor.Indicator : Wingpanel.Indicator {
-    /* Our display widget, a composited icon */
-    private Wingpanel.Widgets.OverlayIcon? display_widget = null;
+
+    private Widgets.DisplayWidget? display_widget = null;
 
     /* The main widget that is displayed in the popover */
     private Gtk.Grid? main_widget = null;
@@ -12,24 +12,29 @@ public class Monitor.Indicator : Wingpanel.Indicator {
     /* Switch to set the compositing mode of the icon */
     private Wingpanel.Widgets.Switch compositing_switch;
 
+    private Gtk.Label percent_label;
+
+    construct {
+        /* Indicator should be visible at startup */
+        this.visible = true;
+        display_widget = new Widgets.DisplayWidget ();
+    }
+
     /* Constructor */
     public Indicator () {
         /* Some information about the indicator */
         Object (code_name : "monitor-indicator", /* Unique name */
-                display_name : _("Sample Indicator"), /* Localised name */
-                description: _("Does nothing, but it is cool!")); /* Short description */
-
-        /* Indicator should be visible at startup */
-        this.visible = true;
+                display_name : _("Monitor Indicator"), /* Localised name */
+                description: _("Show system resources")); /* Short description */
     }
 
     /* This method is called to get the widget that is displayed in the top bar */
     public override Gtk.Widget get_display_widget () {
         /* Check if the display widget is already created */
-        if (display_widget == null) {
-            /* Create a new composited icon */
-            display_widget = new Wingpanel.Widgets.OverlayIcon ("dialog-information-symbolic");
-        }
+        // if (display_widget == null) {
+        //     /* Create a new composited icon */
+        //     display_widget = new Wingpanel.Widgets.OverlayIcon ("dialog-information-symbolic");
+        // }
 
         /* Return our display widget */
         return display_widget;
@@ -66,7 +71,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         var grid = new Gtk.Grid ();
 
         /* Create the hide button */
-        hide_button = new Wingpanel.Widgets.Button (_("Hide me!"));
+        hide_button = new Wingpanel.Widgets.Button (_("Hide me ??!"));
 
         /* Create the compositing switch */
         compositing_switch = new Wingpanel.Widgets.Switch (_("Composited Icon"));
@@ -107,7 +112,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
     /* Method to check the status of the compositing switch and update the indicator */
     private void update_compositing () {
         /* If the switch is enabled set the icon name of the icon that should be drawn on top of the other one, if not hide the top icon. */
-        display_widget.set_overlay_icon_name (compositing_switch.get_active () ? "nm-vpn-active-lock" : "");
+        // display_widget.set_overlay_icon_name (compositing_switch.get_active () ? "nm-vpn-active-lock" : "");
     }
 }
 

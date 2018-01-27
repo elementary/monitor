@@ -41,7 +41,6 @@ executable(
         dependency('gio-2.0'),
         dependency('gobject-2.0'),
         dependency('libbamf3'),
-        dependency('libbamf3'),
         dependency('libgtop-2.0'),
         dependency('libwnck-3.0'),
         meson.get_compiler('c').find_library('m', required : false),
@@ -56,7 +55,7 @@ executable(
 shared_module(
     'monitor',
     'src/Indicator/Indicator.vala',
-    # 'src/Services/ColorInterface.vala',
+    'src/Indicator/Widgets/DisplayWidget.vala',
     # 'src/Widgets/PopoverWidget.vala',
     # 'src/Widgets/RevealerSwitch.vala',
     # asresources,
