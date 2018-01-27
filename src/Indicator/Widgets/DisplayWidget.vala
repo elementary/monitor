@@ -12,14 +12,14 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Grid {
         image.pixel_size = 24;
 
         percent_label = new Gtk.Label ("yay");
-        percent_label.margin_start = 6;
+        percent_label.margin = 2;
 
         // percent_revealer = new Gtk.Revealer ();
         // update_revealer ();
         // percent_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
         percent_revealer.add (percent_label);
 
-        add (image);
+        // add (image);
         add (percent_label);
 
         // Services.SettingsManager.get_default ().notify["show-percentage"].connect (update_revealer);

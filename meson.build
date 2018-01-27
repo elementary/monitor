@@ -1,8 +1,21 @@
 
 project('com.github.stsdc.monitor', 'vala', 'c', version: '0.4.0')
 
+# these are Meson modules
 gnome = import('gnome')
 i18n = import('i18n')
+
+# and these are project dependencies
+glib = dependency('glib-2.0')
+granite = dependency('granite')
+gtk = dependency('gtk+-3.0')
+gee = dependency('gee-0.8')
+gio = dependency('gio-2.0')
+gobject = dependency('gobject-2.0')
+bamf = dependency('libbamf3')
+gtop = dependency('libgtop-2.0')
+wnck = dependency('libwnck-3.0')
+wingpanel = dependency('wingpanel-2.0')
 
 conf = configuration_data()
 conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
@@ -31,18 +44,19 @@ executable(
     'src/Services/Settings.vala',
     'src/Services/Shortcuts.vala',
     'src/Services/CPU.vala',
+    'src/Services/Core.vala',
     'src/Services/Memory.vala',
     c_args: c_args,
     dependencies: [
-        dependency('glib-2.0'),
-        dependency('granite'),
-        dependency('gtk+-3.0'),
-        dependency('gee-0.8'),
-        dependency('gio-2.0'),
-        dependency('gobject-2.0'),
-        dependency('libbamf3'),
-        dependency('libgtop-2.0'),
-        dependency('libwnck-3.0'),
+        glib,
+        granite,
+        gtk,
+        gee,
+        gio,
+        gobject,
+        bamf,
+        gtop,
+        wnck,
         meson.get_compiler('c').find_library('m', required : false),
         meson.get_compiler('vala').find_library('posix')
     ],
@@ -61,14 +75,14 @@ shared_module(
     # asresources,
     c_args: c_args,
     dependencies: [
-        dependency('glib-2.0'),
-        dependency('gobject-2.0'),
-        dependency('granite'),
-        dependency('gtk+-3.0'),
-        dependency('wingpanel-2.0')
+        glib,
+        granite,
+        gobject,
+        gtk,
+        wingpanel
     ],
     install: true,
-    # install_dir : dependency('wingpanel-2.0').get_pkgconfig_variable('indicatorsdir'), <- installs to /usr/local/
+    # install_dir : wingpanel.get_pkgconfig_variable('indicatorsdir'), <- installs to /usr/local/
     install_dir : '/usr/lib/x86_64-linux-gnu/wingpanel/'
 
 )
