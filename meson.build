@@ -70,6 +70,7 @@ shared_module(
     'monitor',
     'src/Indicator/Indicator.vala',
     'src/Indicator/Widgets/DisplayWidget.vala',
+    'src/Indicator/Widgets/PopoverWidget.vala',
     # 'src/Widgets/PopoverWidget.vala',
     # 'src/Widgets/RevealerSwitch.vala',
     # asresources,

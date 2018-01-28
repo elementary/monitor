@@ -1,16 +1,8 @@
-
+// TODO: Change namespace
 public class Monitor.Indicator : Wingpanel.Indicator {
 
     private Widgets.DisplayWidget? display_widget = null;
-
-    /* The main widget that is displayed in the popover */
-    private Gtk.Grid? main_widget = null;
-
-    /* Button to hide the indicator */
-    private Wingpanel.Widgets.Button hide_button;
-
-    /* Switch to set the compositing mode of the icon */
-    private Wingpanel.Widgets.Switch compositing_switch;
+    private Widgets.PopoverWidget? popover_widget = null;
 
     private Gtk.Label percent_label;
 
@@ -18,6 +10,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         /* Indicator should be visible at startup */
         this.visible = true;
         display_widget = new Widgets.DisplayWidget ();
+        popover_widget = new Widgets.PopoverWidget ();
     }
 
     /* Constructor */
@@ -30,29 +23,12 @@ public class Monitor.Indicator : Wingpanel.Indicator {
 
     /* This method is called to get the widget that is displayed in the top bar */
     public override Gtk.Widget get_display_widget () {
-        /* Check if the display widget is already created */
-        // if (display_widget == null) {
-        //     /* Create a new composited icon */
-        //     display_widget = new Wingpanel.Widgets.OverlayIcon ("dialog-information-symbolic");
-        // }
-
-        /* Return our display widget */
         return display_widget;
     }
 
     /* This method is called to get the widget that is displayed in the popover */
     public override Gtk.Widget? get_widget () {
-        /* Check if the main widget is already created */
-        if (main_widget == null) {
-            /* Create the main widget */
-            main_widget = create_main_widget ();
-
-            /* Connect the signals */
-            connect_signals ();
-        }
-
-        /* Return our main widget */
-        return main_widget;
+        return popover_widget;
     }
 
     /* This method is called when the indicator popover opened */
@@ -62,52 +38,31 @@ public class Monitor.Indicator : Wingpanel.Indicator {
 
     /* This method is called when the indicator popover closed */
     public override void closed () {
-        /* Your stuff isn't shown anymore, now you can free some RAM, stop timers or anything else... */
-    }
-
-    /* Let's move this gui code to an own method to make the code better readable */
-    private Gtk.Grid create_main_widget () {
-        /* Create the grid for our content */
-        var grid = new Gtk.Grid ();
-
-        /* Create the hide button */
-        hide_button = new Wingpanel.Widgets.Button (_("Hide me ??!"));
-
-        /* Create the compositing switch */
-        compositing_switch = new Wingpanel.Widgets.Switch (_("Composited Icon"));
-
-        /* Add the widgets */
-        grid.attach (hide_button, 0, 0, 1, 1);
-        grid.attach (new Wingpanel.Widgets.Separator (), 0, 1, 1, 1);
-        grid.attach (compositing_switch, 0, 2, 1, 1);
-
-        /* Return the grid */
-        return grid;
     }
 
     /* Method to connect the signals */
     private void connect_signals () {
         /* Connect to the click signal of the hide button */
-        hide_button.clicked.connect (hide_me);
+        // hide_button.clicked.connect (hide_me);
 
         /* Connect to the switch signal of the compositing switch */
-        compositing_switch.switched.connect (update_compositing);
+        // compositing_switch.switched.connect (update_compositing);
     }
 
     /* Method to hide the indicator for a short time */
-    private void hide_me () {
-        /* Hide the indicator */
-        this.visible = false;
-
-        /* Show the indicator after two seconds */
-        Timeout.add (2000, () => {
-            /* Show it */
-            this.visible = true;
-
-            /* Don't run this timer in an endless loop */
-            return false;
-        });
-    }
+    // private void hide_me () {
+    //     /* Hide the indicator */
+    //     this.visible = false;
+    //
+    //     /* Show the indicator after two seconds */
+    //     Timeout.add (2000, () => {
+    //         /* Show it */
+    //         this.visible = true;
+    //
+    //         /* Don't run this timer in an endless loop */
+    //         return false;
+    //     });
+    // }
 
     /* Method to check the status of the compositing switch and update the indicator */
     private void update_compositing () {
