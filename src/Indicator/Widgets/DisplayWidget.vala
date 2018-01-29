@@ -1,26 +1,21 @@
 public class Monitor.Widgets.DisplayWidget : Gtk.Grid {
-    private Gtk.Image image;
     private Gtk.Revealer percent_revealer;
-    private Gtk.Label percent_label;
     private bool allow_percent = false;
+
+    private CPUWidget cpu_widget;
 
     construct {
         valign = Gtk.Align.CENTER;
 
-        image = new Gtk.Image ();
-        image.icon_name = "content-loading-symbolic";
-        image.pixel_size = 24;
-
-        percent_label = new Gtk.Label ("yay");
-        percent_label.margin = 2;
+        cpu_widget = new CPUWidget ();
+        cpu_widget.percent = 34;
 
         // percent_revealer = new Gtk.Revealer ();
         // update_revealer ();
         // percent_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_RIGHT;
-        percent_revealer.add (percent_label);
+        // percent_revealer.add (percent_label);
 
-        // add (image);
-        add (percent_label);
+        add (cpu_widget);
 
         // Services.SettingsManager.get_default ().notify["show-percentage"].connect (update_revealer);
         //
@@ -34,18 +29,18 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Grid {
         // });
     }
 
-    public void set_icon_name (string icon_name, bool allow_percent) {
-        image.icon_name = icon_name;
+    // public void set_icon_name (string icon_name, bool allow_percent) {
+    //     image.icon_name = icon_name;
+    //
+    //     if (this.allow_percent != allow_percent) {
+    //         this.allow_percent = allow_percent;
+    //         update_revealer ();
+    //     }
+    // }
 
-        if (this.allow_percent != allow_percent) {
-            this.allow_percent = allow_percent;
-            update_revealer ();
-        }
-    }
-
-    public void set_percent (int percentage) {
-        percent_label.set_label ("%i%%".printf (percentage));
-    }
+    // public void set_percent (int percentage) {
+    //     percent_label.set_label ("%i%%".printf (percentage));
+    // }
 
     private void update_revealer () {
         // percent_revealer.reveal_child = Services.SettingsManager.get_default ().show_percentage && allow_percent;

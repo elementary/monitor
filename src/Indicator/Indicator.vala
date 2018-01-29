@@ -4,8 +4,6 @@ public class Monitor.Indicator : Wingpanel.Indicator {
     private Widgets.DisplayWidget? display_widget = null;
     private Widgets.PopoverWidget? popover_widget = null;
 
-    private Gtk.Label percent_label;
-
     construct {
         /* Indicator should be visible at startup */
         this.visible = true;
