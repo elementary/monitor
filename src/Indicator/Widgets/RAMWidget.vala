@@ -1,4 +1,4 @@
-public class Monitor.Widgets.CPUWidget : Gtk.Box {
+public class Monitor.Widgets.RAMWidget : Gtk.Box {
     private Gtk.Label percent_label;
     public int percent {
         set { percent_label.set_label ("%i%%".printf (value)); }
@@ -7,7 +7,7 @@ public class Monitor.Widgets.CPUWidget : Gtk.Box {
 
     construct {
         image = new Gtk.Image ();
-        image.icon_name = "multimedia-player-symbolic";
+        image.icon_name = "phone-symbolic";
         image.pixel_size = 24;
 
         percent_label = new Gtk.Label ("N/A");
@@ -18,7 +18,7 @@ public class Monitor.Widgets.CPUWidget : Gtk.Box {
 
     }
 
-    public CPUWidget () {
+    public RAMWidget () {
         orientation = Gtk.Orientation.HORIZONTAL;
     }
 

@@ -72,7 +72,7 @@ shared_module(
     'src/Indicator/Widgets/DisplayWidget.vala',
     'src/Indicator/Widgets/PopoverWidget.vala',
     'src/Indicator/Widgets/CPUWidget.vala',
-    # 'src/Widgets/PopoverWidget.vala',
+    'src/Indicator/Widgets/RAMWidget.vala',
     # 'src/Widgets/RevealerSwitch.vala',
     # asresources,
     c_args: c_args,

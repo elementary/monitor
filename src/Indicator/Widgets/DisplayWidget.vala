@@ -3,12 +3,15 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Grid {
     private bool allow_percent = false;
 
     private CPUWidget cpu_widget;
+    private RAMWidget ram_widget;
 
     construct {
         valign = Gtk.Align.CENTER;
 
         cpu_widget = new CPUWidget ();
         cpu_widget.percent = 34;
+        ram_widget = new RAMWidget ();
+        ram_widget.percent = 78;
 
         // percent_revealer = new Gtk.Revealer ();
         // update_revealer ();
@@ -16,6 +19,7 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Grid {
         // percent_revealer.add (percent_label);
 
         add (cpu_widget);
+        add (ram_widget);
 
         // Services.SettingsManager.get_default ().notify["show-percentage"].connect (update_revealer);
         //
