@@ -10,6 +10,7 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Grid {
 
         cpu_widget = new CPUWidget ();
         cpu_widget.percent = 34;
+        
         ram_widget = new RAMWidget ();
         ram_widget.percent = 78;
 

@@ -8,7 +8,7 @@ public class Monitor.Widgets.RAMWidget : Gtk.Box {
     construct {
         image = new Gtk.Image ();
         image.icon_name = "phone-symbolic";
-        image.pixel_size = 24;
+        image.pixel_size = 16;
 
         percent_label = new Gtk.Label ("N/A");
         percent_label.margin = 2;
