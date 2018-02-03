@@ -37,6 +37,11 @@ namespace Monitor {
 
             get_style_context ().add_class ("rounded");
 
+            Bus.own_name (BusType.SESSION, "com.github.stsdc.monitor", BusNameOwnerFlags.NONE,
+                  on_bus_aquired,
+                  () => {},
+                  () => stderr.printf ("***Could not aquire name\n"));
+
             //  button_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
 
             // setup process info button
@@ -53,7 +58,7 @@ namespace Monitor {
             process_view_window = new Gtk.ScrolledWindow (null, null);
             generic_model = new GenericModel ();
             process_view = new OverallView (generic_model);
-            
+
             headerbar = new Headerbar (this);
             set_titlebar (headerbar);
 
@@ -85,6 +90,14 @@ namespace Monitor {
                     }
                     return false;
             });
+        }
+
+        void on_bus_aquired (DBusConnection conn) {
+            try {
+                conn.register_object ("/com/github/stsdc/monitor", new DemoServer ());
+            } catch (IOError e) {
+                stderr.printf ("Could not register service\n");
+            }
         }
     }
 }

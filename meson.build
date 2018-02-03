@@ -32,20 +32,26 @@ executable(
     meson.project_name(),
     'src/Monitor.vala',
     'src/MainWindow.vala',
+
     'src/Widgets/OverallView.vala',
     'src/Widgets/Search.vala',
     'src/Widgets/Headerbar.vala',
     'src/Widgets/Statusbar.vala',
+
     'src/Models/GenericModel.vala',
     'src/Models/ModelHelper.vala',
+
     'src/Managers/AppManager.vala',
     'src/Managers/ProcessManager.vala',
     'src/Managers/Process.vala',
+
     'src/Services/Settings.vala',
     'src/Services/Shortcuts.vala',
-    'src/Services/CPU.vala',
-    'src/Services/Core.vala',
-    'src/Services/Memory.vala',
+    'src/Services/DBus.vala',
+
+    'src/Resources/CPU.vala',
+    'src/Resources/Core.vala',
+    'src/Resources/Memory.vala',
     c_args: c_args,
     dependencies: [
         glib,
@@ -69,10 +75,13 @@ executable(
 shared_module(
     'monitor',
     'src/Indicator/Indicator.vala',
+
     'src/Indicator/Widgets/DisplayWidget.vala',
     'src/Indicator/Widgets/PopoverWidget.vala',
     'src/Indicator/Widgets/CPUWidget.vala',
     'src/Indicator/Widgets/RAMWidget.vala',
+
+    'src/Indicator/Services/DBus.vala',
     # 'src/Widgets/RevealerSwitch.vala',
     # asresources,
     c_args: c_args,
