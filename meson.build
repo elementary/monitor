@@ -47,7 +47,7 @@ executable(
 
     'src/Services/Settings.vala',
     'src/Services/Shortcuts.vala',
-    'src/Services/DBus.vala',
+    'src/Services/DBusServer.vala',
 
     'src/Resources/CPU.vala',
     'src/Resources/Core.vala',
@@ -81,7 +81,7 @@ shared_module(
     'src/Indicator/Widgets/CPUWidget.vala',
     'src/Indicator/Widgets/RAMWidget.vala',
 
-    'src/Indicator/Services/DBus.vala',
+    'src/Indicator/Services/DBusClient.vala',
     # 'src/Widgets/RevealerSwitch.vala',
     # asresources,
     c_args: c_args,

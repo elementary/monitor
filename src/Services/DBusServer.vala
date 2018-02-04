@@ -1,7 +1,24 @@
 [DBus (name = "com.github.stsdc.monitor")]
-public class DemoServer : Object {
+public class DBusServer : Object {
+    private static GLib.Once<DBusServer> instance;
+    public static unowned DBusServer get_default () {
+        return instance.once (() => { return new DBusServer (); });
+    }
 
     private int counter;
+
+    public signal void pong (int count, string msg);
+
+    construct {
+        Bus.own_name (
+            BusType.SESSION,
+            "com.github.stsdc.monitor",
+            BusNameOwnerFlags.NONE,
+            (conn) => on_bus_aquired (conn),
+            (c, name) => info ("%s name aquired successfully!", name),
+            () => warning ("Could not aquire name\n")
+        );
+    }
 
     public int ping (string msg) {
         stdout.printf ("%s\n", msg);
@@ -25,7 +42,13 @@ public class DemoServer : Object {
         throw new DemoError.SOME_ERROR ("There was an error!");
     }
 
-    public signal void pong (int count, string msg);
+    private void on_bus_aquired (DBusConnection conn) {
+        try {
+            conn.register_object ("/com/github/stsdc/monitor", this);
+        } catch (IOError e) {
+            error ("Could not register service\n");
+        }
+    }
 }
 
 [DBus (name = "com.github.stsdc.monitor")]
