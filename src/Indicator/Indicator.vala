@@ -10,30 +10,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         display_widget = new Widgets.DisplayWidget ();
         popover_widget = new Widgets.PopoverWidget ();
 
-        /* Important: keep demo variable out of try/catch scope not lose signals! */
-        Demo demo = null;
-
-        try {
-            demo = Bus.get_proxy_sync (BusType.SESSION, "com.github.stsdc.monitor",
-                                                        "/com/github/stsdc/monitor");
-
-            /* Connecting to signal pong! */
-            demo.pong.connect((c, m) => {
-                stdout.printf ("Got pong %d for msg '%s'\n", c, m);
-            });
-
-            int reply = demo.ping ("Hello from Vala");
-            stdout.printf ("%d\n", reply);
-
-            reply = demo.ping_with_sender ("Hello from Vala with sender");
-            stdout.printf ("%d\n", reply);
-
-            reply = demo.ping_with_signal ("Hello from Vala with signal");
-            stdout.printf ("%d\n", reply);
-
-        } catch (IOError e) {
-            stderr.printf ("%s\n", e.message);
-        }
+        DBusClient.get_default ();
     }
 
     /* Constructor */
