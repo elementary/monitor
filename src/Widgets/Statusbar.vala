@@ -10,30 +10,21 @@ namespace Monitor {
         construct {
             memory = new Memory ();
             cpu = new CPU ();
-        }
-
-        public Statusbar () {
-
-                // Memory status
-
-
-                //ADD BUTTON
-                //  var add_img = new Gtk.Image ();
-                //  add_img.set_from_icon_name ("list-add-symbolic", Gtk.IconSize.MENU);
-                //  Gtk.Button add_button = new Gtk.Button ();
-                //  add_button.set_image (add_img);
-                //  add_button.tooltip_text = "Add Folder";
 
             set_cpu_usage_label ();
             set_memory_usage_label ();
 
-            Timeout.add_seconds (2, () => {
-                cpu_usage_label.set_text (("%s %d%%").printf (_("CPU:"), cpu.percentage));
-                memory_usage_label.set_text (("%s %d%%").printf (_("Memory:"), memory.percentage));
-                string tooltip_text = ("%.1f %s / %.1f %s").printf (memory.used, _("GiB"), memory.total, _("GiB"));
-                memory_usage_label.tooltip_text = tooltip_text;
-                return true;
-            });
+            Timeout.add_seconds (2, update);
+        }
+
+        public Statusbar () { }
+
+        public bool update () {
+            cpu_usage_label.set_text (("%s %d%%").printf (_("CPU:"), cpu.percentage));
+            memory_usage_label.set_text (("%s %d%%").printf (_("Memory:"), memory.percentage));
+            string tooltip_text = ("%.1f %s / %.1f %s").printf (memory.used, _("GiB"), memory.total, _("GiB"));
+            memory_usage_label.tooltip_text = tooltip_text;
+            return true;
         }
 
         private void set_memory_usage_label () {
