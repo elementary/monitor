@@ -1,4 +1,8 @@
 namespace Monitor {
+    public struct ResourcesData {
+        public int cpu_percentage;
+        public int ram_percentage;
+    }
 
     public class MainWindow : Gtk.Window {
         // application reference
@@ -17,6 +21,8 @@ namespace Monitor {
         public Gtk.TreeModelSort sort_model;
 
         public Gtk.TreeModelFilter filter;
+
+        private DBusServer dbusserver;
 
 
         // Constructs a main window
@@ -37,7 +43,8 @@ namespace Monitor {
 
             get_style_context ().add_class ("rounded");
 
-            DBusServer.get_default();
+            dbusserver = DBusServer.get_default();
+
 
             //  button_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
 
@@ -69,6 +76,18 @@ namespace Monitor {
             this.add (main_box);
 
             this.show_all ();
+
+
+
+            Timeout.add_seconds (2, () => {
+                statusbar.update ();
+                dbusserver.update (
+                    ResourcesData () {
+                    cpu_percentage = 12,
+                    ram_percentage = 90
+                    });
+                return true;
+            });
 
             shortcuts = new Shortcuts (this);
             key_press_event.connect ((e) => shortcuts.handle (e));

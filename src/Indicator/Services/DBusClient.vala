@@ -4,8 +4,13 @@ public interface DBusClientInterface : Object {
     public abstract int ping_with_sender (string msg) throws IOError;
     public abstract int ping_with_signal (string msg) throws IOError;
     public signal void pong (int count, string msg);
+    public signal void update (ResourcesData data);
 }
 
+public struct ResourcesData {
+    public int cpu_percentage;
+    public int ram_percentage;
+}
 
 public class Monitor.DBusClient : Object{
     DBusClientInterface? interface = null;
@@ -23,6 +28,10 @@ public class Monitor.DBusClient : Object{
             /* Connecting to signal pong! */
             interface.pong.connect((c, m) => {
                 stdout.printf ("Got pong %d for msg '%s'\n", c, m);
+            });
+
+            interface.update.connect((data) => {
+                info ("%d, %d", data.cpu_percentage, data.ram_percentage);
             });
 
             int reply = interface.ping ("Hello from Vala");

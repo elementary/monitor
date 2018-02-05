@@ -48,6 +48,7 @@ executable(
     'src/Services/Settings.vala',
     'src/Services/Shortcuts.vala',
     'src/Services/DBusServer.vala',
+    'src/Services/Updater.vala',
 
     'src/Resources/CPU.vala',
     'src/Resources/Core.vala',

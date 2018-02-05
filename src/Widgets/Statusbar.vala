@@ -13,8 +13,6 @@ namespace Monitor {
 
             set_cpu_usage_label ();
             set_memory_usage_label ();
-
-            Timeout.add_seconds (2, update);
         }
 
         public Statusbar () { }
