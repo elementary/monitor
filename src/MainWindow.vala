@@ -6,7 +6,6 @@ namespace Monitor {
 
     public class MainWindow : Gtk.Window {
         // application reference
-        private MonitorApp app;
         private Settings saved_state;
         private Shortcuts shortcuts;
 
@@ -27,18 +26,11 @@ namespace Monitor {
 
         // Constructs a main window
         public MainWindow (MonitorApp app) {
-            this.app = app;
             this.set_application (app);
             saved_state = Settings.get_default ();
             this.set_default_size (saved_state.window_width, saved_state.window_height);
-            // Maximize window if necessary
-            switch (saved_state.window_state) {
-                case Settings.WindowState.MAXIMIZED:
-                    this.maximize ();
-                    break;
-                default:
-                    break;
-            }
+
+            if (saved_state.is_maximized) { this.maximize (); }
             this.window_position = Gtk.WindowPosition.CENTER;
 
             get_style_context ().add_class ("rounded");
@@ -99,11 +91,7 @@ namespace Monitor {
                     get_size (out window_width, out window_height);
                     saved_state.window_width = window_width;
                     saved_state.window_height = window_height;
-                    if (is_maximized) {
-                        saved_state.window_state = Settings.WindowState.MAXIMIZED;
-                    } else {
-                        saved_state.window_state = Settings.WindowState.NORMAL;
-                    }
+                    saved_state.is_maximized = this.is_maximized;
                     return false;
             });
         }

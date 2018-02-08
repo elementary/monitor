@@ -1,13 +1,9 @@
 namespace Monitor {
     public class Settings : Granite.Services.Settings {
-        public enum WindowState {
-            NORMAL,
-            MAXIMIZED
-        }
 
         public int window_width { get; set; }
         public int window_height { get; set; }
-        public WindowState window_state { get; set; }
+        public bool is_maximized { get; set; }
 
         private static GLib.Once<Settings> instance;
         public static unowned Settings get_default () {
