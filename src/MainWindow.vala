@@ -21,7 +21,7 @@ namespace Monitor {
 
         public Gtk.TreeModelFilter filter;
 
-        private DBusServer dbusserver;
+        public DBusServer dbusserver;
 
 
         // Constructs a main window

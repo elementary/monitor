@@ -9,7 +9,7 @@ namespace Monitor {
         public int window_height { get; set; }
         public bool is_maximized { get; set; }
 
-        public bool show_indicator { get; set; }
+        public bool indicator_state { get; set; }
 
         construct {
             // Controls the direction of the sort indicators

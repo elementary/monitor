@@ -3,14 +3,20 @@ public class Monitor.Indicator : Wingpanel.Indicator {
 
     private Widgets.DisplayWidget? display_widget = null;
     private Widgets.PopoverWidget? popover_widget = null;
+    public Settings saved_state;
+    private DBusClient dbusclient;
 
     construct {
-        /* Indicator should be visible at startup */
-        this.visible = true;
+        saved_state = Settings.get_default ();
+        this.visible = saved_state.indicator_state;
         display_widget = new Widgets.DisplayWidget ();
         popover_widget = new Widgets.PopoverWidget ();
 
-        DBusClient.get_default ();
+        dbusclient = DBusClient.get_default ();
+
+        dbusclient.interface.indicator_state.connect((state) => {
+            this.visible = state;
+        });
     }
 
     /* Constructor */

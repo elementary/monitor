@@ -83,6 +83,7 @@ shared_module(
     'src/Indicator/Widgets/RAMWidget.vala',
 
     'src/Indicator/Services/DBusClient.vala',
+    'src/Services/Settings.vala',
     # 'src/Widgets/RevealerSwitch.vala',
     # asresources,
     c_args: c_args,

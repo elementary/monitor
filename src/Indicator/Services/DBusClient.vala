@@ -5,6 +5,7 @@ public interface DBusClientInterface : Object {
     public abstract int ping_with_signal (string msg) throws IOError;
     public signal void pong (int count, string msg);
     public signal void update (ResourcesData data);
+    public signal void indicator_state (bool state);
 }
 
 public struct ResourcesData {
@@ -13,7 +14,7 @@ public struct ResourcesData {
 }
 
 public class Monitor.DBusClient : Object{
-    DBusClientInterface? interface = null;
+    public DBusClientInterface? interface = null;
 
     private static GLib.Once<DBusClient> instance;
     public static unowned DBusClient get_default () {
@@ -33,6 +34,11 @@ public class Monitor.DBusClient : Object{
             interface.update.connect((data) => {
                 info ("%d, %d", data.cpu_percentage, data.ram_percentage);
             });
+
+            // interface.indicator_state.connect((state) => {
+            //     indicator_state ()
+            //     info ("%d, %d", data.cpu_percentage, data.ram_percentage);
+            // });
 
             int reply = interface.ping ("Hello from Vala");
             stdout.printf ("%d\n", reply);

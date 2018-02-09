@@ -52,7 +52,8 @@ namespace Monitor {
 
             show_indicator_switch.notify["active"].connect (() => {
                 info ("SWITCH");
-                window.saved_state.show_indicator = show_indicator_switch.state;
+                window.saved_state.indicator_state = show_indicator_switch.state;
+                window.dbusserver.indicator_state (show_indicator_switch.state);
             });
         }
     }

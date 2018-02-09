@@ -11,6 +11,7 @@ namespace Monitor {
 
         public signal void pong (int count, string msg);
         public signal void update (ResourcesData data);
+        public signal void indicator_state (bool state);
 
         construct {
             Bus.own_name (
