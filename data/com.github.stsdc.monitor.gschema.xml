@@ -20,5 +20,10 @@
       <summary>Window height</summary>
       <description>Window height</description>
     </key>
+    <key type='b' name="show-indicator">
+      <default>false</default>
+      <summary>To show Monitor Indicator or not</summary>
+      <description>To show Monitor Indicator or not</description>
+    </key>
   </schema>
 </schemalist>

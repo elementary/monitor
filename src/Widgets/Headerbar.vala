@@ -38,17 +38,22 @@ namespace Monitor {
             preferences_popover.add (preferences_grid);
             preferences_button.popover = preferences_popover;
 
-            var activate_indicator_switch = new Gtk.Switch ();
+            var show_indicator_switch = new Gtk.Switch ();
 
             var switch_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 10);
             switch_box.pack_start (new Gtk.Label (_("Show an indicator")), false, false, 0);
-            switch_box.pack_start (activate_indicator_switch, false, false, 0);
+            switch_box.pack_start (show_indicator_switch, false, false, 0);
 
             preferences_grid.add (switch_box);
             preferences_grid.show_all ();
 
             search = new Search (window.process_view, window.generic_model);
             pack_end (search);
+
+            show_indicator_switch.notify["active"].connect (() => {
+                info ("SWITCH");
+                window.saved_state.show_indicator = show_indicator_switch.state;
+            });
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Monitor {
 
     public class MainWindow : Gtk.Window {
         // application reference
-        private Settings saved_state;
+        public Settings saved_state;
         private Shortcuts shortcuts;
 
         // Widgets
