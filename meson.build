@@ -32,6 +32,7 @@ executable(
     meson.project_name(),
     'src/Monitor.vala',
     'src/MainWindow.vala',
+    'src/Utils.vala',
 
     'src/Widgets/OverallView.vala',
     'src/Widgets/Search.vala',
@@ -76,6 +77,7 @@ executable(
 shared_module(
     'monitor',
     'src/Indicator/Indicator.vala',
+    'src/Utils.vala',
 
     'src/Indicator/Widgets/DisplayWidget.vala',
     'src/Indicator/Widgets/PopoverWidget.vala',

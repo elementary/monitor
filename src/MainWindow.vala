@@ -1,10 +1,4 @@
-namespace Monitor {
-    public struct ResourcesData {
-        public int cpu_percentage;
-        public int ram_percentage;
-    }
-
-    public class MainWindow : Gtk.Window {
+    public class Monitor.MainWindow : Gtk.Window {
         // application reference
         public Settings saved_state;
         private Shortcuts shortcuts;
@@ -73,11 +67,11 @@ namespace Monitor {
 
             Timeout.add_seconds (2, () => {
                 statusbar.update ();
-                dbusserver.update (
-                    ResourcesData () {
+                var sysres = Utils.SystemResources () {
                     cpu_percentage = 12,
                     ram_percentage = 90
-                    });
+                    };
+                dbusserver.update (sysres);
                 return true;
             });
 
@@ -96,4 +90,3 @@ namespace Monitor {
             });
         }
     }
-}

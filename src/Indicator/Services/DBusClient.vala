@@ -1,16 +1,11 @@
 [DBus (name = "com.github.stsdc.monitor")]
-public interface DBusClientInterface : Object {
+public interface Monitor.DBusClientInterface : Object {
     public abstract int ping (string msg) throws IOError;
     public abstract int ping_with_sender (string msg) throws IOError;
     public abstract int ping_with_signal (string msg) throws IOError;
     public signal void pong (int count, string msg);
-    public signal void update (ResourcesData data);
+    public signal void update (Utils.SystemResources data);
     public signal void indicator_state (bool state);
-}
-
-public struct ResourcesData {
-    public int cpu_percentage;
-    public int ram_percentage;
 }
 
 public class Monitor.DBusClient : Object{

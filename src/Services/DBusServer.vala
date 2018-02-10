@@ -10,7 +10,7 @@ namespace Monitor {
         private int counter;
 
         public signal void pong (int count, string msg);
-        public signal void update (ResourcesData data);
+        public signal void update (Utils.SystemResources data);
         public signal void indicator_state (bool state);
 
         construct {
