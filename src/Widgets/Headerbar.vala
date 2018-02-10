@@ -39,6 +39,7 @@ namespace Monitor {
             preferences_button.popover = preferences_popover;
 
             var show_indicator_switch = new Gtk.Switch ();
+            show_indicator_switch.state = window.saved_state.indicator_state;
 
             var switch_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 10);
             switch_box.pack_start (new Gtk.Label (_("Show an indicator")), false, false, 0);
@@ -51,7 +52,6 @@ namespace Monitor {
             pack_end (search);
 
             show_indicator_switch.notify["active"].connect (() => {
-                info ("SWITCH");
                 window.saved_state.indicator_state = show_indicator_switch.state;
                 window.dbusserver.indicator_state (show_indicator_switch.state);
             });

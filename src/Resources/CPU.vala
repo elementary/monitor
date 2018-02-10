@@ -1,6 +1,4 @@
-namespace Monitor {
-
-    public class CPU : Object {
+    public class Monitor.CPU : Object {
         private float last_used;
         private float last_total;
         private float load;
@@ -36,4 +34,3 @@ namespace Monitor {
             last_total = total;
         }
     }
-}
