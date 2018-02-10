@@ -17,6 +17,8 @@
 
         public DBusServer dbusserver;
 
+        private Updater updater;
+
 
         // Constructs a main window
         public MainWindow (MonitorApp app) {
@@ -28,6 +30,8 @@
             this.window_position = Gtk.WindowPosition.CENTER;
 
             get_style_context ().add_class ("rounded");
+
+            updater = Updater.get_default ();
 
             dbusserver = DBusServer.get_default();
 
@@ -63,17 +67,10 @@
 
             this.show_all ();
 
-
-
-            Timeout.add_seconds (2, () => {
+            updater.update.connect ((sysres) => {
                 statusbar.update ();
-                var sysres = Utils.SystemResources () {
-                    cpu_percentage = 12,
-                    ram_percentage = 90
-                    };
                 dbusserver.update (sysres);
-                return true;
-            });
+                });
 
             shortcuts = new Shortcuts (this);
             key_press_event.connect ((e) => shortcuts.handle (e));

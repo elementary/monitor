@@ -82,7 +82,7 @@ shared_module(
     'src/Indicator/Widgets/DisplayWidget.vala',
     'src/Indicator/Widgets/PopoverWidget.vala',
     'src/Indicator/Widgets/CPUWidget.vala',
-    'src/Indicator/Widgets/RAMWidget.vala',
+    'src/Indicator/Widgets/MemoryWidget.vala',
 
     'src/Indicator/Services/DBusClient.vala',
     'src/Services/Settings.vala',

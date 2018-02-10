@@ -26,13 +26,9 @@ public class Monitor.DBusClient : Object{
                 stdout.printf ("Got pong %d for msg '%s'\n", c, m);
             });
 
-            interface.update.connect((data) => {
-                info ("%d, %d", data.cpu_percentage, data.ram_percentage);
-            });
-
             // interface.indicator_state.connect((state) => {
             //     indicator_state ()
-            //     info ("%d, %d", data.cpu_percentage, data.ram_percentage);
+            //     info ("%d, %d", data.cpu_percentage, data.memory_percentage);
             // });
 
             int reply = interface.ping ("Hello from Vala");
