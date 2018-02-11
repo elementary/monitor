@@ -1,8 +1,8 @@
 namespace Monitor {
 
     public class Memory : Object {
-        public float total;
-        public float used;
+        public double total;
+        public double used;
 
         private GTop.Memory mem;
 
@@ -22,8 +22,8 @@ namespace Monitor {
 
         private void update () {
             GTop.get_mem (out mem);
-    		total = (float) (mem.total / 1024 / 1024) / 1000;
-            used = (float) (mem.user / 1024 / 1024) / 1000;
+    		total = (double) (mem.total / 1024 / 1024) / 1000;
+            used = (double) (mem.user / 1024 / 1024) / 1000;
         }
     }
 }

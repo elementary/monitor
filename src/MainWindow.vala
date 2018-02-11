@@ -31,8 +31,6 @@
 
             get_style_context ().add_class ("rounded");
 
-            updater = Updater.get_default ();
-
             dbusserver = DBusServer.get_default();
 
 
@@ -67,8 +65,9 @@
 
             this.show_all ();
 
+            updater = Updater.get_default ();
             updater.update.connect ((sysres) => {
-                statusbar.update ();
+                statusbar.update (sysres);
                 dbusserver.update (sysres);
                 });
 

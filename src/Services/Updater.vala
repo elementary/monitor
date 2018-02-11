@@ -18,13 +18,15 @@ namespace Monitor {
             memory = new Memory ();
             cpu = new CPU ();
 
-            Timeout.add_seconds (interval, handle_timeout);
+            Timeout.add_seconds (interval, update_resources);
         }
 
-        private bool handle_timeout () {
+        private bool update_resources () {
             sysres = Utils.SystemResources () {
                 cpu_percentage = cpu.percentage,
-                memory_percentage = memory.percentage
+                memory_percentage = memory.percentage,
+                memory_used = memory.used,
+                memory_total = memory.total
             };
             update (sysres);
             return true;
