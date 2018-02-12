@@ -12,6 +12,7 @@ namespace Monitor {
         public signal void pong (int count, string msg);
         public signal void update (Utils.SystemResources data);
         public signal void indicator_state (bool state);
+        public signal void quit ();
 
         construct {
             Bus.own_name (
@@ -27,6 +28,10 @@ namespace Monitor {
         public int ping (string msg) {
             stdout.printf ("%s\n", msg);
             return counter++;
+        }
+
+        public void quit_monitor () {
+            quit ();
         }
 
         public int ping_with_signal (string msg) {

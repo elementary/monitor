@@ -69,7 +69,9 @@
             updater.update.connect ((sysres) => {
                 statusbar.update (sysres);
                 dbusserver.update (sysres);
-                });
+            });
+
+            dbusserver.quit.connect (() => app.quit());
 
             shortcuts = new Shortcuts (this);
             key_press_event.connect ((e) => shortcuts.handle (e));
@@ -82,6 +84,8 @@
                     saved_state.window_width = window_width;
                     saved_state.window_height = window_height;
                     saved_state.is_maximized = this.is_maximized;
+
+                    dbusserver.indicator_state (false);
                     return false;
             });
         }

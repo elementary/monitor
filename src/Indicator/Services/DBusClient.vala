@@ -1,5 +1,6 @@
 [DBus (name = "com.github.stsdc.monitor")]
 public interface Monitor.DBusClientInterface : Object {
+    public abstract void quit_monitor () throws IOError;
     public abstract int ping (string msg) throws IOError;
     public abstract int ping_with_sender (string msg) throws IOError;
     public abstract int ping_with_signal (string msg) throws IOError;
@@ -25,11 +26,6 @@ public class Monitor.DBusClient : Object{
             interface.pong.connect((c, m) => {
                 stdout.printf ("Got pong %d for msg '%s'\n", c, m);
             });
-
-            // interface.indicator_state.connect((state) => {
-            //     indicator_state ()
-            //     info ("%d, %d", data.cpu_percentage, data.memory_percentage);
-            // });
 
             int reply = interface.ping ("Hello from Vala");
             stdout.printf ("%d\n", reply);
