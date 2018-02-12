@@ -1,10 +1,6 @@
 [DBus (name = "com.github.stsdc.monitor")]
 public interface Monitor.DBusClientInterface : Object {
     public abstract void quit_monitor () throws IOError;
-    public abstract int ping (string msg) throws IOError;
-    public abstract int ping_with_sender (string msg) throws IOError;
-    public abstract int ping_with_signal (string msg) throws IOError;
-    public signal void pong (int count, string msg);
     public signal void update (Utils.SystemResources data);
     public signal void indicator_state (bool state);
 }
@@ -22,22 +18,8 @@ public class Monitor.DBusClient : Object{
             interface = Bus.get_proxy_sync (BusType.SESSION, "com.github.stsdc.monitor",
                                                         "/com/github/stsdc/monitor");
 
-            /* Connecting to signal pong! */
-            interface.pong.connect((c, m) => {
-                stdout.printf ("Got pong %d for msg '%s'\n", c, m);
-            });
-
-            int reply = interface.ping ("Hello from Vala");
-            stdout.printf ("%d\n", reply);
-
-            reply = interface.ping_with_sender ("Hello from Vala with sender");
-            stdout.printf ("%d\n", reply);
-
-            reply = interface.ping_with_signal ("Hello from Vala with signal");
-            stdout.printf ("%d\n", reply);
-
         } catch (IOError e) {
-            stderr.printf ("%s\n", e.message);
+            error ("%s\n", e.message);
         }
     }
 }
