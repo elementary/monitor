@@ -8,13 +8,16 @@ public class Monitor.Indicator : Wingpanel.Indicator {
 
     construct {
         saved_state = Settings.get_default ();
-        this.visible = saved_state.indicator_state;
+        this.visible = false;
         display_widget = new Widgets.DisplayWidget ();
         popover_widget = new Widgets.PopoverWidget ();
 
         dbusclient = DBusClient.get_default ();
 
-        dbusclient.interface.indicator_state.connect((state) => { this.visible = state; });
+        dbusclient.interface.indicator_state.connect((state) => {
+            stdout.printf ("YOLO5 %s", state.to_string());
+            this.visible = state;
+        });
 
         dbusclient.interface.update.connect((sysres) => {
             display_widget.cpu_widget.percentage = sysres.cpu_percentage;

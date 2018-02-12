@@ -27,6 +27,7 @@
             this.set_default_size (saved_state.window_width, saved_state.window_height);
 
             if (saved_state.is_maximized) { this.maximize (); }
+
             this.window_position = Gtk.WindowPosition.CENTER;
 
             get_style_context ().add_class ("rounded");
@@ -69,6 +70,7 @@
             updater.update.connect ((sysres) => {
                 statusbar.update (sysres);
                 dbusserver.update (sysres);
+                dbusserver.indicator_state (saved_state.indicator_state);
             });
 
             dbusserver.quit.connect (() => app.quit());
@@ -88,5 +90,8 @@
                     dbusserver.indicator_state (false);
                     return false;
             });
+
+            dbusserver.indicator_state (saved_state.indicator_state);
+            stdout.printf ("YOL77 %s", saved_state.indicator_state.to_string());
         }
     }
