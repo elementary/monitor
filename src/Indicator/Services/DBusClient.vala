@@ -13,13 +13,28 @@ public class Monitor.DBusClient : Object{
         return instance.once (() => { return new DBusClient (); });
     }
 
+    public signal void monitor_vanished ();
+    public signal void monitor_appeared ();
+
     construct {
         try {
-            interface = Bus.get_proxy_sync (BusType.SESSION, "com.github.stsdc.monitor",
-                                                        "/com/github/stsdc/monitor");
+            interface = Bus.get_proxy_sync (
+                BusType.SESSION,
+                "com.github.stsdc.monitor",                                                        "/com/github/stsdc/monitor"
+                );
+
+            Bus.watch_name (
+                BusType.SESSION,
+                "com.github.stsdc.monitor",
+                BusNameWatcherFlags.NONE,
+                () => monitor_appeared (),
+                () => monitor_vanished ()
+                );
+
+
 
         } catch (IOError e) {
-            error ("%s\n", e.message);
+            error ("Monitor Indicator DBus: %s\n", e.message);
         }
     }
 }

@@ -87,8 +87,13 @@
                     saved_state.window_height = window_height;
                     saved_state.is_maximized = this.is_maximized;
 
-                    dbusserver.indicator_state (false);
-                    return false;
+                    if (saved_state.indicator_state == true) {
+                        this.hide_on_delete ();
+                    } else {
+                        dbusserver.indicator_state (false);
+                        app.quit ();
+                    }
+                    return true;
             });
 
             dbusserver.indicator_state (saved_state.indicator_state);

@@ -14,8 +14,11 @@ public class Monitor.Indicator : Wingpanel.Indicator {
 
         dbusclient = DBusClient.get_default ();
 
+        dbusclient.monitor_vanished.connect (() => this.visible = false);
+
+        dbusclient.monitor_appeared.connect (() => this.visible = saved_state.indicator_state);
+
         dbusclient.interface.indicator_state.connect((state) => {
-            stdout.printf ("YOLO5 %s", state.to_string());
             this.visible = state;
         });
 
@@ -24,6 +27,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
             display_widget.memory_widget.percentage = sysres.memory_percentage;
             info ("%d, %d", sysres.cpu_percentage, sysres.memory_percentage);
         });
+
         popover_widget.quit_monitor.connect (() => {
             dbusclient.interface.quit_monitor ();
             this.visible = false;
@@ -95,7 +99,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
  */
 public Wingpanel.Indicator? get_indicator (Module module, Wingpanel.IndicatorManager.ServerType server_type) {
     /* A small message for debugging reasons */
-    debug ("Activating Sample Indicator");
+    debug ("Activating Monitor Indicator");
 
     /* Check which server has loaded the plugin */
     if (server_type != Wingpanel.IndicatorManager.ServerType.SESSION) {
