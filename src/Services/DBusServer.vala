@@ -10,6 +10,7 @@ namespace Monitor {
         public signal void update (Utils.SystemResources data);
         public signal void indicator_state (bool state);
         public signal void quit ();
+        public signal void show ();
 
         construct {
             Bus.own_name (
@@ -24,6 +25,10 @@ namespace Monitor {
 
         public void quit_monitor () {
             quit ();
+        }
+
+        public void show_monitor () {
+            show ();
         }
 
         private void on_bus_aquired (DBusConnection conn) {

@@ -15,12 +15,9 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         dbusclient = DBusClient.get_default ();
 
         dbusclient.monitor_vanished.connect (() => this.visible = false);
-
         dbusclient.monitor_appeared.connect (() => this.visible = saved_state.indicator_state);
 
-        dbusclient.interface.indicator_state.connect((state) => {
-            this.visible = state;
-        });
+        dbusclient.interface.indicator_state.connect((state) => this.visible = state);
 
         dbusclient.interface.update.connect((sysres) => {
             display_widget.cpu_widget.percentage = sysres.cpu_percentage;
@@ -31,6 +28,10 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         popover_widget.quit_monitor.connect (() => {
             dbusclient.interface.quit_monitor ();
             this.visible = false;
+        });
+
+        popover_widget.show_monitor.connect (() => {
+            dbusclient.interface.show_monitor ();
         });
 
     }

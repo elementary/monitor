@@ -74,12 +74,13 @@
             });
 
             dbusserver.quit.connect (() => app.quit());
+            dbusserver.show.connect (() => this.show ());
 
             shortcuts = new Shortcuts (this);
             key_press_event.connect ((e) => shortcuts.handle (e));
 
             // Maybe move it from here to Settings
-            delete_event.connect (() => {
+            this.delete_event.connect (() => {
                     int window_width;
                     int window_height;
                     get_size (out window_width, out window_height);
