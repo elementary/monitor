@@ -30,6 +30,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         });
 
         popover_widget.show_monitor.connect (() => {
+            close ();
             dbusclient.interface.show_monitor ();
         });
 
