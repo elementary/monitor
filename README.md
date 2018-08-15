@@ -26,3 +26,8 @@ You'll need the following dependencies to build:
     meson build --prefix=/usr
     cd build
     sudo ninja install
+    
+## Arch Linux
+Arch Linux users can find Monitor under the name [pantheon-system-monitor-git](https://aur.archlinux.org/packages/pantheon-system-monitor-git/) in the **AUR**:
+
+`$ aurman -S pantheon-system-monitor-git`
