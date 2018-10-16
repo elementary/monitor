@@ -14,7 +14,7 @@
    version="1.0"
    viewBox="0 0 16 16"
    width="16"
-   inkscape:version="0.91 r13725"
+   inkscape:version="0.92.3 (unknown)"
    sodipodi:docname="com.github.stsdc.monitor.svg">
   <sodipodi:namedview
      pagecolor="#ffffff"
@@ -26,40 +26,47 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="962"
+     inkscape:window-height="1017"
      id="namedview30"
      showgrid="false"
      showguides="false"
      inkscape:guide-bbox="true"
      inkscape:snap-bbox="true"
-     inkscape:bbox-paths="true"
-     inkscape:bbox-nodes="true"
-     inkscape:zoom="32"
-     inkscape:cx="0.4788116"
-     inkscape:cy="6.5484163"
+     inkscape:bbox-paths="false"
+     inkscape:bbox-nodes="false"
+     inkscape:zoom="1"
+     inkscape:cx="6.8294412"
+     inkscape:cy="8.0419754"
      inkscape:window-x="0"
      inkscape:window-y="30"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg11300">
+     inkscape:current-layer="svg11300"
+     inkscape:snap-others="false"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-smooth-nodes="true">
     <inkscape:grid
        type="xygrid"
        id="grid7058" />
     <sodipodi:guide
        position="1,10.169492"
        orientation="1,0"
-       id="guide7060" />
+       id="guide7060"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="10.847458,15"
        orientation="0,1"
-       id="guide7062" />
+       id="guide7062"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="9.0847458,0.99999717"
        orientation="0,1"
-       id="guide7064" />
+       id="guide7064"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="15.000003,8.5423729"
        orientation="1,0"
-       id="guide7066" />
+       id="guide7066"
+       inkscape:locked="false" />
   </sodipodi:namedview>
   <metadata
      id="metadata155">
@@ -236,7 +243,7 @@
        xlink:href="#linearGradient2867-449-88-871-390-598-476-591-434-148-57-177-8-3-3-6-4-8-8-8-5-3"
        id="radialGradient4147"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0,1.566041,-1.9225982,0,27.510478,-16.026166)"
+       gradientTransform="matrix(0,1.5554394,-1.9095828,0,27.290941,-15.88159)"
        cx="6.7304144"
        cy="9.9571075"
        fx="6.2001843"
@@ -322,7 +329,7 @@
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(0.20910972,0,0,0.02281198,8.8528882,12.706423)" />
     <linearGradient
-       gradientTransform="matrix(0.2972973,0,0,0.2972973,0.96486973,0.86486732)"
+       gradientTransform="matrix(0.2972973,0,0,0.2972973,0.86486983,0.86486732)"
        gradientUnits="userSpaceOnUse"
        xlink:href="#linearGradient3924-4-8-3"
        id="linearGradient3896"
@@ -372,32 +379,32 @@
     </linearGradient>
   </defs>
   <rect
-     width="13.088606"
-     height="13.088606"
-     rx="1.0058248"
-     ry="1.1240501"
-     x="1.54375"
-     y="1.4738941"
+     width="13"
+     height="13"
+     rx="0.99901569"
+     ry="1.1164407"
+     x="1.5"
+     y="1.5"
      id="rect5505-21-3"
-     style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:url(#radialGradient4147);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.99999994;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+     style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:url(#radialGradient4147);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
   <path
      sodipodi:nodetypes="czcscsc"
      inkscape:connector-curvature="0"
      id="path7088"
-     d="m 2.0999999,7.953346 c 0,0 2.9792455,0 3.6509879,0.01725 C 6.4227322,7.987846 6.89659,5.365326 7.2878962,4.154053 7.3810651,3.80775 7.7006423,5.760316 8.0983947,7.956933 8.3451453,9.319624 8.603889,10.857565 8.9121049,11.752642 9.1679338,12.440234 9.0317909,7.951749 10.24313,7.952622 11.247186,7.953347 14.1,7.953347 14.1,7.953347"
-     style="display:inline;opacity:1;fill:none;fill-rule:evenodd;stroke:#7db33f;stroke-width:1.20779836;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;enable-background:new" />
+     d="m 2,8.4991875 c 0,0 2.3282576,-0.015625 3,0.00163 C 5.6717444,8.5180626 6,6 6.5,5.5 c 0.093169,-0.3463029 0.7688371,1.7233858 1,3 0.1877321,1.0367644 0.7074091,2.5 1,3 0.7714539,0.5 1.288661,-3.0008731 2.5,-3 1.004056,7.25e-4 3,0 3,0"
+     style="display:inline;opacity:1;fill:none;fill-rule:evenodd;stroke:#7db33f;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;enable-background:new" />
   <rect
      style="opacity:0.3;fill:none;stroke:url(#linearGradient3896);stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
      id="rect6741-0-3"
      y="2.4999971"
-     x="2.5999999"
+     x="2.5"
      height="11"
      width="11" />
   <rect
      style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:0.7;fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
      id="rect5505-21-2-8"
      y="1.4999971"
-     x="1.6"
+     x="1.5"
      ry="1"
      rx="1"
      height="13.000003"
