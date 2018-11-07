@@ -14,7 +14,6 @@ namespace Monitor {
 
         public OverallView (GenericModel model) {
             this.model = model;
-            rules_hint = true;
             regex = /(?i:^.*\.(xpm|png)$)/;
 
             // setup name column

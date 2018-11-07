@@ -10,7 +10,7 @@ namespace Monitor {
 
                 // Memory status
 
-                
+
                 //ADD BUTTON
                 //  var add_img = new Gtk.Image ();
                 //  add_img.set_from_icon_name ("list-add-symbolic", Gtk.IconSize.MENU);
@@ -33,7 +33,7 @@ namespace Monitor {
         private void set_memory_usage_label () {
             string memory_text = ("%s %d%%").printf (_("Memory:"), res.get_memory_usage());
             memory_usage_label = new Gtk.Label (memory_text);
-            memory_usage_label.margin_left = 12;
+            memory_usage_label.margin_start = 12;
             pack_start (memory_usage_label);
         }
 
