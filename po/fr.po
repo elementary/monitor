@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.7.1\n"
-"Last-Translator: \n"
+"Last-Translator: NathanBnm\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Language: fr\n"
 
@@ -24,11 +24,11 @@ msgstr "Applications en arrière-plan"
 
 #: ../src/Widgets/Statusbar.vala:25 ../src/Widgets/Statusbar.vala:41
 msgid "CPU:"
-msgstr "CPU:"
+msgstr "CPU :"
 
 #: ../src/Widgets/Statusbar.vala:26 ../src/Widgets/Statusbar.vala:34
 msgid "Memory:"
-msgstr "Mémoire"
+msgstr "Mémoire :"
 
 #: ../src/Widgets/Statusbar.vala:27 ../src/Widgets/OverallView.vala:116
 msgid "GiB"
@@ -36,7 +36,7 @@ msgstr "Gio"
 
 #: ../src/Widgets/OverallView.vala:32
 msgid "Process Name"
-msgstr "Nom de la tâche"
+msgstr "Nom du processus"
 
 #: ../src/Widgets/OverallView.vala:51
 msgid "CPU"
@@ -60,11 +60,11 @@ msgstr "Mio"
 
 #: ../src/Widgets/Search.vala:9
 msgid "Search Process"
-msgstr "Rechercher"
+msgstr "Rechercher un processus"
 
 #: ../src/Widgets/Search.vala:10
 msgid "Type Process Name or PID"
-msgstr "Entrez le nom d'une tâche ou un PID"
+msgstr "Entrez le nom d'un processus ou un PID"
 
 #: ../src/MainWindow.vala:53
 msgid "Monitor"
@@ -72,7 +72,7 @@ msgstr "Monitor"
 
 #: ../src/MainWindow.vala:66
 msgid "End process"
-msgstr "Supprimer la tâche"
+msgstr "Terminer le processus"
 
 #: ../src/MainWindow.vala:68
 msgid "Ctrl+E"
