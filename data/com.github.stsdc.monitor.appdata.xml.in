@@ -25,20 +25,10 @@
 <url type="help">https://github.com/stsdc/monitor/issues</url>
 
 <releases>
-    <release version="0.3.6" date="2018-11-23">
+    <release version="0.3.7" date="2019-01-23">
 ​      <description>
 ​         <ul>
-            <li>New icon</li>
-            <li>Quit the app with Ctrl+Q</li>
-        </ul>
-​      </description>
-​    </release>
-​    <release version="0.3.5" date="2018-01-20">
-​      <description>
-​         <ul>
-            <li>Fix showing icon for some apps</li>
-            <li>Pressing Enter focuses on process list</li>
-            <li>Filtering: process will be highlighted if its group has no other processes</li>
+            <li>Update French translation</li>
         </ul>
 ​      </description>
 ​    </release>
