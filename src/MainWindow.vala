@@ -1,9 +1,6 @@
-namespace Monitor {
-
-    public class MainWindow : Gtk.Window {
+    public class Monitor.MainWindow : Gtk.Window {
         // application reference
-        private MonitorApp app;
-        private Settings saved_state;
+        public Settings saved_state;
         private Shortcuts shortcuts;
 
         // Widgets
@@ -18,24 +15,25 @@ namespace Monitor {
 
         public Gtk.TreeModelFilter filter;
 
+        public DBusServer dbusserver;
+
+        private Updater updater;
+
 
         // Constructs a main window
         public MainWindow (MonitorApp app) {
-            this.app = app;
             this.set_application (app);
             saved_state = Settings.get_default ();
             this.set_default_size (saved_state.window_width, saved_state.window_height);
-            // Maximize window if necessary
-            switch (saved_state.window_state) {
-                case Settings.WindowState.MAXIMIZED:
-                    this.maximize ();
-                    break;
-                default:
-                    break;
-            }
+
+            if (saved_state.is_maximized) { this.maximize (); }
+
             this.window_position = Gtk.WindowPosition.CENTER;
 
             get_style_context ().add_class ("rounded");
+
+            dbusserver = DBusServer.get_default();
+
 
             //  button_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
 
@@ -53,7 +51,7 @@ namespace Monitor {
             process_view_window = new Gtk.ScrolledWindow (null, null);
             generic_model = new GenericModel ();
             process_view = new OverallView (generic_model);
-            
+
             headerbar = new Headerbar (this);
             set_titlebar (headerbar);
 
@@ -68,23 +66,38 @@ namespace Monitor {
 
             this.show_all ();
 
+            updater = Updater.get_default ();
+            updater.update.connect ((sysres) => {
+                statusbar.update (sysres);
+                dbusserver.update (sysres);
+                dbusserver.indicator_state (saved_state.indicator_state);
+            });
+
+            dbusserver.quit.connect (() => app.quit());
+            dbusserver.show.connect (() => this.show ());
+
             shortcuts = new Shortcuts (this);
             key_press_event.connect ((e) => shortcuts.handle (e));
 
             // Maybe move it from here to Settings
-            delete_event.connect (() => {
+            this.delete_event.connect (() => {
                     int window_width;
                     int window_height;
                     get_size (out window_width, out window_height);
                     saved_state.window_width = window_width;
                     saved_state.window_height = window_height;
-                    if (is_maximized) {
-                        saved_state.window_state = Settings.WindowState.MAXIMIZED;
+                    saved_state.is_maximized = this.is_maximized;
+
+                    if (saved_state.indicator_state == true) {
+                        this.hide_on_delete ();
                     } else {
-                        saved_state.window_state = Settings.WindowState.NORMAL;
+                        dbusserver.indicator_state (false);
+                        app.quit ();
                     }
-                    return false;
+                    return true;
             });
+
+            dbusserver.indicator_state (saved_state.indicator_state);
+            stdout.printf ("YOL77 %s", saved_state.indicator_state.to_string());
         }
     }
-}
