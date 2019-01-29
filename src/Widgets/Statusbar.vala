@@ -12,7 +12,7 @@
             pack_start (cpu_usage_label);
 
             memory_usage_label = new Gtk.Label (memory_text);
-            memory_usage_label.margin_start = 12;
+            memory_usage_label.margin_start = 6;
             pack_start (memory_usage_label);
         }
 
