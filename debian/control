@@ -12,9 +12,7 @@ Build-Depends: meson,
                libbamf3-dev,
                libwnck-3-dev,
                libgtop2-dev
-
-
-Standards-Version: 3.9.3
+Standards-Version: 4.1.1
 
 Package: com.github.stsdc.monitor
 Architecture: any

@@ -1,19 +1,11 @@
 namespace Monitor {
 
-    public class MonitorApp : Granite.Application {
+    public class MonitorApp : Gtk.Application {
         private MainWindow window = null;
         public string[] args;
 
         construct {
-            program_name = "Monitor";
             application_id = "com.github.stsdc.monitor";
-            exec_name = "com.github.stsdc.monitor";
-            app_launcher = application_id + ".desktop";
-        }
-
-        public MonitorApp () {
-            Granite.Services.Logger.initialize (this.program_name);
-            Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.DEBUG;
         }
 
         public override void activate () {
@@ -24,6 +16,15 @@ namespace Monitor {
             } else {
                 window.present ();
             }
+
+            var quit_action = new SimpleAction ("quit", null);
+            add_action (quit_action);
+            set_accels_for_action ("app.quit", {"<Ctrl>q"});
+            quit_action.activate.connect (() => {
+                if (window != null) {
+                    window.destroy ();
+                }
+            });
         }
 
         public static int main (string [] args) {

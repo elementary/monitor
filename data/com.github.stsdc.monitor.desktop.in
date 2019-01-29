@@ -1,9 +1,7 @@
 [Desktop Entry]
 Name=Monitor
 GenericName=System Monitor
-GenericName[lt]=Sistemos monitorius
 Comment=Manage processes and monitor resource usage of the system
-Comment[lt]=Tvarkyti procesus ir stebėti sistemos išteklių naudojimą
 Categories=System;Utility;
 Exec=com.github.stsdc.monitor %U
 Icon=com.github.stsdc.monitor
@@ -11,5 +9,4 @@ Terminal=false
 Type=Application
 X-GNOME-Gettext-Domain=monitor
 Keywords=System monitor;System usage;Task manager;
-Keywords[lt]=Sistemos monitorius;Sistemos naudojimas;Užduočių tvarkytuvė;
 X-GNOME-UsesNotifications=false

@@ -60,7 +60,7 @@ namespace Monitor {
         // Kills the process
         // Returns if kill was successful
         public bool kill () {
-            if (Posix.kill (pid, Posix.SIGINT) == 0) {
+            if (Posix.kill (pid, Posix.Signal.INT) == 0) {
                 return true;
             }
             return false;

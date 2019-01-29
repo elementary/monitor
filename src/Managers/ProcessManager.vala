@@ -22,7 +22,7 @@ namespace Monitor {
         public ProcessManager () {
             process_list = new Gee.HashMap<int, Process> ();
             kernel_process_blacklist = new Gee.HashSet<int> ();
-            update_processes ();
+            update_processes.begin ();
 
             Timeout.add (2000, handle_timeout);
         }
@@ -81,7 +81,7 @@ namespace Monitor {
          * Handle updating the process list
          */
         private bool handle_timeout () {
-            update_processes ();
+            update_processes.begin ();
             return true;
         }
 

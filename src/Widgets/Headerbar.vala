@@ -16,6 +16,7 @@ namespace Monitor {
             var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
 
             var kill_process_button = new Gtk.Button.with_label (_("End process"));
+            kill_process_button.valign = Gtk.Align.CENTER;
             kill_process_button.clicked.connect (window.process_view.kill_process);
             kill_process_button.tooltip_text = (_("Ctrl+E"));
 
@@ -23,6 +24,7 @@ namespace Monitor {
             pack_start (button_box);
 
             search = new Search (window.process_view, window.generic_model);
+            search.valign = Gtk.Align.CENTER;
             pack_end (search);
         }
     }
