@@ -25,18 +25,18 @@ public class Monitor.DBusServer : Object {
             );
     }
 
-    public void quit_monitor () {
+    public void quit_monitor () throws IOError, DBusError {
         quit ();
     }
 
-    public void show_monitor () {
+    public void show_monitor () throws IOError, DBusError {
         show ();
     }
 
     private void on_bus_aquired (DBusConnection conn) {
         try {
             debug ("DBus registered!");
-            conn.register_object ("/com/github/stsdc/monitor", this.get_default ());
+            conn.register_object ("/com/github/stsdc/monitor", get_default ());
         } catch (Error e) {
             error (e.message);
         }
