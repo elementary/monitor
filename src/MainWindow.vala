@@ -32,8 +32,6 @@
 
             get_style_context ().add_class ("rounded");
 
-            dbusserver = DBusServer.get_default();
-
 
             //  button_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
 
@@ -67,6 +65,8 @@
             this.show_all ();
 
             updater = Updater.get_default ();
+            dbusserver = DBusServer.get_default();
+
             updater.update.connect ((sysres) => {
                 statusbar.update (sysres);
                 dbusserver.update (sysres);
@@ -74,7 +74,11 @@
             });
 
             dbusserver.quit.connect (() => app.quit());
-            dbusserver.show.connect (() => this.show ());
+            dbusserver.show.connect (() => {
+                this.deiconify();
+                this.present();
+                this.show ();
+            });
 
             shortcuts = new Shortcuts (this);
             key_press_event.connect ((e) => shortcuts.handle (e));
@@ -98,6 +102,5 @@
             });
 
             dbusserver.indicator_state (saved_state.indicator_state);
-            stdout.printf ("YOL77 %s", saved_state.indicator_state.to_string());
         }
     }
