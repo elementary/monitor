@@ -21,7 +21,8 @@ public class Monitor.DBusClient : Object{
         try {
             interface = Bus.get_proxy_sync (
                 BusType.SESSION,
-                "com.github.stsdc.monitor",                                                        "/com/github/stsdc/monitor"
+                "com.github.stsdc.monitor",
+                "/com/github/stsdc/monitor"
                 );
 
             Bus.watch_name (
@@ -30,7 +31,7 @@ public class Monitor.DBusClient : Object{
                 BusNameWatcherFlags.NONE,
                 () => monitor_appeared (),
                 () => monitor_vanished ()
-                );
+            );
 
 
 
