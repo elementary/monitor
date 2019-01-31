@@ -18,6 +18,7 @@ You'll need the following dependencies to build:
 * libbamf3-dev
 * libwnck-3-dev
 * libgtop2-dev
+* meson
 
 ## How To Build
 

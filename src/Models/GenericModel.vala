@@ -35,11 +35,11 @@ namespace Monitor {
 
             Idle.add (() => { add_running_apps (); return false; } );
             Idle.add (() => { add_running_processes (); return false; } );
-        }
 
-        public GenericModel () {
             add_background_apps_row ();
         }
+
+        public GenericModel () { }
 
         private void add_running_apps () {
             debug ("add_running_applications");

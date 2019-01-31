@@ -11,7 +11,8 @@ Build-Depends: meson,
                libgranite-dev,
                libbamf3-dev,
                libwnck-3-dev,
-               libgtop2-dev
+               libgtop2-dev,
+               libwingpanel-2.0-dev
 Standards-Version: 4.1.1
 
 Package: com.github.stsdc.monitor
