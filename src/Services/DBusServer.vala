@@ -1,47 +1,49 @@
-namespace Monitor {
+[DBus (name = "com.github.stsdc.monitor")]
+public class Monitor.DBusServer : Object {
+    private const string DBUS_NAME = "com.github.stsdc.monitor";
+    private const string DBUS_PATH = "/com/github/stsdc/monitor";
 
-    [DBus (name = "com.github.stsdc.monitor")]
-    public class DBusServer : Object {
-        private static GLib.Once<DBusServer> instance;
-        public static unowned DBusServer get_default () {
-            return instance.once (() => { return new DBusServer (); });
-        }
+    private static GLib.Once<DBusServer> instance;
 
-        public signal void update (Utils.SystemResources data);
-        public signal void indicator_state (bool state);
-        public signal void quit ();
-        public signal void show ();
+    public static unowned DBusServer get_default () {
+        return instance.once (() => { return new DBusServer (); });
+    }
 
-        construct {
-            Bus.own_name (
-                BusType.SESSION,
-                "com.github.stsdc.monitor",
-                BusNameOwnerFlags.NONE,
-                (conn) => on_bus_aquired (conn),
-                (c, name) => info ("%s name aquired successfully!", name),
-                () => warning ("Could not aquire name\n")
+    public signal void update (Utils.SystemResources data);
+    public signal void indicator_state (bool state);
+    public signal void quit ();
+    public signal void show ();
+
+    construct {
+        Bus.own_name (
+            BusType.SESSION,
+            DBUS_NAME,
+            BusNameOwnerFlags.NONE,
+            (connection) => on_bus_aquired (connection),
+            () => { },
+            null
             );
-        }
-
-        public void quit_monitor () {
-            quit ();
-        }
-
-        public void show_monitor () {
-            show ();
-        }
-
-        private void on_bus_aquired (DBusConnection conn) {
-            try {
-                conn.register_object ("/com/github/stsdc/monitor", this);
-            } catch (IOError e) {
-                error ("Could not register service\n");
-            }
-        }
     }
 
-    [DBus (name = "com.github.stsdc.monitor")]
-    public errordomain DBusServerError {
-        SOME_ERROR
+    public void quit_monitor () {
+        quit ();
     }
+
+    public void show_monitor () {
+        show ();
+    }
+
+    private void on_bus_aquired (DBusConnection conn) {
+        try {
+            debug ("DBus registered!");
+            conn.register_object ("/com/github/stsdc/monitor", this.get_default ());
+        } catch (Error e) {
+            error (e.message);
+        }
+    }
+}
+
+[DBus (name = "com.github.stsdc.monitor")]
+public errordomain DBusServerError {
+    SOME_ERROR
 }
