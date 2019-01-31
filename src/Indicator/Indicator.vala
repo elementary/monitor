@@ -39,7 +39,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
     /* Constructor */
     public Indicator () {
         /* Some information about the indicator */
-        Object (code_name : "monitor-indicator", /* Unique name */
+        Object (code_name : "monitor", /* Unique name */
                 display_name : _("Monitor Indicator"), /* Localised name */
                 description: _("Show system resources")); /* Short description */
     }
