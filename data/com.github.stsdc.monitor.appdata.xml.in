@@ -25,10 +25,14 @@
 <url type="help">https://github.com/stsdc/monitor/issues</url>
 
 <releases>
-    <release version="0.3.7" date="2019-01-23">
+    <release version="0.4.0" date="2019-01-31">
 ​      <description>
 ​         <ul>
-            <li>Update French translation</li>
+            <li>Add Monitor indicator</li>
+            <li>Add missing extra French translations</li>
+            <li>Fix: if icon missing for the process, icon is taken from previous process</li>
+            <li>Fix: search erases my input while I'm typing</li>
+            <li>Fix POTFILES</li>
         </ul>
 ​      </description>
 ​    </release>

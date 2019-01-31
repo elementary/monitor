@@ -1,3 +1,13 @@
+com.github.stsdc.monitor (0.4.0) bionic; urgency=low
+
+    * Add Monitor indicator
+    * Add missing extra French translations
+    * Fix: if icon missing for the process, icon is taken from previous process
+    * Fix: search erases my input while I'm typing
+    * Fix POTFILES
+
+-- Stanisław Dac <stanislawdac@gmail.com>  Thu, 31 Jan 2019 23:24:10 +0100
+
 com.github.stsdc.monitor (0.3.7) xenial; urgency=low
 
     * Update French translation
