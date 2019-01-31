@@ -26,5 +26,4 @@ public class Monitor.Widgets.CPUWidget : Gtk.Box {
     public CPUWidget () {
         orientation = Gtk.Orientation.HORIZONTAL;
     }
-
 }
