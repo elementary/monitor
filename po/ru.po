@@ -2,72 +2,104 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-05 19:53+0400\n"
+"POT-Creation-Date: 2019-02-03 00:43+0400\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Андрей Культяпов <camellan@yandex.ru>\n"
+"Last-Translator: Andrey Kultyapov <camellan@yandex.ru>\n"
 "Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0\n"
+"X-Generator: Poedit 2.0.6\n"
 
-#: ../src/Models/ApplicationProcessModel.vala:68
+#: src/Indicator/Indicator.vala:43
+msgid "Monitor Indicator"
+msgstr "Индикатор монитора "
+
+#: src/Indicator/Indicator.vala:44
+msgid "Show system resources"
+msgstr "Показывать системные ресурсы"
+
+#: src/Indicator/Widgets/CPUWidget.vala:15
+msgid "cpu"
+msgstr "цпу"
+
+#: src/Indicator/Widgets/MemoryWidget.vala:16
+msgid "mem"
+msgstr "пам"
+
+#: src/Indicator/Widgets/PopoverWidget.vala:12
+msgid "Show Monitor"
+msgstr "Показать монитор"
+
+#: src/Indicator/Widgets/PopoverWidget.vala:13
+msgid "Quit Monitor"
+msgstr "Выход"
+
+#: src/Models/GenericModel.vala:274
 msgid "Background Applications"
 msgstr "Фоновые приложения"
 
-#: ../src/Widgets/Statusbar.vala:25 ../src/Widgets/Statusbar.vala:41
-msgid "CPU:"
-msgstr "ЦПУ:"
-
-#: ../src/Widgets/Statusbar.vala:26 ../src/Widgets/Statusbar.vala:34
-msgid "Memory:"
-msgstr "Память:"
-
-#: ../src/Widgets/Statusbar.vala:27 ../src/Widgets/OverallView.vala:116
-msgid "GiB"
-msgstr "ГиБ"
-
-#: ../src/Widgets/OverallView.vala:32
-msgid "Process Name"
-msgstr "Имя процесса"
-
-#: ../src/Widgets/OverallView.vala:51
-msgid "CPU"
-msgstr "ЦПУ"
-
-#: ../src/Widgets/OverallView.vala:62
-msgid "Memory"
-msgstr "Память"
-
-#: ../src/Widgets/OverallView.vala:72
-msgid "PID"
-msgstr "ИД"
-
-#: ../src/Widgets/OverallView.vala:105
-msgid "KiB"
-msgstr "КиБ"
-
-#: ../src/Widgets/OverallView.vala:110
-msgid "MiB"
-msgstr "МиБ"
-
-#: ../src/Widgets/Search.vala:9
-msgid "Search Process"
-msgstr "Найти процесс"
-
-#: ../src/Widgets/Search.vala:10
-msgid "Type Process Name or PID"
-msgstr "Введите имя или ИД процесса"
-
-#: ../src/MainWindow.vala:53
+#: src/Widgets/Headerbar.vala:11
 msgid "Monitor"
-msgstr "Monitor"
+msgstr "Монитор"
 
-#: ../src/MainWindow.vala:66
+#: src/Widgets/Headerbar.vala:18
 msgid "End process"
 msgstr "Завершить процесс"
 
-#: ../src/MainWindow.vala:68
+#: src/Widgets/Headerbar.vala:21
 msgid "Ctrl+E"
 msgstr "Ctrl+E"
+
+#: src/Widgets/Headerbar.vala:28
+msgid "Settings"
+msgstr "Параметры"
+
+#: src/Widgets/Headerbar.vala:46
+msgid "Show an indicator"
+msgstr "Показывать индикатор"
+
+#: src/Widgets/OverallView.vala:21
+msgid "Process Name"
+msgstr "Имя процесса"
+
+#: src/Widgets/OverallView.vala:42
+msgid "CPU"
+msgstr "ЦПУ"
+
+#: src/Widgets/OverallView.vala:53
+msgid "Memory"
+msgstr "Память"
+
+#: src/Widgets/OverallView.vala:63
+msgid "PID"
+msgstr "ИД"
+
+#: src/Widgets/OverallView.vala:107
+msgid "KiB"
+msgstr "КиБ"
+
+#: src/Widgets/OverallView.vala:112
+msgid "MiB"
+msgstr "МиБ"
+
+#: src/Widgets/OverallView.vala:118 src/Widgets/Statusbar.vala:25
+msgid "GiB"
+msgstr "ГиБ"
+
+#: src/Widgets/Search.vala:9
+msgid "Search Process"
+msgstr "Найти процесс"
+
+#: src/Widgets/Search.vala:10
+msgid "Type Process Name or PID"
+msgstr "Введите имя или ИД процесса"
+
+#: src/Widgets/Statusbar.vala:9
+msgid "CPU:"
+msgstr "ЦПУ:"
+
+#: src/Widgets/Statusbar.vala:10
+msgid "Memory:"
+msgstr "Память:"
