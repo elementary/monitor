@@ -7,60 +7,60 @@ msgstr ""
 
 #: ../src/Models/ApplicationProcessModel.vala:68
 msgid "Background Applications"
-msgstr ""
+msgstr "Hintergrundanwendungen"
 
 #: ../src/Widgets/Statusbar.vala:25 ../src/Widgets/Statusbar.vala:41
 msgid "CPU:"
-msgstr ""
+msgstr "CPU:"
 
 #: ../src/Widgets/Statusbar.vala:26 ../src/Widgets/Statusbar.vala:34
 msgid "Memory:"
-msgstr ""
+msgstr "Arbeitsspeicher"
 
-#: ../src/Widgets/Statusbar.vala:27 ../src/Widgets/ProcessView.vala:116
+#: ../src/Widgets/Statusbar.vala:27 ../src/Widgets/OverallView.vala:116
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
-#: ../src/Widgets/ProcessView.vala:32
+#: ../src/Widgets/OverallView.vala:32
 msgid "Process Name"
-msgstr ""
+msgstr "Prozess"
 
-#: ../src/Widgets/ProcessView.vala:51
+#: ../src/Widgets/OverallView.vala:51
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
-#: ../src/Widgets/ProcessView.vala:62
+#: ../src/Widgets/OverallView.vala:62
 msgid "Memory"
-msgstr ""
+msgstr "Arbeitsspeicher"
 
-#: ../src/Widgets/ProcessView.vala:72
+#: ../src/Widgets/OverallView.vala:72
 msgid "PID"
-msgstr ""
+msgstr "PID"
 
-#: ../src/Widgets/ProcessView.vala:105
+#: ../src/Widgets/OverallView.vala:105
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
-#: ../src/Widgets/ProcessView.vala:110
+#: ../src/Widgets/OverallView.vala:110
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 #: ../src/Widgets/Search.vala:9
 msgid "Search Process"
-msgstr ""
+msgstr "Suche"
 
 #: ../src/Widgets/Search.vala:10
 msgid "Type Process Name or PID"
-msgstr ""
+msgstr "Geben Sie den Prozessnamen oder PID ein"
 
 #: ../src/MainWindow.vala:53
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 #: ../src/MainWindow.vala:66
 msgid "End process"
-msgstr ""
+msgstr "Prozess beenden"
 
 #: ../src/MainWindow.vala:68
 msgid "Ctrl+E"
-msgstr ""
+msgstr "Strg+E"

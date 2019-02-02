@@ -7,51 +7,51 @@ msgstr ""
 
 #: ../src/Models/ApplicationProcessModel.vala:68
 msgid "Background Applications"
-msgstr ""
+msgstr "Фонові додатки"
 
 #: ../src/Widgets/Statusbar.vala:25 ../src/Widgets/Statusbar.vala:41
 msgid "CPU:"
-msgstr ""
+msgstr "ЦП"
 
 #: ../src/Widgets/Statusbar.vala:26 ../src/Widgets/Statusbar.vala:34
 msgid "Memory:"
-msgstr ""
+msgstr "Пам'ять:"
 
-#: ../src/Widgets/Statusbar.vala:27 ../src/Widgets/ProcessView.vala:116
+#: ../src/Widgets/Statusbar.vala:27 ../src/Widgets/OverallView.vala:116
 msgid "GiB"
-msgstr ""
+msgstr "ГіБ"
 
-#: ../src/Widgets/ProcessView.vala:32
+#: ../src/Widgets/OverallView.vala:32
 msgid "Process Name"
-msgstr ""
+msgstr "Назва процесу"
 
-#: ../src/Widgets/ProcessView.vala:51
+#: ../src/Widgets/OverallView.vala:51
 msgid "CPU"
-msgstr ""
+msgstr "ЦП"
 
-#: ../src/Widgets/ProcessView.vala:62
+#: ../src/Widgets/OverallView.vala:62
 msgid "Memory"
-msgstr ""
+msgstr "Пам'ять"
 
-#: ../src/Widgets/ProcessView.vala:72
+#: ../src/Widgets/OverallView.vala:72
 msgid "PID"
 msgstr ""
 
-#: ../src/Widgets/ProcessView.vala:105
+#: ../src/Widgets/OverallView.vala:105
 msgid "KiB"
-msgstr ""
+msgstr "КіБ"
 
-#: ../src/Widgets/ProcessView.vala:110
+#: ../src/Widgets/OverallView.vala:110
 msgid "MiB"
-msgstr ""
+msgstr "МіБ"
 
 #: ../src/Widgets/Search.vala:9
 msgid "Search Process"
-msgstr ""
+msgstr "Пошук процесу"
 
 #: ../src/Widgets/Search.vala:10
 msgid "Type Process Name or PID"
-msgstr ""
+msgstr "Введіть назву процесу або PID"
 
 #: ../src/MainWindow.vala:53
 msgid "Monitor"
@@ -59,7 +59,7 @@ msgstr ""
 
 #: ../src/MainWindow.vala:66
 msgid "End process"
-msgstr ""
+msgstr "Закінчити процес"
 
 #: ../src/MainWindow.vala:68
 msgid "Ctrl+E"

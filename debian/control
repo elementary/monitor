@@ -1,9 +1,9 @@
 Source: com.github.stsdc.monitor
 Section: system
 Priority: extra
-Maintainer: David Hewitt <davidmhewitt@gmail.com>
-Build-Depends: cmake (>= 2.8),
-               cmake-elementary,
+Maintainer: Stanisław Dac <stanislaw.dac@gmail.com>
+Build-Depends: meson,
+               appstream,
                debhelper (>= 9),
                libgtk-3-dev,
                libglib2.0-dev,
@@ -11,10 +11,9 @@ Build-Depends: cmake (>= 2.8),
                libgranite-dev,
                libbamf3-dev,
                libwnck-3-dev,
-               libgtop2-dev
-
-               
-Standards-Version: 3.9.3
+               libgtop2-dev,
+               libwingpanel-2.0-dev
+Standards-Version: 4.1.1
 
 Package: com.github.stsdc.monitor
 Architecture: any

@@ -1,0 +1,13 @@
+src/Monitor.vala
+src/MainWindow.vala
+src/Widgets/Headerbar.vala
+src/Widgets/OverallView.vala
+src/Widgets/Search.vala
+src/Widgets/Statusbar.vala
+src/Managers/AppManager.vala
+src/Managers/ProcessManager.vala
+src/Managers/Process.vala
+src/Models/GenericModel.vala
+src/Services/Settings.vala
+src/Services/Shortcuts.vala
+src/Services/Resources.vala

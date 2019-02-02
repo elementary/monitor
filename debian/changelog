@@ -1,7 +1,54 @@
+com.github.stsdc.monitor (0.4.0) bionic; urgency=low
+
+    * Add Monitor indicator
+    * Add missing extra French translations
+    * Fix: if icon missing for the process, icon is taken from previous process
+    * Fix: search erases my input while I'm typing
+    * Fix POTFILES
+
+-- Stanisław Dac <stanislawdac@gmail.com>  Thu, 31 Jan 2019 23:24:10 +0100
+
+com.github.stsdc.monitor (0.3.7) xenial; urgency=low
+
+    * Update French translation
+
+-- Stanisław Dac <stanislawdac@gmail.com>  Wed, 23 Jan 2019 17:44:15 +0100
+
+com.github.stsdc.monitor (0.3.6) xenial; urgency=low
+
+    * New icon
+    * Quit the app with Ctrl+Q
+
+-- Stanisław Dac <stanislawdac@gmail.com>  Fri, 23 Nov 2018 16:25:58 +0100
+
+com.github.stsdc.monitor (0.3.5) xenial; urgency=low
+
+    * Fix showing icon for some apps
+    * Pressing Enter focuses on process list
+    * Filtering: process will be highlighted if its group has no other processes
+
+-- Stanisław Dac <stanislawdac@gmail.com>  Sat, 20 Jan 2018 14:01:21 +0100
+
+com.github.stsdc.monitor (0.3.2) xenial; urgency=low
+
+  * Ukrainian translation
+  * French translation
+  * Lithuanian translation
+  * German translation
+  * Spanish translation
+
+ -- Stanisław Dac <stanislawdac@gmail.com>  Tue, 28 Nov 2017 18:17:00 +0100
+
+com.github.stsdc.monitor (0.3.1) xenial; urgency=low
+
+  * Added Russian translation
+
+ -- Stanisław Dac <stanislawdac@gmail.com>  Tue, 05 Sep 2017 19:16:05 +0200
+
 com.github.stsdc.monitor (0.3.0) xenial; urgency=low
 
   * A few bugs fixed
-  * Added dutch and polish translation
+  * Added Dutch and Polish translation
   * Added shortcuts (CTRL + E to end process, arrows to navigate in tree)
   * Added statusbar showing CPU and RAM usage
 

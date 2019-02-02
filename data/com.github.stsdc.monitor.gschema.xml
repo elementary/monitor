@@ -5,10 +5,10 @@
     <value value="1" nick="maximized"/>
   </enum>
   <schema path="/com/github/stsdc/monitor/settings/" id="com.github.stsdc.monitor.settings">
-    <key enum="com.github.stsdc.monitor.windowstate" name="window-state">
-      <default>'normal'</default>
-      <summary>The saved state of the window</summary>
-      <description>The saved state of the window</description>
+    <key type='b' name="is-maximized">
+      <default>false</default>
+      <summary>Is window maximized or not</summary>
+      <description>Is window maximized or not</description>
     </key>
     <key type="i" name="window-width">
       <default>800</default>
@@ -20,6 +20,10 @@
       <summary>Window height</summary>
       <description>Window height</description>
     </key>
+    <key type='b' name="indicator-state">
+      <default>false</default>
+      <summary>To show Monitor Indicator or not</summary>
+      <description>To show Monitor Indicator or not</description>
+    </key>
   </schema>
 </schemalist>
-

@@ -1,6 +1,6 @@
 
 
-namespace elementarySystemMonitor {
+namespace Monitor {
 
     public class Process {
         // The size of each RSS page, in bytes
@@ -60,7 +60,7 @@ namespace elementarySystemMonitor {
         // Kills the process
         // Returns if kill was successful
         public bool kill () {
-            if (Posix.kill (pid, Posix.SIGINT) == 0) {
+            if (Posix.kill (pid, Posix.Signal.INT) == 0) {
                 return true;
             }
             return false;
@@ -77,7 +77,7 @@ namespace elementarySystemMonitor {
             }
 
             try {
-                // read the single line from the file 
+                // read the single line from the file
                 var dis = new DataInputStream (stat_file.read ());
                 string? stat_contents = dis.read_line ();
 

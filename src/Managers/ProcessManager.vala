@@ -1,6 +1,11 @@
-namespace elementarySystemMonitor {
+namespace Monitor {
 
-    public class ProcessMonitor {
+    public class ProcessManager {
+        private static GLib.Once<ProcessManager> instance;
+        public static unowned ProcessManager get_default () {
+            return instance.once (() => { return new ProcessManager (); });
+        }
+
         public double cpu_load { get; private set; }
         public double[] cpu_loads { get; private set; }
 
@@ -12,16 +17,17 @@ namespace elementarySystemMonitor {
         private Gee.HashMap<int, Process> process_list;
         private Gee.HashSet<int> kernel_process_blacklist;
 
-        public signal void process_added (int pid, Process process);
+        public signal void process_added (Process process);
         public signal void process_removed (int pid);
         public signal void updated ();
 
-        // Construct a new ProcessMonitor
-        public ProcessMonitor () {
+        // Construct a new ProcessManager
+        public ProcessManager () {
             process_list = new Gee.HashMap<int, Process> ();
             kernel_process_blacklist = new Gee.HashSet<int> ();
-            update_processes ();
+            update_processes.begin ();
 
+            // move timeout outside
             Timeout.add (2000, handle_timeout);
         }
 
@@ -73,7 +79,7 @@ namespace elementarySystemMonitor {
          * Handle updating the process list
          */
         private bool handle_timeout () {
-            update_processes ();
+            update_processes.begin ();
             return true;
         }
 
@@ -151,9 +157,9 @@ namespace elementarySystemMonitor {
 
                     // call the signal, lazily if needed
                     if (lazy_signal)
-                        Idle.add (() => { process_added (pid, process); return false; });
+                        Idle.add (() => { process_added (process); return false; });
                     else
-                        process_added (pid, process);
+                        process_added (process);
 
                     return process;
                 } else {
