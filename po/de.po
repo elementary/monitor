@@ -15,7 +15,7 @@ msgstr "CPU:"
 
 #: ../src/Widgets/Statusbar.vala:26 ../src/Widgets/Statusbar.vala:34
 msgid "Memory:"
-msgstr "Arbeitsspeicher"
+msgstr "Arbeitsspeicher:"
 
 #: ../src/Widgets/Statusbar.vala:27 ../src/Widgets/OverallView.vala:116
 msgid "GiB"
