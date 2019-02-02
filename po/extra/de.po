@@ -20,27 +20,27 @@ msgstr ""
 #: data/com.github.stsdc.monitor.appdata.xml.in:7
 #: data/com.github.stsdc.monitor.desktop.in:3
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:8
 msgid "Manage processes and monitor system resources"
-msgstr ""
+msgstr "Prozessverwaltung und Überwachung der Systemressourcen"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:10
 msgid "Display usage of system resources, filter and manage processes."
-msgstr ""
+msgstr "Zeigen Sie die Nutzung von Systemressourcen an, filtern und verwalten Sie Prozesse."
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:22
 msgid "Stanisław Dac"
-msgstr ""
+msgstr "Stanisław Dac"
 
 #: data/com.github.stsdc.monitor.desktop.in:4
 msgid "System Monitor"
-msgstr ""
+msgstr "System Monitor"
 
 #: data/com.github.stsdc.monitor.desktop.in:6
 msgid "Manage processes and monitor resource usage of the system"
-msgstr ""
+msgstr "Verwalten von Prozessen und Überwachen der Ressourcenauslastung des Systems"
 
 #: data/com.github.stsdc.monitor.desktop.in:10
 msgid "com.github.stsdc.monitor"
@@ -48,4 +48,4 @@ msgstr ""
 
 #: data/com.github.stsdc.monitor.desktop.in:14
 msgid "System monitor;System usage;Task manager;"
-msgstr ""
+msgstr "System monitor;System usage;Task manager;"
