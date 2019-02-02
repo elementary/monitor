@@ -1,5 +1,7 @@
 src/Monitor.vala
 src/MainWindow.vala
+src/Indicator/Widgets/PopoverWidget.vala
+src/Indicator/Indicator.vala
 src/Widgets/Headerbar.vala
 src/Widgets/OverallView.vala
 src/Widgets/Search.vala
