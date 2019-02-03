@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the com.github.stsdc.monitor package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-04 21:13+0200\n"
+"POT-Creation-Date: 2019-02-03 22:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,62 +17,90 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/Models/ApplicationProcessModel.vala:68
-msgid "Background Applications"
+#: src/Indicator/Widgets/PopoverWidget.vala:12
+msgid "Show Monitor"
 msgstr ""
 
-#: ../src/Widgets/Statusbar.vala:25 ../src/Widgets/Statusbar.vala:41
-msgid "CPU:"
+#: src/Indicator/Widgets/PopoverWidget.vala:13
+msgid "Quit Monitor"
 msgstr ""
 
-#: ../src/Widgets/Statusbar.vala:26 ../src/Widgets/Statusbar.vala:34
-msgid "Memory:"
+#. Some information about the indicator
+#. Unique name
+#: src/Indicator/Indicator.vala:43
+msgid "Monitor Indicator"
 msgstr ""
 
-#: ../src/Widgets/Statusbar.vala:27 ../src/Widgets/OverallView.vala:116
-msgid "GiB"
+#. Localised name
+#: src/Indicator/Indicator.vala:44
+msgid "Show system resources"
 msgstr ""
 
-#: ../src/Widgets/OverallView.vala:32
-msgid "Process Name"
-msgstr ""
-
-#: ../src/Widgets/OverallView.vala:51
-msgid "CPU"
-msgstr ""
-
-#: ../src/Widgets/OverallView.vala:62
-msgid "Memory"
-msgstr ""
-
-#: ../src/Widgets/OverallView.vala:72
-msgid "PID"
-msgstr ""
-
-#: ../src/Widgets/OverallView.vala:105
-msgid "KiB"
-msgstr ""
-
-#: ../src/Widgets/OverallView.vala:110
-msgid "MiB"
-msgstr ""
-
-#: ../src/Widgets/Search.vala:9
-msgid "Search Process"
-msgstr ""
-
-#: ../src/Widgets/Search.vala:10
-msgid "Type Process Name or PID"
-msgstr ""
-
-#: ../src/MainWindow.vala:53
+#: src/Widgets/Headerbar.vala:11
 msgid "Monitor"
 msgstr ""
 
-#: ../src/MainWindow.vala:66
+#: src/Widgets/Headerbar.vala:18
 msgid "End process"
 msgstr ""
 
-#: ../src/MainWindow.vala:68
+#: src/Widgets/Headerbar.vala:21
 msgid "Ctrl+E"
+msgstr ""
+
+#: src/Widgets/Headerbar.vala:28
+msgid "Settings"
+msgstr ""
+
+#: src/Widgets/Headerbar.vala:46
+msgid "Show an indicator"
+msgstr ""
+
+#. setup name column
+#: src/Widgets/OverallView.vala:21
+msgid "Process Name"
+msgstr ""
+
+#: src/Widgets/OverallView.vala:42
+msgid "CPU"
+msgstr ""
+
+#: src/Widgets/OverallView.vala:53
+msgid "Memory"
+msgstr ""
+
+#: src/Widgets/OverallView.vala:63
+msgid "PID"
+msgstr ""
+
+#: src/Widgets/OverallView.vala:107
+msgid "KiB"
+msgstr ""
+
+#: src/Widgets/OverallView.vala:112
+msgid "MiB"
+msgstr ""
+
+#: src/Widgets/OverallView.vala:118 src/Widgets/Statusbar.vala:25
+msgid "GiB"
+msgstr ""
+
+#: src/Widgets/Search.vala:9
+msgid "Search Process"
+msgstr ""
+
+#: src/Widgets/Search.vala:10
+msgid "Type Process Name or PID"
+msgstr ""
+
+#: src/Widgets/Statusbar.vala:9
+msgid "CPU:"
+msgstr ""
+
+#: src/Widgets/Statusbar.vala:10
+msgid "Memory:"
+msgstr ""
+
+#: src/Models/GenericModel.vala:274
+msgid "Background Applications"
 msgstr ""
