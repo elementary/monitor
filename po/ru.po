@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-03 00:43+0400\n"
+"POT-Creation-Date: 2019-02-04 02:10+0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Andrey Kultyapov <camellan@yandex.ru>\n"
 "Language-Team: \n"
@@ -11,34 +11,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.0.6\n"
-
-#: src/Indicator/Indicator.vala:43
-msgid "Monitor Indicator"
-msgstr "Индикатор монитора "
-
-#: src/Indicator/Indicator.vala:44
-msgid "Show system resources"
-msgstr "Показывать системные ресурсы"
-
-#: src/Indicator/Widgets/CPUWidget.vala:15
-msgid "cpu"
-msgstr "цпу"
-
-#: src/Indicator/Widgets/MemoryWidget.vala:16
-msgid "mem"
-msgstr "пам"
-
-#: src/Indicator/Widgets/PopoverWidget.vala:12
-msgid "Show Monitor"
-msgstr "Показать монитор"
-
-#: src/Indicator/Widgets/PopoverWidget.vala:13
-msgid "Quit Monitor"
-msgstr "Выход"
-
-#: src/Models/GenericModel.vala:274
-msgid "Background Applications"
-msgstr "Фоновые приложения"
 
 #: src/Widgets/Headerbar.vala:11
 msgid "Monitor"
@@ -60,6 +32,7 @@ msgstr "Параметры"
 msgid "Show an indicator"
 msgstr "Показывать индикатор"
 
+#. setup name column
 #: src/Widgets/OverallView.vala:21
 msgid "Process Name"
 msgstr "Имя процесса"
@@ -103,3 +76,25 @@ msgstr "ЦПУ:"
 #: src/Widgets/Statusbar.vala:10
 msgid "Memory:"
 msgstr "Память:"
+
+#: src/Models/GenericModel.vala:274
+msgid "Background Applications"
+msgstr "Фоновые приложения"
+
+#~ msgid "Monitor Indicator"
+#~ msgstr "Индикатор монитора "
+
+#~ msgid "Show system resources"
+#~ msgstr "Показывать системные ресурсы"
+
+#~ msgid "cpu"
+#~ msgstr "цпу"
+
+#~ msgid "mem"
+#~ msgstr "пам"
+
+#~ msgid "Show Monitor"
+#~ msgstr "Показать монитор"
+
+#~ msgid "Quit Monitor"
+#~ msgstr "Выход"

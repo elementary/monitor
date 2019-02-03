@@ -10,4 +10,3 @@ src/Managers/Process.vala
 src/Models/GenericModel.vala
 src/Services/Settings.vala
 src/Services/Shortcuts.vala
-src/Services/Resources.vala

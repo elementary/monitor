@@ -1,54 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the com.github.stsdc.monitor package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-03 00:43+0400\n"
+"POT-Creation-Date: 2019-02-04 02:10+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: data\n"
-"X-Poedit-SearchPathExcluded-1: debian\n"
-
-#: src/Indicator/Indicator.vala:43
-msgid "Monitor Indicator"
-msgstr ""
-
-#: src/Indicator/Indicator.vala:44
-msgid "Show system resources"
-msgstr ""
-
-#: src/Indicator/Widgets/CPUWidget.vala:15
-msgid "cpu"
-msgstr ""
-
-#: src/Indicator/Widgets/MemoryWidget.vala:16
-msgid "mem"
-msgstr ""
-
-#: src/Indicator/Widgets/PopoverWidget.vala:12
-msgid "Show Monitor"
-msgstr ""
-
-#: src/Indicator/Widgets/PopoverWidget.vala:13
-msgid "Quit Monitor"
-msgstr ""
-
-#: src/Models/GenericModel.vala:274
-msgid "Background Applications"
-msgstr ""
 
 #: src/Widgets/Headerbar.vala:11
 msgid "Monitor"
@@ -70,6 +37,7 @@ msgstr ""
 msgid "Show an indicator"
 msgstr ""
 
+#. setup name column
 #: src/Widgets/OverallView.vala:21
 msgid "Process Name"
 msgstr ""
@@ -112,4 +80,8 @@ msgstr ""
 
 #: src/Widgets/Statusbar.vala:10
 msgid "Memory:"
+msgstr ""
+
+#: src/Models/GenericModel.vala:274
+msgid "Background Applications"
 msgstr ""
