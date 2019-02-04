@@ -4,34 +4,32 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-03 22:44+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Андрей Культяпов <camellan@yandex.ru>\n"
+"Last-Translator: Andrey Kultyapov <camellan@yandex.ru>\n"
 "Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:12
-#, fuzzy
 msgid "Show Monitor"
-msgstr "Monitor"
+msgstr "Показать монитор"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:13
-#, fuzzy
 msgid "Quit Monitor"
-msgstr "Monitor"
+msgstr "Выход"
 
 #. Some information about the indicator
 #. Unique name
 #: src/Indicator/Indicator.vala:43
 msgid "Monitor Indicator"
-msgstr ""
+msgstr "Индикатор монитора"
 
 #. Localised name
 #: src/Indicator/Indicator.vala:44
 msgid "Show system resources"
-msgstr ""
+msgstr "Показывать системные ресурсы"
 
 #: src/Widgets/Headerbar.vala:11
 msgid "Monitor"
@@ -47,11 +45,11 @@ msgstr "Ctrl+E"
 
 #: src/Widgets/Headerbar.vala:28
 msgid "Settings"
-msgstr ""
+msgstr "Параметры"
 
 #: src/Widgets/Headerbar.vala:46
 msgid "Show an indicator"
-msgstr ""
+msgstr "Показывать индикатор"
 
 #. setup name column
 #: src/Widgets/OverallView.vala:21
