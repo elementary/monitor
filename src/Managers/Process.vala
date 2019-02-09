@@ -45,8 +45,7 @@ namespace Monitor {
             pid = _pid;
             last_total = 0;
 
-            exists = read_stat (0, 1);
-            read_cmdline ();
+            exists = read_stat (0, 1) && read_cmdline ();
         }
 
         // Updates the process to get latest information
