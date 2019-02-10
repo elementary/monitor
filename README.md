@@ -33,6 +33,7 @@ You'll need the following dependencies to build:
 * libwnck-3-dev
 * libgtop2-dev
 * libwingpanel-2.0-dev
+* libxml2-utils
 * meson
 
 ## How To Build
@@ -42,6 +43,9 @@ You'll need the following dependencies to build:
     meson build --prefix=/usr
     cd build
     sudo ninja install
+
+### Debug
+    `G_MESSAGES_DEBUG=all ./com.github.stsdc.monitor`
 
 ## Arch Linux
 
