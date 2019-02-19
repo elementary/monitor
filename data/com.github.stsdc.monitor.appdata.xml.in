@@ -10,7 +10,7 @@
     <p>Display usage of system resources, filter and manage processes.</p>
   </description>
     <custom>
-     <value key="x-appcenter-color-primary">#2196f3</value>
+     <value key="x-appcenter-color-primary">#d7f4d7</value>
      <value key="x-appcenter-color-primary-text">rgb(255, 255, 255)</value>
      <value key="x-appcenter-suggested-price">0</value>
   </custom>
@@ -25,14 +25,12 @@
 <url type="help">https://github.com/stsdc/monitor/issues</url>
 
 <releases>
-    <release version="0.4.0" date="2019-01-31">
+    <release version="0.4.1" date="2019-02-20">
 ​      <description>
 ​         <ul>
-            <li>Add Monitor indicator</li>
-            <li>Add missing extra French translations</li>
-            <li>Fix: if icon missing for the process, icon is taken from previous process</li>
-            <li>Fix: search erases my input while I'm typing</li>
-            <li>Fix POTFILES</li>
+            <li>Add CPU and RAM icons</li>
+            <li>Update Polish and Russian translation</li>
+            <li>Fix bug, that caused hanging</li>
         </ul>
 ​      </description>
 ​    </release>
