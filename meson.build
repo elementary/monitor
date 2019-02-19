@@ -46,7 +46,7 @@ executable(
     'src/Widgets/OverallView.vala',
     'src/Widgets/Search.vala',
     'src/Widgets/Headerbar.vala',
-    'src/Widgets/Statusbar.vala',
+    'src/Widgets/Statusbar/Statusbar.vala',
 
     'src/Models/GenericModel.vala',
     'src/Models/ModelHelper.vala',

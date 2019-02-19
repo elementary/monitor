@@ -5,14 +5,15 @@ public class Monitor.Statusbar : Gtk.ActionBar {
     construct {
         var cpu_icon = new Gtk.Image.from_icon_name ("cpu-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
         cpu_icon.tooltip_text = _ ("CPU");
+        
         var ram_icon = new Gtk.Image.from_icon_name ("ram-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
         ram_icon.tooltip_text = _ ("Memory");
 
-        cpu_usage_label = new Gtk.Label (cpu_text);
+        cpu_usage_label = new Gtk.Label (_("Calculating…"));
         pack_start (cpu_icon);
         pack_start (cpu_usage_label);
 
-        memory_usage_label = new Gtk.Label (memory_text);
+        memory_usage_label = new Gtk.Label (_("Calculating…"));
         ram_icon.margin_start = 6;
         pack_start (ram_icon);
         pack_start (memory_usage_label);
