@@ -5,7 +5,7 @@ src/Indicator/Indicator.vala
 src/Widgets/Headerbar.vala
 src/Widgets/OverallView.vala
 src/Widgets/Search.vala
-src/Widgets/Statusbar.vala
+src/Widgets/Statusbar/Statusbar.vala
 src/Managers/AppManager.vala
 src/Managers/ProcessManager.vala
 src/Managers/Process.vala
