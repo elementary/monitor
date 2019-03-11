@@ -1,3 +1,11 @@
+com.github.stsdc.monitor (0.4.2) bionic; urgency=low
+
+    * Minor bug fix
+    * Make End process button red
+    * Add Japanese translation
+
+-- Stanisław Dac <stanislawdac@gmail.com>  Mon, 11 Mar 2019 21:06:18 +0100
+
 com.github.stsdc.monitor (0.4.1) bionic; urgency=low
 
     * Add CPU and RAM icons
