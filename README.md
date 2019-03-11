@@ -45,7 +45,7 @@ You'll need the following dependencies to build:
     sudo ninja install
 
 ### Debug
-    `G_MESSAGES_DEBUG=all ./com.github.stsdc.monitor`
+`G_MESSAGES_DEBUG=all ./com.github.stsdc.monitor`
 
 ## Arch Linux
 

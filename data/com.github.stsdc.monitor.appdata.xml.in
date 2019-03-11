@@ -11,7 +11,7 @@
   </description>
     <custom>
      <value key="x-appcenter-color-primary">#d7f4d7</value>
-     <value key="x-appcenter-color-primary-text">rgb(255, 255, 255)</value>
+     <value key="x-appcenter-color-primary-text">#242d40</value>
      <value key="x-appcenter-suggested-price">0</value>
   </custom>
     <screenshots>
@@ -25,12 +25,12 @@
 <url type="help">https://github.com/stsdc/monitor/issues</url>
 
 <releases>
-    <release version="0.4.1" date="2019-02-20">
+    <release version="0.4.2" date="2019-03-11">
 ​      <description>
 ​         <ul>
-            <li>Add CPU and RAM icons</li>
-            <li>Update Polish and Russian translation</li>
-            <li>Fix bug, that caused hanging</li>
+            <li>Minor bug fix</li>
+            <li>End process button is now red</li>
+            <li>Add Japanese translation</li>
         </ul>
 ​      </description>
 ​    </release>

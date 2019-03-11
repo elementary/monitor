@@ -86,7 +86,7 @@ namespace Monitor {
             }
         }
 
-        private bool has_desktop_file (string desktop_file) {
+        private bool has_desktop_file (string? desktop_file) {
             return !(desktop_file == null || desktop_file == "");
         }
 
