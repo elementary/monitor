@@ -57,7 +57,7 @@ namespace Monitor {
             } catch (OptionError e) {
                 print ("error: %s\n", e.message);
                 print ("Run '%s --help' to see a full list of available command line options.\n", args[0]);
-			    return 0;
+                return 0;
             }
 
             MonitorApp app;
