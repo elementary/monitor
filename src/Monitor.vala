@@ -50,7 +50,7 @@ namespace Monitor {
         public static int main (string [] args) {
             // add command line options 
             try {
-		        var opt_context = new OptionContext ("");
+                var opt_context = new OptionContext ("");
 		            opt_context.set_help_enabled (true);
                 opt_context.add_main_entries (cmd_options, null);
                 opt_context.parse (ref args);
