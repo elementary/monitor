@@ -11,7 +11,7 @@ namespace Monitor {
             { "start-minimized", 'm', 0, OptionArg.NONE, ref start_minimized, "Start minimized with wingpanel indicator", null },
             // list terminator
             { null }
-	    };
+        };
 
         //contructor replacement, flags added
         public MonitorApp (bool start_minimized_status) {
