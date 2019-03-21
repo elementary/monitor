@@ -52,7 +52,7 @@ namespace Monitor {
             try {
 		        var opt_context = new OptionContext ("");
 		            opt_context.set_help_enabled (true);
-			        opt_context.add_main_entries (cmd_options, null);
+                opt_context.add_main_entries (cmd_options, null);
 			        opt_context.parse (ref args);
             } catch (OptionError e) {
                 print ("error: %s\n", e.message);
