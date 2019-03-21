@@ -13,7 +13,7 @@ namespace Monitor {
             { null }
         };
 
-        //contructor replacement, flags added
+        // contructor replacement, flags added
         public MonitorApp (bool start_minimized_status) {
             Object (
                 application_id : "com.github.stsdc.monitor",
