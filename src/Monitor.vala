@@ -9,7 +9,7 @@ namespace Monitor {
     private const GLib.OptionEntry[] cmd_options = {
         // --start-minimized
             { "start-minimized", 'm', 0, OptionArg.NONE, ref start_minimized, "Start minimized with wingpanel indicator", null },
-		    // list terminator
+            // list terminator
 		    { null }
 	    };
 
