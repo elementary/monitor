@@ -10,7 +10,7 @@ namespace Monitor {
         // --start-minimized
             { "start-minimized", 'm', 0, OptionArg.NONE, ref start_minimized, "Start minimized with wingpanel indicator", null },
             // list terminator
-		    { null }
+            { null }
 	    };
 
         //contructor replacement, flags added
