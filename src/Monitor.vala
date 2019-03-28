@@ -8,7 +8,7 @@ namespace Monitor {
         private static bool status_minimized = false;
         private const GLib.OptionEntry[] cmd_options = {
         // --start-minimized
-            { "start-minimized", 'm', 0, OptionArg.NONE, ref start_minimized, "Start minimized with wingpanel indicator", null },
+            { "start-in-background", 'b', 0, OptionArg.NONE, ref start_minimized, "Start minimized with wingpanel indicator", null },
             // list terminator
             { null }
         };
@@ -24,17 +24,22 @@ namespace Monitor {
 
         public override void activate () {
             // only have one window
-            if (get_windows () == null) {
-                window = new MainWindow (this);
-
-                //start minimized 
-                if (status_minimized) {
-                    window.hide ();
-                } else {
-                    window.show_all ();
-                }
-            } else {
+            if (get_windows () != null) {
                 window.present ();
+                return;
+            }
+
+            window = new MainWindow (this);
+
+            //start minimized 
+            if (status_minimized) {
+                if (!window.saved_state.indicator_state) {
+                    window.show_all ();
+                    window.saved_state.indicator_state = true;
+                }
+                window.hide ();
+            } else {
+                window.show_all ();
             }
 
             var quit_action = new SimpleAction ("quit", null);
@@ -55,8 +60,8 @@ namespace Monitor {
                 opt_context.add_main_entries (cmd_options, null);
                 opt_context.parse (ref args);
             } catch (OptionError e) {
-                print ("error: %s\n", e.message);
-                print ("Run '%s --help' to see a full list of available command line options.\n", args[0]);
+                print ("Error: %s\n", e.message);
+                print ("Run '%s --help' to see a full list of available command line options.\n\n", args[0]);
                 return 0;
             }
 
