@@ -36,6 +36,7 @@ namespace Monitor {
                 if (!window.saved_state.indicator_state) {
                     window.saved_state.indicator_state = true;
                 }
+
                 window.hide ();
             } else {
                 window.show_all ();
@@ -52,7 +53,6 @@ namespace Monitor {
         }
 
         public static int main (string [] args) {
-
             // add command line options 
             try {
                 var opt_context = new OptionContext ("");
@@ -65,7 +65,7 @@ namespace Monitor {
                 return 0;
             }
 
-            MonitorApp app = new MonitorApp (start_in_background);
+            var app = new MonitorApp (start_in_background);
 
             return app.run (args);
         }
