@@ -25,12 +25,13 @@
 <url type="help">https://github.com/stsdc/monitor/issues</url>
 
 <releases>
-    <release version="0.4.2" date="2019-03-11">
+    <release version="0.4.3" date="2019-04-03">
 ​      <description>
 ​         <ul>
-            <li>Minor bug fix</li>
-            <li>End process button is now red</li>
-            <li>Add Japanese translation</li>
+            <li>Add start-in-background command line option</li>
+            <li>Add Italian and Portuguese translations</li>
+            <li>Update Dutch, French and Spanish translations</li>
+            <li>Fix Japanese translation</li>
         </ul>
 ​      </description>
 ​    </release>

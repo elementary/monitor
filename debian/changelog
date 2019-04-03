@@ -1,3 +1,12 @@
+com.github.stsdc.monitor (0.4.3) bionic; urgency=low
+
+    * Add start-in-background command line option
+    * Add Italian and Portuguese translations
+    * Update Dutch, French and Spanish translations
+    * Fix Japanese translation
+
+-- Stanisław Dac <stanislawdac@gmail.com>  Wed, 03 Apr 2019 20:23:01 +0200
+
 com.github.stsdc.monitor (0.4.2) bionic; urgency=low
 
     * Minor bug fix
