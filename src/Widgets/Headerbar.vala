@@ -41,14 +41,23 @@ namespace Monitor {
             preferences_popover.add (preferences_grid);
             preferences_button.popover = preferences_popover;
 
+            var indicator_label = new Gtk.Label (_("Show an indicator:"));
+            indicator_label.halign = Gtk.Align.END;
+
             var show_indicator_switch = new Gtk.Switch ();
             show_indicator_switch.state = window.saved_state.indicator_state;
 
-            var switch_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 10);
-            switch_box.pack_start (new Gtk.Label (_("Show an indicator")), false, false, 0);
-            switch_box.pack_start (show_indicator_switch, false, false, 0);
+            var background_label = new Gtk.Label (_("Start in background:"));
+            background_label.halign = Gtk.Align.END;
 
-            preferences_grid.add (switch_box);
+            var background_switch = new Gtk.Switch ();
+            background_switch.state = window.saved_state.background_state;
+
+            preferences_grid.attach (indicator_label, 0, 0, 1, 1);
+            preferences_grid.attach (show_indicator_switch, 1, 0, 1, 1);
+            preferences_grid.attach (background_label, 0, 1, 1, 1);
+            preferences_grid.attach (background_switch, 1, 1, 1, 1);
+
             preferences_grid.show_all ();
 
             search = new Search (window.process_view, window.generic_model);
@@ -58,6 +67,9 @@ namespace Monitor {
             show_indicator_switch.notify["active"].connect (() => {
                 window.saved_state.indicator_state = show_indicator_switch.state;
                 window.dbusserver.indicator_state (show_indicator_switch.state);
+            });
+            background_switch.notify["active"].connect (() => {
+                window.saved_state.background_state = background_switch.state;
             });
         }
     }

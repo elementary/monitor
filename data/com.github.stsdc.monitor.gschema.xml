@@ -25,5 +25,10 @@
       <summary>To show Monitor Indicator or not</summary>
       <description>To show Monitor Indicator or not</description>
     </key>
+    <key type='b' name="background-state">
+      <default>false</default>
+      <summary>To start Monitor in background or not</summary>
+      <description>To start Monitor in background or not</description>
+    </key>
   </schema>
 </schemalist>
