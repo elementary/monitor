@@ -67,9 +67,17 @@ namespace Monitor {
             show_indicator_switch.notify["active"].connect (() => {
                 window.saved_state.indicator_state = show_indicator_switch.state;
                 window.dbusserver.indicator_state (show_indicator_switch.state);
+
+                if (!show_indicator_switch.active && background_switch.active) {
+                    background_switch.active = false;
+                }
             });
             background_switch.notify["active"].connect (() => {
                 window.saved_state.background_state = background_switch.state;
+
+                if (!show_indicator_switch.active && background_switch.active) {
+                    show_indicator_switch.active = true;
+                }
             });
         }
     }
