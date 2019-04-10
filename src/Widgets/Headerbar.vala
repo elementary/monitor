@@ -2,6 +2,8 @@ namespace Monitor {
 
     public class Headerbar : Gtk.HeaderBar {
         private MainWindow window;
+        private Gtk.Switch show_indicator_switch;
+        private Gtk.Switch background_switch;
 
         public Search search;
 
@@ -44,14 +46,15 @@ namespace Monitor {
             var indicator_label = new Gtk.Label (_("Show an indicator:"));
             indicator_label.halign = Gtk.Align.END;
 
-            var show_indicator_switch = new Gtk.Switch ();
+            show_indicator_switch = new Gtk.Switch ();
             show_indicator_switch.state = window.saved_state.indicator_state;
 
             var background_label = new Gtk.Label (_("Start in background:"));
             background_label.halign = Gtk.Align.END;
 
-            var background_switch = new Gtk.Switch ();
+            background_switch = new Gtk.Switch ();
             background_switch.state = window.saved_state.background_state;
+            set_background_switch_state ();
 
             preferences_grid.attach (indicator_label, 0, 0, 1, 1);
             preferences_grid.attach (show_indicator_switch, 1, 0, 1, 1);
@@ -67,18 +70,20 @@ namespace Monitor {
             show_indicator_switch.notify["active"].connect (() => {
                 window.saved_state.indicator_state = show_indicator_switch.state;
                 window.dbusserver.indicator_state (show_indicator_switch.state);
-
-                if (!show_indicator_switch.active && background_switch.active) {
-                    background_switch.active = false;
-                }
+                set_background_switch_state ();
             });
             background_switch.notify["active"].connect (() => {
                 window.saved_state.background_state = background_switch.state;
-
-                if (!show_indicator_switch.active && background_switch.active) {
-                    show_indicator_switch.active = true;
-                }
+                set_background_switch_state ();
             });
+        }
+
+        private void set_background_switch_state () {
+            background_switch.sensitive = show_indicator_switch.active;
+
+            if (!show_indicator_switch.active) {
+                background_switch.state = false;
+            }
         }
     }
 }
