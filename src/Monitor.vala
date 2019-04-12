@@ -31,13 +31,14 @@ namespace Monitor {
 
             window = new MainWindow (this);
 
-            //start in background with indicator
-            if (status_background) {
+            // start in background with indicator
+            if (status_background || window.saved_state.background_state) {
                 if (!window.saved_state.indicator_state) {
                     window.saved_state.indicator_state = true;
                 }
 
                 window.hide ();
+                window.saved_state.background_state = true;
             } else {
                 window.show_all ();
             }
