@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-03 22:44+0100\n"
+"POT-Creation-Date: 2019-04-12 18:26+0200\n"
 "PO-Revision-Date: 2019-03-31 10:59+0200\n"
 "Last-Translator: Raí B. Toffoletto <rai@raibtoffoletto.com>\n"
 "Language-Team: \n"
@@ -29,45 +29,50 @@ msgstr "Chidi il Monitore"
 
 #. Some information about the indicator
 #. Unique name
-#: src/Indicator/Indicator.vala:43
+#: src/Indicator/Indicator.vala:44
 msgid "Monitor Indicator"
 msgstr "Icona del pannello"
 
 #. Localised name
-#: src/Indicator/Indicator.vala:44
+#: src/Indicator/Indicator.vala:45
 msgid "Show system resources"
 msgstr "Mostra le risorse del sistema"
 
-#: src/Widgets/Headerbar.vala:11
+#: src/Widgets/Headerbar.vala:13
 msgid "Monitor"
 msgstr "Monitore"
 
-#: src/Widgets/Headerbar.vala:18
+#: src/Widgets/Headerbar.vala:20
 msgid "End process"
 msgstr "Terminare il processo"
 
-#: src/Widgets/Headerbar.vala:21
+#: src/Widgets/Headerbar.vala:23
 msgid "Ctrl+E"
 msgstr "Ctrl+E"
 
-#: src/Widgets/Headerbar.vala:28
+#: src/Widgets/Headerbar.vala:32
 msgid "Settings"
 msgstr "Preferenze"
 
 #: src/Widgets/Headerbar.vala:46
-msgid "Show an indicator"
+#, fuzzy
+msgid "Show an indicator:"
 msgstr "Mostra l'icona del pannello"
+
+#: src/Widgets/Headerbar.vala:52
+msgid "Start in background:"
+msgstr ""
 
 #. setup name column
 #: src/Widgets/OverallView.vala:21
 msgid "Process Name"
 msgstr "Nome del processo"
 
-#: src/Widgets/OverallView.vala:42
+#: src/Widgets/OverallView.vala:42 src/Widgets/Statusbar/Statusbar.vala:7
 msgid "CPU"
 msgstr "CPU"
 
-#: src/Widgets/OverallView.vala:53
+#: src/Widgets/OverallView.vala:53 src/Widgets/Statusbar/Statusbar.vala:10
 msgid "Memory"
 msgstr "Memoria"
 
@@ -83,7 +88,7 @@ msgstr "KiB"
 msgid "MiB"
 msgstr "MiB"
 
-#: src/Widgets/OverallView.vala:118 src/Widgets/Statusbar.vala:25
+#: src/Widgets/OverallView.vala:118 src/Widgets/Statusbar/Statusbar.vala:28
 msgid "GiB"
 msgstr "GiB"
 
@@ -95,14 +100,17 @@ msgstr "Cerca un processo"
 msgid "Type Process Name or PID"
 msgstr "Digita il nome del processo o il PID"
 
-#: src/Widgets/Statusbar.vala:9
-msgid "CPU:"
-msgstr "CPU :"
-
-#: src/Widgets/Statusbar.vala:10
-msgid "Memory:"
-msgstr "Memoria:"
+#: src/Widgets/Statusbar/Statusbar.vala:12
+#: src/Widgets/Statusbar/Statusbar.vala:16
+msgid "Calculating…"
+msgstr ""
 
 #: src/Models/GenericModel.vala:274
 msgid "Background Applications"
 msgstr "Applicazioni in background"
+
+#~ msgid "CPU:"
+#~ msgstr "CPU :"
+
+#~ msgid "Memory:"
+#~ msgstr "Memoria:"

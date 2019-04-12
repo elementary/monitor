@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-03 22:44+0100\n"
+"POT-Creation-Date: 2019-04-12 18:26+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 
@@ -15,33 +15,37 @@ msgstr ""
 
 #. Some information about the indicator
 #. Unique name
-#: src/Indicator/Indicator.vala:43
+#: src/Indicator/Indicator.vala:44
 msgid "Monitor Indicator"
 msgstr ""
 
 #. Localised name
-#: src/Indicator/Indicator.vala:44
+#: src/Indicator/Indicator.vala:45
 msgid "Show system resources"
 msgstr ""
 
-#: src/Widgets/Headerbar.vala:11
+#: src/Widgets/Headerbar.vala:13
 msgid "Monitor"
 msgstr ""
 
-#: src/Widgets/Headerbar.vala:18
+#: src/Widgets/Headerbar.vala:20
 msgid "End process"
 msgstr "Закінчити процес"
 
-#: src/Widgets/Headerbar.vala:21
+#: src/Widgets/Headerbar.vala:23
 msgid "Ctrl+E"
 msgstr ""
 
-#: src/Widgets/Headerbar.vala:28
+#: src/Widgets/Headerbar.vala:32
 msgid "Settings"
 msgstr ""
 
 #: src/Widgets/Headerbar.vala:46
-msgid "Show an indicator"
+msgid "Show an indicator:"
+msgstr ""
+
+#: src/Widgets/Headerbar.vala:52
+msgid "Start in background:"
 msgstr ""
 
 #. setup name column
@@ -49,11 +53,11 @@ msgstr ""
 msgid "Process Name"
 msgstr "Назва процесу"
 
-#: src/Widgets/OverallView.vala:42
+#: src/Widgets/OverallView.vala:42 src/Widgets/Statusbar/Statusbar.vala:7
 msgid "CPU"
 msgstr "ЦП"
 
-#: src/Widgets/OverallView.vala:53
+#: src/Widgets/OverallView.vala:53 src/Widgets/Statusbar/Statusbar.vala:10
 msgid "Memory"
 msgstr "Пам'ять"
 
@@ -69,7 +73,7 @@ msgstr "КіБ"
 msgid "MiB"
 msgstr "МіБ"
 
-#: src/Widgets/OverallView.vala:118 src/Widgets/Statusbar.vala:25
+#: src/Widgets/OverallView.vala:118 src/Widgets/Statusbar/Statusbar.vala:28
 msgid "GiB"
 msgstr "ГіБ"
 
@@ -81,14 +85,17 @@ msgstr "Пошук процесу"
 msgid "Type Process Name or PID"
 msgstr "Введіть назву процесу або PID"
 
-#: src/Widgets/Statusbar.vala:9
-msgid "CPU:"
-msgstr "ЦП"
-
-#: src/Widgets/Statusbar.vala:10
-msgid "Memory:"
-msgstr "Пам'ять:"
+#: src/Widgets/Statusbar/Statusbar.vala:12
+#: src/Widgets/Statusbar/Statusbar.vala:16
+msgid "Calculating…"
+msgstr ""
 
 #: src/Models/GenericModel.vala:274
 msgid "Background Applications"
 msgstr "Фонові додатки"
+
+#~ msgid "CPU:"
+#~ msgstr "ЦП"
+
+#~ msgid "Memory:"
+#~ msgstr "Пам'ять:"
