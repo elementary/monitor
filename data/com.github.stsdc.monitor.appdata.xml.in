@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2018 Stanisław <@ststdc> -->
+<!-- Copyright 2019 Stanisław <@ststdc> -->
 <component type="desktop">
   <id>com.github.stsdc.monitor</id>
   <metadata_license>CC0</metadata_license>
@@ -25,12 +25,10 @@
 <url type="help">https://github.com/stsdc/monitor/issues</url>
 
 <releases>
-    <release version="0.4.2" date="2019-03-11">
+    <release version="0.4.4" date="2019-04-12">
 ​      <description>
 ​         <ul>
-            <li>Minor bug fix</li>
-            <li>End process button is now red</li>
-            <li>Add Japanese translation</li>
+            <li>Add start-in-background option to UI (Ryo Nakano)</li>
         </ul>
 ​      </description>
 ​    </release>

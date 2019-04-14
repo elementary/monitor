@@ -11,6 +11,8 @@ namespace Monitor {
 
         public bool indicator_state { get; set; }
 
+        public bool background_state { get; set; }
+
         construct {
             // Controls the direction of the sort indicators
             Gtk.Settings.get_default ().set ("gtk-alternative-sort-arrows", true, null);
