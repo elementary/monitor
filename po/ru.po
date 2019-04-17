@@ -48,13 +48,12 @@ msgid "Settings"
 msgstr "Параметры"
 
 #: src/Widgets/Headerbar.vala:46
-#, fuzzy
 msgid "Show an indicator:"
-msgstr "Показывать индикатор"
+msgstr "Показывать индикатор:"
 
 #: src/Widgets/Headerbar.vala:52
 msgid "Start in background:"
-msgstr ""
+msgstr "Запустить в фоновом режиме:"
 
 #. setup name column
 #: src/Widgets/OverallView.vala:21
@@ -96,7 +95,7 @@ msgstr "Введите имя или ИД процесса"
 #: src/Widgets/Statusbar/Statusbar.vala:12
 #: src/Widgets/Statusbar/Statusbar.vala:16
 msgid "Calculating…"
-msgstr ""
+msgstr "Вычисление…"
 
 #: src/Models/GenericModel.vala:274
 msgid "Background Applications"
