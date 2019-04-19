@@ -1,6 +1,8 @@
 
 project('com.github.stsdc.monitor', 'vala', 'c', version: '0.4.0')
 
+no_wingpanel = get_option('no_wingpanel')
+
 # these are Meson modules
 gnome = import('gnome')
 i18n = import('i18n')
@@ -15,7 +17,9 @@ gobject = dependency('gobject-2.0')
 bamf = dependency('libbamf3')
 gtop = dependency('libgtop-2.0')
 wnck = dependency('libwnck-3.0')
-wingpanel = dependency('wingpanel-2.0')
+if no_wingpanel
+    wingpanel = dependency('wingpanel-2.0')
+endif
 
 config_data = configuration_data()
 config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
@@ -83,33 +87,34 @@ executable(
     install: true
 )
 
-shared_module(
-    'monitor',
-    'src/Indicator/Indicator.vala',
-    'src/Utils.vala',
+if no_wingpanel
+    shared_module(
+        'monitor',
+        'src/Indicator/Indicator.vala',
+        'src/Utils.vala',
 
-    'src/Indicator/Widgets/DisplayWidget.vala',
-    'src/Indicator/Widgets/PopoverWidget.vala',
-    'src/Indicator/Widgets/CPUWidget.vala',
-    'src/Indicator/Widgets/MemoryWidget.vala',
+        'src/Indicator/Widgets/DisplayWidget.vala',
+        'src/Indicator/Widgets/PopoverWidget.vala',
+        'src/Indicator/Widgets/CPUWidget.vala',
+        'src/Indicator/Widgets/MemoryWidget.vala',
 
-    'src/Indicator/Services/DBusClient.vala',
-    'src/Services/Settings.vala',
-    # 'src/Widgets/RevealerSwitch.vala',
-    icons_gresource,
-    c_args: c_args,
-    dependencies: [
-        glib,
-        granite,
-        gobject,
-        gtk,
-        wingpanel
-    ],
-    install: true,
-    # install_dir : wingpanel.get_pkgconfig_variable('indicatorsdir'), <- installs to /usr/local/
-    install_dir : '/usr/lib/x86_64-linux-gnu/wingpanel/'
-
-)
+        'src/Indicator/Services/DBusClient.vala',
+        'src/Services/Settings.vala',
+        # 'src/Widgets/RevealerSwitch.vala',
+        icons_gresource,
+        c_args: c_args,
+        dependencies: [
+            glib,
+            granite,
+            gobject,
+            gtk,
+            wingpanel
+        ],
+        install: true,
+        # install_dir : wingpanel.get_pkgconfig_variable('indicatorsdir'), <- installs to /usr/local/
+        install_dir : '/usr/lib/x86_64-linux-gnu/wingpanel/'
+    )
+endif
 
 # Add in a post install script
 meson.add_install_script('meson/post_install.py')

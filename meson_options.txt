@@ -1,0 +1,1 @@
+option('no_wingpanel', type: 'boolean', value: false, description: 'Do not build with support for wingpanel indicators')
