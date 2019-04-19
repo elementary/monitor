@@ -18,7 +18,7 @@ bamf = dependency('libbamf3')
 gtop = dependency('libgtop-2.0')
 wnck = dependency('libwnck-3.0')
 gdk_x11 = dependency('gdk-x11-3.0')
-if no_wingpanel
+if no_wingpanel == false
     wingpanel = dependency('wingpanel-2.0')
 endif
 
@@ -40,6 +40,15 @@ c_args = [
     '-DWNCK_I_KNOW_THIS_IS_UNSTABLE',
     '-w'
 ]
+
+vala_args = [
+    '--vapidir=' + meson.source_root() + '/vapi/'
+]
+
+if no_wingpanel == false
+    vala_args += '-D'
+    vala_args += 'WINGPANEL_SUPPORT'
+endif
 
 executable(
     meson.project_name(),
@@ -83,13 +92,11 @@ executable(
         meson.get_compiler('c').find_library('m', required : false),
         meson.get_compiler('vala').find_library('posix')
     ],
-    vala_args: [
-        '--vapidir=' + meson.source_root() + '/vapi/',
-    ],
+    vala_args: vala_args,
     install: true
 )
 
-if no_wingpanel
+if no_wingpanel == false
     shared_module(
         'monitor',
         'src/Indicator/Indicator.vala',

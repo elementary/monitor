@@ -27,6 +27,7 @@ namespace Monitor {
             button_box.add (kill_process_button);
             pack_start (button_box);
 
+#if WINGPANEL_SUPPORT
             var preferences_button = new Gtk.MenuButton ();
             preferences_button.has_tooltip = true;
             preferences_button.tooltip_text = (_("Settings"));
@@ -62,6 +63,7 @@ namespace Monitor {
             preferences_grid.attach (background_switch, 1, 1, 1, 1);
 
             preferences_grid.show_all ();
+#endif
 
             search = new Search (window.process_view, window.generic_model);
             search.valign = Gtk.Align.CENTER;
