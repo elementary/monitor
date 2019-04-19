@@ -32,7 +32,7 @@ You'll need the following dependencies to build:
 * libbamf3-dev
 * libwnck-3-dev
 * libgtop2-dev
-* libwingpanel-2.0-dev
+* libwingpanel-2.0-dev (use `-Dno_wingpanel=true` to disable wingpanel support)
 * libxml2-utils
 * meson
 
