@@ -17,6 +17,7 @@ gobject = dependency('gobject-2.0')
 bamf = dependency('libbamf3')
 gtop = dependency('libgtop-2.0')
 wnck = dependency('libwnck-3.0')
+gdk_x11 = dependency('gdk-x11-3.0')
 if no_wingpanel
     wingpanel = dependency('wingpanel-2.0')
 endif
@@ -78,6 +79,7 @@ executable(
         bamf,
         gtop,
         wnck,
+        gdk_x11,
         meson.get_compiler('c').find_library('m', required : false),
         meson.get_compiler('vala').find_library('posix')
     ],
