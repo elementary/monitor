@@ -16,6 +16,7 @@ bamf = dependency('libbamf3')
 gtop = dependency('libgtop-2.0')
 wnck = dependency('libwnck-3.0')
 wingpanel = dependency('wingpanel-2.0')
+gdk_x11 = dependency('gdk-x11-3.0')
 
 config_data = configuration_data()
 config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
@@ -74,6 +75,7 @@ executable(
         bamf,
         gtop,
         wnck,
+        gdk_x11,
         meson.get_compiler('c').find_library('m', required : false),
         meson.get_compiler('vala').find_library('posix')
     ],
