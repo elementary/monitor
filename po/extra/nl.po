@@ -8,44 +8,45 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-20 22:25+0900\n"
-"PO-Revision-Date: 2018-10-20 22:25+0900\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2019-03-25 17:23+0100\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.1.1\n"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:7
 #: data/com.github.stsdc.monitor.desktop.in:3
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:8
 msgid "Manage processes and monitor system resources"
-msgstr ""
+msgstr "Beheer processen en monitor systeembronnen"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:10
 msgid "Display usage of system resources, filter and manage processes."
-msgstr ""
+msgstr "Toon het gebruik van systeembronnen en filter en beheer processen."
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:22
 msgid "Stanisław Dac"
-msgstr ""
+msgstr "Stanisław Dac"
 
 #: data/com.github.stsdc.monitor.desktop.in:4
 msgid "System Monitor"
-msgstr ""
+msgstr "Systeemmonitor"
 
 #: data/com.github.stsdc.monitor.desktop.in:6
 msgid "Manage processes and monitor resource usage of the system"
-msgstr ""
+msgstr "Beheer processen en monitor de gebruikte systeembronnen"
 
 #: data/com.github.stsdc.monitor.desktop.in:10
 msgid "com.github.stsdc.monitor"
-msgstr ""
+msgstr "com.github.stsdc.monitor"
 
 #: data/com.github.stsdc.monitor.desktop.in:14
 msgid "System monitor;System usage;Task manager;"
-msgstr ""
+msgstr "Systeemmonitor;Systeemgebruik;Taakbeheer;"

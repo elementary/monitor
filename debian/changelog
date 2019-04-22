@@ -1,3 +1,34 @@
+com.github.stsdc.monitor (0.4.4) bionic; urgency=low
+
+    * Add start-in-background option to UI
+
+-- Stanisław Dac <stanislawdac@gmail.com>  Fri, 12 Apr 2019 18:17:34 +0200
+
+com.github.stsdc.monitor (0.4.3) bionic; urgency=low
+
+    * Add start-in-background command line option
+    * Add Italian and Portuguese translations
+    * Update Dutch, French and Spanish translations
+    * Fix Japanese translation
+
+-- Stanisław Dac <stanislawdac@gmail.com>  Wed, 03 Apr 2019 20:23:01 +0200
+
+com.github.stsdc.monitor (0.4.2) bionic; urgency=low
+
+    * Minor bug fix
+    * Make End process button red
+    * Add Japanese translation
+
+-- Stanisław Dac <stanislawdac@gmail.com>  Mon, 11 Mar 2019 21:06:18 +0100
+
+com.github.stsdc.monitor (0.4.1) bionic; urgency=low
+
+    * Add CPU and RAM icons
+    * Update Polish and Russian translation
+    * Fix bug, that caused hanging
+
+-- Stanisław Dac <stanislawdac@gmail.com>  Wed, 20 Feb 2019 00:42:22 +0100
+
 com.github.stsdc.monitor (0.4.0) bionic; urgency=low
 
     * Add Monitor indicator

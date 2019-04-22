@@ -62,8 +62,6 @@
             main_box.pack_start (statusbar, false, true, 0);
             this.add (main_box);
 
-            this.show_all ();
-
             updater = Updater.get_default ();
             dbusserver = DBusServer.get_default();
 
@@ -77,7 +75,7 @@
             dbusserver.show.connect (() => {
                 this.deiconify();
                 this.present();
-                this.show ();
+                this.show_all ();
             });
 
             shortcuts = new Shortcuts (this);

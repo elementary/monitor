@@ -45,8 +45,7 @@ namespace Monitor {
             pid = _pid;
             last_total = 0;
 
-            exists = read_stat (0, 1);
-            read_cmdline ();
+            exists = read_stat (0, 1) && read_cmdline ();
         }
 
         // Updates the process to get latest information
@@ -107,8 +106,10 @@ namespace Monitor {
                 GTop.get_proc_mem (out proc_mem, pid);
                 mem_usage = (proc_mem.resident - proc_mem.share) / 1024; // in KiB
 
-                Wnck.ResourceUsage resu = Wnck.ResourceUsage.pid_read (Gdk.Display.get_default(), pid);
-                mem_usage += (resu.total_bytes_estimate / 1024);
+                if (Gdk.Display.get_default () is Gdk.X11.Display) {
+                    Wnck.ResourceUsage resu = Wnck.ResourceUsage.pid_read (Gdk.Display.get_default(), pid);
+                    mem_usage += (resu.total_bytes_estimate / 1024);
+                }
             } catch (Error e) {
                 warning ("Can't read process stat: '%s'", e.message);
                 return false;

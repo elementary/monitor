@@ -16,11 +16,20 @@ bamf = dependency('libbamf3')
 gtop = dependency('libgtop-2.0')
 wnck = dependency('libwnck-3.0')
 wingpanel = dependency('wingpanel-2.0')
+gdk_x11 = dependency('gdk-x11-3.0')
 
-conf = configuration_data()
-conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
-configure_file(output: 'config.h', configuration: conf)
+config_data = configuration_data()
+config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
+
+configure_file(output: 'config.h', configuration: config_data)
 config_h_dir = include_directories('.')
+
+icons_gresource = gnome.compile_resources(
+    'gresource_icons',
+    'data/icons/icons.indicator.gresource.xml',
+    source_dir: 'data/icons',
+    c_name: 'as'
+)
 
 c_args = [
     '-include', 'config.h',
@@ -30,6 +39,7 @@ c_args = [
 
 executable(
     meson.project_name(),
+    icons_gresource,
     'src/Monitor.vala',
     'src/MainWindow.vala',
     'src/Utils.vala',
@@ -37,7 +47,7 @@ executable(
     'src/Widgets/OverallView.vala',
     'src/Widgets/Search.vala',
     'src/Widgets/Headerbar.vala',
-    'src/Widgets/Statusbar.vala',
+    'src/Widgets/Statusbar/Statusbar.vala',
 
     'src/Models/GenericModel.vala',
     'src/Models/ModelHelper.vala',
@@ -65,13 +75,14 @@ executable(
         bamf,
         gtop,
         wnck,
+        gdk_x11,
         meson.get_compiler('c').find_library('m', required : false),
         meson.get_compiler('vala').find_library('posix')
     ],
     vala_args: [
         '--vapidir=' + meson.source_root() + '/vapi/',
     ],
-    install: true,
+    install: true
 )
 
 shared_module(
@@ -87,7 +98,7 @@ shared_module(
     'src/Indicator/Services/DBusClient.vala',
     'src/Services/Settings.vala',
     # 'src/Widgets/RevealerSwitch.vala',
-    # asresources,
+    icons_gresource,
     c_args: c_args,
     dependencies: [
         glib,
