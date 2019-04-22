@@ -6,12 +6,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:12
-#, fuzzy
 msgid "Show Monitor"
 msgstr "Zeige Monitor"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:13
-#, fuzzy
 msgid "Quit Monitor"
 msgstr "Beende Monitor"
 
@@ -43,7 +41,6 @@ msgid "Settings"
 msgstr "Einstellungen"
 
 #: src/Widgets/Headerbar.vala:46
-#, fuzzy
 msgid "Show an indicator:"
 msgstr "Zeige einen Indikator:"
 
