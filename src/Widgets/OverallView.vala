@@ -176,5 +176,10 @@ namespace Monitor {
             model.kill_process (pid);
         }
 
+        public void end_process () {
+            int pid = get_pid_of_selected ();
+            model.end_process (pid);
+        }
+
     }
 }
