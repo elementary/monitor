@@ -30,7 +30,7 @@ namespace Monitor {
             kill_process_button.valign = Gtk.Align.CENTER;
             end_process_button.halign = Gtk.Align.END;
             kill_process_button.clicked.connect (window.process_view.kill_process);
-            kill_process_button.tooltip_text = (_("Ctrl+E"));
+            kill_process_button.tooltip_text = (_("Ctrl+K"));
             var kill_process_button_context = kill_process_button.get_style_context ();
             kill_process_button_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
