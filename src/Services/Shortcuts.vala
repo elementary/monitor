@@ -22,6 +22,10 @@ namespace Monitor {
                         handled = true;
                         break;
                     case Gdk.Key.e:
+                        window.process_view.end_process ();
+                        handled = true;
+                        break;
+                    case Gdk.Key.k:
                         window.process_view.kill_process ();
                         handled = true;
                         break;
