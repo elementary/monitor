@@ -32,10 +32,10 @@ namespace Monitor {
 
                 filter_model.refilter ();
 
-                // if there's no search result, make kill_process_button insensitive to avoid the app crashes
-                window.headerbar.set_kill_process_button_sensitivity (filter_model.iter_n_children (null) != 0);
+                // if there's no search result, make "Kill/End Process" buttons in headerbar insensitive to avoid the app crashes
+                window.headerbar.set_header_buttons_sensitivity (filter_model.iter_n_children (null) != 0);
 
-                // when search word is cleared, focus on child row to avoid the app crashes by clicking kill_process_button
+                // when search word is cleared, focus on child row to avoid the app crashes by clicking "Kill/End Process" buttons in headerbar
                 if (this.text == "") {
                     process_view.focus_on_child_row ();
                     this.grab_focus ();
