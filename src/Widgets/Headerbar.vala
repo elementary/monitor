@@ -17,15 +17,23 @@ namespace Monitor {
         public Headerbar (MainWindow window) {
             this.window = window;
             var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+            button_box.valign = Gtk.Align.CENTER;
 
-            kill_process_button = new Gtk.Button.with_label (_("End process"));
-            kill_process_button.valign = Gtk.Align.CENTER;
+            end_process_button = new Gtk.Button.with_label (_("End Process"));
+            end_process_button.margin_end = 10;
+            end_process_button.clicked.connect (window.process_view.end_process);
+            end_process_button.tooltip_text = (_("Ctrl+E"));
+            var end_process_button_context = end_process_button.get_style_context ();
+            end_process_button_context.add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+
+            var kill_process_button = new Gtk.Button.with_label (_("Kill Process"));
             kill_process_button.clicked.connect (window.process_view.kill_process);
-            kill_process_button.tooltip_text = (_("Ctrl+E"));
+            kill_process_button.tooltip_text = (_("Ctrl+K"));
             var kill_process_button_context = kill_process_button.get_style_context ();
             kill_process_button_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
-            button_box.add (kill_process_button);
+            button_box.pack_start (end_process_button);
+            button_box.pack_end (kill_process_button);
             pack_start (button_box);
 
             var preferences_button = new Gtk.MenuButton ();
