@@ -2,6 +2,7 @@ namespace Monitor {
 
     public class Headerbar : Gtk.HeaderBar {
         private MainWindow window;
+        private Gtk.Button kill_process_button;
         private Gtk.Switch show_indicator_switch;
         private Gtk.Switch background_switch;
 
@@ -17,7 +18,7 @@ namespace Monitor {
             this.window = window;
             var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
 
-            var kill_process_button = new Gtk.Button.with_label (_("End process"));
+            kill_process_button = new Gtk.Button.with_label (_("End process"));
             kill_process_button.valign = Gtk.Align.CENTER;
             kill_process_button.clicked.connect (window.process_view.kill_process);
             kill_process_button.tooltip_text = (_("Ctrl+E"));
@@ -63,7 +64,7 @@ namespace Monitor {
 
             preferences_grid.show_all ();
 
-            search = new Search (window.process_view, window.generic_model);
+            search = new Search (window);
             search.valign = Gtk.Align.CENTER;
             pack_end (search);
 
@@ -84,6 +85,10 @@ namespace Monitor {
             if (!show_indicator_switch.active) {
                 background_switch.state = false;
             }
+        }
+
+        public void set_kill_process_button_sensitivity (bool sensitivity) {
+            kill_process_button.sensitive = sensitivity;
         }
     }
 }
