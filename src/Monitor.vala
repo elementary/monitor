@@ -43,6 +43,8 @@ namespace Monitor {
                 window.show_all ();
             }
 
+            window.process_view.focus_on_first_row ();
+
             var quit_action = new SimpleAction ("quit", null);
             add_action (quit_action);
             set_accels_for_action ("app.quit", {"<Ctrl>q"});
