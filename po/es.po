@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-12 18:26+0200\n"
-"PO-Revision-Date: 2019-03-31 10:43+0200\n"
-"Last-Translator: Raí B. Toffoletto <rai@raibtoffoletto.com>\n"
+"PO-Revision-Date: 2019-06-03 23:25+0100\n"
+"Last-Translator: Mario Rodrigo\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgstr "Cerrar Monitor"
 #. Unique name
 #: src/Indicator/Indicator.vala:44
 msgid "Monitor Indicator"
-msgstr "Icone de panel"
+msgstr "Icono de monitorización"
 
 #. Localised name
 #: src/Indicator/Indicator.vala:45
@@ -61,7 +61,7 @@ msgstr "Mostrar icone de panel"
 
 #: src/Widgets/Headerbar.vala:52
 msgid "Start in background:"
-msgstr ""
+msgstr "Arrancar en segundo plano"
 
 #. setup name column
 #: src/Widgets/OverallView.vala:21
@@ -103,7 +103,7 @@ msgstr "Introduce el nombre del proceso o el PID"
 #: src/Widgets/Statusbar/Statusbar.vala:12
 #: src/Widgets/Statusbar/Statusbar.vala:16
 msgid "Calculating…"
-msgstr ""
+msgstr "Calculando…"
 
 #: src/Models/GenericModel.vala:274
 msgid "Background Applications"
@@ -113,4 +113,4 @@ msgstr "Aplicaciones en segundo plano"
 #~ msgstr "CPU :"
 
 #~ msgid "Memory:"
-#~ msgstr "Memoria :"
+#~ msgstr "Memoria:"
