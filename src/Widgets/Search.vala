@@ -12,7 +12,7 @@ namespace Monitor {
         construct {
             this.process_view = window.process_view;
             this.placeholder_text = _("Search Process");
-            this.tooltip_text = _("Type Process Name or PID");
+            this.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>F"}, _("Type process name or PID to search"));
 
             filter_model = new Gtk.TreeModelFilter (window.generic_model, null);
             connect_signal ();
