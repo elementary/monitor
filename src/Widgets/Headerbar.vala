@@ -2,6 +2,8 @@ namespace Monitor {
 
     public class Headerbar : Gtk.HeaderBar {
         private MainWindow window;
+        private Gtk.Button end_process_button;
+        private Gtk.Button kill_process_button;
         private Gtk.Switch show_indicator_switch;
         private Gtk.Switch background_switch;
 
@@ -18,14 +20,14 @@ namespace Monitor {
             var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
             button_box.valign = Gtk.Align.CENTER;
 
-            var end_process_button = new Gtk.Button.with_label (_("End Process"));
+            end_process_button = new Gtk.Button.with_label (_("End Process"));
             end_process_button.margin_end = 10;
             end_process_button.clicked.connect (window.process_view.end_process);
             end_process_button.tooltip_text = (_("Ctrl+E"));
             var end_process_button_context = end_process_button.get_style_context ();
             end_process_button_context.add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
-            var kill_process_button = new Gtk.Button.with_label (_("Kill Process"));
+            kill_process_button = new Gtk.Button.with_label (_("Kill Process"));
             kill_process_button.clicked.connect (window.process_view.kill_process);
             kill_process_button.tooltip_text = (_("Ctrl+K"));
             var kill_process_button_context = kill_process_button.get_style_context ();
@@ -71,7 +73,7 @@ namespace Monitor {
 
             preferences_grid.show_all ();
 
-            search = new Search (window.process_view, window.generic_model);
+            search = new Search (window);
             search.valign = Gtk.Align.CENTER;
             pack_end (search);
 
@@ -92,6 +94,11 @@ namespace Monitor {
             if (!show_indicator_switch.active) {
                 background_switch.state = false;
             }
+        }
+
+        public void set_header_buttons_sensitivity (bool sensitivity) {
+            end_process_button.sensitive = sensitivity;
+            kill_process_button.sensitive = sensitivity;
         }
     }
 }
