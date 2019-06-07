@@ -28,7 +28,7 @@ You'll need the following dependencies to build:
 
 * valac
 * libgtk-3-dev
-* libgranite-dev
+* libgranite-dev (>= 5.2.0)
 * libbamf3-dev
 * libwnck-3-dev
 * libgtop2-dev
