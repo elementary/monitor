@@ -7,7 +7,7 @@ i18n = import('i18n')
 
 # and these are project dependencies
 glib = dependency('glib-2.0')
-granite = dependency('granite')
+granite = dependency('granite', version: '>= 5.2.0')
 gtk = dependency('gtk+-3.0')
 gee = dependency('gee-0.8')
 gio = dependency('gio-2.0')
