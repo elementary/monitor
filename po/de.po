@@ -6,25 +6,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:12
-#, fuzzy
 msgid "Show Monitor"
-msgstr "Monitor"
+msgstr "Zeige Monitor"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:13
-#, fuzzy
 msgid "Quit Monitor"
-msgstr "Monitor"
+msgstr "Beende Monitor"
 
 #. Some information about the indicator
 #. Unique name
 #: src/Indicator/Indicator.vala:44
 msgid "Monitor Indicator"
-msgstr ""
+msgstr "Monitor Indikator"
 
 #. Localised name
 #: src/Indicator/Indicator.vala:45
 msgid "Show system resources"
-msgstr ""
+msgstr "Zeige Systemressourcen an"
 
 #: src/Widgets/Headerbar.vala:13
 msgid "Monitor"
@@ -40,21 +38,20 @@ msgstr "Strg+E"
 
 #: src/Widgets/Headerbar.vala:32
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 #: src/Widgets/Headerbar.vala:46
-#, fuzzy
 msgid "Show an indicator:"
-msgstr "Monitor"
+msgstr "Zeige einen Indikator:"
 
 #: src/Widgets/Headerbar.vala:52
 msgid "Start in background:"
-msgstr ""
+msgstr "Im Hintergrund ausführen:"
 
 #. setup name column
 #: src/Widgets/OverallView.vala:21
 msgid "Process Name"
-msgstr "Prozess"
+msgstr "Prozess Name"
 
 #: src/Widgets/OverallView.vala:42 src/Widgets/Statusbar/Statusbar.vala:7
 msgid "CPU"
@@ -82,7 +79,7 @@ msgstr "GiB"
 
 #: src/Widgets/Search.vala:9
 msgid "Search Process"
-msgstr "Suche"
+msgstr "Suche Prozess"
 
 #: src/Widgets/Search.vala:10
 msgid "Type Process Name or PID"
@@ -91,7 +88,7 @@ msgstr "Geben Sie den Prozessnamen oder PID ein"
 #: src/Widgets/Statusbar/Statusbar.vala:12
 #: src/Widgets/Statusbar/Statusbar.vala:16
 msgid "Calculating…"
-msgstr ""
+msgstr "Berechne…"
 
 #: src/Models/GenericModel.vala:274
 msgid "Background Applications"
@@ -101,4 +98,4 @@ msgstr "Hintergrundanwendungen"
 #~ msgstr "CPU:"
 
 #~ msgid "Memory:"
-#~ msgstr "Arbeitsspeicher"
+#~ msgstr "Arbeitsspeicher:"

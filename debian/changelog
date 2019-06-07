@@ -1,3 +1,17 @@
+com.github.stsdc.monitor (0.5.0) bionic; urgency=low
+
+      * Fix contents of the window are not shown (Ryo Nakano)
+      * Fix no row is still selected when indicator options are enabled (Ryo Nakano)
+      * Fix the app crashes by clicking the "End/Kill Process" buttons when no process is selected (Ryo Nakano)
+      * Added buttons to either "kill" or "end" a process. (Evan Buss)
+      * Change screenshot to English (Christopher Crouse)
+      * Update Russian translation (camellan)
+      * Check if the default display is a X11 display (Hannes Schulze)
+      * Update German translation (J0Ar)
+      * Update Spanish translation (Mario Rodrigo)
+
+-- Stanisław Dac <stanislawdac@gmail.com>  Fri, 07 Jun 2019 11:03:57 +0200
+
 com.github.stsdc.monitor (0.4.4) bionic; urgency=low
 
     * Add start-in-background option to UI

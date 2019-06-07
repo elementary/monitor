@@ -59,7 +59,18 @@ namespace Monitor {
         // Kills the process
         // Returns if kill was successful
         public bool kill () {
-            if (Posix.kill (pid, Posix.Signal.INT) == 0) {
+            //  Sends a kill signal that cannot be ignored
+            if (Posix.kill (pid, Posix.Signal.KILL) == 0) {
+                return true;
+            }
+            return false;
+        }
+
+        // Ends the process
+        // Returns if end was successful
+        public bool end () {
+            //  Sends a terminate signal
+            if (Posix.kill (pid, Posix.Signal.TERM) == 0) {
                 return true;
             }
             return false;
@@ -106,8 +117,10 @@ namespace Monitor {
                 GTop.get_proc_mem (out proc_mem, pid);
                 mem_usage = (proc_mem.resident - proc_mem.share) / 1024; // in KiB
 
-                Wnck.ResourceUsage resu = Wnck.ResourceUsage.pid_read (Gdk.Display.get_default(), pid);
-                mem_usage += (resu.total_bytes_estimate / 1024);
+                if (Gdk.Display.get_default () is Gdk.X11.Display) {
+                    Wnck.ResourceUsage resu = Wnck.ResourceUsage.pid_read (Gdk.Display.get_default(), pid);
+                    mem_usage += (resu.total_bytes_estimate / 1024);
+                }
             } catch (Error e) {
                 warning ("Can't read process stat: '%s'", e.message);
                 return false;
