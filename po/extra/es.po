@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-20 22:25+0900\n"
+"POT-Creation-Date: 2019-06-10 12:36+0400\n"
 "PO-Revision-Date: 2019-06-03 23:25+0100\n"
 "Last-Translator: Mario Rodrigo\n"
 "Language-Team: none\n"
@@ -28,24 +28,64 @@ msgstr "Gestionar procesos y monitorizar los recursos del sistema"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:10
 msgid "Display usage of system resources, filter and manage processes."
-msgstr "Mostrar el uso de los recursos del sistema, filtrar y gestionar procesos."
+msgstr ""
+"Mostrar el uso de los recursos del sistema, filtrar y gestionar procesos."
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:22
 msgid "Stanisław Dac"
 msgstr "Stanisław Dac"
 
+#: data/com.github.stsdc.monitor.appdata.xml.in:31
+msgid "Fix contents of the window are not shown (Ryo Nakano)"
+msgstr ""
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:32
+msgid ""
+"Fix no row is still selected when indicator options are enabled (Ryo Nakano)"
+msgstr ""
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:33
+msgid ""
+"Fix the app crashes by clicking the \"End/Kill Process\" buttons when no "
+"process is selected (Ryo Nakano)"
+msgstr ""
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:34
+msgid "Added buttons to either \"kill\" or \"end\" a process. (Evan Buss)"
+msgstr ""
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:35
+msgid "Change screenshot to English (Christopher Crouse)"
+msgstr ""
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:36
+msgid "Update Russian translation (camellan)"
+msgstr ""
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:37
+msgid "Check if the default display is a X11 display (Hannes Schulze)"
+msgstr ""
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:38
+msgid "Update German translation (J0Ar)"
+msgstr ""
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:39
+msgid "Update Spanish translation (Mario Rodrigo)"
+msgstr ""
+
 #: data/com.github.stsdc.monitor.desktop.in:4
 msgid "System Monitor"
 msgstr "Monitor del sistema"
 
-#: data/com.github.stsdc.monitor.desktop.in:6
+#: data/com.github.stsdc.monitor.desktop.in:5
 msgid "Manage processes and monitor resource usage of the system"
 msgstr "Gestionar procesos y monitorizar el uso de recursos del sistema"
 
-#: data/com.github.stsdc.monitor.desktop.in:10
+#: data/com.github.stsdc.monitor.desktop.in:8
 msgid "com.github.stsdc.monitor"
 msgstr "com.github.stsdc.monitor"
 
-#: data/com.github.stsdc.monitor.desktop.in:14
+#: data/com.github.stsdc.monitor.desktop.in:12
 msgid "System monitor;System usage;Task manager;"
 msgstr "Monitor del sistema; Uso del sistema; Gestor de tareas;"

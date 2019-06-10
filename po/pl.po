@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-12 18:26+0200\n"
+"POT-Creation-Date: 2019-06-10 12:35+0400\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 
@@ -24,28 +24,38 @@ msgstr ""
 msgid "Show system resources"
 msgstr "Pokaż zasoby systemu"
 
-#: src/Widgets/Headerbar.vala:13
+#: src/Widgets/Headerbar.vala:15
 msgid "Monitor"
 msgstr ""
 
-#: src/Widgets/Headerbar.vala:20
-msgid "End process"
+#: src/Widgets/Headerbar.vala:23
+#, fuzzy
+msgid "End Process"
 msgstr "Zakończ proces"
 
-#: src/Widgets/Headerbar.vala:23
+#: src/Widgets/Headerbar.vala:26
 msgid "Ctrl+E"
 msgstr ""
 
+#: src/Widgets/Headerbar.vala:30
+#, fuzzy
+msgid "Kill Process"
+msgstr "Wyszukaj proces"
+
 #: src/Widgets/Headerbar.vala:32
+msgid "Ctrl+K"
+msgstr ""
+
+#: src/Widgets/Headerbar.vala:42
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: src/Widgets/Headerbar.vala:46
+#: src/Widgets/Headerbar.vala:56
 #, fuzzy
 msgid "Show an indicator:"
 msgstr "Pokaż indykator"
 
-#: src/Widgets/Headerbar.vala:52
+#: src/Widgets/Headerbar.vala:62
 msgid "Start in background:"
 msgstr "Uruchamiaj w tle"
 
@@ -78,11 +88,11 @@ msgstr ""
 msgid "GiB"
 msgstr ""
 
-#: src/Widgets/Search.vala:9
+#: src/Widgets/Search.vala:14
 msgid "Search Process"
 msgstr "Wyszukaj proces"
 
-#: src/Widgets/Search.vala:10
+#: src/Widgets/Search.vala:15
 msgid "Type Process Name or PID"
 msgstr "Wpisz nazwę procesu lub PID"
 
