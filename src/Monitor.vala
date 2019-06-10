@@ -25,6 +25,7 @@ namespace Monitor {
         public override void activate () {
             // only have one window
             if (get_windows () != null) {
+                window.show_all ();
                 window.present ();
                 return;
             }
@@ -42,6 +43,8 @@ namespace Monitor {
             } else {
                 window.show_all ();
             }
+
+            window.process_view.focus_on_first_row ();
 
             var quit_action = new SimpleAction ("quit", null);
             add_action (quit_action);
