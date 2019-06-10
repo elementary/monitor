@@ -280,7 +280,15 @@ namespace Monitor {
                 process.kill ();
                 info ("Kill:%d",process.pid);
             }
-}
+        }
+
+        public void end_process (int pid) {
+            if (pid > 0) {
+                var process = process_manager.get_process (pid);
+                process.end ();
+                info ("End:%d",process.pid);
+            }
+        }
     }
 
 }

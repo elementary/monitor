@@ -1,63 +1,71 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-03 22:44+0100\n"
-"PO-Revision-Date: 2017-09-04 21:35+0200\n"
-"Last-Translator: Jonathan Moerman <Unknown>\n"
+"POT-Creation-Date: 2019-04-12 18:26+0200\n"
+"PO-Revision-Date: 2019-03-25 17:22+0100\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"Language-Team: \n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.1.1\n"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:12
-#, fuzzy
 msgid "Show Monitor"
-msgstr "Monitor"
+msgstr "Monitor tonen"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:13
-#, fuzzy
 msgid "Quit Monitor"
-msgstr "Monitor"
+msgstr "Monitor afsluiten"
 
 #. Some information about the indicator
 #. Unique name
-#: src/Indicator/Indicator.vala:43
+#: src/Indicator/Indicator.vala:44
 msgid "Monitor Indicator"
-msgstr ""
+msgstr "Monitor-indicator"
 
 #. Localised name
-#: src/Indicator/Indicator.vala:44
+#: src/Indicator/Indicator.vala:45
 msgid "Show system resources"
-msgstr ""
+msgstr "Systeembronnen tonen"
 
-#: src/Widgets/Headerbar.vala:11
+#: src/Widgets/Headerbar.vala:13
 msgid "Monitor"
 msgstr "Monitor"
 
-#: src/Widgets/Headerbar.vala:18
+#: src/Widgets/Headerbar.vala:20
 msgid "End process"
-msgstr "beëindig proces"
+msgstr "Proces beëindigen"
 
-#: src/Widgets/Headerbar.vala:21
+#: src/Widgets/Headerbar.vala:23
 msgid "Ctrl+E"
-msgstr ""
+msgstr "Ctrl+E"
 
-#: src/Widgets/Headerbar.vala:28
+#: src/Widgets/Headerbar.vala:32
 msgid "Settings"
-msgstr ""
+msgstr "Instellingen"
 
 #: src/Widgets/Headerbar.vala:46
-msgid "Show an indicator"
+#, fuzzy
+msgid "Show an indicator:"
+msgstr "Indicator tonen"
+
+#: src/Widgets/Headerbar.vala:52
+msgid "Start in background:"
 msgstr ""
 
 #. setup name column
 #: src/Widgets/OverallView.vala:21
 msgid "Process Name"
-msgstr "Naam van Proces"
+msgstr "Procesnaam"
 
-#: src/Widgets/OverallView.vala:42
+#: src/Widgets/OverallView.vala:42 src/Widgets/Statusbar/Statusbar.vala:7
 msgid "CPU"
 msgstr "Processor"
 
-#: src/Widgets/OverallView.vala:53
+#: src/Widgets/OverallView.vala:53 src/Widgets/Statusbar/Statusbar.vala:10
 msgid "Memory"
 msgstr "Geheugen"
 
@@ -73,26 +81,29 @@ msgstr "KiB"
 msgid "MiB"
 msgstr "MiB"
 
-#: src/Widgets/OverallView.vala:118 src/Widgets/Statusbar.vala:25
+#: src/Widgets/OverallView.vala:118 src/Widgets/Statusbar/Statusbar.vala:28
 msgid "GiB"
 msgstr "GiB"
 
 #: src/Widgets/Search.vala:9
 msgid "Search Process"
-msgstr "Zoek naar Proces"
+msgstr "Zoek een proces"
 
 #: src/Widgets/Search.vala:10
 msgid "Type Process Name or PID"
-msgstr "Typ Procesnaam of PID"
+msgstr "Voer de procesnaam of PID in"
 
-#: src/Widgets/Statusbar.vala:9
-msgid "CPU:"
-msgstr "Processor:"
-
-#: src/Widgets/Statusbar.vala:10
-msgid "Memory:"
-msgstr "Geheugen:"
+#: src/Widgets/Statusbar/Statusbar.vala:12
+#: src/Widgets/Statusbar/Statusbar.vala:16
+msgid "Calculating…"
+msgstr ""
 
 #: src/Models/GenericModel.vala:274
 msgid "Background Applications"
-msgstr "Achtergrond Toepassingen"
+msgstr "Achtergrondtoepassingen"
+
+#~ msgid "CPU:"
+#~ msgstr "Processor:"
+
+#~ msgid "Memory:"
+#~ msgstr "Geheugen:"

@@ -2,61 +2,65 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Raí B. Toffoletto <rai@raibtoffoletto.com>, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-03 22:44+0100\n"
-"PO-Revision-Date: 2017-11-03 10:20+0100\n"
-"Last-Translator: NathanBnm\n"
+"POT-Creation-Date: 2019-04-12 18:26+0200\n"
+"PO-Revision-Date: 2019-03-31 10:30+0200\n"
+"Last-Translator: Raí B. Toffoletto <rai@raibtoffoletto.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Gtranslator 2.91.7\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:12
-#, fuzzy
 msgid "Show Monitor"
-msgstr "Monitor"
+msgstr "Montrer Monitor"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:13
-#, fuzzy
 msgid "Quit Monitor"
-msgstr "Monitor"
+msgstr "Quitter Monitor"
 
 #. Some information about the indicator
 #. Unique name
-#: src/Indicator/Indicator.vala:43
+#: src/Indicator/Indicator.vala:44
 msgid "Monitor Indicator"
-msgstr ""
+msgstr "Icône du panneau"
 
 #. Localised name
-#: src/Indicator/Indicator.vala:44
+#: src/Indicator/Indicator.vala:45
 msgid "Show system resources"
-msgstr ""
+msgstr "Montrer ressources du système"
 
-#: src/Widgets/Headerbar.vala:11
+#: src/Widgets/Headerbar.vala:13
 msgid "Monitor"
 msgstr "Monitor"
 
-#: src/Widgets/Headerbar.vala:18
+#: src/Widgets/Headerbar.vala:20
 msgid "End process"
 msgstr "Terminer le processus"
 
-#: src/Widgets/Headerbar.vala:21
+#: src/Widgets/Headerbar.vala:23
 msgid "Ctrl+E"
 msgstr "Ctrl+E"
 
-#: src/Widgets/Headerbar.vala:28
+#: src/Widgets/Headerbar.vala:32
 msgid "Settings"
-msgstr ""
+msgstr "Préférences"
 
 #: src/Widgets/Headerbar.vala:46
-msgid "Show an indicator"
+#, fuzzy
+msgid "Show an indicator:"
+msgstr "Montrer icône du panneau"
+
+#: src/Widgets/Headerbar.vala:52
+msgid "Start in background:"
 msgstr ""
 
 #. setup name column
@@ -64,11 +68,11 @@ msgstr ""
 msgid "Process Name"
 msgstr "Nom du processus"
 
-#: src/Widgets/OverallView.vala:42
+#: src/Widgets/OverallView.vala:42 src/Widgets/Statusbar/Statusbar.vala:7
 msgid "CPU"
 msgstr "CPU"
 
-#: src/Widgets/OverallView.vala:53
+#: src/Widgets/OverallView.vala:53 src/Widgets/Statusbar/Statusbar.vala:10
 msgid "Memory"
 msgstr "Mémoire"
 
@@ -84,7 +88,7 @@ msgstr "Kio"
 msgid "MiB"
 msgstr "Mio"
 
-#: src/Widgets/OverallView.vala:118 src/Widgets/Statusbar.vala:25
+#: src/Widgets/OverallView.vala:118 src/Widgets/Statusbar/Statusbar.vala:28
 msgid "GiB"
 msgstr "Gio"
 
@@ -96,14 +100,17 @@ msgstr "Rechercher un processus"
 msgid "Type Process Name or PID"
 msgstr "Entrez le nom d'un processus ou un PID"
 
-#: src/Widgets/Statusbar.vala:9
-msgid "CPU:"
-msgstr "CPU :"
-
-#: src/Widgets/Statusbar.vala:10
-msgid "Memory:"
-msgstr "Mémoire :"
+#: src/Widgets/Statusbar/Statusbar.vala:12
+#: src/Widgets/Statusbar/Statusbar.vala:16
+msgid "Calculating…"
+msgstr ""
 
 #: src/Models/GenericModel.vala:274
 msgid "Background Applications"
 msgstr "Applications en arrière-plan"
+
+#~ msgid "CPU:"
+#~ msgstr "CPU :"
+
+#~ msgid "Memory:"
+#~ msgstr "Mémoire :"

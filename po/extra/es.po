@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-20 22:25+0900\n"
-"PO-Revision-Date: 2018-10-20 22:25+0900\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2019-06-03 23:25+0100\n"
+"Last-Translator: Mario Rodrigo\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -20,32 +20,32 @@ msgstr ""
 #: data/com.github.stsdc.monitor.appdata.xml.in:7
 #: data/com.github.stsdc.monitor.desktop.in:3
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:8
 msgid "Manage processes and monitor system resources"
-msgstr ""
+msgstr "Gestionar procesos y monitorizar los recursos del sistema"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:10
 msgid "Display usage of system resources, filter and manage processes."
-msgstr ""
+msgstr "Mostrar el uso de los recursos del sistema, filtrar y gestionar procesos."
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:22
 msgid "Stanisław Dac"
-msgstr ""
+msgstr "Stanisław Dac"
 
 #: data/com.github.stsdc.monitor.desktop.in:4
 msgid "System Monitor"
-msgstr ""
+msgstr "Monitor del sistema"
 
 #: data/com.github.stsdc.monitor.desktop.in:6
 msgid "Manage processes and monitor resource usage of the system"
-msgstr ""
+msgstr "Gestionar procesos y monitorizar el uso de recursos del sistema"
 
 #: data/com.github.stsdc.monitor.desktop.in:10
 msgid "com.github.stsdc.monitor"
-msgstr ""
+msgstr "com.github.stsdc.monitor"
 
 #: data/com.github.stsdc.monitor.desktop.in:14
 msgid "System monitor;System usage;Task manager;"
-msgstr ""
+msgstr "Monitor del sistema; Uso del sistema; Gestor de tareas;"

@@ -2,6 +2,10 @@ namespace Monitor {
 
     public class Headerbar : Gtk.HeaderBar {
         private MainWindow window;
+        private Gtk.Button end_process_button;
+        private Gtk.Button kill_process_button;
+        private Gtk.Switch show_indicator_switch;
+        private Gtk.Switch background_switch;
 
         public Search search;
 
@@ -14,13 +18,23 @@ namespace Monitor {
         public Headerbar (MainWindow window) {
             this.window = window;
             var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+            button_box.valign = Gtk.Align.CENTER;
 
-            var kill_process_button = new Gtk.Button.with_label (_("End process"));
-            kill_process_button.valign = Gtk.Align.CENTER;
+            end_process_button = new Gtk.Button.with_label (_("End Process"));
+            end_process_button.margin_end = 10;
+            end_process_button.clicked.connect (window.process_view.end_process);
+            end_process_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>E"}, _("End selected process"));
+            var end_process_button_context = end_process_button.get_style_context ();
+            end_process_button_context.add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+
+            kill_process_button = new Gtk.Button.with_label (_("Kill Process"));
             kill_process_button.clicked.connect (window.process_view.kill_process);
-            kill_process_button.tooltip_text = (_("Ctrl+E"));
+            kill_process_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>K"}, _("Kill selected process"));
+            var kill_process_button_context = kill_process_button.get_style_context ();
+            kill_process_button_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
-            button_box.add (kill_process_button);
+            button_box.pack_start (end_process_button);
+            button_box.pack_end (kill_process_button);
             pack_start (button_box);
 
             var preferences_button = new Gtk.MenuButton ();
@@ -39,24 +53,52 @@ namespace Monitor {
             preferences_popover.add (preferences_grid);
             preferences_button.popover = preferences_popover;
 
-            var show_indicator_switch = new Gtk.Switch ();
+            var indicator_label = new Gtk.Label (_("Show an indicator:"));
+            indicator_label.halign = Gtk.Align.END;
+
+            show_indicator_switch = new Gtk.Switch ();
             show_indicator_switch.state = window.saved_state.indicator_state;
 
-            var switch_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 10);
-            switch_box.pack_start (new Gtk.Label (_("Show an indicator")), false, false, 0);
-            switch_box.pack_start (show_indicator_switch, false, false, 0);
+            var background_label = new Gtk.Label (_("Start in background:"));
+            background_label.halign = Gtk.Align.END;
 
-            preferences_grid.add (switch_box);
+            background_switch = new Gtk.Switch ();
+            background_switch.state = window.saved_state.background_state;
+            set_background_switch_state ();
+
+            preferences_grid.attach (indicator_label, 0, 0, 1, 1);
+            preferences_grid.attach (show_indicator_switch, 1, 0, 1, 1);
+            preferences_grid.attach (background_label, 0, 1, 1, 1);
+            preferences_grid.attach (background_switch, 1, 1, 1, 1);
+
             preferences_grid.show_all ();
 
-            search = new Search (window.process_view, window.generic_model);
+            search = new Search (window);
             search.valign = Gtk.Align.CENTER;
             pack_end (search);
 
             show_indicator_switch.notify["active"].connect (() => {
                 window.saved_state.indicator_state = show_indicator_switch.state;
                 window.dbusserver.indicator_state (show_indicator_switch.state);
+                set_background_switch_state ();
             });
+            background_switch.notify["active"].connect (() => {
+                window.saved_state.background_state = background_switch.state;
+                set_background_switch_state ();
+            });
+        }
+
+        private void set_background_switch_state () {
+            background_switch.sensitive = show_indicator_switch.active;
+
+            if (!show_indicator_switch.active) {
+                background_switch.state = false;
+            }
+        }
+
+        public void set_header_buttons_sensitivity (bool sensitivity) {
+            end_process_button.sensitive = sensitivity;
+            kill_process_button.sensitive = sensitivity;
         }
     }
 }

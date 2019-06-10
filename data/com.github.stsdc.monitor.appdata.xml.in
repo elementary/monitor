@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2018 Stanisław <@ststdc> -->
+<!-- Copyright 2019 Stanisław <@ststdc> -->
 <component type="desktop">
   <id>com.github.stsdc.monitor</id>
   <metadata_license>CC0</metadata_license>
@@ -10,8 +10,8 @@
     <p>Display usage of system resources, filter and manage processes.</p>
   </description>
     <custom>
-     <value key="x-appcenter-color-primary">#2196f3</value>
-     <value key="x-appcenter-color-primary-text">rgb(255, 255, 255)</value>
+     <value key="x-appcenter-color-primary">#d7f4d7</value>
+     <value key="x-appcenter-color-primary-text">#242d40</value>
      <value key="x-appcenter-suggested-price">0</value>
   </custom>
     <screenshots>
@@ -25,14 +25,18 @@
 <url type="help">https://github.com/stsdc/monitor/issues</url>
 
 <releases>
-    <release version="0.4.0" date="2019-01-31">
+    <release version="0.5.0" date="2019-06-07">
 ​      <description>
 ​         <ul>
-            <li>Add Monitor indicator</li>
-            <li>Add missing extra French translations</li>
-            <li>Fix: if icon missing for the process, icon is taken from previous process</li>
-            <li>Fix: search erases my input while I'm typing</li>
-            <li>Fix POTFILES</li>
+            <li>Fix contents of the window are not shown (Ryo Nakano)</li>
+            <li>Fix no row is still selected when indicator options are enabled (Ryo Nakano)</li>
+            <li>Fix the app crashes by clicking the "End/Kill Process" buttons when no process is selected (Ryo Nakano)</li>
+            <li>Added buttons to either "kill" or "end" a process. (Evan Buss)</li>
+            <li>Change screenshot to English (Christopher Crouse)</li>
+            <li>Update Russian translation (camellan)</li>
+            <li>Check if the default display is a X11 display (Hannes Schulze)</li>
+            <li>Update German translation (J0Ar)</li>
+            <li>Update Spanish translation (Mario Rodrigo)</li>
         </ul>
 ​      </description>
 ​    </release>
