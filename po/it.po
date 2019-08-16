@@ -21,30 +21,30 @@ msgstr ""
 
 #: src/Indicator/Widgets/PopoverWidget.vala:12
 msgid "Show Monitor"
-msgstr "Apri il Monitore"
+msgstr "Apri il Monitor"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:13
 msgid "Quit Monitor"
-msgstr "Chidi il Monitore"
+msgstr "Chiudi il Monitor"
 
 #. Some information about the indicator
 #. Unique name
 #: src/Indicator/Indicator.vala:44
 msgid "Monitor Indicator"
-msgstr "Icona del pannello"
+msgstr "Icona nel pannello"
 
 #. Localised name
 #: src/Indicator/Indicator.vala:45
 msgid "Show system resources"
-msgstr "Mostra le risorse del sistema"
+msgstr "Mostra risorse di sistema"
 
 #: src/Widgets/Headerbar.vala:13
 msgid "Monitor"
-msgstr "Monitore"
+msgstr "Monitor"
 
 #: src/Widgets/Headerbar.vala:20
 msgid "End process"
-msgstr "Terminare il processo"
+msgstr "Terminare processo"
 
 #: src/Widgets/Headerbar.vala:23
 msgid "Ctrl+E"
@@ -55,9 +55,8 @@ msgid "Settings"
 msgstr "Preferenze"
 
 #: src/Widgets/Headerbar.vala:46
-#, fuzzy
 msgid "Show an indicator:"
-msgstr "Mostra l'icona del pannello"
+msgstr "Mostra icona nel pannello"
 
 #: src/Widgets/Headerbar.vala:52
 msgid "Start in background:"
