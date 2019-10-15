@@ -1,17 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.stsdc.monitor package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# FIRST AUTHOR <rekols@protonmail.com>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: com.github.stsdc.monitor\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-12 18:26+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2019-10-16 00:38+0800\n"
+"PO-Revision-Date: 2019-10-16 00:38+0800\n"
+"Last-Translator: Anjune Wong <rekols@protonmail.com>\n"
+"Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,89 +19,97 @@ msgstr ""
 
 #: src/Indicator/Widgets/PopoverWidget.vala:12
 msgid "Show Monitor"
-msgstr ""
+msgstr "显示"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:13
 msgid "Quit Monitor"
-msgstr ""
+msgstr "退出"
 
 #. Some information about the indicator
 #. Unique name
 #: src/Indicator/Indicator.vala:44
 msgid "Monitor Indicator"
-msgstr ""
+msgstr "监控指示器"
 
 #. Localised name
 #: src/Indicator/Indicator.vala:45
 msgid "Show system resources"
-msgstr ""
+msgstr "显示系统资源"
 
-#: src/Widgets/Headerbar.vala:13
+#: src/Widgets/Headerbar.vala:15
 msgid "Monitor"
-msgstr ""
-
-#: src/Widgets/Headerbar.vala:20
-msgid "End process"
-msgstr ""
+msgstr "监视器"
 
 #: src/Widgets/Headerbar.vala:23
+msgid "End Process"
+msgstr "结束程序"
+
+#: src/Widgets/Headerbar.vala:26
 msgid "Ctrl+E"
-msgstr ""
+msgstr "Ctrl+E"
+
+#: src/Widgets/Headerbar.vala:30
+msgid "Kill Process"
+msgstr "杀死程序"
 
 #: src/Widgets/Headerbar.vala:32
+msgid "Ctrl+K"
+msgstr "Ctrl+K"
+
+#: src/Widgets/Headerbar.vala:42
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
-#: src/Widgets/Headerbar.vala:46
+#: src/Widgets/Headerbar.vala:56
 msgid "Show an indicator:"
-msgstr ""
+msgstr "托盘展示:"
 
-#: src/Widgets/Headerbar.vala:52
+#: src/Widgets/Headerbar.vala:62
 msgid "Start in background:"
-msgstr ""
+msgstr "启动时在后台运行:"
 
 #. setup name column
 #: src/Widgets/OverallView.vala:21
 msgid "Process Name"
-msgstr ""
+msgstr "进程名称"
 
 #: src/Widgets/OverallView.vala:42 src/Widgets/Statusbar/Statusbar.vala:7
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 #: src/Widgets/OverallView.vala:53 src/Widgets/Statusbar/Statusbar.vala:10
 msgid "Memory"
-msgstr ""
+msgstr "内存"
 
 #: src/Widgets/OverallView.vala:63
 msgid "PID"
-msgstr ""
+msgstr "PID"
 
 #: src/Widgets/OverallView.vala:107
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 #: src/Widgets/OverallView.vala:112
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 #: src/Widgets/OverallView.vala:118 src/Widgets/Statusbar/Statusbar.vala:28
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
-#: src/Widgets/Search.vala:9
+#: src/Widgets/Search.vala:14
 msgid "Search Process"
-msgstr ""
+msgstr "搜索进程"
 
-#: src/Widgets/Search.vala:10
+#: src/Widgets/Search.vala:15
 msgid "Type Process Name or PID"
-msgstr ""
+msgstr "进程名或PID"
 
 #: src/Widgets/Statusbar/Statusbar.vala:12
 #: src/Widgets/Statusbar/Statusbar.vala:16
 msgid "Calculating…"
-msgstr ""
+msgstr "计算中…"
 
 #: src/Models/GenericModel.vala:274
 msgid "Background Applications"
-msgstr ""
+msgstr "后台应用程序"
