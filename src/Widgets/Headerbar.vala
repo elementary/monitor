@@ -57,13 +57,13 @@ namespace Monitor {
             indicator_label.halign = Gtk.Align.END;
 
             show_indicator_switch = new Gtk.Switch ();
-            show_indicator_switch.state = window.saved_state.indicator_state;
+            show_indicator_switch.state = MonitorApp.settings.get_boolean ("indicator-state");
 
             var background_label = new Gtk.Label (_("Start in background:"));
             background_label.halign = Gtk.Align.END;
 
             background_switch = new Gtk.Switch ();
-            background_switch.state = window.saved_state.background_state;
+            background_switch.state = MonitorApp.settings.get_boolean ("background-state");
             set_background_switch_state ();
 
             preferences_grid.attach (indicator_label, 0, 0, 1, 1);
@@ -78,12 +78,12 @@ namespace Monitor {
             pack_end (search);
 
             show_indicator_switch.notify["active"].connect (() => {
-                window.saved_state.indicator_state = show_indicator_switch.state;
+                MonitorApp.settings.set_boolean ("indicator-state", show_indicator_switch.state);
                 window.dbusserver.indicator_state (show_indicator_switch.state);
                 set_background_switch_state ();
             });
             background_switch.notify["active"].connect (() => {
-                window.saved_state.background_state = background_switch.state;
+                MonitorApp.settings.set_boolean ("background-state", background_switch.state);
                 set_background_switch_state ();
             });
         }

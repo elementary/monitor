@@ -3,12 +3,12 @@ public class Monitor.Indicator : Wingpanel.Indicator {
 
     private Widgets.DisplayWidget? display_widget = null;
     private Widgets.PopoverWidget? popover_widget = null;
-    public Settings saved_state;
+    private Settings settings;
     private DBusClient dbusclient;
 
     construct {
         Gtk.IconTheme.get_default().add_resource_path("/com/github/stsdc/monitor/icons");
-        saved_state = Settings.get_default ();
+        settings = new Settings ("com.github.stsdc.monitor.settings");
         this.visible = false;
         display_widget = new Widgets.DisplayWidget ();
         popover_widget = new Widgets.PopoverWidget ();
@@ -16,7 +16,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         dbusclient = DBusClient.get_default ();
 
         dbusclient.monitor_vanished.connect (() => this.visible = false);
-        dbusclient.monitor_appeared.connect (() => this.visible = saved_state.indicator_state);
+        dbusclient.monitor_appeared.connect (() => this.visible = settings.get_boolean ("indicator-state"));
 
         dbusclient.interface.indicator_state.connect((state) => this.visible = state);
 
