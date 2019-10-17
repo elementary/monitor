@@ -10,6 +10,7 @@ namespace Monitor {
 
         private CPU cpu;
         private Memory memory;
+        private Swap swap;
         private Utils.SystemResources sysres;
 
         public signal void update (Utils.SystemResources sysres);
@@ -17,6 +18,7 @@ namespace Monitor {
         construct {
             memory = new Memory ();
             cpu = new CPU ();
+            swap = new Swap ();
 
             Timeout.add_seconds (interval, update_resources);
         }
@@ -26,7 +28,10 @@ namespace Monitor {
                 cpu_percentage = cpu.percentage,
                 memory_percentage = memory.percentage,
                 memory_used = memory.used,
-                memory_total = memory.total
+                memory_total = memory.total,
+                swap_percentage = swap.percentage,
+                swap_used = swap.used,
+                swap_total = swap.total
             };
             update (sysres);
             return true;
