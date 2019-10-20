@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-12 18:26+0200\n"
+"POT-Creation-Date: 2019-10-17 21:21+0200\n"
 "PO-Revision-Date: 2017-09-07 11:24+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -40,28 +40,39 @@ msgstr ""
 msgid "Show system resources"
 msgstr ""
 
-#: src/Widgets/Headerbar.vala:13
+#: src/Widgets/Headerbar.vala:15
 msgid "Monitor"
 msgstr "Monitor"
 
-#: src/Widgets/Headerbar.vala:20
-msgid "End process"
+#: src/Widgets/Headerbar.vala:23
+#, fuzzy
+msgid "End Process"
 msgstr "Užbaigti procesą"
 
-#: src/Widgets/Headerbar.vala:23
-msgid "Ctrl+E"
-msgstr "Ctrl(Vald)+E"
+#: src/Widgets/Headerbar.vala:26
+#, fuzzy
+msgid "End selected process"
+msgstr "Užbaigti procesą"
+
+#: src/Widgets/Headerbar.vala:30
+#, fuzzy
+msgid "Kill Process"
+msgstr "Ieškoti proceso"
 
 #: src/Widgets/Headerbar.vala:32
+msgid "Kill selected process"
+msgstr ""
+
+#: src/Widgets/Headerbar.vala:42
 msgid "Settings"
 msgstr ""
 
-#: src/Widgets/Headerbar.vala:46
+#: src/Widgets/Headerbar.vala:56
 #, fuzzy
 msgid "Show an indicator:"
 msgstr "Monitor"
 
-#: src/Widgets/Headerbar.vala:52
+#: src/Widgets/Headerbar.vala:62
 msgid "Start in background:"
 msgstr ""
 
@@ -94,12 +105,13 @@ msgstr "MiB"
 msgid "GiB"
 msgstr "GiB"
 
-#: src/Widgets/Search.vala:9
+#: src/Widgets/Search.vala:14
 msgid "Search Process"
 msgstr "Ieškoti proceso"
 
-#: src/Widgets/Search.vala:10
-msgid "Type Process Name or PID"
+#: src/Widgets/Search.vala:15
+#, fuzzy
+msgid "Type process name or PID to search"
 msgstr "Įrašykite proceso pavadinimą ar PID"
 
 #: src/Widgets/Statusbar/Statusbar.vala:12
@@ -110,6 +122,9 @@ msgstr ""
 #: src/Models/GenericModel.vala:274
 msgid "Background Applications"
 msgstr "Foninės programos"
+
+#~ msgid "Ctrl+E"
+#~ msgstr "Ctrl(Vald)+E"
 
 #~ msgid "CPU:"
 #~ msgstr "CPU:"

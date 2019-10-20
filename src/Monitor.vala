@@ -1,6 +1,7 @@
 namespace Monitor {
 
     public class MonitorApp : Gtk.Application {
+        public static Settings settings;
         private MainWindow window = null;
         public string[] args;
 
@@ -22,6 +23,10 @@ namespace Monitor {
             status_background = status_indicator;
         }
 
+        static construct {
+            settings = new Settings ("com.github.stsdc.monitor.settings");
+        }
+
         public override void activate () {
             // only have one window
             if (get_windows () != null) {
@@ -33,13 +38,13 @@ namespace Monitor {
             window = new MainWindow (this);
 
             // start in background with indicator
-            if (status_background || window.saved_state.background_state) {
-                if (!window.saved_state.indicator_state) {
-                    window.saved_state.indicator_state = true;
+            if (status_background || MonitorApp.settings.get_boolean ("background-state")) {
+                if (!MonitorApp.settings.get_boolean ("indicator-state")) {
+                    MonitorApp.settings.set_boolean ("indicator-state", true);
                 }
 
                 window.hide ();
-                window.saved_state.background_state = true;
+                MonitorApp.settings.set_boolean ("background-state", true);
             } else {
                 window.show_all ();
             }
