@@ -26,7 +26,14 @@
 
             if (MonitorApp.settings.get_boolean ("is-maximized")) { this.maximize (); }
 
-            this.window_position = Gtk.WindowPosition.CENTER;
+            int position_x = MonitorApp.settings.get_int ("position-x");
+            int position_y = MonitorApp.settings.get_int ("position-y");
+            if (position_x == -1 || position_y == -1) {
+                // -1 is default value of these keys, which means this is the first launch
+                this.window_position = Gtk.WindowPosition.CENTER;
+            } else {
+                move (position_x, position_y);
+            }
 
             get_style_context ().add_class ("rounded");
 
@@ -79,22 +86,24 @@
             shortcuts = new Shortcuts (this);
             key_press_event.connect ((e) => shortcuts.handle (e));
 
-            // Maybe move it from here to Settings
             this.delete_event.connect (() => {
-                    int window_width;
-                    int window_height;
-                    get_size (out window_width, out window_height);
-                    MonitorApp.settings.set_int ("window-width", window_width);
-                    MonitorApp.settings.set_int ("window-height", window_height);
-                    MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized);
+                int window_width, window_height, x, y;
+                get_size (out window_width, out window_height);
+                get_position (out x, out y);
+                MonitorApp.settings.set_int ("window-width", window_width);
+                MonitorApp.settings.set_int ("window-height", window_height);
+                MonitorApp.settings.set_int ("position-x", x);
+                MonitorApp.settings.set_int ("position-y", y);
+                MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized);
 
-                    if (MonitorApp.settings.get_boolean ("indicator-state")) {
-                        this.hide_on_delete ();
-                    } else {
-                        dbusserver.indicator_state (false);
-                        app.quit ();
-                    }
-                    return true;
+                if (MonitorApp.settings.get_boolean ("indicator-state")) {
+                    this.hide_on_delete ();
+                } else {
+                    dbusserver.indicator_state (false);
+                    app.quit ();
+                }
+
+                return true;
             });
 
             dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
