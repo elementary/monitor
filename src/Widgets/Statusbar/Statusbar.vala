@@ -10,7 +10,7 @@ public class Monitor.Statusbar : Gtk.ActionBar {
         var ram_icon = new Gtk.Image.from_icon_name ("ram-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
         ram_icon.tooltip_text = _ ("Memory");
 
-        var swap_icon = new Gtk.Image.from_icon_name ("ram-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+        var swap_icon = new Gtk.Image.from_icon_name ("swap-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
         swap_icon.tooltip_text = _ ("Swap");
 
         cpu_usage_label = new Gtk.Label (_("Calculating…"));
