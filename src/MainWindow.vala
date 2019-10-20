@@ -78,13 +78,13 @@
             key_press_event.connect ((e) => shortcuts.handle (e));
 
             this.delete_event.connect (() => {
-                int window_width, window_height, x, y;
+                int window_width, window_height, position_x, position_y;
                 get_size (out window_width, out window_height);
-                get_position (out x, out y);
+                get_position (out position_x, out position_y);
                 MonitorApp.settings.set_int ("window-width", window_width);
                 MonitorApp.settings.set_int ("window-height", window_height);
-                MonitorApp.settings.set_int ("position-x", x);
-                MonitorApp.settings.set_int ("position-y", y);
+                MonitorApp.settings.set_int ("position-x", position_x);
+                MonitorApp.settings.set_int ("position-y", position_y);
                 MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized);
 
                 if (MonitorApp.settings.get_boolean ("indicator-state")) {
@@ -101,7 +101,9 @@
         }
 
         private void setup_window_state () {
-            this.set_default_size (MonitorApp.settings.get_int ("window-width"), MonitorApp.settings.get_int ("window-height"));
+            int window_width = MonitorApp.settings.get_int ("window-width");
+            int window_height = MonitorApp.settings.get_int ("window-height");
+            this.set_default_size (window_width, window_height);
 
             if (MonitorApp.settings.get_boolean ("is-maximized")) { this.maximize (); }
 
