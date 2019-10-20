@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-12 18:26+0200\n"
+"POT-Creation-Date: 2019-10-17 21:21+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,27 +36,35 @@ msgstr ""
 msgid "Show system resources"
 msgstr ""
 
-#: src/Widgets/Headerbar.vala:13
+#: src/Widgets/Headerbar.vala:15
 msgid "Monitor"
 msgstr ""
 
-#: src/Widgets/Headerbar.vala:20
-msgid "End process"
+#: src/Widgets/Headerbar.vala:23
+msgid "End Process"
 msgstr ""
 
-#: src/Widgets/Headerbar.vala:23
-msgid "Ctrl+E"
+#: src/Widgets/Headerbar.vala:26
+msgid "End selected process"
+msgstr ""
+
+#: src/Widgets/Headerbar.vala:30
+msgid "Kill Process"
 msgstr ""
 
 #: src/Widgets/Headerbar.vala:32
+msgid "Kill selected process"
+msgstr ""
+
+#: src/Widgets/Headerbar.vala:42
 msgid "Settings"
 msgstr ""
 
-#: src/Widgets/Headerbar.vala:46
+#: src/Widgets/Headerbar.vala:56
 msgid "Show an indicator:"
 msgstr ""
 
-#: src/Widgets/Headerbar.vala:52
+#: src/Widgets/Headerbar.vala:62
 msgid "Start in background:"
 msgstr ""
 
@@ -89,12 +97,12 @@ msgstr ""
 msgid "GiB"
 msgstr ""
 
-#: src/Widgets/Search.vala:9
+#: src/Widgets/Search.vala:14
 msgid "Search Process"
 msgstr ""
 
-#: src/Widgets/Search.vala:10
-msgid "Type Process Name or PID"
+#: src/Widgets/Search.vala:15
+msgid "Type process name or PID to search"
 msgstr ""
 
 #: src/Widgets/Statusbar/Statusbar.vala:12

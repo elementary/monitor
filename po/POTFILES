@@ -10,5 +10,4 @@ src/Managers/AppManager.vala
 src/Managers/ProcessManager.vala
 src/Managers/Process.vala
 src/Models/GenericModel.vala
-src/Services/Settings.vala
 src/Services/Shortcuts.vala

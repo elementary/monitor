@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-12 18:26+0200\n"
+"POT-Creation-Date: 2019-10-17 21:21+0200\n"
 "PO-Revision-Date: 2019-02-20 11:53+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
@@ -37,28 +37,39 @@ msgstr "モニターインジケーター"
 msgid "Show system resources"
 msgstr "システムリソースを表示"
 
-#: src/Widgets/Headerbar.vala:13
+#: src/Widgets/Headerbar.vala:15
 msgid "Monitor"
 msgstr "モニター"
 
-#: src/Widgets/Headerbar.vala:20
-msgid "End process"
+#: src/Widgets/Headerbar.vala:23
+#, fuzzy
+msgid "End Process"
 msgstr "プロセスを終了"
 
-#: src/Widgets/Headerbar.vala:23
-msgid "Ctrl+E"
-msgstr "Ctrl+E"
+#: src/Widgets/Headerbar.vala:26
+#, fuzzy
+msgid "End selected process"
+msgstr "プロセスを終了"
+
+#: src/Widgets/Headerbar.vala:30
+#, fuzzy
+msgid "Kill Process"
+msgstr ""
 
 #: src/Widgets/Headerbar.vala:32
+msgid "Kill selected process"
+msgstr ""
+
+#: src/Widgets/Headerbar.vala:42
 msgid "Settings"
 msgstr "設定"
 
-#: src/Widgets/Headerbar.vala:46
+#: src/Widgets/Headerbar.vala:56
 #, fuzzy
 msgid "Show an indicator:"
 msgstr "インジケーターを表示"
 
-#: src/Widgets/Headerbar.vala:52
+#: src/Widgets/Headerbar.vala:62
 msgid "Start in background:"
 msgstr ""
 
@@ -91,12 +102,13 @@ msgstr "MiB"
 msgid "GiB"
 msgstr "GiB"
 
-#: src/Widgets/Search.vala:9
+#: src/Widgets/Search.vala:14
 msgid "Search Process"
 msgstr "プロセスを検索"
 
-#: src/Widgets/Search.vala:10
-msgid "Type Process Name or PID"
+#: src/Widgets/Search.vala:15
+#, fuzzy
+msgid "Type process name or PID to search"
 msgstr "プロセス名か PID を入力してください"
 
 #: src/Widgets/Statusbar/Statusbar.vala:12
@@ -107,3 +119,6 @@ msgstr "計算しています…"
 #: src/Models/GenericModel.vala:274
 msgid "Background Applications"
 msgstr "バックグランドアプリケーション"
+
+#~ msgid "Ctrl+E"
+#~ msgstr "Ctrl+E"

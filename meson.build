@@ -56,7 +56,6 @@ executable(
     'src/Managers/ProcessManager.vala',
     'src/Managers/Process.vala',
 
-    'src/Services/Settings.vala',
     'src/Services/Shortcuts.vala',
     'src/Services/DBusServer.vala',
     'src/Services/Updater.vala',
@@ -97,7 +96,6 @@ shared_module(
     'src/Indicator/Widgets/MemoryWidget.vala',
 
     'src/Indicator/Services/DBusClient.vala',
-    'src/Services/Settings.vala',
     # 'src/Widgets/RevealerSwitch.vala',
     icons_gresource,
     c_args: c_args,

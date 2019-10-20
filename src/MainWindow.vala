@@ -1,6 +1,5 @@
     public class Monitor.MainWindow : Gtk.Window {
         // application reference
-        public Settings saved_state;
         private Shortcuts shortcuts;
 
         // Widgets
@@ -23,10 +22,9 @@
         // Constructs a main window
         public MainWindow (MonitorApp app) {
             this.set_application (app);
-            saved_state = Settings.get_default ();
-            this.set_default_size (saved_state.window_width, saved_state.window_height);
+            this.set_default_size (MonitorApp.settings.get_int ("window-width"), MonitorApp.settings.get_int ("window-height"));
 
-            if (saved_state.is_maximized) { this.maximize (); }
+            if (MonitorApp.settings.get_boolean ("is-maximized")) { this.maximize (); }
 
             this.window_position = Gtk.WindowPosition.CENTER;
 
@@ -68,7 +66,7 @@
             updater.update.connect ((sysres) => {
                 statusbar.update (sysres);
                 dbusserver.update (sysres);
-                dbusserver.indicator_state (saved_state.indicator_state);
+                dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
             });
 
             dbusserver.quit.connect (() => app.quit());
@@ -86,11 +84,11 @@
                     int window_width;
                     int window_height;
                     get_size (out window_width, out window_height);
-                    saved_state.window_width = window_width;
-                    saved_state.window_height = window_height;
-                    saved_state.is_maximized = this.is_maximized;
+                    MonitorApp.settings.set_int ("window-width", window_width);
+                    MonitorApp.settings.set_int ("window-height", window_height);
+                    MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized);
 
-                    if (saved_state.indicator_state == true) {
+                    if (MonitorApp.settings.get_boolean ("indicator-state")) {
                         this.hide_on_delete ();
                     } else {
                         dbusserver.indicator_state (false);
@@ -99,6 +97,6 @@
                     return true;
             });
 
-            dbusserver.indicator_state (saved_state.indicator_state);
+            dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
         }
     }
