@@ -22,18 +22,8 @@
         // Constructs a main window
         public MainWindow (MonitorApp app) {
             this.set_application (app);
-            this.set_default_size (MonitorApp.settings.get_int ("window-width"), MonitorApp.settings.get_int ("window-height"));
 
-            if (MonitorApp.settings.get_boolean ("is-maximized")) { this.maximize (); }
-
-            int position_x = MonitorApp.settings.get_int ("position-x");
-            int position_y = MonitorApp.settings.get_int ("position-y");
-            if (position_x == -1 || position_y == -1) {
-                // -1 is default value of these keys, which means this is the first launch
-                this.window_position = Gtk.WindowPosition.CENTER;
-            } else {
-                move (position_x, position_y);
-            }
+            setup_window_state ();
 
             get_style_context ().add_class ("rounded");
 
@@ -80,6 +70,7 @@
             dbusserver.show.connect (() => {
                 this.deiconify();
                 this.present();
+                setup_window_state ();
                 this.show_all ();
             });
 
@@ -107,5 +98,20 @@
             });
 
             dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
+        }
+
+        private void setup_window_state () {
+            this.set_default_size (MonitorApp.settings.get_int ("window-width"), MonitorApp.settings.get_int ("window-height"));
+
+            if (MonitorApp.settings.get_boolean ("is-maximized")) { this.maximize (); }
+
+            int position_x = MonitorApp.settings.get_int ("position-x");
+            int position_y = MonitorApp.settings.get_int ("position-y");
+            if (position_x == -1 || position_y == -1) {
+                // -1 is default value of these keys, which means this is the first launch
+                this.window_position = Gtk.WindowPosition.CENTER;
+            } else {
+                move (position_x, position_y);
+            }
         }
     }
