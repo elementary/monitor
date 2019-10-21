@@ -26,13 +26,21 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         });
 
         popover_widget.quit_monitor.connect (() => {
-            dbusclient.interface.quit_monitor ();
-            this.visible = false;
+            try {
+                dbusclient.interface.quit_monitor ();
+                this.visible = false;
+            } catch (Error e) {
+                warning (e.message);
+            }
         });
 
         popover_widget.show_monitor.connect (() => {
-            close ();
-            dbusclient.interface.show_monitor ();
+            try {
+                close ();
+                dbusclient.interface.show_monitor ();
+            } catch (Error e) {
+                warning (e.message);
+            }
         });
 
     }
@@ -64,15 +72,6 @@ public class Monitor.Indicator : Wingpanel.Indicator {
     public override void closed () {
     }
 
-    /* Method to connect the signals */
-    private void connect_signals () {
-        /* Connect to the click signal of the hide button */
-        // hide_button.clicked.connect (hide_me);
-
-        /* Connect to the switch signal of the compositing switch */
-        // compositing_switch.switched.connect (update_compositing);
-    }
-
     /* Method to hide the indicator for a short time */
     // private void hide_me () {
     //     /* Hide the indicator */
@@ -87,12 +86,6 @@ public class Monitor.Indicator : Wingpanel.Indicator {
     //         return false;
     //     });
     // }
-
-    /* Method to check the status of the compositing switch and update the indicator */
-    private void update_compositing () {
-        /* If the switch is enabled set the icon name of the icon that should be drawn on top of the other one, if not hide the top icon. */
-        // display_widget.set_overlay_icon_name (compositing_switch.get_active () ? "nm-vpn-active-lock" : "");
-    }
 }
 
 /*

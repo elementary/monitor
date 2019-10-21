@@ -1,7 +1,7 @@
 [DBus (name = "com.github.stsdc.monitor")]
 public interface Monitor.DBusClientInterface : Object {
-    public abstract void quit_monitor () throws IOError;
-    public abstract void show_monitor () throws IOError;
+    public abstract void quit_monitor () throws Error;
+    public abstract void show_monitor () throws Error;
     public signal void update (Utils.SystemResources data);
     public signal void indicator_state (bool state);
 }

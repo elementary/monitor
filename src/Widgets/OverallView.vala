@@ -79,8 +79,13 @@ namespace Monitor {
             model.get_value (iter, Column.ICON, out icon_name);
             if (regex.match ((string) icon_name)) {
                 string path = ((string) icon_name);
-                Gdk.Pixbuf icon = new Gdk.Pixbuf.from_file_at_size (path, 16, -1);
-                (icon_cell as Gtk.CellRendererPixbuf).pixbuf = icon;
+
+                try {
+                    Gdk.Pixbuf icon = new Gdk.Pixbuf.from_file_at_size (path, 16, -1);
+                    (icon_cell as Gtk.CellRendererPixbuf).pixbuf = icon;
+                } catch (Error e) {
+                    warning (e.message);
+                }
             } else {
                 (icon_cell as Gtk.CellRendererPixbuf).icon_name = (string) icon_name;
             }
