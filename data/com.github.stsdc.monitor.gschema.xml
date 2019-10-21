@@ -20,6 +20,16 @@
       <summary>Window height</summary>
       <description>Window height</description>
     </key>
+    <key type="i" name="position-x">
+      <default>-1</default>
+      <summary>Window X position</summary>
+      <description>Window X position</description>
+    </key>
+    <key type="i" name="position-y">
+      <default>-1</default>
+      <summary>Window Y position</summary>
+      <description>Window Y position</description>
+    </key>
     <key type='b' name="indicator-state">
       <default>false</default>
       <summary>To show Monitor Indicator or not</summary>
