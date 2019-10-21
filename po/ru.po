@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2.3\n"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:12
 msgid "Show Monitor"
@@ -36,23 +36,20 @@ msgid "Monitor"
 msgstr "Monitor"
 
 #: src/Widgets/Headerbar.vala:23
-#, fuzzy
 msgid "End Process"
 msgstr "Завершить процесс"
 
 #: src/Widgets/Headerbar.vala:26
-#, fuzzy
 msgid "End selected process"
-msgstr "Завершить процесс"
+msgstr "Завершает выбранные процессы"
 
 #: src/Widgets/Headerbar.vala:30
-#, fuzzy
 msgid "Kill Process"
-msgstr ""
+msgstr "Убить процесс"
 
 #: src/Widgets/Headerbar.vala:32
 msgid "Kill selected process"
-msgstr ""
+msgstr "Убивает выбранные процессы"
 
 #: src/Widgets/Headerbar.vala:42
 msgid "Settings"
@@ -100,9 +97,8 @@ msgid "Search Process"
 msgstr "Найти процесс"
 
 #: src/Widgets/Search.vala:15
-#, fuzzy
 msgid "Type process name or PID to search"
-msgstr "Введите имя или ИД процесса"
+msgstr "Для поиска введите имя или ИД процесса"
 
 #: src/Widgets/Statusbar/Statusbar.vala:12
 #: src/Widgets/Statusbar/Statusbar.vala:16
