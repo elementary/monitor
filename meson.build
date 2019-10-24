@@ -92,8 +92,7 @@ shared_module(
 
     'src/Indicator/Widgets/DisplayWidget.vala',
     'src/Indicator/Widgets/PopoverWidget.vala',
-    'src/Indicator/Widgets/CPUWidget.vala',
-    'src/Indicator/Widgets/MemoryWidget.vala',
+    'src/Indicator/Widgets/IndicatorWidget.vala',
 
     'src/Indicator/Services/DBusClient.vala',
     # 'src/Widgets/RevealerSwitch.vala',
