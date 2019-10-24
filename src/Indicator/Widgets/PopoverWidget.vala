@@ -11,8 +11,10 @@ public class Monitor.Widgets.PopoverWidget : Gtk.Grid {
 
         show_monitor_button = new Gtk.ModelButton ();
         show_monitor_button.text = _("Show Monitor");
+        show_monitor_button.hexpand = true;
         quit_monitor_button = new Gtk.ModelButton ();
         quit_monitor_button.text = _("Quit Monitor");
+        quit_monitor_button.hexpand = true;
         show_monitor_button.clicked.connect (() => show_monitor ());
         quit_monitor_button.clicked.connect (() => quit_monitor ());
 
