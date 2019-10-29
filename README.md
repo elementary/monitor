@@ -22,13 +22,13 @@
 
 ![Monitor Screenshot](https://github.com/stsdc/monitor/raw/master/data/com.github.stsdc.monitor.screenshot.png)
 
-## Building and Installation
+## Development
 
-You'll need the following dependencies to build:
+### Install dependencies
 
 * valac
 * libgtk-3-dev
-* libgranite-dev
+* libgranite-dev (>= 5.2.0)
 * libbamf3-dev
 * libwnck-3-dev
 * libgtop2-dev
@@ -36,7 +36,7 @@ You'll need the following dependencies to build:
 * libxml2-utils
 * meson
 
-## How To Build
+### Clone, Build & Install
 
     git clone https://github.com/stsdc/monitor
     cd monitor
@@ -47,7 +47,9 @@ You'll need the following dependencies to build:
 ### Debug
 `G_MESSAGES_DEBUG=all ./com.github.stsdc.monitor`
 
-## Arch Linux
+## Other OSes
+
+### Arch Linux
 
 Arch Linux users can find Monitor under the name [pantheon-system-monitor-git](https://aur.archlinux.org/packages/pantheon-system-monitor-git/) in the **AUR**:
 

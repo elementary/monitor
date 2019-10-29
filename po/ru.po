@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-12 18:26+0200\n"
+"POT-Creation-Date: 2019-10-17 21:21+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Andrey Kultyapov <camellan@yandex.ru>\n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2.3\n"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:12
 msgid "Show Monitor"
@@ -31,27 +31,35 @@ msgstr "Индикатор монитора"
 msgid "Show system resources"
 msgstr "Показывать системные ресурсы"
 
-#: src/Widgets/Headerbar.vala:13
+#: src/Widgets/Headerbar.vala:15
 msgid "Monitor"
 msgstr "Monitor"
 
-#: src/Widgets/Headerbar.vala:20
-msgid "End process"
+#: src/Widgets/Headerbar.vala:23
+msgid "End Process"
 msgstr "Завершить процесс"
 
-#: src/Widgets/Headerbar.vala:23
-msgid "Ctrl+E"
-msgstr "Ctrl+E"
+#: src/Widgets/Headerbar.vala:26
+msgid "End selected process"
+msgstr "Завершает выбранные процессы"
+
+#: src/Widgets/Headerbar.vala:30
+msgid "Kill Process"
+msgstr "Убить процесс"
 
 #: src/Widgets/Headerbar.vala:32
+msgid "Kill selected process"
+msgstr "Убивает выбранные процессы"
+
+#: src/Widgets/Headerbar.vala:42
 msgid "Settings"
 msgstr "Параметры"
 
-#: src/Widgets/Headerbar.vala:46
+#: src/Widgets/Headerbar.vala:56
 msgid "Show an indicator:"
 msgstr "Показывать индикатор:"
 
-#: src/Widgets/Headerbar.vala:52
+#: src/Widgets/Headerbar.vala:62
 msgid "Start in background:"
 msgstr "Запустить в фоновом режиме:"
 
@@ -84,13 +92,13 @@ msgstr "МиБ"
 msgid "GiB"
 msgstr "ГиБ"
 
-#: src/Widgets/Search.vala:9
+#: src/Widgets/Search.vala:14
 msgid "Search Process"
 msgstr "Найти процесс"
 
-#: src/Widgets/Search.vala:10
-msgid "Type Process Name or PID"
-msgstr "Введите имя или ИД процесса"
+#: src/Widgets/Search.vala:15
+msgid "Type process name or PID to search"
+msgstr "Для поиска введите имя или ИД процесса"
 
 #: src/Widgets/Statusbar/Statusbar.vala:12
 #: src/Widgets/Statusbar/Statusbar.vala:16
@@ -100,6 +108,9 @@ msgstr "Вычисление…"
 #: src/Models/GenericModel.vala:274
 msgid "Background Applications"
 msgstr "Фоновые приложения"
+
+#~ msgid "Ctrl+E"
+#~ msgstr "Ctrl+E"
 
 #~ msgid "CPU:"
 #~ msgstr "ЦПУ:"

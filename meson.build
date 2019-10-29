@@ -1,5 +1,5 @@
 
-project('com.github.stsdc.monitor', 'vala', 'c', version: '0.5.0')
+project('com.github.stsdc.monitor', 'vala', 'c', version: '0.6.0')
 
 # these are Meson modules
 gnome = import('gnome')
@@ -7,7 +7,7 @@ i18n = import('i18n')
 
 # and these are project dependencies
 glib = dependency('glib-2.0')
-granite = dependency('granite')
+granite = dependency('granite', version: '>= 5.2.0')
 gtk = dependency('gtk+-3.0')
 gee = dependency('gee-0.8')
 gio = dependency('gio-2.0')
@@ -56,7 +56,6 @@ executable(
     'src/Managers/ProcessManager.vala',
     'src/Managers/Process.vala',
 
-    'src/Services/Settings.vala',
     'src/Services/Shortcuts.vala',
     'src/Services/DBusServer.vala',
     'src/Services/Updater.vala',
@@ -64,6 +63,7 @@ executable(
     'src/Resources/CPU.vala',
     'src/Resources/Core.vala',
     'src/Resources/Memory.vala',
+    'src/Resources/Swap.vala',
     c_args: c_args,
     dependencies: [
         glib,
@@ -92,11 +92,9 @@ shared_module(
 
     'src/Indicator/Widgets/DisplayWidget.vala',
     'src/Indicator/Widgets/PopoverWidget.vala',
-    'src/Indicator/Widgets/CPUWidget.vala',
-    'src/Indicator/Widgets/MemoryWidget.vala',
+    'src/Indicator/Widgets/IndicatorWidget.vala',
 
     'src/Indicator/Services/DBusClient.vala',
-    'src/Services/Settings.vala',
     # 'src/Widgets/RevealerSwitch.vala',
     icons_gresource,
     c_args: c_args,
@@ -108,8 +106,8 @@ shared_module(
         wingpanel
     ],
     install: true,
-    # install_dir : wingpanel.get_pkgconfig_variable('indicatorsdir'), <- installs to /usr/local/
-    install_dir : '/usr/lib/x86_64-linux-gnu/wingpanel/'
+    install_dir : wingpanel.get_pkgconfig_variable('indicatorsdir'),
+    # install_dir : '/usr/lib/x86_64-linux-gnu/wingpanel/'
 
 )
 

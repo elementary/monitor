@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-12 18:26+0200\n"
-"PO-Revision-Date: 2019-02-20 11:53+0900\n"
+"POT-Creation-Date: 2019-10-22 00:03+0900\n"
+"PO-Revision-Date: 2019-10-22 00:09+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.2.4\n"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:12
 msgid "Show Monitor"
@@ -37,41 +37,48 @@ msgstr "モニターインジケーター"
 msgid "Show system resources"
 msgstr "システムリソースを表示"
 
-#: src/Widgets/Headerbar.vala:13
+#: src/Widgets/Headerbar.vala:15
 msgid "Monitor"
 msgstr "モニター"
 
-#: src/Widgets/Headerbar.vala:20
-msgid "End process"
+#: src/Widgets/Headerbar.vala:23
+msgid "End Process"
 msgstr "プロセスを終了"
 
-#: src/Widgets/Headerbar.vala:23
-msgid "Ctrl+E"
-msgstr "Ctrl+E"
+#: src/Widgets/Headerbar.vala:26
+msgid "End selected process"
+msgstr "選択したプロセスを終了します"
+
+#: src/Widgets/Headerbar.vala:30
+msgid "Kill Process"
+msgstr "プロセスを強制終了"
 
 #: src/Widgets/Headerbar.vala:32
+msgid "Kill selected process"
+msgstr "選択したプロセスを強制終了します"
+
+#: src/Widgets/Headerbar.vala:42
 msgid "Settings"
 msgstr "設定"
 
-#: src/Widgets/Headerbar.vala:46
-#, fuzzy
+#: src/Widgets/Headerbar.vala:56
 msgid "Show an indicator:"
-msgstr "インジケーターを表示"
+msgstr "インジケーターを表示:"
 
-#: src/Widgets/Headerbar.vala:52
+#: src/Widgets/Headerbar.vala:62
 msgid "Start in background:"
-msgstr ""
+msgstr "バックグラウンドで起動:"
 
 #. setup name column
 #: src/Widgets/OverallView.vala:21
 msgid "Process Name"
 msgstr "プロセス名"
 
-#: src/Widgets/OverallView.vala:42 src/Widgets/Statusbar/Statusbar.vala:7
+#: src/Widgets/OverallView.vala:42 src/Widgets/Statusbar/Statusbar.vala:8
 msgid "CPU"
 msgstr "CPU"
 
-#: src/Widgets/OverallView.vala:53 src/Widgets/Statusbar/Statusbar.vala:10
+#: src/Widgets/OverallView.vala:53 src/Widgets/Statusbar/Statusbar.vala:11
 msgid "Memory"
 msgstr "メモリー"
 
@@ -87,23 +94,32 @@ msgstr "KiB"
 msgid "MiB"
 msgstr "MiB"
 
-#: src/Widgets/OverallView.vala:118 src/Widgets/Statusbar/Statusbar.vala:28
+#: src/Widgets/OverallView.vala:118 src/Widgets/Statusbar/Statusbar.vala:39
+#: src/Widgets/Statusbar/Statusbar.vala:42
 msgid "GiB"
 msgstr "GiB"
 
-#: src/Widgets/Search.vala:9
+#: src/Widgets/Search.vala:14
 msgid "Search Process"
 msgstr "プロセスを検索"
 
-#: src/Widgets/Search.vala:10
-msgid "Type Process Name or PID"
-msgstr "プロセス名か PID を入力してください"
+#: src/Widgets/Search.vala:15
+msgid "Type process name or PID to search"
+msgstr "検索するにはプロセス名か PID を入力してください"
 
-#: src/Widgets/Statusbar/Statusbar.vala:12
+#: src/Widgets/Statusbar/Statusbar.vala:14
+msgid "Swap"
+msgstr "スワップ"
+
 #: src/Widgets/Statusbar/Statusbar.vala:16
+#: src/Widgets/Statusbar/Statusbar.vala:20
+#: src/Widgets/Statusbar/Statusbar.vala:25
 msgid "Calculating…"
 msgstr "計算しています…"
 
 #: src/Models/GenericModel.vala:274
 msgid "Background Applications"
 msgstr "バックグランドアプリケーション"
+
+#~ msgid "Ctrl+E"
+#~ msgstr "Ctrl+E"

@@ -1,3 +1,13 @@
+com.github.stsdc.monitor (0.6.0) bionic; urgency=low
+
+      * Update Italian translation (Mirko Brombin)
+      * Show swap usage (Ryo Nakano)
+      * Update Russian translation (camellan)
+      * Code refactoring (Ryo Nakano)
+      * Update Japanese translation (Ryo Nakano)
+
+-- Stanisław Dac <stanislawdac@gmail.com>  Tue, 29 Oct 2019 17:48:02 +0100
+
 com.github.stsdc.monitor (0.5.0) bionic; urgency=low
 
       * Fix contents of the window are not shown (Ryo Nakano)

@@ -1,6 +1,5 @@
     public class Monitor.MainWindow : Gtk.Window {
         // application reference
-        public Settings saved_state;
         private Shortcuts shortcuts;
 
         // Widgets
@@ -23,12 +22,8 @@
         // Constructs a main window
         public MainWindow (MonitorApp app) {
             this.set_application (app);
-            saved_state = Settings.get_default ();
-            this.set_default_size (saved_state.window_width, saved_state.window_height);
 
-            if (saved_state.is_maximized) { this.maximize (); }
-
-            this.window_position = Gtk.WindowPosition.CENTER;
+            setup_window_state ();
 
             get_style_context ().add_class ("rounded");
 
@@ -68,37 +63,57 @@
             updater.update.connect ((sysres) => {
                 statusbar.update (sysres);
                 dbusserver.update (sysres);
-                dbusserver.indicator_state (saved_state.indicator_state);
+                dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
             });
 
             dbusserver.quit.connect (() => app.quit());
             dbusserver.show.connect (() => {
                 this.deiconify();
                 this.present();
+                setup_window_state ();
                 this.show_all ();
             });
 
             shortcuts = new Shortcuts (this);
             key_press_event.connect ((e) => shortcuts.handle (e));
 
-            // Maybe move it from here to Settings
             this.delete_event.connect (() => {
-                    int window_width;
-                    int window_height;
-                    get_size (out window_width, out window_height);
-                    saved_state.window_width = window_width;
-                    saved_state.window_height = window_height;
-                    saved_state.is_maximized = this.is_maximized;
+                int window_width, window_height, position_x, position_y;
+                get_size (out window_width, out window_height);
+                get_position (out position_x, out position_y);
+                MonitorApp.settings.set_int ("window-width", window_width);
+                MonitorApp.settings.set_int ("window-height", window_height);
+                MonitorApp.settings.set_int ("position-x", position_x);
+                MonitorApp.settings.set_int ("position-y", position_y);
+                MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized);
 
-                    if (saved_state.indicator_state == true) {
-                        this.hide_on_delete ();
-                    } else {
-                        dbusserver.indicator_state (false);
-                        app.quit ();
-                    }
-                    return true;
+                if (MonitorApp.settings.get_boolean ("indicator-state")) {
+                    this.hide_on_delete ();
+                } else {
+                    dbusserver.indicator_state (false);
+                    app.quit ();
+                }
+
+                return true;
             });
 
-            dbusserver.indicator_state (saved_state.indicator_state);
+            dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
+        }
+
+        private void setup_window_state () {
+            int window_width = MonitorApp.settings.get_int ("window-width");
+            int window_height = MonitorApp.settings.get_int ("window-height");
+            this.set_default_size (window_width, window_height);
+
+            if (MonitorApp.settings.get_boolean ("is-maximized")) { this.maximize (); }
+
+            int position_x = MonitorApp.settings.get_int ("position-x");
+            int position_y = MonitorApp.settings.get_int ("position-y");
+            if (position_x == -1 || position_y == -1) {
+                // -1 is default value of these keys, which means this is the first launch
+                this.window_position = Gtk.WindowPosition.CENTER;
+            } else {
+                move (position_x, position_y);
+            }
         }
     }

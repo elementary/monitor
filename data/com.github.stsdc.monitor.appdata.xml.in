@@ -25,18 +25,14 @@
 <url type="help">https://github.com/stsdc/monitor/issues</url>
 
 <releases>
-    <release version="0.5.0" date="2019-06-07">
+    <release version="0.6.0" date="2019-10-29">
 ​      <description>
 ​         <ul>
-            <li>Fix contents of the window are not shown (Ryo Nakano)</li>
-            <li>Fix no row is still selected when indicator options are enabled (Ryo Nakano)</li>
-            <li>Fix the app crashes by clicking the "End/Kill Process" buttons when no process is selected (Ryo Nakano)</li>
-            <li>Added buttons to either "kill" or "end" a process. (Evan Buss)</li>
-            <li>Change screenshot to English (Christopher Crouse)</li>
-            <li>Update Russian translation (camellan)</li>
-            <li>Check if the default display is a X11 display (Hannes Schulze)</li>
-            <li>Update German translation (J0Ar)</li>
-            <li>Update Spanish translation (Mario Rodrigo)</li>
+           <li> Update Italian translation (Mirko Brombin)</li>
+           <li> Show swap usage (Ryo Nakano)</li>
+           <li> Update Russian translation (camellan)</li>
+           <li> Code refactoring (Ryo Nakano)</li>
+          <li> Update Japanese translation (Ryo Nakano)</li>
         </ul>
 ​      </description>
 ​    </release>

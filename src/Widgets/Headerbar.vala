@@ -23,13 +23,13 @@ namespace Monitor {
             end_process_button = new Gtk.Button.with_label (_("End Process"));
             end_process_button.margin_end = 10;
             end_process_button.clicked.connect (window.process_view.end_process);
-            end_process_button.tooltip_text = (_("Ctrl+E"));
+            end_process_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>E"}, _("End selected process"));
             var end_process_button_context = end_process_button.get_style_context ();
             end_process_button_context.add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
             kill_process_button = new Gtk.Button.with_label (_("Kill Process"));
             kill_process_button.clicked.connect (window.process_view.kill_process);
-            kill_process_button.tooltip_text = (_("Ctrl+K"));
+            kill_process_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>K"}, _("Kill selected process"));
             var kill_process_button_context = kill_process_button.get_style_context ();
             kill_process_button_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
@@ -57,13 +57,13 @@ namespace Monitor {
             indicator_label.halign = Gtk.Align.END;
 
             show_indicator_switch = new Gtk.Switch ();
-            show_indicator_switch.state = window.saved_state.indicator_state;
+            show_indicator_switch.state = MonitorApp.settings.get_boolean ("indicator-state");
 
             var background_label = new Gtk.Label (_("Start in background:"));
             background_label.halign = Gtk.Align.END;
 
             background_switch = new Gtk.Switch ();
-            background_switch.state = window.saved_state.background_state;
+            background_switch.state = MonitorApp.settings.get_boolean ("background-state");
             set_background_switch_state ();
 
             preferences_grid.attach (indicator_label, 0, 0, 1, 1);
@@ -78,12 +78,12 @@ namespace Monitor {
             pack_end (search);
 
             show_indicator_switch.notify["active"].connect (() => {
-                window.saved_state.indicator_state = show_indicator_switch.state;
+                MonitorApp.settings.set_boolean ("indicator-state", show_indicator_switch.state);
                 window.dbusserver.indicator_state (show_indicator_switch.state);
                 set_background_switch_state ();
             });
             background_switch.notify["active"].connect (() => {
-                window.saved_state.background_state = background_switch.state;
+                MonitorApp.settings.set_boolean ("background-state", background_switch.state);
                 set_background_switch_state ();
             });
         }
