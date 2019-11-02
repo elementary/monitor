@@ -53,7 +53,6 @@ msgid "End selected process"
 msgstr "Terminer le processus sélectionné"
 
 #: src/Widgets/Headerbar.vala:30
-#, fuzzy
 msgid "Kill Process"
 msgstr "Tuer le processus"
 
@@ -72,7 +71,7 @@ msgstr "Montrer icône du panneau"
 
 #: src/Widgets/Headerbar.vala:62
 msgid "Start in background:"
-msgstr "Démarrer en arrière-plan"
+msgstr "Démarrer en arrière-plan :"
 
 #. setup name column
 #: src/Widgets/OverallView.vala:21
