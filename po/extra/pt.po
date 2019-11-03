@@ -1,0 +1,52 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-20 22:25+0900\n"
+"PO-Revision-Date: 2019-11-03 22:10+0000\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: pt\n"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:7
+#: data/com.github.stsdc.monitor.desktop.in:3
+msgid "Monitor"
+msgstr "Monitor"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:8
+msgid "Manage processes and monitor system resources"
+msgstr "Gerir processos e monitorizar os recursos do sistema"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:10
+msgid "Display usage of system resources, filter and manage processes."
+msgstr "Exibir o uso dos recursos do sistema, filtrar e gerir processos."
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:22
+msgid "Stanisław Dac"
+msgstr "Stanisław Dac"
+
+#: data/com.github.stsdc.monitor.desktop.in:4
+msgid "System Monitor"
+msgstr "Monitor do sistema"
+
+#: data/com.github.stsdc.monitor.desktop.in:6
+msgid "Manage processes and monitor resource usage of the system"
+msgstr "Gerir processos e monitorizar a utilização de recursos do sistema"
+
+#: data/com.github.stsdc.monitor.desktop.in:10
+msgid "com.github.stsdc.monitor"
+msgstr "com.github.stsdc.monitor"
+
+#: data/com.github.stsdc.monitor.desktop.in:14
+msgid "System monitor;System usage;Task manager;"
+msgstr "Monitor do sistema;Utilização do sistema;Gestor de tarefas;"
