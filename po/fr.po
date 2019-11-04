@@ -50,16 +50,15 @@ msgstr "Terminer le processus"
 #: src/Widgets/Headerbar.vala:26
 #, fuzzy
 msgid "End selected process"
-msgstr "Terminer le processus"
+msgstr "Terminer le processus sélectionné"
 
 #: src/Widgets/Headerbar.vala:30
-#, fuzzy
 msgid "Kill Process"
-msgstr ""
+msgstr "Tuer le processus"
 
 #: src/Widgets/Headerbar.vala:32
 msgid "Kill selected process"
-msgstr ""
+msgstr "Tuer le processus sélectionné"
 
 #: src/Widgets/Headerbar.vala:42
 msgid "Settings"
@@ -72,7 +71,7 @@ msgstr "Montrer icône du panneau"
 
 #: src/Widgets/Headerbar.vala:62
 msgid "Start in background:"
-msgstr ""
+msgstr "Démarrer en arrière-plan :"
 
 #. setup name column
 #: src/Widgets/OverallView.vala:21
@@ -115,7 +114,7 @@ msgstr "Entrez le nom d'un processus ou un PID"
 #: src/Widgets/Statusbar/Statusbar.vala:12
 #: src/Widgets/Statusbar/Statusbar.vala:16
 msgid "Calculating…"
-msgstr ""
+msgstr "Calcul en cours…"
 
 #: src/Models/GenericModel.vala:274
 msgid "Background Applications"
