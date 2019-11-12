@@ -7,7 +7,13 @@ public class Monitor.Swap : Object {
     public int percentage {
         get {
             update ();
-            return (int) (Math.round ((used / total) * 100));
+
+            // The total amount of the swap is 0 when it is unavailable
+            if (total == 0) {
+                return 0;
+            } else {
+                return (int) (Math.round ((used / total) * 100));
+            }
         }
     }
 
