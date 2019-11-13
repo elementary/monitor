@@ -1,27 +1,25 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# Raí B. Toffoletto <rai@raibtoffoletto.com>, 2019.
+# French translations for com.github.stsdc.monitor package.
+# Copyright (C) 2019 THE com.github.stsdc.monitor'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.stsdc.monitor package.
+# Nathan Bonnemains, 2019.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-17 21:21+0200\n"
-"PO-Revision-Date: 2019-03-31 10:30+0200\n"
-"Last-Translator: Raí B. Toffoletto <rai@raibtoffoletto.com>\n"
+"PO-Revision-Date: 2019-11-03 14:15+0200\n"
+"Last-Translator: Nathan Bonnemains\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Gtranslator 2.91.7\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:12
 msgid "Show Monitor"
-msgstr "Montrer Monitor"
+msgstr "Afficher Monitor"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:13
 msgid "Quit Monitor"
@@ -31,48 +29,44 @@ msgstr "Quitter Monitor"
 #. Unique name
 #: src/Indicator/Indicator.vala:44
 msgid "Monitor Indicator"
-msgstr "Icône du panneau"
+msgstr "Indicateur du panneau"
 
 #. Localised name
 #: src/Indicator/Indicator.vala:45
 msgid "Show system resources"
-msgstr "Montrer ressources du système"
+msgstr "Afficher les ressources du système"
 
 #: src/Widgets/Headerbar.vala:15
 msgid "Monitor"
 msgstr "Monitor"
 
 #: src/Widgets/Headerbar.vala:23
-#, fuzzy
 msgid "End Process"
-msgstr "Terminer le processus"
+msgstr "Mettre fin au processus"
 
 #: src/Widgets/Headerbar.vala:26
-#, fuzzy
 msgid "End selected process"
-msgstr "Terminer le processus"
+msgstr "Mettre fin au processus sélectionné"
 
 #: src/Widgets/Headerbar.vala:30
-#, fuzzy
 msgid "Kill Process"
-msgstr ""
+msgstr "Tuer le processus"
 
 #: src/Widgets/Headerbar.vala:32
 msgid "Kill selected process"
-msgstr ""
+msgstr "Tuer le processus sélectionné"
 
 #: src/Widgets/Headerbar.vala:42
 msgid "Settings"
-msgstr "Préférences"
+msgstr "Paramètres"
 
 #: src/Widgets/Headerbar.vala:56
-#, fuzzy
 msgid "Show an indicator:"
-msgstr "Montrer icône du panneau"
+msgstr "Afficher un indicateur :"
 
 #: src/Widgets/Headerbar.vala:62
 msgid "Start in background:"
-msgstr ""
+msgstr "Démarrer en arrière-plan :"
 
 #. setup name column
 #: src/Widgets/OverallView.vala:21
@@ -108,24 +102,14 @@ msgid "Search Process"
 msgstr "Rechercher un processus"
 
 #: src/Widgets/Search.vala:15
-#, fuzzy
 msgid "Type process name or PID to search"
-msgstr "Entrez le nom d'un processus ou un PID"
+msgstr "Tapez le nom d'un processus ou un PID à rechercher"
 
 #: src/Widgets/Statusbar/Statusbar.vala:12
 #: src/Widgets/Statusbar/Statusbar.vala:16
 msgid "Calculating…"
-msgstr ""
+msgstr "Calcul en cours…"
 
 #: src/Models/GenericModel.vala:274
 msgid "Background Applications"
 msgstr "Applications en arrière-plan"
-
-#~ msgid "Ctrl+E"
-#~ msgstr "Ctrl+E"
-
-#~ msgid "CPU:"
-#~ msgstr "CPU :"
-
-#~ msgid "Memory:"
-#~ msgstr "Mémoire :"

@@ -1,3 +1,11 @@
+com.github.stsdc.monitor (0.6.1) bionic; urgency=low
+
+      * Update Portuguese translation (Hugo Carvalho)
+      * Update French translation (Nathan Bonnemains and Skeudwenn)
+      * Fix: Don't show swap percentage when it's not available (Ryo Nakano)
+
+-- Stanisław Dac <stanislawdac@gmail.com>  Wed, 13 Nov 2019 21:18:52 +0100
+
 com.github.stsdc.monitor (0.6.0) bionic; urgency=low
 
       * Update Italian translation (Mirko Brombin)
