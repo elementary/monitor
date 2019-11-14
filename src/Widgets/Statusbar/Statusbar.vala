@@ -34,13 +34,18 @@ public class Monitor.Statusbar : Gtk.ActionBar {
     public bool update (Utils.SystemResources sysres) {
         cpu_usage_label.set_text (("%d%%").printf (sysres.cpu_percentage));
         memory_usage_label.set_text (("%d%%").printf (sysres.memory_percentage));
-        swap_usage_label.set_text (("%d%%").printf (sysres.swap_percentage));
 
         string memory_tooltip_text = ("%.1f %s / %.1f %s").printf (sysres.memory_used, _ ("GiB"), sysres.memory_total, _ ("GiB"));
         memory_usage_label.tooltip_text = memory_tooltip_text;
 
-        string swap_tooltip_text = ("%.1f %s / %.1f %s").printf (sysres.swap_used, _ ("GiB"), sysres.swap_total, _ ("GiB"));
-        swap_usage_label.tooltip_text = swap_tooltip_text;
+        // The total amount of the swap is 0 when it is unavailable
+        if (sysres.swap_total == 0) {
+            swap_usage_label.set_text ("N/A");
+        } else {
+            swap_usage_label.set_text (("%d%%").printf (sysres.swap_percentage));
+            string swap_tooltip_text = ("%.1f %s / %.1f %s").printf (sysres.swap_used, _ ("GiB"), sysres.swap_total, _ ("GiB"));
+            swap_usage_label.tooltip_text = swap_tooltip_text;
+        }
 
         return true;
     }

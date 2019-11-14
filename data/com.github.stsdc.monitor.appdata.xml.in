@@ -25,14 +25,12 @@
 <url type="help">https://github.com/stsdc/monitor/issues</url>
 
 <releases>
-    <release version="0.6.0" date="2019-10-29">
+    <release version="0.6.1" date="2019-11-13">
 ​      <description>
 ​         <ul>
-           <li> Update Italian translation (Mirko Brombin)</li>
-           <li> Show swap usage (Ryo Nakano)</li>
-           <li> Update Russian translation (camellan)</li>
-           <li> Code refactoring (Ryo Nakano)</li>
-          <li> Update Japanese translation (Ryo Nakano)</li>
+           <li> Update Portuguese translation (Hugo Carvalho)</li>
+           <li> Update French translation (Nathan Bonnemains and Skeudwenn)</li>
+           <li> Fix: Don't show swap percentage when it's not available (Ryo Nakano) </li>
         </ul>
 ​      </description>
 ​    </release>
