@@ -161,13 +161,24 @@ namespace Monitor {
             return true;
         }
 
+        // THE BUG IS SOMEWHERE IN HERE
         // reparent children to background processes
         private void reparent (Gtk.TreeIter iter) {
             Gtk.TreeIter child_iter;
+            Value pid_value_prev;
+
             while (iter_children (out child_iter, iter)) {
                 Value pid_value;
                 get_value (child_iter, Column.PID, out pid_value);
-                add_process_to_row (background_apps_iter, pid_value.get_int ());
+                pid_value_prev = pid_value;
+                debug( "reparent %d", pid_value.get_int ());
+                
+                if (pid_value_prev.get_int () != pid_value.get_int ()) {
+                    add_process_to_row (background_apps_iter, pid_value.get_int ());
+                } else {
+                    debug( "trying to reparent %d, but already done this", pid_value.get_int ());
+                    break;
+                }
             }
         }
 
@@ -223,7 +234,7 @@ namespace Monitor {
         // reparenting it and it's children if it already exists.
         private bool add_process_to_row (Gtk.TreeIter row, int pid) {
             var process = process_manager.get_process (pid);
-            debug ("add_process_to_row %d", pid);
+            debug ("add_process_to_row pid:%d", pid);
 
             if (process != null) {
                 // if process is already in list, then we need to reparent it and it's children
@@ -252,9 +263,9 @@ namespace Monitor {
                     // i.e. skip if subprocess is already in but isn't an ancestor of this process row
                     if (process_rows.has_key (sub_pid) && (
                              (old_location != null && !is_ancestor (old_location, process_rows[sub_pid].iter))
-                             || old_location == null))
-                        continue;
-
+                             || old_location == null)) {
+                                continue;
+                             }
                     add_process_to_row (iter, sub_pid);
                 }
 
