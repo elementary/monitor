@@ -5,6 +5,12 @@ project('com.github.stsdc.monitor', 'vala', 'c', version: '0.6.0')
 gnome = import('gnome')
 i18n = import('i18n')
 
+# common dirs
+prefix = get_option('prefix')
+datadir = join_paths(prefix, get_option('datadir'))
+libdir = join_paths(prefix, get_option('libdir'))
+icondir = join_paths(datadir, 'icons', 'hicolor')
+
 # and these are project dependencies
 glib = dependency('glib-2.0')
 granite = dependency('granite', version: '>= 5.2.0')
