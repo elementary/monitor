@@ -112,9 +112,7 @@ shared_module(
         wingpanel
     ],
     install: true,
-    install_dir : wingpanel.get_pkgconfig_variable('indicatorsdir'),
-    # install_dir : '/usr/lib/x86_64-linux-gnu/wingpanel/'
-
+    install_dir : wingpanel.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir]),
 )
 
 # Add in a post install script
