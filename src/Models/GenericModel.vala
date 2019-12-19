@@ -172,13 +172,8 @@ namespace Monitor {
                 get_value (child_iter, Column.PID, out pid_value);
                 pid_value_prev = pid_value;
                 debug( "reparent %d", pid_value.get_int ());
-                
-                //  if (pid_value_prev.get_int () != pid_value.get_int ()) {
-                    add_process_to_row (background_apps_iter, pid_value.get_int ());
-                //  } else {
-                //      debug( "trying to reparent %d, but already done this", pid_value.get_int ());
-                //      break;
-                //  }
+
+                add_process_to_row (background_apps_iter, pid_value.get_int ());
             }
         }
 
@@ -199,11 +194,13 @@ namespace Monitor {
                 
                 debug("removing %d", pid_value.get_int());
     
-                //  if (pid_value.get_int() != 0) {
+                // sometimes iter has null values
+                // this potentially should prevent segfaults
+                if (pid_value.get_int() != 0) {
                     reparent (iter);
                     // remove row from model
                     remove (ref iter);
-                //  }
+                }
     
                 // remove row from row cache
                 process_rows.unset (pid);
