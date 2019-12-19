@@ -173,12 +173,12 @@ namespace Monitor {
                 pid_value_prev = pid_value;
                 debug( "reparent %d", pid_value.get_int ());
                 
-                if (pid_value_prev.get_int () != pid_value.get_int ()) {
+                //  if (pid_value_prev.get_int () != pid_value.get_int ()) {
                     add_process_to_row (background_apps_iter, pid_value.get_int ());
-                } else {
-                    debug( "trying to reparent %d, but already done this", pid_value.get_int ());
-                    break;
-                }
+                //  } else {
+                //      debug( "trying to reparent %d, but already done this", pid_value.get_int ());
+                //      break;
+                //  }
             }
         }
 
@@ -187,10 +187,24 @@ namespace Monitor {
             // if process rows has pid
             if (process_rows.has_key (pid)) {
                 var row = process_rows.get (pid);
-                var iter = row.iter;
-                reparent (iter);
-                // remove row from model
-                remove (ref iter);
+                Gtk.TreeIter iter = row.iter;
+    
+                debug ("remove process: user_data %d, stamp %d", (int) iter.user_data, iter.stamp);
+                
+                Value pid_value;
+                get_value (iter, Column.PID, out pid_value);
+    
+                // Column.NAME, for example returns (null)
+                // Column.PID return 0
+                
+                debug("removing %d", pid_value.get_int());
+    
+                //  if (pid_value.get_int() != 0) {
+                    reparent (iter);
+                    // remove row from model
+                    remove (ref iter);
+                //  }
+    
                 // remove row from row cache
                 process_rows.unset (pid);
             }
