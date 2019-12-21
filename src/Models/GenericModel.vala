@@ -163,7 +163,7 @@ namespace Monitor {
 
         // THE BUG IS SOMEWHERE IN HERE
         // reparent children to background processes
-        private void reparent (Gtk.TreeIter iter) {
+        private void reparent (ref Gtk.TreeIter iter) {
             Gtk.TreeIter child_iter;
             Value pid_value_prev;
 
@@ -197,7 +197,7 @@ namespace Monitor {
                 // sometimes iter has null values
                 // this potentially should prevent segfaults
                 if (pid_value.get_int() != 0) {
-                    reparent (iter);
+                    reparent (ref iter);
                     // remove row from model
                     remove (ref iter);
                 }
