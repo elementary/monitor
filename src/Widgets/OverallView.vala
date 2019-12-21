@@ -65,7 +65,6 @@ namespace Monitor {
             pid_column.expand = false;
             pid_column.alignment = 0.5f;
             pid_column.set_sort_column_id (Column.PID);
-            pid_column.pack_start (pid_cell, false);
             pid_column.add_attribute (pid_cell, "text", Column.PID);
             insert_column (pid_column, -1);
 
