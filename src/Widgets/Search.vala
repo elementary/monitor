@@ -1,6 +1,6 @@
 namespace Monitor {
 
-    public class Search :  Gtk.SearchEntry {
+    public class Search : Gtk.SearchEntry {
         public MainWindow window { get; construct; }
         private Gtk.TreeModelFilter filter_model;
         private OverallView process_view;
@@ -16,7 +16,7 @@ namespace Monitor {
 
             filter_model = new Gtk.TreeModelFilter (window.generic_model, null);
             connect_signal ();
-            filter_model.set_visible_func(filter_func);
+            filter_model.set_visible_func (filter_func);
             process_view.set_model (filter_model);
 
             var sort_model = new Gtk.TreeModelSort.with_model (filter_model);
@@ -50,17 +50,17 @@ namespace Monitor {
             int pid_haystack;
             bool found = false;
             var needle = this.text;
-            if ( needle.length == 0 ) {
+            if (needle.length == 0) {
                 return true;
             }
 
-            model.get( iter, Column.NAME, out name_haystack, -1 );
-            model.get( iter, Column.PID, out pid_haystack, -1 );
+            model.get (iter, Column.NAME, out name_haystack, -1);
+            model.get (iter, Column.PID, out pid_haystack, -1);
 
             // sometimes name_haystack is null
             if (name_haystack != null) {
-                bool name_found = name_haystack.casefold().contains(needle.casefold()) || false;
-                bool pid_found = pid_haystack.to_string().casefold().contains(needle.casefold()) || false;
+                bool name_found = name_haystack.casefold ().contains (needle.casefold ()) || false;
+                bool pid_found = pid_haystack.to_string ().casefold ().contains (needle.casefold ()) || false;
                 found = name_found || pid_found;
             }
 

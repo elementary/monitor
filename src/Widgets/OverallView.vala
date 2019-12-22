@@ -1,4 +1,3 @@
-
 namespace Monitor {
 
     public class OverallView : Gtk.TreeView {
@@ -11,10 +10,9 @@ namespace Monitor {
 
         const string NO_DATA = "\u2014";
 
-
         public OverallView (GenericModel model) {
             this.model = model;
-            regex = /(?i:^.*\.(xpm|png)$)/;
+            regex = /(?i:^.*\.(xpm|png)$)/; //vala-lint=space-before-paren
 
             // setup name column
             name_column = new Gtk.TreeViewColumn ();
@@ -73,6 +71,7 @@ namespace Monitor {
 
             set_model (model);
         }
+
         public void icon_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer icon_cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
             Value icon_name;
             model.get_value (iter, Column.ICON, out icon_name);
@@ -89,6 +88,7 @@ namespace Monitor {
                 (icon_cell as Gtk.CellRendererPixbuf).icon_name = (string) icon_name;
             }
         }
+
         public void cpu_usage_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
             // grab the value that was store in the model and convert it down to a usable format
             Value cpu_usage_value;
@@ -155,9 +155,9 @@ namespace Monitor {
             Gtk.TreeIter iter;
             Gtk.TreeModel model;
             int pid = 0;
-            var selection = this.get_selection ().get_selected_rows(out model).nth_data(0);
-		    model.get_iter (out iter, selection);
-		    model.get (iter, Column.PID, out pid);
+            var selection = this.get_selection ().get_selected_rows (out model).nth_data (0);
+            model.get_iter (out iter, selection);
+            model.get (iter, Column.PID, out pid);
             return pid;
         }
 
@@ -165,14 +165,14 @@ namespace Monitor {
 
         public void expanded () {
             Gtk.TreeModel model;
-            var selection = this.get_selection ().get_selected_rows(out model).nth_data(0);
-		    this.expand_row (selection, false);
+            var selection = this.get_selection ().get_selected_rows (out model).nth_data (0);
+            this.expand_row (selection, false);
         }
 
         public void collapse () {
             Gtk.TreeModel model;
-            var selection = this.get_selection ().get_selected_rows(out model).nth_data(0);
-		    this.collapse_row (selection);
+            var selection = this.get_selection ().get_selected_rows (out model).nth_data (0);
+            this.collapse_row (selection);
         }
 
         public void kill_process () {
