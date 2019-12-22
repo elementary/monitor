@@ -1,5 +1,3 @@
-
-
 namespace Monitor {
 
     public class Process {
@@ -118,7 +116,7 @@ namespace Monitor {
                 mem_usage = (proc_mem.resident - proc_mem.share) / 1024; // in KiB
 
                 if (Gdk.Display.get_default () is Gdk.X11.Display) {
-                    Wnck.ResourceUsage resu = Wnck.ResourceUsage.pid_read (Gdk.Display.get_default(), pid);
+                    Wnck.ResourceUsage resu = Wnck.ResourceUsage.pid_read (Gdk.Display.get_default (), pid);
                     mem_usage += (resu.total_bytes_estimate / 1024);
                 }
             } catch (Error e) {

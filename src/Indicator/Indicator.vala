@@ -7,7 +7,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
     private DBusClient dbusclient;
 
     construct {
-        Gtk.IconTheme.get_default().add_resource_path("/com/github/stsdc/monitor/icons");
+        Gtk.IconTheme.get_default ().add_resource_path ("/com/github/stsdc/monitor/icons");
         settings = new Settings ("com.github.stsdc.monitor.settings");
         this.visible = false;
         display_widget = new Widgets.DisplayWidget ();
@@ -18,9 +18,9 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         dbusclient.monitor_vanished.connect (() => this.visible = false);
         dbusclient.monitor_appeared.connect (() => this.visible = settings.get_boolean ("indicator-state"));
 
-        dbusclient.interface.indicator_state.connect((state) => this.visible = state);
+        dbusclient.interface.indicator_state.connect ((state) => this.visible = state);
 
-        dbusclient.interface.update.connect((sysres) => {
+        dbusclient.interface.update.connect ((sysres) => {
             display_widget.cpu_widget.percentage = sysres.cpu_percentage;
             display_widget.memory_widget.percentage = sysres.memory_percentage;
         });

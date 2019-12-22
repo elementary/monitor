@@ -20,9 +20,9 @@ namespace Monitor {
                 typeof (int64),
                 typeof (int),
             };
-            set_column_types(types);
+            set_column_types (types);
 
-            helper = new ModelHelper(this);
+            helper = new ModelHelper (this);
 
             process_manager = ProcessManager.get_default ();
             process_manager.process_added.connect ((process) => add_process (process));
@@ -33,8 +33,8 @@ namespace Monitor {
             app_manager.application_opened.connect ((app) => { add_app (app); });
             app_manager.application_closed.connect ((app) => { remove_app (app); });
 
-            Idle.add (() => { add_running_apps (); return false; } );
-            Idle.add (() => { add_running_processes (); return false; } );
+            Idle.add (() => { add_running_apps (); return false; });
+            Idle.add (() => { add_running_processes (); return false; });
 
             add_background_apps_row ();
         }
@@ -171,37 +171,37 @@ namespace Monitor {
                 Value pid_value;
                 get_value (child_iter, Column.PID, out pid_value);
                 pid_value_prev = pid_value;
-                debug( "reparent %d", pid_value.get_int ());
+                debug ("reparent %d", pid_value.get_int ());
 
                 add_process_to_row (background_apps_iter, pid_value.get_int ());
             }
         }
 
         private void remove_process (int pid) {
-            debug ("remove process %d from model".printf(pid));
+            debug ("remove process %d from model".printf (pid));
             // if process rows has pid
             if (process_rows.has_key (pid)) {
                 var row = process_rows.get (pid);
                 Gtk.TreeIter iter = row.iter;
-    
+
                 debug ("remove process: user_data %d, stamp %d", (int) iter.user_data, iter.stamp);
-                
+
                 Value pid_value;
                 get_value (iter, Column.PID, out pid_value);
-    
+
                 // Column.NAME, for example returns (null)
                 // Column.PID return 0
-                
-                debug("removing %d", pid_value.get_int());
-    
+
+                debug ("removing %d", pid_value.get_int ());
+
                 // sometimes iter has null values
                 // this potentially should prevent segfaults
-                if (pid_value.get_int() != 0) {
+                if (pid_value.get_int () != 0) {
                     reparent (ref iter);
                     // remove row from model
                     remove (ref iter);
                 }
-    
+
                 // remove row from row cache
                 process_rows.unset (pid);
             }
@@ -300,7 +300,7 @@ namespace Monitor {
             if (pid > 0) {
                 var process = process_manager.get_process (pid);
                 process.kill ();
-                info ("Kill:%d",process.pid);
+                info ("Kill:%d", process.pid);
             }
         }
 
@@ -308,7 +308,7 @@ namespace Monitor {
             if (pid > 0) {
                 var process = process_manager.get_process (pid);
                 process.end ();
-                info ("End:%d",process.pid);
+                info ("End:%d", process.pid);
             }
         }
     }

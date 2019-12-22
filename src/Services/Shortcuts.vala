@@ -10,12 +10,12 @@ namespace Monitor {
             handled = false;
             char typed = e.str[0];
 
-            if (typed.isalnum () && !window.headerbar.search.is_focus ) {
+            if (typed.isalnum () && !window.headerbar.search.is_focus) {
                 window.headerbar.search.activate_entry (e.str);
                 handled = true;
             }
 
-            if((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
+            if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
                 switch (e.keyval) {
                     case Gdk.Key.f:
                         window.headerbar.search.activate_entry ();
