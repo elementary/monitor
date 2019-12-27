@@ -3,7 +3,7 @@ namespace Monitor {
     public class Search :  Gtk.SearchEntry {
         public MainWindow window { get; construct; }
         private Gtk.TreeModelFilter filter_model;
-        private OverallView process_view;
+        private CPUProcessTreeView process_view;
 
         public Search (MainWindow window) {
             Object (window: window);

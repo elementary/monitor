@@ -19,7 +19,7 @@ namespace Monitor {
 
         public ModelHelper (Gtk.TreeStore model) { this.model = model; }
 
-        public void set_static_columns (Gtk.TreeIter iter, string icon, string name, int pid=0) {
+        public void set_static_columns (Gtk.TreeIter iter, string icon, string name, int pid) {
             model.set (iter,
                 Column.NAME, name,
                 Column.ICON, icon,

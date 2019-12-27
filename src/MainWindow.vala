@@ -6,10 +6,12 @@
         public Headerbar headerbar;
         //  private Gtk.Button process_info_button;
         private Gtk.ScrolledWindow process_view_window;
-        public OverallView process_view;
+
+        public CPUProcessTreeView process_view;
+
         private Statusbar statusbar;
 
-        public GenericModel generic_model;
+        public Model generic_model;
         public Gtk.TreeModelSort sort_model;
 
         public Gtk.TreeModelFilter filter;
@@ -42,8 +44,8 @@
 
             // add a process view
             process_view_window = new Gtk.ScrolledWindow (null, null);
-            generic_model = new GenericModel ();
-            process_view = new OverallView (generic_model);
+            generic_model = new Model ();
+            process_view = new CPUProcessTreeView (generic_model);
 
             headerbar = new Headerbar (this);
             set_titlebar (headerbar);

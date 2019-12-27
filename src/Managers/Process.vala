@@ -102,6 +102,8 @@ namespace Monitor {
                 ppid = uid.ppid; // pid of parent process
                 pgrp = uid.pgrp; // process group id
 
+                //  debug("%d is a child of %d", pid, ppid);
+
 
                 // Get CPU usage by process
                 GTop.ProcTime proc_time;

@@ -14,7 +14,7 @@ namespace Monitor {
         uint64[] cpu_last_useds = new uint64[32];
         uint64[] cpu_last_totals = new uint64[32];
 
-        private Gee.HashMap<int, Process> process_list;
+        private Gee.TreeMap<int, Process> process_list;
         private Gee.HashSet<int> kernel_process_blacklist;
 
         public signal void process_added (Process process);
@@ -23,7 +23,7 @@ namespace Monitor {
 
         // Construct a new ProcessManager
         public ProcessManager () {
-            process_list = new Gee.HashMap<int, Process> ();
+            process_list = new Gee.TreeMap<int, Process> ();
             kernel_process_blacklist = new Gee.HashSet<int> ();
             update_processes.begin ();
 

@@ -51,11 +51,13 @@ executable(
     'src/Utils.vala',
 
     'src/Widgets/OverallView.vala',
+    'src/Widgets/CPUProcessTreeView.vala',
     'src/Widgets/Search.vala',
     'src/Widgets/Headerbar.vala',
     'src/Widgets/Statusbar/Statusbar.vala',
 
     'src/Models/GenericModel.vala',
+    'src/Models/Model.vala',
     'src/Models/ModelHelper.vala',
 
     'src/Managers/AppManager.vala',

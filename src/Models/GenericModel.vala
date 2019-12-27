@@ -8,19 +8,17 @@ namespace Monitor {
         private Gee.Map<int, ApplicationProcessRow> process_rows;
         private Gtk.TreeIter background_apps_iter;
         public Gtk.TreeStore model { get; private set; }
-        private Type[] types;
         construct {
             app_rows = new Gee.HashMap<string, ApplicationProcessRow> ();
             process_rows = new Gee.HashMap<int, ApplicationProcessRow> ();
 
-            types = new Type[] {
+            set_column_types(new Type[] {
                 typeof (string),
                 typeof (string),
                 typeof (double),
                 typeof (int64),
                 typeof (int),
-            };
-            set_column_types(types);
+            });
 
             helper = new ModelHelper(this);
 
@@ -184,7 +182,7 @@ namespace Monitor {
                 var row = process_rows.get (pid);
                 Gtk.TreeIter iter = row.iter;
     
-                debug ("remove process: user_data %d, stamp %d", (int) iter.user_data, iter.stamp);
+                //  debug ("remove process: user_data %d, stamp %d", (int) iter.user_data, iter.stamp);
                 
                 Value pid_value;
                 get_value (iter, Column.PID, out pid_value);
@@ -293,7 +291,7 @@ namespace Monitor {
 
         private void add_background_apps_row () {
             append (out background_apps_iter, null);
-            helper.set_static_columns (background_apps_iter, "system-run", _("Background Applications"));
+            helper.set_static_columns (background_apps_iter, "system-run", _("Background Applications"), 0);
         }
 
         public void kill_process (int pid) {
