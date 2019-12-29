@@ -2,6 +2,8 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
         private new Model model;
         private Gtk.TreeViewColumn name_column;
         private Gtk.TreeViewColumn pid_column;
+        private Gtk.TreeViewColumn cpu_column;
+        private Gtk.TreeViewColumn memory_column;
         private Regex? regex;
 
         const string NO_DATA = "\u2014";
@@ -29,6 +31,28 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
             name_column.pack_start (name_cell, false);
             name_column.add_attribute (name_cell, "text", Column.NAME);
             insert_column (name_column, -1);
+
+                        // setup cpu column
+                        var cpu_cell = new Gtk.CellRendererText ();
+                        cpu_cell.xalign = 0.5f;
+            
+                        cpu_column = new Gtk.TreeViewColumn.with_attributes (_("CPU"), cpu_cell);
+                        cpu_column.expand = false;
+                        cpu_column.set_cell_data_func (cpu_cell, cpu_usage_cell_layout);
+                        cpu_column.alignment = 0.5f;
+                        cpu_column.set_sort_column_id (Column.CPU);
+                        insert_column (cpu_column, -1);
+            
+                        // setup memory column
+                        var memory_cell = new Gtk.CellRendererText ();
+                        memory_cell.xalign = 0.5f;
+            
+                        memory_column = new Gtk.TreeViewColumn.with_attributes (_("Memory"), memory_cell);
+                        memory_column.expand = false;
+                        memory_column.set_cell_data_func (memory_cell, memory_usage_cell_layout);
+                        memory_column.alignment = 0.5f;
+                        memory_column.set_sort_column_id (Column.MEMORY);
+                        insert_column (memory_column, -1);
 
             // setup PID column
             var pid_cell = new Gtk.CellRendererText ();
@@ -61,6 +85,46 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
             } else {
                 (icon_cell as Gtk.CellRendererPixbuf).icon_name = (string) icon_name;
             }
+        }
+
+        public void cpu_usage_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
+            // grab the value that was store in the model and convert it down to a usable format
+            Value cpu_usage_value;
+            model.get_value (iter, Column.CPU, out cpu_usage_value);
+            double cpu_usage = cpu_usage_value.get_double ();
+
+            // format the double into a string
+            if (cpu_usage < 0.0)
+                (cell as Gtk.CellRendererText).text = NO_DATA;
+            else
+                (cell as Gtk.CellRendererText).text = "%.0f%%".printf (cpu_usage * 100.0);
+        }
+
+        public void memory_usage_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
+            // grab the value that was store in the model and convert it down to a usable format
+            Value memory_usage_value;
+            model.get_value (iter, Column.MEMORY, out memory_usage_value);
+            int64 memory_usage = memory_usage_value.get_int64 ();
+            double memory_usage_double = (double) memory_usage;
+            string units = _("KiB");
+
+            // convert to MiB if needed
+            if (memory_usage_double > 1024.0) {
+                memory_usage_double /= 1024.0;
+                units = _("MiB");
+            }
+
+            // convert to GiB if needed
+            if (memory_usage_double > 1024.0) {
+                memory_usage_double /= 1024.0;
+                units = _("GiB");
+            }
+
+            // format the double into a string
+            if (memory_usage == 0)
+                (cell as Gtk.CellRendererText).text = NO_DATA;
+            else
+                (cell as Gtk.CellRendererText).text = "%.1f %s".printf (memory_usage_double, units);
         }
 
         private void pid_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer cell, Gtk.TreeModel model, Gtk.TreeIter iter) {

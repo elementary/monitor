@@ -40,7 +40,9 @@ icons_gresource = gnome.compile_resources(
 c_args = [
     '-include', 'config.h',
     '-DWNCK_I_KNOW_THIS_IS_UNSTABLE',
-    '-w'
+    '-w',
+    # '-g',
+    # '--save-temps'
 ]
 
 executable(
@@ -50,15 +52,15 @@ executable(
     'src/MainWindow.vala',
     'src/Utils.vala',
 
-    'src/Widgets/OverallView.vala',
+    # 'src/Widgets/OverallView.vala',
     'src/Widgets/CPUProcessTreeView.vala',
     'src/Widgets/Search.vala',
     'src/Widgets/Headerbar.vala',
     'src/Widgets/Statusbar/Statusbar.vala',
 
-    'src/Models/GenericModel.vala',
+    # 'src/Models/GenericModel.vala',
     'src/Models/Model.vala',
-    'src/Models/ModelHelper.vala',
+    # 'src/Models/ModelHelper.vala',
 
     'src/Managers/AppManager.vala',
     'src/Managers/ProcessManager.vala',

@@ -12,6 +12,7 @@
         private Statusbar statusbar;
 
         public Model generic_model;
+        //  public Model generic_model;
         public Gtk.TreeModelSort sort_model;
 
         public Gtk.TreeModelFilter filter;
