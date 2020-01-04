@@ -24,6 +24,13 @@ namespace Monitor {
         // Full command from cmdline file
         public string command { get; private set; }
 
+            // Attempt to count the number of bytes which this process
+            // really did cause to be fetched from the storage layer
+            // http://man7.org/linux/man-pages/man5/proc.5.html
+            public uint64 read_bytes { get; private set; }
+
+        public Gee.Map<string, uint64 ? > io_data { get; private set; }
+
         /**
          * CPU usage of this process from the last time that it was updated, measured in percent
          *
@@ -45,6 +52,8 @@ namespace Monitor {
             pid = _pid;
             last_total = 0;
 
+            io_data = new Gee.HashMap<string, uint64 ? > ();
+
             exists = read_stat (0, 1) && read_cmdline ();
         }
 
@@ -52,6 +61,7 @@ namespace Monitor {
         // Returns if the update was successful
         public bool update (uint64 cpu_total, uint64 cpu_last_total) {
             exists = read_stat (cpu_total, cpu_last_total);
+            parse_io();
 
             return exists;
         }
@@ -74,6 +84,29 @@ namespace Monitor {
                 return true;
             }
             return false;
+        }
+
+        private bool parse_io () {
+            var io_file = File.new_for_path ("/proc/%d/io".printf (pid));
+
+            if (!io_file.query_exists ()) {
+                return false;
+            }
+
+            try {
+                var dis = new DataInputStream (io_file.read ());
+                string? line;
+
+                while ((line = dis.read_line ()) != null){
+                    var splitted_line = line.split (":");
+                    io_data.set(splitted_line[0], (uint64)splitted_line[1]);
+                }
+
+            } catch (Error e) {
+                warning ("Can't read process io: '%s'", e.message);
+                return false;
+            }
+            return true;
         }
 
         // Reads the /proc/%pid%/stat file and updates the process with the information therein.
