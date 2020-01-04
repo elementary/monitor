@@ -1,5 +1,12 @@
+public enum Monitor.Column {
+    ICON,
+    NAME,
+    CPU,
+    MEMORY,
+    PID,
+}
+
 public class Monitor.Model : Gtk.TreeStore {
-    ModelHelper helper;
     private ProcessManager process_manager;
     private Gee.Map<int, Gtk.TreeIter ? > process_rows;
 
@@ -13,8 +20,6 @@ public class Monitor.Model : Gtk.TreeStore {
             typeof (int64),
             typeof (int),
         });
-
-        helper = new ModelHelper (this);
 
         process_manager = ProcessManager.get_default ();
         process_manager.process_added.connect ((process) => add_process (process));
