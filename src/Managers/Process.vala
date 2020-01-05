@@ -2,7 +2,17 @@
 
 namespace Monitor {
 
-    public class Process {
+    struct IO {
+        public uint64 rchar;
+        public uint64 wchar;
+        public uint64 syscr;
+        public uint64 syscw;
+        public uint64 read_bytes;
+        public uint64 write_bytes;
+        public uint64 cancelled_write_bytes;
+    }
+
+    public class Process  : GLib.Object {
         // The size of each RSS page, in bytes
         //  private static long PAGESIZE = Posix.sysconf (Posix._SC_PAGESIZE);
 
@@ -24,12 +34,12 @@ namespace Monitor {
         // Full command from cmdline file
         public string command { get; private set; }
 
-            // Attempt to count the number of bytes which this process
-            // really did cause to be fetched from the storage layer
-            // http://man7.org/linux/man-pages/man5/proc.5.html
-            public uint64 read_bytes { get; private set; }
+        // Attempt to count the number of bytes which this process
+        // really did cause to be fetched from the storage layer
+        // http://man7.org/linux/man-pages/man5/proc.5.html
+        //  public uint64 read_bytes { get; private set; }
+        IO io { get; set; }
 
-        public Gee.Map<string, uint64 ? > io_data { get; private set; }
 
         /**
          * CPU usage of this process from the last time that it was updated, measured in percent
@@ -52,10 +62,17 @@ namespace Monitor {
             pid = _pid;
             last_total = 0;
 
-            io_data = new Gee.HashMap<string, uint64 ? > ();
+            io = {};
+            io.wchar = 111111;
+            debug((string)io.wchar);
 
             exists = read_stat (0, 1) && read_cmdline ();
         }
+
+        construct {
+            io = {};
+            io.wchar = 111111;
+            debug((string)io.wchar);        }
 
         // Updates the process to get latest information
         // Returns if the update was successful
@@ -99,7 +116,35 @@ namespace Monitor {
 
                 while ((line = dis.read_line ()) != null){
                     var splitted_line = line.split (":");
-                    io_data.set(splitted_line[0], (uint64)splitted_line[1]);
+                    switch (splitted_line[0]) {
+                        case "wchar":
+                            io.wchar = (uint64)splitted_line[1];
+                            //  debug("wchar %s", splitted_line[1]);
+                            //  debug("wchar %s", (string)io.wchar);
+                            break;
+                        case "rchar":
+                            io.rchar = (uint64)splitted_line[1];
+                            break;
+                        case "syscr":
+                            io.syscr = (uint64)splitted_line[1];
+                            break;
+                            case "syscw":
+                            io.syscw = (uint64)splitted_line[1];
+                            break;
+                        case "read_bytes":
+                            io.read_bytes = (uint64)splitted_line[1];
+                            break;
+                        case "write_bytes":
+                            io.write_bytes = (uint64)splitted_line[1];
+                            break;
+                        case "cancelled_write_bytes":
+                            io.cancelled_write_bytes = (uint64)splitted_line[1];
+                            break;
+                        default:
+                            warning ("Unknown value in /proc/%d/io", pid);
+                            break;
+                        }
+
                 }
 
             } catch (Error e) {

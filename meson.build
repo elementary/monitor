@@ -65,6 +65,7 @@ executable(
     'src/Managers/AppManager.vala',
     'src/Managers/ProcessManager.vala',
     'src/Managers/Process.vala',
+    'src/Managers/ProcessStructs.vala',
 
     'src/Services/Shortcuts.vala',
     'src/Services/DBusServer.vala',
