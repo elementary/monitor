@@ -38,7 +38,7 @@ namespace Monitor {
         // really did cause to be fetched from the storage layer
         // http://man7.org/linux/man-pages/man5/proc.5.html
         //  public uint64 read_bytes { get; private set; }
-        IO io { get; set; }
+        IO io;
 
 
         /**
@@ -63,16 +63,10 @@ namespace Monitor {
             last_total = 0;
 
             io = {};
-            io.wchar = 111111;
-            debug((string)io.wchar);
 
             exists = read_stat (0, 1) && read_cmdline ();
         }
 
-        construct {
-            io = {};
-            io.wchar = 111111;
-            debug((string)io.wchar);        }
 
         // Updates the process to get latest information
         // Returns if the update was successful
@@ -119,8 +113,6 @@ namespace Monitor {
                     switch (splitted_line[0]) {
                         case "wchar":
                             io.wchar = (uint64)splitted_line[1];
-                            //  debug("wchar %s", splitted_line[1]);
-                            //  debug("wchar %s", (string)io.wchar);
                             break;
                         case "rchar":
                             io.rchar = (uint64)splitted_line[1];
