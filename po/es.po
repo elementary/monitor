@@ -55,11 +55,11 @@ msgstr "Terminar proceso"
 #: src/Widgets/Headerbar.vala:30
 #, fuzzy
 msgid "Kill Process"
-msgstr ""
+msgstr "Matar proceso"
 
 #: src/Widgets/Headerbar.vala:32
 msgid "Kill selected process"
-msgstr ""
+msgstr "Matar los procesos seleccionados"
 
 #: src/Widgets/Headerbar.vala:42
 msgid "Settings"
@@ -68,7 +68,7 @@ msgstr "Preferencias"
 #: src/Widgets/Headerbar.vala:56
 #, fuzzy
 msgid "Show an indicator:"
-msgstr "Mostrar icone de panel"
+msgstr "Mostrar un icono en el panel"
 
 #: src/Widgets/Headerbar.vala:62
 msgid "Start in background:"
