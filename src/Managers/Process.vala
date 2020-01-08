@@ -2,16 +2,6 @@
 
 namespace Monitor {
 
-    struct IO {
-        public uint64 rchar;
-        public uint64 wchar;
-        public uint64 syscr;
-        public uint64 syscw;
-        public uint64 read_bytes;
-        public uint64 write_bytes;
-        public uint64 cancelled_write_bytes;
-    }
-
     public class Process  : GLib.Object {
         // The size of each RSS page, in bytes
         //  private static long PAGESIZE = Posix.sysconf (Posix._SC_PAGESIZE);
@@ -19,26 +9,14 @@ namespace Monitor {
         // Whether or not the PID leads to something
         public bool exists { get; private set; }
 
-        // Process ID
-        public int pid { get; private set; }
-
-        // Parent Process ID
-        public int ppid { get; private set; }
-
-        // Process Group ID; 0 if a kernal process/thread
-        public int pgrp { get; private set; }
-
-        // Command from stat file, truncated to 16 chars
-        public string comm { get; private set; }
-
         // Full command from cmdline file
         public string command { get; private set; }
 
-        // Attempt to count the number of bytes which this process
-        // really did cause to be fetched from the storage layer
-        // http://man7.org/linux/man-pages/man5/proc.5.html
-        //  public uint64 read_bytes { get; private set; }
-        IO io;
+        // Contains info about io
+        ProcessIO io;
+
+        // Contains status info
+        public ProcessStatus stat;
 
 
         /**
@@ -59,10 +37,13 @@ namespace Monitor {
 
         // Construct a new process
         public Process (int _pid) {
-            pid = _pid;
+            //  pid = _pid;
             last_total = 0;
 
             io = {};
+            stat = {};
+            stat.pid = _pid;
+
 
             exists = read_stat (0, 1) && read_cmdline ();
         }
@@ -81,7 +62,7 @@ namespace Monitor {
         // Returns if kill was successful
         public bool kill () {
             //  Sends a kill signal that cannot be ignored
-            if (Posix.kill (pid, Posix.Signal.KILL) == 0) {
+            if (Posix.kill (stat.pid, Posix.Signal.KILL) == 0) {
                 return true;
             }
             return false;
@@ -91,14 +72,14 @@ namespace Monitor {
         // Returns if end was successful
         public bool end () {
             //  Sends a terminate signal
-            if (Posix.kill (pid, Posix.Signal.TERM) == 0) {
+            if (Posix.kill (stat.pid, Posix.Signal.TERM) == 0) {
                 return true;
             }
             return false;
         }
 
         private bool parse_io () {
-            var io_file = File.new_for_path ("/proc/%d/io".printf (pid));
+            var io_file = File.new_for_path ("/proc/%d/io".printf (stat.pid));
 
             if (!io_file.query_exists ()) {
                 return false;
@@ -133,14 +114,19 @@ namespace Monitor {
                             io.cancelled_write_bytes = (uint64)splitted_line[1];
                             break;
                         default:
-                            warning ("Unknown value in /proc/%d/io", pid);
+                            warning ("Unknown value in /proc/%d/io", stat.pid);
                             break;
                         }
 
                 }
 
             } catch (Error e) {
-                warning ("Can't read process io: '%s'", e.message);
+                if (e.code != 14) {
+                    // if the error is not `no access to file`, because regular user
+                    // TODO: remove `magic` number
+                
+                    warning ("Can't read process io: '%s' %d", e.message, e.code);
+                }
                 return false;
             }
             return true;
@@ -149,7 +135,7 @@ namespace Monitor {
         // Reads the /proc/%pid%/stat file and updates the process with the information therein.
         private bool read_stat (uint64 cpu_total, uint64 cpu_last_total) {
             /* grab the stat file from /proc/%pid%/stat */
-            var stat_file = File.new_for_path ("/proc/%d/stat".printf (pid));
+            var stat_file = File.new_for_path ("/proc/%d/stat".printf (stat.pid));
 
             /* make sure that it exists, not an error if it doesn't */
             if (!stat_file.query_exists ()) {
@@ -166,18 +152,22 @@ namespace Monitor {
                     return false;
                 }
 
+                /* split the contents into an array and parse each value that we care about */
+                var splitted_stat = stat_contents.split (" ");
+                stat.comm = splitted_stat[1][1 : -1];
+                stat.ppid = int.parse (splitted_stat[3]);
+                stat.pgrp = int.parse (splitted_stat[4]);
+
                 // Get process UID
                 GTop.ProcUid uid;
-                GTop.get_proc_uid (out uid, pid);
-                ppid = uid.ppid; // pid of parent process
-                pgrp = uid.pgrp; // process group id
-
-                //  debug("%d is a child of %d", pid, ppid);
+                GTop.get_proc_uid (out uid, stat.pid);
+                //  stat.ppid = uid.ppid; // pid of parent process
+                //  stat.pgrp = uid.pgrp; // process group id
 
 
                 // Get CPU usage by process
                 GTop.ProcTime proc_time;
-                GTop.get_proc_time (out proc_time, pid);
+                GTop.get_proc_time (out proc_time, stat.pid);
                 cpu_usage = ((double)(proc_time.rtime - cpu_last_used)) / (cpu_total - cpu_last_total);
                 cpu_last_used = proc_time.rtime;
 
@@ -186,11 +176,11 @@ namespace Monitor {
                 GTop.get_mem (out mem);
 
                 GTop.ProcMem proc_mem;
-                GTop.get_proc_mem (out proc_mem, pid);
+                GTop.get_proc_mem (out proc_mem, stat.pid);
                 mem_usage = (proc_mem.resident - proc_mem.share) / 1024; // in KiB
 
                 if (Gdk.Display.get_default () is Gdk.X11.Display) {
-                    Wnck.ResourceUsage resu = Wnck.ResourceUsage.pid_read (Gdk.Display.get_default(), pid);
+                    Wnck.ResourceUsage resu = Wnck.ResourceUsage.pid_read (Gdk.Display.get_default(), stat.pid);
                     mem_usage += (resu.total_bytes_estimate / 1024);
                 }
             } catch (Error e) {
@@ -206,7 +196,7 @@ namespace Monitor {
          */
         private bool read_cmdline () {
             // grab the cmdline file from /proc/%pid%/cmdline
-            var cmdline_file = File.new_for_path ("/proc/%d/cmdline".printf (pid));
+            var cmdline_file = File.new_for_path ("/proc/%d/cmdline".printf (stat.pid));
 
             // make sure that it exists
             if (!cmdline_file.query_exists ()) {
@@ -236,7 +226,7 @@ namespace Monitor {
 
                 //TODO: need to make sure that this works
                 GTop.ProcState proc_state;
-                GTop.get_proc_state (out proc_state, pid);
+                GTop.get_proc_state (out proc_state, stat.pid);
 
                 command = cmdline_contents;
 

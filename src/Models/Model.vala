@@ -38,8 +38,8 @@ public class Monitor.Model : Gtk.TreeStore {
     }
 
     private bool add_process (Process process) {
-        if (process != null && !process_rows.has_key (process.pid)) {
-            debug ("Add process %d Parent PID: %d", process.pid, process.ppid);
+        if (process != null && !process_rows.has_key (process.stat.pid)) {
+            debug ("Add process %d Parent PID: %d", process.stat.pid, process.stat.ppid);
             // add the process to the model
             Gtk.TreeIter iter;
             append (out iter, null); // null means top-level
@@ -47,13 +47,13 @@ public class Monitor.Model : Gtk.TreeStore {
             set (iter,
                  Column.NAME, process.command,
                  Column.ICON, "application-x-executable",
-                 Column.PID, process.pid,
+                 Column.PID, process.stat.pid,
                  Column.CPU, process.cpu_usage,
                  Column.MEMORY, process.mem_usage,
                 -1);
 
             // add the process to our cache of process_rows
-            process_rows.set (process.pid, iter);
+            process_rows.set (process.stat.pid, iter);
             return true;
         }
         return false;
@@ -66,7 +66,7 @@ public class Monitor.Model : Gtk.TreeStore {
             set (iter,
                  Column.NAME, process.command,
                  Column.ICON, "application-x-executable",
-                 Column.PID, process.pid,
+                 Column.PID, process.stat.pid,
                  Column.CPU, process.cpu_usage,
                  Column.MEMORY, process.mem_usage,
                 -1);
@@ -87,7 +87,7 @@ public class Monitor.Model : Gtk.TreeStore {
         if (pid > 0) {
             var process = process_manager.get_process (pid);
             process.kill ();
-            info ("Kill:%d",process.pid);
+            info ("Kill:%d",process.stat.pid);
         }
     }
 
@@ -95,7 +95,7 @@ public class Monitor.Model : Gtk.TreeStore {
         if (pid > 0) {
             var process = process_manager.get_process (pid);
             process.end ();
-            info ("End:%d",process.pid);
+            info ("End:%d",process.stat.pid);
         }
     }
 }

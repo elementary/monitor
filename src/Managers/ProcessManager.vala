@@ -60,8 +60,8 @@ namespace Monitor {
 
             // go through and add all of the processes with PPID set to this one
             foreach (var process in process_list.values) {
-                if (process.ppid == pid) {
-                    sub_processes.add (process.pid);
+                if (process.stat.ppid == pid) {
+                    sub_processes.add (process.stat.pid);
                 }
             }
 
@@ -110,7 +110,7 @@ namespace Monitor {
             foreach (var process in process_list.values) {
                 if (!process.update (cpu_data.total, cpu_last_total)) {
                     /* process doesn't exist any more, flag it for removal! */
-                    remove_me.add (process.pid);
+                    remove_me.add (process.stat.pid);
                 }
             }
 
@@ -151,7 +151,7 @@ namespace Monitor {
             var process = new Process (pid);
 
             if (process.exists) {
-                if (process.pgrp != 0) {
+                if (process.stat.pgrp != 0) {
                     // regular process, add it to our cache
                     process_list.set (pid, process);
 
