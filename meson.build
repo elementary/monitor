@@ -53,10 +53,12 @@ executable(
     'src/Utils.vala',
 
     # 'src/Widgets/OverallView.vala',
-    'src/Widgets/CPUProcessTreeView.vala',
+    'src/Widgets/ProcessView/CPUProcessTreeView.vala',
     'src/Widgets/Headerbar/Search.vala',
     'src/Widgets/Headerbar/Headerbar.vala',
     'src/Widgets/Statusbar/Statusbar.vala',
+    'src/Widgets/ProcessView/ProcessInfoView.vala',
+    'src/Widgets/ProcessView/ProcessView.vala',
 
     # 'src/Models/GenericModel.vala',
     'src/Models/Model.vala',
