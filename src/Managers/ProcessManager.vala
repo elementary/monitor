@@ -17,6 +17,9 @@ namespace Monitor {
         private Gee.TreeMap<int, Process> process_list;
         private Gee.HashSet<int> kernel_process_blacklist;
 
+        private static HashTable<string, AppInfo>? apps_info;
+        private static HashTable<string, AppInfo>? appid_map;
+
         public signal void process_added (Process process);
         public signal void process_removed (int pid);
         public signal void updated ();
@@ -25,11 +28,76 @@ namespace Monitor {
         public ProcessManager () {
             process_list = new Gee.TreeMap<int, Process> ();
             kernel_process_blacklist = new Gee.HashSet<int> ();
+
+            apps_info = new HashTable<string, AppInfo> (str_hash, str_equal);
+            populate_apps_info ();
+
             update_processes.begin ();
 
             // move timeout outside
             Timeout.add (2000, handle_timeout);
         }
+
+        public static void populate_apps_info() {
+            apps_info = new HashTable<string, AppInfo> (str_hash, str_equal);
+            appid_map = new HashTable<string, AppInfo> (str_hash, str_equal);
+
+            var _apps_info = AppInfo.get_all ();
+
+            foreach (AppInfo info in _apps_info) {
+                debug ("%s\n", info.get_name ());
+                //  GLib.DesktopAppInfo? dai = info as GLib.DesktopAppInfo;
+
+                //  if (dai != null) {
+                //      string id = dai.get_string ("X-Flatpak");
+                //      if (id != null)
+                //          appid_map.insert (id, info);
+                //  }
+
+                //  string cmd = info.get_commandline ();
+
+                //  if (cmd == null)
+                //      continue;
+
+                //  sanitize_cmd (ref cmd);
+                //  apps_info.insert (cmd, info);
+            }
+        }
+
+        //  private static void sanitize_cmd(ref string? commandline) {
+        //      if (commandline == null)
+        //          return;
+
+        //      // flatpak: parse the command line of the containerized program
+        //      if (commandline.contains("flatpak run")) {
+        //          var index = commandline.index_of ("--command=") + 10;
+        //          commandline = commandline.substring (index);
+        //      }
+
+        //      // TODO: unify this with the logic in get_full_process_cmd
+        //      //  commandline = Process.first_component (commandline);
+        //      //  commandline = Path.get_basename (commandline);
+        //      //  commandline = Process.sanitize_name (commandline);
+
+        //      // Workaround for google-chrome
+        //      if (commandline.contains ("google-chrome-stable"))
+        //          commandline = "chrome";
+        //  }
+
+        //  public static AppInfo? app_info_for_process (Process p) {
+        //      AppInfo? info = null;
+
+        //      if (p.command != null)
+        //          info = apps_info[p.command];
+
+        //      if (info == null && p.app_id != null)
+        //          info = appid_map[p.app_id];
+
+        //      return info;
+        //  }
+
+
+
 
         /**
          * Gets a process by its pid, making sure that it's updated.
