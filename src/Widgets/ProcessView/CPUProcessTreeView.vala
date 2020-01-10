@@ -8,6 +8,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
 
         const string NO_DATA = "\u2014";
 
+        public signal void update_selected_process (Process process);
 
         public CPUProcessTreeView (Model model) {
             this.model = model;
@@ -69,6 +70,10 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
             columns_autosize ();
 
             set_model (model);
+            
+
+            cursor_changed.connect (_cursor_changed);
+            model.process_manager.updated.connect (_cursor_changed);
         }
         public void icon_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer icon_cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
             Value icon_name;
@@ -182,4 +187,20 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
             int pid = get_pid_of_selected ();
             model.end_process (pid);
     }
+
+    // when row is selected send signal to update process_info_view
+    public void _cursor_changed () {
+            Gtk.TreeModel tree_model;
+            Gtk.TreeIter iter;
+            int pid = 0;
+            var selection = get_selection ().get_selected_rows(out tree_model).nth_data(0);
+
+            if (selection != null) {
+                tree_model.get_iter (out iter, selection);
+                tree_model.get (iter, Column.PID, out pid);
+                Process process = model.process_manager.get_process(pid);
+                update_selected_process (process);
+            }
+
+        }
 }

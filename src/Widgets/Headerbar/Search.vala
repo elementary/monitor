@@ -10,7 +10,7 @@ namespace Monitor {
         }
 
         construct {
-            this.process_tree_view = window.process_tree_view;
+            this.process_tree_view = window.process_view.process_tree_view;
             this.placeholder_text = _("Search Process");
             this.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>F"}, _("Type process name or PID to search"));
 

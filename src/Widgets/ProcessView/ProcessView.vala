@@ -1,5 +1,6 @@
 public class Monitor.ProcessView : Gtk.Box {
     public CPUProcessTreeView process_tree_view;
+    
     public ProcessInfoView process_info_view;
 
     construct {
@@ -8,7 +9,10 @@ public class Monitor.ProcessView : Gtk.Box {
         
     }
 
-    public ProcessView(CPUProcessTreeView process_tree_view) {
+    public ProcessView (Model model) {
+
+        process_tree_view = new CPUProcessTreeView (model);
+        process_tree_view.update_selected_process.connect ((process) => update (process));
 
         // making tree view scrollable
         var process_tree_view_scrolled = new Gtk.ScrolledWindow (null, null);
@@ -21,5 +25,9 @@ public class Monitor.ProcessView : Gtk.Box {
         paned.set_hexpand (true);
         
         add (paned);
+    }
+
+    public void update (Process process) {
+        process_info_view.update(process);
     }
 }

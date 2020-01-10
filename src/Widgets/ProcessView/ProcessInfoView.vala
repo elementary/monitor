@@ -1,12 +1,21 @@
 public class Monitor.ProcessInfoView : Gtk.HBox {
-    //  public Process process;
+    public Gtk.Label name;
+    public Gtk.Label command;
+    public Gtk.Label pid;
 
     public ProcessInfoView() {
-        //  process = _process;
 
-        var process_name = new Gtk.Label("some_process");
+        name = new Gtk.Label(_("N/A"));
+        command = new Gtk.Label(_("N/A"));
+        pid = new Gtk.Label(_("N/A"));
 
-        add (process_name);
-        
+        add (name);
+        add (command);
+        add (pid);
+    }
+
+    public void update (Process process) {
+        pid.set_text (("%d").printf (process.stat.pid));
+        debug ("yolo");
     }
 }

@@ -5,11 +5,9 @@
         // Widgets
         public Headerbar headerbar;
         //  private Gtk.Button process_info_button;
-        private Gtk.ScrolledWindow process_tree_view_window;
 
         public ProcessView process_view;
 
-        public CPUProcessTreeView process_tree_view;
 
         private Statusbar statusbar;
 
@@ -46,12 +44,10 @@
             // TODO: Granite.Widgets.ModeButton to switch between view modes
 
             generic_model = new Model ();
-            process_tree_view = new CPUProcessTreeView (generic_model);
+            process_view = new ProcessView (generic_model);
 
             headerbar = new Headerbar (this);
             set_titlebar (headerbar);
-
-            process_view = new ProcessView (process_tree_view);
 
             statusbar = new Statusbar ();
 

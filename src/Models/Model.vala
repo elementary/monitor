@@ -7,7 +7,7 @@ public enum Monitor.Column {
 }
 
 public class Monitor.Model : Gtk.TreeStore {
-    private ProcessManager process_manager;
+    public ProcessManager process_manager;
     private Gee.Map<int, Gtk.TreeIter ? > process_rows;
 
     construct {
@@ -27,6 +27,8 @@ public class Monitor.Model : Gtk.TreeStore {
         process_manager.updated.connect (update_model);
 
         Idle.add (() => { add_running_processes (); return false; });
+
+
     }
 
     private void add_running_processes () {
