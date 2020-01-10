@@ -1,21 +1,41 @@
-public class Monitor.ProcessInfoView : Gtk.HBox {
-    public Gtk.Label name;
+public class Monitor.ProcessInfoView : Gtk.Grid {
+    public Gtk.Label application_name;
+    public string ? icon_name;
     public Gtk.Label command;
     public Gtk.Label pid;
 
-    public ProcessInfoView() {
+    private Gtk.Grid grid;
 
-        name = new Gtk.Label(_("N/A"));
+    public ProcessInfoView() {
+        margin = 12;
+
+        var icon = new Gtk.Image.from_icon_name ("application-x-executable", Gtk.IconSize.DIALOG);
+        icon.valign = Gtk.Align.END;
+
+        application_name = new Gtk.Label(_("N/A"));
+        application_name.get_style_context ().add_class ("h2");
+
         command = new Gtk.Label(_("N/A"));
+        command.halign = Gtk.Align.START;
+
         pid = new Gtk.Label(_("N/A"));
 
-        add (name);
-        add (command);
-        add (pid);
+        //  add (name);
+        //  add (command);
+        //  add (pid);
+
+        grid = new Gtk.Grid ();
+        grid.get_style_context ().add_class ("horizontal");
+        grid.column_spacing = 12;
+
+        grid.attach (icon, 0, 0, 1, 2);
+        grid.attach (application_name, 1, 0, 1, 1);
+        grid.attach (command, 1, 1, 1, 1);
+
+        add (grid);
     }
 
     public void update (Process process) {
         pid.set_text (("%d").printf (process.stat.pid));
-        debug ("yolo");
     }
 }
