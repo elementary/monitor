@@ -36,6 +36,8 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
     }
 
     public void update (Process process) {
+        application_name.set_text (("%s").printf (process.application_name));
+        //  debug ("%s, %s", process.command, process.app_info.get_name ());
         pid.set_text (("%d").printf (process.stat.pid));
     }
 }

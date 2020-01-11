@@ -12,6 +12,8 @@ namespace Monitor {
         // Full command from cmdline file
         public string command { get; private set; }
 
+        public string application_name;
+
         // Contains info about io
         ProcessIO io;
 

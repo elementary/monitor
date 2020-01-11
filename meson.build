@@ -59,6 +59,7 @@ executable(
     'src/Widgets/Statusbar/Statusbar.vala',
     'src/Widgets/ProcessView/ProcessInfoView.vala',
     'src/Widgets/ProcessView/ProcessView.vala',
+    'src/Managers/ProcessUtils.vala',
 
     # 'src/Models/GenericModel.vala',
     'src/Models/Model.vala',

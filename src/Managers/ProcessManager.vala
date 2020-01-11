@@ -16,9 +16,8 @@ namespace Monitor {
 
         private Gee.TreeMap<int, Process> process_list;
         private Gee.HashSet<int> kernel_process_blacklist;
+        private Gee.HashMap<string, AppInfo> apps_info_list;
 
-        private static HashTable<string, AppInfo>? apps_info;
-        private static HashTable<string, AppInfo>? appid_map;
 
         public signal void process_added (Process process);
         public signal void process_removed (int pid);
@@ -28,8 +27,8 @@ namespace Monitor {
         public ProcessManager () {
             process_list = new Gee.TreeMap<int, Process> ();
             kernel_process_blacklist = new Gee.HashSet<int> ();
+            apps_info_list = new Gee.HashMap<string, AppInfo> ();
 
-            apps_info = new HashTable<string, AppInfo> (str_hash, str_equal);
             populate_apps_info ();
 
             update_processes.begin ();
@@ -38,14 +37,15 @@ namespace Monitor {
             Timeout.add (2000, handle_timeout);
         }
 
-        public static void populate_apps_info() {
-            apps_info = new HashTable<string, AppInfo> (str_hash, str_equal);
-            appid_map = new HashTable<string, AppInfo> (str_hash, str_equal);
+        public void populate_apps_info() {
 
             var _apps_info = AppInfo.get_all ();
 
-            foreach (AppInfo info in _apps_info) {
-                debug ("%s\n", info.get_name ());
+            foreach (AppInfo app_info in _apps_info) {
+
+                string commandline =  (app_info.get_commandline ());
+                debug ("%s\n", commandline);
+
                 //  GLib.DesktopAppInfo? dai = info as GLib.DesktopAppInfo;
 
                 //  if (dai != null) {
@@ -54,13 +54,12 @@ namespace Monitor {
                 //          appid_map.insert (id, info);
                 //  }
 
-                //  string cmd = info.get_commandline ();
 
-                //  if (cmd == null)
-                //      continue;
+                if (commandline == null)
+                    continue;
 
                 //  sanitize_cmd (ref cmd);
-                //  apps_info.insert (cmd, info);
+                apps_info_list.set (commandline, app_info);
             }
         }
 
@@ -218,6 +217,19 @@ namespace Monitor {
             // create the process
             var process = new Process (pid);
 
+            string sanitized_commandline = ProcessUtils.sanitize_commandline (process.command);
+            
+            foreach (var key in apps_info_list.keys) {
+                if (key.contains (sanitized_commandline)) {
+                    process.application_name = apps_info_list.get (key).get_name ();
+                }
+            }
+
+            // if it's not an app, show short commandline
+            if (process.application_name == null) {
+                process.application_name = ProcessUtils.sanitize_commandline (process.command);
+            }
+
             if (process.exists) {
                 if (process.stat.pgrp != 0) {
                     // regular process, add it to our cache
@@ -252,5 +264,7 @@ namespace Monitor {
                 kernel_process_blacklist.remove (pid);
             }
         }
+
+        
     }
 }
