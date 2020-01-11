@@ -44,7 +44,7 @@ namespace Monitor {
             foreach (AppInfo app_info in _apps_info) {
 
                 string commandline =  (app_info.get_commandline ());
-                debug ("%s\n", commandline);
+                //  debug ("%s\n", commandline);
 
                 //  GLib.DesktopAppInfo? dai = info as GLib.DesktopAppInfo;
 
@@ -217,17 +217,14 @@ namespace Monitor {
             // create the process
             var process = new Process (pid);
 
-            string sanitized_commandline = ProcessUtils.sanitize_commandline (process.command);
+            // placeholding shortened commandline
+            process.application_name = ProcessUtils.sanitize_commandline (process.command);
             
+            // checking maybe it's an application
             foreach (var key in apps_info_list.keys) {
-                if (key.contains (sanitized_commandline)) {
+                if (key.contains (process.application_name)) {
                     process.application_name = apps_info_list.get (key).get_name ();
                 }
-            }
-
-            // if it's not an app, show short commandline
-            if (process.application_name == null) {
-                process.application_name = ProcessUtils.sanitize_commandline (process.command);
             }
 
             if (process.exists) {

@@ -2,7 +2,8 @@ public class Monitor.ProcessUtils {
 
 
     private static bool is_shell (string chunk) {
-        if ("sh" in chunk || "bash" in chunk || "zsh" in chunk) {
+        if ("sh" == chunk || "bash" == chunk || "zsh" == chunk) {
+            debug (chunk);
             return true;
         }
         return false;
