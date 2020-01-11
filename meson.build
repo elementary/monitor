@@ -31,10 +31,15 @@ configure_file(output: 'config.h', configuration: config_data)
 config_h_dir = include_directories('.')
 
 icons_gresource = gnome.compile_resources(
-    'gresource_icons',
-    'data/icons/icons.indicator.gresource.xml',
+    'gresource_icons', 'data/icons/icons.indicator.gresource.xml',
     source_dir: 'data/icons',
-    c_name: 'as'
+    c_name: 'as1'
+)
+
+css_gresource = gnome.compile_resources(
+    'gresource_css', 'data/css.gresource.xml',
+    source_dir: 'data',
+    c_name: 'as2'
 )
 
 c_args = [
@@ -48,6 +53,7 @@ c_args = [
 executable(
     meson.project_name(),
     icons_gresource,
+    css_gresource,
     'src/Monitor.vala',
     'src/MainWindow.vala',
     'src/Utils.vala',
