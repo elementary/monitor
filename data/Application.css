@@ -1,8 +1,8 @@
-.badge,
-.badge:hover,
-.badge:selected,
-.badge:selected:focus,
-.badge:hover:selected {
+.process_info .badge,
+.process_info .badge:hover,
+.process_info .badge:selected,
+.process_info .badge:selected:focus,
+.process_info .badge:hover:selected {
     background-image: none;
     background-color: alpha(@text_color, 0.1);
     box-shadow: none;
@@ -12,4 +12,19 @@
     padding: 0 6px;
     margin: 0 3px;
     border-width: 0;
+}
+
+.command_wrapper {
+    background-color: #fdf6e3;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.20);
+    padding: 5px;
+    padding-right: 190px;
+}
+
+.command text {
+    background-color: #fdf6e3;
+}
+.command {
+    font-family: monospace;
 }
