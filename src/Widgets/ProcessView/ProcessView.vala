@@ -19,7 +19,7 @@ public class Monitor.ProcessView : Gtk.Box {
         process_tree_view_scrolled.add (process_tree_view);
 
         var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-        paned.pack1 (process_tree_view_scrolled, false, false);
+        paned.pack1 (process_tree_view_scrolled, true, false);
         paned.pack2 (process_info_view, false, false);
         paned.set_position (500);
         paned.set_hexpand (true);

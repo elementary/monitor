@@ -1,8 +1,8 @@
-.process_info .badge,
-.process_info .badge:hover,
-.process_info .badge:selected,
-.process_info .badge:selected:focus,
-.process_info .badge:hover:selected {
+.badge,
+.badge:hover,
+.badge:selected,
+.badge:selected:focus,
+.badge:hover:selected {
     background-image: none;
     background-color: alpha(@text_color, 0.1);
     box-shadow: none;
@@ -19,7 +19,6 @@
     border-radius: 3px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.20);
     padding: 5px;
-    padding-right: 190px;
 }
 
 .command text {
