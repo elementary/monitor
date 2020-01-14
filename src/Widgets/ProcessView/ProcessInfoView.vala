@@ -5,7 +5,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     public Gtk.Label pid;
     public Gtk.Label ppid;
     public Gtk.Label pgrp;
-    public Gtk.Label status;
+    public Gtk.Label state;
 
     private Gtk.Grid grid;
 
@@ -26,9 +26,9 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         application_name.valign = Gtk.Align.START;
 
 
-        status = new Gtk.Label (_ ("S"));
-        status.halign = Gtk.Align.START;
-        status.get_style_context ().add_class (Granite.STYLE_CLASS_BADGE);
+        state = new Gtk.Label (_ ("?"));
+        state.halign = Gtk.Align.START;
+        state.get_style_context ().add_class (Granite.STYLE_CLASS_BADGE);
 
         pid = new Gtk.Label (_ ("PID:N/A"));
         pid.halign = Gtk.Align.START;
@@ -43,7 +43,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         pgrp.get_style_context ().add_class (Granite.STYLE_CLASS_BADGE);
 
         var wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        wrapper.add (status);
+        wrapper.add (state);
         wrapper.add (   pid);
         wrapper.add (  pgrp);
         wrapper.add (  ppid);
@@ -84,6 +84,8 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         pid.set_text (("PID:%d").printf (process.stat.pid));
         ppid.set_text (("PPID:%d").printf (process.stat.ppid));
         pgrp.set_text (("PGRP:%d").printf (process.stat.pgrp));
+        state.set_text (process.stat.state);
+
 
         command.buffer.text = process.command;
         show_all ();

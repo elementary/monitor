@@ -155,8 +155,22 @@ namespace Monitor {
                 }
 
                 /* split the contents into an array and parse each value that we care about */
+
+                // But first we have to extract the command name, since it might include spaces
+                // First find the command in stat file
+                Regex regex = /\((.*?)\)/;
+                MatchInfo match_info;
+                regex.match (stat_contents, 0, out match_info);
+                string matched_command = match_info.fetch (0);
+                
+                // Remove command from stat_contents
+                stat_contents = stat_contents.replace (matched_command, "");
+
+                // split the string 
                 var splitted_stat = stat_contents.split (" ");
-                stat.comm = splitted_stat[1][1 : -1];
+                stat.comm = matched_command[1 : -1];
+
+                stat.state = splitted_stat[2];
                 stat.ppid = int.parse (splitted_stat[3]);
                 stat.pgrp = int.parse (splitted_stat[4]);
 

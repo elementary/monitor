@@ -34,7 +34,7 @@ public struct Monitor.ProcessStatus {
     // swapped out.
     public string comm;
 
-    public char state;
+    public string state;
 
     // The PID of the parent of this process.
     public int ppid;
