@@ -7,6 +7,8 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     public Gtk.Label pgrp;
     public Gtk.Label state;
 
+    private Gtk.Image icon;
+    private Regex? regex;
     private Gtk.Grid grid;
 
     public ProcessInfoView () {
@@ -14,9 +16,9 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         margin = 12;
         orientation = Gtk.Orientation.VERTICAL;
         hexpand = true;
-        //  row_spacing = 24;
+        regex = /(?i:^.*\.(xpm|png)$)/;
 
-        var icon = new Gtk.Image.from_icon_name ("application-x-executable", Gtk.IconSize.DIALOG);
+        icon = new Gtk.Image.from_icon_name ("application-x-executable", Gtk.IconSize.DIALOG);
         icon.set_pixel_size (64);
         icon.valign = Gtk.Align.END;
 
@@ -80,12 +82,26 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     }
 
     public void update (Process process) {
+        // probably not ok to update everything
         application_name.set_text (("%s").printf (process.application_name));
         pid.set_text (("PID:%d").printf (process.stat.pid));
         ppid.set_text (("PPID:%d").printf (process.stat.ppid));
         pgrp.set_text (("PGRP:%d").printf (process.stat.pgrp));
         state.set_text (process.stat.state);
 
+        var icon_name = process.icon.to_string ();
+
+        if (!regex.match (icon_name)) {
+            icon.set_from_icon_name (icon_name, Gtk.IconSize.DIALOG);
+        } else {
+            try {
+                var pixbuf = new Gdk.Pixbuf.from_file_at_size (icon_name, 64, -1);
+                icon.set_from_pixbuf (pixbuf);
+            } catch (Error e) {
+                warning (e.message);
+            }
+        }
+        
 
         command.buffer.text = process.command;
         show_all ();

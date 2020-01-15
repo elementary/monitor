@@ -14,6 +14,22 @@ namespace Monitor {
 
         public string application_name;
 
+        Icon _icon;
+        public Icon icon {
+            get { return _icon; }
+            set {
+                if (value == null) {
+                    try {
+                        _icon = Icon.new_for_string ("application-x-executable");
+                    } catch (Error e) {
+                        warning (e.message);
+                    }
+                } else {
+                    _icon = value;
+                }
+            }
+        }
+
         // Contains info about io
         ProcessIO io;
 
@@ -39,7 +55,12 @@ namespace Monitor {
 
         // Construct a new process
         public Process (int _pid) {
-            //  pid = _pid;
+
+            try {
+                _icon = Icon.new_for_string ("application-x-executable");
+            } catch (Error e) {
+                warning (e.message);
+            }
             last_total = 0;
 
             io = {};
