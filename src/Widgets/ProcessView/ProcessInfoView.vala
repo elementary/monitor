@@ -2,6 +2,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     public Gtk.Label application_name;
     public string ? icon_name;
     public Gtk.TextView command;
+    private Gtk.ScrolledWindow command_wrapper;
     public Gtk.Label pid;
     public Gtk.Label ppid;
     public Gtk.Label pgrp;
@@ -51,19 +52,21 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         wrapper.add (  ppid);
 
 
+        // command widget should be one-liner, but expandable on click
+        // when clicked it should reveal full command
         command = new Gtk.TextView ();
         command.buffer.text = "N/A";
-        command.pixels_below_lines = 3;
+        command.pixels_above_lines = 3;
         command.margin = 8;
         command.set_wrap_mode (Gtk.WrapMode.WORD);
         // setting resize mode, so command wraps immediatly when right sidebar changed
-        command.resize_mode = Gtk.ResizeMode.IMMEDIATE;
+        //  command.resize_mode = Gtk.ResizeMode.IMMEDIATE;
         command.get_style_context ().add_class ("command");
 
-        var command_wrapper = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        command_wrapper = new Gtk.ScrolledWindow (null, null);
         command_wrapper.get_style_context ().add_class ("command_wrapper");
         command_wrapper.margin_top = 24;
-        command_wrapper.resize_mode = Gtk.ResizeMode.IMMEDIATE;
+        //  command_wrapper.resize_mode = Gtk.ResizeMode.IMMEDIATE;
         command_wrapper.add (command);
 
         grid = new Gtk.Grid ();
@@ -101,9 +104,12 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 warning (e.message);
             }
         }
-        
 
+        //  command.queue_resize ();
         command.buffer.text = process.command;
+        //  command.queue_resize ();
+        //  command_wrapper.queue_resize ();
+
         show_all ();
     }
 
