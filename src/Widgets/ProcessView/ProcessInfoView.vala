@@ -25,6 +25,8 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
         application_name = new Gtk.Label (_ ("N/A"));
         application_name.get_style_context ().add_class ("h2");
+        application_name.ellipsize = Pango.EllipsizeMode.END;
+        application_name.tooltip_text = _("N/A");
         application_name.halign = Gtk.Align.START;
         application_name.valign = Gtk.Align.START;
 
@@ -87,6 +89,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     public void update (Process process) {
         // probably not ok to update everything
         application_name.set_text (("%s").printf (process.application_name));
+        application_name.tooltip_text = process.application_name;
         pid.set_text (("PID:%d").printf (process.stat.pid));
         ppid.set_text (("PPID:%d").printf (process.stat.ppid));
         pgrp.set_text (("PGRP:%d").printf (process.stat.pgrp));
