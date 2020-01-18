@@ -14,6 +14,9 @@ namespace Monitor {
 
         public string application_name;
 
+        
+        public int uid;
+
         Icon _icon;
         public Icon icon {
             get { return _icon; }
@@ -66,6 +69,11 @@ namespace Monitor {
             io = {};
             stat = {};
             stat.pid = _pid;
+
+            // getting uid
+            GTop.ProcUid proc_uid;
+            GTop.get_proc_uid (out proc_uid, stat.pid);
+            uid = proc_uid.uid;
 
 
             exists = read_stat (0, 1) && read_cmdline ();
@@ -157,23 +165,7 @@ namespace Monitor {
 
         // Reads the /proc/%pid%/stat file and updates the process with the information therein.
         private bool read_stat (uint64 cpu_total, uint64 cpu_last_total) {
-            /* grab the stat file from /proc/%pid%/stat */
-            var stat_file = File.new_for_path ("/proc/%d/stat".printf (stat.pid));
-
-            /* make sure that it exists, not an error if it doesn't */
-            if (!stat_file.query_exists ()) {
-                return false;
-            }
-
-            try {
-                // read the single line from the file
-                var dis = new DataInputStream (stat_file.read ());
-                string? stat_contents = dis.read_line ();
-
-                if (stat_contents == null) {
-                    stderr.printf ("Error reading stat file '%s': couldn't read_line ()\n", stat_file.get_path ());
-                    return false;
-                }
+            string ? stat_contents = ProcessUtils.read_file ("/proc/%d/stat".printf (stat.pid));
 
                 /* split the contents into an array and parse each value that we care about */
 
@@ -195,13 +187,6 @@ namespace Monitor {
                 stat.ppid = int.parse (splitted_stat[3]);
                 stat.pgrp = int.parse (splitted_stat[4]);
 
-                // Get process UID
-                GTop.ProcUid uid;
-                GTop.get_proc_uid (out uid, stat.pid);
-                //  stat.ppid = uid.ppid; // pid of parent process
-                //  stat.pgrp = uid.pgrp; // process group id
-
-
                 // Get CPU usage by process
                 GTop.ProcTime proc_time;
                 GTop.get_proc_time (out proc_time, stat.pid);
@@ -220,10 +205,6 @@ namespace Monitor {
                     Wnck.ResourceUsage resu = Wnck.ResourceUsage.pid_read (Gdk.Display.get_default(), stat.pid);
                     mem_usage += (resu.total_bytes_estimate / 1024);
                 }
-            } catch (Error e) {
-                warning ("Can't read process stat: '%s'", e.message);
-                return false;
-            }
 
             return true;
     }
@@ -232,48 +213,19 @@ namespace Monitor {
          * Reads the /proc/%pid%/cmdline file and updates from the information contained therein.
          */
         private bool read_cmdline () {
-            // grab the cmdline file from /proc/%pid%/cmdline
-            var cmdline_file = File.new_for_path ("/proc/%d/cmdline".printf (stat.pid));
 
-            // make sure that it exists
-            if (!cmdline_file.query_exists ()) {
-                warning ("File '%s' doesn't exist.\n", cmdline_file.get_path ());
-                return false;
-            }
-            try {
-                // read the single line from the file
-                var dis = new DataInputStream (cmdline_file.read ());
-                uint8[] cmdline_contents_array = new uint8[4097]; // 4096 is max size with a null terminator
-                var size = dis.read (cmdline_contents_array);
+            string ? cmdline = ProcessUtils.read_file ("/proc/%d/cmdline".printf (stat.pid));
 
-                if (size <= 0) {
-                    // was empty, not an error
+            if (cmdline.length <= 0) {
+                // was empty, not an error
                     return true;
-                }
-
-                // cmdline is a single line file with each arg seperated by a null character ('\0')
-                // convert all \0 and \n to spaces
-                for (int pos = 0; pos < size; pos++) {
-                    if (cmdline_contents_array[pos] == '\0' || cmdline_contents_array[pos] == '\n') {
-                        cmdline_contents_array[pos] = ' ';
-                    }
-                }
-                cmdline_contents_array[size] = '\0';
-                string cmdline_contents = (string) cmdline_contents_array;
-
-                //TODO: need to make sure that this works
-                GTop.ProcState proc_state;
-                GTop.get_proc_state (out proc_state, stat.pid);
-
-                command = cmdline_contents;
-
             }
-            catch (Error e) {
-                stderr.printf ("Error reading cmdline file '%s': %s\n", cmdline_file.get_path (), e.message);
-                return false;
-            }
+            
+            command = cmdline;
 
             return true;
         }
+    
+
     }
 }

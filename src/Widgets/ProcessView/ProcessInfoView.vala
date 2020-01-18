@@ -53,7 +53,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         wrapper.add (  pgrp);
         wrapper.add (  ppid);
 
-
+        /* ==========START COMMAND WIDGET============== */
         // command widget should be one-liner, but expandable on click
         // when clicked it should reveal full command
         command = new Gtk.TextView ();
@@ -70,6 +70,8 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         command_wrapper.margin_top = 24;
         //  command_wrapper.resize_mode = Gtk.ResizeMode.IMMEDIATE;
         command_wrapper.add (command);
+        /* ==========END COMMAND WIDGET============== */
+
 
         grid = new Gtk.Grid ();
         grid.get_style_context ().add_class ("horizontal");
@@ -80,8 +82,6 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         grid.attach (application_name, 1, 0, 3, 1);
         grid.attach (         wrapper, 1, 1, 1, 1);
 
-        //  attach (grid, 0, 0, 1, 1);
-        //  attach (command, 0, 1, 1, 1);
         add (           grid);
         add (command_wrapper);
     }
