@@ -1,9 +1,15 @@
 
-project('com.github.stsdc.monitor', 'vala', 'c', version: '0.6.0')
+project('com.github.stsdc.monitor', 'vala', 'c', version: '0.6.2')
 
 # these are Meson modules
 gnome = import('gnome')
 i18n = import('i18n')
+
+# common dirs
+prefix = get_option('prefix')
+datadir = join_paths(prefix, get_option('datadir'))
+libdir = join_paths(prefix, get_option('libdir'))
+icondir = join_paths(datadir, 'icons', 'hicolor')
 
 # and these are project dependencies
 glib = dependency('glib-2.0')
@@ -106,9 +112,7 @@ shared_module(
         wingpanel
     ],
     install: true,
-    install_dir : wingpanel.get_pkgconfig_variable('indicatorsdir'),
-    # install_dir : '/usr/lib/x86_64-linux-gnu/wingpanel/'
-
+    install_dir : wingpanel.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir]),
 )
 
 # Add in a post install script

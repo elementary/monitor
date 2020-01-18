@@ -29,23 +29,20 @@ msgid "Monitor"
 msgstr "Monitor"
 
 #: src/Widgets/Headerbar.vala:23
-#, fuzzy
 msgid "End Process"
 msgstr "Prozess beenden"
 
 #: src/Widgets/Headerbar.vala:26
-#, fuzzy
 msgid "End selected process"
-msgstr "Prozess beenden"
+msgstr "Ausgewählten Prozess beenden"
 
 #: src/Widgets/Headerbar.vala:30
-#, fuzzy
 msgid "Kill Process"
-msgstr ""
+msgstr "Prozess abwürgen"
 
 #: src/Widgets/Headerbar.vala:32
 msgid "Kill selected process"
-msgstr ""
+msgstr "Ausgewählten Prozess abwürgen"
 
 #: src/Widgets/Headerbar.vala:42
 msgid "Settings"
@@ -93,9 +90,8 @@ msgid "Search Process"
 msgstr "Suche Prozess"
 
 #: src/Widgets/Search.vala:15
-#, fuzzy
 msgid "Type process name or PID to search"
-msgstr "Geben Sie den Prozessnamen oder PID ein"
+msgstr "Geben Sie den zu suchenden Prozessnamen oder die PID ein"
 
 #: src/Widgets/Statusbar/Statusbar.vala:12
 #: src/Widgets/Statusbar/Statusbar.vala:16
@@ -105,12 +101,3 @@ msgstr "Berechne…"
 #: src/Models/GenericModel.vala:274
 msgid "Background Applications"
 msgstr "Hintergrundanwendungen"
-
-#~ msgid "Ctrl+E"
-#~ msgstr "Strg+E"
-
-#~ msgid "CPU:"
-#~ msgstr "CPU:"
-
-#~ msgid "Memory:"
-#~ msgstr "Arbeitsspeicher:"

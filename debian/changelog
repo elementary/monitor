@@ -1,3 +1,10 @@
+com.github.stsdc.monitor (0.6.2) bionic; urgency=low
+
+      * Bugfix (potential) of crushes and high CPU usage
+      * Update German translation (Carsten Dietrich)
+
+-- Stanisław Dac <stanislawdac@gmail.com>  Sat, 21 Dec 2019 14:06:37 +0100
+
 com.github.stsdc.monitor (0.6.1) bionic; urgency=low
 
       * Update Portuguese translation (Hugo Carvalho)

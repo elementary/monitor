@@ -161,12 +161,18 @@ namespace Monitor {
             return true;
         }
 
+        // THE BUG IS SOMEWHERE IN HERE
         // reparent children to background processes
-        private void reparent (Gtk.TreeIter iter) {
+        private void reparent (ref Gtk.TreeIter iter) {
             Gtk.TreeIter child_iter;
+            Value pid_value_prev;
+
             while (iter_children (out child_iter, iter)) {
                 Value pid_value;
                 get_value (child_iter, Column.PID, out pid_value);
+                pid_value_prev = pid_value;
+                debug( "reparent %d", pid_value.get_int ());
+
                 add_process_to_row (background_apps_iter, pid_value.get_int ());
             }
         }
@@ -176,10 +182,26 @@ namespace Monitor {
             // if process rows has pid
             if (process_rows.has_key (pid)) {
                 var row = process_rows.get (pid);
-                var iter = row.iter;
-                reparent (iter);
-                // remove row from model
-                remove (ref iter);
+                Gtk.TreeIter iter = row.iter;
+    
+                debug ("remove process: user_data %d, stamp %d", (int) iter.user_data, iter.stamp);
+                
+                Value pid_value;
+                get_value (iter, Column.PID, out pid_value);
+    
+                // Column.NAME, for example returns (null)
+                // Column.PID return 0
+                
+                debug("removing %d", pid_value.get_int());
+    
+                // sometimes iter has null values
+                // this potentially should prevent segfaults
+                if (pid_value.get_int() != 0) {
+                    reparent (ref iter);
+                    // remove row from model
+                    remove (ref iter);
+                }
+    
                 // remove row from row cache
                 process_rows.unset (pid);
             }
@@ -223,7 +245,7 @@ namespace Monitor {
         // reparenting it and it's children if it already exists.
         private bool add_process_to_row (Gtk.TreeIter row, int pid) {
             var process = process_manager.get_process (pid);
-            debug ("add_process_to_row %d", pid);
+            debug ("add_process_to_row pid:%d", pid);
 
             if (process != null) {
                 // if process is already in list, then we need to reparent it and it's children
@@ -252,9 +274,9 @@ namespace Monitor {
                     // i.e. skip if subprocess is already in but isn't an ancestor of this process row
                     if (process_rows.has_key (sub_pid) && (
                              (old_location != null && !is_ancestor (old_location, process_rows[sub_pid].iter))
-                             || old_location == null))
-                        continue;
-
+                             || old_location == null)) {
+                                continue;
+                             }
                     add_process_to_row (iter, sub_pid);
                 }
 
