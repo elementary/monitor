@@ -54,7 +54,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         wrapper.add (  ppid);
 
         /* ==========START COMMAND WIDGET============== */
-        // command widget should be one-liner, but expandable on click
+        // command widget should be a widget that contains one line, but expands on click
         // when clicked it should reveal full command
         command = new Gtk.TextView ();
         command.buffer.text = "N/A";
