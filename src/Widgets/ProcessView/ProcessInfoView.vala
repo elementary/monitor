@@ -88,6 +88,10 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
     public void update (Process process) {
         // probably not ok to update everything
+        // TODO: find a better way to do this
+        if (pid.get_text() != ("PID:%d").printf (process.stat.pid)) {
+            command.buffer.text = process.command;
+        }
         application_name.set_text (("%s").printf (process.application_name));
         application_name.tooltip_text = process.application_name;
         pid.set_text (("PID:%d").printf (process.stat.pid));
@@ -107,11 +111,6 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 warning (e.message);
             }
         }
-
-        //  command.queue_resize ();
-        command.buffer.text = process.command;
-        //  command.queue_resize ();
-        //  command_wrapper.queue_resize ();
 
         show_all ();
     }
