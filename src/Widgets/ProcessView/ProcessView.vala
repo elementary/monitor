@@ -6,7 +6,7 @@ public class Monitor.ProcessView : Gtk.Box {
     construct {
 
         process_info_view = new ProcessInfoView ();
-        
+        process_info_view.no_show_all = true;
     }
 
     public ProcessView (Model model) {
@@ -26,9 +26,12 @@ public class Monitor.ProcessView : Gtk.Box {
         paned.set_hexpand (true);
         
         add (paned);
+        show_all ();
     }
 
     public void update (Process process) {
         process_info_view.update(process);
+        process_info_view.no_show_all = false;
+        process_info_view.show_all ();
     }
 }

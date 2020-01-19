@@ -111,8 +111,6 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 warning (e.message);
             }
         }
-
-        show_all ();
     }
 
     public void pid_widget () {
