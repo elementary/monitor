@@ -7,6 +7,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     public Gtk.Label ppid;
     public Gtk.Label pgrp;
     public Gtk.Label state;
+    public Gtk.Label username;
 
     private Gtk.Image icon;
     private Regex? regex;
@@ -47,11 +48,16 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         pgrp.halign = Gtk.Align.START;
         pgrp.get_style_context ().add_class (Granite.STYLE_CLASS_BADGE);
 
+        username = new Gtk.Label (_ ("N/A"));
+        username.halign = Gtk.Align.START;
+        username.get_style_context ().add_class (Granite.STYLE_CLASS_BADGE);
+
         var wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         wrapper.add (state);
         wrapper.add (   pid);
         wrapper.add (  pgrp);
         wrapper.add (  ppid);
+        wrapper.add (  username);
 
         /* ==========START COMMAND WIDGET============== */
         // command widget should be a widget that contains one line, but expands on click
@@ -98,6 +104,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         ppid.set_text (("PPID:%d").printf (process.stat.ppid));
         pgrp.set_text (("PGRP:%d").printf (process.stat.pgrp));
         state.set_text (process.stat.state);
+        username.set_text (process.username);
 
         var icon_name = process.icon.to_string ();
 
