@@ -14,6 +14,22 @@
     border-width: 0;
 }
 
+.state_badge,
+.state_badge:hover,
+.state_badge:selected,
+.state_badge:selected:focus,
+.state_badge:hover:selected {
+    background-image: none;
+    background-color: #8cd5ff;
+    box-shadow: none;
+    color: alpha(#002e99, 0.7);
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 0 6px;
+    margin: 0 3px;
+    border-width: 0;
+}
+
 .command_wrapper {
     background-color: #fdf6e3;
     border-radius: 3px;
@@ -26,4 +42,10 @@
 }
 .command {
     font-family: monospace;
+}
+
+.pid {
+    color:grey;
+font-weight:bold;
+font-size:9px;
 }

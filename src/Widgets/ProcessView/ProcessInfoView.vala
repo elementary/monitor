@@ -3,12 +3,11 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     public string ? icon_name;
     public Gtk.TextView command;
     private Gtk.ScrolledWindow command_wrapper;
-    public Gtk.Label pid;
-    public Gtk.Label ppid;
-    public Gtk.Label pgrp;
+    public RoundyLabel ppid;
+    public RoundyLabel pgrp;
     public Gtk.Label state;
     public Gtk.Label username;
-
+    public RoundyLabel pid;
     private Gtk.Image icon;
     private Regex? regex;
     private Gtk.Grid grid;
@@ -20,9 +19,18 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         hexpand = true;
         regex = /(?i:^.*\.(xpm|png)$)/;
 
+        var icon_container = new Gtk.Fixed ();
+
         icon = new Gtk.Image.from_icon_name ("application-x-executable", Gtk.IconSize.DIALOG);
         icon.set_pixel_size (64);
         icon.valign = Gtk.Align.END;
+
+        state = new Gtk.Label (_ ("?"));
+        state.halign = Gtk.Align.START;
+        state.get_style_context ().add_class ("state_badge");
+
+        icon_container.put (icon, 0, 0);
+        icon_container.put (state, -5, 48);
 
         application_name = new Gtk.Label (_ ("N/A"));
         application_name.get_style_context ().add_class ("h2");
@@ -32,28 +40,21 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         application_name.valign = Gtk.Align.START;
 
 
-        state = new Gtk.Label (_ ("?"));
-        state.halign = Gtk.Align.START;
-        state.get_style_context ().add_class (Granite.STYLE_CLASS_BADGE);
 
-        pid = new Gtk.Label (_ ("PID:N/A"));
-        pid.halign = Gtk.Align.START;
-        pid.get_style_context ().add_class (Granite.STYLE_CLASS_BADGE);
 
-        ppid = new Gtk.Label (_ ("PPID:N/A"));
-        ppid.halign = Gtk.Align.START;
-        ppid.get_style_context ().add_class (Granite.STYLE_CLASS_BADGE);
+        pid = new RoundyLabel (_("PID"));
+        ppid = new RoundyLabel (_("PPID"));
+        pgrp = new RoundyLabel (_("PGRP"));
 
-        pgrp = new Gtk.Label (_ ("PGRP:N/A"));
-        pgrp.halign = Gtk.Align.START;
-        pgrp.get_style_context ().add_class (Granite.STYLE_CLASS_BADGE);
 
         username = new Gtk.Label (_ ("N/A"));
         username.halign = Gtk.Align.START;
         username.get_style_context ().add_class (Granite.STYLE_CLASS_BADGE);
 
+
+
         var wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        wrapper.add (state);
+        //  wrapper.add (state);
         wrapper.add (   pid);
         wrapper.add (  pgrp);
         wrapper.add (  ppid);
@@ -84,7 +85,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         grid.column_spacing = 12;
 
 
-        grid.attach (            icon, 0, 0, 1, 2);
+        grid.attach (            icon_container, 0, 0, 1, 2);
         grid.attach (application_name, 1, 0, 3, 1);
         grid.attach (         wrapper, 1, 1, 1, 1);
 
@@ -95,14 +96,14 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     public void update (Process process) {
         // probably not ok to update everything
         // TODO: find a better way to do this
-        if (pid.get_text() != ("PID:%d").printf (process.stat.pid)) {
-            command.buffer.text = process.command;
-        }
+        //  if (pid_number.get_text() != ("%d").printf (process.stat.pid)) {
+        //      command.buffer.text = process.command;
+        //  }
         application_name.set_text (("%s").printf (process.application_name));
         application_name.tooltip_text = process.application_name;
-        pid.set_text (("PID:%d").printf (process.stat.pid));
-        ppid.set_text (("PPID:%d").printf (process.stat.ppid));
-        pgrp.set_text (("PGRP:%d").printf (process.stat.pgrp));
+        pid.set_text (("%d").printf (process.stat.pid));
+        ppid.set_text (("%d").printf (process.stat.ppid));
+        pgrp.set_text (("%d").printf (process.stat.pgrp));
         state.set_text (process.stat.state);
         username.set_text (process.username);
 
@@ -121,5 +122,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     }
 
     public void pid_widget () {
+
+
     }
 }
