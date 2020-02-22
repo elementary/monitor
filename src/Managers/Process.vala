@@ -195,6 +195,9 @@ public class Monitor.Process  : GLib.Object {
         stat.state = splitted_stat[2];
         stat.ppid = int.parse (splitted_stat[3]);
         stat.pgrp = int.parse (splitted_stat[4]);
+        stat.priority = int.parse (splitted_stat[17]);
+        stat.nice = int.parse (splitted_stat[18]);
+        stat.num_threads = int.parse (splitted_stat[19]);
 
         return true;
     }

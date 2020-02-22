@@ -5,12 +5,17 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     private Gtk.ScrolledWindow command_wrapper;
     public RoundyLabel ppid;
     public RoundyLabel pgrp;
+    public RoundyLabel nice;
+    public RoundyLabel priority;
+    public RoundyLabel num_threads;
     public Gtk.Label state;
-    public Gtk.Label username;
+    public RoundyLabel username;
     public RoundyLabel pid;
     private Gtk.Image icon;
     private Regex? regex;
     private Gtk.Grid grid;
+
+    private Gtk.Popover pid_popover;
 
     public ProcessInfoView () {
         //  get_style_context ().add_class ("process_info");
@@ -41,23 +46,31 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
 
 
-
         pid = new RoundyLabel (_("PID"));
-        ppid = new RoundyLabel (_("PPID"));
-        pgrp = new RoundyLabel (_("PGRP"));
+        nice = new RoundyLabel (_("NI"));
+        priority = new RoundyLabel (_("PRI"));
+        num_threads = new RoundyLabel (_("THR"));
+        //  ppid = new RoundyLabel (_("PPID"));
+        //  pgrp = new RoundyLabel (_("PGRP"));
+        //  pid_popover = new Gtk.Popover (pid);
+        //  pid_popover.add (ppid);
+        //  pid_popover.add (pgrp);
+
+        //  pid_popover.show_all ();
+        //  pid_popover.present ();
+        //  pid_popover.run ();
+        //  pid_popover.destroy ();
 
 
-        username = new Gtk.Label (_ ("N/A"));
-        username.halign = Gtk.Align.START;
-        username.get_style_context ().add_class (Granite.STYLE_CLASS_BADGE);
-
-
+        username = new RoundyLabel ("");
 
         var wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         //  wrapper.add (state);
         wrapper.add (   pid);
-        wrapper.add (  pgrp);
-        wrapper.add (  ppid);
+        wrapper.add (   priority);
+        wrapper.add (  nice);
+        wrapper.add (  num_threads);
+        //  wrapper.add (  ppid);
         wrapper.add (  username);
 
         /* ==========START COMMAND WIDGET============== */
@@ -100,10 +113,13 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         //      command.buffer.text = process.command;
         //  }
         application_name.set_text (("%s").printf (process.application_name));
-        application_name.tooltip_text = process.application_name;
+        application_name.tooltip_text = process.command;
         pid.set_text (("%d").printf (process.stat.pid));
-        ppid.set_text (("%d").printf (process.stat.ppid));
-        pgrp.set_text (("%d").printf (process.stat.pgrp));
+        nice.set_text (("%d").printf (process.stat.nice));
+        priority.set_text (("%d").printf (process.stat.priority));
+        num_threads.set_text (("%d").printf (process.stat.num_threads));
+        //  ppid.set_text (("%d").printf (process.stat.ppid));
+        //  pgrp.set_text (("%d").printf (process.stat.pgrp));
         state.set_text (process.stat.state);
         username.set_text (process.username);
 

@@ -59,8 +59,10 @@ public struct Monitor.ProcessStatus {
     // range 19 (low priority) to -20 (high priority).
     public int nice;
 
+    public int priority;
+
     // Number of threads in this process
-    public uint num_threads;
+    public int num_threads;
 
     // The time the process started after system boot.
     public uint64 starttime;
