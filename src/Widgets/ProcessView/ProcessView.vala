@@ -6,6 +6,8 @@ public class Monitor.ProcessView : Gtk.Box {
     construct {
 
         process_info_view = new ProcessInfoView ();
+
+        // hide on startup
         process_info_view.no_show_all = true;
     }
 

@@ -76,20 +76,20 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         /* ==========START COMMAND WIDGET============== */
         // command widget should be a widget that contains one line, but expands on click
         // when clicked it should reveal full command
-        command = new Gtk.TextView ();
-        command.buffer.text = "N/A";
-        command.pixels_above_lines = 3;
-        command.margin = 8;
-        command.set_wrap_mode (Gtk.WrapMode.WORD);
+        //  command = new Gtk.TextView ();
+        //  command.buffer.text = "N/A";
+        //  command.pixels_above_lines = 3;
+        //  command.margin = 8;
+        //  command.set_wrap_mode (Gtk.WrapMode.WORD);
         // setting resize mode, so command wraps immediatly when right sidebar changed
         //  command.resize_mode = Gtk.ResizeMode.IMMEDIATE;
-        command.get_style_context ().add_class ("command");
+        //  command.get_style_context ().add_class ("command");
 
-        command_wrapper = new Gtk.ScrolledWindow (null, null);
-        command_wrapper.get_style_context ().add_class ("command_wrapper");
-        command_wrapper.margin_top = 24;
+        //  command_wrapper = new Gtk.ScrolledWindow (null, null);
+        //  command_wrapper.get_style_context ().add_class ("command_wrapper");
+        //  command_wrapper.margin_top = 24;
         //  command_wrapper.resize_mode = Gtk.ResizeMode.IMMEDIATE;
-        command_wrapper.add (command);
+        //  command_wrapper.add (command);
         /* ==========END COMMAND WIDGET============== */
 
 
@@ -103,7 +103,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         grid.attach (         wrapper, 1, 1, 1, 1);
 
         add (           grid);
-        add (command_wrapper);
+        //  add (command_wrapper);
     }
 
     public void update (Process process) {
@@ -137,8 +137,5 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         }
     }
 
-    public void pid_widget () {
 
-
-    }
 }

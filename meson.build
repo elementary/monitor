@@ -1,5 +1,5 @@
 
-project('com.github.stsdc.monitor', 'vala', 'c', version: '0.6.2')
+project('com.github.stsdc.monitor', 'vala', 'c', version: '1.0.0')
 
 # these are Meson modules
 gnome = import('gnome')
@@ -23,6 +23,7 @@ gtop = dependency('libgtop-2.0')
 wnck = dependency('libwnck-3.0')
 wingpanel = dependency('wingpanel-2.0')
 gdk_x11 = dependency('gdk-x11-3.0')
+dazzle = dependency('libdazzle-1.0')
 
 config_data = configuration_data()
 config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
@@ -71,6 +72,8 @@ executable(
 
     # 'src/Models/GenericModel.vala',
     'src/Models/Model.vala',
+    'src/Models/CPUGraphModel.vala',
+    'src/Widgets/ProcessView/CPUGraph.vala',
     # 'src/Models/ModelHelper.vala',
 
     'src/Managers/AppManager.vala',
@@ -98,6 +101,7 @@ executable(
         gtop,
         wnck,
         gdk_x11,
+        dazzle,
         meson.get_compiler('c').find_library('m', required : false),
         meson.get_compiler('vala').find_library('posix')
     ],
