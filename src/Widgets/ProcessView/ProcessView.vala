@@ -1,4 +1,5 @@
 public class Monitor.ProcessView : Gtk.Box {
+    public new Model treeview_model;
     public CPUProcessTreeView process_tree_view;
     
     public ProcessInfoView process_info_view;
@@ -11,10 +12,11 @@ public class Monitor.ProcessView : Gtk.Box {
         process_info_view.no_show_all = true;
     }
 
-    public ProcessView (Model model) {
+    public ProcessView () {
+        treeview_model = new Model ();
 
-        process_tree_view = new CPUProcessTreeView (model);
-        process_tree_view.update_selected_process.connect ((process) => update (process));
+        process_tree_view = new CPUProcessTreeView (treeview_model);
+        process_tree_view.update_selected_process.connect ((process) => on_update_selected_process (process));
 
         // making tree view scrollable
         var process_tree_view_scrolled = new Gtk.ScrolledWindow (null, null);
@@ -31,9 +33,13 @@ public class Monitor.ProcessView : Gtk.Box {
         show_all ();
     }
 
-    public void update (Process process) {
-        process_info_view.update(process);
+    public void on_update_selected_process (Process process) {
+        process_info_view.process = process;
         process_info_view.no_show_all = false;
         process_info_view.show_all ();
+    }
+
+    public void update () {
+        process_info_view.update ();
     }
 }

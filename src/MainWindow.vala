@@ -7,13 +7,9 @@
         //  private Gtk.Button process_info_button;
 
         public ProcessView process_view;
-
+        //  public ProcessManager process_manager;
 
         private Statusbar statusbar;
-
-        public Model generic_model;
-        //  public Model generic_model;
-        public Gtk.TreeModelSort sort_model;
 
         public Gtk.TreeModelFilter filter;
 
@@ -43,8 +39,8 @@
 
             // TODO: Granite.Widgets.ModeButton to switch between view modes
 
-            generic_model = new Model ();
-            process_view = new ProcessView (generic_model);
+            //  process_manager = new ProcessManager();
+            process_view = new ProcessView ();
 
             headerbar = new Headerbar (this);
             set_titlebar (headerbar);
@@ -63,6 +59,11 @@
                 statusbar.update (sysres);
                 dbusserver.update (sysres);
                 dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
+            });
+
+            Timeout.add_seconds (2, () => {
+                process_view.update();
+                return true;
             });
 
             dbusserver.quit.connect (() => app.quit());

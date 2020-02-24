@@ -1,4 +1,20 @@
 public class Monitor.ProcessInfoView : Gtk.Box {
+    private Process _process;
+    public Process process {
+        get { return _process; }
+        set  {
+            _process = value;
+            application_name.set_text (_process.application_name);
+            pid.set_text (("%d").printf (_process.stat.pid));
+            nice.set_text (("%d").printf (_process.stat.nice));
+            priority.set_text (("%d").printf (_process.stat.priority));
+            username.set_text (_process.username);
+            num_threads.set_text (("%d").printf (_process.stat.num_threads));
+            state.set_text (_process.stat.state);
+
+            set_icon (_process);
+        }
+    }
     public Gtk.Label application_name;
     public string ? icon_name;
     public Gtk.TextView command;
@@ -12,7 +28,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     public RoundyLabel username;
     public RoundyLabel pid;
     private Gtk.Image icon;
-    private Regex? regex;
+    private Regex ? regex;
     private Gtk.Grid grid;
 
     private Gtk.Popover pid_popover;
@@ -22,7 +38,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         margin = 12;
         orientation = Gtk.Orientation.VERTICAL;
         hexpand = true;
-        regex = /(?i:^.*\.(xpm|png)$)/;
+        regex = /( ? i : ^.*\.(xpm|png)$)/;
 
         var icon_container = new Gtk.Fixed ();
 
@@ -34,22 +50,22 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         state.halign = Gtk.Align.START;
         state.get_style_context ().add_class ("state_badge");
 
-        icon_container.put (icon, 0, 0);
+        icon_container.put (icon,   0,  0);
         icon_container.put (state, -5, 48);
 
         application_name = new Gtk.Label (_ ("N/A"));
         application_name.get_style_context ().add_class ("h2");
         application_name.ellipsize = Pango.EllipsizeMode.END;
-        application_name.tooltip_text = _("N/A");
+        application_name.tooltip_text = _ ("N/A");
         application_name.halign = Gtk.Align.START;
         application_name.valign = Gtk.Align.START;
 
 
 
-        pid = new RoundyLabel (_("PID"));
-        nice = new RoundyLabel (_("NI"));
-        priority = new RoundyLabel (_("PRI"));
-        num_threads = new RoundyLabel (_("THR"));
+        pid = new RoundyLabel (_ ("PID"));
+        nice = new RoundyLabel (_ ("NI"));
+        priority = new RoundyLabel (_ ("PRI"));
+        num_threads = new RoundyLabel (_ ("THR"));
         //  ppid = new RoundyLabel (_("PPID"));
         //  pgrp = new RoundyLabel (_("PGRP"));
         //  pid_popover = new Gtk.Popover (pid);
@@ -66,12 +82,12 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
         var wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         //  wrapper.add (state);
-        wrapper.add (   pid);
-        wrapper.add (   priority);
-        wrapper.add (  nice);
-        wrapper.add (  num_threads);
+        wrapper.add (pid);
+        wrapper.add (priority);
+        wrapper.add (nice);
+        wrapper.add (num_threads);
         //  wrapper.add (  ppid);
-        wrapper.add (  username);
+        wrapper.add (username);
 
         /* ==========START COMMAND WIDGET============== */
         // command widget should be a widget that contains one line, but expands on click
@@ -98,31 +114,33 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         grid.column_spacing = 12;
 
 
-        grid.attach (            icon_container, 0, 0, 1, 2);
+        grid.attach (icon_container,   0, 0, 1, 2);
         grid.attach (application_name, 1, 0, 3, 1);
-        grid.attach (         wrapper, 1, 1, 1, 1);
+        grid.attach (wrapper,          1, 1, 1, 1);
 
-        add (           grid);
+        add (grid);
         //  add (command_wrapper);
     }
 
-    public void update (Process process) {
+    public void update () {
         // probably not ok to update everything
         // TODO: find a better way to do this
         //  if (pid_number.get_text() != ("%d").printf (process.stat.pid)) {
         //      command.buffer.text = process.command;
         //  }
-        application_name.set_text (("%s").printf (process.application_name));
-        application_name.tooltip_text = process.command;
-        pid.set_text (("%d").printf (process.stat.pid));
-        nice.set_text (("%d").printf (process.stat.nice));
-        priority.set_text (("%d").printf (process.stat.priority));
-        num_threads.set_text (("%d").printf (process.stat.num_threads));
-        //  ppid.set_text (("%d").printf (process.stat.ppid));
-        //  pgrp.set_text (("%d").printf (process.stat.pgrp));
-        state.set_text (process.stat.state);
-        username.set_text (process.username);
+        //  this.process = process;
+        if (process != null) {
+            num_threads.set_text (("%d").printf (process.stat.num_threads));
+            //  ppid.set_text (("%d").printf (process.stat.ppid));
+            //  pgrp.set_text (("%d").printf (process.stat.pgrp));
+            state.set_text (process.stat.state);
 
+            set_icon (process);
+        }
+    }
+
+    private void set_icon (Process process) {
+        // this construction should be somewhere else
         var icon_name = process.icon.to_string ();
 
         if (!regex.match (icon_name)) {
@@ -136,6 +154,4 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             }
         }
     }
-
-
 }
