@@ -14,10 +14,10 @@ namespace Monitor {
             this.placeholder_text = _("Search Process");
             this.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>F"}, _("Type process name or PID to search"));
 
-            filter_model = new Gtk.TreeModelFilter (window.generic_model, null);
+            filter_model = new Gtk.TreeModelFilter (window.process_view.treeview_model, null);
             connect_signal ();
             filter_model.set_visible_func(filter_func);
-            process_tree_view.set_model (filter_model);
+            //  process_tree_view.set_model (filter_model);
 
             var sort_model = new Gtk.TreeModelSort.with_model (filter_model);
             process_tree_view.set_model (sort_model);
