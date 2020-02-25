@@ -18,7 +18,6 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     }
     public Gtk.Label application_name;
     public string ? icon_name;
-    public Gtk.TextView command;
     private Gtk.ScrolledWindow command_wrapper;
     public RoundyLabel ppid;
     public RoundyLabel pgrp;
@@ -32,14 +31,18 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     private Regex ? regex;
     private Gtk.Grid grid;
 
-    private Gtk.Popover pid_popover;
+    private CpuGraph cpu_graph;
+    private CpuGraphModel cpu_graph_model;
+
+    private CpuGraph mem_graph;
+    private CpuGraphModel mem_graph_model;
 
     public ProcessInfoView () {
         //  get_style_context ().add_class ("process_info");
         margin = 12;
         orientation = Gtk.Orientation.VERTICAL;
         hexpand = true;
-        regex = /( ? i : ^.*\.(xpm|png)$)/;
+        regex = /(?i:^.*\.(xpm|png)$)/;
 
         var icon_container = new Gtk.Fixed ();
 
@@ -69,72 +72,48 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         num_threads = new RoundyLabel (_ ("THR"));
         //  ppid = new RoundyLabel (_("PPID"));
         //  pgrp = new RoundyLabel (_("PGRP"));
-        //  pid_popover = new Gtk.Popover (pid);
-        //  pid_popover.add (ppid);
-        //  pid_popover.add (pgrp);
-
-        //  pid_popover.show_all ();
-        //  pid_popover.present ();
-        //  pid_popover.run ();
-        //  pid_popover.destroy ();
-
-
         username = new RoundyLabel ("");
 
+        cpu_graph_model = new CpuGraphModel();
+        cpu_graph = new CpuGraph(cpu_graph_model);
+
+        mem_graph_model = new CpuGraphModel();
+        mem_graph = new CpuGraph(mem_graph_model);
+
+        var graph_wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        graph_wrapper.valign = Gtk.Align.START;
+        graph_wrapper.height_request = 60;
+
+
+        graph_wrapper.add (cpu_graph);
+        graph_wrapper.add (mem_graph);
+
         var wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        //  wrapper.add (state);
         wrapper.add (pid);
         wrapper.add (priority);
         wrapper.add (nice);
         wrapper.add (num_threads);
-        //  wrapper.add (  ppid);
         wrapper.add (username);
-
-        /* ==========START COMMAND WIDGET============== */
-        // command widget should be a widget that contains one line, but expands on click
-        // when clicked it should reveal full command
-        //  command = new Gtk.TextView ();
-        //  command.buffer.text = "N/A";
-        //  command.pixels_above_lines = 3;
-        //  command.margin = 8;
-        //  command.set_wrap_mode (Gtk.WrapMode.WORD);
-        // setting resize mode, so command wraps immediatly when right sidebar changed
-        //  command.resize_mode = Gtk.ResizeMode.IMMEDIATE;
-        //  command.get_style_context ().add_class ("command");
-
-        //  command_wrapper = new Gtk.ScrolledWindow (null, null);
-        //  command_wrapper.get_style_context ().add_class ("command_wrapper");
-        //  command_wrapper.margin_top = 24;
-        //  command_wrapper.resize_mode = Gtk.ResizeMode.IMMEDIATE;
-        //  command_wrapper.add (command);
-        /* ==========END COMMAND WIDGET============== */
-
 
         grid = new Gtk.Grid ();
         grid.get_style_context ().add_class ("horizontal");
         grid.column_spacing = 12;
-
-
         grid.attach (icon_container,   0, 0, 1, 2);
         grid.attach (application_name, 1, 0, 3, 1);
         grid.attach (wrapper,          1, 1, 1, 1);
 
         add (grid);
-        //  add (command_wrapper);
+        add (graph_wrapper);
     }
 
     public void update () {
-        // probably not ok to update everything
-        // TODO: find a better way to do this
-        //  if (pid_number.get_text() != ("%d").printf (process.stat.pid)) {
-        //      command.buffer.text = process.command;
-        //  }
-        //  this.process = process;
         if (process != null) {
             num_threads.set_text (("%d").printf (process.stat.num_threads));
             //  ppid.set_text (("%d").printf (process.stat.ppid));
             //  pgrp.set_text (("%d").printf (process.stat.pgrp));
             state.set_text (process.stat.state);
+            cpu_graph_model.update (process.cpu_usage * 100);
+            mem_graph_model.update (process.cpu_usage * 100 + 30);
 
             set_icon (process);
         }

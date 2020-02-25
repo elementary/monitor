@@ -27,10 +27,10 @@ public class CpuGraphModel : Dazzle.GraphModel {
     private bool[] change_small_process_usage;
 
     public CpuGraphModel () {
-        set_timespan (1000);
-        set_max_samples (50);
+        set_timespan (TimeSpan.MINUTE);
+        set_max_samples (100);
 
-        var column_total = new Dazzle.GraphColumn ("TOTAL CPU", Type.from_name ("gdouble"));
+        var column_total = new Dazzle.GraphColumn ("TOTAL CPU", Type.DOUBLE);
         add_column (column_total);
 
         //  change_big_process_usage = new bool[get_num_processors()];
@@ -47,8 +47,8 @@ public class CpuGraphModel : Dazzle.GraphModel {
         //  Timeout.add(1000, update_data);
     }
 
-    bool update_data (int percentage) {
-        debug ("Got percentage: %d", percentage);
+    public bool update (double percentage) {
+        debug ("Got percentage: %f", percentage);
         Dazzle.GraphModelIter iter;
 
         push (out iter, get_monotonic_time ());

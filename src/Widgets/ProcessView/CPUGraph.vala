@@ -19,6 +19,9 @@ public class CpuGraph : Dazzle.GraphView
             get_style_context().remove_class("line");
             get_style_context().add_class("big");
 
+            expand = true;
+            margin = 6;
+
             set_model(graph_model);
 
             Gdk.RGBA linecol = Gdk.RGBA ();
