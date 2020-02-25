@@ -33,8 +33,6 @@ namespace Monitor {
 
             update_processes.begin ();
 
-            // move timeout outside
-            Timeout.add (2000, handle_timeout);
         }
 
         public void populate_apps_info() {
@@ -143,17 +141,9 @@ namespace Monitor {
         }
 
         /**
-         * Handle updating the process list
-         */
-        private bool handle_timeout () {
-            update_processes.begin ();
-            return true;
-        }
-
-        /**
          * Gets all new process and adds them
          */
-        private async void update_processes () {
+        public async void update_processes () {
         /* CPU */
             GTop.Cpu cpu_data;
             GTop.get_cpu (out cpu_data);
@@ -204,7 +194,7 @@ namespace Monitor {
             cpu_last_useds = useds;
             cpu_last_totals = cpu_data.xcpu_total;
 
-            /* call the updated signal so that subscribers can update */
+            /* emit the updated signal so that subscribers can update */
             updated ();
         }
 
