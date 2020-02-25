@@ -1,6 +1,6 @@
-public class CpuGraph : Dazzle.GraphView
+public class Monitor.Graph : Dazzle.GraphView
     {
-        private static CpuGraphModel graph_model;
+        private static GraphModel graph_model;
         private Dazzle.GraphLineRenderer renderer;
         private Gdk.RGBA line_color_max;
         private Gdk.RGBA line_color_normal;
@@ -9,7 +9,7 @@ public class CpuGraph : Dazzle.GraphView
         {
         }
 
-        public CpuGraph(CpuGraphModel graph_model) {
+        public Graph(GraphModel graph_model) {
             this.graph_model = graph_model;
             get_style_context().add_class("line_max");
             line_color_max = get_style_context().get_color(get_style_context().get_state());

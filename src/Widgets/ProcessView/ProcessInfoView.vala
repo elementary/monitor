@@ -31,11 +31,11 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     private Regex ? regex;
     private Gtk.Grid grid;
 
-    private CpuGraph cpu_graph;
-    private CpuGraphModel cpu_graph_model;
+    private Graph cpu_graph;
+    private GraphModel cpu_graph_model;
 
-    private CpuGraph mem_graph;
-    private CpuGraphModel mem_graph_model;
+    private Graph mem_graph;
+    private GraphModel mem_graph_model;
 
     public ProcessInfoView () {
         //  get_style_context ().add_class ("process_info");
@@ -74,11 +74,11 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         //  pgrp = new RoundyLabel (_("PGRP"));
         username = new RoundyLabel ("");
 
-        cpu_graph_model = new CpuGraphModel();
-        cpu_graph = new CpuGraph(cpu_graph_model);
+        cpu_graph_model = new GraphModel();
+        cpu_graph = new Graph(cpu_graph_model);
 
-        mem_graph_model = new CpuGraphModel();
-        mem_graph = new CpuGraph(mem_graph_model);
+        mem_graph_model = new GraphModel();
+        mem_graph = new Graph(mem_graph_model);
 
         var graph_wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         graph_wrapper.valign = Gtk.Align.START;
@@ -113,7 +113,10 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             //  pgrp.set_text (("%d").printf (process.stat.pgrp));
             state.set_text (process.stat.state);
             cpu_graph_model.update (process.cpu_usage * 100);
-            mem_graph_model.update (process.cpu_usage * 100 + 30);
+            cpu_graph.tooltip_text = ("%.1f%%").printf (process.cpu_usage * 100);
+
+            mem_graph_model.update (process.mem_percentage);
+            mem_graph.tooltip_text = ("%.1f%%").printf (process.mem_percentage);
 
             set_icon (process);
         }

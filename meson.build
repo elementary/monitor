@@ -66,14 +66,13 @@ executable(
     'src/Widgets/Statusbar/Statusbar.vala',
     'src/Widgets/ProcessView/ProcessInfoView.vala',
     'src/Widgets/ProcessView/RoundyLabel.vala',
+    'src/Widgets/ProcessView/Graph.vala',
 
     'src/Widgets/ProcessView/ProcessView.vala',
     'src/Managers/ProcessUtils.vala',
 
-    # 'src/Models/GenericModel.vala',
     'src/Models/Model.vala',
-    'src/Models/CPUGraphModel.vala',
-    'src/Widgets/ProcessView/CPUGraph.vala',
+    'src/Models/GraphModel.vala',
     # 'src/Models/ModelHelper.vala',
 
     'src/Managers/AppManager.vala',

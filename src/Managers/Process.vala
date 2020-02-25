@@ -52,6 +52,7 @@ public class Monitor.Process  : GLib.Object {
     //Memory usage of the process, measured in KiB.
 
     public uint64 mem_usage { get; private set; }
+    public double mem_percentage { get; private set; }
 
     private uint64 last_total;
 
@@ -237,5 +238,8 @@ public class Monitor.Process  : GLib.Object {
             Wnck.ResourceUsage resu = Wnck.ResourceUsage.pid_read (Gdk.Display.get_default (), stat.pid);
             mem_usage += (resu.total_bytes_estimate / 1024);
         }
+
+        var total_installed_memory = (double)mem.total / 1024;
+        mem_percentage = (mem_usage / total_installed_memory) * 100;
     }
 }
