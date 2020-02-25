@@ -5,6 +5,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         set  {
             _process = value;
             application_name.set_text (_process.application_name);
+            application_name.tooltip_text = _process.command;
             pid.set_text (("%d").printf (_process.stat.pid));
             nice.set_text (("%d").printf (_process.stat.nice));
             priority.set_text (("%d").printf (_process.stat.priority));
