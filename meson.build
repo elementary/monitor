@@ -71,7 +71,7 @@ executable(
     'src/Widgets/ProcessView/ProcessView.vala',
     'src/Managers/ProcessUtils.vala',
 
-    'src/Models/Model.vala',
+    'src/Models/TreeViewModel.vala',
     'src/Models/GraphModel.vala',
     # 'src/Models/ModelHelper.vala',
 

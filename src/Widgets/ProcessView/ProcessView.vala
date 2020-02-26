@@ -1,5 +1,5 @@
 public class Monitor.ProcessView : Gtk.Box {
-    public new Model treeview_model;
+    public TreeViewModel treeview_model;
     public CPUProcessTreeView process_tree_view;
     
     public ProcessInfoView process_info_view;
@@ -13,7 +13,7 @@ public class Monitor.ProcessView : Gtk.Box {
     }
 
     public ProcessView () {
-        treeview_model = new Model ();
+        treeview_model = new TreeViewModel ();
 
         process_tree_view = new CPUProcessTreeView (treeview_model);
         process_tree_view.process_selected.connect ((process) => on_process_selected (process));

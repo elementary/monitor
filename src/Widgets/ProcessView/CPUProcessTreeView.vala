@@ -1,5 +1,5 @@
 public class Monitor.CPUProcessTreeView : Gtk.TreeView {
-    private new Model model;
+    private TreeViewModel model;
     private Gtk.TreeViewColumn name_column;
     private Gtk.TreeViewColumn pid_column;
     private Gtk.TreeViewColumn cpu_column;
@@ -10,7 +10,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
 
     public signal void process_selected (Process process);
 
-    public CPUProcessTreeView (Model model) {
+    public CPUProcessTreeView (TreeViewModel model) {
         this.model = model;
         regex = /(?i:^.*\.(xpm|png)$)/;
 

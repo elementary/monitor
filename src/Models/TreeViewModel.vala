@@ -6,7 +6,7 @@ public enum Monitor.Column {
     PID,
 }
 
-public class Monitor.Model : Gtk.TreeStore {
+public class Monitor.TreeViewModel : Gtk.TreeStore {
     public ProcessManager process_manager;
     private Gee.Map<int, Gtk.TreeIter ? > process_rows;
 
