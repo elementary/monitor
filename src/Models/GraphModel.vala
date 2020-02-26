@@ -2,7 +2,7 @@ public class Monitor.GraphModel : Dazzle.GraphModel {
 
     public GraphModel () {
         set_timespan (TimeSpan.MINUTE);
-        set_max_samples (100);
+        set_max_samples (60);
 
         var column_total = new Dazzle.GraphColumn ("CPU USAGE", Type.DOUBLE);
         add_column (column_total);
