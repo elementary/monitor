@@ -48,5 +48,14 @@ public class Monitor.ProcessUtils {
             return null;
         }
     }
+
+    public static Icon get_default_icon () {
+        try {
+            return Icon.new_for_string ("application-x-executable");
+        } catch (Error e) {
+            warning (e.message);
+            return null;
+        }
+    }
     
 }

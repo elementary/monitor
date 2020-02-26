@@ -22,11 +22,7 @@ public class Monitor.Process  : GLib.Object {
         get { return _icon; }
         set {
             if (value == null) {
-                try {
-                    _icon = Icon.new_for_string ("application-x-executable");
-                } catch (Error e) {
-                    warning (e.message);
-                }
+                _icon = ProcessUtils.get_default_icon ();
             } else {
                 _icon = value;
             }
@@ -59,11 +55,8 @@ public class Monitor.Process  : GLib.Object {
 
     // Construct a new process
     public Process (int _pid) {
-        try {
-            _icon = Icon.new_for_string ("application-x-executable");
-        } catch (Error e) {
-            warning (e.message);
-        }
+        _icon = ProcessUtils.get_default_icon ();
+        
         last_total = 0;
 
         io = { };
