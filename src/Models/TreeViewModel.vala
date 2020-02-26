@@ -46,12 +46,14 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
             Gtk.TreeIter iter;
             append (out iter, null); // null means top-level
 
+            // donno what is going on, but maybe just use a string insteead of Icon ??
+            // coz it lagz
+            //  string icon_name = process.icon.to_string ();
+
             set (iter,
                  Column.NAME, process.command,
                  Column.ICON, process.icon.to_string (),
                  Column.PID, process.stat.pid,
-                 Column.CPU, process.cpu_percentage,
-                 Column.MEMORY, process.mem_usage,
                 -1);
 
             // add the process to our cache of process_rows
@@ -66,9 +68,6 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
             Process process = process_manager.get_process (pid);
             Gtk.TreeIter iter = process_rows[pid];
             set (iter,
-                 Column.NAME, process.command,
-                 Column.ICON, process.icon.to_string (),
-                 Column.PID, process.stat.pid,
                  Column.CPU, process.cpu_percentage,
                  Column.MEMORY, process.mem_usage,
                 -1);

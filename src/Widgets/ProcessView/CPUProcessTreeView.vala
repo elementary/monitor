@@ -78,8 +78,9 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
     public void icon_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer icon_cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
         Value icon_name;
         model.get_value (iter, Column.ICON, out icon_name);
-        if (regex.match ((string)icon_name)) {
-            string path = ((string)icon_name);
+        string path = ((string)icon_name);
+
+        if (regex.match (path)) {
 
             try {
                 Gdk.Pixbuf icon = new Gdk.Pixbuf.from_file_at_size (path, 16, -1);
@@ -88,7 +89,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
                 warning (e.message);
             }
         } else {
-            (icon_cell as Gtk.CellRendererPixbuf).icon_name = (string)icon_name;
+            (icon_cell as Gtk.CellRendererPixbuf).icon_name = path;
         }
     }
 
