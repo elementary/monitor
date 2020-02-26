@@ -48,7 +48,7 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
 
             set (iter,
                  Column.NAME, process.command,
-                 Column.ICON, "application-x-executable",
+                 Column.ICON, process.icon.to_string (),
                  Column.PID, process.stat.pid,
                  Column.CPU, process.cpu_percentage,
                  Column.MEMORY, process.mem_usage,
@@ -67,7 +67,7 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
             Gtk.TreeIter iter = process_rows[pid];
             set (iter,
                  Column.NAME, process.command,
-                 Column.ICON, "application-x-executable",
+                 Column.ICON, process.icon.to_string (),
                  Column.PID, process.stat.pid,
                  Column.CPU, process.cpu_percentage,
                  Column.MEMORY, process.mem_usage,

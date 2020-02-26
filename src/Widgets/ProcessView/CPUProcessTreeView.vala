@@ -1,5 +1,5 @@
 public class Monitor.CPUProcessTreeView : Gtk.TreeView {
-    private TreeViewModel model;
+    private new TreeViewModel model;
     private Gtk.TreeViewColumn name_column;
     private Gtk.TreeViewColumn pid_column;
     private Gtk.TreeViewColumn cpu_column;
