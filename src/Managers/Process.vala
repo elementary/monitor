@@ -41,7 +41,7 @@ public class Monitor.Process  : GLib.Object {
      *
      * Will be 0 on first update.
      */
-    public double cpu_usage { get; private set; }
+    public double cpu_percentage { get; private set; }
 
     private uint64 cpu_last_used;
 
@@ -56,7 +56,7 @@ public class Monitor.Process  : GLib.Object {
     // Construct a new process
     public Process (int _pid) {
         _icon = ProcessUtils.get_default_icon ();
-        
+
         last_total = 0;
 
         io = { };
@@ -215,7 +215,7 @@ public class Monitor.Process  : GLib.Object {
         // Get CPU usage by process
         GTop.ProcTime proc_time;
         GTop.get_proc_time (out proc_time, stat.pid);
-        cpu_usage = ((double)(proc_time.rtime - cpu_last_used)) / (cpu_total - cpu_last_total);
+        cpu_percentage = 100 * ((double)(proc_time.rtime - cpu_last_used)) / (cpu_total - cpu_last_total);
         cpu_last_used = proc_time.rtime;
 
         // Get memory usage by process

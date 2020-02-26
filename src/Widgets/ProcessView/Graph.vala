@@ -3,7 +3,6 @@ public class Monitor.Graph : Dazzle.GraphView
         private static GraphModel graph_model;
         private Dazzle.GraphLineRenderer renderer;
 
-
         construct {
             expand = true;
             margin = 6;

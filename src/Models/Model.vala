@@ -50,7 +50,7 @@ public class Monitor.Model : Gtk.TreeStore {
                  Column.NAME, process.command,
                  Column.ICON, "application-x-executable",
                  Column.PID, process.stat.pid,
-                 Column.CPU, process.cpu_usage,
+                 Column.CPU, process.cpu_percentage,
                  Column.MEMORY, process.mem_usage,
                 -1);
 
@@ -69,7 +69,7 @@ public class Monitor.Model : Gtk.TreeStore {
                  Column.NAME, process.command,
                  Column.ICON, "application-x-executable",
                  Column.PID, process.stat.pid,
-                 Column.CPU, process.cpu_usage,
+                 Column.CPU, process.cpu_percentage,
                  Column.MEMORY, process.mem_usage,
                 -1);
         }

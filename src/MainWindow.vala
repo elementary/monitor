@@ -7,11 +7,8 @@
         //  private Gtk.Button process_info_button;
 
         public ProcessView process_view;
-        //  public ProcessManager process_manager;
 
         private Statusbar statusbar;
-
-        public Gtk.TreeModelFilter filter;
 
         public DBusServer dbusserver;
 
@@ -61,6 +58,7 @@
                 dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
             });
 
+            // updating processes every 2 seconds
             Timeout.add_seconds (2, () => {
                 process_view.update();
                 return true;

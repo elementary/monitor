@@ -49,7 +49,7 @@ public class Monitor.ProcessUtils {
         }
     }
 
-    public static Icon get_default_icon () {
+    public static Icon? get_default_icon () {
         try {
             return Icon.new_for_string ("application-x-executable");
         } catch (Error e) {

@@ -112,8 +112,8 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             //  ppid.set_text (("%d").printf (process.stat.ppid));
             //  pgrp.set_text (("%d").printf (process.stat.pgrp));
             state.set_text (process.stat.state);
-            cpu_graph_model.update (process.cpu_usage * 100);
-            cpu_graph.tooltip_text = ("%.1f%%").printf (process.cpu_usage * 100);
+            cpu_graph_model.update (process.cpu_percentage);
+            cpu_graph.tooltip_text = ("%.1f%%").printf (process.cpu_percentage);
 
             mem_graph_model.update (process.mem_percentage);
             mem_graph.tooltip_text = ("%.1f%%").printf (process.mem_percentage);

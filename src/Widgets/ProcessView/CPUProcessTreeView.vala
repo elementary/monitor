@@ -102,7 +102,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
         if (cpu_usage < 0.0)
             (cell as Gtk.CellRendererText).text = NO_DATA;
         else
-            (cell as Gtk.CellRendererText).text = "%.0f%%".printf (cpu_usage * 100.0);
+            (cell as Gtk.CellRendererText).text = "%.0f%%".printf (cpu_usage);
     }
 
     public void memory_usage_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
