@@ -1,8 +1,8 @@
 public class Monitor.ProcessInfoView : Gtk.Box {
     private Process _process;
-    public Process process {
+    public Process ? process {
         get { return _process; }
-        set  {
+        set {
             _process = value;
             application_name.set_text (_process.application_name);
             application_name.tooltip_text = _process.command;
@@ -12,6 +12,9 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             username.set_text (_process.username);
             num_threads.set_text (("%d").printf (_process.stat.num_threads));
             state.set_text (_process.stat.state);
+
+            cpu_graph_model = new GraphModel();
+            cpu_graph.set_model(cpu_graph_model);
 
             set_icon (_process);
         }
@@ -36,6 +39,10 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
     private Graph mem_graph;
     private GraphModel mem_graph_model;
+
+    construct {
+        cpu_graph_model = new GraphModel();
+    }
 
     public ProcessInfoView () {
         //  get_style_context ().add_class ("process_info");
@@ -74,11 +81,13 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         //  pgrp = new RoundyLabel (_("PGRP"));
         username = new RoundyLabel ("");
 
-        cpu_graph_model = new GraphModel();
-        cpu_graph = new Graph(cpu_graph_model);
+        //  cpu_graph_model = new GraphModel();
+        cpu_graph = new Graph();
+        //  cpu_graph.set_model(cpu_graph_model);
 
         mem_graph_model = new GraphModel();
-        mem_graph = new Graph(mem_graph_model);
+        mem_graph = new Graph();
+        mem_graph.model = mem_graph_model;
 
         var graph_wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         graph_wrapper.valign = Gtk.Align.START;
@@ -136,5 +145,8 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 warning (e.message);
             }
         }
+
+
+
     }
 }

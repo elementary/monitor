@@ -1,6 +1,5 @@
 public class Monitor.Graph : Dazzle.GraphView
     {
-        private static GraphModel graph_model;
         private Dazzle.GraphLineRenderer renderer;
 
         construct {
@@ -19,11 +18,5 @@ public class Monitor.Graph : Dazzle.GraphView
             renderer.column = 0;
 
             add_renderer (renderer);
-        }
-
-        public Graph(GraphModel graph_model) {
-            this.graph_model = graph_model;
-
-            set_model(graph_model);
         }
     }

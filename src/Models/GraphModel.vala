@@ -9,6 +9,7 @@ public class Monitor.GraphModel : Dazzle.GraphModel {
     }
 
     public bool update (double percentage) {
+        debug ("Got percentage: %f", percentage);
         Dazzle.GraphModelIter iter;
 
         push (out iter, get_monotonic_time ());
