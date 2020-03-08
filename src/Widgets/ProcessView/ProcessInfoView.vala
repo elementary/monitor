@@ -44,6 +44,9 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     private Graph mem_graph;
     private GraphModel mem_graph_model;
 
+    private Gtk.Button end_process_button;
+    private Gtk.Button kill_process_button;
+
     construct {
         cpu_graph_model = new GraphModel();
     }
@@ -75,8 +78,6 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         application_name.halign = Gtk.Align.START;
         application_name.valign = Gtk.Align.START;
 
-
-
         pid = new RoundyLabel (_ ("PID"));
         nice = new RoundyLabel (_ ("NI"));
         priority = new RoundyLabel (_ ("PRI"));
@@ -84,17 +85,6 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         //  ppid = new RoundyLabel (_("PPID"));
         //  pgrp = new RoundyLabel (_("PGRP"));
         username = new RoundyLabel ("");
-
-        cpu_graph = new Graph();
-        mem_graph = new Graph();
-
-        var graph_wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        graph_wrapper.valign = Gtk.Align.START;
-        graph_wrapper.height_request = 60;
-
-
-        graph_wrapper.add (cpu_graph);
-        graph_wrapper.add (mem_graph);
 
         var wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         wrapper.add (pid);
@@ -111,7 +101,48 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         grid.attach (wrapper,          1, 1, 1, 1);
 
         add (grid);
+
+        var sep = new Gtk.Separator(Gtk.Orientation.HORIZONTAL);
+        sep.margin = 12;
+        add (sep);
+
+
+        cpu_graph = new Graph();
+        mem_graph = new Graph();
+
+        var graph_wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        graph_wrapper.valign = Gtk.Align.START;
+        graph_wrapper.height_request = 60;
+
+        graph_wrapper.add (cpu_graph);
+        graph_wrapper.add (mem_graph);
+
         add (graph_wrapper);
+
+
+
+        var process_action_bar = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        process_action_bar.valign = Gtk.Align.START;
+        process_action_bar.halign = Gtk.Align.END;
+        
+        end_process_button = new Gtk.Button.with_label (_("End Process"));
+        end_process_button.margin_end = 10;
+        end_process_button.clicked.connect (end_process_button_clicked);
+        end_process_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>E"}, _("End selected process"));
+        var end_process_button_context = end_process_button.get_style_context ();
+        end_process_button_context.add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+
+        kill_process_button = new Gtk.Button.with_label (_("Kill Process"));
+        //  kill_process_button.clicked.connect (window.process_view.process_tree_view.kill_process);
+        kill_process_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>K"}, _("Kill selected process"));
+        var kill_process_button_context = kill_process_button.get_style_context ();
+        kill_process_button_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+
+        process_action_bar.add (end_process_button);
+        process_action_bar.add (kill_process_button);
+
+        add (process_action_bar);
+
     }
 
     public void update () {
@@ -144,8 +175,9 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 warning (e.message);
             }
         }
+    }
 
-
-
+    private void end_process_button_clicked () {
+        debug ("click");
     }
 }
