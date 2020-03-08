@@ -13,8 +13,12 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             num_threads.set_text (("%d").printf (_process.stat.num_threads));
             state.set_text (_process.stat.state);
 
+            // Clearing graphs when new process is set
             cpu_graph_model = new GraphModel();
             cpu_graph.set_model(cpu_graph_model);
+
+            mem_graph_model = new GraphModel();
+            mem_graph.set_model(mem_graph_model);
 
             set_icon (_process);
         }
@@ -81,13 +85,8 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         //  pgrp = new RoundyLabel (_("PGRP"));
         username = new RoundyLabel ("");
 
-        //  cpu_graph_model = new GraphModel();
         cpu_graph = new Graph();
-        //  cpu_graph.set_model(cpu_graph_model);
-
-        mem_graph_model = new GraphModel();
         mem_graph = new Graph();
-        mem_graph.model = mem_graph_model;
 
         var graph_wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         graph_wrapper.valign = Gtk.Align.START;

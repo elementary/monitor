@@ -73,7 +73,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
 
 
         cursor_changed.connect (_cursor_changed);
-        model.process_manager.updated.connect (_cursor_changed);
+        //  model.process_manager.updated.connect (_cursor_changed);
     }
     public void icon_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer icon_cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
         Value icon_name;
@@ -201,6 +201,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
             tree_model.get (iter, Column.PID, out pid);
             Process process = model.process_manager.get_process (pid);
             process_selected (process);
+            debug ("cursor changed");
         }
     }
 }
