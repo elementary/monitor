@@ -23,7 +23,7 @@ gtop = dependency('libgtop-2.0')
 wnck = dependency('libwnck-3.0')
 wingpanel = dependency('wingpanel-2.0')
 gdk_x11 = dependency('gdk-x11-3.0')
-dazzle = dependency('libdazzle-1.0')
+dazzle = dependency('libdazzle-1.0', version: '>= 3.30')
 
 config_data = configuration_data()
 config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
