@@ -32,9 +32,6 @@ namespace Monitor {
 
                 filter_model.refilter ();
 
-                // if there's no search result, make "Kill/End Process" buttons in headerbar insensitive to avoid the app crashes
-                window.headerbar.set_header_buttons_sensitivity (filter_model.iter_n_children (null) != 0);
-
                 // focus on child row to avoid the app crashes by clicking "Kill/End Process" buttons in headerbar
                 process_tree_view.focus_on_child_row ();
                 this.grab_focus ();
