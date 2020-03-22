@@ -96,7 +96,6 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         wrapper.add (username);
 
         grid = new Gtk.Grid ();
-        grid.get_style_context ().add_class ("horizontal");
         grid.column_spacing = 12;
         grid.attach (icon_container,   0, 0, 1, 2);
         grid.attach (application_name, 1, 0, 3, 1);
@@ -121,7 +120,19 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
         add (graph_wrapper);
 
+        var other_info_grid = new Gtk.Grid();
+        other_info_grid.column_spacing = 12;
 
+        var io_label = new Gtk.Label (_("IO"));
+        io_label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
+        var net_label = new Gtk.Label ( _("NET"));
+        net_label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
+
+
+        other_info_grid.attach (io_label, 0, 0, 1, 2);
+        other_info_grid.attach (net_label, 1, 0, 1, 2);
+        
+        add (other_info_grid);
 
         var process_action_bar = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         process_action_bar.valign = Gtk.Align.START;
@@ -129,13 +140,11 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         
         end_process_button = new Gtk.Button.with_label (_("End Process"));
         end_process_button.margin_end = 10;
-        end_process_button.clicked.connect (end_process_button_clicked);
         end_process_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>E"}, _("End selected process"));
         var end_process_button_context = end_process_button.get_style_context ();
         end_process_button_context.add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
         kill_process_button = new Gtk.Button.with_label (_("Kill Process"));
-        //  kill_process_button.clicked.connect (window.process_view.process_tree_view.kill_process);
         kill_process_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>K"}, _("Kill selected process"));
         var kill_process_button_context = kill_process_button.get_style_context ();
         kill_process_button_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
@@ -159,8 +168,10 @@ public class Monitor.ProcessInfoView : Gtk.Box {
            });
         });
 
-
         add (preventor);
+
+
+
     }
 
     public void update () {
@@ -195,7 +206,4 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         }
     }
 
-    private void end_process_button_clicked () {
-        debug ("click");
-    }
 }

@@ -59,27 +59,32 @@ executable(
     'src/MainWindow.vala',
     'src/Utils.vala',
 
-    # 'src/Widgets/OverallView.vala',
-    'src/Widgets/ProcessView/CPUProcessTreeView.vala',
-    'src/Widgets/Headerbar/Search.vala',
+    # Views
+    'src/Views/ProcessView/ProcessView.vala',
+    'src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala',
+    'src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala',
+
+    # Widgets related only to ProcessInfoView
+    'src/Views/ProcessView/ProcessInfoView/Preventor.vala',
+    'src/Views/ProcessView/ProcessInfoView/RoundyLabel.vala',
+    'src/Views/ProcessView/ProcessInfoView/Graph.vala',
+
+    # Widgets
     'src/Widgets/Headerbar/Headerbar.vala',
+    'src/Widgets/Headerbar/Search.vala',
     'src/Widgets/Statusbar/Statusbar.vala',
-    'src/Widgets/ProcessView/ProcessInfoView.vala',
-    'src/Widgets/ProcessView/Preventor.vala',
-    'src/Widgets/ProcessView/RoundyLabel.vala',
-    'src/Widgets/ProcessView/Graph.vala',
+  
 
-    'src/Widgets/ProcessView/ProcessView.vala',
-    'src/Managers/ProcessUtils.vala',
-
+    # Models
     'src/Models/TreeViewModel.vala',
     'src/Models/GraphModel.vala',
-    # 'src/Models/ModelHelper.vala',
 
+    # Other
     'src/Managers/AppManager.vala',
     'src/Managers/ProcessManager.vala',
     'src/Managers/Process.vala',
     'src/Managers/ProcessStructs.vala',
+    'src/Managers/ProcessUtils.vala',
 
     'src/Services/Shortcuts.vala',
     'src/Services/DBusServer.vala',
