@@ -1,4 +1,4 @@
-public class Monitor.ProcessInfoView : Gtk.Box {
+public class Monitor.ProcessInfoView : Gtk.Grid {
     private Process _process;
     public Process ? process {
         get { return _process; }
@@ -6,6 +6,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             _process = value;
 
             process_info_header.update (_process);
+            process_info_other.update (_process);
             // Clearing graphs when new process is set
             cpu_graph_model = new GraphModel();
             cpu_graph.set_model(cpu_graph_model);
@@ -18,6 +19,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     private Gtk.ScrolledWindow command_wrapper;
 
     private ProcessInfoHeader process_info_header;
+    private ProcessInfoOther process_info_other;
     
     private Regex ? regex;
     private Gtk.Grid grid;
@@ -42,13 +44,14 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         margin = 12;
         orientation = Gtk.Orientation.VERTICAL;
         hexpand = true;
+        column_spacing = 12;
 
         process_info_header = new ProcessInfoHeader();
-        add (process_info_header);
+        attach (process_info_header, 0, 0, 1, 1);
 
         var sep = new Gtk.Separator(Gtk.Orientation.HORIZONTAL);
         sep.margin = 12;
-        add (sep);
+        attach (sep, 0, 1, 1, 1);
 
 
         cpu_graph = new Graph();
@@ -61,21 +64,10 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         graph_wrapper.add (cpu_graph);
         graph_wrapper.add (mem_graph);
 
-        add (graph_wrapper);
+        attach (graph_wrapper, 0, 2, 1, 1);
 
-        var other_info_grid = new Gtk.Grid();
-        other_info_grid.column_spacing = 12;
-
-        var io_label = new Gtk.Label (_("IO"));
-        io_label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
-        var net_label = new Gtk.Label ( _("NET"));
-        net_label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
-
-
-        other_info_grid.attach (io_label, 0, 0, 1, 2);
-        other_info_grid.attach (net_label, 1, 0, 1, 2);
-        
-        add (other_info_grid);
+        process_info_other = new ProcessInfoOther ();
+        attach (process_info_other, 0, 3, 1, 1);
 
         var process_action_bar = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         process_action_bar.valign = Gtk.Align.START;
@@ -111,7 +103,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
            });
         });
 
-        add (preventor);
+        attach (preventor, 0, 4, 1, 1);
 
 
 
@@ -120,6 +112,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     public void update () {
         if (process != null) {
             process_info_header.update (process);
+            process_info_other.update (process);
 
             cpu_graph_model.update (process.cpu_percentage);
             cpu_graph.tooltip_text = ("%.1f%%").printf (process.cpu_percentage);

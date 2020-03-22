@@ -1,6 +1,6 @@
 // For more info look at: http://man7.org/linux/man-pages/man5/proc.5.html
 
-struct Monitor.ProcessIO {
+public struct Monitor.ProcessIO {
 
     // characters read
     public uint64 rchar;

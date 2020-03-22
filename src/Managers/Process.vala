@@ -30,7 +30,7 @@ public class Monitor.Process  : GLib.Object {
     }
 
     // Contains info about io
-    ProcessIO io;
+    public ProcessIO io;
 
     // Contains status info
     public ProcessStatus stat;
@@ -123,25 +123,25 @@ public class Monitor.Process  : GLib.Object {
                 var splitted_line = line.split (":");
                 switch (splitted_line[0]) {
                 case "wchar" :
-                    io.wchar = (uint64)splitted_line[1];
+                    io.wchar = uint64.parse(splitted_line[1]);
                     break;
                 case "rchar" :
-                    io.rchar = (uint64)splitted_line[1];
+                    io.rchar = uint64.parse(splitted_line[1]);
                     break;
                 case "syscr" :
-                    io.syscr = (uint64)splitted_line[1];
+                    io.syscr = uint64.parse(splitted_line[1]);
                     break;
                 case "syscw" :
-                    io.syscw = (uint64)splitted_line[1];
+                    io.syscw = uint64.parse(splitted_line[1]);
                     break;
                 case "read_bytes" :
-                    io.read_bytes = (uint64)splitted_line[1];
+                    io.read_bytes = uint64.parse(splitted_line[1]);
                     break;
                 case "write_bytes" :
-                    io.write_bytes = (uint64)splitted_line[1];
+                    io.write_bytes = uint64.parse(splitted_line[1]);
                     break;
                 case "cancelled_write_bytes" :
-                    io.cancelled_write_bytes = (uint64)splitted_line[1];
+                    io.cancelled_write_bytes = uint64.parse(splitted_line[1]);
                     break;
                 default :
                     warning ("Unknown value in /proc/%d/io", stat.pid);
