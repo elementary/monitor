@@ -51,7 +51,7 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
             //  string icon_name = process.icon.to_string ();
 
             set (iter,
-                 Column.NAME, process.command,
+                 Column.NAME, process.application_name,
                  Column.ICON, process.icon.to_string (),
                  Column.PID, process.stat.pid,
                 -1);
