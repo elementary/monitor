@@ -1,5 +1,5 @@
 
-project('com.github.stsdc.monitor', 'vala', 'c', version: '1.0.0')
+project('com.github.stsdc.monitor', 'vala', 'c', version: '0.7.0')
 
 # these are Meson modules
 gnome = import('gnome')
@@ -18,7 +18,7 @@ gtk = dependency('gtk+-3.0')
 gee = dependency('gee-0.8')
 gio = dependency('gio-2.0')
 gobject = dependency('gobject-2.0')
-bamf = dependency('libbamf3')
+bamf = dependency('libbamf3') # to remove
 gtop = dependency('libgtop-2.0')
 wnck = dependency('libwnck-3.0')
 wingpanel = dependency('wingpanel-2.0')
@@ -68,6 +68,7 @@ executable(
     'src/Views/ProcessView/ProcessInfoView/Preventor.vala',
     'src/Views/ProcessView/ProcessInfoView/RoundyLabel.vala',
     'src/Views/ProcessView/ProcessInfoView/Graph.vala',
+    'src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala',
 
     # Widgets
     'src/Widgets/Headerbar/Headerbar.vala',
@@ -102,7 +103,7 @@ executable(
         gee,
         gio,
         gobject,
-        bamf,
+        bamf, # to remove
         gtop,
         wnck,
         gdk_x11,
