@@ -47,6 +47,8 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     private Gtk.Button end_process_button;
     private Gtk.Button kill_process_button;
 
+    private Preventor preventor;
+
     construct {
         cpu_graph_model = new GraphModel();
     }
@@ -141,8 +143,25 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         process_action_bar.add (end_process_button);
         process_action_bar.add (kill_process_button);
 
-        add (process_action_bar);
+        Preventor preventor = new Preventor (process_action_bar, "process_action_bar");
 
+        kill_process_button.clicked.connect(() => {
+            preventor.set_prevention (_("Confirm kill of the process?"));
+            preventor.confirmed.connect((is_confirmed) => {
+                if (is_confirmed) process.kill(); // maybe add a toast that process killed
+            });
+        });
+
+        end_process_button.clicked.connect(() => {
+            preventor.set_prevention (_("Confirm end of the process?"));
+            preventor.confirmed.connect((is_confirmed) => {
+                if (is_confirmed) process.end(); // maybe add a toast that process ended
+           });
+        });
+
+
+        add (preventor);
+        show();
     }
 
     public void update () {
