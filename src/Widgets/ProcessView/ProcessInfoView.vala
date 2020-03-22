@@ -161,7 +161,6 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
 
         add (preventor);
-        show();
     }
 
     public void update () {

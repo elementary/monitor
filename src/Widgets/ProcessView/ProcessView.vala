@@ -30,7 +30,6 @@ public class Monitor.ProcessView : Gtk.Box {
         paned.set_hexpand (true);
         
         add (paned);
-        show_all ();
     }
 
     public void on_process_selected (Process process) {
