@@ -58,7 +58,7 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
         mem_graph = new Graph();
 
         var graph_wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        graph_wrapper.valign = Gtk.Align.START;
+        graph_wrapper.vexpand = false;
         graph_wrapper.height_request = 60;
 
         graph_wrapper.add (cpu_graph);
@@ -70,7 +70,7 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
         attach (process_info_other, 0, 3, 1, 1);
 
         var process_action_bar = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        process_action_bar.valign = Gtk.Align.START;
+        process_action_bar.valign = Gtk.Align.END;
         process_action_bar.halign = Gtk.Align.END;
         
         end_process_button = new Gtk.Button.with_label (_("End Process"));
