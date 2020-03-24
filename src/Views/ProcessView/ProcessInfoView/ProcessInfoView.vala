@@ -20,6 +20,7 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
 
     private ProcessInfoHeader process_info_header;
     private ProcessInfoOther process_info_other;
+    private OpenFilesListBox open_files_list_box;
     
     private Regex ? regex;
     private Gtk.Grid grid;
@@ -69,6 +70,9 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
         process_info_other = new ProcessInfoOther ();
         attach (process_info_other, 0, 3, 1, 1);
 
+        open_files_list_box = new OpenFilesListBox ();
+        attach (open_files_list_box, 0, 4, 1, 1);
+
         var process_action_bar = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         process_action_bar.valign = Gtk.Align.END;
         process_action_bar.halign = Gtk.Align.END;
@@ -103,7 +107,7 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
            });
         });
 
-        attach (preventor, 0, 4, 1, 1);
+        attach (preventor, 0, 5, 1, 1);
 
 
 
@@ -119,6 +123,8 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
 
             mem_graph_model.update (process.mem_percentage);
             mem_graph.tooltip_text = ("%.1f%%").printf (process.mem_percentage);
+
+            open_files_list_box.update (process);
 
         }
     }
