@@ -35,6 +35,9 @@ public class Monitor.Process  : GLib.Object {
     // Contains status info
     public ProcessStatus stat;
 
+    public ProcessStatusMemory statm;
+
+    public Gee.HashSet<string> open_files_paths;
 
     /**
      * CPU usage of this process from the last time that it was updated, measured in percent
@@ -56,6 +59,8 @@ public class Monitor.Process  : GLib.Object {
     // Construct a new process
     public Process (int _pid) {
         _icon = ProcessUtils.get_default_icon ();
+
+        open_files_paths = new Gee.HashSet<string> ();
 
         last_total = 0;
 
@@ -84,6 +89,8 @@ public class Monitor.Process  : GLib.Object {
         if (exists) {
             get_usage (cpu_total, cpu_last_total);
             parse_io ();
+            parse_statm ();
+            get_open_files ();
         }
         return exists;
     }
@@ -193,6 +200,44 @@ public class Monitor.Process  : GLib.Object {
         stat.nice = int.parse (splitted_stat[18]);
         stat.num_threads = int.parse (splitted_stat[19]);
 
+        return true;
+    }
+
+    private bool parse_statm () {
+        string ? statm_contents = ProcessUtils.read_file ("/proc/%d/statm".printf (stat.pid));
+
+        if (statm_contents == null) return false;
+
+        var splitted_statm = statm_contents.split (" ");
+        statm.size = int.parse (splitted_statm[0]);
+        statm.resident = int.parse (splitted_statm[1]);
+        statm.shared = int.parse (splitted_statm[2]);
+        statm.trs = int.parse (splitted_statm[3]);
+        statm.lrs = int.parse (splitted_statm[4]);
+        statm.drs = int.parse (splitted_statm[5]);
+        statm.dt = int.parse (splitted_statm[6]);
+
+        return true;
+    }
+
+    private bool get_open_files () {
+        try {
+            string directory = "/proc/%d/fd".printf (stat.pid);
+            Dir dir = Dir.open (directory, 0);
+            string? name = null;
+            while ((name = dir.read_name ()) != null) {
+                string path = Path.build_filename (directory, name);
+
+                if (FileUtils.test (path, FileTest.IS_SYMLINK)) {
+                    string real_path = FileUtils.read_link(path);
+                    //  debug(content);
+                    open_files_paths.add (real_path);
+                }
+
+            }
+        } catch (FileError err) {
+            warning (err.message);
+        }
         return true;
     }
 

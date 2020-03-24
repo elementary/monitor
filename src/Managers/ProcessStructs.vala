@@ -25,6 +25,33 @@ public struct Monitor.ProcessIO {
     public uint64 cancelled_write_bytes;
 }
 
+public struct Monitor.ProcessStatusMemory {
+
+    // total program size (pages)		(same as VmSize in status)
+    public uint64 size;
+
+    // size of memory portions (pages)	(same as VmRSS in status)
+    public uint64 resident;
+
+    // number of pages that are shared	
+    // (i.e. backed by a file, same as RssFile+RssShmem in status)
+    public uint64 shared;
+
+    // number of pages that are 'code'	(not including libs; broken,
+    // includes data segment)
+    public uint64 trs;
+
+    // number of pages of library		(always 0 on 2.6)
+    public uint64 lrs;
+
+    // number of pages of data/stack		(including libs; broken,
+    // includes library text)
+    public uint64 drs;
+
+    // number of dirty pages			(always 0 on 2.6)
+    public uint64 dt;
+}
+
 public struct Monitor.ProcessStatus {
     // process ID
     public int pid;
