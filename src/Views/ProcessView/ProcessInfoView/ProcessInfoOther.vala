@@ -20,16 +20,16 @@ public class Monitor.ProcessInfoOther : Gtk.Grid  {
         var net_label = new Gtk.Label ( _("NET"));
         net_label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
 
-        var rchar_desc_label = create_label (_("characters read"));
+        var rchar_desc_label = create_label (_("Characters read"));
         rchar_label = create_label (_("N/A"));
 
-        var wchar_desc_label = create_label (_("characters written"));
+        var wchar_desc_label = create_label (_("Characters written"));
         wchar_label = create_label (_("N/A"));
 
-        var syscr_desc_label = create_label (_("read syscalls"));
+        var syscr_desc_label = create_label (_("Read syscalls"));
         syscr_label = create_label (_("N/A"));
 
-        var syscw_desc_label = create_label (_("write syscalls"));
+        var syscw_desc_label = create_label (_("Write syscalls"));
         syscw_label = create_label (_("N/A"));
 
         var write_bytes_desc_label = create_label (_("Read bytes"));
@@ -38,7 +38,7 @@ public class Monitor.ProcessInfoOther : Gtk.Grid  {
         var read_bytes_desc_label = create_label (_("Written bytes"));
         read_bytes_label = create_label (_("N/A"));
 
-        var cancelled_write_bytes_desc_label = create_label (_("Cancelled write_bytes"));
+        var cancelled_write_bytes_desc_label = create_label (_("Cancelled write bytes"));
         cancelled_write_bytes_label = create_label (_("N/A"));
 
         attach (io_label, 0, 0, 1, 2);

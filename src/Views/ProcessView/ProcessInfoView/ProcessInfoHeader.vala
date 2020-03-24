@@ -60,13 +60,13 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
     public void update (Process process) {
         application_name.set_text (process.application_name);
         application_name.tooltip_text = process.command;
-        pid.set_text (("%d").printf (process.stat.pid));
-        nice.set_text (("%d").printf (process.stat.nice));
-        priority.set_text (("%d").printf (process.stat.priority));
+        pid.set_text (process.stat.pid.to_string());
+        nice.set_text (process.stat.nice.to_string());
+        priority.set_text (process.stat.priority.to_string());
         username.set_text (process.username);
-        num_threads.set_text (("%d").printf (process.stat.num_threads));
+        num_threads.set_text (process.stat.num_threads.to_string());
         state.set_text (process.stat.state);
-        num_threads.set_text (("%d").printf (process.stat.num_threads));
+        num_threads.set_text (process.stat.num_threads.to_string());
         set_icon (process);
     }
 
