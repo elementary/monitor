@@ -73,7 +73,9 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
         attach (process_info_other, 0, 3, 1, 1);
 
         open_files_list_box = new OpenFilesListBox ();
-        attach (open_files_list_box, 0, 4, 1, 1);
+        var open_files_list_box_scrolled = new Gtk.ScrolledWindow (null, null);
+        open_files_list_box_scrolled.add (open_files_list_box);
+        attach (open_files_list_box_scrolled, 0, 4, 1, 1);
 
         var process_action_bar = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         process_action_bar.valign = Gtk.Align.END;

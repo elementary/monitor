@@ -13,7 +13,7 @@ public class Monitor.OpenFilesListBox : Gtk.ListBox {
 
         foreach (var path in process.open_files_paths) {
             var path_label = new Gtk.Label (path);
-            debug (path);
+            //  debug (path);
             //  row.add (path_label);
             add (path_label);
         }
