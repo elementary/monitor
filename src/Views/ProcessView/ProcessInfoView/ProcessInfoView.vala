@@ -73,9 +73,7 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
         attach (process_info_other, 0, 3, 1, 1);
 
         open_files_list_box = new OpenFilesListBox ();
-        var open_files_list_box_scrolled = new Gtk.ScrolledWindow (null, null);
-        open_files_list_box_scrolled.add (open_files_list_box);
-        attach (open_files_list_box_scrolled, 0, 4, 1, 1);
+        attach (open_files_list_box, 0, 4, 1, 1);
 
         var process_action_bar = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         process_action_bar.valign = Gtk.Align.END;
@@ -128,7 +126,7 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
             mem_graph_model.update (process.mem_percentage);
             mem_graph.tooltip_text = ("%.1f%%").printf (process.mem_percentage);
 
-            open_files_list_box.update (process);
+            //  open_files_list_box.update (process);
 
         }
     }
