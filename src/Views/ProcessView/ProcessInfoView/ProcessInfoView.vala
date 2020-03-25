@@ -7,6 +7,8 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
 
             process_info_header.update (_process);
             process_info_other.update (_process);
+            open_files_list_box.update (_process);
+
             // Clearing graphs when new process is set
             cpu_graph_model = new GraphModel();
             cpu_graph.set_model(cpu_graph_model);
