@@ -6,8 +6,6 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
     private Gtk.TreeViewColumn memory_column;
     private Regex ? regex;
 
-    const string NO_DATA = "\u2014";
-
     public signal void process_selected (Process process);
 
     public CPUProcessTreeView (TreeViewModel model) {
@@ -101,7 +99,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
 
         // format the double into a string
         if (cpu_usage < 0.0)
-            (cell as Gtk.CellRendererText).text = NO_DATA;
+            (cell as Gtk.CellRendererText).text = Utils.NO_DATA;
         else
             (cell as Gtk.CellRendererText).text = "%.0f%%".printf (cpu_usage);
     }
@@ -128,7 +126,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
 
         // format the double into a string
         if (memory_usage == 0)
-            (cell as Gtk.CellRendererText).text = NO_DATA;
+            (cell as Gtk.CellRendererText).text = Utils.NO_DATA;
         else
             (cell as Gtk.CellRendererText).text = "%.1f %s".printf (memory_usage_double, units);
     }
@@ -139,7 +137,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
         int pid = pid_value.get_int ();
         // format the double into a string
         if (pid == 0) {
-            (cell as Gtk.CellRendererText).text = NO_DATA;
+            (cell as Gtk.CellRendererText).text = Utils.NO_DATA;
         }
     }
 

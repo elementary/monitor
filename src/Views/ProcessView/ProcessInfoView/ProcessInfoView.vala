@@ -6,8 +6,8 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
             _process = value;
 
             process_info_header.update (_process);
-            process_info_other.update (_process);
-            open_files_list_box.update (_process);
+            process_info_io_stats.update (_process);
+
 
             // Clearing graphs when new process is set
             cpu_graph_model = new GraphModel();
@@ -21,8 +21,7 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
     private Gtk.ScrolledWindow command_wrapper;
 
     private ProcessInfoHeader process_info_header;
-    private ProcessInfoOther process_info_other;
-    private OpenFilesListBox open_files_list_box;
+    private ProcessInfoIOStats process_info_io_stats;
     
     private Regex ? regex;
     private Gtk.Grid grid;
@@ -69,11 +68,9 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
 
         attach (graph_wrapper, 0, 2, 1, 1);
 
-        process_info_other = new ProcessInfoOther ();
-        attach (process_info_other, 0, 3, 1, 1);
+        process_info_io_stats = new ProcessInfoIOStats ();
+        attach (process_info_io_stats, 0, 3, 1, 1);
 
-        open_files_list_box = new OpenFilesListBox ();
-        attach (open_files_list_box, 0, 4, 1, 1);
 
         var process_action_bar = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         process_action_bar.valign = Gtk.Align.END;
@@ -118,7 +115,7 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
     public void update () {
         if (process != null) {
             process_info_header.update (process);
-            process_info_other.update (process);
+            //  process_info_other.update (process);
 
             cpu_graph_model.update (process.cpu_percentage);
             cpu_graph.tooltip_text = ("%.1f%%").printf (process.cpu_percentage);
