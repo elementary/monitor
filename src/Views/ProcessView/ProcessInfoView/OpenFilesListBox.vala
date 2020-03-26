@@ -6,6 +6,7 @@ public class Monitor.OpenFilesListBox : Gtk.ScrolledWindow {
         vadjustment = null;
 
         listbox = new Gtk.ListBox ();
+        listbox.get_style_context ().add_class ("open_files_list_box");
         listbox.set_selection_mode (Gtk.SelectionMode.NONE);
         listbox.get_style_context ().add_class ("open_files_list_box");
         listbox.vexpand = true;
@@ -20,8 +21,12 @@ public class Monitor.OpenFilesListBox : Gtk.ScrolledWindow {
             listbox.remove (element);
 
         foreach (var path in process.open_files_paths) {
-            var row = new OpenFilesListBoxRow (path);
-            listbox.add (row);
+            // display only real paths
+            // probably should be done in process class
+            if (path.substring(0, 1) == "/") {
+                var row = new OpenFilesListBoxRow (path);
+                listbox.add (row);
+            }
         }
         show_all ();
     }
@@ -30,7 +35,8 @@ public class Monitor.OpenFilesListBox : Gtk.ScrolledWindow {
 
 public class Monitor.OpenFilesListBoxRow : Gtk.ListBoxRow {
     construct {
-        margin = 6;
+
+        get_style_context ().add_class ("open_files_list_box_row");
     }
     public OpenFilesListBoxRow (string text) {
         Gtk.Label label = new Gtk.Label (text);

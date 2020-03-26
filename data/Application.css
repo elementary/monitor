@@ -53,3 +53,18 @@ font-size:9px;
 .open_files_list_box_wrapper {
     border: 1px @SILVER_300 solid;
 }
+
+.open_files_list_box {
+
+}
+.open_files_list_box_row {
+    border-bottom: 1px @SILVER_100 solid;
+}
+
+.open_files_list_box_row label {
+    font-family: monospace;
+    /* background-color: @SILVER_300; */
+    padding: 4px 6;
+    margin: 6px 4px;
+    border-radius: 4px;
+}
