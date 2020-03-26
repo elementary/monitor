@@ -64,7 +64,11 @@ font-size:9px;
 .open_files_list_box_row label {
     font-family: monospace;
     /* background-color: @SILVER_300; */
-    padding: 4px 6;
-    margin: 6px 4px;
+    padding: 6px 2px 2px;
     border-radius: 4px;
+}
+
+.open_files_list_box_row image {
+    color: @SILVER_700;
+    margin: 6px;
 }
