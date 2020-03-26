@@ -11,6 +11,7 @@ public class Monitor.Preventor : Gtk.Stack {
 
     construct {
         vexpand = true;
+        valign = Gtk.Align.END;
 
         preventive_action_bar = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         preventive_action_bar.valign = Gtk.Align.START;
