@@ -4,7 +4,8 @@ public class Monitor.Graph : Dazzle.GraphView
 
         construct {
             expand = true;
-            margin = 6;
+            valign = Gtk.Align.START;
+            height_request = 60;
 
             Gdk.RGBA linecol = Gdk.RGBA ();
             linecol.red = 1.0;

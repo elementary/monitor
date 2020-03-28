@@ -8,13 +8,8 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
             process_info_header.update (_process);
             process_info_io_stats.update (_process);
 
+            process_info_cpu_ram.clear_graphs ();
 
-            // Clearing graphs when new process is set
-            cpu_graph_model = new GraphModel();
-            cpu_graph.set_model(cpu_graph_model);
-
-            mem_graph_model = new GraphModel();
-            mem_graph.set_model(mem_graph_model);
         }
     }
     public string ? icon_name;
@@ -22,24 +17,17 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
 
     private ProcessInfoHeader process_info_header;
     private ProcessInfoIOStats process_info_io_stats;
+    private ProcessInfoCPURAM process_info_cpu_ram;
     
     private Regex ? regex;
     private Gtk.Grid grid;
 
-    private Graph cpu_graph;
-    private GraphModel cpu_graph_model;
 
-    private Graph mem_graph;
-    private GraphModel mem_graph_model;
 
     private Gtk.Button end_process_button;
     private Gtk.Button kill_process_button;
 
     private Preventor preventor;
-
-    construct {
-        cpu_graph_model = new GraphModel();
-    }
 
     public ProcessInfoView () {
         //  get_style_context ().add_class ("process_info");
@@ -55,21 +43,12 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
         sep.margin = 12;
         attach (sep, 0, 1, 1, 1);
 
+        process_info_cpu_ram = new ProcessInfoCPURAM ();
 
-        cpu_graph = new Graph();
-        mem_graph = new Graph();
-
-        var graph_wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        graph_wrapper.vexpand = false;
-        graph_wrapper.height_request = 60;
-
-        graph_wrapper.add (cpu_graph);
-        graph_wrapper.add (mem_graph);
-
-        attach (graph_wrapper, 0, 2, 1, 1);
+        attach (process_info_cpu_ram, 0, 2, 1, 1);
 
         process_info_io_stats = new ProcessInfoIOStats ();
-        attach (process_info_io_stats, 0, 3, 1, 1);
+        attach (process_info_io_stats, 0, 4, 1, 1);
 
 
         var process_action_bar = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
@@ -115,16 +94,7 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
     public void update () {
         if (process != null) {
             process_info_header.update (process);
-            //  process_info_other.update (process);
-
-            cpu_graph_model.update (process.cpu_percentage);
-            cpu_graph.tooltip_text = ("%.1f%%").printf (process.cpu_percentage);
-
-            mem_graph_model.update (process.mem_percentage);
-            mem_graph.tooltip_text = ("%.1f%%").printf (process.mem_percentage);
-
-            //  open_files_list_box.update (process);
-
+            process_info_cpu_ram.update (process);
         }
     }
 

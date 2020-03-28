@@ -50,6 +50,12 @@ font-weight:bold;
 font-size:9px;
 }
 
+.graph {
+    border: 1px @SILVER_300 solid;
+    border-radius: 6px
+
+}
+
 .open_files_list_box_wrapper {
     border: 1px @SILVER_300 solid;
 }
