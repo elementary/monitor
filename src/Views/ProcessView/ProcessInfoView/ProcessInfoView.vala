@@ -95,6 +95,8 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
         if (process != null) {
             process_info_header.update (process);
             process_info_cpu_ram.update (process);
+            process_info_io_stats.update (process);
+
         }
     }
 
