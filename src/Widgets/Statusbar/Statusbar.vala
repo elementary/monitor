@@ -35,6 +35,9 @@ public class Monitor.Statusbar : Gtk.ActionBar {
         cpu_usage_label.set_text (("%d%%").printf (sysres.cpu_percentage));
         memory_usage_label.set_text (("%d%%").printf (sysres.memory_percentage));
 
+        string cpu_tooltip_text = ("%.2f %s").printf (sysres.cpu_frequency, _ ("GHz"));
+        cpu_usage_label.tooltip_text = cpu_tooltip_text;
+
         string memory_tooltip_text = ("%.1f %s / %.1f %s").printf (sysres.memory_used, _ ("GiB"), sysres.memory_total, _ ("GiB"));
         memory_usage_label.tooltip_text = memory_tooltip_text;
 
