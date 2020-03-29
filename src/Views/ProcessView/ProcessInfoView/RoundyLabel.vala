@@ -4,8 +4,8 @@ public class Monitor.RoundyLabel : Gtk.Fixed {
     public Gtk.Label desc;
 
     public RoundyLabel (string description) {
-        val = new Gtk.Label (_ ("N/A"));
-        val.get_style_context ().add_class (Granite.STYLE_CLASS_BADGE);
+        val = new Gtk.Label (Utils.NO_DATA);
+        val.get_style_context ().add_class ("roundy-label");
 
         desc = new Gtk.Label (description);
         desc.get_style_context ().add_class ("pid");

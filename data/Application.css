@@ -1,10 +1,10 @@
-.badge,
-.badge:hover,
-.badge:selected,
-.badge:selected:focus,
-.badge:hover:selected {
+.roundy-label,
+.roundy-label:hover,
+.roundy-label:selected,
+.roundy-label:selected:focus,
+.roundy-label:hover:selected {
     background-image: none;
-    background-color: alpha(@text_color, 0.1);
+    background-color: @SILVER_300;
     box-shadow: none;
     color: alpha(@text_color, 0.7);
     font-weight: 700;
@@ -12,6 +12,21 @@
     padding: 0 6px;
     margin: 0 3px;
     border-width: 0;
+}
+
+.username-current {
+    background-color: @SILVER_300;
+    color: @SILVER_900;
+}
+
+.username-other {
+    background-color: @BANANA_300;
+    color: @BANANA_900;
+}
+
+.username-root {
+    background-color: @STRAWBERRY_300;
+    color: @SILVER_100;
 }
 
 .state_badge,

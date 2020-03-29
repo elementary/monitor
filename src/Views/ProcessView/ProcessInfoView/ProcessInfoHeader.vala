@@ -42,6 +42,8 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         num_threads = new RoundyLabel (_ ("THR"));
         //  ppid = new RoundyLabel (_("PPID"));
         //  pgrp = new RoundyLabel (_("PGRP"));
+
+        //  TODO: tooltip_text UID
         username = new RoundyLabel ("");
 
         var wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
@@ -63,6 +65,23 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         pid.set_text (process.stat.pid.to_string());
         nice.set_text (process.stat.nice.to_string());
         priority.set_text (process.stat.priority.to_string());
+
+        if (process.uid == 0) {
+            username.val.get_style_context ().add_class ("username-root");
+            username.val.get_style_context ().remove_class ("username-other");
+            username.val.get_style_context ().remove_class ("username-current");
+
+
+        } else if (process.uid == (int)Posix.getuid ()) {
+            username.val.get_style_context ().add_class ("username-current");
+            username.val.get_style_context ().remove_class ("username-other");
+            username.val.get_style_context ().remove_class ("username-root");
+        } else {
+            username.val.get_style_context ().add_class ("username-other");
+            username.val.get_style_context ().remove_class ("username-root");
+            username.val.get_style_context ().remove_class ("username-current");
+        }
+
         username.set_text (process.username);
         num_threads.set_text (process.stat.num_threads.to_string());
         state.set_text (process.stat.state);
