@@ -44,6 +44,7 @@
             last_total = total;
         }
 
+        // From https://github.com/PlugaruT/wingpanel-monitor/blob/edcfea6a31f794aa44da6d8b997378ea1a8d8fa3/src/Services/Cpu.vala#L61-L85
         private void update_frequency () {
             double maxcur = 0;
             for (uint cpu_id = 0, isize = (int) get_num_processors (); cpu_id < isize; ++cpu_id) {
