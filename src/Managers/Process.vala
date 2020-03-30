@@ -236,7 +236,12 @@ public class Monitor.Process  : GLib.Object {
 
             }
         } catch (FileError err) {
-            warning (err.message);
+            if (err is FileError.ACCES) {
+                // TODO make signal that emits error info
+                // No permission
+            } else {
+                warning (err.message);
+            }
         }
         return true;
     }
