@@ -95,7 +95,6 @@ executable(
     'src/Services/Updater.vala',
 
     'src/Resources/CPU.vala',
-    'src/Resources/Core.vala',
     'src/Resources/Memory.vala',
     'src/Resources/Swap.vala',
     c_args: c_args,
