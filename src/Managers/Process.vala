@@ -240,7 +240,7 @@ public class Monitor.Process  : GLib.Object {
                 // TODO make signal that emits error info
                 // No permission
             } else {
-                warning (err.message);
+                error (err.message);
             }
         }
         return true;
