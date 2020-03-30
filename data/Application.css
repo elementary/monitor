@@ -35,9 +35,9 @@
 .state_badge:selected:focus,
 .state_badge:hover:selected {
     background-image: none;
-    background-color: #8cd5ff;
+    background-color: @BLUEBERRY_500;
     box-shadow: none;
-    color: alpha(#002e99, 0.7);
+    color: white;
     font-weight: 700;
     border-radius: 10px;
     padding: 0 6px;
