@@ -20,14 +20,17 @@ public class Monitor.OpenFilesListBox : Gtk.ScrolledWindow {
         foreach (Gtk.Widget element in listbox.get_children ())
             listbox.remove (element);
 
-        foreach (var path in process.open_files_paths) {
-            // display only real paths
-            // probably should be done in process class
-            if (path.substring(0, 1) == "/") {
 
-                // TODO: remove `(deleted)` at the end of the path if deleted ofc
-                var row = new OpenFilesListBoxRow (path, path.contains("(deleted)"));
-                listbox.add (row);
+        if (process.open_files_paths.size > 0) {
+            foreach (var path in process.open_files_paths) {
+                // display only real paths
+                // probably should be done in process class
+                if (path.substring(0, 1) == "/") {
+
+                    // TODO: remove `(deleted)` at the end of the path if deleted ofc
+                    var row = new OpenFilesListBoxRow (path, path.contains("(deleted)"));
+                    listbox.add (row);
+                }
             }
         }
         show_all ();
@@ -55,6 +58,8 @@ public class Monitor.OpenFilesListBoxRow : Gtk.ListBoxRow {
         }
 
         grid.attach (icon, 0, 0, 1, 1);
+
+        debug (text);
 
         Gtk.Label label = new Gtk.Label (text);
         label.halign = Gtk.Align.START;

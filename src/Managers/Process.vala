@@ -2,6 +2,9 @@ public class Monitor.Process  : GLib.Object {
     // The size of each RSS page, in bytes
     //  private static long PAGESIZE = Posix.sysconf (Posix._SC_PAGESIZE);
 
+    public signal void fd_permission_error (string error);
+
+
     // Whether or not the PID leads to something
     public bool exists { get; private set; }
 
@@ -237,8 +240,7 @@ public class Monitor.Process  : GLib.Object {
             }
         } catch (FileError err) {
             if (err is FileError.ACCES) {
-                // TODO make signal that emits error info
-                // No permission
+                fd_permission_error ( err.message);
             } else {
                 error (err.message);
             }

@@ -1,8 +1,11 @@
-public class Monitor.ProcessInfoView : Gtk.Grid {
+public class Monitor.ProcessInfoView : Gtk.Box {
     private Process _process;
     public Process ? process {
         get { return _process; }
         set {
+
+            // remember to disconnect before assigning a new value
+            _process.fd_permission_error.disconnect (show_permission_error_infobar);
             _process = value;
 
             process_info_header.update (_process);
@@ -10,10 +13,16 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
 
             process_info_cpu_ram.clear_graphs ();
 
+            permission_error_infobar.revealed = false;
+            _process.fd_permission_error.connect (show_permission_error_infobar);
+
         }
     }
     public string ? icon_name;
     private Gtk.ScrolledWindow command_wrapper;
+
+    private Gtk.InfoBar permission_error_infobar;
+    private Gtk.Label permission_error_label;
 
     private ProcessInfoHeader process_info_header;
     private ProcessInfoIOStats process_info_io_stats;
@@ -22,33 +31,41 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
     private Regex ? regex;
     private Gtk.Grid grid;
 
-
-
     private Gtk.Button end_process_button;
     private Gtk.Button kill_process_button;
 
     private Preventor preventor;
 
     public ProcessInfoView () {
-        //  get_style_context ().add_class ("process_info");
-        margin = 12;
         orientation = Gtk.Orientation.VERTICAL;
         hexpand = true;
-        column_spacing = 12;
+
+        permission_error_infobar = new Gtk.InfoBar ();
+        permission_error_infobar.message_type = Gtk.MessageType.ERROR;
+        permission_error_infobar.revealed = false;
+        permission_error_label = new Gtk.Label (Utils.NO_DATA);
+        permission_error_infobar.get_content_area ().add (permission_error_label);
+        add (permission_error_infobar);
+
+        var grid = new Gtk.Grid ();
+        grid.margin = 12;
+        grid.hexpand = true;
+        grid.column_spacing = 12;
+        add (grid);
+
 
         process_info_header = new ProcessInfoHeader();
-        attach (process_info_header, 0, 0, 1, 1);
+        grid.attach (process_info_header, 0, 0, 1, 1);
 
         var sep = new Gtk.Separator(Gtk.Orientation.HORIZONTAL);
         sep.margin = 12;
-        attach (sep, 0, 1, 1, 1);
+        grid.attach (sep, 0, 1, 1, 1);
 
         process_info_cpu_ram = new ProcessInfoCPURAM ();
-
-        attach (process_info_cpu_ram, 0, 2, 1, 1);
+        grid.attach (process_info_cpu_ram, 0, 2, 1, 1);
 
         process_info_io_stats = new ProcessInfoIOStats ();
-        attach (process_info_io_stats, 0, 4, 1, 1);
+        grid.attach (process_info_io_stats, 0, 4, 1, 1);
 
 
         var process_action_bar = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
@@ -85,10 +102,14 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
            });
         });
 
-        attach (preventor, 0, 5, 1, 1);
+        grid.attach (preventor, 0, 5, 1, 1);
+    }
 
-
-
+    private void show_permission_error_infobar (string error) {
+        if (permission_error_infobar.revealed == false) {   
+            permission_error_label.set_text (error);
+            permission_error_infobar.revealed = true;
+        }
     }
 
     public void update () {
@@ -96,10 +117,6 @@ public class Monitor.ProcessInfoView : Gtk.Grid {
             process_info_header.update (process);
             process_info_cpu_ram.update (process);
             process_info_io_stats.update (process);
-
         }
     }
-
-
-
 }
