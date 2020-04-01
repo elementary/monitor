@@ -26,8 +26,6 @@ public class Monitor.OpenFilesListBox : Gtk.ScrolledWindow {
                 // display only real paths
                 // probably should be done in process class
                 if (path.substring(0, 1) == "/") {
-
-                    // TODO: remove `(deleted)` at the end of the path if deleted ofc
                     var row = new OpenFilesListBoxRow (path, path.contains("(deleted)"));
                     listbox.add (row);
                 }
@@ -43,7 +41,8 @@ public class Monitor.OpenFilesListBoxRow : Gtk.ListBoxRow {
 
         get_style_context ().add_class ("open_files_list_box_row");
     }
-    public OpenFilesListBoxRow (string text, bool is_deleted) {
+    public OpenFilesListBoxRow (string _text, bool is_deleted) {
+        var text = _text;
         var grid = new Gtk.Grid ();
         grid.column_spacing = 2;
 
@@ -55,11 +54,11 @@ public class Monitor.OpenFilesListBoxRow : Gtk.ListBoxRow {
         if (is_deleted) {
             icon.gicon = new ThemedIcon ("edit-delete-symbolic");
             icon.tooltip_text = _("Deleted");
+            text = text.replace ("(deleted)", "");
         }
+        
 
         grid.attach (icon, 0, 0, 1, 1);
-
-        debug (text);
 
         Gtk.Label label = new Gtk.Label (text);
         label.halign = Gtk.Align.START;
