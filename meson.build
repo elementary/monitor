@@ -5,11 +5,15 @@ project('com.github.stsdc.monitor', 'vala', 'c', version: '0.7.0')
 gnome = import('gnome')
 i18n = import('i18n')
 
+
 # common dirs
 prefix = get_option('prefix')
 datadir = join_paths(prefix, get_option('datadir'))
 libdir = join_paths(prefix, get_option('libdir'))
 icondir = join_paths(datadir, 'icons', 'hicolor')
+
+livechart_proj = subproject('live-chart')
+livechart_dep = livechart_proj.get_variable('livechart_dep')
 
 # and these are project dependencies
 glib = dependency('glib-2.0')
@@ -111,6 +115,7 @@ executable(
         wnck,
         gdk_x11,
         dazzle,
+        livechart_dep,
         meson.get_compiler('c').find_library('m', required : false),
         meson.get_compiler('vala').find_library('posix')
     ],
