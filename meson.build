@@ -72,6 +72,7 @@ executable(
     'src/Views/ProcessView/ProcessInfoView/Preventor.vala',
     'src/Views/ProcessView/ProcessInfoView/RoundyLabel.vala',
     'src/Views/ProcessView/ProcessInfoView/Graph.vala',
+    'src/Views/ProcessView/ProcessInfoView/Chart.vala',
     'src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala',
     'src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala',
     'src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala',

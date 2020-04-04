@@ -28,8 +28,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     private ProcessInfoIOStats process_info_io_stats;
     private ProcessInfoCPURAM process_info_cpu_ram;
 
-    private LiveChart.Chart cpu_chart;
-    private LiveChart.Serie cpu_serie;
+    private Chart cpu_chart;
     
     private Regex ? regex;
     private Gtk.Grid grid;
@@ -108,21 +107,9 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         grid.attach (preventor, 0, 5, 1, 1);
 
 
-        cpu_serie = new LiveChart.Serie("CPU 1 usage", new LiveChart.SmoothLineArea());
-        cpu_serie.set_main_color({ 0.35, 0.8, 0.1, 1.0});
-        
-        var config = new LiveChart.Config();
-        config.y_axis.unit = "%";
-        config.y_axis.tick_interval = 25;
-        config.y_axis.fixed_max = LiveChart.cap(96);
-
-        cpu_chart = new LiveChart.Chart(config);
-        cpu_chart.vexpand = true;
+        cpu_chart = new Chart ();
 
         add (cpu_chart);
-
-        cpu_chart.add_serie(cpu_serie);
-
     }
 
     private void show_permission_error_infobar (string error) {
@@ -138,7 +125,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             process_info_cpu_ram.update (process);
             process_info_io_stats.update (process);
 
-            cpu_chart.add_value(cpu_serie, process.cpu_percentage);
+            cpu_chart.update(process.cpu_percentage);
 
         }
     }
