@@ -28,7 +28,6 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     private ProcessInfoIOStats process_info_io_stats;
     private ProcessInfoCPURAM process_info_cpu_ram;
 
-    private Chart cpu_chart;
     
     private Regex ? regex;
     private Gtk.Grid grid;
@@ -107,9 +106,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         grid.attach (preventor, 0, 5, 1, 1);
 
 
-        cpu_chart = new Chart ();
 
-        add (cpu_chart);
     }
 
     private void show_permission_error_infobar (string error) {
@@ -125,7 +122,6 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             process_info_cpu_ram.update (process);
             process_info_io_stats.update (process);
 
-            cpu_chart.update(process.cpu_percentage);
 
         }
     }
