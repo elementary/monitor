@@ -42,9 +42,8 @@ public class Monitor.ProcessInfoCPURAM : Gtk.Grid {
     }
 
     public void set_charts_data (Process process) {
-        foreach (var item in process.cpu_percentage_history) {
-            cpu_chart.update(item);
-        }
+        cpu_chart.set_data (process.cpu_percentage_history);
+        ram_chart.set_data (process.mem_percentage_history);
     }
 
     public void update (Process process) {
@@ -59,10 +58,5 @@ public class Monitor.ProcessInfoCPURAM : Gtk.Grid {
     public void clear_graphs () {
         cpu_chart.clear ();
         ram_chart.clear ();
-        //  cpu_graph_model = new GraphModel ();
-        //  cpu_graph.set_model (cpu_graph_model);
-
-        //  mem_graph_model = new GraphModel ();
-        //  mem_graph.set_model (mem_graph_model);
     }
 }

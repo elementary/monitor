@@ -46,8 +46,20 @@ public class Monitor.Chart : Gtk.Box {
         chart.add_value (serie, value);
     }
 
-    private void set_serie () {
+    public void set_data (Gee.ArrayList<double?> history) {
+        var refresh_rate_is_ms = 2000; //your own refresh rate in milliseconds
+        var now = GLib.get_real_time() / 1000; //now in milliseconds
+        
+        //the  timestamp of the first point
+        //we are considering that it is "now", but because of your data structure
+        //it can be between now and now - 2secs), we can't guess
+        var ts = now - (history.size * refresh_rate_is_ms);
 
+        history.foreach((value) => {
+            renderer.get_values ().add({ts, value});    
+            ts += refresh_rate_is_ms;
+            return true;
+        });
     }
 
     public void clear () {

@@ -12,7 +12,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             process_info_io_stats.update (_process);
 
             process_info_cpu_ram.clear_graphs ();
-            //  process_info_cpu_ram.set_charts_data (_process);
+            process_info_cpu_ram.set_charts_data (_process);
 
             permission_error_infobar.revealed = false;
             _process.fd_permission_error.connect (show_permission_error_infobar);
