@@ -58,6 +58,11 @@ public class Monitor.Process  : GLib.Object {
 
     private uint64 last_total;
 
+    const int history_buffer_size = 30;
+    public Gee.ArrayList<double ? > cpu_percentage_history = new Gee.ArrayList<double ? >();
+    public Gee.ArrayList<double ? > mem_percentage_history = new Gee.ArrayList<double ? >();
+
+
 
     // Construct a new process
     public Process (int _pid) {
@@ -133,25 +138,25 @@ public class Monitor.Process  : GLib.Object {
                 var splitted_line = line.split (":");
                 switch (splitted_line[0]) {
                 case "wchar" :
-                    io.wchar = uint64.parse(splitted_line[1]);
+                    io.wchar = uint64.parse (splitted_line[1]);
                     break;
                 case "rchar" :
-                    io.rchar = uint64.parse(splitted_line[1]);
+                    io.rchar = uint64.parse (splitted_line[1]);
                     break;
                 case "syscr" :
-                    io.syscr = uint64.parse(splitted_line[1]);
+                    io.syscr = uint64.parse (splitted_line[1]);
                     break;
                 case "syscw" :
-                    io.syscw = uint64.parse(splitted_line[1]);
+                    io.syscw = uint64.parse (splitted_line[1]);
                     break;
                 case "read_bytes" :
-                    io.read_bytes = uint64.parse(splitted_line[1]);
+                    io.read_bytes = uint64.parse (splitted_line[1]);
                     break;
                 case "write_bytes" :
-                    io.write_bytes = uint64.parse(splitted_line[1]);
+                    io.write_bytes = uint64.parse (splitted_line[1]);
                     break;
                 case "cancelled_write_bytes" :
-                    io.cancelled_write_bytes = uint64.parse(splitted_line[1]);
+                    io.cancelled_write_bytes = uint64.parse (splitted_line[1]);
                     break;
                 default :
                     warning ("Unknown value in /proc/%d/io", stat.pid);
@@ -227,20 +232,19 @@ public class Monitor.Process  : GLib.Object {
         try {
             string directory = "/proc/%d/fd".printf (stat.pid);
             Dir dir = Dir.open (directory, 0);
-            string? name = null;
+            string ? name = null;
             while ((name = dir.read_name ()) != null) {
                 string path = Path.build_filename (directory, name);
 
                 if (FileUtils.test (path, FileTest.IS_SYMLINK)) {
-                    string real_path = FileUtils.read_link(path);
+                    string real_path = FileUtils.read_link (path);
                     //  debug(content);
                     open_files_paths.add (real_path);
                 }
-
             }
         } catch (FileError err) {
             if (err is FileError.ACCES) {
-                fd_permission_error ( err.message);
+                fd_permission_error (err.message);
             } else {
                 error (err.message);
             }
@@ -270,6 +274,12 @@ public class Monitor.Process  : GLib.Object {
         cpu_percentage = 100 * ((double)(proc_time.rtime - cpu_last_used)) / (cpu_total - cpu_last_total);
         cpu_last_used = proc_time.rtime;
 
+        // Making CPU history
+        if (cpu_percentage_history.size == history_buffer_size) {
+            cpu_percentage_history.remove_at (0);
+        }
+        cpu_percentage_history.add (cpu_percentage);
+
         // Get memory usage by process
         GTop.Memory mem;
         GTop.get_mem (out mem);
@@ -286,5 +296,11 @@ public class Monitor.Process  : GLib.Object {
 
         var total_installed_memory = (double)mem.total / 1024;
         mem_percentage = (mem_usage / total_installed_memory) * 100;
+
+        // Making RAM history
+        if (mem_percentage_history.size == history_buffer_size) {
+            mem_percentage_history.remove_at (0);
+        }
+        mem_percentage_history.add (mem_percentage);
     }
 }

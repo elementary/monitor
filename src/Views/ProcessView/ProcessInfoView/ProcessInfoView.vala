@@ -12,6 +12,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             process_info_io_stats.update (_process);
 
             process_info_cpu_ram.clear_graphs ();
+            process_info_cpu_ram.set_charts_data (_process);
 
             permission_error_infobar.revealed = false;
             _process.fd_permission_error.connect (show_permission_error_infobar);
@@ -27,6 +28,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     private ProcessInfoHeader process_info_header;
     private ProcessInfoIOStats process_info_io_stats;
     private ProcessInfoCPURAM process_info_cpu_ram;
+
     
     private Regex ? regex;
     private Gtk.Grid grid;
@@ -103,6 +105,9 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         });
 
         grid.attach (preventor, 0, 5, 1, 1);
+
+
+
     }
 
     private void show_permission_error_infobar (string error) {
@@ -117,6 +122,8 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             process_info_header.update (process);
             process_info_cpu_ram.update (process);
             process_info_io_stats.update (process);
+
+
         }
     }
 }

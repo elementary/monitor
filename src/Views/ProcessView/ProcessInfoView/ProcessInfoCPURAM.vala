@@ -2,11 +2,8 @@ public class Monitor.ProcessInfoCPURAM : Gtk.Grid {
     private Gtk.Label cpu_label;
     private Gtk.Label ram_label;
 
-    private Graph cpu_graph;
-    private GraphModel cpu_graph_model;
-
-    private Graph mem_graph;
-    private GraphModel mem_graph_model;
+    private Chart cpu_chart;
+    private Chart ram_chart;
 
     construct {
         column_spacing = 6;
@@ -14,17 +11,20 @@ public class Monitor.ProcessInfoCPURAM : Gtk.Grid {
         vexpand = false;
         column_homogeneous = true;
         row_homogeneous = false;
+        
+        cpu_chart = new Chart ();
+        ram_chart = new Chart ();
 
-        cpu_graph = new Graph ();
-        mem_graph = new Graph ();
 
         var cpu_graph_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         cpu_graph_box.get_style_context ().add_class ("graph");
-        cpu_graph_box.add (cpu_graph);
+        cpu_graph_box.add (cpu_chart);
+
+
 
         var mem_graph_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         mem_graph_box.get_style_context ().add_class ("graph");
-        mem_graph_box.add (mem_graph);
+        mem_graph_box.add (ram_chart);
 
         cpu_label = new Gtk.Label ("CPU: " + Utils.NO_DATA);
         cpu_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
@@ -41,22 +41,22 @@ public class Monitor.ProcessInfoCPURAM : Gtk.Grid {
         attach (mem_graph_box, 1, 1, 1, 1);
     }
 
+    public void set_charts_data (Process process) {
+        cpu_chart.set_data (process.cpu_percentage_history);
+        ram_chart.set_data (process.mem_percentage_history);
+    }
+
     public void update (Process process) {
         cpu_label.set_text (("CPU: %.1f%%").printf (process.cpu_percentage));
         ram_label.set_text (("RAM: %.1f%%").printf (process.mem_percentage));
 
-        cpu_graph_model.update (process.cpu_percentage);
-        cpu_graph.tooltip_text = ("%.1f%%").printf (process.cpu_percentage);
+        cpu_chart.update(process.cpu_percentage);
+        ram_chart.update(process.mem_percentage);
 
-        mem_graph_model.update (process.mem_percentage);
-        mem_graph.tooltip_text = ("%.1f%%").printf (process.mem_percentage);
     }
 
     public void clear_graphs () {
-        cpu_graph_model = new GraphModel ();
-        cpu_graph.set_model (cpu_graph_model);
-
-        mem_graph_model = new GraphModel ();
-        mem_graph.set_model (mem_graph_model);
+        cpu_chart.clear ();
+        ram_chart.clear ();
     }
 }

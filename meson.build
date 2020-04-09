@@ -5,11 +5,15 @@ project('com.github.stsdc.monitor', 'vala', 'c', version: '0.7.0')
 gnome = import('gnome')
 i18n = import('i18n')
 
+
 # common dirs
 prefix = get_option('prefix')
 datadir = join_paths(prefix, get_option('datadir'))
 libdir = join_paths(prefix, get_option('libdir'))
 icondir = join_paths(datadir, 'icons', 'hicolor')
+
+livechart_proj = subproject('live-chart')
+livechart_dep = livechart_proj.get_variable('livechart_dep')
 
 # and these are project dependencies
 glib = dependency('glib-2.0')
@@ -23,7 +27,6 @@ gtop = dependency('libgtop-2.0')
 wnck = dependency('libwnck-3.0')
 wingpanel = dependency('wingpanel-2.0')
 gdk_x11 = dependency('gdk-x11-3.0')
-dazzle = dependency('libdazzle-1.0', version: '>= 3.30')
 
 config_data = configuration_data()
 config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
@@ -67,7 +70,7 @@ executable(
     # Widgets related only to ProcessInfoView
     'src/Views/ProcessView/ProcessInfoView/Preventor.vala',
     'src/Views/ProcessView/ProcessInfoView/RoundyLabel.vala',
-    'src/Views/ProcessView/ProcessInfoView/Graph.vala',
+    'src/Views/ProcessView/ProcessInfoView/Chart.vala',
     'src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala',
     'src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala',
     'src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala',
@@ -81,7 +84,6 @@ executable(
 
     # Models
     'src/Models/TreeViewModel.vala',
-    'src/Models/GraphModel.vala',
 
     # Other
     'src/Managers/AppManager.vala',
@@ -110,7 +112,7 @@ executable(
         gtop,
         wnck,
         gdk_x11,
-        dazzle,
+        livechart_dep,
         meson.get_compiler('c').find_library('m', required : false),
         meson.get_compiler('vala').find_library('posix')
     ],
