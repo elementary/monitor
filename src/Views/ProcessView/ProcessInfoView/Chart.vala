@@ -1,5 +1,6 @@
 public class Monitor.Chart : Gtk.Box {
     private LiveChart.Serie serie;
+    private LiveChart.SmoothLineArea renderer;
     private LiveChart.Chart chart;
     private LiveChart.Config config;
 
@@ -7,7 +8,7 @@ public class Monitor.Chart : Gtk.Box {
     construct {
         vexpand = true;
         height_request = 60;
-        
+
         config = new LiveChart.Config ();
         config.y_axis.unit = "%";
         config.y_axis.tick_interval = 25;
@@ -31,7 +32,9 @@ public class Monitor.Chart : Gtk.Box {
             red= 1, green= 1, blue= 1, alpha= 1
         };                                                                                  //White background
 
-        serie = new LiveChart.Serie ("CPU 1 usage", new LiveChart.SmoothLineArea ());
+        renderer = new LiveChart.SmoothLineArea (new LiveChart.Values(30));
+
+        serie = new LiveChart.Serie ("CPU 1 usage", renderer);
         serie.set_main_color ({ 0.35, 0.8, 0.1, 1.0});
 
         chart.add_serie (serie);
@@ -41,5 +44,13 @@ public class Monitor.Chart : Gtk.Box {
 
     public void update (double value) {
         chart.add_value (serie, value);
+    }
+
+    private void set_serie () {
+
+    }
+
+    public void clear () {
+        renderer.get_values ().clear ();
     }
 }

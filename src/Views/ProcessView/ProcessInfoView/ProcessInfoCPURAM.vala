@@ -20,6 +20,8 @@ public class Monitor.ProcessInfoCPURAM : Gtk.Grid {
         cpu_graph_box.get_style_context ().add_class ("graph");
         cpu_graph_box.add (cpu_chart);
 
+
+
         var mem_graph_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         mem_graph_box.get_style_context ().add_class ("graph");
         mem_graph_box.add (ram_chart);
@@ -39,6 +41,12 @@ public class Monitor.ProcessInfoCPURAM : Gtk.Grid {
         attach (mem_graph_box, 1, 1, 1, 1);
     }
 
+    public void set_charts_data (Process process) {
+        foreach (var item in process.cpu_percentage_history) {
+            cpu_chart.update(item);
+        }
+    }
+
     public void update (Process process) {
         cpu_label.set_text (("CPU: %.1f%%").printf (process.cpu_percentage));
         ram_label.set_text (("RAM: %.1f%%").printf (process.mem_percentage));
@@ -49,6 +57,8 @@ public class Monitor.ProcessInfoCPURAM : Gtk.Grid {
     }
 
     public void clear_graphs () {
+        cpu_chart.clear ();
+        ram_chart.clear ();
         //  cpu_graph_model = new GraphModel ();
         //  cpu_graph.set_model (cpu_graph_model);
 
