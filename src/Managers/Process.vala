@@ -246,7 +246,7 @@ public class Monitor.Process  : GLib.Object {
             if (err is FileError.ACCES) {
                 fd_permission_error (err.message);
             } else {
-                error (err.message);
+                warning (err.message);
             }
         }
         return true;
