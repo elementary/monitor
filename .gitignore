@@ -3,4 +3,4 @@ build
 .vscode
 *~
 .goutputstream-*
-./subprojects/*/
+subprojects/*/
