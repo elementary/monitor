@@ -26,6 +26,7 @@ namespace Monitor {
         private bool update_resources () {
             sysres = Utils.SystemResources () {
                 cpu_percentage = cpu.percentage,
+                cpu_frequency = cpu.frequency,
                 memory_percentage = memory.percentage,
                 memory_used = memory.used,
                 memory_total = memory.total,

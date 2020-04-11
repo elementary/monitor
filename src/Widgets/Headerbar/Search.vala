@@ -3,40 +3,37 @@ namespace Monitor {
     public class Search :  Gtk.SearchEntry {
         public MainWindow window { get; construct; }
         private Gtk.TreeModelFilter filter_model;
-        private OverallView process_view;
+        private CPUProcessTreeView process_tree_view;
 
         public Search (MainWindow window) {
             Object (window: window);
         }
 
         construct {
-            this.process_view = window.process_view;
+            this.process_tree_view = window.process_view.process_tree_view;
             this.placeholder_text = _("Search Process");
             this.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>F"}, _("Type process name or PID to search"));
 
-            filter_model = new Gtk.TreeModelFilter (window.generic_model, null);
+            filter_model = new Gtk.TreeModelFilter (window.process_view.treeview_model, null);
             connect_signal ();
             filter_model.set_visible_func(filter_func);
-            process_view.set_model (filter_model);
+            //  process_tree_view.set_model (filter_model);
 
             var sort_model = new Gtk.TreeModelSort.with_model (filter_model);
-            process_view.set_model (sort_model);
+            process_tree_view.set_model (sort_model);
         }
 
         private void connect_signal () {
             this.search_changed.connect (() => {
                 // collapse tree only when search is focused and changed
                 if (this.is_focus) {
-                    process_view.collapse_all ();
+                    process_tree_view.collapse_all ();
                 }
 
                 filter_model.refilter ();
 
-                // if there's no search result, make "Kill/End Process" buttons in headerbar insensitive to avoid the app crashes
-                window.headerbar.set_header_buttons_sensitivity (filter_model.iter_n_children (null) != 0);
-
                 // focus on child row to avoid the app crashes by clicking "Kill/End Process" buttons in headerbar
-                process_view.focus_on_child_row ();
+                process_tree_view.focus_on_child_row ();
                 this.grab_focus ();
 
                 if (this.text != "") {
@@ -75,7 +72,7 @@ namespace Monitor {
             }
 
             if (child_found && needle.length > 0) {
-                process_view.expand_all ();
+                process_tree_view.expand_all ();
             }
 
             return found || child_found;

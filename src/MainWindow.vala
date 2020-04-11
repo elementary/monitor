@@ -5,14 +5,10 @@
         // Widgets
         public Headerbar headerbar;
         //  private Gtk.Button process_info_button;
-        private Gtk.ScrolledWindow process_view_window;
-        public OverallView process_view;
+
+        public ProcessView process_view;
+
         private Statusbar statusbar;
-
-        public GenericModel generic_model;
-        public Gtk.TreeModelSort sort_model;
-
-        public Gtk.TreeModelFilter filter;
 
         public DBusServer dbusserver;
 
@@ -40,25 +36,21 @@
 
             // TODO: Granite.Widgets.ModeButton to switch between view modes
 
-            // add a process view
-            process_view_window = new Gtk.ScrolledWindow (null, null);
-            generic_model = new GenericModel ();
-            process_view = new OverallView (generic_model);
+            //  process_manager = new ProcessManager();
+            process_view = new ProcessView ();
 
             headerbar = new Headerbar (this);
             set_titlebar (headerbar);
 
-            process_view_window.add (process_view);
-
             statusbar = new Statusbar ();
 
             var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-            main_box.pack_start (process_view_window, true, true, 0);
+            main_box.pack_start (process_view, true, true, 0);
             main_box.pack_start (statusbar, false, true, 0);
             this.add (main_box);
 
             updater = Updater.get_default ();
-            dbusserver = DBusServer.get_default();
+            dbusserver = DBusServer.get_default ();
 
             updater.update.connect ((sysres) => {
                 statusbar.update (sysres);
@@ -66,10 +58,16 @@
                 dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
             });
 
+            // updating processes every 2 seconds
+            Timeout.add_seconds (2, () => {
+                process_view.update();
+                return true;
+            });
+
             dbusserver.quit.connect (() => app.quit());
             dbusserver.show.connect (() => {
-                this.deiconify();
-                this.present();
+                this.deiconify ();
+                this.present ();
                 setup_window_state ();
                 this.show_all ();
             });

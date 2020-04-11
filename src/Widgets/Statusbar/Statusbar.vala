@@ -6,7 +6,7 @@ public class Monitor.Statusbar : Gtk.ActionBar {
     construct {
         var cpu_icon = new Gtk.Image.from_icon_name ("cpu-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
         cpu_icon.tooltip_text = _ ("CPU");
-        
+
         var ram_icon = new Gtk.Image.from_icon_name ("ram-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
         ram_icon.tooltip_text = _ ("Memory");
 
@@ -34,6 +34,9 @@ public class Monitor.Statusbar : Gtk.ActionBar {
     public bool update (Utils.SystemResources sysres) {
         cpu_usage_label.set_text (("%d%%").printf (sysres.cpu_percentage));
         memory_usage_label.set_text (("%d%%").printf (sysres.memory_percentage));
+
+        string cpu_tooltip_text = ("%.2f %s").printf (sysres.cpu_frequency, _ ("GHz"));
+        cpu_usage_label.tooltip_text = cpu_tooltip_text;
 
         string memory_tooltip_text = ("%.1f %s / %.1f %s").printf (sysres.memory_used, _ ("GiB"), sysres.memory_total, _ ("GiB"));
         memory_usage_label.tooltip_text = memory_tooltip_text;

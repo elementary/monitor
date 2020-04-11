@@ -1,15 +1,19 @@
 
-project('com.github.stsdc.monitor', 'vala', 'c', version: '0.6.2')
+project('com.github.stsdc.monitor', 'vala', 'c', version: '0.7.0')
 
 # these are Meson modules
 gnome = import('gnome')
 i18n = import('i18n')
+
 
 # common dirs
 prefix = get_option('prefix')
 datadir = join_paths(prefix, get_option('datadir'))
 libdir = join_paths(prefix, get_option('libdir'))
 icondir = join_paths(datadir, 'icons', 'hicolor')
+
+livechart_proj = subproject('live-chart')
+livechart_dep = livechart_proj.get_variable('livechart_dep')
 
 # and these are project dependencies
 glib = dependency('glib-2.0')
@@ -18,7 +22,7 @@ gtk = dependency('gtk+-3.0')
 gee = dependency('gee-0.8')
 gio = dependency('gio-2.0')
 gobject = dependency('gobject-2.0')
-bamf = dependency('libbamf3')
+bamf = dependency('libbamf3') # to remove
 gtop = dependency('libgtop-2.0')
 wnck = dependency('libwnck-3.0')
 wingpanel = dependency('wingpanel-2.0')
@@ -31,36 +35,62 @@ configure_file(output: 'config.h', configuration: config_data)
 config_h_dir = include_directories('.')
 
 icons_gresource = gnome.compile_resources(
-    'gresource_icons',
-    'data/icons/icons.indicator.gresource.xml',
+    'gresource_icons', 'data/icons/icons.indicator.gresource.xml',
     source_dir: 'data/icons',
-    c_name: 'as'
+    c_name: 'as1'
+)
+
+css_gresource = gnome.compile_resources(
+    'gresource_css', 'data/css.gresource.xml',
+    source_dir: 'data',
+    c_name: 'as2'
 )
 
 c_args = [
     '-include', 'config.h',
     '-DWNCK_I_KNOW_THIS_IS_UNSTABLE',
-    '-w'
+    '-w',
+    # '-g',
+    # '--save-temps'
 ]
 
 executable(
     meson.project_name(),
     icons_gresource,
+    css_gresource,
     'src/Monitor.vala',
     'src/MainWindow.vala',
     'src/Utils.vala',
 
-    'src/Widgets/OverallView.vala',
-    'src/Widgets/Search.vala',
-    'src/Widgets/Headerbar.vala',
+    # Views
+    'src/Views/ProcessView/ProcessView.vala',
+    'src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala',
+    'src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala',
+
+    # Widgets related only to ProcessInfoView
+    'src/Views/ProcessView/ProcessInfoView/Preventor.vala',
+    'src/Views/ProcessView/ProcessInfoView/RoundyLabel.vala',
+    'src/Views/ProcessView/ProcessInfoView/Chart.vala',
+    'src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala',
+    'src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala',
+    'src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala',
+    'src/Views/ProcessView/ProcessInfoView/OpenFilesListBox.vala',
+
+    # Widgets
+    'src/Widgets/Headerbar/Headerbar.vala',
+    'src/Widgets/Headerbar/Search.vala',
     'src/Widgets/Statusbar/Statusbar.vala',
+  
 
-    'src/Models/GenericModel.vala',
-    'src/Models/ModelHelper.vala',
+    # Models
+    'src/Models/TreeViewModel.vala',
 
+    # Other
     'src/Managers/AppManager.vala',
     'src/Managers/ProcessManager.vala',
     'src/Managers/Process.vala',
+    'src/Managers/ProcessStructs.vala',
+    'src/Managers/ProcessUtils.vala',
 
     'src/Services/Shortcuts.vala',
     'src/Services/DBusServer.vala',
@@ -78,10 +108,11 @@ executable(
         gee,
         gio,
         gobject,
-        bamf,
+        bamf, # to remove
         gtop,
         wnck,
         gdk_x11,
+        livechart_dep,
         meson.get_compiler('c').find_library('m', required : false),
         meson.get_compiler('vala').find_library('posix')
     ],

@@ -2,8 +2,6 @@ namespace Monitor {
 
     public class Headerbar : Gtk.HeaderBar {
         private MainWindow window;
-        private Gtk.Button end_process_button;
-        private Gtk.Button kill_process_button;
         private Gtk.Switch show_indicator_switch;
         private Gtk.Switch background_switch;
 
@@ -17,25 +15,6 @@ namespace Monitor {
 
         public Headerbar (MainWindow window) {
             this.window = window;
-            var button_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-            button_box.valign = Gtk.Align.CENTER;
-
-            end_process_button = new Gtk.Button.with_label (_("End Process"));
-            end_process_button.margin_end = 10;
-            end_process_button.clicked.connect (window.process_view.end_process);
-            end_process_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>E"}, _("End selected process"));
-            var end_process_button_context = end_process_button.get_style_context ();
-            end_process_button_context.add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
-
-            kill_process_button = new Gtk.Button.with_label (_("Kill Process"));
-            kill_process_button.clicked.connect (window.process_view.kill_process);
-            kill_process_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>K"}, _("Kill selected process"));
-            var kill_process_button_context = kill_process_button.get_style_context ();
-            kill_process_button_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
-
-            button_box.pack_start (end_process_button);
-            button_box.pack_end (kill_process_button);
-            pack_start (button_box);
 
             var preferences_button = new Gtk.MenuButton ();
             preferences_button.has_tooltip = true;
@@ -75,7 +54,7 @@ namespace Monitor {
 
             search = new Search (window);
             search.valign = Gtk.Align.CENTER;
-            pack_end (search);
+            pack_start (search);
 
             show_indicator_switch.notify["active"].connect (() => {
                 MonitorApp.settings.set_boolean ("indicator-state", show_indicator_switch.state);
@@ -94,11 +73,6 @@ namespace Monitor {
             if (!show_indicator_switch.active) {
                 background_switch.state = false;
             }
-        }
-
-        public void set_header_buttons_sensitivity (bool sensitivity) {
-            end_process_button.sensitive = sensitivity;
-            kill_process_button.sensitive = sensitivity;
         }
     }
 }
