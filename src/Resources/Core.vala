@@ -1,6 +1,6 @@
 namespace Monitor {
     //from Monilet
-    public class Core  : GLib.Object {
+    public class Core : GLib.Object {
         private float last_total;
         private float last_used;
 
@@ -11,23 +11,21 @@ namespace Monitor {
             get { update_percentage_used (); return _percentage_used; }
         }
 
-        public Core (int number){
-            Object (number : number);
+        public Core (int number) {
+            Object (number: number);
             last_used = 0;
             last_total = 0;
         }
 
-        private void update_percentage_used (){
+        private void update_percentage_used () {
             GTop.Cpu cpu;
             GTop.get_cpu (out cpu);
 
-    		var used =  cpu.xcpu_user[number] +
-    		            cpu.xcpu_nice[number] +
-    		            cpu.xcpu_sys[number];
+            var used = cpu.xcpu_user[number] + cpu.xcpu_nice[number] + cpu.xcpu_sys[number];
 
-    		var difference_used = (float) used - last_used;
-    		var difference_total = (float) cpu.xcpu_total[number] - last_total;
-    		var pre_percentage = difference_used.abs () / difference_total.abs ();  // calculate the pre percentage
+            var difference_used = (float) used - last_used;
+            var difference_total = (float) cpu.xcpu_total[number] - last_total;
+            var pre_percentage = difference_used.abs () / difference_total.abs ();  // calculate the pre percentage
 
             _percentage_used = pre_percentage * 100;
 

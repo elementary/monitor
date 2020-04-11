@@ -6,7 +6,7 @@ public interface Monitor.DBusClientInterface : Object {
     public signal void indicator_state (bool state);
 }
 
-public class Monitor.DBusClient : Object{
+public class Monitor.DBusClient : Object {
     public DBusClientInterface? interface = null;
 
     private static GLib.Once<DBusClient> instance;

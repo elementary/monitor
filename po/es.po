@@ -43,36 +43,32 @@ msgid "Monitor"
 msgstr "Monitor"
 
 #: src/Widgets/Headerbar.vala:23
-#, fuzzy
 msgid "End Process"
 msgstr "Terminar proceso"
 
 #: src/Widgets/Headerbar.vala:26
-#, fuzzy
 msgid "End selected process"
 msgstr "Terminar proceso"
 
 #: src/Widgets/Headerbar.vala:30
-#, fuzzy
 msgid "Kill Process"
-msgstr ""
+msgstr "Matar proceso"
 
 #: src/Widgets/Headerbar.vala:32
 msgid "Kill selected process"
-msgstr ""
+msgstr "Matar los procesos seleccionados"
 
 #: src/Widgets/Headerbar.vala:42
 msgid "Settings"
 msgstr "Preferencias"
 
 #: src/Widgets/Headerbar.vala:56
-#, fuzzy
 msgid "Show an indicator:"
-msgstr "Mostrar icone de panel"
+msgstr "Mostrar un icono en el panel:"
 
 #: src/Widgets/Headerbar.vala:62
 msgid "Start in background:"
-msgstr "Arrancar en segundo plano"
+msgstr "Arrancar en segundo plano:"
 
 #. setup name column
 #: src/Widgets/OverallView.vala:21
@@ -108,7 +104,6 @@ msgid "Search Process"
 msgstr "Buscar proceso"
 
 #: src/Widgets/Search.vala:15
-#, fuzzy
 msgid "Type process name or PID to search"
 msgstr "Introduce el nombre del proceso o el PID"
 
