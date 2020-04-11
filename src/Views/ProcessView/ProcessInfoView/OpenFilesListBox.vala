@@ -52,7 +52,7 @@ public class Monitor.OpenFilesListBoxRow : Gtk.ListBoxRow {
         icon.gicon = new ThemedIcon ("emblem-documents-symbolic");
 
         if (is_deleted) {
-            icon.gicon = new ThemedIcon ("edit-delete-symbolic");
+            icon = new Gtk.Image.from_icon_name ("file-deleted-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
             icon.tooltip_text = _("Deleted");
             text = text.replace ("(deleted)", "");
         }
