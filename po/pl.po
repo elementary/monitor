@@ -1,103 +1,182 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-17 21:21+0200\n"
+"POT-Creation-Date: 2020-04-15 08:28+0900\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 
-#: src/Indicator/Widgets/PopoverWidget.vala:12
-msgid "Show Monitor"
-msgstr "Pokaż Monitor"
-
-#: src/Indicator/Widgets/PopoverWidget.vala:13
-msgid "Quit Monitor"
-msgstr "Wyjdź"
-
-#. Some information about the indicator
-#. Unique name
-#: src/Indicator/Indicator.vala:44
-msgid "Monitor Indicator"
+#: src/Utils.vala:13
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:32
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:35
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:24
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:25
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:29
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:30
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:34
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:35
+msgid "N/A"
 msgstr ""
 
-#. Localised name
-#: src/Indicator/Indicator.vala:45
-msgid "Show system resources"
-msgstr "Pokaż zasoby systemu"
-
-#: src/Widgets/Headerbar.vala:15
-msgid "Monitor"
+#: src/Utils.vala:45
+msgid "B"
 msgstr ""
 
-#: src/Widgets/Headerbar.vala:23
-msgid "End Process"
-msgstr "Zakończ proces"
-
-#: src/Widgets/Headerbar.vala:26
-msgid "End selected process"
-msgstr "Zakończ wybrany proces"
-
-#: src/Widgets/Headerbar.vala:30
-msgid "Kill Process"
-msgstr "Zabij proces"
-
-#: src/Widgets/Headerbar.vala:32
-msgid "Kill selected process"
-msgstr "Zabij wybrany proces"
-
-#: src/Widgets/Headerbar.vala:42
-msgid "Settings"
-msgstr "Ustawienia"
-
-#: src/Widgets/Headerbar.vala:56
-msgid "Show an indicator:"
-msgstr "Pokaż indykator"
-
-#: src/Widgets/Headerbar.vala:62
-msgid "Start in background:"
-msgstr "Uruchamiaj w tle"
-
-#. setup name column
-#: src/Widgets/OverallView.vala:21
-msgid "Process Name"
-msgstr "Nazwa procesu"
-
-#: src/Widgets/OverallView.vala:42 src/Widgets/Statusbar/Statusbar.vala:7
-msgid "CPU"
-msgstr ""
-
-#: src/Widgets/OverallView.vala:53 src/Widgets/Statusbar/Statusbar.vala:10
-msgid "Memory"
-msgstr "Pamięć"
-
-#: src/Widgets/OverallView.vala:63
-msgid "PID"
-msgstr ""
-
-#: src/Widgets/OverallView.vala:107
+#: src/Utils.vala:50
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:113
 msgid "KiB"
 msgstr ""
 
-#: src/Widgets/OverallView.vala:112
+#: src/Utils.vala:56
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:118
 msgid "MiB"
 msgstr ""
 
-#: src/Widgets/OverallView.vala:118 src/Widgets/Statusbar/Statusbar.vala:28
+#: src/Indicator/Widgets/PopoverWidget.vala:13
+msgid "Show Monitor"
+msgstr "Pokaż Monitor"
+
+#: src/Indicator/Widgets/PopoverWidget.vala:16
+msgid "Quit Monitor"
+msgstr "Wyjdź"
+
+#: src/Views/ProcessView/ProcessInfoView/OpenFilesListBox.vala:56
+msgid "Deleted"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:21
+msgid "Are you sure you want to do this?"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:24
+msgid "Yes"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:28
+msgid "No"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:39
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:59
+msgid "PID"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:40
+msgid "NI"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
+msgid "PRI"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:42
+msgid "THR"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:18
+msgid "Opened files"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:22
+msgid "Characters"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
+msgid "System calls"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
+msgid "Read/Written"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
+msgid "Cancelled write"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:79
+msgid "End Process"
+msgstr "Zakończ proces"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:81
+msgid "End selected process"
+msgstr "Zakończ wybrany proces"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:85
+msgid "Kill Process"
+msgstr "Zabij proces"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:86
+msgid "Kill selected process"
+msgstr "Zabij wybrany proces"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:96
+msgid "Confirm kill of the process?"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:103
+msgid "Confirm end of the process?"
+msgstr ""
+
+#. setup name column
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:17
+msgid "Process Name"
+msgstr "Nazwa procesu"
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:38
+#: src/Widgets/Statusbar/Statusbar.vala:8
+msgid "CPU"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:49
+#: src/Widgets/Statusbar/Statusbar.vala:11
+msgid "Memory"
+msgstr "Pamięć"
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:124
+#: src/Widgets/Statusbar/Statusbar.vala:41
+#: src/Widgets/Statusbar/Statusbar.vala:49
 msgid "GiB"
 msgstr ""
 
-#: src/Widgets/Search.vala:14
+#: src/Widgets/Headerbar/Headerbar.vala:13
+msgid "Monitor"
+msgstr ""
+
+#: src/Widgets/Headerbar/Headerbar.vala:21
+msgid "Settings"
+msgstr "Ustawienia"
+
+#: src/Widgets/Headerbar/Headerbar.vala:35
+msgid "Show an indicator:"
+msgstr "Pokaż indykator"
+
+#: src/Widgets/Headerbar/Headerbar.vala:41
+msgid "Start in background:"
+msgstr "Uruchamiaj w tle"
+
+#: src/Widgets/Headerbar/Search.vala:14
 msgid "Search Process"
 msgstr "Wyszukaj proces"
 
-#: src/Widgets/Search.vala:15
+#: src/Widgets/Headerbar/Search.vala:15
 msgid "Type process name or PID to search"
 msgstr "Wpisz nazwę procesu lub PID"
 
-#: src/Widgets/Statusbar/Statusbar.vala:12
+#: src/Widgets/Statusbar/Statusbar.vala:14
+msgid "Swap"
+msgstr ""
+
 #: src/Widgets/Statusbar/Statusbar.vala:16
+#: src/Widgets/Statusbar/Statusbar.vala:20
+#: src/Widgets/Statusbar/Statusbar.vala:25
 msgid "Calculating…"
 msgstr "Obliczam…"
 
-#: src/Models/GenericModel.vala:274
-msgid "Background Applications"
-msgstr "Aplikacje w tle"
+#: src/Widgets/Statusbar/Statusbar.vala:38
+msgid "GHz"
+msgstr ""
+
+#~ msgid "Show system resources"
+#~ msgstr "Pokaż zasoby systemu"
+
+#~ msgid "Background Applications"
+#~ msgstr "Aplikacje w tle"
