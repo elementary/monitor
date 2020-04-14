@@ -25,7 +25,7 @@
 <url type="help">https://github.com/stsdc/monitor/issues</url>
 
 <releases>
-    <release version="0.7.0" date="2020-04-11">
+    <release version="0.7.0" date="2020-04-15">
 ​      <description>
 ​         <ul>
            <li>Detailed process info in sidebar</li>

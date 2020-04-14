@@ -1,9 +1,9 @@
-com.github.stsdc.monitor (0.7.0) bionic; urgency=low
+com.github.stsdc.monitor (0.7.1) bionic; urgency=low
 
       * Detailed process info in sidebar
       * CPU frequency in tooltip (Ryo Nakano)
 
--- Stanisław Dac <stanislawdac@gmail.com>  Sat, 11 Apr 2020 21:01:15 +0200
+-- Stanisław Dac <stanislawdac@gmail.com>  Sat, 15 Apr 2020 21:01:15 +0200
 
 com.github.stsdc.monitor (0.6.2) bionic; urgency=low
 
