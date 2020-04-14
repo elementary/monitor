@@ -6,7 +6,7 @@ public class Monitor.Statusbar : Gtk.ActionBar {
     construct {
         var cpu_icon = new Gtk.Image.from_icon_name ("cpu-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
         cpu_icon.tooltip_text = _ ("CPU");
-        
+
         var ram_icon = new Gtk.Image.from_icon_name ("ram-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
         ram_icon.tooltip_text = _ ("Memory");
 

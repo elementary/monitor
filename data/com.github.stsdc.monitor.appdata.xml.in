@@ -25,11 +25,13 @@
 <url type="help">https://github.com/stsdc/monitor/issues</url>
 
 <releases>
-    <release version="0.6.2" date="2019-12-21">
+    <release version="0.7.0" date="2020-04-11">
 ​      <description>
 ​         <ul>
-           <li> Bugfix (potential) of crushes and high CPU usage</li>
-           <li> Update German translation (Carsten Dietrich)</li>
+           <li>Detailed process info in sidebar</li>
+           <li>CPU frequency in tooltip (Ryo Nakano)</li>
+           <li>Removed tree view . This fixes high CPU usage, indicator hangs, and app crashes</li>
+           <li>Special  thanks to gavr, Ryo Nakano, Adam Bieńkowski and Daniele Cocca</li>
         </ul>
 ​      </description>
 ​    </release>

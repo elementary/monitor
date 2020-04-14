@@ -5,7 +5,9 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         set {
 
             // remember to disconnect before assigning a new value
-            _process.fd_permission_error.disconnect (show_permission_error_infobar);
+            if (_process != null) {
+                _process.fd_permission_error.disconnect (show_permission_error_infobar);
+            }
             _process = value;
 
             process_info_header.update (_process);

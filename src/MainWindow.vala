@@ -50,7 +50,7 @@
             this.add (main_box);
 
             updater = Updater.get_default ();
-            dbusserver = DBusServer.get_default();
+            dbusserver = DBusServer.get_default ();
 
             updater.update.connect ((sysres) => {
                 statusbar.update (sysres);
@@ -66,8 +66,8 @@
 
             dbusserver.quit.connect (() => app.quit());
             dbusserver.show.connect (() => {
-                this.deiconify();
-                this.present();
+                this.deiconify ();
+                this.present ();
                 setup_window_state ();
                 this.show_all ();
             });

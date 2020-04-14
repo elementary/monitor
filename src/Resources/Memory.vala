@@ -9,7 +9,7 @@ namespace Monitor {
         public int percentage {
             get {
                 update ();
-                return (int) (Math.round((used / total) * 100));
+                return (int) (Math.round ((used / total) * 100));
             }
         }
 
@@ -22,7 +22,7 @@ namespace Monitor {
 
         private void update () {
             GTop.get_mem (out mem);
-    		total = (double) (mem.total / 1024 / 1024) / 1000;
+            total = (double) (mem.total / 1024 / 1024) / 1000;
             used = (double) (mem.user / 1024 / 1024) / 1000;
         }
     }
