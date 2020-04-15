@@ -18,7 +18,7 @@ public class Monitor.Preventor : Gtk.Stack {
         preventive_action_bar.halign = Gtk.Align.END;
 
 
-        confirmation_label = new Gtk.Label (_ ("Are You sure You want to do this?"));
+        confirmation_label = new Gtk.Label (_ ("Are you sure you want to do this?"));
         confirmation_label.margin_end = 10;
         
         confirm_button = new Gtk.Button.with_label (_("Yes"));
