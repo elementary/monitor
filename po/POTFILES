@@ -9,3 +9,6 @@ src/Managers/AppManager.vala
 src/Managers/ProcessManager.vala
 src/Managers/Process.vala
 src/Services/Shortcuts.vala
+src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala
+src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala
+src/Views/ProcessView/ProcessInfoView/Preventor.vala
