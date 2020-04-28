@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-17 21:21+0200\n"
+"POT-Creation-Date: 2020-04-15 08:28+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Andrey Kultyapov <camellan@yandex.ru>\n"
 "Language-Team: \n"
@@ -12,102 +12,185 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2.3\n"
 
-#: src/Indicator/Widgets/PopoverWidget.vala:12
-msgid "Show Monitor"
-msgstr "Показать монитор"
+#: src/Utils.vala:13
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:32
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:35
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:24
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:25
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:29
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:30
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:34
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:35
+msgid "N/A"
+msgstr ""
 
-#: src/Indicator/Widgets/PopoverWidget.vala:13
-msgid "Quit Monitor"
-msgstr "Выход"
+#: src/Utils.vala:45
+msgid "B"
+msgstr ""
 
-#. Some information about the indicator
-#. Unique name
-#: src/Indicator/Indicator.vala:44
-msgid "Monitor Indicator"
-msgstr "Индикатор монитора"
-
-#. Localised name
-#: src/Indicator/Indicator.vala:45
-msgid "Show system resources"
-msgstr "Показывать системные ресурсы"
-
-#: src/Widgets/Headerbar.vala:15
-msgid "Monitor"
-msgstr "Monitor"
-
-#: src/Widgets/Headerbar.vala:23
-msgid "End Process"
-msgstr "Завершить процесс"
-
-#: src/Widgets/Headerbar.vala:26
-msgid "End selected process"
-msgstr "Завершает выбранные процессы"
-
-#: src/Widgets/Headerbar.vala:30
-msgid "Kill Process"
-msgstr "Убить процесс"
-
-#: src/Widgets/Headerbar.vala:32
-msgid "Kill selected process"
-msgstr "Убивает выбранные процессы"
-
-#: src/Widgets/Headerbar.vala:42
-msgid "Settings"
-msgstr "Параметры"
-
-#: src/Widgets/Headerbar.vala:56
-msgid "Show an indicator:"
-msgstr "Показывать индикатор:"
-
-#: src/Widgets/Headerbar.vala:62
-msgid "Start in background:"
-msgstr "Запустить в фоновом режиме:"
-
-#. setup name column
-#: src/Widgets/OverallView.vala:21
-msgid "Process Name"
-msgstr "Имя процесса"
-
-#: src/Widgets/OverallView.vala:42 src/Widgets/Statusbar/Statusbar.vala:7
-msgid "CPU"
-msgstr "ЦПУ"
-
-#: src/Widgets/OverallView.vala:53 src/Widgets/Statusbar/Statusbar.vala:10
-msgid "Memory"
-msgstr "Память"
-
-#: src/Widgets/OverallView.vala:63
-msgid "PID"
-msgstr "ИД"
-
-#: src/Widgets/OverallView.vala:107
+#: src/Utils.vala:50
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:113
 msgid "KiB"
 msgstr "КиБ"
 
-#: src/Widgets/OverallView.vala:112
+#: src/Utils.vala:56
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:118
 msgid "MiB"
 msgstr "МиБ"
 
-#: src/Widgets/OverallView.vala:118 src/Widgets/Statusbar/Statusbar.vala:28
+#: src/Indicator/Widgets/PopoverWidget.vala:13
+msgid "Show Monitor"
+msgstr "Показать монитор"
+
+#: src/Indicator/Widgets/PopoverWidget.vala:16
+msgid "Quit Monitor"
+msgstr "Выход"
+
+#: src/Views/ProcessView/ProcessInfoView/OpenFilesListBox.vala:56
+msgid "Deleted"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:21
+msgid "Are you sure you want to do this?"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:24
+msgid "Yes"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:28
+msgid "No"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:39
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:59
+msgid "PID"
+msgstr "ИД"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:40
+msgid "NI"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
+#, fuzzy
+msgid "PRI"
+msgstr "ИД"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:42
+msgid "THR"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:18
+msgid "Opened files"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:22
+msgid "Characters"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
+msgid "System calls"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
+msgid "Read/Written"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
+msgid "Cancelled write"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:79
+msgid "End Process"
+msgstr "Завершить процесс"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:81
+msgid "End selected process"
+msgstr "Завершает выбранные процессы"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:85
+msgid "Kill Process"
+msgstr "Убить процесс"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:86
+msgid "Kill selected process"
+msgstr "Убивает выбранные процессы"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:96
+msgid "Confirm kill of the process?"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:103
+msgid "Confirm end of the process?"
+msgstr ""
+
+#. setup name column
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:17
+msgid "Process Name"
+msgstr "Имя процесса"
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:38
+#: src/Widgets/Statusbar/Statusbar.vala:8
+msgid "CPU"
+msgstr "ЦПУ"
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:49
+#: src/Widgets/Statusbar/Statusbar.vala:11
+msgid "Memory"
+msgstr "Память"
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:124
+#: src/Widgets/Statusbar/Statusbar.vala:41
+#: src/Widgets/Statusbar/Statusbar.vala:49
 msgid "GiB"
 msgstr "ГиБ"
 
-#: src/Widgets/Search.vala:14
+#: src/Widgets/Headerbar/Headerbar.vala:13
+msgid "Monitor"
+msgstr "Monitor"
+
+#: src/Widgets/Headerbar/Headerbar.vala:21
+msgid "Settings"
+msgstr "Параметры"
+
+#: src/Widgets/Headerbar/Headerbar.vala:35
+msgid "Show an indicator:"
+msgstr "Показывать индикатор:"
+
+#: src/Widgets/Headerbar/Headerbar.vala:41
+msgid "Start in background:"
+msgstr "Запустить в фоновом режиме:"
+
+#: src/Widgets/Headerbar/Search.vala:14
 msgid "Search Process"
 msgstr "Найти процесс"
 
-#: src/Widgets/Search.vala:15
+#: src/Widgets/Headerbar/Search.vala:15
 msgid "Type process name or PID to search"
 msgstr "Для поиска введите имя или ИД процесса"
 
-#: src/Widgets/Statusbar/Statusbar.vala:12
+#: src/Widgets/Statusbar/Statusbar.vala:14
+msgid "Swap"
+msgstr ""
+
 #: src/Widgets/Statusbar/Statusbar.vala:16
+#: src/Widgets/Statusbar/Statusbar.vala:20
+#: src/Widgets/Statusbar/Statusbar.vala:25
 msgid "Calculating…"
 msgstr "Вычисление…"
 
-#: src/Models/GenericModel.vala:274
-msgid "Background Applications"
-msgstr "Фоновые приложения"
+#: src/Widgets/Statusbar/Statusbar.vala:38
+msgid "GHz"
+msgstr ""
+
+#~ msgid "Monitor Indicator"
+#~ msgstr "Индикатор монитора"
+
+#~ msgid "Show system resources"
+#~ msgstr "Показывать системные ресурсы"
+
+#~ msgid "Background Applications"
+#~ msgstr "Фоновые приложения"
 
 #~ msgid "Ctrl+E"
 #~ msgstr "Ctrl+E"
