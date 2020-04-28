@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-15 08:28+0900\n"
+"POT-Creation-Date: 2020-04-28 22:18+0400\n"
 "PO-Revision-Date: 2019-11-04 11:58+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: \n"
@@ -151,6 +151,16 @@ msgstr "Memória"
 #: src/Widgets/Statusbar/Statusbar.vala:49
 msgid "GiB"
 msgstr "GiB"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:50
+#, c-format
+msgid "CPU: %.1f%%"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:51
+#, c-format
+msgid "RAM: %.1f%%"
+msgstr ""
 
 #: src/Widgets/Headerbar/Headerbar.vala:13
 msgid "Monitor"

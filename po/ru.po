@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-15 08:28+0900\n"
+"POT-Creation-Date: 2020-04-28 22:18+0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Andrey Kultyapov <camellan@yandex.ru>\n"
 "Language-Team: \n"
@@ -22,11 +22,11 @@ msgstr ""
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:34
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:35
 msgid "N/A"
-msgstr ""
+msgstr "Н/Д"
 
 #: src/Utils.vala:45
 msgid "B"
-msgstr ""
+msgstr "Б"
 
 #: src/Utils.vala:50
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:113
@@ -48,57 +48,56 @@ msgstr "Выход"
 
 #: src/Views/ProcessView/ProcessInfoView/OpenFilesListBox.vala:56
 msgid "Deleted"
-msgstr ""
+msgstr "Удалено"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:21
 msgid "Are you sure you want to do this?"
-msgstr ""
+msgstr "Вы уверены, что хотите это сделать?"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:24
 msgid "Yes"
-msgstr ""
+msgstr "Да"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:28
 msgid "No"
-msgstr ""
+msgstr "Нет"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:39
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:59
 msgid "PID"
-msgstr "ИД"
+msgstr "PID"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:40
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
-#, fuzzy
 msgid "PRI"
-msgstr "ИД"
+msgstr "PRI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:42
 msgid "THR"
-msgstr ""
+msgstr "THR"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:18
 msgid "Opened files"
-msgstr ""
+msgstr "Открытые файлы"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:22
 msgid "Characters"
-msgstr ""
+msgstr "Символы"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
 msgid "System calls"
-msgstr ""
+msgstr "Системные вызовы"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
 msgid "Read/Written"
-msgstr ""
+msgstr "Чтение/Запись"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
 msgid "Cancelled write"
-msgstr ""
+msgstr "Отменённая запись"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:79
 msgid "End Process"
@@ -118,11 +117,11 @@ msgstr "Убивает выбранные процессы"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:96
 msgid "Confirm kill of the process?"
-msgstr ""
+msgstr "Действительно убить процесс?"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:103
 msgid "Confirm end of the process?"
-msgstr ""
+msgstr "Действительно завершить процесс?"
 
 #. setup name column
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:17
@@ -144,6 +143,16 @@ msgstr "Память"
 #: src/Widgets/Statusbar/Statusbar.vala:49
 msgid "GiB"
 msgstr "ГиБ"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:50
+#, c-format
+msgid "CPU: %.1f%%"
+msgstr "ЦПУ: %.1f%%"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:51
+#, c-format
+msgid "RAM: %.1f%%"
+msgstr "Память: %.1f%%"
 
 #: src/Widgets/Headerbar/Headerbar.vala:13
 msgid "Monitor"
@@ -171,7 +180,7 @@ msgstr "Для поиска введите имя или ИД процесса"
 
 #: src/Widgets/Statusbar/Statusbar.vala:14
 msgid "Swap"
-msgstr ""
+msgstr "Подкачка"
 
 #: src/Widgets/Statusbar/Statusbar.vala:16
 #: src/Widgets/Statusbar/Statusbar.vala:20
@@ -181,7 +190,7 @@ msgstr "Вычисление…"
 
 #: src/Widgets/Statusbar/Statusbar.vala:38
 msgid "GHz"
-msgstr ""
+msgstr "ГГц"
 
 #~ msgid "Monitor Indicator"
 #~ msgstr "Индикатор монитора"
