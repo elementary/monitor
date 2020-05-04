@@ -1,22 +1,21 @@
-# Japanese translations for com.github.stsdc.monitor package.
-# Copyright (C) 2019 THE com.github.stsdc.monitor'S COPYRIGHT HOLDER
+# Turkish translations for com.github.stsdc.monitor package.
+# Copyright (C) 2020 THE com.github.stsdc.monitor'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.stsdc.monitor package.
-# Ryo Nakano <ryonakaknock3@gmail.com>, 2019.
+# Automatically generated, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-28 22:18+0400\n"
-"PO-Revision-Date: 2019-10-22 00:09+0900\n"
-"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
+"PO-Revision-Date: 2020-04-15 21:51+0100\n"
+"Last-Translator: Harun Yasar <harunyasar@mail.com>\n"
 "Language-Team: none\n"
-"Language: ja\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.2.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/Utils.vala:13
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:32
@@ -28,11 +27,11 @@ msgstr ""
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:34
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:35
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: src/Utils.vala:45
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #: src/Utils.vala:50
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:113
@@ -46,27 +45,27 @@ msgstr "MiB"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:13
 msgid "Show Monitor"
-msgstr "モニターを表示"
+msgstr "Monitor'ü Göster"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:16
 msgid "Quit Monitor"
-msgstr "モニターを終了"
+msgstr "Monitor'ü Kapat"
 
 #: src/Views/ProcessView/ProcessInfoView/OpenFilesListBox.vala:56
 msgid "Deleted"
-msgstr ""
+msgstr "Silindi"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:21
 msgid "Are you sure you want to do this?"
-msgstr ""
+msgstr "Bunu yapmak istediğinizden emin misiniz?"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:24
 msgid "Yes"
-msgstr ""
+msgstr "Evet"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:28
 msgid "No"
-msgstr ""
+msgstr "Hayır"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:39
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:59
@@ -75,65 +74,64 @@ msgstr "PID"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:40
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
-#, fuzzy
 msgid "PRI"
-msgstr "PID"
+msgstr "PRI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:42
 msgid "THR"
-msgstr ""
+msgstr "THR"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:18
 msgid "Opened files"
-msgstr ""
+msgstr "Açık dosyalar"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:22
 msgid "Characters"
-msgstr ""
+msgstr "Karakterler"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
 msgid "System calls"
-msgstr ""
+msgstr "Sistem çağrıları"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
 msgid "Read/Written"
-msgstr ""
+msgstr "Okuma/Yazma"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
 msgid "Cancelled write"
-msgstr ""
+msgstr "Geçersiz yazma"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:79
 msgid "End Process"
-msgstr "プロセスを終了"
+msgstr "Süreci Sonlandır"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:81
 msgid "End selected process"
-msgstr "選択したプロセスを終了します"
+msgstr "Seçilen süreci sonlandır"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:85
 msgid "Kill Process"
-msgstr "プロセスを強制終了"
+msgstr "Süreci Öldür"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:86
 msgid "Kill selected process"
-msgstr "選択したプロセスを強制終了します"
+msgstr "Seçilen süreci öldür"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:96
 msgid "Confirm kill of the process?"
-msgstr ""
+msgstr "Süreç öldürülsün mü?"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:103
 msgid "Confirm end of the process?"
-msgstr ""
+msgstr "Süreç sonlandırılsın mı?"
 
 #. setup name column
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:17
 msgid "Process Name"
-msgstr "プロセス名"
+msgstr "Süreç Adı"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:38
 #: src/Widgets/Statusbar/Statusbar.vala:8
@@ -143,7 +141,7 @@ msgstr "CPU"
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:49
 #: src/Widgets/Statusbar/Statusbar.vala:11
 msgid "Memory"
-msgstr "メモリー"
+msgstr "Bellek"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:124
 #: src/Widgets/Statusbar/Statusbar.vala:41
@@ -163,50 +161,38 @@ msgstr ""
 
 #: src/Widgets/Headerbar/Headerbar.vala:13
 msgid "Monitor"
-msgstr "モニター"
+msgstr "Monitor"
 
 #: src/Widgets/Headerbar/Headerbar.vala:21
 msgid "Settings"
-msgstr "設定"
+msgstr "Ayarlar"
 
 #: src/Widgets/Headerbar/Headerbar.vala:35
 msgid "Show an indicator:"
-msgstr "インジケーターを表示:"
+msgstr "Belirteç göster:"
 
 #: src/Widgets/Headerbar/Headerbar.vala:41
 msgid "Start in background:"
-msgstr "バックグラウンドで起動:"
+msgstr "Arka planda başlat:"
 
 #: src/Widgets/Headerbar/Search.vala:14
 msgid "Search Process"
-msgstr "プロセスを検索"
+msgstr "Süreç Ara"
 
 #: src/Widgets/Headerbar/Search.vala:15
 msgid "Type process name or PID to search"
-msgstr "検索するにはプロセス名か PID を入力してください"
+msgstr "Aramak için süreç adı veya PID yazın"
 
 #: src/Widgets/Statusbar/Statusbar.vala:14
 msgid "Swap"
-msgstr "スワップ"
+msgstr "Takas"
 
 #: src/Widgets/Statusbar/Statusbar.vala:16
 #: src/Widgets/Statusbar/Statusbar.vala:20
 #: src/Widgets/Statusbar/Statusbar.vala:25
 msgid "Calculating…"
-msgstr "計算しています…"
+msgstr "Hesaplanıyor…"
 
 #: src/Widgets/Statusbar/Statusbar.vala:38
 msgid "GHz"
-msgstr ""
-
-#~ msgid "Monitor Indicator"
-#~ msgstr "モニターインジケーター"
-
-#~ msgid "Show system resources"
-#~ msgstr "システムリソースを表示"
-
-#~ msgid "Background Applications"
-#~ msgstr "バックグランドアプリケーション"
-
-#~ msgid "Ctrl+E"
-#~ msgstr "Ctrl+E"
+msgstr "GHz"

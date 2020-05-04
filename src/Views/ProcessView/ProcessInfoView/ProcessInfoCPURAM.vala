@@ -11,7 +11,7 @@ public class Monitor.ProcessInfoCPURAM : Gtk.Grid {
         vexpand = false;
         column_homogeneous = true;
         row_homogeneous = false;
-        
+
         cpu_chart = new Chart ();
         ram_chart = new Chart ();
 
@@ -47,8 +47,8 @@ public class Monitor.ProcessInfoCPURAM : Gtk.Grid {
     }
 
     public void update (Process process) {
-        cpu_label.set_text (("CPU: %.1f%%").printf (process.cpu_percentage));
-        ram_label.set_text (("RAM: %.1f%%").printf (process.mem_percentage));
+        cpu_label.set_text ((_("CPU: %.1f%%")).printf (process.cpu_percentage));
+        ram_label.set_text ((_("RAM: %.1f%%")).printf (process.mem_percentage));
 
         cpu_chart.update(process.cpu_percentage);
         ram_chart.update(process.mem_percentage);

@@ -1,5 +1,5 @@
 
-project('com.github.stsdc.monitor', 'vala', 'c', version: '0.7.1')
+project('com.github.stsdc.monitor', 'vala', 'c', version: '0.7.2')
 
 # these are Meson modules
 gnome = import('gnome')
