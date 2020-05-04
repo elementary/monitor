@@ -1,5 +1,4 @@
 namespace Monitor {
-
     public class MonitorApp : Gtk.Application {
         public static Settings settings;
         private MainWindow window = null;
@@ -8,7 +7,7 @@ namespace Monitor {
         private static bool start_in_background = false;
         private static bool status_background = false;
         private const GLib.OptionEntry[] CMD_OPTIONS = {
-        // --start-in-background
+            // --start-in-background
             { "start-in-background", 'b', 0, OptionArg.NONE, ref start_in_background, "Start in background with wingpanel indicator", null },
             // list terminator
             { null }
@@ -17,9 +16,9 @@ namespace Monitor {
         // contructor replacement, flags added
         public MonitorApp (bool status_indicator) {
             Object (
-                application_id : "com.github.stsdc.monitor",
-                flags: ApplicationFlags.FLAGS_NONE
-            );
+                application_id: "com.github.stsdc.monitor",
+                flags : ApplicationFlags.FLAGS_NONE
+                );
             status_background = status_indicator;
         }
 
@@ -63,17 +62,20 @@ namespace Monitor {
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("/com/github/stsdc/monitor/Application.css");
             Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+            // Controls the direction of the sort indicators
+            Gtk.Settings.get_default ().set ("gtk-alternative-sort-arrows", true, null);
         }
 
         public static int main (string [] args) {
-            // add command line options 
+            // add command line options
             try {
                 var opt_context = new OptionContext ("");
                 opt_context.set_help_enabled (true);
                 opt_context.add_main_entries (CMD_OPTIONS, null);
                 opt_context.parse (ref args);
             } catch (OptionError e) {
-                print ("Error: %s\n", e.message);
+                print ("Error: %s\n",                                                               e.message);
                 print ("Run '%s --help' to see a full list of available command line options.\n\n", args[0]);
                 return 0;
             }
