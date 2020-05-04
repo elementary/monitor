@@ -1,3 +1,10 @@
+com.github.stsdc.monitor (0.7.2) bionic; urgency=low
+
+      * Fix sorting arrows
+      * Update Russian translation (camellan)
+      * Add Turkish translation (Harun Yasar)
+      * Use newest version of live-chart (Laurent Callarec) ← Check his lib for creating charts, it's amazing!
+
 com.github.stsdc.monitor (0.7.0) bionic; urgency=low
 
       * Detailed process info in sidebar
