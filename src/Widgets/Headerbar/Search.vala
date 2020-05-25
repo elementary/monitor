@@ -47,6 +47,10 @@ namespace Monitor {
             int pid_haystack;
             bool found = false;
             var needle = this.text;
+
+            // should help with assertation errors, donno
+            if (needle == null) return true;
+
             if ( needle.length == 0 ) {
                 return true;
             }
