@@ -70,8 +70,6 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
             username.val.get_style_context ().add_class ("username-root");
             username.val.get_style_context ().remove_class ("username-other");
             username.val.get_style_context ().remove_class ("username-current");
-
-
         } else if (process.uid == (int)Posix.getuid ()) {
             username.val.get_style_context ().add_class ("username-current");
             username.val.get_style_context ().remove_class ("username-other");
@@ -85,6 +83,7 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         username.set_text (process.username);
         num_threads.set_text (process.stat.num_threads.to_string());
         state.set_text (process.stat.state);
+        state.tooltip_text = set_state_tooltip ();
         num_threads.set_text (process.stat.num_threads.to_string());
         set_icon (process);
     }
@@ -102,6 +101,27 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
             } catch (Error e) {
                 warning (e.message);
             }
+        }
+    }
+
+    private string set_state_tooltip () {
+        switch (state.label) {
+            case "D":
+                return _("The app is waiting in an uninterruptible disk sleep");
+            case "I":
+                return _("Idle kernel thread");
+            case "R":
+                return _("The process is running or runnable (on run queue)");
+            case "S":
+                return _("The process is in an interruptible sleep; waiting for an event to complete");
+            case "T":
+                return _("The process is stopped by a job control signal");
+            case "t":
+                return _("The process is stopped stopped by a debugger during the tracing");
+            case "Z":
+                return _("The app is terminated but not reaped by its parent");
+            default:
+                return "";
         }
     }
 }
