@@ -1,9 +1,18 @@
+com.github.stsdc.monitor (0.7.3) bionic; urgency=low
+
+      * Added tooltips to process state label (Ryo Nakano)
+      * Small bugfix
+
+-- Stanisław Dac <stanislawdac@gmail.com>  Mon, 22 Jun 2020 20:21:37 +0200
+
 com.github.stsdc.monitor (0.7.2) bionic; urgency=low
 
       * Fix sorting arrows
       * Update Russian translation (camellan)
       * Add Turkish translation (Harun Yasar)
       * Use newest version of live-chart (Laurent Callarec) ← Check his lib for creating charts, it's amazing!
+
+-- Stanisław Dac <stanislawdac@gmail.com>  Sat, 11 Apr 2020 21:01:15 +0200
 
 com.github.stsdc.monitor (0.7.0) bionic; urgency=low
 
