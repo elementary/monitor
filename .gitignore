@@ -1,4 +1,5 @@
 build
+builddir
 .atom-dbg.cson
 .vscode
 *~

@@ -199,7 +199,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
             tree_model.get (iter, Column.PID, out pid);
             Process process = model.process_manager.get_process (pid);
             process_selected (process);
-            debug ("cursor changed");
+            //  debug ("cursor changed");
         }
     }
 }
