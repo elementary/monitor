@@ -49,9 +49,10 @@
             updater = Updater.get_default ();
             dbusserver = DBusServer.get_default ();
 
-            updater.update.connect ((sysres) => {
-                statusbar.update (sysres);
-                dbusserver.update (sysres);
+            updater.update.connect ((resources) => {
+                var res = resources.serialize ();
+                statusbar.update (res);
+                dbusserver.update (res);
                 process_view.update();
                 dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
             });

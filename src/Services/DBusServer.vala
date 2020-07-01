@@ -9,7 +9,7 @@ public class Monitor.DBusServer : Object {
         return instance.once (() => { return new DBusServer (); });
     }
 
-    public signal void update (Utils.SystemResources data);
+    public signal void update (ResourcesSerialized data);
     public signal void indicator_state (bool state);
     public signal void quit ();
     public signal void show ();

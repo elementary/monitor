@@ -31,7 +31,7 @@ public class Monitor.Statusbar : Gtk.ActionBar {
     public Statusbar () {
     }
 
-    public bool update (Utils.SystemResources sysres) {
+    public bool update (ResourcesSerialized sysres) {
         cpu_usage_label.set_text (("%d%%").printf (sysres.cpu_percentage));
         memory_usage_label.set_text (("%d%%").printf (sysres.memory_percentage));
 

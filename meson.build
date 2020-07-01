@@ -97,6 +97,9 @@ executable(
     'src/Services/DBusServer.vala',
     'src/Services/Updater.vala',
 
+    # Resources
+    'src/Resources/Resources.vala',
+    'src/Resources/ResourcesSerialized.vala',
     'src/Resources/CPU.vala',
     'src/Resources/Core.vala',
     'src/Resources/Memory.vala',
@@ -127,6 +130,7 @@ shared_module(
     'monitor',
     'src/Indicator/Indicator.vala',
     'src/Utils.vala',
+    'src/Resources/ResourcesSerialized.vala',
 
     'src/Indicator/Widgets/DisplayWidget.vala',
     'src/Indicator/Widgets/PopoverWidget.vala',
