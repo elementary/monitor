@@ -52,14 +52,10 @@
             updater.update.connect ((sysres) => {
                 statusbar.update (sysres);
                 dbusserver.update (sysres);
+                process_view.update();
                 dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
             });
 
-            // updating processes every 2 seconds
-            Timeout.add_seconds (2, () => {
-                process_view.update();
-                return true;
-            });
 
             dbusserver.quit.connect (() => app.quit());
             dbusserver.show.connect (() => {
