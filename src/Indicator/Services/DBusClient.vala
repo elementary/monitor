@@ -1,17 +1,3 @@
-
-//  // this should be defined in one place -> in Resources, but it can't see it
-//  public struct ResourcesStruct {
-//      public int cpu_percentage;
-//      public double cpu_frequency;
-//      public int memory_percentage;
-//      public double memory_used;
-//      public double memory_total;
-//      public int swap_percentage;
-//      public double swap_used;
-//      public double swap_total;
-//  }
-
-
 [DBus (name = "com.github.stsdc.monitor")]
 public interface Monitor.DBusClientInterface : Object {
     public abstract void quit_monitor () throws Error;
