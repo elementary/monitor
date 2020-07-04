@@ -12,6 +12,8 @@ public class Monitor.CPU : Object {
         }
     }
 
+    public Gee.ArrayList<Core> cores_list;
+
     private double _frequency;
     public double frequency {
         get {
@@ -24,9 +26,15 @@ public class Monitor.CPU : Object {
     construct {
         last_used = 0;
         last_total = 0;
-    }
 
-    public CPU () {
+        cores_list = new  Gee.ArrayList<Core> ();
+
+
+        debug ("Number of cores: %d", (int) get_num_processors ());
+        for (int i = 0; i < (int) get_num_processors (); i++) {
+            var core = new Core(i);
+            cores_list.add (core);
+        }
     }
 
     private void update_percentage () {
