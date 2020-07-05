@@ -54,6 +54,7 @@
                 statusbar.update (res);
                 dbusserver.update (res);
                 process_view.update();
+                system_view.update(resources);
                 dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
             });
 

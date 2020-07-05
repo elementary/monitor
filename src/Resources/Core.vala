@@ -31,6 +31,8 @@ namespace Monitor {
 
             last_used = (float) used;
             last_total = (float) cpu.xcpu_total[number];
+
+            //  debug("Core %d: %f%%", number, _percentage_used);
         }
     }
 }

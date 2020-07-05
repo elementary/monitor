@@ -12,7 +12,7 @@ public class Monitor.CPU : Object {
         }
     }
 
-    public Gee.ArrayList<Core> cores_list;
+    public Gee.ArrayList<Core> core_list;
 
     private double _frequency;
     public double frequency {
@@ -27,13 +27,13 @@ public class Monitor.CPU : Object {
         last_used = 0;
         last_total = 0;
 
-        cores_list = new  Gee.ArrayList<Core> ();
+        core_list = new  Gee.ArrayList<Core> ();
 
 
         debug ("Number of cores: %d", (int) get_num_processors ());
         for (int i = 0; i < (int) get_num_processors (); i++) {
             var core = new Core(i);
-            cores_list.add (core);
+            core_list.add (core);
         }
     }
 
