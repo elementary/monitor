@@ -52,6 +52,7 @@ public class Monitor.SystemCPUChart : Gtk.Box {
     }
 
     public void update (int serie_number, double value) {
+        //  debug("%f", value);
         chart.add_value (serie_list.get(serie_number), value);
     }
 
