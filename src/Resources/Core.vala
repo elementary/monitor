@@ -8,7 +8,7 @@ namespace Monitor {
 
         public int number { get; set; }
         public float percentage_used {
-            get { update_percentage_used (); return _percentage_used; }
+            get { return _percentage_used; }
         }
 
         public Core (int number) {
@@ -17,7 +17,7 @@ namespace Monitor {
             last_total = 0;
         }
 
-        private void update_percentage_used () {
+        public void update () {
             GTop.Cpu cpu;
             GTop.get_cpu (out cpu);
 

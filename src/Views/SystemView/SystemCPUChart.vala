@@ -8,7 +8,7 @@ public class Monitor.SystemCPUChart : Gtk.Box {
     construct {
         serie_list = new  Gee.ArrayList<LiveChart.Serie> ();
 
-
+        get_style_context ().add_class ("graph");
 
         vexpand = true;
         height_request = 120;
@@ -25,7 +25,7 @@ public class Monitor.SystemCPUChart : Gtk.Box {
             top = 0,
             right = 0,
             bottom = 0,
-            left = 0
+            left = -1
         };
 
         chart = new LiveChart.Chart (config);

@@ -9,6 +9,9 @@ public class Monitor.Resources : Object {
         swap = new Swap ();
     }
 
+    public void update() {
+        cpu.update();
+    }
     public ResourcesSerialized serialize () {
         return ResourcesSerialized () {
             cpu_percentage = cpu.percentage,

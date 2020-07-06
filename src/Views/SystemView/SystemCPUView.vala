@@ -41,7 +41,8 @@ public class Monitor.SystemCPUView : Gtk.Grid {
             // someone explain, plz
             double core_percentage = cpu.core_list[i].percentage_used;
             cpu_chart.update(i, core_percentage);
-            core_label_list[i].set_text ((_("Core " + i.to_string() + ":% 3d%%")).printf ( (int)core_percentage));
+            string percentage_formatted = ("% 3d%%").printf ( (int)core_percentage);
+            core_label_list[i].set_text ((_("Core " + i.to_string() + ":" + percentage_formatted)));
         }
 
         cpu_percentage_label.set_text ((_("CPU: % 3d%%")).printf (cpu.percentage));

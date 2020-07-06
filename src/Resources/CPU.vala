@@ -7,7 +7,6 @@ public class Monitor.CPU : Object {
 
     public int percentage {
         get {
-            update_percentage ();
             return (int)(Math.round (load * 100));
         }
     }
@@ -17,7 +16,6 @@ public class Monitor.CPU : Object {
     private double _frequency;
     public double frequency {
         get {
-            update_frequency ();
             // Convert kH to GHz
             return (double)(_frequency / 1000000);
         }
@@ -34,6 +32,15 @@ public class Monitor.CPU : Object {
         for (int i = 0; i < (int) get_num_processors (); i++) {
             var core = new Core(i);
             core_list.add (core);
+        }
+    }
+
+    public void update () {
+        update_percentage();
+        update_frequency();
+
+        foreach (var core in core_list) {
+            core.update();
         }
     }
 
