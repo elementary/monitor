@@ -96,7 +96,6 @@ executable(
 
     'src/Services/Shortcuts.vala',
     'src/Services/DBusServer.vala',
-    'src/Services/Updater.vala',
 
     # Resources
     'src/Resources/Resources.vala',

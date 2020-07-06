@@ -10,7 +10,7 @@ public class Monitor.Resources : Object {
     }
 
     public ResourcesSerialized serialize () {
-        return new ResourcesSerialized () {
+        return ResourcesSerialized () {
             cpu_percentage = cpu.percentage,
             cpu_frequency = cpu.frequency,
             memory_percentage = memory.percentage,

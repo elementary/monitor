@@ -2,6 +2,8 @@
         // application reference
         private Shortcuts shortcuts;
 
+        private Resources resources;
+
         // Widgets
         public Headerbar headerbar;
         //  private Gtk.Button process_info_button;
@@ -13,8 +15,6 @@
 
         public DBusServer dbusserver;
 
-        private Updater updater;
-
 
         // Constructs a main window
         public MainWindow (MonitorApp app) {
@@ -24,8 +24,10 @@
 
             get_style_context ().add_class ("rounded");
 
+            resources = new Resources ();
+
             process_view = new ProcessView ();
-            system_view = new SystemView ();
+            system_view = new SystemView (resources);
 
             Gtk.Stack stack = new Gtk.Stack ();
             stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
@@ -46,16 +48,18 @@
             main_box.pack_start (statusbar, false, true, 0);
             this.add (main_box);
 
-            updater = Updater.get_default ();
             dbusserver = DBusServer.get_default ();
+            
+            
 
-            updater.update.connect ((resources) => {
+            Timeout.add_seconds (2, () => {
                 var res = resources.serialize ();
                 statusbar.update (res);
                 dbusserver.update (res);
                 process_view.update();
-                system_view.update(resources);
+                system_view.update();
                 dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
+                return true;
             });
 
 
