@@ -11,6 +11,7 @@ public class Monitor.Resources : Object {
 
     public void update() {
         cpu.update();
+        memory.update();
     }
     public ResourcesSerialized serialize () {
         return ResourcesSerialized () {

@@ -58,8 +58,6 @@
                 statusbar.update (res);
                 dbusserver.update (res);
                 process_view.update();
-
-                debug ("%d", resources.cpu.percentage);
                 system_view.update();
                 dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
                 return true;
