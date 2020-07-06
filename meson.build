@@ -68,6 +68,7 @@ executable(
 
     'src/Views/SystemView/SystemView.vala',
     'src/Views/SystemView/SystemCPUChart.vala',
+    'src/Views/SystemView/SystemCPUView.vala',
 
     # Widgets related only to ProcessInfoView
     'src/Views/ProcessView/ProcessInfoView/Preventor.vala',

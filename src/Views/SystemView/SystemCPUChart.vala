@@ -11,7 +11,7 @@ public class Monitor.SystemCPUChart : Gtk.Box {
 
 
         vexpand = true;
-        height_request = 60;
+        height_request = 120;
 
         config = new LiveChart.Config ();
         config.y_axis.unit = "%";
@@ -33,7 +33,7 @@ public class Monitor.SystemCPUChart : Gtk.Box {
         chart.legend.visible = false;
         chart.grid.visible = true;
         chart.background.main_color = Gdk.RGBA () {
-            red= 0, green= 0, blue= 0, alpha= 1
+            red= 1, green= 1, blue= 1, alpha= 1
         };                                                                                  //White background
 
         

@@ -1,23 +1,24 @@
 public class Monitor.SystemView : Gtk.Box {
-    private SystemCPUChart cpu_chart;
     private Resources resources;
 
+    private SystemCPUView cpu_view;
+
     construct {
-        
+        orientation = Gtk.Orientation.VERTICAL;
+        hexpand = true;
+
+
     }
 
     public SystemView (Resources _resources) {
         resources = _resources;
-        cpu_chart = new SystemCPUChart (resources.cpu.core_list.size);
 
-        add (cpu_chart);
+        cpu_view = new SystemCPUView (resources.cpu);
+
+        add (cpu_view);
     }
 
     public void update () {
-        for (int i = 0; i < resources.cpu.core_list.size; i++) {
-            debug("%d", i);
-            cpu_chart.update(i, resources.cpu.core_list[i].percentage_used);
-        }
-
+        cpu_view.update();
     }
 }
