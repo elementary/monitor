@@ -29,22 +29,26 @@ namespace Monitor.Utils {
              return current_size_formatted;
          }
 
-         public static string int_bytes_to_human(int bytes) {
-            double bytes_double = (double)bytes;
+         public static string double_bytes_to_human(double bytes) {
             string units = _ ("B");
     
             // convert to MiB if needed
-            if (bytes_double > 1024.0) {
-                bytes_double /= 1024.0;
+            if (bytes > 1024.0) {
+                bytes /= 1024.0;
                 units = _ ("KiB");
             }
     
             // convert to GiB if needed
-            if (bytes_double > 1024.0) {
-                bytes_double /= 1024.0;
+            if (bytes > 1024.0) {
+                bytes /= 1024.0;
                 units = _ ("MiB");
             }
 
-            return "%.1f %s".printf (bytes_double, units);
+            if (bytes > 1024.0) {
+                bytes /= 1024.0;
+                units = _ ("GiB");
+            }
+
+            return "%.1f %s".printf (bytes, units);
          }
      }

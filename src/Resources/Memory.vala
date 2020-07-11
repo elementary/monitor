@@ -25,12 +25,13 @@ namespace Monitor {
 
         public void update () {
             GTop.get_mem (out mem);
-            total = (mem.total);
-            used = (double) (mem.user / 1024 / 1024) / 1000;
-            shared = (double) (mem.shared / 1024 / 1024) / 1000;
-            buffer = (double) (mem.buffer / 1024 / 1024) / 1000;
-            cached = (double) (mem.cached / 1024 / 1024) / 1000;
-            locked = (double) (mem.locked / 1024 / 1024) / 1000;
+            total = (double) (mem.total );
+            used = (double) mem.user;
+            shared = (double) (mem.shared);
+            buffer = (double) (mem.buffer);
+            cached = (double) (mem.cached);
+            locked = (double) (mem.locked);
+
         }
     }
 }
