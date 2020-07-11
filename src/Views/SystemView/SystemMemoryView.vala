@@ -1,5 +1,5 @@
 public class Monitor.SystemMemoryView : Gtk.Grid {
-    //  private SystemChart memory_chart;
+    private SystemCPUChart memory_chart;
     private Memory memory;
 
     private Gtk.Label memory_percentage_label;
@@ -25,6 +25,7 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
         memory_percentage_label = new Gtk.Label ("Memory: " + Utils.NO_DATA);
         memory_percentage_label.get_style_context ().add_class ("h2");
         memory_percentage_label.halign = Gtk.Align.START;
+        memory_percentage_label.valign = Gtk.Align.START;
 
         memory_total_label = new Gtk.Label ("Total: " + Utils.NO_DATA);
         memory_total_label.halign = Gtk.Align.START;
@@ -44,11 +45,11 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
         memory_locked_label = new Gtk.Label ("Locked: " + Utils.NO_DATA);
         memory_locked_label.halign = Gtk.Align.START;
 
-        //  memory_chart = new SystemCPUChart (memory.core_list.size);
+        memory_chart = new SystemCPUChart (1);
 
         attach (memory_percentage_label, 0, 0, 2, 1);
         attach (memory_usage_grid (), 0, 1, 1);
-        //  attach (memory_chart, 1, 0, 1, 2);
+        attach (memory_chart, 1, 0, 1, 2);
 
     }
 
@@ -69,6 +70,7 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
 
     public void update () {
         memory_percentage_label.set_text ((_("Memory: % 3d%%")).printf (memory.percentage));
+        memory_chart.update (0, memory.percentage);
 
         memory_total_label.set_text ((_("Total: %s")).printf (Utils.HumanUnitFormatter.double_bytes_to_human(memory.total)));
         memory_used_label.set_text ((_("Used: %s")).printf (Utils.HumanUnitFormatter.double_bytes_to_human(memory.used)));

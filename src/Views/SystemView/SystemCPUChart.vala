@@ -2,11 +2,11 @@ public class Monitor.SystemCPUChart : Gtk.Box {
     private LiveChart.Chart chart;
     private LiveChart.Config config;
 
-    private Gee.ArrayList<LiveChart.Serie?> serie_list;
+    //  private Gee.ArrayList<LiveChart.Serie?> serie_list;
 
 
     construct {
-        serie_list = new  Gee.ArrayList<LiveChart.Serie> ();
+        //  serie_list = new  Gee.ArrayList<LiveChart.Serie> ();
 
         get_style_context ().add_class ("graph");
 
@@ -45,7 +45,7 @@ public class Monitor.SystemCPUChart : Gtk.Box {
             var serie = new LiveChart.Serie ("Core x", renderer);
             serie.set_main_color ({ 0.35 + i/20, 0.8, 0.1, 1.0});
             chart.add_serie (serie);
-            serie_list.add (serie);
+            //  serie_list.add (serie);
         }
 
         add (chart);
@@ -53,7 +53,8 @@ public class Monitor.SystemCPUChart : Gtk.Box {
 
     public void update (int serie_number, double value) {
         //  debug("%f", value);
-        chart.add_value (serie_list.get(serie_number), value);
+        //  chart.add_value (serie_list.get(serie_number), value);
+        chart.add_value_by_index (serie_number, value);
     }
 
     //  public void set_data (Gee.ArrayList<double?> history) {
