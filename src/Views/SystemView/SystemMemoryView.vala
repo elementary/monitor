@@ -57,8 +57,8 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
         Gtk.Grid grid = new Gtk.Grid ();
         grid.column_spacing = 12;
 
-        grid.attach (memory_total_label, 0, 0, 1, 1);
-        grid.attach (memory_used_label, 1, 0, 1, 1);
+        grid.attach (memory_used_label, 0, 0, 1, 1);
+        grid.attach (memory_total_label, 1, 0, 1, 1);
         grid.attach (memory_shared_label, 0, 1, 1, 1);
         grid.attach (memory_buffered_label, 1, 1, 1, 1);
         grid.attach (memory_cached_label, 0, 2, 1, 1);
