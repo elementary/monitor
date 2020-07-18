@@ -25,11 +25,10 @@
 <url type="help">https://github.com/stsdc/monitor/issues</url>
 
 <releases>
-    <release version="0.7.3" date="2020-06-22">
+    <release version="0.8.0" date="2020-07-19">
 ​      <description>
 ​         <ul>
-           <li>Small bugfix</li>
-           <li>Added tooltips (Ryo Nakano)</li>
+           <li>System resources tab</li>
         </ul>
 ​      </description>
 ​    </release>
