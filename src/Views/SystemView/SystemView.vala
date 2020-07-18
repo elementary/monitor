@@ -7,8 +7,6 @@ public class Monitor.SystemView : Gtk.Box {
     construct {
         orientation = Gtk.Orientation.VERTICAL;
         hexpand = true;
-
-
     }
 
     public SystemView (Resources _resources) {

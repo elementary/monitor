@@ -14,7 +14,6 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
         margin = 12;
         column_spacing = 12;
         set_vexpand (false);
-
     }
 
 
@@ -26,6 +25,7 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
         memory_percentage_label.get_style_context ().add_class ("h2");
         memory_percentage_label.halign = Gtk.Align.START;
         memory_percentage_label.valign = Gtk.Align.START;
+        memory_percentage_label.margin_start = 6;
 
         memory_total_label = new Gtk.Label ("Total: " + Utils.NO_DATA);
         memory_total_label.halign = Gtk.Align.START;
@@ -47,8 +47,8 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
 
         memory_chart = new SystemCPUChart (1);
 
-        attach (memory_percentage_label, 0, 0, 2, 1);
-        attach (memory_usage_grid (), 0, 1, 1);
+        attach (memory_percentage_label, 1, 0, 1, 1);
+        attach (memory_usage_grid (), 0, 0, 1);
         attach (memory_chart, 1, 0, 1, 2);
 
     }
@@ -56,6 +56,7 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
     private Gtk.Grid memory_usage_grid () {
         Gtk.Grid grid = new Gtk.Grid ();
         grid.column_spacing = 12;
+        grid.width_request = 300;
 
         grid.attach (memory_used_label, 0, 0, 1, 1);
         grid.attach (memory_total_label, 1, 0, 1, 1);
