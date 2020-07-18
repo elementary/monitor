@@ -50,7 +50,9 @@
 
             dbusserver = DBusServer.get_default ();
             
-            
+            stack.notify["visible-child-name"].connect (() => {
+                headerbar.search.sensitive = stack.visible_child_name == "process_view";
+            });
 
             Timeout.add_seconds (2, () => {
                 resources.update();
