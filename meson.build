@@ -1,4 +1,4 @@
-project('com.github.stsdc.monitor', 'vala', 'c', version: '0.7.3')
+project('com.github.stsdc.monitor', 'vala', 'c', version: '0.8.0')
 
 # these are Meson modules
 gnome = import('gnome')
@@ -66,6 +66,11 @@ executable(
     'src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala',
     'src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala',
 
+    'src/Views/SystemView/SystemView.vala',
+    'src/Views/SystemView/SystemCPUChart.vala',
+    'src/Views/SystemView/SystemCPUView.vala',
+    'src/Views/SystemView/SystemMemoryView.vala',
+
     # Widgets related only to ProcessInfoView
     'src/Views/ProcessView/ProcessInfoView/Preventor.vala',
     'src/Views/ProcessView/ProcessInfoView/RoundyLabel.vala',
@@ -93,8 +98,10 @@ executable(
 
     'src/Services/Shortcuts.vala',
     'src/Services/DBusServer.vala',
-    'src/Services/Updater.vala',
 
+    # Resources
+    'src/Resources/Resources.vala',
+    'src/Resources/ResourcesSerialized.vala',
     'src/Resources/CPU.vala',
     'src/Resources/Core.vala',
     'src/Resources/Memory.vala',
@@ -125,6 +132,7 @@ shared_module(
     'monitor',
     'src/Indicator/Indicator.vala',
     'src/Utils.vala',
+    'src/Resources/ResourcesSerialized.vala',
 
     'src/Indicator/Widgets/DisplayWidget.vala',
     'src/Indicator/Widgets/PopoverWidget.vala',

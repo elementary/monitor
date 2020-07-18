@@ -1,3 +1,9 @@
+com.github.stsdc.monitor (0.8.0) bionic; urgency=low
+
+      * System resources tab
+
+-- Stanisław Dac <stanislawdac@gmail.com>  Sun, 19 Jul 2020 00:30:43 +0200
+
 com.github.stsdc.monitor (0.7.3) bionic; urgency=low
 
       * Added tooltips to process state label (Ryo Nakano)

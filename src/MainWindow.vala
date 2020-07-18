@@ -2,17 +2,18 @@
         // application reference
         private Shortcuts shortcuts;
 
+        private Resources resources;
+
         // Widgets
         public Headerbar headerbar;
         //  private Gtk.Button process_info_button;
 
         public ProcessView process_view;
+        public SystemView system_view;
 
         private Statusbar statusbar;
 
         public DBusServer dbusserver;
-
-        private Updater updater;
 
 
         // Constructs a main window
@@ -23,46 +24,45 @@
 
             get_style_context ().add_class ("rounded");
 
+            resources = new Resources ();
 
-            //  button_box.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
-
-            // setup process info button
-            //  process_info_button = new Gtk.Button.from_icon_name ("dialog-information-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
-            //  process_info_button.get_style_context ().remove_class ("image-button");
-            //  button_box.add (process_info_button);
-
-            // setup kill process button
-
-
-            // TODO: Granite.Widgets.ModeButton to switch between view modes
-
-            //  process_manager = new ProcessManager();
             process_view = new ProcessView ();
+            system_view = new SystemView (resources);
+
+            Gtk.Stack stack = new Gtk.Stack ();
+            stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
+            stack.add_titled (process_view, "process_view", "Processes");
+            stack.add_titled (system_view, "system_view", "System");
+
+            Gtk.StackSwitcher stack_switcher = new Gtk.StackSwitcher ();
+            stack_switcher.set_stack(stack);
 
             headerbar = new Headerbar (this);
+            headerbar.set_custom_title (stack_switcher);
             set_titlebar (headerbar);
 
             statusbar = new Statusbar ();
 
             var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-            main_box.pack_start (process_view, true, true, 0);
+            main_box.pack_start (stack, true, true, 0);
             main_box.pack_start (statusbar, false, true, 0);
             this.add (main_box);
 
-            updater = Updater.get_default ();
             dbusserver = DBusServer.get_default ();
+            
+            
 
-            updater.update.connect ((sysres) => {
-                statusbar.update (sysres);
-                dbusserver.update (sysres);
-                dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
-            });
-
-            // updating processes every 2 seconds
             Timeout.add_seconds (2, () => {
+                resources.update();
+                var res = resources.serialize ();
+                statusbar.update (res);
+                dbusserver.update (res);
                 process_view.update();
+                system_view.update();
+                dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
                 return true;
             });
+
 
             dbusserver.quit.connect (() => app.quit());
             dbusserver.show.connect (() => {
