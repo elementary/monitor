@@ -21,28 +21,28 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
     public SystemMemoryView(Memory _memory) {
         memory = _memory;
 
-        memory_percentage_label = new Gtk.Label ("Memory: " + Utils.NO_DATA);
+        memory_percentage_label = new Gtk.Label (_("Memory: ") + Utils.NO_DATA);
         memory_percentage_label.get_style_context ().add_class ("h2");
         memory_percentage_label.halign = Gtk.Align.START;
         memory_percentage_label.valign = Gtk.Align.START;
         memory_percentage_label.margin_start = 6;
 
-        memory_total_label = new Gtk.Label ("Total: " + Utils.NO_DATA);
+        memory_total_label = new Gtk.Label (_("Total: ") + Utils.NO_DATA);
         memory_total_label.halign = Gtk.Align.START;
 
-        memory_used_label = new Gtk.Label ("Used: " + Utils.NO_DATA);
+        memory_used_label = new Gtk.Label (_("Used: ") + Utils.NO_DATA);
         memory_used_label.halign = Gtk.Align.START;
 
-        memory_shared_label = new Gtk.Label ("Shared: " + Utils.NO_DATA);
+        memory_shared_label = new Gtk.Label (_("Shared: ") + Utils.NO_DATA);
         memory_shared_label.halign = Gtk.Align.START;
 
-        memory_buffered_label = new Gtk.Label ("Buffered: " + Utils.NO_DATA);
+        memory_buffered_label = new Gtk.Label (_("Buffered: ") + Utils.NO_DATA);
         memory_buffered_label.halign = Gtk.Align.START;
 
-        memory_cached_label = new Gtk.Label ("Cached: " + Utils.NO_DATA);
+        memory_cached_label = new Gtk.Label (_("Cached: ") + Utils.NO_DATA);
         memory_cached_label.halign = Gtk.Align.START;
 
-        memory_locked_label = new Gtk.Label ("Locked: " + Utils.NO_DATA);
+        memory_locked_label = new Gtk.Label (_("Locked: ") + Utils.NO_DATA);
         memory_locked_label.halign = Gtk.Align.START;
 
         memory_chart = new SystemCPUChart (1);
