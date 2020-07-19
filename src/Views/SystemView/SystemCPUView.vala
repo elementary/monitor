@@ -39,7 +39,7 @@ public class Monitor.SystemCPUView : Gtk.Grid {
             double core_percentage = cpu.core_list[i].percentage_used;
             cpu_chart.update(i, core_percentage);
             string percentage_formatted = ("% 3d%%").printf ( (int)core_percentage);
-            core_label_list[i].set_text (_("Thread %d: %s".printf (i, percentage_formatted)));
+            core_label_list[i].set_text (_("Thread %d: %s").printf (i, percentage_formatted));
         }
 
         cpu_percentage_label.set_text ((_("CPU: % 3d%%")).printf (cpu.percentage));
@@ -52,7 +52,7 @@ public class Monitor.SystemCPUView : Gtk.Grid {
         int column = 0;
         int row = 0;
         for (int i = 0; i < cpu.core_list.size; i++) {
-            var core_label = new Gtk.Label(_("Thread %d: ".printf (i)) + Utils.NO_DATA);
+            var core_label = new Gtk.Label(_("Thread %d: ").printf (i) + Utils.NO_DATA);
             core_label.halign = Gtk.Align.START;
             core_label_list.add (core_label);
 
