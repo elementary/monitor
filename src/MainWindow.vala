@@ -31,8 +31,8 @@
 
             Gtk.Stack stack = new Gtk.Stack ();
             stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
-            stack.add_titled (process_view, "process_view", "Processes");
-            stack.add_titled (system_view, "system_view", "System");
+            stack.add_titled (process_view, "process_view", _("Processes"));
+            stack.add_titled (system_view, "system_view", _("System"));
 
             Gtk.StackSwitcher stack_switcher = new Gtk.StackSwitcher ();
             stack_switcher.set_stack(stack);
@@ -50,7 +50,9 @@
 
             dbusserver = DBusServer.get_default ();
             
-            
+            stack.notify["visible-child-name"].connect (() => {
+                headerbar.search.sensitive = stack.visible_child_name == "process_view";
+            });
 
             Timeout.add_seconds (2, () => {
                 resources.update();

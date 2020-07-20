@@ -9,6 +9,8 @@ src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala
 src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala
 src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala
 src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala
+src/Views/SystemView/SystemCPUView.vala
+src/Views/SystemView/SystemMemoryView.vala
 src/Widgets/Headerbar/Headerbar.vala
 src/Widgets/Headerbar/Search.vala
 src/Widgets/Statusbar/Statusbar.vala
