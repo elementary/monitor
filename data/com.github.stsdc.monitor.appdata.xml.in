@@ -16,7 +16,10 @@
   </custom>
     <screenshots>
     <screenshot type="default">
-      <image>https://github.com/stsdc/monitor/raw/master/data/com.github.stsdc.monitor.screenshot.png</image>
+      <image>https://github.com/stsdc/monitor/raw/master/data/screenshots/monitor-processes.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://github.com/stsdc/monitor/raw/master/data/screenshots/monitor-system.png</image>
     </screenshot>
   </screenshots>
   <developer_name>Stanisław Dac</developer_name>
