@@ -93,3 +93,11 @@ font-size:9px;
     color: @SILVER_700;
     margin: 6px;
 }
+
+.bold {
+    font-weight: bold;
+}
+
+.text-secondary {
+    color: @SILVER_700;
+}

@@ -36,7 +36,6 @@ public class Monitor.SystemCPUChart : Gtk.Box {
             red= 1, green= 1, blue= 1, alpha= 1
         };                                                                                  //White background
 
-        
     }
 
     public SystemCPUChart (int cores_quantity) {
