@@ -10,6 +10,7 @@
 
         public ProcessView process_view;
         public SystemView system_view;
+        private Gtk.Stack stack;
 
         private Statusbar statusbar;
 
@@ -29,7 +30,7 @@
             process_view = new ProcessView ();
             system_view = new SystemView (resources);
 
-            Gtk.Stack stack = new Gtk.Stack ();
+            stack = new Gtk.Stack ();
             stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
             stack.add_titled (process_view, "process_view", _("Processes"));
             stack.add_titled (system_view, "system_view", _("System"));
@@ -47,6 +48,8 @@
             main_box.pack_start (stack, true, true, 0);
             main_box.pack_start (statusbar, false, true, 0);
             this.add (main_box);
+
+            show_all ();
 
             dbusserver = DBusServer.get_default ();
             
@@ -87,6 +90,8 @@
                 MonitorApp.settings.set_int ("position-y", position_y);
                 MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized);
 
+                MonitorApp.settings.set_string ("opened-view", stack.visible_child_name);
+
                 if (MonitorApp.settings.get_boolean ("indicator-state")) {
                     this.hide_on_delete ();
                 } else {
@@ -98,6 +103,7 @@
             });
 
             dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
+            stack.visible_child_name = MonitorApp.settings.get_string ("opened-view");
         }
 
         private void setup_window_state () {
