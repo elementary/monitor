@@ -30,7 +30,7 @@ public class Monitor.SystemCPUView : Gtk.Grid {
         //  cpu_percentage_label.margin_start = 12;
         //  cpu_percentage_label.margin_top = 6;
 
-        processor_name_label = new Gtk.Label ("AMD Ryzen 5 2400G with Radeon Vega Graphics");
+        processor_name_label = new Gtk.Label (cpu.cpu_name);
         processor_name_label.get_style_context ().add_class ("h4");
         //  processor_name_label.get_style_context ().add_class ("text-secondary");
         processor_name_label.valign = Gtk.Align.START;

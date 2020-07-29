@@ -3,6 +3,8 @@ public class Monitor.CPU : Object {
     private float last_total;
     private float load;
 
+    public string? cpu_name;
+
     GTop.Cpu ? cpu;
 
     public int percentage {
@@ -27,6 +29,7 @@ public class Monitor.CPU : Object {
 
         core_list = new  Gee.ArrayList<Core> ();
 
+        cpu_name = get_cpu_info ();
 
         debug ("Number of cores: %d", (int) get_num_processors ());
         for (int i = 0; i < (int) get_num_processors (); i++) {
@@ -82,5 +85,66 @@ public class Monitor.CPU : Object {
         }
 
         _frequency = (double)maxcur;
+    }
+
+    // straight from elementary about-plug
+    private string? get_cpu_info () {
+        unowned GTop.SysInfo? info = GTop.glibtop_get_sysinfo ();
+
+        if (info == null) {
+            return null;
+        }
+
+        var counts = new Gee.HashMap<string, uint> ();
+        const string[] KEYS = { "model name", "cpu", "Processor" };
+
+        for (int i = 0; i < info.ncpu; i++) {
+            unowned GLib.HashTable<string, string> values = info.cpuinfo[i].values;
+            string? model = null;
+            foreach (var key in KEYS) {
+                model = values.lookup (key);
+
+                if (model != null) {
+                    break;
+                }
+            }
+
+            string? core_count = values.lookup ("cpu cores");
+            if (core_count != null) {
+                counts.@set (model, int.parse (core_count));
+                continue;
+            }
+
+            if (!counts.has_key (model)) {
+                counts.@set (model, 1);
+            } else {
+                counts.@set (model, counts.@get (model) + 1);
+            }
+        }
+
+        if (counts.size == 0) {
+            return null;
+        }
+
+        string result = "";
+        foreach (var cpu in counts.entries) {
+            if (result.length > 0) {
+                result += "\n";
+            }
+
+            if (cpu.@value == 2) {
+                result += _("Dual-Core %s").printf ( (cpu.key));
+            } else if (cpu.@value == 4) {
+                result += _("Quad-Core %s").printf ( (cpu.key));
+            } else if (cpu.@value == 6) {
+                result += _("Hexa-Core %s").printf ( (cpu.key));
+            } else {
+                result += "%u\u00D7 %s ".printf (cpu.@value,  (cpu.key));
+            }
+        }
+
+        debug("%s", result);
+
+        return result;
     }
 }

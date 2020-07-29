@@ -127,9 +127,9 @@ namespace GTop {
 
     [CCode (cheader_filename = "glibtop/sysinfo.h", cname = "glibtop_entry", has_type_id = false)]
     public struct Entry {
-        public weak GLib.GenericArray<void*> labels;
-        public weak GLib.HashTable<void*,void*> values;
-        public weak GLib.HashTable<void*,void*> descriptions;
+        public GLib.PtrArray labels;
+        public GLib.HashTable values;
+        public GLib.HashTable descriptions;
     }
 
     [CCode (cheader_filename = "glibtop/fsusage.h", cname = "glibtop_fsusage", has_type_id = false)]
@@ -521,7 +521,7 @@ namespace GTop {
         public uint64 flags;
         public uint64 ncpu;
         [CCode (array_length = false, array_null_terminated = true)]
-        public weak GTop.Entry[] cpuinfo;
+        public unowned Entry[] cpuinfo;
     }
 
     [CCode (cheader_filename = "glibtop/union.h", cname = "glibtop_union")]
