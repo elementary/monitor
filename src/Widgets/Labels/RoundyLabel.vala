@@ -8,7 +8,7 @@ public class Monitor.RoundyLabel : Gtk.Fixed {
         val.get_style_context ().add_class ("roundy-label");
 
         desc = new Gtk.Label (description);
-        desc.get_style_context ().add_class ("pid");
+        desc.get_style_context ().add_class ("small-text");
 
         put(val, 0, 12);
         put(desc, 6, 0);

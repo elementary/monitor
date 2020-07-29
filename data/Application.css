@@ -14,6 +14,19 @@
     border-width: 0;
 }
 
+.vertical-label,
+.vertical-label:hover,
+.vertical-label:selected,
+.vertical-label:selected:focus,
+.vertical-label:hover:selected {
+    color: alpha(@text_color, 1);
+    font-size: 28px;
+    font-weight: 100;
+    /* padding: 0 6px;
+    margin: 0 3px; */
+    border-width: 0;
+}
+
 .username-current {
     background-color: @SILVER_300;
     color: @SILVER_900;
@@ -59,10 +72,10 @@
     font-family: monospace;
 }
 
-.pid {
+.small-text {
     color:grey;
-font-weight:bold;
-font-size:9px;
+    font-weight:bold;
+    font-size:9px;
 }
 
 .graph {

@@ -2,7 +2,7 @@ public class Monitor.SystemCPUView : Gtk.Grid {
     private SystemCPUChart cpu_chart;
     private CPU cpu;
 
-    private Gtk.Label cpu_percentage_label;
+    private VerticalLabel cpu_percentage_label;
     private Gtk.Label processor_name_label;
 
     private Gtk.Button view_threads_usage_button;
@@ -23,12 +23,12 @@ public class Monitor.SystemCPUView : Gtk.Grid {
     public SystemCPUView(CPU _cpu) {
         cpu = _cpu;
 
-        cpu_percentage_label = new Gtk.Label (_("Overall usage: ") + Utils.NO_DATA);
-        cpu_percentage_label.get_style_context ().add_class ("h3");
-        cpu_percentage_label.valign = Gtk.Align.START;
-        cpu_percentage_label.halign = Gtk.Align.START;
-        cpu_percentage_label.margin_start = 12;
-        cpu_percentage_label.margin_top = 6;
+        cpu_percentage_label = new VerticalLabel (_("UTILIZATION"));
+        //  cpu_percentage_label.get_style_context ().add_class ("h3");
+        //  cpu_percentage_label.valign = Gtk.Align.START;
+        //  cpu_percentage_label.halign = Gtk.Align.START;
+        //  cpu_percentage_label.margin_start = 12;
+        //  cpu_percentage_label.margin_top = 6;
 
         processor_name_label = new Gtk.Label ("AMD Ryzen 5 2400G with Radeon Vega Graphics");
         processor_name_label.get_style_context ().add_class ("h4");
@@ -67,7 +67,7 @@ public class Monitor.SystemCPUView : Gtk.Grid {
             //  core_label_list[i].set_text (_("Thread %d: %s").printf (i, percentage_formatted));
         }
 
-        cpu_percentage_label.set_text ((_("Overall usage: % 3d%%")).printf (cpu.percentage));
+        cpu_percentage_label.set_text ((_("%d%%")).printf (cpu.percentage));
     }
 
     private Gtk.Grid grid_info_labels () {
@@ -85,7 +85,7 @@ public class Monitor.SystemCPUView : Gtk.Grid {
         grid.column_spacing = 12;
 
         grid.attach(cpu_percentage_label, 0, 0, 1, 1);
-        grid.attach(view_threads_usage_button, 1, 0, 1, 1);
+        //  grid.attach(view_threads_usage_button, 1, 0, 1, 1);
 
         return grid;
     }

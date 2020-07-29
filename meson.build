@@ -73,7 +73,6 @@ executable(
 
     # Widgets related only to ProcessInfoView
     'src/Views/ProcessView/ProcessInfoView/Preventor.vala',
-    'src/Views/ProcessView/ProcessInfoView/RoundyLabel.vala',
     'src/Views/ProcessView/ProcessInfoView/Chart.vala',
     'src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala',
     'src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala',
@@ -84,7 +83,9 @@ executable(
     'src/Widgets/Headerbar/Headerbar.vala',
     'src/Widgets/Headerbar/Search.vala',
     'src/Widgets/Statusbar/Statusbar.vala',
-  
+    'src/Widgets/Labels/VerticalLabel.vala',
+    'src/Widgets/Labels/RoundyLabel.vala',
+
 
     # Models
     'src/Models/TreeViewModel.vala',
