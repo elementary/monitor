@@ -1,8 +1,9 @@
 public class Monitor.SystemMemoryView : Gtk.Grid {
-    private SystemCPUChart memory_chart;
+    private Chart memory_chart;
     private Memory memory;
 
-    private Gtk.Label memory_percentage_label;
+    private LabelH4 memory_name_label;
+    private LabelVertical memory_percentage_label;
     private Gtk.Label memory_shared_label;
     private Gtk.Label memory_buffered_label;
     private Gtk.Label memory_cached_label;
@@ -21,11 +22,9 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
     public SystemMemoryView(Memory _memory) {
         memory = _memory;
 
-        memory_percentage_label = new Gtk.Label (_("Memory: ") + Utils.NO_DATA);
-        memory_percentage_label.get_style_context ().add_class ("h2");
-        memory_percentage_label.halign = Gtk.Align.START;
-        memory_percentage_label.valign = Gtk.Align.START;
-        memory_percentage_label.margin_start = 6;
+        memory_name_label = new LabelH4 (_("Memory"));
+
+        memory_percentage_label = new LabelVertical (_("UTILIZATION"));
 
         memory_total_label = new Gtk.Label (_("Total: ") + Utils.NO_DATA);
         memory_total_label.halign = Gtk.Align.START;
@@ -45,11 +44,12 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
         memory_locked_label = new Gtk.Label (_("Locked: ") + Utils.NO_DATA);
         memory_locked_label.halign = Gtk.Align.START;
 
-        memory_chart = new SystemCPUChart (1);
+        memory_chart = new Chart (1);
 
-        attach (memory_percentage_label, 1, 0, 1, 1);
-        attach (memory_usage_grid (), 0, 0, 1);
-        attach (memory_chart, 1, 0, 1, 2);
+        attach (memory_name_label, 0, 0, 1, 1);
+        attach (memory_percentage_label, 0, 1, 1, 1);
+        //  attach (memory_usage_grid (), 0, 0, 1);
+        attach (memory_chart, 0, 1, 1, 2);
 
     }
 
@@ -70,7 +70,7 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
 
 
     public void update () {
-        memory_percentage_label.set_text ((_("Memory: % 3d%%")).printf (memory.percentage));
+        memory_percentage_label.set_text ((_("%d%%")).printf (memory.percentage));
         memory_chart.update (0, memory.percentage);
 
         memory_total_label.set_text ((_("Total: %s")).printf (Utils.HumanUnitFormatter.double_bytes_to_human(memory.total)));

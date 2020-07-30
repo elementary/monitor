@@ -1,4 +1,4 @@
-public class Monitor.Chart : Gtk.Box {
+public class Monitor.ProcessChart : Gtk.Box {
     private LiveChart.Serie serie;
     private LiveChart.SmoothLineArea renderer;
     private LiveChart.Chart chart;

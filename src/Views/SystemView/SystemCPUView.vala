@@ -1,9 +1,9 @@
 public class Monitor.SystemCPUView : Gtk.Grid {
-    private SystemCPUChart cpu_chart;
+    private Chart cpu_chart;
     private CPU cpu;
 
-    private VerticalLabel cpu_percentage_label;
-    private Gtk.Label processor_name_label;
+    private LabelVertical cpu_percentage_label;
+    private LabelH4 processor_name_label;
 
     private Gtk.Button view_threads_usage_button;
 
@@ -23,22 +23,16 @@ public class Monitor.SystemCPUView : Gtk.Grid {
     public SystemCPUView(CPU _cpu) {
         cpu = _cpu;
 
-        cpu_percentage_label = new VerticalLabel (_("UTILIZATION"));
+        cpu_percentage_label = new LabelVertical (_("UTILIZATION"));
         //  cpu_percentage_label.get_style_context ().add_class ("h3");
         //  cpu_percentage_label.valign = Gtk.Align.START;
         //  cpu_percentage_label.halign = Gtk.Align.START;
         //  cpu_percentage_label.margin_start = 12;
         //  cpu_percentage_label.margin_top = 6;
 
-        processor_name_label = new Gtk.Label (cpu.cpu_name);
-        processor_name_label.get_style_context ().add_class ("h4");
-        //  processor_name_label.get_style_context ().add_class ("text-secondary");
-        processor_name_label.valign = Gtk.Align.START;
-        processor_name_label.halign = Gtk.Align.START;
-        processor_name_label.margin_start = 6;
-        //  processor_name_label.margin_top = 6;
+        processor_name_label = new LabelH4 (cpu.cpu_name);
 
-        cpu_chart = new SystemCPUChart (cpu.core_list.size);
+        cpu_chart = new Chart (cpu.core_list.size);
 
         view_threads_usage_button = new Gtk.Button ();
         view_threads_usage_button.has_tooltip = true;

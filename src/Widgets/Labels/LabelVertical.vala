@@ -1,4 +1,4 @@
-public class Monitor.VerticalLabel : Gtk.Grid {
+public class Monitor.LabelVertical : Gtk.Grid {
 
     public Gtk.Label val;
     public Gtk.Label desc;
@@ -8,7 +8,7 @@ public class Monitor.VerticalLabel : Gtk.Grid {
         margin_top = 6;
     }
 
-    public VerticalLabel (string description) {
+    public LabelVertical (string description) {
         val = new Gtk.Label (Utils.NO_DATA);
         //  val.get_style_context ().add_class ("h2");
 
