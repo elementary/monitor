@@ -22,7 +22,6 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         }
     }
     public string ? icon_name;
-    private Gtk.ScrolledWindow command_wrapper;
 
     private Gtk.InfoBar permission_error_infobar;
     private Gtk.Label permission_error_label;
@@ -31,14 +30,8 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     private ProcessInfoIOStats process_info_io_stats;
     private ProcessInfoCPURAM process_info_cpu_ram;
 
-    
-    private Regex ? regex;
-    private Gtk.Grid grid;
-
     private Gtk.Button end_process_button;
     private Gtk.Button kill_process_button;
-
-    private Preventor preventor;
 
     public ProcessInfoView () {
         orientation = Gtk.Orientation.VERTICAL;
