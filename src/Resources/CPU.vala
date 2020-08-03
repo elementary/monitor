@@ -143,8 +143,6 @@ public class Monitor.CPU : Object {
             }
         }
 
-        debug("%s", result);
-
-        return result;
+       return Utils.Strings.beautify (result);
     }
 }
