@@ -115,10 +115,10 @@ public class Monitor.SystemCPUView : Gtk.Grid {
 
             grid.attach(core_label, column, row, 1, 1);
 
-            column++;
-            if (column > 1) {
-                row++;
-                column = 0;
+            row++;
+            if (row > 1) {
+                column++;
+                row = 0;
             }
         }
         cpu_threads_revealer.add (grid);
