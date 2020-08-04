@@ -58,6 +58,35 @@
     border-width: 0;
 }
 
+.core_badge {
+    background-color: @SILVER_100;
+    border-radius: 8px;
+    padding-right: 4px;
+    padding-left:2px;
+    font-size: 10px;
+    font-weight:bold;
+    color: @SILVER_900;
+    border: 1px solid @SILVER_300;
+}
+
+.core_badge-mild-warning {
+    background-color: @SBANANA_100;
+    color: @BANANA_900;
+    border: 1px solid @BANANA_300;
+}
+
+.core_badge-strong-warning {
+    background-color: @ORANGE_100;
+    color: @ORANGE_900;
+    border: 1px solid @ORANGE_300;
+}
+
+.core_badge-critical-warning {
+    background-color: @STRAWBERRY_100;
+    color: @STRAWBERRY_700;
+    border: 1px solid @STRAWBERRY_300;
+}
+
 .command_wrapper {
     background-color: #fdf6e3;
     border-radius: 3px;

@@ -10,7 +10,7 @@ public class Monitor.SystemCPUView : Gtk.Grid {
 
     private Gtk.Revealer cpu_threads_revealer;
 
-    private Gee.ArrayList<LabelRoundy?> core_label_list;
+    private Gee.ArrayList<Gtk.Label?> core_label_list;
 
     construct {
         margin = 12;
@@ -18,7 +18,7 @@ public class Monitor.SystemCPUView : Gtk.Grid {
         column_spacing = 12;
         set_vexpand (false);
 
-        core_label_list = new Gee.ArrayList<LabelRoundy> ();
+        core_label_list = new Gee.ArrayList<Gtk.Label> ();
     }
 
 
@@ -109,8 +109,9 @@ public class Monitor.SystemCPUView : Gtk.Grid {
         int column = 0;
         int row = 0;
         for (int i = 0; i < cpu.core_list.size; i++) {
-            var core_label = new LabelRoundy(_("Thread %d").printf (i));
-            core_label.set_text (Utils.NO_DATA);
+            var core_label = new Gtk.Label (Utils.NO_DATA);
+            core_label.get_style_context ().add_class ("core_badge");
+            //  core_label.set_text (Utils.NO_DATA);
             core_label_list.add (core_label);
 
             grid.attach(core_label, column, row, 1, 1);
