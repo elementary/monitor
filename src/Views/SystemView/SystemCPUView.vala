@@ -27,39 +27,18 @@ public class Monitor.SystemCPUView : Gtk.Grid {
         cpu = _cpu;
 
         cpu_percentage_label = new LabelVertical (_("UTILIZATION"));
-        //  cpu_percentage_label.valign = Gtk.Align.CENTER;
         cpu_frequency_label = new LabelRoundy (_("FREQUENCY"));
-        //  cpu_percentage_label.get_style_context ().add_class ("h3");
-        //  cpu_percentage_label.valign = Gtk.Align.START;
-        //  cpu_percentage_label.halign = Gtk.Align.START;
-        //  cpu_percentage_label.margin_start = 12;
-        //  cpu_percentage_label.margin_top = 6;
-
         processor_name_label = new LabelH4 (cpu.cpu_name);
 
         cpu_chart = new Chart (cpu.core_list.size);
 
-        view_threads_usage_button = new Gtk.Button.with_label (">>");
-        view_threads_usage_button.has_tooltip = true;
-        view_threads_usage_button.tooltip_text = (_("View more"));
-        view_threads_usage_button.valign = Gtk.Align.CENTER;
-        //  var icon = new Gtk.Image ();
-        //  icon.gicon = new ThemedIcon ("view-more-horizontal-symbolic");
-        //  icon.pixel_size = 16;
-        //  view_threads_usage_button.set_image (icon);
-
-        view_threads_usage_button.clicked.connect(() => {
+        cpu_percentage_label.clicked.connect(() => {
             cpu_threads_revealer.reveal_child = !(cpu_threads_revealer.child_revealed);
         });
 
-        //  attach (grid_core_labels (), 0, 0, 1, 1);
-        //  attach (grid_info_labels (), 0, 0, 1, 1);
         attach (processor_name_label, 0, 0, 1, 1);
         attach (grid_usage_labels(), 0, 1, 1, 1);
-        //  attach (view_threads_usage_button, 1, 1, 1, 1);
-        //  attach (processor_name_label, 0, 0, 1, 1);
         attach (cpu_chart, 0, 1, 1, 1);
-        
     }
 
 
@@ -77,7 +56,6 @@ public class Monitor.SystemCPUView : Gtk.Grid {
 
     private Gtk.Grid grid_info_labels () {
         Gtk.Grid grid = new Gtk.Grid ();
-        //  grid.column_spacing = 12;
 
         grid.attach(processor_name_label, 0, 0, 1, 1);
         grid.attach(cpu_percentage_label, 0, 1, 1, 1);
@@ -88,7 +66,7 @@ public class Monitor.SystemCPUView : Gtk.Grid {
     private Gtk.Grid grid_usage_labels () {
 
         Gtk.Grid grid = new Gtk.Grid ();
-        grid.column_spacing = 0;
+        grid.column_spacing = 6;
 
         grid.attach(cpu_percentage_label, 0, 0, 1, 1);
         grid.attach(view_threads_usage_button, 2, 0, 1, 1);
@@ -123,6 +101,10 @@ public class Monitor.SystemCPUView : Gtk.Grid {
             }
         }
         cpu_threads_revealer.add (grid);
+
+        var threads_label = new Gtk.Label ("THREADS");
+        threads_label.get_style_context ().add_class ("small-text");
+        grid.attach(threads_label, 0, -1, column, 1);
 
         return cpu_threads_revealer;
     }

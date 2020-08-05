@@ -20,7 +20,7 @@
 .vertical-label:selected:focus,
 .vertical-label:hover:selected {
     color: alpha(@text_color, 1);
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 100;
     /* padding: 0 6px;
     margin: 0 3px; */

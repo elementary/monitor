@@ -1,25 +1,38 @@
-public class Monitor.LabelVertical : Gtk.Grid {
+public class Monitor.LabelVertical : Gtk.EventBox {
+
+    private Gtk.Grid grid;
+
+    public signal void clicked ();
 
     public Gtk.Label val;
     public Gtk.Label desc;
 
     construct {
-        margin_start = 12;
-        margin_top = 6;
+        grid = new Gtk.Grid ();
+        grid.margin_start = 12;
+        grid.margin_top = 6;
     }
 
     public LabelVertical (string description) {
         val = new Gtk.Label (Utils.NO_DATA);
-        //  val.get_style_context ().add_class ("h2");
 
         val.get_style_context ().add_class ("vertical-label");
 
         desc = new Gtk.Label (description);
-        //  desc.get_style_context ().add_class ("h4");
         desc.get_style_context ().add_class ("small-text");
 
-        attach(desc, 0, 0, 1, 1);
-        attach(val, 0, 1, 1, 1);
+        grid.attach(desc, 0, 0, 1, 1);
+        grid.attach(val, 0, 1, 1, 1);
+
+        add (grid);
+
+        events |= Gdk.EventMask.BUTTON_RELEASE_MASK;
+
+        button_release_event.connect ((event) => {
+            clicked ();
+            return false;
+        });
+
     }
 
     public void set_text (string text) {
