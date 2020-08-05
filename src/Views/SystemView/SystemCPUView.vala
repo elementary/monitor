@@ -49,6 +49,11 @@ public class Monitor.SystemCPUView : Gtk.Grid {
             string percentage_formatted = ("% 3d%%").printf ( (int)core_percentage);
             core_label_list[i].set_text (percentage_formatted);
 
+            core_label_list[i].get_style_context ().remove_class ("core_badge-mild-warning");
+            core_label_list[i].get_style_context ().remove_class ("core_badge-strong-warning");
+            core_label_list[i].get_style_context ().remove_class ("core_badge-critical-warning");
+
+
             if (core_percentage > 75.0) {
                 core_label_list[i].get_style_context ().add_class ("core_badge-mild-warning");
                 core_label_list[i].get_style_context ().remove_class ("core_badge-strong-warning");
@@ -56,10 +61,14 @@ public class Monitor.SystemCPUView : Gtk.Grid {
             }
             if (core_percentage > 85.0) {
                 core_label_list[i].get_style_context ().add_class ("core_badge-strong-warning");
+                core_label_list[i].get_style_context ().remove_class ("core_badge-mild-warning");
+                core_label_list[i].get_style_context ().remove_class ("core_badge-critical-warning");
             }
 
             if (core_percentage > 90.0) {
                 core_label_list[i].get_style_context ().add_class ("core_badge-critical-warning");
+                core_label_list[i].get_style_context ().remove_class ("core_badge-mild-warning");
+                core_label_list[i].get_style_context ().remove_class ("core_badge-strong-warning");
             }
         }
 
