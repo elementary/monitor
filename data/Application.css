@@ -64,8 +64,8 @@
     padding-right: 4px;
     padding-left:2px;
     font-size: 10px;
-    font-weight:bold;
-    color: @SILVER_900;
+    /* font-weight:bold; */
+    color: black;
     border: 1px solid @SILVER_300;
 }
 
