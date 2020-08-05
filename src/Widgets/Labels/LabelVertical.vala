@@ -11,6 +11,8 @@ public class Monitor.LabelVertical : Gtk.EventBox {
         grid = new Gtk.Grid ();
         grid.margin_start = 12;
         grid.margin_top = 6;
+
+        get_style_context ().add_class (Gtk.STYLE_CLASS_CURSOR_HANDLE);
     }
 
     public LabelVertical (string description) {

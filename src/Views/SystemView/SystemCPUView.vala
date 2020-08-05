@@ -69,7 +69,6 @@ public class Monitor.SystemCPUView : Gtk.Grid {
         grid.column_spacing = 6;
 
         grid.attach(cpu_percentage_label, 0, 0, 1, 1);
-        grid.attach(view_threads_usage_button, 2, 0, 1, 1);
         grid.attach(grid_core_labels(), 1, 0, 1, 1);
 
         return grid;

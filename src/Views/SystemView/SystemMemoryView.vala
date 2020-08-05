@@ -10,6 +10,7 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
     private Gtk.Label memory_locked_label;
     private Gtk.Label memory_total_label;
     private Gtk.Label memory_used_label;
+    private Gtk.Revealer memory_usage_revealer;
 
     construct {
         margin = 12;
@@ -25,6 +26,10 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
         memory_name_label = new LabelH4 (_("Memory"));
 
         memory_percentage_label = new LabelVertical (_("UTILIZATION"));
+
+        memory_percentage_label.clicked.connect(() => {
+            memory_usage_revealer.reveal_child = !(memory_usage_revealer.child_revealed);
+        });
 
         memory_total_label = new Gtk.Label (_("Total: ") + Utils.NO_DATA);
         memory_total_label.halign = Gtk.Align.START;
@@ -46,14 +51,22 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
 
         memory_chart = new Chart (1);
 
+        var lil_gridy = new Gtk.Grid ();
+        lil_gridy.attach (memory_percentage_label, 0, 0, 1, 1);
+        lil_gridy.attach (memory_usage_grid (), 1, 0, 1, 1);
+
         attach (memory_name_label, 0, 0, 1, 1);
-        attach (memory_percentage_label, 0, 1, 1, 1);
-        //  attach (memory_usage_grid (), 0, 0, 1);
-        attach (memory_chart, 0, 1, 1, 2);
+        attach (lil_gridy, 0, 1, 1, 1);
+        attach (memory_chart, 0, 1, 2, 2);
 
     }
 
-    private Gtk.Grid memory_usage_grid () {
+    private Gtk.Revealer memory_usage_grid () {
+        memory_usage_revealer = new Gtk.Revealer();
+        memory_usage_revealer.margin = 6;
+        memory_usage_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT;
+        memory_usage_revealer.valign = Gtk.Align.CENTER;
+
         Gtk.Grid grid = new Gtk.Grid ();
         grid.column_spacing = 12;
         grid.width_request = 300;
@@ -65,7 +78,9 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
         grid.attach (memory_cached_label, 0, 2, 1, 1);
         grid.attach (memory_locked_label, 1, 2, 1, 1);
 
-        return grid;
+        memory_usage_revealer.add (grid);
+
+        return memory_usage_revealer;
     }
 
 
