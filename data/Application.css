@@ -70,7 +70,7 @@
 }
 
 .core_badge-mild-warning {
-    background-color: @SBANANA_100;
+    background-color: @BANANA_100;
     color: @BANANA_900;
     border: 1px solid @BANANA_300;
 }
