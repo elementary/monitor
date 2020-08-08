@@ -9,16 +9,16 @@ public class Monitor.LabelVertical : Gtk.EventBox {
 
     construct {
         grid = new Gtk.Grid ();
-        grid.margin_start = 12;
-        grid.margin_top = 6;
+        margin_start = 12;
+        margin_top = 6;
 
-        get_style_context ().add_class (Gtk.STYLE_CLASS_CURSOR_HANDLE);
+        get_style_context ().add_class ("label-vertical");
     }
 
     public LabelVertical (string description) {
         val = new Gtk.Label (Utils.NO_DATA);
 
-        val.get_style_context ().add_class ("vertical-label");
+        val.get_style_context ().add_class ("label-vertical-val");
 
         desc = new Gtk.Label (description);
         desc.get_style_context ().add_class ("small-text");

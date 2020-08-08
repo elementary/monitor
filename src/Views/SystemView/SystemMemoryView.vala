@@ -26,9 +26,16 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
         memory_name_label = new LabelH4 (_("Memory"));
 
         memory_percentage_label = new LabelVertical (_("UTILIZATION"));
+        memory_percentage_label.has_tooltip = true;
+        memory_percentage_label.tooltip_text = (_("Show detailed info"));
 
         memory_percentage_label.clicked.connect(() => {
             memory_usage_revealer.reveal_child = !(memory_usage_revealer.child_revealed);
+            if (memory_usage_revealer.child_revealed) {
+                memory_percentage_label.tooltip_text = (_("Show detailed info"));
+            } else {
+                memory_percentage_label.tooltip_text = (_("Hide detailed info"));
+            }
         });
 
         memory_total_label = new Gtk.Label (_("Total: ") + Utils.NO_DATA);
@@ -52,6 +59,11 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
         memory_chart = new Chart (1);
 
         var lil_gridy = new Gtk.Grid ();
+        lil_gridy.margin = 6;
+        lil_gridy.column_spacing = 6;
+        lil_gridy.valign = Gtk.Align.START;
+        lil_gridy.halign = Gtk.Align.START;
+        lil_gridy.get_style_context ().add_class ("usage-label-container");
         lil_gridy.attach (memory_percentage_label, 0, 0, 1, 1);
         lil_gridy.attach (memory_usage_grid (), 1, 0, 1, 1);
 

@@ -14,11 +14,19 @@
     border-width: 0;
 }
 
-.vertical-label,
+/* .vertical-label,
 .vertical-label:hover,
 .vertical-label:selected,
 .vertical-label:selected:focus,
 .vertical-label:hover:selected {
+
+} */
+
+.label-vertical {
+
+}
+
+.label-vertical-val {
     color: alpha(@text_color, 1);
     font-size: 30px;
     font-weight: 100;
@@ -26,6 +34,12 @@
     margin: 0 3px; */
     border-width: 0;
 }
+
+.usage-label-container {
+    border: 1px solid @SILVER_300;;
+    border-radius: 3px;
+    background-color: alpha(@SILVER_100, 0.5);
+    }
 
 .username-current {
     background-color: @SILVER_300;

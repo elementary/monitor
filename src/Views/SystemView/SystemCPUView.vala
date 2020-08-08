@@ -27,6 +27,8 @@ public class Monitor.SystemCPUView : Gtk.Grid {
         cpu = _cpu;
 
         cpu_percentage_label = new LabelVertical (_("UTILIZATION"));
+        cpu_percentage_label.has_tooltip = true;
+        cpu_percentage_label.tooltip_text = (_("Show detailed info"));
         cpu_frequency_label = new LabelRoundy (_("FREQUENCY"));
         processor_name_label = new LabelH4 (cpu.cpu_name);
 
@@ -34,6 +36,12 @@ public class Monitor.SystemCPUView : Gtk.Grid {
 
         cpu_percentage_label.clicked.connect(() => {
             cpu_threads_revealer.reveal_child = !(cpu_threads_revealer.child_revealed);
+
+            if (cpu_threads_revealer.child_revealed) {
+                cpu_percentage_label.tooltip_text = (_("Show detailed info"));
+            } else {
+                cpu_percentage_label.tooltip_text = (_("Hide detailed info"));
+            }
         });
 
         attach (processor_name_label, 0, 0, 1, 1);
@@ -89,6 +97,10 @@ public class Monitor.SystemCPUView : Gtk.Grid {
 
         Gtk.Grid grid = new Gtk.Grid ();
         grid.column_spacing = 6;
+        grid.margin = 6;
+        grid.valign = Gtk.Align.START;
+        grid.halign = Gtk.Align.START;
+        grid.get_style_context ().add_class ("usage-label-container");
 
         grid.attach(cpu_percentage_label, 0, 0, 1, 1);
         grid.attach(grid_core_labels(), 1, 0, 1, 1);
