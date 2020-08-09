@@ -30,7 +30,40 @@ public class Monitor.SystemCPUView : Gtk.Grid {
         cpu_percentage_label.has_tooltip = true;
         cpu_percentage_label.tooltip_text = (_("Show detailed info"));
         cpu_frequency_label = new LabelRoundy (_("FREQUENCY"));
+
         processor_name_label = new LabelH4 (cpu.cpu_name);
+
+        var processor_info_button = new Gtk.ToggleButton ();
+        processor_info_button.get_style_context ().add_class ("circular");
+        //  processor_info_button.get_style_context ().add_class ("popup");
+        processor_info_button.has_focus = false;
+        var icon = new Gtk.Image ();
+        icon.gicon = new ThemedIcon ("dialog-information");
+        icon.pixel_size = 16;
+        processor_info_button.set_image (icon);
+        processor_info_button.valign = Gtk.Align.START;
+        processor_info_button.halign = Gtk.Align.START;
+
+        
+
+        var title_grid = new Gtk.Grid ();
+        title_grid.attach (processor_name_label, 0, 0, 1, 1);
+        title_grid.attach (processor_info_button, 1, 0, 1, 1);
+        title_grid.column_spacing = 6;
+
+        var popover = new Gtk.Popover (processor_info_button);
+        var box2 = new Gtk.Box(Gtk.Orientation.VERTICAL, 5);
+        popover.add(box2);
+        var label = new Gtk.Label("A Label Widget");
+        box2.add(label);
+        var checkbutton = new Gtk.CheckButton.with_label("A CheckButton Widget");
+        box2.add(checkbutton);
+        var radiobutton = new Gtk.RadioButton.with_label(null, "A RadioButton Widget");
+        box2.add(radiobutton);
+
+        processor_info_button.clicked.connect(() => {
+            popover.show_all();
+        });
 
         cpu_chart = new Chart (cpu.core_list.size);
 
@@ -44,7 +77,7 @@ public class Monitor.SystemCPUView : Gtk.Grid {
             }
         });
 
-        attach (processor_name_label, 0, 0, 1, 1);
+        attach (title_grid, 0, 0, 1, 1);
         attach (grid_usage_labels(), 0, 1, 1, 1);
         attach (cpu_chart, 0, 1, 1, 1);
     }
