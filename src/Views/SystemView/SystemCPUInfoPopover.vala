@@ -25,8 +25,10 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Popover {
     }
 
 
-    public SystemCPUInfoPopover(Gtk.Widget? relative_to, CPU _cpu) {
+    public SystemCPUInfoPopover(Gtk.ToggleButton? relative_to, CPU _cpu) {
         Object (relative_to : relative_to);
+
+        closed.connect (() => { relative_to.set_active(false); });
 
         cpu = _cpu;
 

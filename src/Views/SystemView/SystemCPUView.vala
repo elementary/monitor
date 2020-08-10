@@ -52,9 +52,6 @@ public class Monitor.SystemCPUView : Gtk.Grid {
         title_grid.column_spacing = 6;
 
         var popover = new SystemCPUInfoPopover (processor_info_button, cpu);
-        popover.closed.connect (() => {
-            processor_info_button.set_active(false);
-        });
         
         processor_info_button.clicked.connect(() => {
             popover.show_all();
