@@ -3,7 +3,15 @@ public class Monitor.CPU : Object {
     private float last_total;
     private float load;
 
-    public string? cpu_name;
+    public string? model_name;
+    public string? model;
+    public string? family;
+    public string? microcode;
+    public string? cache_size;
+    public string? flags;
+    public string? bogomips;
+    public string? bugs;
+    public string? address_sizes;
 
     GTop.Cpu ? cpu;
 
@@ -29,7 +37,9 @@ public class Monitor.CPU : Object {
 
         core_list = new  Gee.ArrayList<Core> ();
 
-        cpu_name = get_cpu_info ();
+        model_name = get_cpu_info ();
+
+        parse_cpuinfo ();
 
         debug ("Number of cores: %d", (int) get_num_processors ());
         for (int i = 0; i < (int) get_num_processors (); i++) {
@@ -85,6 +95,29 @@ public class Monitor.CPU : Object {
         }
 
         _frequency = (double)maxcur;
+    }
+
+    private void parse_cpuinfo () {
+        unowned GTop.SysInfo? info = GTop.glibtop_get_sysinfo ();
+
+        if (info == null) {
+            warning ("No CPU info");
+            return;
+        }
+
+        // let core 0 represents whole processor
+        // TODO: parse all the values to corresponding core objects in core_list
+        // does it even makes sense??
+
+        unowned GLib.HashTable<string, string> values = info.cpuinfo[0].values;
+        model = values["model"];
+        family = values["cpu family"];
+        microcode = values["microcode"];
+        cache_size = values["cache size"];
+        flags = values["flags"];
+        bogomips = values["bogomips"];
+        bugs = values["bugs"];
+        address_sizes = values["address sizes"];
     }
 
     // straight from elementary about-plug
