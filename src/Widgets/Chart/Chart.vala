@@ -1,6 +1,6 @@
 public class Monitor.Chart : Gtk.Box {
     private LiveChart.Chart live_chart;
-    private LiveChart.Config config;
+    public LiveChart.Config config;
 
     construct {
         get_style_context ().add_class ("graph");

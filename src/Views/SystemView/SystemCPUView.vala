@@ -65,6 +65,7 @@ public class Monitor.SystemCPUView : Gtk.Box {
 
         cpu_frequency_chart = new Chart (1);
         cpu_frequency_chart.height_request = -1;
+        cpu_frequency_chart.config.y_axis.fixed_max = 5.0;
         cpu_temperature_chart = new Chart (1);
         cpu_temperature_chart.margin_top = 6;
         cpu_temperature_chart.height_request = -1;
@@ -92,11 +93,14 @@ public class Monitor.SystemCPUView : Gtk.Box {
         charts_container.pack_start (grid_utilization_info, true, true, 0);
         charts_container.pack_start(smol_charts_container, false, false, 0);
 
+        add (title_grid);
         add (charts_container);
     }
 
 
     public void update () {
+        cpu_frequency_chart.update (0, cpu.frequency);
+
         for (int i = 0; i < cpu.core_list.size; i++) {
             double core_percentage = cpu.core_list[i].percentage_used;
             cpu_utilization_chart.update(i, core_percentage);
