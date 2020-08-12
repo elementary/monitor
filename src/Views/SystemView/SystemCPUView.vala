@@ -1,5 +1,7 @@
-public class Monitor.SystemCPUView : Gtk.Grid {
-    private Chart cpu_chart;
+public class Monitor.SystemCPUView : Gtk.Box {
+    private Chart cpu_utilization_chart;
+    private Chart cpu_frequency_chart;
+    private Chart cpu_temperature_chart;
     private CPU cpu;
 
     private LabelVertical cpu_percentage_label;
@@ -15,8 +17,9 @@ public class Monitor.SystemCPUView : Gtk.Grid {
     construct {
         margin = 12;
         margin_top = 6;
-        column_spacing = 12;
-        set_vexpand (false);
+        //  column_spacing = 12;
+        //  set_vexpand (false);
+        //  orintantation = Gtk.Orientation.VERTICAL;
 
         core_label_list = new Gee.ArrayList<Gtk.Label> ();
     }
@@ -53,11 +56,11 @@ public class Monitor.SystemCPUView : Gtk.Grid {
 
         var popover = new SystemCPUInfoPopover (processor_info_button, cpu);
         
-        processor_info_button.clicked.connect(() => {
-            popover.show_all();
-        });
+        processor_info_button.clicked.connect(() => { popover.show_all(); });
 
-        cpu_chart = new Chart (cpu.core_list.size);
+        cpu_utilization_chart = new Chart (cpu.core_list.size);
+        cpu_frequency_chart = new Chart (1);
+        cpu_temperature_chart = new Chart (1);
 
         cpu_percentage_label.clicked.connect(() => {
             cpu_threads_revealer.reveal_child = !(cpu_threads_revealer.child_revealed);
@@ -69,16 +72,31 @@ public class Monitor.SystemCPUView : Gtk.Grid {
             }
         });
 
-        attach (title_grid, 0, 0, 1, 1);
-        attach (grid_usage_labels(), 0, 1, 1, 1);
-        attach (cpu_chart, 0, 1, 1, 1);
+        var smol_charts_container = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        smol_charts_container.width_request = 200;
+        smol_charts_container.halign = Gtk.Align.START;
+        smol_charts_container.add (cpu_frequency_chart);
+        smol_charts_container.add (cpu_temperature_chart);
+
+        var big_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        //  big_box.add (smol_charts_container);
+        //  big_box.add (cpu_utilization_chart);
+
+        add (cpu_utilization_chart);
+        add (smol_charts_container);
+
+        grid_usage_labels();
+
+        //  attach (title_grid, 0, 0, 1, 1);
+        //  attach (grid_usage_labels(), 0, 1, 1, 1);
+        //  attach (big_box, 0, 1, 1, 1);
     }
 
 
     public void update () {
         for (int i = 0; i < cpu.core_list.size; i++) {
             double core_percentage = cpu.core_list[i].percentage_used;
-            cpu_chart.update(i, core_percentage);
+            //  cpu_utilization_chart.update(i, core_percentage);
             string percentage_formatted = ("% 3d%%").printf ( (int)core_percentage);
             core_label_list[i].set_text (percentage_formatted);
 
