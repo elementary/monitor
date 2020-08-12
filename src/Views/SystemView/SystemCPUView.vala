@@ -18,8 +18,8 @@ public class Monitor.SystemCPUView : Gtk.Box {
         margin = 12;
         margin_top = 6;
         //  column_spacing = 12;
-        //  set_vexpand (false);
-        //  orintantation = Gtk.Orientation.VERTICAL;
+        set_vexpand (false);
+        orientation = Gtk.Orientation.VERTICAL;
 
         core_label_list = new Gee.ArrayList<Gtk.Label> ();
     }
@@ -47,7 +47,6 @@ public class Monitor.SystemCPUView : Gtk.Box {
         processor_info_button.valign = Gtk.Align.START;
         processor_info_button.halign = Gtk.Align.START;
 
-        
 
         var title_grid = new Gtk.Grid ();
         title_grid.attach (processor_name_label, 0, 0, 1, 1);
@@ -60,7 +59,10 @@ public class Monitor.SystemCPUView : Gtk.Box {
 
         cpu_utilization_chart = new Chart (cpu.core_list.size);
         cpu_frequency_chart = new Chart (1);
+        cpu_frequency_chart.height_request = -1;
         cpu_temperature_chart = new Chart (1);
+        cpu_temperature_chart.margin_top = 6;
+        cpu_temperature_chart.height_request = -1;
 
         cpu_percentage_label.clicked.connect(() => {
             cpu_threads_revealer.reveal_child = !(cpu_threads_revealer.child_revealed);
@@ -74,22 +76,24 @@ public class Monitor.SystemCPUView : Gtk.Box {
 
         var smol_charts_container = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
         smol_charts_container.width_request = 200;
+        smol_charts_container.hexpand = false;
         smol_charts_container.halign = Gtk.Align.START;
         smol_charts_container.add (cpu_frequency_chart);
         smol_charts_container.add (cpu_temperature_chart);
+        smol_charts_container.margin_left = 6;
 
-        var big_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        //  big_box.add (smol_charts_container);
-        //  big_box.add (cpu_utilization_chart);
+        var charts_container = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
 
-        add (cpu_utilization_chart);
-        add (smol_charts_container);
+        charts_container.pack_start (cpu_utilization_chart, true, true, 0);
+        charts_container.pack_start(smol_charts_container, false, false, 0);
 
         grid_usage_labels();
 
         //  attach (title_grid, 0, 0, 1, 1);
         //  attach (grid_usage_labels(), 0, 1, 1, 1);
         //  attach (big_box, 0, 1, 1, 1);
+
+        add (charts_container);
     }
 
 
