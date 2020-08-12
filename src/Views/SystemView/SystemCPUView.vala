@@ -17,7 +17,6 @@ public class Monitor.SystemCPUView : Gtk.Box {
     construct {
         margin = 12;
         margin_top = 6;
-        //  column_spacing = 12;
         set_vexpand (false);
         orientation = Gtk.Orientation.VERTICAL;
 
@@ -58,6 +57,12 @@ public class Monitor.SystemCPUView : Gtk.Box {
         processor_info_button.clicked.connect(() => { popover.show_all(); });
 
         cpu_utilization_chart = new Chart (cpu.core_list.size);
+
+        var grid_utilization_info = new Gtk.Grid ();
+        grid_utilization_info.attach (grid_usage_labels(), 0, 0, 1, 1);
+        grid_utilization_info.attach (cpu_utilization_chart, 0, 0, 1, 1);
+
+
         cpu_frequency_chart = new Chart (1);
         cpu_frequency_chart.height_request = -1;
         cpu_temperature_chart = new Chart (1);
@@ -82,16 +87,10 @@ public class Monitor.SystemCPUView : Gtk.Box {
         smol_charts_container.add (cpu_temperature_chart);
         smol_charts_container.margin_left = 6;
 
+        // Thanks Goncalo
         var charts_container = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-
-        charts_container.pack_start (cpu_utilization_chart, true, true, 0);
+        charts_container.pack_start (grid_utilization_info, true, true, 0);
         charts_container.pack_start(smol_charts_container, false, false, 0);
-
-        grid_usage_labels();
-
-        //  attach (title_grid, 0, 0, 1, 1);
-        //  attach (grid_usage_labels(), 0, 1, 1, 1);
-        //  attach (big_box, 0, 1, 1, 1);
 
         add (charts_container);
     }
@@ -100,7 +99,7 @@ public class Monitor.SystemCPUView : Gtk.Box {
     public void update () {
         for (int i = 0; i < cpu.core_list.size; i++) {
             double core_percentage = cpu.core_list[i].percentage_used;
-            //  cpu_utilization_chart.update(i, core_percentage);
+            cpu_utilization_chart.update(i, core_percentage);
             string percentage_formatted = ("% 3d%%").printf ( (int)core_percentage);
             core_label_list[i].set_text (percentage_formatted);
 
@@ -129,15 +128,6 @@ public class Monitor.SystemCPUView : Gtk.Box {
 
         cpu_percentage_label.set_text ((_("%d%%")).printf (cpu.percentage));
         cpu_frequency_label.set_text (("%.2f %s").printf (cpu.frequency, _ ("GHz")));
-    }
-
-    private Gtk.Grid grid_info_labels () {
-        Gtk.Grid grid = new Gtk.Grid ();
-
-        grid.attach(processor_name_label, 0, 0, 1, 1);
-        grid.attach(cpu_percentage_label, 0, 1, 1, 1);
-
-        return grid;
     }
 
     private Gtk.Grid grid_usage_labels () {
