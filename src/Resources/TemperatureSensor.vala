@@ -5,33 +5,27 @@ class TemperatureSensor : Object {
     // Intel reports per core temperature, while AMD Ryzen Tdie
     public Gee.ArrayList<string?> cpu_temp_paths;
 
-    public struct Sensor {
-        public string location;
-        public float temperature;
-        public float temperature_critical;
-        //  public double tdie_current_temperature;
-        //  public double tdie_critical_temperature;
-        //  public double tctl_current_temperature;
-        //  public double tctl_critical_temperature;
-    } public Sensor sensor;
-
+    public double cpu {
+        get {
+            double total_temperature = 0;
+            foreach (var path in cpu_temp_paths) {
+                total_temperature += double.parse (open_file (path));
+            }
+            return total_temperature / cpu_temp_paths.size;
+        }
+    }
 
     construct {
         cpu_temp_paths = new  Gee.ArrayList<string> ();
+        traverser ();
      }
 
     public TemperatureSensor() {
         
     }
 
-    public TemperatureSensor.cpu () {
-        traverser ();
-    }
-
 
     private void traverser () {
-        int hwmon_counter = 0;
-
         Dir hwmon_dir = Dir.open (hwmon_path, 0);
 
         string ? hwmonx = null;

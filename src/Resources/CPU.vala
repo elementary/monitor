@@ -2,6 +2,7 @@ public class Monitor.CPU : Object {
     private float last_used;
     private float last_total;
     private float load;
+    private TemperatureSensor temperature_sensor;
 
     public string? model_name;
     public string? model;
@@ -31,6 +32,12 @@ public class Monitor.CPU : Object {
         }
     }
 
+    public double temperature {
+        get {
+            return temperature_sensor.cpu / 1000;
+        }
+    }
+
     construct {
         last_used = 0;
         last_total = 0;
@@ -47,7 +54,9 @@ public class Monitor.CPU : Object {
             core_list.add (core);
         }
 
-        var temp = new TemperatureSensor.cpu ();
+        // Temperature sensor shouldn't be created here since it
+        // will provides not only cpu temperature
+        temperature_sensor = new TemperatureSensor ();
     }
 
     public void update () {

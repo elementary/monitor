@@ -6,6 +6,7 @@ public class Monitor.SystemCPUView : Gtk.Box {
 
     private LabelVertical cpu_percentage_label;
     private LabelRoundy cpu_frequency_label;
+    private LabelRoundy cpu_temperature_label;
     private LabelH4 processor_name_label;
 
     private Gtk.Button view_threads_usage_button;
@@ -31,8 +32,14 @@ public class Monitor.SystemCPUView : Gtk.Box {
         cpu_percentage_label = new LabelVertical (_("UTILIZATION"));
         cpu_percentage_label.has_tooltip = true;
         cpu_percentage_label.tooltip_text = (_("Show detailed info"));
+
         cpu_frequency_label = new LabelRoundy (_("FREQUENCY"));
         cpu_frequency_label.margin = 6;
+        cpu_frequency_label.margin_top = 2;
+
+        cpu_temperature_label = new LabelRoundy (_("TEMPERATURE"));
+        cpu_temperature_label.margin = 6;
+        cpu_temperature_label.margin_top = 2;
 
         processor_name_label = new LabelH4 (cpu.model_name);
 
@@ -69,12 +76,15 @@ public class Monitor.SystemCPUView : Gtk.Box {
         cpu_frequency_chart.height_request = -1;
         cpu_frequency_chart.config.y_axis.fixed_max = 5.0;
         cpu_temperature_chart = new Chart (1);
-        cpu_temperature_chart.margin_top = 6;
         cpu_temperature_chart.height_request = -1;
 
         var grid_frequency_info = new Gtk.Grid ();
         grid_frequency_info.attach (cpu_frequency_label, 0, 0, 1, 1);
         grid_frequency_info.attach (cpu_frequency_chart, 0, 0, 1, 1);
+
+        var grid_temperature_info = new Gtk.Grid ();
+        grid_temperature_info.attach (cpu_temperature_label, 0, 0, 1, 1);
+        grid_temperature_info.attach (cpu_temperature_chart, 0, 0, 1, 1);
 
 
         cpu_percentage_label.clicked.connect(() => {
@@ -87,12 +97,13 @@ public class Monitor.SystemCPUView : Gtk.Box {
             }
         });
 
-        var smol_charts_container = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        var smol_charts_container = new Gtk.Grid ();
         smol_charts_container.width_request = 200;
         smol_charts_container.hexpand = false;
         smol_charts_container.halign = Gtk.Align.START;
-        smol_charts_container.add (grid_frequency_info);
-        smol_charts_container.add (cpu_temperature_chart);
+        smol_charts_container.attach (grid_frequency_info, 0, 0, 1, 1);
+        smol_charts_container.attach (grid_temperature_info, 0, 1, 1, 1);
+        smol_charts_container.row_spacing = 6;
         smol_charts_container.margin_left = 6;
 
         // Thanks Goncalo
@@ -107,6 +118,7 @@ public class Monitor.SystemCPUView : Gtk.Box {
 
     public void update () {
         cpu_frequency_chart.update (0, cpu.frequency);
+        cpu_temperature_chart.update (0, cpu.temperature);
 
         for (int i = 0; i < cpu.core_list.size; i++) {
             double core_percentage = cpu.core_list[i].percentage_used;
@@ -139,6 +151,7 @@ public class Monitor.SystemCPUView : Gtk.Box {
 
         cpu_percentage_label.set_text ((_("%d%%")).printf (cpu.percentage));
         cpu_frequency_label.set_text (("%.2f %s").printf (cpu.frequency, _ ("GHz")));
+        cpu_temperature_label.set_text (("%.2f %s").printf (cpu.temperature, _ ("C")));
     }
 
     private Gtk.Grid grid_usage_labels () {
