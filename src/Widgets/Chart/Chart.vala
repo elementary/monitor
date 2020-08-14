@@ -48,7 +48,6 @@ public class Monitor.Chart : Gtk.Box {
     }
 
     public void update (int serie_number, double value) {
-        debug ("update called");
         live_chart.add_value_by_index (serie_number, value);
     }
 

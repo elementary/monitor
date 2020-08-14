@@ -46,6 +46,8 @@ public class Monitor.CPU : Object {
             var core = new Core(i);
             core_list.add (core);
         }
+
+        var temp = new TemperatureSensor.cpu ();
     }
 
     public void update () {

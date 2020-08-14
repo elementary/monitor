@@ -109,6 +109,7 @@ executable(
     'src/Resources/Core.vala',
     'src/Resources/Memory.vala',
     'src/Resources/Swap.vala',
+    'src/Resources/TemperatureSensor.vala',
     c_args: c_args,
     dependencies: [
         glib,
