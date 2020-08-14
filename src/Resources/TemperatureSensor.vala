@@ -47,6 +47,11 @@ class TemperatureSensor : Object {
                         if ("Tdie" == open_file (Path.build_filename (hwmon_path, hwmonx, hwmonx_prop))) {
                             cpu_temp_path = Path.build_filename (hwmon_path, hwmonx, "temp%c_input".printf(hwmonx_prop[4]));
                             debug (open_file (cpu_temp_path));
+                        // Intel stuff
+                        // But what core to choose
+                        } else if (open_file (Path.build_filename (hwmon_path, hwmonx, hwmonx_prop)).contains ("Core")) {
+                            cpu_temp_path = Path.build_filename (hwmon_path, hwmonx, "temp%c_input".printf(hwmonx_prop[4]));
+                            debug (open_file (cpu_temp_path));
                         }
                     }
                 }
