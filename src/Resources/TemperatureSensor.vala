@@ -1,6 +1,9 @@
 class TemperatureSensor : Object {
     private const string hwmon_path = "/sys/class/hwmon";
-    private string? cpu_temp_path;
+
+    // contains list of paths to files with a temperature values
+    // Intel reports per core temperature, while AMD Ryzen Tdie
+    public Gee.ArrayList<string?> cpu_temp_paths;
 
     public struct Sensor {
         public string location;
@@ -13,9 +16,12 @@ class TemperatureSensor : Object {
     } public Sensor sensor;
 
 
-    construct { }
+    construct {
+        cpu_temp_paths = new  Gee.ArrayList<string> ();
+     }
 
     public TemperatureSensor() {
+        
     }
 
     public TemperatureSensor.cpu () {
@@ -42,16 +48,21 @@ class TemperatureSensor : Object {
                     //  debug (open_file (hwmonx_name));
 
                     if (hwmonx_prop.contains ("temp")) {
+                        // AMD stuff
                         // Tdie contains true temperature value, while Tctl contains value for fans
-                        // Tctl = Tdie + offset
+                        // Tctl = Tdie + offset in some processors
                         if ("Tdie" == open_file (Path.build_filename (hwmon_path, hwmonx, hwmonx_prop))) {
-                            cpu_temp_path = Path.build_filename (hwmon_path, hwmonx, "temp%c_input".printf(hwmonx_prop[4]));
-                            debug (open_file (cpu_temp_path));
+                            string tempx_input = "temp%c_input".printf(hwmonx_prop[4]);
+                            cpu_temp_paths.add (Path.build_filename (hwmon_path, hwmonx, tempx_input));
+                            
+                            debug (open_file (cpu_temp_paths[0]));
+
                         // Intel stuff
-                        // But what core to choose
+                        // Intel reports per core
                         } else if (open_file (Path.build_filename (hwmon_path, hwmonx, hwmonx_prop)).contains ("Core")) {
-                            cpu_temp_path = Path.build_filename (hwmon_path, hwmonx, "temp%c_input".printf(hwmonx_prop[4]));
-                            debug (open_file (cpu_temp_path));
+                            string tempx_input = "temp%c_input".printf(hwmonx_prop[4]);
+                            cpu_temp_paths.add (Path.build_filename (hwmon_path, hwmonx, tempx_input));
+                            debug (open_file (cpu_temp_paths[0]));
                         }
                     }
                 }
