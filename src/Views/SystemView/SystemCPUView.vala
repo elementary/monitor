@@ -151,7 +151,7 @@ public class Monitor.SystemCPUView : Gtk.Box {
 
         cpu_percentage_label.set_text ((_("%d%%")).printf (cpu.percentage));
         cpu_frequency_label.set_text (("%.2f %s").printf (cpu.frequency, _ ("GHz")));
-        cpu_temperature_label.set_text (("%.2f %s").printf (cpu.temperature, _ ("C")));
+        cpu_temperature_label.set_text (("%.2f %s").printf (cpu.temperature, _ ("℃")));
     }
 
     private Gtk.Grid grid_usage_labels () {

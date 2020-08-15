@@ -45,6 +45,7 @@ namespace GTop {
         public void get_msg_limits_s (out GTop.MsgLimits buf);
         public void get_netload_l (out GTop.NetLoad buf, string @interface);
         public void get_netload_s (out GTop.NetLoad buf, string @interface);
+        public string[] get_netlist (out GTop.NetList buf);
         public ulong get_parameter_l (uint parameter, void* data_ptr, ulong data_size);
         public void get_ppp_l (out GTop.Ppp buf, ushort device);
         public void get_ppp_s (out GTop.Ppp buf, ushort device);
@@ -1273,6 +1274,8 @@ namespace GTop {
     public static void get_msg_limits (out GTop.MsgLimits buf);
     [CCode (cheader_filename = "glibtop.h", cname = "glibtop_get_netload")]
     public static void get_netload (out GTop.NetLoad buf, string @interface);
+    [CCode (cheader_filename = "glibtop/netlist.h", cname = "glibtop_get_netlist", array_length = false, array_null_terminated = true)]
+    public static string[] get_netlist (out GTop.NetList buf);
     [CCode (cheader_filename = "glibtop.h", cname = "glibtop_get_ppp")]
     public static void get_ppp (out GTop.Ppp buf, ushort device);
     [CCode (cheader_filename = "glibtop.h", cname = "glibtop_get_proc_affinity")]

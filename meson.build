@@ -70,6 +70,7 @@ executable(
     'src/Views/SystemView/SystemCPUView.vala',
     'src/Views/SystemView/SystemCPUInfoPopover.vala',
     'src/Views/SystemView/SystemMemoryView.vala',
+    'src/Views/SystemView/SystemNetworkView.vala',
 
     # Widgets related only to ProcessInfoView
     'src/Views/ProcessView/ProcessInfoView/Preventor.vala',
@@ -110,6 +111,7 @@ executable(
     'src/Resources/Memory.vala',
     'src/Resources/Swap.vala',
     'src/Resources/TemperatureSensor.vala',
+    'src/Resources/Network.vala',
     c_args: c_args,
     dependencies: [
         glib,
