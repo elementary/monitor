@@ -182,6 +182,7 @@ public class Monitor.SystemCPUView : Gtk.Box {
         int row = 0;
         for (int i = 0; i < cpu.core_list.size; i++) {
             var core_label = new Gtk.Label (Utils.NO_DATA);
+            core_label.set_width_chars (4);
             core_label.get_style_context ().add_class ("core_badge");
             //  core_label.set_text (Utils.NO_DATA);
             core_label_list.add (core_label);

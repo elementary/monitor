@@ -15,14 +15,16 @@ public class Monitor.SystemView : Gtk.Box {
 
         cpu_view = new SystemCPUView (resources.cpu);
         memory_view = new SystemMemoryView (resources.memory);
-        //  memory_view = new SystemNetworkView (resources.memory);
+        network_view = new SystemNetworkView (resources.network);
 
         add (cpu_view);
         add (memory_view);
+        add (network_view);
     }
 
     public void update () {
         cpu_view.update();
         memory_view.update();
+        network_view.update ();
     }
 }

@@ -2,15 +2,9 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
     private Chart network_chart;
     private Network network;
 
-    private LabelH4 memory_name_label;
-    private LabelVertical memory_percentage_label;
-    private Gtk.Label memory_shared_label;
-    private Gtk.Label memory_buffered_label;
-    private Gtk.Label memory_cached_label;
-    private Gtk.Label memory_locked_label;
-    private Gtk.Label memory_total_label;
-    private Gtk.Label memory_used_label;
-    private Gtk.Revealer memory_usage_revealer;
+    private LabelH4 network_name_label;
+    private LabelRoundy network_upload_label;
+    private LabelRoundy network_download_label;
 
     construct {
         margin = 12;
@@ -20,33 +14,33 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
 
 
 
-    public SystemNetworkView(Network _network) {
+    public SystemNetworkView (Network _network) {
         network = _network;
 
-        memory_name_label = new LabelH4 (_("Network"));
+        network_name_label = new LabelH4 (_ ("Network"));
+        network_download_label = new LabelRoundy (_ ("DOWN"));
+        network_upload_label = new LabelRoundy (_ ("UP"));
 
-       network_chart = new Chart (1);
+        network_chart = new Chart (2);
 
+        var labels_grid = new Gtk.Grid ();
+        labels_grid.row_spacing = 6;
+        labels_grid.column_spacing = 6;
+        labels_grid.margin = 6;
+        labels_grid.attach (network_upload_label,   0, 0, 1, 1);
+        labels_grid.attach (network_download_label, 1, 0, 1, 1);
 
-
-        attach (memory_name_label, 0, 0, 1, 1);
-        attach (network_chart, 0, 1, 2, 2);
-
+        attach (network_name_label, 0, 0, 1, 1);
+        attach (labels_grid,        0, 1, 2, 2);
+        attach (network_chart,      0, 1, 2, 2);
     }
 
-    private Gtk.Revealer memory_usage_grid () {
-
-        Gtk.Grid grid = new Gtk.Grid ();
-        grid.column_spacing = 12;
-        grid.width_request = 300;
-
-        return memory_usage_revealer;
-    }
 
 
     public void update () {
-        //  network_chart.update (0, network);
-
+        network_download_label.set_text (("%s/s").printf ( Utils.HumanUnitFormatter.string_bytes_to_human(network.get_bytes ()[1].to_string())));
+        network_upload_label.set_text (("%s/s").printf (Utils.HumanUnitFormatter.string_bytes_to_human(network.get_bytes ()[0].to_string())));
+        network_chart.update (0, network.get_bytes ()[0]/1024);
+        network_chart.update (1, network.get_bytes ()[1]/1024);
     }
-
 }

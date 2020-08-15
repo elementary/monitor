@@ -14,8 +14,6 @@ public class Monitor.Resources : Object {
     public void update() {
         cpu.update();
         memory.update();
-
-        debug ("%d", network.get_bytes ()[0]);
     }
     public ResourcesSerialized serialize () {
         return ResourcesSerialized () {
