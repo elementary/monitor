@@ -28,8 +28,6 @@ public class Monitor.Network : GLib.Object {
         private int _bytes_out;
         private int _bytes_out_old;
 
-        private int i;
-
         // flag first run
         // bc first calculasion is wrong
         private bool dumb_flag;
@@ -74,16 +72,13 @@ public class Monitor.Network : GLib.Object {
 
             var bout = (n_bytes_out - _bytes_out_old) / 1;
             var bin = (n_bytes_in - _bytes_in_old) / 1;
-            
+
             _bytes_out_old = n_bytes_out;
             _bytes_in_old = n_bytes_in;
             
             if (!dumb_flag) {
                 _bytes_out = bout;
                 _bytes_in = bin;
-
-                debug ("%d", i);
-                i++;
             } 
             dumb_flag = false;
 
