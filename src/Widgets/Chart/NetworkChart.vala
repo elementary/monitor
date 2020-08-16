@@ -42,7 +42,8 @@ public class Monitor.NetworkChart : Gtk.Box {
 
             // workaround for `gee_collection_get_size: assertion 'self != NULL' failed`
             // https://github.com/lcallarec/live-chart/issues/16
-            live_chart.add_value (serie, 3.0);
+            // why 3? I don't know.
+            live_chart.add_value (serie, 3);
         }
         add (live_chart);
     }
