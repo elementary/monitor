@@ -1,5 +1,5 @@
 public class Monitor.SystemNetworkView : Gtk.Grid {
-    private Chart network_chart;
+    private NetworkChart network_chart;
     private Network network;
 
     private LabelH4 network_name_label;
@@ -21,7 +21,7 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
         network_download_label = new LabelRoundy (_ ("DOWN"));
         network_upload_label = new LabelRoundy (_ ("UP"));
 
-        network_chart = new Chart (2);
+        network_chart = new NetworkChart (2);
 
         var labels_grid = new Gtk.Grid ();
         labels_grid.row_spacing = 6;
@@ -35,14 +35,16 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
         attach (network_chart,      0, 1, 2, 2);
     }
 
-
-
     public void update () {
         double up_bytes = network.get_bytes ()[0] / 2;
         double down_bytes = network.get_bytes ()[1] / 2;
-        network_download_label.set_text (("%s/s").printf (Utils.HumanUnitFormatter.string_bytes_to_human (down_bytes.to_string ())));
-        network_upload_label.set_text (("%s/s").printf (Utils.HumanUnitFormatter.string_bytes_to_human (up_bytes.to_string ())));
-        network_chart.update (0, network.get_bytes ()[0]/1024);
-        network_chart.update (1, network.get_bytes ()[1]/1024);
+
+        debug ("%f %f", up_bytes, down_bytes);
+        if (up_bytes >= 0 && down_bytes >= 0) {
+            network_download_label.set_text (("%s/s").printf (Utils.HumanUnitFormatter.string_bytes_to_human (down_bytes.to_string ())));
+            network_upload_label.set_text (("%s/s").printf (Utils.HumanUnitFormatter.string_bytes_to_human (up_bytes.to_string ())));
+            network_chart.update (0, up_bytes);
+            network_chart.update (1, down_bytes);
+        }
     }
 }

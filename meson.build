@@ -88,6 +88,7 @@ executable(
     'src/Widgets/Labels/LabelH4.vala',
     'src/Widgets/Chart/Chart.vala',
     'src/Widgets/Chart/ProcessChart.vala',
+    'src/Widgets/Chart/NetworkChart.vala',
 
 
     # Models
