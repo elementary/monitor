@@ -27,8 +27,8 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
         labels_grid.row_spacing = 6;
         labels_grid.column_spacing = 6;
         labels_grid.margin = 6;
-        labels_grid.attach (network_upload_label,   0, 0, 1, 1);
-        labels_grid.attach (network_download_label, 1, 0, 1, 1);
+        labels_grid.attach (network_download_label,   0, 0, 1, 1);
+        labels_grid.attach (network_upload_label, 1, 0, 1, 1);
 
         attach (network_name_label, 0, 0, 1, 1);
         attach (labels_grid,        0, 1, 2, 2);
@@ -38,8 +38,10 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
 
 
     public void update () {
-        network_download_label.set_text (("%s/s").printf ( Utils.HumanUnitFormatter.string_bytes_to_human(network.get_bytes ()[1].to_string())));
-        network_upload_label.set_text (("%s/s").printf (Utils.HumanUnitFormatter.string_bytes_to_human(network.get_bytes ()[0].to_string())));
+        double up_bytes = network.get_bytes ()[0] / 2;
+        double down_bytes = network.get_bytes ()[1] / 2;
+        network_download_label.set_text (("%s/s").printf (Utils.HumanUnitFormatter.string_bytes_to_human (down_bytes.to_string ())));
+        network_upload_label.set_text (("%s/s").printf (Utils.HumanUnitFormatter.string_bytes_to_human (up_bytes.to_string ())));
         network_chart.update (0, network.get_bytes ()[0]/1024);
         network_chart.update (1, network.get_bytes ()[1]/1024);
     }
