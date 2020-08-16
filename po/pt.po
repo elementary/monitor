@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-28 22:18+0400\n"
-"PO-Revision-Date: 2019-11-04 11:58+0000\n"
-"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
+"PO-Revision-Date: 2020-08-16 14:07+0100\n"
+"Last-Translator: André Barata <andretiagob@protonmail.com>\n"
 "Language-Team: \n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.4.1\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: src/Utils.vala:13
@@ -29,11 +29,11 @@ msgstr ""
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:34
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:35
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: src/Utils.vala:45
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #: src/Utils.vala:50
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:113
@@ -55,19 +55,19 @@ msgstr "Fechar Monitor"
 
 #: src/Views/ProcessView/ProcessInfoView/OpenFilesListBox.vala:56
 msgid "Deleted"
-msgstr ""
+msgstr "Apagado"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:21
 msgid "Are you sure you want to do this?"
-msgstr ""
+msgstr "Tem a certeza que quer fazer isso?"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:24
 msgid "Yes"
-msgstr ""
+msgstr "Sim"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:28
 msgid "No"
-msgstr ""
+msgstr "Não"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:39
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:59
@@ -76,36 +76,35 @@ msgstr "PID"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:40
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
-#, fuzzy
 msgid "PRI"
-msgstr "PID"
+msgstr "PRI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:42
 msgid "THR"
-msgstr ""
+msgstr "THR"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:18
 msgid "Opened files"
-msgstr ""
+msgstr "Ficheiros abertos"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:22
 msgid "Characters"
-msgstr ""
+msgstr "Caracteres"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
 msgid "System calls"
-msgstr ""
+msgstr "Chamadas de sistema"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
 msgid "Read/Written"
-msgstr ""
+msgstr "Ler/Escrita"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
 msgid "Cancelled write"
-msgstr ""
+msgstr "Escrita cancelada"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:79
 msgid "End Process"
@@ -125,11 +124,11 @@ msgstr "Matar processo selecionado"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:96
 msgid "Confirm kill of the process?"
-msgstr ""
+msgstr "Confirma matar o processo?"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:103
 msgid "Confirm end of the process?"
-msgstr ""
+msgstr "Confirma terminar o processo?"
 
 #. setup name column
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:17
@@ -155,12 +154,12 @@ msgstr "GiB"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:50
 #, c-format
 msgid "CPU: %.1f%%"
-msgstr ""
+msgstr "CPU: %.1f%%"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:51
 #, c-format
 msgid "RAM: %.1f%%"
-msgstr ""
+msgstr "RAM: %.1f%%"
 
 #: src/Widgets/Headerbar/Headerbar.vala:13
 msgid "Monitor"
@@ -188,7 +187,7 @@ msgstr "Escreva o nome do processo ou PID a pesquisar"
 
 #: src/Widgets/Statusbar/Statusbar.vala:14
 msgid "Swap"
-msgstr ""
+msgstr "Trocar"
 
 #: src/Widgets/Statusbar/Statusbar.vala:16
 #: src/Widgets/Statusbar/Statusbar.vala:20
@@ -198,7 +197,7 @@ msgstr "A calcular…"
 
 #: src/Widgets/Statusbar/Statusbar.vala:38
 msgid "GHz"
-msgstr ""
+msgstr "GHz"
 
 #~ msgid "Monitor Indicator"
 #~ msgstr "Indicador do monitor"
@@ -213,7 +212,7 @@ msgstr ""
 #~ msgstr "Ctrl+E"
 
 #~ msgid "CPU:"
-#~ msgstr "CPU :"
+#~ msgstr "CPU:"
 
 #~ msgid "Memory:"
-#~ msgstr "Memória :"
+#~ msgstr "Memória:"
