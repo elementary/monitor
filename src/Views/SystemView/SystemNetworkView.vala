@@ -19,7 +19,9 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
 
         network_name_label = new LabelH4 (_ ("Network"));
         network_download_label = new LabelRoundy (_ ("DOWN"));
+        network_download_label.val.set_width_chars (7);
         network_upload_label = new LabelRoundy (_ ("UP"));
+        network_upload_label.val.set_width_chars (7);
 
         network_chart = new NetworkChart (2);
 
@@ -38,7 +40,6 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
     public void update () {
         double up_bytes = network.get_bytes ()[0] / 2;
         double down_bytes = network.get_bytes ()[1] / 2;
-
         debug ("%f %f", up_bytes, down_bytes);
         if (up_bytes >= 0 && down_bytes >= 0) {
             network_download_label.set_text (("%s/s").printf (Utils.HumanUnitFormatter.string_bytes_to_human (down_bytes.to_string ())));
