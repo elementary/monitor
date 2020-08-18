@@ -2,11 +2,13 @@ public class Monitor.Resources : Object {
     public CPU cpu;
     public Memory memory;
     public Swap swap;
+    public Network network;
 
     construct {
         memory = new Memory ();
         cpu = new CPU ();
         swap = new Swap ();
+        network = new Network ();
     }
 
     public void update() {

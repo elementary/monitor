@@ -67,14 +67,13 @@ executable(
     'src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala',
 
     'src/Views/SystemView/SystemView.vala',
-    'src/Views/SystemView/SystemCPUChart.vala',
     'src/Views/SystemView/SystemCPUView.vala',
+    'src/Views/SystemView/SystemCPUInfoPopover.vala',
     'src/Views/SystemView/SystemMemoryView.vala',
+    'src/Views/SystemView/SystemNetworkView.vala',
 
     # Widgets related only to ProcessInfoView
     'src/Views/ProcessView/ProcessInfoView/Preventor.vala',
-    'src/Views/ProcessView/ProcessInfoView/RoundyLabel.vala',
-    'src/Views/ProcessView/ProcessInfoView/Chart.vala',
     'src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala',
     'src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala',
     'src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala',
@@ -84,7 +83,13 @@ executable(
     'src/Widgets/Headerbar/Headerbar.vala',
     'src/Widgets/Headerbar/Search.vala',
     'src/Widgets/Statusbar/Statusbar.vala',
-  
+    'src/Widgets/Labels/LabelVertical.vala',
+    'src/Widgets/Labels/LabelRoundy.vala',
+    'src/Widgets/Labels/LabelH4.vala',
+    'src/Widgets/Chart/Chart.vala',
+    'src/Widgets/Chart/ProcessChart.vala',
+    'src/Widgets/Chart/NetworkChart.vala',
+
 
     # Models
     'src/Models/TreeViewModel.vala',
@@ -106,6 +111,8 @@ executable(
     'src/Resources/Core.vala',
     'src/Resources/Memory.vala',
     'src/Resources/Swap.vala',
+    'src/Resources/TemperatureSensor.vala',
+    'src/Resources/Network.vala',
     c_args: c_args,
     dependencies: [
         glib,
