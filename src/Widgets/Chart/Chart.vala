@@ -1,13 +1,8 @@
-public class Monitor.SystemCPUChart : Gtk.Box {
-    private LiveChart.Chart chart;
-    private LiveChart.Config config;
-
-    //  private Gee.ArrayList<LiveChart.Serie?> serie_list;
-
+public class Monitor.Chart : Gtk.Box {
+    private LiveChart.Chart live_chart;
+    public LiveChart.Config config;
 
     construct {
-        //  serie_list = new  Gee.ArrayList<LiveChart.Serie> ();
-
         get_style_context ().add_class ("graph");
 
         vexpand = true;
@@ -28,43 +23,43 @@ public class Monitor.SystemCPUChart : Gtk.Box {
             left = -1
         };
 
-        chart = new LiveChart.Chart (config);
-        chart.expand = true;
-        chart.legend.visible = false;
-        chart.grid.visible = true;
-        chart.background.main_color = Gdk.RGBA () {
+        live_chart = new LiveChart.Chart (config);
+        live_chart.expand = true;
+        live_chart.legend.visible = false;
+        live_chart.grid.visible = true;
+        live_chart.background.main_color = Gdk.RGBA () {
             red= 1, green= 1, blue= 1, alpha= 1
         };                                                                                  //White background
 
-        
     }
 
-    public SystemCPUChart (int cores_quantity) {
-        for (int i = 0; i < cores_quantity; i++) {
+    public Chart (int series_quantity) {
+        for (int i = 0; i < series_quantity; i++) {
             var renderer = new LiveChart.SmoothLineArea (new LiveChart.Values(1000));
-            var serie = new LiveChart.Serie ("Core x", renderer);
+            var serie = new LiveChart.Serie (("Serie %d").printf(i), renderer);
             serie.set_main_color ({ 0.35 + i/20, 0.8, 0.1, 1.0});
-            chart.add_serie (serie);
-            //  serie_list.add (serie);
-        }
+            live_chart.add_serie (serie);
 
-        add (chart);
+            // workaround for `gee_collection_get_size: assertion 'self != NULL' failed`
+            // https://github.com/lcallarec/live-chart/issues/16
+            live_chart.add_value (serie, 0);
+        }
+        add (live_chart);
     }
 
     public void update (int serie_number, double value) {
-        //  debug("%f", value);
-        //  chart.add_value (serie_list.get(serie_number), value);
-        chart.add_value_by_index (serie_number, value);
+        live_chart.add_value_by_index (serie_number, value);
     }
 
-    //  public void set_data (Gee.ArrayList<double?> history) {
+    //  public void set_data (int serie_number, Gee.ArrayList<double?> history) {
     //      var refresh_rate_is_ms = 2000; //your own refresh rate in milliseconds      
-    //      chart.add_unaware_timestamp_collection(serie_list[0], history, refresh_rate_is_ms);
+    //      live_chart.add_unaware_timestamp_collection(live_chart.series[serie_number], history, refresh_rate_is_ms);
     //  }
 
+
     public void clear () {
-        //  var series = chart.series;
-        //  foreach (var serie in serie_list) {
+        //  var series = live_chart.series;
+        //  foreach (var serie in series) {
         //      serie.clear();
         //  }
     }

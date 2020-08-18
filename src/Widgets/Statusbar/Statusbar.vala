@@ -14,15 +14,21 @@ public class Monitor.Statusbar : Gtk.ActionBar {
         swap_icon.tooltip_text = _ ("Swap");
 
         cpu_usage_label = new Gtk.Label (_("Calculating…"));
+        cpu_usage_label.set_width_chars (4);
+        cpu_usage_label.xalign = 0;
         pack_start (cpu_icon);
         pack_start (cpu_usage_label);
 
         memory_usage_label = new Gtk.Label (_("Calculating…"));
+        memory_usage_label.set_width_chars (4);
+        memory_usage_label.xalign = 0;
         ram_icon.margin_start = 6;
         pack_start (ram_icon);
         pack_start (memory_usage_label);
 
         swap_usage_label = new Gtk.Label (_("Calculating…"));
+        swap_usage_label.set_width_chars (4);
+        swap_usage_label.xalign = 0;
         swap_icon.margin_start = 6;
         pack_start (swap_icon);
         pack_start (swap_usage_label);

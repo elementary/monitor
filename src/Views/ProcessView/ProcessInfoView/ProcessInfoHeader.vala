@@ -2,13 +2,13 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
     private Gtk.Image icon;
     public Gtk.Label state;
     public Gtk.Label application_name;
-    public RoundyLabel pid;
-    public RoundyLabel ppid;
-    public RoundyLabel pgrp;
-    public RoundyLabel nice;
-    public RoundyLabel priority;
-    public RoundyLabel num_threads;
-    public RoundyLabel username;
+    public LabelRoundy pid;
+    public LabelRoundy ppid;
+    public LabelRoundy pgrp;
+    public LabelRoundy nice;
+    public LabelRoundy priority;
+    public LabelRoundy num_threads;
+    public LabelRoundy username;
 
     private Regex ? regex;
 
@@ -36,15 +36,15 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         application_name.halign = Gtk.Align.START;
         application_name.valign = Gtk.Align.START;
 
-        pid = new RoundyLabel (_ ("PID"));
-        nice = new RoundyLabel (_ ("NI"));
-        priority = new RoundyLabel (_ ("PRI"));
-        num_threads = new RoundyLabel (_ ("THR"));
-        //  ppid = new RoundyLabel (_("PPID"));
-        //  pgrp = new RoundyLabel (_("PGRP"));
+        pid = new LabelRoundy (_ ("PID"));
+        nice = new LabelRoundy (_ ("NI"));
+        priority = new LabelRoundy (_ ("PRI"));
+        num_threads = new LabelRoundy (_ ("THR"));
+        //  ppid = new LabelRoundy (_("PPID"));
+        //  pgrp = new LabelRoundy (_("PGRP"));
 
         //  TODO: tooltip_text UID
-        username = new RoundyLabel ("");
+        username = new LabelRoundy ("");
 
         var wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         wrapper.add (pid);
