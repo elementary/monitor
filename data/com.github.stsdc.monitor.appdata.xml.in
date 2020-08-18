@@ -28,6 +28,15 @@
 <url type="help">https://github.com/stsdc/monitor/issues</url>
 
 <releases>
+    <release version="0.9.0" date="2020-08-18">
+​      <description>
+​         <ul>
+           <li>Better System Tab</li>
+           <li>Update Portuguese translation (@rottenpants466)</li>
+           <li>Save last opened view (@ryonakano)</li>
+        </ul>
+​      </description>
+​    </release>
     <release version="0.8.1" date="2020-07-20">
 ​      <description>
 ​         <ul>
