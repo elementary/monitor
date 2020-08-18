@@ -12,8 +12,6 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
         set_vexpand (false);
     }
 
-
-
     public SystemNetworkView (Network _network) {
         network = _network;
 
@@ -29,8 +27,8 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
         labels_grid.row_spacing = 6;
         labels_grid.column_spacing = 6;
         labels_grid.margin = 6;
-        labels_grid.attach (network_download_label,   0, 0, 1, 1);
-        labels_grid.attach (network_upload_label, 1, 0, 1, 1);
+        labels_grid.attach (network_download_label, 0, 0, 1, 1);
+        labels_grid.attach (network_upload_label,   1, 0, 1, 1);
 
         attach (network_name_label, 0, 0, 1, 1);
         attach (labels_grid,        0, 1, 2, 2);
@@ -43,7 +41,7 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
         if (up_bytes >= 0 && down_bytes >= 0) {
             network_download_label.set_text (("%s/s").printf (Utils.HumanUnitFormatter.string_bytes_to_human (down_bytes.to_string ())));
             network_upload_label.set_text (("%s/s").printf (Utils.HumanUnitFormatter.string_bytes_to_human (up_bytes.to_string ())));
-            network_chart.update (0, up_bytes);
+            network_chart.update (0,   up_bytes);
             network_chart.update (1, down_bytes);
         }
     }
