@@ -66,6 +66,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
 
         var process_action_bar = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        process_action_bar.margin_top = 12;
         process_action_bar.valign = Gtk.Align.END;
         process_action_bar.halign = Gtk.Align.END;
         
