@@ -26,45 +26,49 @@ class TemperatureSensor : Object {
 
 
     private void traverser () {
-        Dir hwmon_dir = Dir.open (hwmon_path, 0);
+        try {
+            Dir hwmon_dir = Dir.open (hwmon_path, 0);
 
-        string ? hwmonx = null;
-        while ((hwmonx = hwmon_dir.read_name ()) != null) {
-            string hwmonx_name = Path.build_filename (hwmon_path, hwmonx, "name");
-            string sensor_location = open_file (hwmonx_name);
+            string ? hwmonx = null;
+            while ((hwmonx = hwmon_dir.read_name ()) != null) {
+                string hwmonx_name = Path.build_filename (hwmon_path, hwmonx, "name");
+                string sensor_location = open_file (hwmonx_name);
 
-            if (sensor_location == "coretemp" || sensor_location == "k10temp") {
-                debug ("Found temp. sensor: %s", sensor_location);
+                if (sensor_location == "coretemp" || sensor_location == "k10temp") {
+                    debug ("Found temp. sensor: %s", sensor_location);
 
-                Dir hwmonx_dir = Dir.open (Path.build_filename (hwmon_path, hwmonx), 0);
-                string ? hwmonx_prop = null;
-                while ((hwmonx_prop = hwmonx_dir.read_name ()) != null) {
-                    //  debug (open_file (hwmonx_name));
+                    Dir hwmonx_dir = Dir.open (Path.build_filename (hwmon_path, hwmonx), 0);
+                    string ? hwmonx_prop = null;
+                    while ((hwmonx_prop = hwmonx_dir.read_name ()) != null) {
+                        //  debug (open_file (hwmonx_name));
 
-                    if (hwmonx_prop.contains ("temp")) {
-                        // AMD stuff
-                        // Tdie contains true temperature value, while Tctl contains value for fans
-                        // Tctl = Tdie + offset in some processors
-                        if ("Tdie" == open_file (Path.build_filename (hwmon_path, hwmonx, hwmonx_prop))) {
-                            string tempx_input = "temp%c_input".printf(hwmonx_prop[4]);
-                            cpu_temp_paths.add (Path.build_filename (hwmon_path, hwmonx, tempx_input));
-                            
-                            debug (open_file (cpu_temp_paths[0]));
+                        if (hwmonx_prop.contains ("temp")) {
+                            // AMD stuff
+                            // Tdie contains true temperature value, while Tctl contains value for fans
+                            // Tctl = Tdie + offset in some processors
+                            if ("Tdie" == open_file (Path.build_filename (hwmon_path, hwmonx, hwmonx_prop))) {
+                                string tempx_input = "temp%c_input".printf(hwmonx_prop[4]);
+                                cpu_temp_paths.add (Path.build_filename (hwmon_path, hwmonx, tempx_input));
+                                
+                                debug (open_file (cpu_temp_paths[0]));
 
-                        // Intel stuff
-                        // Intel reports per core
-                        } else if (open_file (Path.build_filename (hwmon_path, hwmonx, hwmonx_prop)).contains ("Core")) {
-                            string tempx_input = "temp%c_input".printf(hwmonx_prop[4]);
-                            cpu_temp_paths.add (Path.build_filename (hwmon_path, hwmonx, tempx_input));
-                            debug (open_file (cpu_temp_paths[0]));
+                            // Intel stuff
+                            // Intel reports per core
+                            } else if (open_file (Path.build_filename (hwmon_path, hwmonx, hwmonx_prop)).contains ("Core")) {
+                                string tempx_input = "temp%c_input".printf(hwmonx_prop[4]);
+                                cpu_temp_paths.add (Path.build_filename (hwmon_path, hwmonx, tempx_input));
+                                debug (open_file (cpu_temp_paths[0]));
+                            }
                         }
                     }
+                } else if (sensor_location == "amdgpu" ) {
+                    debug ("Found temp. sensor: %s", sensor_location);
+                } else {
+                    debug ("Found temp. sensor: %s", sensor_location);
                 }
-            } else if (sensor_location == "amdgpu" ) {
-                debug ("Found temp. sensor: %s", sensor_location);
-            } else {
-                debug ("Found temp. sensor: %s", sensor_location);
             }
+        } catch (FileError e) {
+            warning (@"Could not open dir: %s", e.message);
         }
     }
 
@@ -75,7 +79,6 @@ class TemperatureSensor : Object {
             return read.replace ("\n","");
         } catch (FileError e) {
             error ("%s\n", e.message);
-            return "0";
         }
     }
 }
