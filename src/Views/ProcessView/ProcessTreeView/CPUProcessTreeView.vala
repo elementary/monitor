@@ -69,7 +69,10 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
 
         set_model (model);
 
-
+        model.added_first_row.connect (() => {
+            focus_on_first_row ();
+        });
+        
         cursor_changed.connect (_cursor_changed);
         //  model.process_manager.updated.connect (_cursor_changed);
     }
