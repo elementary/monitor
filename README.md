@@ -47,18 +47,10 @@
 ### Debug
 `G_MESSAGES_DEBUG=all ./com.github.stsdc.monitor`
 
-## Other OSes
+## Other distributions
 
 ### Arch Linux
 
 Arch Linux users can find Monitor under the name [pantheon-system-monitor-git](https://aur.archlinux.org/packages/pantheon-system-monitor-git/) in the **AUR**:
 
 `$ aurman -S pantheon-system-monitor-git`
-
-### Fedora
-
-Fedora users can find Monitor under the name [monitor](https://copr.fedorainfracloud.org/coprs/decathorpe/elementary-appcenter/package/monitor/) in **COPR**:
-
-`$ dnf copr enable decathorpe/elementary-appcenter`
-
-`$ dnf install monitor`
