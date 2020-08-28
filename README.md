@@ -47,7 +47,7 @@
 ### Debug
 `G_MESSAGES_DEBUG=all ./com.github.stsdc.monitor`
 
-## Other distributions
+## Other distributions (unofficial)
 
 ### Arch Linux
 
