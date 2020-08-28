@@ -32,10 +32,14 @@ class TemperatureSensor : Object {
             string ? hwmonx = null;
             while ((hwmonx = hwmon_dir.read_name ()) != null) {
                 string hwmonx_name = Path.build_filename (hwmon_path, hwmonx, "name");
-                string sensor_location = open_file (hwmonx_name);
 
-                if (sensor_location == "coretemp" || sensor_location == "k10temp") {
-                    debug ("Found temp. sensor: %s", sensor_location);
+                string sensor_name = open_file (hwmonx_name);
+
+                // thank u, next
+                if (sensor_name == "") { continue; }
+
+                if (sensor_name == "coretemp" || sensor_name == "k10temp") {
+                    debug ("Found temp. sensor: %s", sensor_name);
 
                     Dir hwmonx_dir = Dir.open (Path.build_filename (hwmon_path, hwmonx), 0);
                     string ? hwmonx_prop = null;
@@ -61,10 +65,10 @@ class TemperatureSensor : Object {
                             }
                         }
                     }
-                } else if (sensor_location == "amdgpu" ) {
-                    debug ("Found temp. sensor: %s", sensor_location);
+                } else if (sensor_name == "amdgpu" ) {
+                    debug ("Found temp. sensor: %s", sensor_name);
                 } else {
-                    debug ("Found temp. sensor: %s", sensor_location);
+                    debug ("Found temp. sensor: %s", sensor_name);
                 }
             }
         } catch (FileError e) {
@@ -78,7 +82,8 @@ class TemperatureSensor : Object {
             FileUtils.get_contents (filename, out read);
             return read.replace ("\n","");
         } catch (FileError e) {
-            error ("%s\n", e.message);
+            warning ("%s", e.message);
+            return "";
         }
     }
 }

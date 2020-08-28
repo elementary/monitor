@@ -6,7 +6,6 @@ public class Monitor.MainWindow : Gtk.Window {
 
     // Widgets
     public Headerbar headerbar;
-    //  private Gtk.Button process_info_button;
 
     public ProcessView process_view;
     public SystemView system_view;
