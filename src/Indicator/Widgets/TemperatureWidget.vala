@@ -16,7 +16,7 @@ public class Monitor.Widgets.TemperatureWidget : Gtk.Box {
     construct {
         var icon = new Gtk.Image.from_icon_name (icon_name, Gtk.IconSize.SMALL_TOOLBAR);
 
-        degree_label = new Gtk.Label ("N/A");
+        degree_label = new Gtk.Label (Utils.NOT_AVAILABLE);
         degree_label.margin = 2;
 
         pack_start (icon);
