@@ -22,6 +22,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
 
         dbusclient.interface.update.connect ((sysres) => {
             display_widget.cpu_widget.percentage = sysres.cpu_percentage;
+            display_widget.temperature_widget.degree = sysres.cpu_temperature;
             display_widget.memory_widget.percentage = sysres.memory_percentage;
         });
 
