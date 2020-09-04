@@ -1,5 +1,5 @@
 public class Monitor.SystemNetworkView : Gtk.Grid {
-    private NetworkChart network_chart;
+    private Chart network_chart;
     private Network network;
 
     private LabelH4 network_name_label;
@@ -21,7 +21,8 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
         network_upload_label = new LabelRoundy (_ ("UP"));
         network_upload_label.val.set_width_chars (7);
 
-        network_chart = new NetworkChart (2);
+        network_chart = new Chart (2);
+        network_chart.config.y_axis.fixed_max = null;
 
         var labels_grid = new Gtk.Grid ();
         labels_grid.row_spacing = 6;
