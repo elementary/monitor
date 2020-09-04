@@ -9,7 +9,7 @@ public class Monitor.SystemCPUView : Gtk.Box {
     private LabelRoundy cpu_temperature_label;
     private LabelH4 processor_name_label;
 
-    private Gtk.Button view_threads_usage_button;
+    //  private Gtk.Button view_threads_usage_button;
 
     private Gtk.Revealer cpu_threads_revealer;
 
@@ -104,7 +104,7 @@ public class Monitor.SystemCPUView : Gtk.Box {
         smol_charts_container.attach (grid_frequency_info, 0, 0, 1, 1);
         smol_charts_container.attach (grid_temperature_info, 0, 1, 1, 1);
         smol_charts_container.row_spacing = 6;
-        smol_charts_container.margin_left = 6;
+        smol_charts_container.margin_start = 6;
 
         // Thanks Goncalo
         var charts_container = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);

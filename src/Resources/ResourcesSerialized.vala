@@ -1,6 +1,7 @@
 public struct ResourcesSerialized {
     public int cpu_percentage;
     public double cpu_frequency;
+    public double cpu_temperature;
     public int memory_percentage;
     public double memory_used;
     public double memory_total;

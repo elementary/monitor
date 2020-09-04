@@ -1,4 +1,4 @@
-project('com.github.stsdc.monitor', 'vala', 'c', version: '0.9.0')
+project('com.github.stsdc.monitor', 'vala', 'c', version: '0.9.1')
 
 # these are Meson modules
 gnome = import('gnome')
@@ -88,7 +88,6 @@ executable(
     'src/Widgets/Labels/LabelH4.vala',
     'src/Widgets/Chart/Chart.vala',
     'src/Widgets/Chart/ProcessChart.vala',
-    'src/Widgets/Chart/NetworkChart.vala',
 
 
     # Models
@@ -144,6 +143,7 @@ shared_module(
     'src/Indicator/Widgets/DisplayWidget.vala',
     'src/Indicator/Widgets/PopoverWidget.vala',
     'src/Indicator/Widgets/IndicatorWidget.vala',
+    'src/Indicator/Widgets/TemperatureWidget.vala',
 
     'src/Indicator/Services/DBusClient.vala',
     # 'src/Widgets/RevealerSwitch.vala',

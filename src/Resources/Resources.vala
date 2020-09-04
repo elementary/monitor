@@ -19,6 +19,7 @@ public class Monitor.Resources : Object {
         return ResourcesSerialized () {
             cpu_percentage = cpu.percentage,
             cpu_frequency = cpu.frequency,
+            cpu_temperature = cpu.temperature,
             memory_percentage = memory.percentage,
             memory_used = memory.used,
             memory_total = memory.total,

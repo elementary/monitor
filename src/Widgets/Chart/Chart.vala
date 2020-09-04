@@ -39,10 +39,6 @@ public class Monitor.Chart : Gtk.Box {
             var serie = new LiveChart.Serie (("Serie %d").printf(i), renderer);
             serie.set_main_color ({ 0.35 + i/20, 0.8, 0.1, 1.0});
             live_chart.add_serie (serie);
-
-            // workaround for `gee_collection_get_size: assertion 'self != NULL' failed`
-            // https://github.com/lcallarec/live-chart/issues/16
-            live_chart.add_value (serie, 0);
         }
         add (live_chart);
     }
@@ -51,10 +47,10 @@ public class Monitor.Chart : Gtk.Box {
         live_chart.add_value_by_index (serie_number, value);
     }
 
-    //  public void set_data (int serie_number, Gee.ArrayList<double?> history) {
-    //      var refresh_rate_is_ms = 2000; //your own refresh rate in milliseconds      
-    //      live_chart.add_unaware_timestamp_collection(live_chart.series[serie_number], history, refresh_rate_is_ms);
-    //  }
+    public void set_data (int serie_number, Gee.ArrayList<double?> history) {
+        var refresh_rate_in_ms = 2000;
+        live_chart.add_unaware_timestamp_collection_by_index(serie_number, history, refresh_rate_in_ms);
+    }
 
 
     public void clear () {

@@ -28,6 +28,17 @@
 <url type="help">https://github.com/stsdc/monitor/issues</url>
 
 <releases>
+<release version="0.9.1" date="2020-09-04">
+​      <description>
+​         <ul>
+           <li>Update Portuguese translation (@rottenpants466)</li>
+           <li>Update Dutch translation (@Vistaus)</li>
+           <li>Smoother animations (@DevAlien)</li>
+           <li>Preselect first entry so that the info panel is always open (@DevAlien)</li>
+           <li>Show CPU temperature in the Indicator</li>
+        </ul>
+​      </description>
+​    </release>
     <release version="0.9.0" date="2020-08-18">
 ​      <description>
 ​         <ul>
