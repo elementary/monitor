@@ -37,8 +37,8 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
     }
 
     public void update () {
-        double up_bytes = network.get_bytes ()[0] / 2;
-        double down_bytes = network.get_bytes ()[1] / 2;
+        double up_bytes = network.bytes_out;
+        double down_bytes = network.bytes_in;
         if (up_bytes >= 0 && down_bytes >= 0) {
             network_download_label.set_text (("%s/s").printf (Utils.HumanUnitFormatter.string_bytes_to_human (down_bytes.to_string ())));
             network_upload_label.set_text (("%s/s").printf (Utils.HumanUnitFormatter.string_bytes_to_human (up_bytes.to_string ())));
