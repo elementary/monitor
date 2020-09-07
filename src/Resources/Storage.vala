@@ -48,8 +48,6 @@ public class Monitor.Storage : GLib.Object {
 
         sectors_read_old = sectors_read_new;
         sectors_write_old = sectors_write_new;
-
-        debug ("%d %d", bytes_read, bytes_write);
     }
 }
 
