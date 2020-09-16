@@ -1,6 +1,6 @@
-public class Monitor.Process  : GLib.Object {
+public class Monitor.Process : GLib.Object {
     // The size of each RSS page, in bytes
-    //  private static long PAGESIZE = Posix.sysconf (Posix._SC_PAGESIZE);
+    // private static long PAGESIZE = Posix.sysconf (Posix._SC_PAGESIZE);
 
     public signal void fd_permission_error (string error);
 
@@ -22,7 +22,9 @@ public class Monitor.Process  : GLib.Object {
 
     Icon _icon;
     public Icon icon {
-        get { return _icon; }
+        get {
+            return _icon;
+        }
         set {
             if (value == null) {
                 _icon = ProcessUtils.get_default_icon ();
@@ -51,16 +53,16 @@ public class Monitor.Process  : GLib.Object {
 
     private uint64 cpu_last_used;
 
-    //Memory usage of the process, measured in KiB.
+    // Memory usage of the process, measured in KiB.
 
     public uint64 mem_usage { get; private set; }
     public double mem_percentage { get; private set; }
 
     private uint64 last_total;
 
-    const int history_buffer_size = 30;
-    public Gee.ArrayList<double ? > cpu_percentage_history = new Gee.ArrayList<double ? >();
-    public Gee.ArrayList<double ? > mem_percentage_history = new Gee.ArrayList<double ? >();
+    const int HISTORY_BUFFER_SIZE = 30;
+    public Gee.ArrayList<double ? > cpu_percentage_history = new Gee.ArrayList<double ? > ();
+    public Gee.ArrayList<double ? > mem_percentage_history = new Gee.ArrayList<double ? > ();
 
 
 
@@ -72,8 +74,8 @@ public class Monitor.Process  : GLib.Object {
 
         last_total = 0;
 
-        io = { };
-        stat = { };
+        io = {};
+        stat = {};
         stat.pid = _pid;
 
         // getting uid
@@ -106,7 +108,7 @@ public class Monitor.Process  : GLib.Object {
     // Kills the process
     // Returns if kill was successful
     public bool kill () {
-        //  Sends a kill signal that cannot be ignored
+        // Sends a kill signal that cannot be ignored
         if (Posix.kill (stat.pid, Posix.Signal.KILL) == 0) {
             return true;
         }
@@ -116,7 +118,7 @@ public class Monitor.Process  : GLib.Object {
     // Ends the process
     // Returns if end was successful
     public bool end () {
-        //  Sends a terminate signal
+        // Sends a terminate signal
         if (Posix.kill (stat.pid, Posix.Signal.TERM) == 0) {
             return true;
         }
@@ -137,28 +139,28 @@ public class Monitor.Process  : GLib.Object {
             while ((line = dis.read_line ()) != null) {
                 var splitted_line = line.split (":");
                 switch (splitted_line[0]) {
-                case "wchar" :
+                case "wchar":
                     io.wchar = uint64.parse (splitted_line[1]);
                     break;
-                case "rchar" :
+                case "rchar":
                     io.rchar = uint64.parse (splitted_line[1]);
                     break;
-                case "syscr" :
+                case "syscr":
                     io.syscr = uint64.parse (splitted_line[1]);
                     break;
-                case "syscw" :
+                case "syscw":
                     io.syscw = uint64.parse (splitted_line[1]);
                     break;
-                case "read_bytes" :
+                case "read_bytes":
                     io.read_bytes = uint64.parse (splitted_line[1]);
                     break;
-                case "write_bytes" :
+                case "write_bytes":
                     io.write_bytes = uint64.parse (splitted_line[1]);
                     break;
-                case "cancelled_write_bytes" :
+                case "cancelled_write_bytes":
                     io.cancelled_write_bytes = uint64.parse (splitted_line[1]);
                     break;
-                default :
+                default:
                     warning ("Unknown value in /proc/%d/io", stat.pid);
                     break;
                 }
@@ -188,7 +190,9 @@ public class Monitor.Process  : GLib.Object {
         // But first we have to extract the command name, since it might include spaces
         // First find the command in stat file. It is inside `(command)`
 
-        Regex regex = /\((.*?)\)/; // <- there should be no spaces; uncrustify adds them
+        /* *INDENT-OFF* */
+        Regex regex = /\((.*?)\)/; // vala-lint=space-before-paren,
+        /* *INDENT-ON* */
 
         MatchInfo match_info;
         regex.match (stat_contents, 0, out match_info);
@@ -238,7 +242,7 @@ public class Monitor.Process  : GLib.Object {
 
                 if (FileUtils.test (path, FileTest.IS_SYMLINK)) {
                     string real_path = FileUtils.read_link (path);
-                    //  debug(content);
+                    // debug(content);
                     open_files_paths.add (real_path);
                 }
             }
@@ -271,11 +275,11 @@ public class Monitor.Process  : GLib.Object {
         // Get CPU usage by process
         GTop.ProcTime proc_time;
         GTop.get_proc_time (out proc_time, stat.pid);
-        cpu_percentage = 100 * ((double)(proc_time.rtime - cpu_last_used)) / (cpu_total - cpu_last_total);
+        cpu_percentage = 100 * ((double) (proc_time.rtime - cpu_last_used)) / (cpu_total - cpu_last_total);
         cpu_last_used = proc_time.rtime;
 
         // Making CPU history
-        if (cpu_percentage_history.size == history_buffer_size) {
+        if (cpu_percentage_history.size == HISTORY_BUFFER_SIZE) {
             cpu_percentage_history.remove_at (0);
         }
         cpu_percentage_history.add (cpu_percentage);
@@ -286,7 +290,7 @@ public class Monitor.Process  : GLib.Object {
 
         GTop.ProcMem proc_mem;
         GTop.get_proc_mem (out proc_mem, stat.pid);
-        mem_usage = (proc_mem.resident - proc_mem.share) / 1024;                 // in KiB
+        mem_usage = (proc_mem.resident - proc_mem.share) / 1024; // in KiB
 
         // also if it is using X Window Server
         if (Gdk.Display.get_default () is Gdk.X11.Display) {
@@ -294,13 +298,14 @@ public class Monitor.Process  : GLib.Object {
             mem_usage += (resu.total_bytes_estimate / 1024);
         }
 
-        var total_installed_memory = (double)mem.total / 1024;
+        var total_installed_memory = (double) mem.total / 1024;
         mem_percentage = (mem_usage / total_installed_memory) * 100;
 
         // Making RAM history
-        if (mem_percentage_history.size == history_buffer_size) {
+        if (mem_percentage_history.size == HISTORY_BUFFER_SIZE) {
             mem_percentage_history.remove_at (0);
         }
         mem_percentage_history.add (mem_percentage);
     }
+
 }

@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2020 Tudor Plugaru (https://github.com/PlugaruT/wingpanel-monitor)
+ * Copyright (c) 2020 Tudor Plugaru, @stsdc
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -51,8 +51,8 @@ public class Monitor.Network : GLib.Object {
             if (device != "lo" && device.substring (0, 3) != "tun") {
                 GTop.get_netload (out netload, device);
 
-                bytes_out_new += (int)netload.bytes_out;
-                bytes_in_new += (int)netload.bytes_in;
+                bytes_out_new += (int) netload.bytes_out;
+                bytes_in_new += (int) netload.bytes_in;
             }
         }
 
@@ -68,4 +68,5 @@ public class Monitor.Network : GLib.Object {
 
         dumb_flag = false;
     }
+
 }

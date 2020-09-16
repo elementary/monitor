@@ -28,8 +28,6 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
         process_manager.updated.connect (update_model);
 
         Idle.add (() => { add_running_processes (); return false; });
-
-
     }
 
     private void add_running_processes () {
@@ -49,13 +47,13 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
 
             // donno what is going on, but maybe just use a string insteead of Icon ??
             // coz it lagz
-            //  string icon_name = process.icon.to_string ();
+            // string icon_name = process.icon.to_string ();
 
             set (iter,
                  Column.NAME, process.application_name,
                  Column.ICON, process.icon.to_string (),
                  Column.PID, process.stat.pid,
-                -1);
+                 -1);
             if (process_rows.size < 1) {
                 added_first_row ();
             }
@@ -73,7 +71,7 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
             set (iter,
                  Column.CPU, process.cpu_percentage,
                  Column.MEMORY, process.mem_usage,
-                -1);
+                 -1);
         }
     }
 
@@ -91,7 +89,7 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
         if (pid > 0) {
             var process = process_manager.get_process (pid);
             process.kill ();
-            info ("Kill:%d",process.stat.pid);
+            info ("Kill:%d", process.stat.pid);
         }
     }
 
@@ -99,7 +97,8 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
         if (pid > 0) {
             var process = process_manager.get_process (pid);
             process.end ();
-            info ("End:%d",process.stat.pid);
+            info ("End:%d", process.stat.pid);
         }
     }
+
 }

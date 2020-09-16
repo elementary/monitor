@@ -1,11 +1,10 @@
 public class Monitor.ProcessView : Gtk.Box {
     public TreeViewModel treeview_model;
     public CPUProcessTreeView process_tree_view;
-    
+
     public ProcessInfoView process_info_view;
 
     construct {
-
         process_info_view = new ProcessInfoView ();
 
         // hide on startup
@@ -25,10 +24,10 @@ public class Monitor.ProcessView : Gtk.Box {
         var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
         paned.pack1 (process_tree_view_scrolled, true, false);
         paned.pack2 (process_info_view, false, false);
-        //  paned.set_min_position (200);
+        // paned.set_min_position (200);
         paned.set_position (paned.max_position);
         paned.set_hexpand (true);
-        
+
         add (paned);
     }
 
@@ -40,6 +39,7 @@ public class Monitor.ProcessView : Gtk.Box {
 
     public void update () {
         process_info_view.update ();
-        treeview_model.process_manager.update_processes.begin();
+        treeview_model.process_manager.update_processes.begin ();
     }
+
 }

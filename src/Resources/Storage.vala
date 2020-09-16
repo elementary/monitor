@@ -23,7 +23,7 @@ public class Monitor.Storage : GLib.Object {
 
         try {
             string content = null;
-            FileUtils.get_contents (@"/proc/diskstats", out content);
+            FileUtils.get_contents ("/proc/diskstats", out content);
             InputStream input_stream = new MemoryInputStream.from_data (content.data, GLib.g_free);
             DataInputStream dis = new DataInputStream (input_stream);
             string line;
@@ -41,13 +41,13 @@ public class Monitor.Storage : GLib.Object {
 
         // bc 2 sec updates
         if (!dumb_flag) {
-            bytes_read = (int)((sectors_read_new - sectors_read_old) * 512 / 2);
-            bytes_write = (int)((sectors_write_new - sectors_write_old) * 512 / 2);
+            bytes_read = (int) ((sectors_read_new - sectors_read_old) * 512 / 2);
+            bytes_write = (int) ((sectors_write_new - sectors_write_old) * 512 / 2);
         }
         dumb_flag = false;
 
         sectors_read_old = sectors_read_new;
         sectors_write_old = sectors_write_new;
     }
-}
 
+}

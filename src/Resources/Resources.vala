@@ -33,4 +33,5 @@ public class Monitor.Resources : Object {
                    swap_total = swap.total
         };
     }
+
 }

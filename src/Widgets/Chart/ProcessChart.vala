@@ -29,13 +29,13 @@ public class Monitor.ProcessChart : Gtk.Box {
         chart.legend.visible = false;
         chart.grid.visible = false;
         chart.background.main_color = Gdk.RGBA () {
-            red= 1, green= 1, blue= 1, alpha= 1
-        };                                                                                  //White background
+            red = 1, green = 1, blue = 1, alpha = 1
+        }; // White background
 
-        renderer = new LiveChart.SmoothLineArea (new LiveChart.Values(30));
+        renderer = new LiveChart.SmoothLineArea (new LiveChart.Values (30));
 
         serie = new LiveChart.Serie ("CPU 1 usage", renderer);
-        serie.set_main_color ({ 0.35, 0.8, 0.1, 1.0});
+        serie.set_main_color ({ 0.35, 0.8, 0.1, 1.0 });
 
         chart.add_serie (serie);
 
@@ -46,12 +46,13 @@ public class Monitor.ProcessChart : Gtk.Box {
         chart.add_value (serie, value);
     }
 
-    public new void set_data (Gee.ArrayList<double?> history) {
-        var refresh_rate_is_ms = 2000; //your own refresh rate in milliseconds      
-        chart.add_unaware_timestamp_collection(serie, history, refresh_rate_is_ms);
+    public new void set_data (Gee.ArrayList<double ? > history) {
+        var refresh_rate_is_ms = 2000; // your own refresh rate in milliseconds
+        chart.add_unaware_timestamp_collection (serie, history, refresh_rate_is_ms);
     }
 
     public void clear () {
-        serie.clear();
+        serie.clear ();
     }
+
 }

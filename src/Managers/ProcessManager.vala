@@ -1,5 +1,4 @@
 namespace Monitor {
-
     public class ProcessManager {
         private static GLib.Once<ProcessManager> instance;
         public static unowned ProcessManager get_default () {
@@ -32,66 +31,63 @@ namespace Monitor {
             populate_apps_info ();
 
             update_processes.begin ();
-
         }
 
-        public void populate_apps_info() {
-
+        public void populate_apps_info () {
             var _apps_info = AppInfo.get_all ();
 
             foreach (AppInfo app_info in _apps_info) {
+                string commandline = (app_info.get_commandline ());
+                // debug ("%s\n", commandline);
 
-                string commandline =  (app_info.get_commandline ());
-                //  debug ("%s\n", commandline);
+                // GLib.DesktopAppInfo? dai = info as GLib.DesktopAppInfo;
 
-                //  GLib.DesktopAppInfo? dai = info as GLib.DesktopAppInfo;
-
-                //  if (dai != null) {
-                //      string id = dai.get_string ("X-Flatpak");
-                //      if (id != null)
-                //          appid_map.insert (id, info);
-                //  }
+                // if (dai != null) {
+                // string id = dai.get_string ("X-Flatpak");
+                // if (id != null)
+                // appid_map.insert (id, info);
+                // }
 
 
                 if (commandline == null)
                     continue;
 
-                //  sanitize_cmd (ref cmd);
+                // sanitize_cmd (ref cmd);
                 apps_info_list.set (commandline, app_info);
             }
         }
 
-        //  private static void sanitize_cmd(ref string? commandline) {
-        //      if (commandline == null)
-        //          return;
+        // private static void sanitize_cmd(ref string? commandline) {
+        // if (commandline == null)
+        // return;
 
-        //      // flatpak: parse the command line of the containerized program
-        //      if (commandline.contains("flatpak run")) {
-        //          var index = commandline.index_of ("--command=") + 10;
-        //          commandline = commandline.substring (index);
-        //      }
+        //// flatpak: parse the command line of the containerized program
+        // if (commandline.contains("flatpak run")) {
+        // var index = commandline.index_of ("--command=") + 10;
+        // commandline = commandline.substring (index);
+        // }
 
-        //      // TODO: unify this with the logic in get_full_process_cmd
-        //      //  commandline = Process.first_component (commandline);
-        //      //  commandline = Path.get_basename (commandline);
-        //      //  commandline = Process.sanitize_name (commandline);
+        //// TODO: unify this with the logic in get_full_process_cmd
+        ////  commandline = Process.first_component (commandline);
+        ////  commandline = Path.get_basename (commandline);
+        ////  commandline = Process.sanitize_name (commandline);
 
-        //      // Workaround for google-chrome
-        //      if (commandline.contains ("google-chrome-stable"))
-        //          commandline = "chrome";
-        //  }
+        //// Workaround for google-chrome
+        // if (commandline.contains ("google-chrome-stable"))
+        // commandline = "chrome";
+        // }
 
-        //  public static AppInfo? app_info_for_process (Process p) {
-        //      AppInfo? info = null;
+        // public static AppInfo? app_info_for_process (Process p) {
+        // AppInfo? info = null;
 
-        //      if (p.command != null)
-        //          info = apps_info[p.command];
+        // if (p.command != null)
+        // info = apps_info[p.command];
 
-        //      if (info == null && p.app_id != null)
-        //          info = appid_map[p.app_id];
+        // if (info == null && p.app_id != null)
+        // info = appid_map[p.app_id];
 
-        //      return info;
-        //  }
+        // return info;
+        // }
 
 
 
@@ -99,7 +95,7 @@ namespace Monitor {
         /**
          * Gets a process by its pid, making sure that it's updated.
          */
-        public Process? get_process (int pid) {
+        public Process ? get_process (int pid) {
             // if the process is in the kernel blacklist, we don't want to deal with it.
             if (kernel_process_blacklist.contains (pid)) {
                 return null;
@@ -144,11 +140,11 @@ namespace Monitor {
          * Gets all new process and adds them
          */
         public async void update_processes () {
-        /* CPU */
+            /* CPU */
             GTop.Cpu cpu_data;
             GTop.get_cpu (out cpu_data);
             var used = cpu_data.user + cpu_data.nice + cpu_data.sys;
-            cpu_load = ((double)(used - cpu_last_used)) / (cpu_data.total - cpu_last_total);
+            cpu_load = ((double) (used - cpu_last_used)) / (cpu_data.total - cpu_last_total);
             cpu_loads = new double[cpu_data.xcpu_user.length];
             var useds = new uint64[cpu_data.xcpu_user.length];
 
@@ -157,8 +153,8 @@ namespace Monitor {
             }
 
             for (int i = 0; i < cpu_data.xcpu_user.length; i++) {
-                cpu_loads[i] = ((double)(useds[i] - cpu_last_useds[i])) /
-                            (cpu_data.xcpu_total[i] - cpu_last_totals[i]);
+                cpu_loads[i] = ((double) (useds[i] - cpu_last_useds[i])) /
+                               (cpu_data.xcpu_total[i] - cpu_last_totals[i]);
             }
 
             var remove_me = new Gee.HashSet<int> ();
@@ -179,7 +175,7 @@ namespace Monitor {
             var uid = Posix.getuid ();
             GTop.ProcList proclist;
             var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_UID, uid);
-            //  var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_ALLfla, uid);
+            // var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_ALLfla, uid);
 
             for (int i = 0; i < proclist.number; i++) {
                 int pid = pids[i];
@@ -203,18 +199,18 @@ namespace Monitor {
          *
          * returns the created process
          */
-        private Process? add_process (int pid, bool lazy_signal = false) {
+        private Process ? add_process (int pid, bool lazy_signal = false) {
             // create the process
             var process = new Process (pid);
 
             // placeholding shortened commandline
             process.application_name = ProcessUtils.sanitize_commandline (process.command);
-            
+
             // checking maybe it's an application
             foreach (var key in apps_info_list.keys) {
                 if (key.contains (process.application_name)) {
                     process.application_name = apps_info_list.get (key).get_name ();
-                    //  debug (apps_info_list.get (key).get_icon ().to_string ());
+                    // debug (apps_info_list.get (key).get_icon ().to_string ());
                     process.icon = apps_info_list.get (key).get_icon ();
                 }
             }
@@ -248,12 +244,10 @@ namespace Monitor {
             if (process_list.has_key (pid)) {
                 process_list.unset (pid);
                 process_removed (pid);
-            }
-            else if (kernel_process_blacklist.contains (pid)) {
+            } else if (kernel_process_blacklist.contains (pid)) {
                 kernel_process_blacklist.remove (pid);
             }
         }
 
-        
     }
 }

@@ -20,7 +20,7 @@ public class Monitor.DBusServer : Object {
             DBUS_NAME,
             BusNameOwnerFlags.NONE,
             (connection) => on_bus_aquired (connection),
-            () => { },
+            () => {},
             null
             );
     }
@@ -41,6 +41,7 @@ public class Monitor.DBusServer : Object {
             error (e.message);
         }
     }
+
 }
 
 [DBus (name = "com.github.stsdc.monitor")]

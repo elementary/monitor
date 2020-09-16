@@ -1,5 +1,4 @@
 public class Monitor.LabelRoundy : Gtk.Fixed {
-
     public Gtk.Label val;
     public Gtk.Label desc;
 
@@ -10,11 +9,12 @@ public class Monitor.LabelRoundy : Gtk.Fixed {
         desc = new Gtk.Label (description);
         desc.get_style_context ().add_class ("small-text");
 
-        put(val, 0, 12);
-        put(desc, 6, 0);
+        put (val, 0, 12);
+        put (desc, 6, 0);
     }
 
     public void set_text (string text) {
         val.set_text (text);
     }
+
 }

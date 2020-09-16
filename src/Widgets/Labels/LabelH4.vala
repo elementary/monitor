@@ -1,5 +1,4 @@
 class LabelH4 : Gtk.Label {
-
     construct {
         get_style_context ().add_class ("h4");
         valign = Gtk.Align.START;
@@ -11,4 +10,5 @@ class LabelH4 : Gtk.Label {
     public LabelH4 (string label) {
         Object (label: label);
     }
+
 }

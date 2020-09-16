@@ -31,4 +31,5 @@ public class Monitor.SystemView : Gtk.Box {
         network_view.update ();
         storage_view.update ();
     }
+
 }

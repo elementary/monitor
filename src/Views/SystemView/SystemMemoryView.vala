@@ -20,7 +20,7 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
 
 
 
-    public SystemMemoryView(Memory _memory) {
+    public SystemMemoryView (Memory _memory) {
         memory = _memory;
 
         memory_name_label = new LabelH4 (_("Memory"));
@@ -29,7 +29,7 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
         memory_percentage_label.has_tooltip = true;
         memory_percentage_label.tooltip_text = (_("Show detailed info"));
 
-        memory_percentage_label.clicked.connect(() => {
+        memory_percentage_label.clicked.connect (() => {
             memory_usage_revealer.reveal_child = !(memory_usage_revealer.child_revealed);
             if (memory_usage_revealer.child_revealed) {
                 memory_percentage_label.tooltip_text = (_("Show detailed info"));
@@ -70,11 +70,10 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
         attach (memory_name_label, 0, 0, 1, 1);
         attach (lil_gridy, 0, 1, 1, 1);
         attach (memory_chart, 0, 1, 2, 2);
-
     }
 
     private Gtk.Revealer memory_usage_grid () {
-        memory_usage_revealer = new Gtk.Revealer();
+        memory_usage_revealer = new Gtk.Revealer ();
         memory_usage_revealer.margin = 6;
         memory_usage_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT;
         memory_usage_revealer.valign = Gtk.Align.CENTER;
@@ -95,17 +94,16 @@ public class Monitor.SystemMemoryView : Gtk.Grid {
         return memory_usage_revealer;
     }
 
-
     public void update () {
         memory_percentage_label.set_text ((_("%d%%")).printf (memory.percentage));
         memory_chart.update (0, memory.percentage);
 
-        memory_total_label.set_text ((_("Total: %s")).printf (Utils.HumanUnitFormatter.double_bytes_to_human(memory.total)));
-        memory_used_label.set_text ((_("Used: %s")).printf (Utils.HumanUnitFormatter.double_bytes_to_human(memory.used)));
-        memory_shared_label.set_text ((_("Shared: %s")).printf (Utils.HumanUnitFormatter.double_bytes_to_human(memory.shared)));
-        memory_buffered_label.set_text ((_("Buffered: %s")).printf (Utils.HumanUnitFormatter.double_bytes_to_human(memory.buffer)));
-        memory_cached_label.set_text ((_("Cached: %s")).printf (Utils.HumanUnitFormatter.double_bytes_to_human(memory.cached)));
-        memory_locked_label.set_text ((_("Locked: %s")).printf (Utils.HumanUnitFormatter.double_bytes_to_human(memory.locked)));
+        memory_total_label.set_text ((_("Total: %s")).printf (Utils.HumanUnitFormatter.double_bytes_to_human (memory.total)));
+        memory_used_label.set_text ((_("Used: %s")).printf (Utils.HumanUnitFormatter.double_bytes_to_human (memory.used)));
+        memory_shared_label.set_text ((_("Shared: %s")).printf (Utils.HumanUnitFormatter.double_bytes_to_human (memory.shared)));
+        memory_buffered_label.set_text ((_("Buffered: %s")).printf (Utils.HumanUnitFormatter.double_bytes_to_human (memory.buffer)));
+        memory_cached_label.set_text ((_("Cached: %s")).printf (Utils.HumanUnitFormatter.double_bytes_to_human (memory.cached)));
+        memory_locked_label.set_text ((_("Locked: %s")).printf (Utils.HumanUnitFormatter.double_bytes_to_human (memory.locked)));
     }
 
 }
