@@ -123,8 +123,9 @@
 
 .graph {
     border: 1px @SILVER_300 solid;
-    border-radius: 6px
-
+    padding: 3px;
+    border-radius: 6px;
+    background-color: @base_color
 }
 
 .open_files_list_box_wrapper {
