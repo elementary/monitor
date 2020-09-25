@@ -1,4 +1,4 @@
-public class Monitor.Chart : Gtk.Box {
+public class Monitor.ProcessChart : Gtk.Box {
     private LiveChart.Serie serie;
     private LiveChart.SmoothLineArea renderer;
     private LiveChart.Chart chart;
@@ -46,7 +46,7 @@ public class Monitor.Chart : Gtk.Box {
         chart.add_value (serie, value);
     }
 
-    public void set_data (Gee.ArrayList<double?> history) {
+    public new void set_data (Gee.ArrayList<double?> history) {
         var refresh_rate_is_ms = 2000; //your own refresh rate in milliseconds      
         chart.add_unaware_timestamp_collection(serie, history, refresh_rate_is_ms);
     }

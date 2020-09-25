@@ -2,8 +2,8 @@ public class Monitor.ProcessInfoCPURAM : Gtk.Grid {
     private Gtk.Label cpu_label;
     private Gtk.Label ram_label;
 
-    private Chart cpu_chart;
-    private Chart ram_chart;
+    private ProcessChart cpu_chart;
+    private ProcessChart ram_chart;
 
     construct {
         column_spacing = 6;
@@ -12,8 +12,8 @@ public class Monitor.ProcessInfoCPURAM : Gtk.Grid {
         column_homogeneous = true;
         row_homogeneous = false;
 
-        cpu_chart = new Chart ();
-        ram_chart = new Chart ();
+        cpu_chart = new ProcessChart ();
+        ram_chart = new ProcessChart ();
 
 
         var cpu_graph_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);

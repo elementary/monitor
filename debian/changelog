@@ -1,3 +1,16 @@
+com.github.stsdc.monitor (0.8.0) bionic; urgency=low
+
+      * System resources tab
+
+-- Stanisław Dac <stanislawdac@gmail.com>  Sun, 19 Jul 2020 00:30:43 +0200
+
+com.github.stsdc.monitor (0.7.3) bionic; urgency=low
+
+      * Added tooltips to process state label (Ryo Nakano)
+      * Small bugfix
+
+-- Stanisław Dac <stanislawdac@gmail.com>  Mon, 22 Jun 2020 20:21:37 +0200
+
 com.github.stsdc.monitor (0.7.2) bionic; urgency=low
 
       * Fix sorting arrows
@@ -5,12 +18,14 @@ com.github.stsdc.monitor (0.7.2) bionic; urgency=low
       * Add Turkish translation (Harun Yasar)
       * Use newest version of live-chart (Laurent Callarec) ← Check his lib for creating charts, it's amazing!
 
-com.github.stsdc.monitor (0.7.1) bionic; urgency=low
+-- Stanisław Dac <stanislawdac@gmail.com>  Sat, 15 Apr 2020 21:01:15 +0200
+
+com.github.stsdc.monitor (0.7.0) bionic; urgency=low
 
       * Detailed process info in sidebar
       * CPU frequency in tooltip (Ryo Nakano)
 
--- Stanisław Dac <stanislawdac@gmail.com>  Sat, 15 Apr 2020 21:01:15 +0200
+-- Stanisław Dac <stanislawdac@gmail.com>  Sat, 11 Apr 2020 21:01:15 +0200
 
 com.github.stsdc.monitor (0.6.2) bionic; urgency=low
 

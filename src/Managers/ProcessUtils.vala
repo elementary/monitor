@@ -9,7 +9,9 @@ public class Monitor.ProcessUtils {
         return false;
     }
 
-    public static string sanitize_commandline (string commandline) {
+    public static string sanitize_commandline (string? commandline) {
+        if (commandline == null) return Path.get_basename ("");
+        
         // splitting command; might include many options
         var splitted_commandline = commandline.split (" ");
 

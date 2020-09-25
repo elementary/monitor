@@ -16,7 +16,10 @@
   </custom>
     <screenshots>
     <screenshot type="default">
-      <image>https://github.com/stsdc/monitor/raw/master/data/com.github.stsdc.monitor.screenshot.png</image>
+      <image>https://github.com/stsdc/monitor/raw/master/data/screenshots/monitor-processes.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://github.com/stsdc/monitor/raw/master/data/screenshots/monitor-system.png</image>
     </screenshot>
   </screenshots>
   <developer_name>Stanisław Dac</developer_name>
@@ -25,13 +28,153 @@
 <url type="help">https://github.com/stsdc/monitor/issues</url>
 
 <releases>
-    <release version="0.7.0" date="2020-04-15">
+<release version="0.9.1" date="2020-09-04">
+​      <description>
+​         <ul>
+           <li>Update Portuguese translation (@rottenpants466)</li>
+           <li>Update Dutch translation (@Vistaus)</li>
+           <li>Smoother animations (@DevAlien)</li>
+           <li>Preselect first entry so that the info panel is always open (@DevAlien)</li>
+           <li>Show CPU temperature in the Indicator</li>
+        </ul>
+​      </description>
+​    </release>
+    <release version="0.9.0" date="2020-08-18">
+​      <description>
+​         <ul>
+           <li>Better System Tab</li>
+           <li>Update Portuguese translation (@rottenpants466)</li>
+           <li>Save last opened view (@ryonakano)</li>
+        </ul>
+​      </description>
+​    </release>
+    <release version="0.8.1" date="2020-07-20">
+​      <description>
+​         <ul>
+           <li>Update Japanese translation (Ryo Nakano)</li>
+           <li>Disable search entry, when System tab is active</li>
+           <li>Add screenshots</li>
+        </ul>
+​      </description>
+​    </release>
+    <release version="0.8.0" date="2020-07-19">
+​      <description>
+​         <ul>
+           <li>Add System resources tab</li>
+        </ul>
+​      </description>
+​    </release>
+    <release version="0.7.3" date="2020-06-22">
+​      <description>
+​         <ul>
+           <li>Added tooltips to process state label (Ryo Nakano)</li>
+           <li>Small bugfix</li>
+        </ul>
+​      </description>
+​    </release>
+    <release version="0.7.2" date="2020-04-15">
+​      <description>
+​         <ul>
+           <li>Fix sorting arrows</li>
+           <li>Update Russian translation (camellan)</li>
+           <li>Add Turkish translation (Harun Yasar)</li>
+           <li>Use newest version of live-chart (Laurent Callarec) ← Check his lib for creating charts, it's amazing!</li>
+        </ul>
+​      </description>
+​    </release>
+    <release version="0.7.0" date="2020-04-11">
 ​      <description>
 ​         <ul>
            <li>Detailed process info in sidebar</li>
            <li>CPU frequency in tooltip (Ryo Nakano)</li>
-           <li>Removed tree view . This fixes high CPU usage, indicator hangs, and app crashes</li>
-           <li>Special  thanks to gavr, Ryo Nakano, Adam Bieńkowski and Daniele Cocca</li>
+        </ul>
+​      </description>
+​    </release>
+    <release version="0.6.2" date="2019-12-21">
+​      <description>
+​         <ul>
+           <li>Bugfix (potential) of crushes and high CPU usage</li>
+           <li>Update German translation (Carsten Dietrich)</li>
+        </ul>
+​      </description>
+​    </release>
+    <release version="0.6.1" date="2019-11-13">
+​      <description>
+​         <ul>
+           <li>Update Portuguese translation (Hugo Carvalho)</li>
+           <li>Update French translation (Nathan Bonnemains and Skeudwenn)</li>
+           <li>Fix: Don't show swap percentage when it's not available (Ryo Nakano)</li>
+        </ul>
+​      </description>
+​    </release>
+    <release version="0.6.0" date="2019-10-29">
+​      <description>
+​         <ul>
+           <li>Update Italian translation (Mirko Brombin)</li>
+           <li>Show swap usage (Ryo Nakano)</li>
+           <li>Update Russian translation (camellan)</li>
+           <li>Code refactoring (Ryo Nakano)</li>
+           <li>Update Japanese translation (Ryo Nakano)</li>
+        </ul>
+​      </description>
+​    </release>
+    <release version="0.5.0" date="2019-06-07">
+​      <description>
+​         <ul>
+           <li>Fix contents of the window are not shown (Ryo Nakano)</li>
+           <li>ix no row is still selected when indicator options are enabled (Ryo Nakano)</li>
+           <li>Fix the app crashes by clicking the "End/Kill Process" buttons when no process is selected (Ryo Nakano)</li>
+           <li>Added buttons to either "kill" or "end" a process. (Evan Buss)</li>
+           <li>Change screenshot to English (Christopher Crouse)</li>
+           <li>Update Russian translation (camellan)</li>
+           <li>Check if the default display is a X11 display (Hannes Schulze)</li>
+           <li>Update Spanish translation (Mario Rodrigo)</li>
+        </ul>
+​      </description>
+​    </release>
+    <release version="0.4.4" date="2019-06-07">
+​      <description>
+​         <ul>
+           <li>Add start-in-background option to UI</li>
+        </ul>
+​      </description>
+​    </release>
+    <release version="0.4.3" date="2019-04-11">
+​      <description>
+​         <ul>
+           <li>Add start-in-background command line option</li>
+           <li>Add Italian and Portuguese translations</li>
+           <li>Update Dutch, French and Spanish translations</li>
+           <li>Fix Japanese translation</li>
+        </ul>
+​      </description>
+​    </release>
+    <release version="0.4.2" date="2019-03-11">
+​      <description>
+​         <ul>
+           <li>Minor bug fix</li>
+           <li>Make End process button red</li>
+           <li>Add Japanese translation</li>
+        </ul>
+​      </description>
+​    </release>
+    <release version="0.4.1" date="2019-02-20">
+​      <description>
+​         <ul>
+           <li>Add CPU and RAM icons</li>
+           <li>Fix bug, that caused hanging</li>
+           <li>Update Polish and Russian translation</li>
+        </ul>
+​      </description>
+​    </release>
+    <release version="0.4.0" date="2019-01-31">
+​      <description>
+​         <ul>
+           <li>Add Monitor indicator</li>
+           <li>Add missing extra French translations</li>
+           <li>Fix: if icon missing for the process, icon is taken from previous process</li>
+           <li>Fix: search erases my input while I'm typing</li>
+           <li>Fix POTFILES</li>
         </ul>
 ​      </description>
 ​    </release>

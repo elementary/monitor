@@ -5,12 +5,11 @@ public class Monitor.Preventor : Gtk.Stack {
     private Gtk.Button confirm_button;
     private Gtk.Button deny_button;
 
-    private Gtk.Widget child;
+    private Gtk.Widget child_widget;
 
     public signal void confirmed (bool is_confirmed);
 
     construct {
-        vexpand = true;
         valign = Gtk.Align.END;
 
         preventive_action_bar = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
@@ -33,19 +32,19 @@ public class Monitor.Preventor : Gtk.Stack {
     }
 
     public Preventor (Gtk.Widget _child, string name) {
-        child = _child;
-        add_named (child, name);
+        child_widget = _child;
+        add_named (child_widget, name);
         add_named (preventive_action_bar, "preventive_action_bar");
 
         deny_button.clicked.connect (() => {
             set_transition_type(Gtk.StackTransitionType.SLIDE_UP);
-            set_visible_child (child);
+            set_visible_child (child_widget);
             confirmed(false);
         });
 
         confirm_button.clicked.connect(() => {
             set_transition_type(Gtk.StackTransitionType.SLIDE_UP);
-            set_visible_child (child);
+            set_visible_child (child_widget);
             confirmed(true);
         });
     }

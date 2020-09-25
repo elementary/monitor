@@ -40,5 +40,10 @@
       <summary>To start Monitor in background or not</summary>
       <description>To start Monitor in background or not</description>
     </key>
+    <key type="s" name="opened-view">
+      <default>'process_view'</default>
+      <summary>Opened view</summary>
+      <description>The last opened view</description>
+    </key>
   </schema>
 </schemalist>

@@ -9,6 +9,7 @@ public enum Monitor.Column {
 public class Monitor.TreeViewModel : Gtk.TreeStore {
     public ProcessManager process_manager;
     private Gee.Map<int, Gtk.TreeIter ? > process_rows;
+    public signal void added_first_row ();
 
     construct {
         process_rows = new Gee.HashMap<int, Gtk.TreeIter ? > ();
@@ -55,7 +56,9 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
                  Column.ICON, process.icon.to_string (),
                  Column.PID, process.stat.pid,
                 -1);
-
+            if (process_rows.size < 1) {
+                added_first_row ();
+            }
             // add the process to our cache of process_rows
             process_rows.set (process.stat.pid, iter);
             return true;

@@ -69,7 +69,10 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
 
         set_model (model);
 
-
+        model.added_first_row.connect (() => {
+            focus_on_first_row ();
+        });
+        
         cursor_changed.connect (_cursor_changed);
         //  model.process_manager.updated.connect (_cursor_changed);
     }
@@ -82,12 +85,12 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
 
             try {
                 Gdk.Pixbuf icon = new Gdk.Pixbuf.from_file_at_size (path, 16, -1);
-                (icon_cell as Gtk.CellRendererPixbuf).pixbuf = icon;
+                ((Gtk.CellRendererPixbuf)icon_cell).pixbuf = icon;
             } catch (Error e) {
                 warning (e.message);
             }
         } else {
-            (icon_cell as Gtk.CellRendererPixbuf).icon_name = path;
+            ((Gtk.CellRendererPixbuf)icon_cell).icon_name = path;
         }
     }
 
@@ -99,9 +102,9 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
 
         // format the double into a string
         if (cpu_usage < 0.0)
-            (cell as Gtk.CellRendererText).text = Utils.NO_DATA;
+            ((Gtk.CellRendererText)cell).text = Utils.NO_DATA;
         else
-            (cell as Gtk.CellRendererText).text = "%.0f%%".printf (cpu_usage);
+            ((Gtk.CellRendererText)cell).text = "%.0f%%".printf (cpu_usage);
     }
 
     public void memory_usage_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
@@ -126,9 +129,9 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
 
         // format the double into a string
         if (memory_usage == 0)
-            (cell as Gtk.CellRendererText).text = Utils.NO_DATA;
+            ((Gtk.CellRendererText)cell).text = Utils.NO_DATA;
         else
-            (cell as Gtk.CellRendererText).text = "%.1f %s".printf (memory_usage_double, units);
+            ((Gtk.CellRendererText)cell).text = "%.1f %s".printf (memory_usage_double, units);
     }
 
     private void pid_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
@@ -137,7 +140,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
         int pid = pid_value.get_int ();
         // format the double into a string
         if (pid == 0) {
-            (cell as Gtk.CellRendererText).text = Utils.NO_DATA;
+            ((Gtk.CellRendererText)cell).text = Utils.NO_DATA;
         }
     }
 
@@ -199,7 +202,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
             tree_model.get (iter, Column.PID, out pid);
             Process process = model.process_manager.get_process (pid);
             process_selected (process);
-            debug ("cursor changed");
+            //  debug ("cursor changed");
         }
     }
 }

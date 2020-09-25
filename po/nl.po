@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-28 22:18+0400\n"
-"PO-Revision-Date: 2019-03-25 17:22+0100\n"
+"PO-Revision-Date: 2020-08-22 19:23+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: src/Utils.vala:13
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:32
@@ -22,11 +22,11 @@ msgstr ""
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:34
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:35
 msgid "N/A"
-msgstr ""
+msgstr "n/b"
 
 #: src/Utils.vala:45
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #: src/Utils.vala:50
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:113
@@ -48,19 +48,19 @@ msgstr "Monitor afsluiten"
 
 #: src/Views/ProcessView/ProcessInfoView/OpenFilesListBox.vala:56
 msgid "Deleted"
-msgstr ""
+msgstr "Verwijderd"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:21
 msgid "Are you sure you want to do this?"
-msgstr ""
+msgstr "Weet je zeker dat je dit wilt doen?"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:24
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:28
 msgid "No"
-msgstr ""
+msgstr "Nee"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:39
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:59
@@ -69,62 +69,59 @@ msgstr "PID"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:40
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
-#, fuzzy
 msgid "PRI"
-msgstr "PID"
+msgstr "PRI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:42
 msgid "THR"
-msgstr ""
+msgstr "THR"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:18
 msgid "Opened files"
-msgstr ""
+msgstr "Geopende bestanden"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:22
 msgid "Characters"
-msgstr ""
+msgstr "Tekens"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
 msgid "System calls"
-msgstr ""
+msgstr "Systeemaanroepen"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
 msgid "Read/Written"
-msgstr ""
+msgstr "Uitgelezen/Weggeschreven"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
 msgid "Cancelled write"
-msgstr ""
+msgstr "Wegschrijven afgebroken"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:79
-#, fuzzy
 msgid "End Process"
 msgstr "Proces beëindigen"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:81
-#, fuzzy
 msgid "End selected process"
-msgstr "Proces beëindigen"
+msgstr "Geselecteerd proces beëindigen"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:85
 msgid "Kill Process"
-msgstr ""
+msgstr "Proces vernietigen"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:86
 msgid "Kill selected process"
-msgstr ""
+msgstr "Geselecteerd proces vernietigen"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:96
 msgid "Confirm kill of the process?"
-msgstr ""
+msgstr "Weet je het zeker?"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:103
 msgid "Confirm end of the process?"
-msgstr ""
+msgstr "Weet je het zeker?"
 
 #. setup name column
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:17
@@ -134,7 +131,7 @@ msgstr "Procesnaam"
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:38
 #: src/Widgets/Statusbar/Statusbar.vala:8
 msgid "CPU"
-msgstr "Processor"
+msgstr "CPU"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:49
 #: src/Widgets/Statusbar/Statusbar.vala:11
@@ -150,12 +147,12 @@ msgstr "GiB"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:50
 #, c-format
 msgid "CPU: %.1f%%"
-msgstr ""
+msgstr "CPU: %.1f%%"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:51
 #, c-format
 msgid "RAM: %.1f%%"
-msgstr ""
+msgstr "RAM: %.1f%%"
 
 #: src/Widgets/Headerbar/Headerbar.vala:13
 msgid "Monitor"
@@ -166,36 +163,34 @@ msgid "Settings"
 msgstr "Instellingen"
 
 #: src/Widgets/Headerbar/Headerbar.vala:35
-#, fuzzy
 msgid "Show an indicator:"
-msgstr "Indicator tonen"
+msgstr "Indicator tonen:"
 
 #: src/Widgets/Headerbar/Headerbar.vala:41
 msgid "Start in background:"
-msgstr ""
+msgstr "Geminimaliseerd opstarten:"
 
 #: src/Widgets/Headerbar/Search.vala:14
 msgid "Search Process"
-msgstr "Zoek een proces"
+msgstr "Zoeken naar proces"
 
 #: src/Widgets/Headerbar/Search.vala:15
-#, fuzzy
 msgid "Type process name or PID to search"
 msgstr "Voer de procesnaam of PID in"
 
 #: src/Widgets/Statusbar/Statusbar.vala:14
 msgid "Swap"
-msgstr ""
+msgstr "Wisselgeheugen"
 
 #: src/Widgets/Statusbar/Statusbar.vala:16
 #: src/Widgets/Statusbar/Statusbar.vala:20
 #: src/Widgets/Statusbar/Statusbar.vala:25
 msgid "Calculating…"
-msgstr ""
+msgstr "Bezig met berekenen…"
 
 #: src/Widgets/Statusbar/Statusbar.vala:38
 msgid "GHz"
-msgstr ""
+msgstr "GHz"
 
 #~ msgid "Monitor Indicator"
 #~ msgstr "Monitor-indicator"
