@@ -1,5 +1,7 @@
 build
+builddir
 .atom-dbg.cson
 .vscode
 *~
 .goutputstream-*
+# subprojects/*/

@@ -3,13 +3,16 @@ namespace Monitor {
     public class Memory : Object {
         public double total;
         public double used;
+        public double shared;
+        public double buffer;
+        public double cached;
+        public double locked;
 
         private GTop.Memory mem;
 
         public int percentage {
             get {
-                update ();
-                return (int) (Math.round((used / total) * 100));
+                return (int) (Math.round ((used / total) * 100));
             }
         }
 
@@ -20,10 +23,15 @@ namespace Monitor {
 
         public Memory () { }
 
-        private void update () {
+        public void update () {
             GTop.get_mem (out mem);
-    		total = (double) (mem.total / 1024 / 1024) / 1000;
-            used = (double) (mem.user / 1024 / 1024) / 1000;
+            total = (double) (mem.total );
+            used = (double) mem.user;
+            shared = (double) (mem.shared);
+            buffer = (double) (mem.buffer);
+            cached = (double) (mem.cached);
+            locked = (double) (mem.locked);
+
         }
     }
 }

@@ -2,11 +2,11 @@
 public interface Monitor.DBusClientInterface : Object {
     public abstract void quit_monitor () throws Error;
     public abstract void show_monitor () throws Error;
-    public signal void update (Utils.SystemResources data);
+    public signal void update (ResourcesSerialized data);
     public signal void indicator_state (bool state);
 }
 
-public class Monitor.DBusClient : Object{
+public class Monitor.DBusClient : Object {
     public DBusClientInterface? interface = null;
 
     private static GLib.Once<DBusClient> instance;

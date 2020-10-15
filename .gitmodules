@@ -1,0 +1,3 @@
+[submodule "subprojects/live-chart"]
+    path = subprojects/live-chart
+    url = https://github.com/lcallarec/live-chart.git

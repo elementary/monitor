@@ -1,0 +1,198 @@
+# Turkish translations for com.github.stsdc.monitor package.
+# Copyright (C) 2020 THE com.github.stsdc.monitor'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.stsdc.monitor package.
+# Automatically generated, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.stsdc.monitor\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-28 22:18+0400\n"
+"PO-Revision-Date: 2020-04-15 21:51+0100\n"
+"Last-Translator: Harun Yasar <harunyasar@mail.com>\n"
+"Language-Team: none\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/Utils.vala:13
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:32
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:35
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:24
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:25
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:29
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:30
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:34
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:35
+msgid "N/A"
+msgstr "N/A"
+
+#: src/Utils.vala:45
+msgid "B"
+msgstr "B"
+
+#: src/Utils.vala:50
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:113
+msgid "KiB"
+msgstr "KiB"
+
+#: src/Utils.vala:56
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:118
+msgid "MiB"
+msgstr "MiB"
+
+#: src/Indicator/Widgets/PopoverWidget.vala:13
+msgid "Show Monitor"
+msgstr "Monitor'ü Göster"
+
+#: src/Indicator/Widgets/PopoverWidget.vala:16
+msgid "Quit Monitor"
+msgstr "Monitor'ü Kapat"
+
+#: src/Views/ProcessView/ProcessInfoView/OpenFilesListBox.vala:56
+msgid "Deleted"
+msgstr "Silindi"
+
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:21
+msgid "Are you sure you want to do this?"
+msgstr "Bunu yapmak istediğinizden emin misiniz?"
+
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:24
+msgid "Yes"
+msgstr "Evet"
+
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:28
+msgid "No"
+msgstr "Hayır"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:39
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:59
+msgid "PID"
+msgstr "PID"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:40
+msgid "NI"
+msgstr "NI"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
+msgid "PRI"
+msgstr "PRI"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:42
+msgid "THR"
+msgstr "THR"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:18
+msgid "Opened files"
+msgstr "Açık dosyalar"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:22
+msgid "Characters"
+msgstr "Karakterler"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
+msgid "System calls"
+msgstr "Sistem çağrıları"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
+msgid "Read/Written"
+msgstr "Okuma/Yazma"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
+msgid "Cancelled write"
+msgstr "Geçersiz yazma"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:79
+msgid "End Process"
+msgstr "Süreci Sonlandır"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:81
+msgid "End selected process"
+msgstr "Seçilen süreci sonlandır"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:85
+msgid "Kill Process"
+msgstr "Süreci Öldür"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:86
+msgid "Kill selected process"
+msgstr "Seçilen süreci öldür"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:96
+msgid "Confirm kill of the process?"
+msgstr "Süreç öldürülsün mü?"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:103
+msgid "Confirm end of the process?"
+msgstr "Süreç sonlandırılsın mı?"
+
+#. setup name column
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:17
+msgid "Process Name"
+msgstr "Süreç Adı"
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:38
+#: src/Widgets/Statusbar/Statusbar.vala:8
+msgid "CPU"
+msgstr "CPU"
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:49
+#: src/Widgets/Statusbar/Statusbar.vala:11
+msgid "Memory"
+msgstr "Bellek"
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:124
+#: src/Widgets/Statusbar/Statusbar.vala:41
+#: src/Widgets/Statusbar/Statusbar.vala:49
+msgid "GiB"
+msgstr "GiB"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:50
+#, c-format
+msgid "CPU: %.1f%%"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:51
+#, c-format
+msgid "RAM: %.1f%%"
+msgstr ""
+
+#: src/Widgets/Headerbar/Headerbar.vala:13
+msgid "Monitor"
+msgstr "Monitor"
+
+#: src/Widgets/Headerbar/Headerbar.vala:21
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: src/Widgets/Headerbar/Headerbar.vala:35
+msgid "Show an indicator:"
+msgstr "Belirteç göster:"
+
+#: src/Widgets/Headerbar/Headerbar.vala:41
+msgid "Start in background:"
+msgstr "Arka planda başlat:"
+
+#: src/Widgets/Headerbar/Search.vala:14
+msgid "Search Process"
+msgstr "Süreç Ara"
+
+#: src/Widgets/Headerbar/Search.vala:15
+msgid "Type process name or PID to search"
+msgstr "Aramak için süreç adı veya PID yazın"
+
+#: src/Widgets/Statusbar/Statusbar.vala:14
+msgid "Swap"
+msgstr "Takas"
+
+#: src/Widgets/Statusbar/Statusbar.vala:16
+#: src/Widgets/Statusbar/Statusbar.vala:20
+#: src/Widgets/Statusbar/Statusbar.vala:25
+msgid "Calculating…"
+msgstr "Hesaplanıyor…"
+
+#: src/Widgets/Statusbar/Statusbar.vala:38
+msgid "GHz"
+msgstr "GHz"
