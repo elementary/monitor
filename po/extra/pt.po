@@ -8,12 +8,12 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-20 22:25+0900\n"
-"PO-Revision-Date: 2019-11-04 12:19+0000\n"
+"PO-Revision-Date: 2020-10-15 18:34+0100\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.0.6\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: pt\n"
@@ -29,7 +29,7 @@ msgstr "Gerir processos e monitorizar os recursos do sistema"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:10
 msgid "Display usage of system resources, filter and manage processes."
-msgstr "Exibir o uso dos recursos do sistema, filtrar e gerir processos."
+msgstr "Mostrar a utilização dos recursos do sistema, filtrar e gerir processos."
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:22
 msgid "Stanisław Dac"
