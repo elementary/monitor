@@ -25,20 +25,20 @@ public class Monitor.OpenFilesListBox : Gtk.ScrolledWindow {
             foreach (var path in process.open_files_paths) {
                 // display only real paths
                 // probably should be done in process class
-                if (path.substring(0, 1) == "/") {
-                    var row = new OpenFilesListBoxRow (path, path.contains("(deleted)"));
+                if (path.substring (0, 1) == "/") {
+                    var row = new OpenFilesListBoxRow (path, path.contains ("(deleted)"));
                     listbox.add (row);
                 }
             }
         }
         show_all ();
     }
+
 }
 
 
 public class Monitor.OpenFilesListBoxRow : Gtk.ListBoxRow {
     construct {
-
         get_style_context ().add_class ("open_files_list_box_row");
     }
     public OpenFilesListBoxRow (string _text, bool is_deleted) {
@@ -56,7 +56,7 @@ public class Monitor.OpenFilesListBoxRow : Gtk.ListBoxRow {
             icon.tooltip_text = _("Deleted");
             text = text.replace ("(deleted)", "");
         }
-        
+
 
         grid.attach (icon, 0, 0, 1, 1);
 

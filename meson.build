@@ -1,4 +1,4 @@
-project('com.github.stsdc.monitor', 'vala', 'c', version: '0.9.1')
+project('com.github.stsdc.monitor', 'vala', 'c', version: '0.9.2')
 
 # these are Meson modules
 gnome = import('gnome')
@@ -71,6 +71,7 @@ executable(
     'src/Views/SystemView/SystemCPUInfoPopover.vala',
     'src/Views/SystemView/SystemMemoryView.vala',
     'src/Views/SystemView/SystemNetworkView.vala',
+    'src/Views/SystemView/SystemStorageView.vala',
 
     # Widgets related only to ProcessInfoView
     'src/Views/ProcessView/ProcessInfoView/Preventor.vala',
@@ -112,6 +113,7 @@ executable(
     'src/Resources/Swap.vala',
     'src/Resources/TemperatureSensor.vala',
     'src/Resources/Network.vala',
+    'src/Resources/Storage.vala',
     c_args: c_args,
     dependencies: [
         glib,

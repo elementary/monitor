@@ -3,7 +3,9 @@ public class Monitor.Widgets.TemperatureWidget : Gtk.Box {
 
     public string icon_name { get; construct; }
     public double degree {
-        set { degree_label.label = "%d℃".printf ((int)Math.round (value)); }
+        set {
+            degree_label.label = "%d℃".printf ((int) Math.round (value));
+        }
     }
 
     public TemperatureWidget (string icon_name) {

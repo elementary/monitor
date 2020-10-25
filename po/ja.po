@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-19 09:52+0900\n"
+"POT-Creation-Date: 2020-09-25 22:12+0400\n"
 "PO-Revision-Date: 2019-10-22 00:09+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
@@ -37,23 +37,23 @@ msgstr "システム"
 msgid "N/A"
 msgstr "N/A"
 
-#: src/Utils.vala:33
+#: src/Utils.vala:67
 msgid "B"
 msgstr "B"
 
-#: src/Utils.vala:38
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:113
+#: src/Utils.vala:72
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:116
 msgid "KiB"
 msgstr "KiB"
 
-#: src/Utils.vala:44
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:118
+#: src/Utils.vala:78
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:121
 msgid "MiB"
 msgstr "MiB"
 
-#: src/Utils.vala:49
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:124
-#: src/Widgets/Statusbar/Statusbar.vala:49
+#: src/Utils.vala:83
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:127
+#: src/Widgets/Statusbar/Statusbar.vala:55
 msgid "GiB"
 msgstr "GiB"
 
@@ -69,15 +69,15 @@ msgstr "モニターを終了"
 msgid "Deleted"
 msgstr "削除済み"
 
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:21
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:20
 msgid "Are you sure you want to do this?"
 msgstr "この操作を実行してもよろしいですか？"
 
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:24
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:23
 msgid "Yes"
 msgstr "はい"
 
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:28
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:27
 msgid "No"
 msgstr "いいえ"
 
@@ -113,8 +113,7 @@ msgstr "実行中、あるいは実行可能のプロセス"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:116
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
-msgstr ""
-"スリープ中、あるいはイベントの完了待ちのプロセス"
+msgstr "スリープ中、あるいはイベントの完了待ちのプロセス"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:118
 msgid "The process is stopped by a job control signal"
@@ -148,27 +147,27 @@ msgstr "読み出し／書き込み"
 msgid "Cancelled write"
 msgstr "キャンセルされた書き込み"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:79
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:73
 msgid "End Process"
 msgstr "プロセスを終了"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:81
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:75
 msgid "End selected process"
 msgstr "選択したプロセスを終了します"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:85
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:79
 msgid "Kill Process"
 msgstr "プロセスを強制終了"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:86
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:80
 msgid "Kill selected process"
 msgstr "選択したプロセスを強制終了します"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:96
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:90
 msgid "Confirm kill of the process?"
 msgstr "プロセスを強制終了してもよろしいですか？"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:103
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:97
 msgid "Confirm end of the process?"
 msgstr "プロセスを終了してもよろしいですか？"
 
@@ -183,6 +182,7 @@ msgid "CPU"
 msgstr "CPU"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:49
+#: src/Views/SystemView/SystemMemoryView.vala:26
 #: src/Widgets/Statusbar/Statusbar.vala:11
 msgid "Memory"
 msgstr "メモリー"
@@ -197,84 +197,96 @@ msgstr "CPU: %.1f%%"
 msgid "RAM: %.1f%%"
 msgstr "RAM: %.1f%%"
 
-#: src/Views/SystemView/SystemCPUView.vala:22
-msgid "CPU: "
-msgstr "CPU: "
+#: src/Views/SystemView/SystemCPUView.vala:32
+#: src/Views/SystemView/SystemMemoryView.vala:28
+msgid "UTILIZATION"
+msgstr ""
 
-#: src/Views/SystemView/SystemCPUView.vala:42
-#, c-format
-msgid "Thread %d: %s"
-msgstr "スレッド %d: %s"
-
-#: src/Views/SystemView/SystemCPUView.vala:45
-#, c-format
-msgid "CPU: % 3d%%"
-msgstr "CPU: % 3d%%"
-
-#: src/Views/SystemView/SystemCPUView.vala:55
-#, c-format
-msgid "Thread %d: "
-msgstr "スレッド %d: "
-
-#: src/Views/SystemView/SystemMemoryView.vala:24
-msgid "Memory: "
-msgstr "メモリー: "
-
+#: src/Views/SystemView/SystemCPUView.vala:34
+#: src/Views/SystemView/SystemCPUView.vala:94
 #: src/Views/SystemView/SystemMemoryView.vala:30
+#: src/Views/SystemView/SystemMemoryView.vala:35
+msgid "Show detailed info"
+msgstr ""
+
+#: src/Views/SystemView/SystemCPUView.vala:36
+msgid "FREQUENCY"
+msgstr ""
+
+#: src/Views/SystemView/SystemCPUView.vala:40
+msgid "TEMPERATURE"
+msgstr ""
+
+#: src/Views/SystemView/SystemCPUView.vala:96
+#: src/Views/SystemView/SystemMemoryView.vala:37
+msgid "Hide detailed info"
+msgstr ""
+
+#: src/Views/SystemView/SystemCPUView.vala:152
+#: src/Views/SystemView/SystemMemoryView.vala:100
+#, c-format
+msgid "%d%%"
+msgstr ""
+
+#: src/Views/SystemView/SystemCPUView.vala:153
+#: src/Widgets/Statusbar/Statusbar.vala:44
+msgid "GHz"
+msgstr "GHz"
+
+#: src/Views/SystemView/SystemCPUView.vala:154
+msgid "℃"
+msgstr ""
+
+#: src/Views/SystemView/SystemMemoryView.vala:41
 msgid "Total: "
 msgstr "合計: "
 
-#: src/Views/SystemView/SystemMemoryView.vala:33
+#: src/Views/SystemView/SystemMemoryView.vala:44
 msgid "Used: "
 msgstr "使用済み: "
 
-#: src/Views/SystemView/SystemMemoryView.vala:36
+#: src/Views/SystemView/SystemMemoryView.vala:47
 msgid "Shared: "
 msgstr "共有: "
 
-#: src/Views/SystemView/SystemMemoryView.vala:39
+#: src/Views/SystemView/SystemMemoryView.vala:50
 msgid "Buffered: "
 msgstr "バッファー: "
 
-#: src/Views/SystemView/SystemMemoryView.vala:42
+#: src/Views/SystemView/SystemMemoryView.vala:53
 msgid "Cached: "
 msgstr "キャッシュ: "
 
-#: src/Views/SystemView/SystemMemoryView.vala:45
+#: src/Views/SystemView/SystemMemoryView.vala:56
 msgid "Locked: "
 msgstr "ロック: "
 
-#: src/Views/SystemView/SystemMemoryView.vala:73
-#, c-format
-msgid "Memory: % 3d%%"
-msgstr "メモリー: % 3d%%"
-
-#: src/Views/SystemView/SystemMemoryView.vala:76
+#: src/Views/SystemView/SystemMemoryView.vala:103
 #, c-format
 msgid "Total: %s"
 msgstr "合計: %s"
 
-#: src/Views/SystemView/SystemMemoryView.vala:77
+#: src/Views/SystemView/SystemMemoryView.vala:104
 #, c-format
 msgid "Used: %s"
 msgstr "使用済み: %s"
 
-#: src/Views/SystemView/SystemMemoryView.vala:78
+#: src/Views/SystemView/SystemMemoryView.vala:105
 #, c-format
 msgid "Shared: %s"
 msgstr "共有: %s"
 
-#: src/Views/SystemView/SystemMemoryView.vala:79
+#: src/Views/SystemView/SystemMemoryView.vala:106
 #, c-format
 msgid "Buffered: %s"
 msgstr "バッファー: %s"
 
-#: src/Views/SystemView/SystemMemoryView.vala:80
+#: src/Views/SystemView/SystemMemoryView.vala:107
 #, c-format
 msgid "Cached: %s"
 msgstr "キャッシュ: %s"
 
-#: src/Views/SystemView/SystemMemoryView.vala:81
+#: src/Views/SystemView/SystemMemoryView.vala:108
 #, c-format
 msgid "Locked: %s"
 msgstr "ロック: %s"
@@ -308,11 +320,25 @@ msgid "Swap"
 msgstr "スワップ"
 
 #: src/Widgets/Statusbar/Statusbar.vala:16
-#: src/Widgets/Statusbar/Statusbar.vala:20
-#: src/Widgets/Statusbar/Statusbar.vala:25
+#: src/Widgets/Statusbar/Statusbar.vala:22
+#: src/Widgets/Statusbar/Statusbar.vala:29
 msgid "Calculating…"
 msgstr "計算しています…"
 
-#: src/Widgets/Statusbar/Statusbar.vala:38
-msgid "GHz"
-msgstr "GHz"
+#~ msgid "CPU: "
+#~ msgstr "CPU: "
+
+#~ msgid "Thread %d: %s"
+#~ msgstr "スレッド %d: %s"
+
+#~ msgid "CPU: % 3d%%"
+#~ msgstr "CPU: % 3d%%"
+
+#~ msgid "Thread %d: "
+#~ msgstr "スレッド %d: "
+
+#~ msgid "Memory: "
+#~ msgstr "メモリー: "
+
+#~ msgid "Memory: % 3d%%"
+#~ msgstr "メモリー: % 3d%%"
