@@ -70,8 +70,6 @@ public class Monitor.SystemCPUView : Gtk.Box {
         grid_utilization_info.attach (grid_usage_labels (), 0, 0, 1, 1);
         grid_utilization_info.attach (cpu_utilization_chart, 0, 0, 1, 1);
 
-
-
         cpu_frequency_chart = new Chart (1);
         cpu_frequency_chart.height_request = -1;
         cpu_frequency_chart.config.y_axis.fixed_max = 5.0;

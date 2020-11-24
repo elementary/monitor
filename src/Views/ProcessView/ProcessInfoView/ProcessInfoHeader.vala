@@ -4,16 +4,6 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
     public Gtk.Label application_name;
     public LabelRoundy pid;
 
-    /* *INDENT-OFF* */
-        regex = /(?i:^.*\.(xpm|png)$)/; // vala-lint=space-before-paren,
-    /* *INDENT-ON* */
-
-    icon = new Gtk.Image.from_icon_name ("application-x-executable", Gtk.IconSize.DIALOG);
-    icon.set_pixel_size (64);
-    icon.valign = Gtk.Align.END;
-
-    state = new Gtk.Label ("?");
-    state.halign = Gtk.Align.START;
     public LabelRoundy ppid;
     public LabelRoundy pgrp;
     public LabelRoundy nice;
@@ -26,6 +16,16 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
     construct {
         column_spacing = 12;
 
+        /* *INDENT-OFF* */
+        regex = /(?i:^.*\.(xpm|png)$)/; // vala-lint=space-before-paren,
+        /* *INDENT-ON* */
+
+        icon = new Gtk.Image.from_icon_name ("application-x-executable", Gtk.IconSize.DIALOG);
+        icon.set_pixel_size (64);
+        icon.valign = Gtk.Align.END;
+    
+        state = new Gtk.Label ("?");
+        state.halign = Gtk.Align.START;
         state.get_style_context ().add_class ("state_badge");
 
         var icon_container = new Gtk.Fixed ();

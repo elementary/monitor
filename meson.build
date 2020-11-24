@@ -88,8 +88,6 @@ executable(
     'src/Widgets/Labels/LabelRoundy.vala',
     'src/Widgets/Labels/LabelH4.vala',
     'src/Widgets/Chart/Chart.vala',
-    'src/Widgets/Chart/ProcessChart.vala',
-
 
     # Models
     'src/Models/TreeViewModel.vala',
