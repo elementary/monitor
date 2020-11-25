@@ -19,10 +19,18 @@ public class Monitor.SystemView : Gtk.Box {
         network_view = new SystemNetworkView (resources.network);
         storage_view = new SystemStorageView (resources.storage);
 
-        add (cpu_view);
-        add (memory_view);
-        add (network_view);
-        add (storage_view);
+        var scrolled_window = new Gtk.ScrolledWindow (null, null);
+        var wrapper = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        wrapper.expand = true;
+        scrolled_window.add (wrapper);
+
+
+        wrapper.add (cpu_view);
+        wrapper.add (memory_view);
+        wrapper.add (network_view);
+        wrapper.add (storage_view);
+
+        add (scrolled_window);
     }
 
     public void update () {
