@@ -16,13 +16,19 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         storage = _storage;
 
         storage_name_label = new LabelH4 (_("Storage"));
+
         storage_write_label = new LabelRoundy (_("WRITE"));
         storage_write_label.val.set_width_chars (7);
+        storage_write_label.set_color ("blue");
+
         storage_read_label = new LabelRoundy (_("READ"));
         storage_read_label.val.set_width_chars (7);
+        storage_read_label.set_color ("green");
 
         storage_chart = new Chart (2);
         storage_chart.config.y_axis.fixed_max = null;
+        storage_chart.set_serie_color(0, { 155/255.0, 219/255.0, 77/255.0, 1.0 });
+        storage_chart.set_serie_color(1, { 100/255.0, 186/255.0, 255/255.0, 1.0 });
 
         var labels_grid = new Gtk.Grid ();
         labels_grid.row_spacing = 6;

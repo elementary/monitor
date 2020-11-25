@@ -42,6 +42,14 @@ public class Monitor.Chart : Gtk.Box {
         add (live_chart);
     }
 
+    public void set_serie_color(int serie_number, Gdk.RGBA color) {
+        try {
+            live_chart.series[serie_number].line.color = color;
+        } catch (LiveChart.ChartError e) {
+            error (e.message);
+        }
+    }
+
     public void update (int serie_number, double value) {
         try {
             live_chart.series[serie_number].add (value);

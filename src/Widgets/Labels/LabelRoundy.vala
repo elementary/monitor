@@ -13,6 +13,10 @@ public class Monitor.LabelRoundy : Gtk.Fixed {
         put (desc, 6, 0);
     }
 
+    public void set_color (string colorname) {
+        val.get_style_context ().add_class (colorname);
+    }
+
     public void set_text (string text) {
         val.set_text (text);
     }
