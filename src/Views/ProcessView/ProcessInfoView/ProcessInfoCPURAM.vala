@@ -15,15 +15,13 @@ public class Monitor.ProcessInfoCPURAM : Gtk.Grid {
         cpu_chart = new Chart (1);
         ram_chart = new Chart (1);
 
+        cpu_chart.height_request = 60;
+        ram_chart.height_request = 60;
 
         var cpu_graph_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        cpu_graph_box.get_style_context ().add_class ("graph");
         cpu_graph_box.add (cpu_chart);
 
-
-
         var mem_graph_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        mem_graph_box.get_style_context ().add_class ("graph");
         mem_graph_box.add (ram_chart);
 
         cpu_label = new Gtk.Label ("CPU: " + Utils.NO_DATA);
@@ -42,8 +40,8 @@ public class Monitor.ProcessInfoCPURAM : Gtk.Grid {
     }
 
     public void set_charts_data (Process process) {
-        cpu_chart.set_data (0, process.cpu_percentage_history);
-        ram_chart.set_data (0, process.mem_percentage_history);
+        cpu_chart.preset_data (0, process.cpu_percentage_history);
+        ram_chart.preset_data (0, process.mem_percentage_history);
     }
 
     public void update (Process process) {

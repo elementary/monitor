@@ -27,9 +27,9 @@ public class Monitor.Chart : Gtk.Box {
         live_chart.expand = true;
         live_chart.legend.visible = false;
         live_chart.grid.visible = true;
-        //  live_chart.background.main_color = Gdk.RGBA () {
-        //  red = 1, green = 1, blue = 1, alpha = 1
-        //  }; // White background
+        live_chart.background.color = Gdk.RGBA () {
+            red = 1, green = 1, blue = 1, alpha = 1
+        }; // White background
     }
 
     public Chart (int series_quantity) {
@@ -44,13 +44,13 @@ public class Monitor.Chart : Gtk.Box {
 
     public void update (int serie_number, double value) {
         try {
-            live_chart.series[serie_number].add(value);
+            live_chart.series[serie_number].add (value);
         } catch (LiveChart.ChartError e) {
             error (e.message);
         }
     }
 
-    public void set_data (int serie_number, Gee.ArrayList<double ? > history) {
+    public void preset_data (int serie_number, Gee.ArrayList<double ? > history) {
         var refresh_rate_in_ms = 2000;
         try {
             live_chart.add_unaware_timestamp_collection_by_index (serie_number, history, refresh_rate_in_ms);
@@ -60,7 +60,7 @@ public class Monitor.Chart : Gtk.Box {
     }
 
     public void clear () {
-        //  var series = live_chart.series;
+        // var series = live_chart.series;
         foreach (var serie in live_chart.series) {
             serie.clear ();
         }
