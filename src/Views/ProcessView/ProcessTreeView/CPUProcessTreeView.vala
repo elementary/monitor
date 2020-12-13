@@ -10,7 +10,9 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
 
     public CPUProcessTreeView (TreeViewModel model) {
         this.model = model;
-        regex = /(?i:^.*\.(xpm|png)$)/;
+        /* *INDENT-OFF* */
+        regex = /(?i:^.*\.(xpm|png)$)/; // vala-lint=space-before-paren,
+        /* *INDENT-ON* */
 
         // setup name column
         name_column = new Gtk.TreeViewColumn ();
@@ -35,7 +37,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
         var cpu_cell = new Gtk.CellRendererText ();
         cpu_cell.xalign = 0.5f;
 
-        cpu_column = new Gtk.TreeViewColumn.with_attributes (_ ("CPU"), cpu_cell);
+        cpu_column = new Gtk.TreeViewColumn.with_attributes (_("CPU"), cpu_cell);
         cpu_column.expand = false;
         cpu_column.set_cell_data_func (cpu_cell, cpu_usage_cell_layout);
         cpu_column.alignment = 0.5f;
@@ -46,7 +48,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
         var memory_cell = new Gtk.CellRendererText ();
         memory_cell.xalign = 0.5f;
 
-        memory_column = new Gtk.TreeViewColumn.with_attributes (_ ("Memory"), memory_cell);
+        memory_column = new Gtk.TreeViewColumn.with_attributes (_("Memory"), memory_cell);
         memory_column.expand = false;
         memory_column.set_cell_data_func (memory_cell, memory_usage_cell_layout);
         memory_column.alignment = 0.5f;
@@ -56,7 +58,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
         // setup PID column
         var pid_cell = new Gtk.CellRendererText ();
         pid_cell.xalign = 0.5f;
-        pid_column = new Gtk.TreeViewColumn.with_attributes (_ ("PID"), pid_cell);
+        pid_column = new Gtk.TreeViewColumn.with_attributes (_("PID"), pid_cell);
         pid_column.set_cell_data_func (pid_cell, pid_cell_layout);
         pid_column.expand = false;
         pid_column.alignment = 0.5f;
@@ -72,17 +74,16 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
         model.added_first_row.connect (() => {
             focus_on_first_row ();
         });
-        
+
         cursor_changed.connect (_cursor_changed);
-        //  model.process_manager.updated.connect (_cursor_changed);
+        // model.process_manager.updated.connect (_cursor_changed);
     }
     public void icon_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer icon_cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
         Value icon_name;
         model.get_value (iter, Column.ICON, out icon_name);
-        string path = ((string)icon_name);
+        string path = ((string) icon_name);
 
         if (regex.match (path)) {
-
             try {
                 Gdk.Pixbuf icon = new Gdk.Pixbuf.from_file_at_size (path, 16, -1);
                 ((Gtk.CellRendererPixbuf)icon_cell).pixbuf = icon;
@@ -112,19 +113,19 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
         Value memory_usage_value;
         model.get_value (iter, Column.MEMORY, out memory_usage_value);
         int64 memory_usage = memory_usage_value.get_int64 ();
-        double memory_usage_double = (double)memory_usage;
-        string units = _ ("KiB");
+        double memory_usage_double = (double) memory_usage;
+        string units = _("KiB");
 
         // convert to MiB if needed
         if (memory_usage_double > 1024.0) {
             memory_usage_double /= 1024.0;
-            units = _ ("MiB");
+            units = _("MiB");
         }
 
         // convert to GiB if needed
         if (memory_usage_double > 1024.0) {
             memory_usage_double /= 1024.0;
-            units = _ ("GiB");
+            units = _("GiB");
         }
 
         // format the double into a string
@@ -202,7 +203,8 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
             tree_model.get (iter, Column.PID, out pid);
             Process process = model.process_manager.get_process (pid);
             process_selected (process);
-            //  debug ("cursor changed");
+            // debug ("cursor changed");
         }
     }
+
 }

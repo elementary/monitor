@@ -1,8 +1,7 @@
 // TODO: Change namespace
 public class Monitor.Indicator : Wingpanel.Indicator {
-
-    private Widgets.DisplayWidget? display_widget = null;
-    private Widgets.PopoverWidget? popover_widget = null;
+    private Widgets.DisplayWidget ? display_widget = null;
+    private Widgets.PopoverWidget ? popover_widget = null;
     private Settings settings;
     private DBusClient dbusclient;
 
@@ -43,7 +42,6 @@ public class Monitor.Indicator : Wingpanel.Indicator {
                 warning (e.message);
             }
         });
-
     }
 
     public Indicator () {
@@ -54,7 +52,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         return display_widget;
     }
 
-    public override Gtk.Widget? get_widget () {
+    public override Gtk.Widget ? get_widget () {
         return popover_widget;
     }
 
@@ -63,9 +61,10 @@ public class Monitor.Indicator : Wingpanel.Indicator {
 
     public override void closed () {
     }
+
 }
 
-public Wingpanel.Indicator? get_indicator (Module module, Wingpanel.IndicatorManager.ServerType server_type) {
+public Wingpanel.Indicator ? get_indicator (Module module, Wingpanel.IndicatorManager.ServerType server_type) {
     debug ("Activating Monitor Indicator");
 
     if (server_type != Wingpanel.IndicatorManager.ServerType.SESSION) {

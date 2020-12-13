@@ -1,5 +1,4 @@
 public class Monitor.ProcessUtils {
-
     // checks if it is run by shell
     private static bool is_shell (string chunk) {
         if ("sh" == chunk || "bash" == chunk || "zsh" == chunk) {
@@ -9,9 +8,9 @@ public class Monitor.ProcessUtils {
         return false;
     }
 
-    public static string sanitize_commandline (string? commandline) {
+    public static string sanitize_commandline (string ? commandline) {
         if (commandline == null) return Path.get_basename ("");
-        
+
         // splitting command; might include many options
         var splitted_commandline = commandline.split (" ");
 
@@ -23,7 +22,7 @@ public class Monitor.ProcessUtils {
         return Path.get_basename (splitted_commandline[0]);
     }
 
-    public static string? read_file (string path) {
+    public static string ? read_file (string path) {
         var file = File.new_for_path (path);
 
         /* make sure that it exists, not an error if it doesn't */
@@ -34,8 +33,8 @@ public class Monitor.ProcessUtils {
         try {
             var dis = new DataInputStream (file.read ());
 
-            //  Doing this because of cmdline file. 
-            //  cmdline is a single line file with each arg seperated by a null character ('\0')
+            // Doing this because of cmdline file.
+            // cmdline is a single line file with each arg seperated by a null character ('\0')
             string line = dis.read_upto ("\0", 1, null);
             while (line != null) {
                 text.append (line);
@@ -51,7 +50,7 @@ public class Monitor.ProcessUtils {
         }
     }
 
-    public static Icon? get_default_icon () {
+    public static Icon ? get_default_icon () {
         try {
             return Icon.new_for_string ("application-x-executable");
         } catch (Error e) {
@@ -59,5 +58,4 @@ public class Monitor.ProcessUtils {
             return null;
         }
     }
-    
 }

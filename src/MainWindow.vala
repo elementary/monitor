@@ -31,8 +31,8 @@ public class Monitor.MainWindow : Gtk.Window {
 
         stack = new Gtk.Stack ();
         stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
-        stack.add_titled (process_view, "process_view", _ ("Processes"));
-        stack.add_titled (system_view, "system_view", _ ("System"));
+        stack.add_titled (process_view, "process_view", _("Processes"));
+        stack.add_titled (system_view, "system_view", _("System"));
 
         Gtk.StackSwitcher stack_switcher = new Gtk.StackSwitcher ();
         stack_switcher.set_stack (stack);
@@ -130,4 +130,5 @@ public class Monitor.MainWindow : Gtk.Window {
             move (position_x, position_y);
         }
     }
+
 }

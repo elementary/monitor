@@ -4,10 +4,11 @@ public interface Monitor.DBusClientInterface : Object {
     public abstract void show_monitor () throws Error;
     public signal void update (ResourcesSerialized data);
     public signal void indicator_state (bool state);
+
 }
 
 public class Monitor.DBusClient : Object {
-    public DBusClientInterface? interface = null;
+    public DBusClientInterface ? interface = null;
 
     private static GLib.Once<DBusClient> instance;
     public static unowned DBusClient get_default () {
@@ -31,10 +32,7 @@ public class Monitor.DBusClient : Object {
                 BusNameWatcherFlags.NONE,
                 () => monitor_appeared (),
                 () => monitor_vanished ()
-            );
-
-
-
+                );
         } catch (IOError e) {
             error ("Monitor Indicator DBus: %s\n", e.message);
         }

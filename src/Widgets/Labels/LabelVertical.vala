@@ -1,5 +1,4 @@
 public class Monitor.LabelVertical : Gtk.EventBox {
-
     private Gtk.Grid grid;
 
     public signal void clicked ();
@@ -23,8 +22,8 @@ public class Monitor.LabelVertical : Gtk.EventBox {
         desc = new Gtk.Label (description);
         desc.get_style_context ().add_class ("small-text");
 
-        grid.attach(desc, 0, 0, 1, 1);
-        grid.attach(val, 0, 1, 1, 1);
+        grid.attach (desc, 0, 0, 1, 1);
+        grid.attach (val, 0, 1, 1, 1);
 
         add (grid);
 
@@ -34,10 +33,10 @@ public class Monitor.LabelVertical : Gtk.EventBox {
             clicked ();
             return false;
         });
-
     }
 
     public void set_text (string text) {
         val.set_text (text);
     }
+
 }
