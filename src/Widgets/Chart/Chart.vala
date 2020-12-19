@@ -27,9 +27,10 @@ public class Monitor.Chart : Gtk.Box {
         live_chart.expand = true;
         live_chart.legend.visible = false;
         live_chart.grid.visible = true;
-        live_chart.background.color = Gdk.RGBA () {
-            red = 1, green = 1, blue = 1, alpha = 1
-        }; // White background
+        live_chart.background.visible = false;
+        //  live_chart.background.color = Gdk.RGBA () {
+        //      red = 1, green = 1, blue = 1, alpha = 1
+        //  }; // White background
     }
 
     public Chart (int series_quantity) {
