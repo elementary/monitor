@@ -28,6 +28,16 @@
 <url type="help">https://github.com/stsdc/monitor/issues</url>
 
 <releases>
+<release version="0.9.2" date="2020-12-14">
+​      <description>
+​         <ul>
+           <li>Display Storage usage</li>
+           <li>Update Russian translation (@camellan)</li>
+           <li>Update Portuguese translation (@hugok79)</li>
+           <li>Different colours for Upload and Download</li>
+        </ul>
+​      </description>
+​    </release>
 <release version="0.9.1" date="2020-09-04">
 ​      <description>
 ​         <ul>
