@@ -23,6 +23,8 @@ public class Monitor.Indicator : Wingpanel.Indicator {
             display_widget.cpu_widget.percentage = sysres.cpu_percentage;
             display_widget.temperature_widget.degree = sysres.cpu_temperature;
             display_widget.memory_widget.percentage = sysres.memory_percentage;
+            display_widget.network_up_widget.bandwith = sysres.network_up;
+            display_widget.network_down_widget.bandwith = sysres.network_down;
         });
 
         popover_widget.quit_monitor.connect (() => {
