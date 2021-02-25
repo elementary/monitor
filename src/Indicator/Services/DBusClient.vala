@@ -4,6 +4,11 @@ public interface Monitor.DBusClientInterface : Object {
     public abstract void show_monitor () throws Error;
     public signal void update (ResourcesSerialized data);
     public signal void indicator_state (bool state);
+    public signal void indicator_cpu_state (bool state);
+    public signal void indicator_memory_state (bool state);
+    public signal void indicator_temperature_state (bool state);
+    public signal void indicator_network_up_state (bool state);
+    public signal void indicator_network_down_state (bool state);
 
 }
 

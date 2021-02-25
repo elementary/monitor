@@ -15,10 +15,23 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         dbusclient = DBusClient.get_default ();
 
         dbusclient.monitor_vanished.connect (() => this.visible = false);
-        dbusclient.monitor_appeared.connect (() => this.visible = settings.get_boolean ("indicator-state"));
+        dbusclient.monitor_appeared.connect (() => {
+            this.visible = settings.get_boolean ("indicator-state");
+            display_widget.cpu_widget.visible = settings.get_boolean ("indicator-cpu-state");
+            display_widget.memory_widget.visible = settings.get_boolean ("indicator-memory-state");
+            display_widget.temperature_widget.visible = settings.get_boolean ("indicator-temperature-state");
+            display_widget.network_up_widget.visible = settings.get_boolean ("indicator-network-up-state");
+            display_widget.network_down_widget.visible = settings.get_boolean ("indicator-network-down-state");
+
+        });
 
         dbusclient.interface.indicator_state.connect ((state) => this.visible = state);
-
+        dbusclient.interface.indicator_cpu_state.connect ((state) => display_widget.cpu_widget.visible = state);
+        dbusclient.interface.indicator_memory_state.connect ((state) => display_widget.memory_widget.visible = state);
+        dbusclient.interface.indicator_temperature_state.connect ((state) => display_widget.temperature_widget.visible = state);
+        dbusclient.interface.indicator_network_up_state.connect ((state) => display_widget.network_up_widget.visible = state);
+        dbusclient.interface.indicator_network_down_state.connect ((state) => display_widget.network_down_widget.visible = state);
+    
         dbusclient.interface.update.connect ((sysres) => {
             display_widget.cpu_widget.percentage = sysres.cpu_percentage;
             display_widget.temperature_widget.degree = sysres.cpu_temperature;
