@@ -63,6 +63,16 @@ class TemperatureSensor : Object {
                             }
                         }
                     }
+
+                // Raspberry Pi 4
+                } else if (sensor_name == "cpu_thermal") {
+                    debug ("Found temp. sensor: %s", sensor_name);
+                    Dir hwmonx_dir = Dir.open (Path.build_filename (HWMON_PATH, hwmonx), 0);
+                    string ? hwmonx_prop = hwmonx_dir.read_name ();
+                    string tempx_input = "temp%c_input".printf (hwmonx_prop[4]);
+                    cpu_temp_paths.add (Path.build_filename (HWMON_PATH, hwmonx, tempx_input));
+                    debug (open_file (cpu_temp_paths[0]));
+
                 } else if (sensor_name == "amdgpu") {
                     debug ("Found temp. sensor: %s", sensor_name);
                 } else {

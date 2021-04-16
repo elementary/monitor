@@ -30,7 +30,9 @@ public class Monitor.Resources : Object {
                    memory_total = memory.total,
                    swap_percentage = swap.percentage,
                    swap_used = swap.used,
-                   swap_total = swap.total
+                   swap_total = swap.total,
+                   network_up = network.bytes_out,
+                   network_down = network.bytes_in
         };
     }
 

@@ -45,18 +45,26 @@ public class Monitor.Utils.Strings {
  */
 public class Monitor.Utils.HumanUnitFormatter {
     const string[] SIZE_UNITS = { "B", "KiB", "MiB", "GiB", "TiB" };
+    const string[] PACKED_SIZE_UNITS = { "B", "K", "M", "G", "T" };
     const double KFACTOR = 1024;
 
     /**
      * format a string of bytes to an human readable format with units
      */
-    public static string string_bytes_to_human (string bytes) {
-        double current_size = double.parse (bytes);
-        string current_size_formatted = bytes.to_string () + HumanUnitFormatter.SIZE_UNITS[0];
+    public static string string_bytes_to_human (string bytes, bool packed = false) {
+        string[] units;
 
-        for (int i = 0; i <= HumanUnitFormatter.SIZE_UNITS.length; i++) {
+        if (packed)
+            units = HumanUnitFormatter.PACKED_SIZE_UNITS;
+        else
+            units = HumanUnitFormatter.SIZE_UNITS;
+
+        double current_size = double.parse (bytes);
+        string current_size_formatted = bytes.to_string () + units[0];
+
+        for (int i = 0; i <= units.length; i++) {
             if (current_size < HumanUnitFormatter.KFACTOR) {
-                return GLib.Math.round (current_size).to_string () + HumanUnitFormatter.SIZE_UNITS[i];
+                return GLib.Math.round (current_size).to_string () + units[i];
             }
             current_size = current_size / HumanUnitFormatter.KFACTOR;
         }
