@@ -75,17 +75,22 @@ public class Monitor.Headerbar : Gtk.HeaderBar {
         preferences_grid.attach (show_indicator_switch, 1, 0, 1, 1);
         preferences_grid.attach (background_label, 0, 1, 1, 1);
         preferences_grid.attach (background_switch, 1, 1, 1, 1);
-        preferences_grid.attach (indicator_list_label, 0, 2, 1, 1);
-        preferences_grid.attach (indicator_cpu_label, 0, 3, 1, 1);
-        preferences_grid.attach (indicator_cpu_check, 1, 3, 1, 1);
-        preferences_grid.attach (indicator_memory_label, 0, 4, 1, 1);
-        preferences_grid.attach (indicator_memory_check, 1, 4, 1, 1);
-        preferences_grid.attach (indicator_temperature_label, 0, 5, 1, 1);
-        preferences_grid.attach (indicator_temperature_check, 1, 5, 1, 1);
-        preferences_grid.attach (indicator_network_up_label, 0, 6, 1, 1);
-        preferences_grid.attach (indicator_network_up_check, 1, 6, 1, 1);
-        preferences_grid.attach (indicator_network_down_label, 0, 7, 1, 1);
-        preferences_grid.attach (indicator_network_down_check, 1, 7, 1, 1);
+
+        // Settings popup needs design.
+        // Also not sure about new network indicator.
+        // Needs design, disabling this for now
+
+        //  preferences_grid.attach (indicator_list_label, 0, 2, 1, 1);
+        //  preferences_grid.attach (indicator_cpu_label, 0, 3, 1, 1);
+        //  preferences_grid.attach (indicator_cpu_check, 1, 3, 1, 1);
+        //  preferences_grid.attach (indicator_memory_label, 0, 4, 1, 1);
+        //  preferences_grid.attach (indicator_memory_check, 1, 4, 1, 1);
+        //  preferences_grid.attach (indicator_temperature_label, 0, 5, 1, 1);
+        //  preferences_grid.attach (indicator_temperature_check, 1, 5, 1, 1);
+        //  preferences_grid.attach (indicator_network_up_label, 0, 6, 1, 1);
+        //  preferences_grid.attach (indicator_network_up_check, 1, 6, 1, 1);
+        //  preferences_grid.attach (indicator_network_down_label, 0, 7, 1, 1);
+        //  preferences_grid.attach (indicator_network_down_check, 1, 7, 1, 1);
 
         preferences_grid.show_all ();
 
