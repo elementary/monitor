@@ -1,5 +1,4 @@
-
-project('com.github.stsdc.monitor', 'vala', 'c', version: '0.7.2')
+project('com.github.stsdc.monitor', 'vala', 'c', version: '0.9.2')
 
 # these are Meson modules
 gnome = import('gnome')
@@ -67,10 +66,15 @@ executable(
     'src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala',
     'src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala',
 
+    'src/Views/SystemView/SystemView.vala',
+    'src/Views/SystemView/SystemCPUView.vala',
+    'src/Views/SystemView/SystemCPUInfoPopover.vala',
+    'src/Views/SystemView/SystemMemoryView.vala',
+    'src/Views/SystemView/SystemNetworkView.vala',
+    'src/Views/SystemView/SystemStorageView.vala',
+
     # Widgets related only to ProcessInfoView
     'src/Views/ProcessView/ProcessInfoView/Preventor.vala',
-    'src/Views/ProcessView/ProcessInfoView/RoundyLabel.vala',
-    'src/Views/ProcessView/ProcessInfoView/Chart.vala',
     'src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala',
     'src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala',
     'src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala',
@@ -80,7 +84,10 @@ executable(
     'src/Widgets/Headerbar/Headerbar.vala',
     'src/Widgets/Headerbar/Search.vala',
     'src/Widgets/Statusbar/Statusbar.vala',
-  
+    'src/Widgets/Labels/LabelVertical.vala',
+    'src/Widgets/Labels/LabelRoundy.vala',
+    'src/Widgets/Labels/LabelH4.vala',
+    'src/Widgets/Chart/Chart.vala',
 
     # Models
     'src/Models/TreeViewModel.vala',
@@ -94,12 +101,17 @@ executable(
 
     'src/Services/Shortcuts.vala',
     'src/Services/DBusServer.vala',
-    'src/Services/Updater.vala',
 
+    # Resources
+    'src/Resources/Resources.vala',
+    'src/Resources/ResourcesSerialized.vala',
     'src/Resources/CPU.vala',
     'src/Resources/Core.vala',
     'src/Resources/Memory.vala',
     'src/Resources/Swap.vala',
+    'src/Resources/TemperatureSensor.vala',
+    'src/Resources/Network.vala',
+    'src/Resources/Storage.vala',
     c_args: c_args,
     dependencies: [
         glib,
@@ -126,10 +138,13 @@ shared_module(
     'monitor',
     'src/Indicator/Indicator.vala',
     'src/Utils.vala',
+    'src/Resources/ResourcesSerialized.vala',
 
     'src/Indicator/Widgets/DisplayWidget.vala',
     'src/Indicator/Widgets/PopoverWidget.vala',
     'src/Indicator/Widgets/IndicatorWidget.vala',
+    'src/Indicator/Widgets/TemperatureWidget.vala',
+    'src/Indicator/Widgets/NetworkWidget.vala',
 
     'src/Indicator/Services/DBusClient.vala',
     # 'src/Widgets/RevealerSwitch.vala',
