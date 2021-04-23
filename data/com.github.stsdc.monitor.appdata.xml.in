@@ -30,9 +30,7 @@
 <releases>
 <release version="0.9.4" date="2021-04-23">
 ​      <description>
-​         <ul>
-           <li>🐛 Should fix empty Indicator ⚡️</li>
-        </ul>
+​         <p>🐛 Should fix empty Indicator. Please reboot after installation ⚡️</p>
 ​      </description>
 ​    </release>
 <release version="0.9.3" date="2021-04-17">
