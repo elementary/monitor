@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2020 Stanisław <@ststdc> -->
+<!-- Copyright 2021 Stanisław <@ststdc> -->
 <component type="desktop">
   <id>com.github.stsdc.monitor</id>
   <metadata_license>CC0</metadata_license>
@@ -28,6 +28,21 @@
 <url type="help">https://github.com/stsdc/monitor/issues</url>
 
 <releases>
+<release version="0.9.4" date="2021-04-23">
+​      <description>
+​         <p>🐛 Should fix empty Indicator. Please reboot after installation ⚡️</p>
+​      </description>
+​    </release>
+<release version="0.9.3" date="2021-04-17">
+​      <description>
+​         <ul>
+           <li>🐛 Try to fix frequent GUI hangs 🥶</li>
+           <li>🇳🇱 Update Dutch translation (@Vistaus)</li>
+           <li>🇵🇹 Update Portuguese translation (@hugok79)</li>
+           <li>🇷🇴 Add Romanian translation (@tiberiufrat)</li>
+        </ul>
+​      </description>
+​    </release>
 <release version="0.9.2" date="2020-12-14">
 ​      <description>
 ​         <ul>

@@ -57,7 +57,7 @@ public class Monitor.MainWindow : Gtk.Window {
         });
 
         Timeout.add_seconds (2, () => {
-            new Thread<bool> ("resource-updates", () => {
+            //  new Thread<bool> ("resource-updates", () => {
                 resources.update ();
                 var res = resources.serialize ();
                 statusbar.update (res);
@@ -70,8 +70,8 @@ public class Monitor.MainWindow : Gtk.Window {
                     return false;
                 });
                 return true;
-            });
-            return true;
+            //  });
+            //  return true;
         });
 
 

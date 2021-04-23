@@ -144,6 +144,7 @@ shared_module(
     'src/Indicator/Widgets/PopoverWidget.vala',
     'src/Indicator/Widgets/IndicatorWidget.vala',
     'src/Indicator/Widgets/TemperatureWidget.vala',
+    'src/Indicator/Widgets/NetworkWidget.vala',
 
     'src/Indicator/Services/DBusClient.vala',
     # 'src/Widgets/RevealerSwitch.vala',
