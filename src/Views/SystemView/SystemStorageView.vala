@@ -17,6 +17,7 @@ public class Monitor.SystemStorageView : Gtk.Grid {
 
         storage_name_label = new LabelH4 (_("Storage"));
 
+
         storage_write_label = new LabelRoundy (_("WRITE"));
         storage_write_label.val.set_width_chars (7);
         storage_write_label.set_color ("blue");
@@ -38,19 +39,62 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         labels_grid.attach (storage_read_label, 1, 0, 1, 1);
 
         attach (storage_name_label, 0, 0, 1, 1);
-        attach (labels_grid, 0, 1, 2, 2);
-        attach (storage_chart, 0, 1, 2, 2);
+        attach (build_drive_card(), 0, 1, 1, 1);
+        attach (labels_grid, 0, 2, 2, 2);
+        attach (storage_chart, 0, 2, 2, 2);
+    }
+
+    private Gtk.Box build_drive_card () {
+        var container = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        container.get_style_context ().add_class ("card");
+        container.get_style_context ().add_class ("rounded");
+        container.halign = Gtk.Align.START;
+
+        var drive_grid = new Gtk.Grid ();
+        //  drive_grid.row_spacing = 6;
+        drive_grid.column_spacing = 6;
+        drive_grid.margin = 6;
+
+        var drive_name_label = new Gtk.Label ("Hitachi HTS547550A9E384");
+        drive_name_label.get_style_context ().add_class ("h3");
+        drive_name_label.margin = 6;
+        drive_name_label.margin_bottom = 0;
+        drive_name_label.halign = Gtk.Align.START;
+
+        string drive_block_name_and_size_string = "%s 𐄁 %s".printf ("/dev/sdb", "356GB / 500GB");
+        var drive_block_name_and_size_label = new Gtk.Label (drive_block_name_and_size_string);
+        drive_block_name_and_size_label.get_style_context ().add_class ("h4");
+        drive_block_name_and_size_label.get_style_context ().add_class ("text-secondary");
+        drive_block_name_and_size_label.margin = 6;
+        drive_block_name_and_size_label.margin_top = 0;
+        drive_block_name_and_size_label.halign = Gtk.Align.START;
+
+        var usagebar = new Gtk.LevelBar ();
+        usagebar.get_style_context ().add_class ("flat");
+        usagebar.margin = 6;
+        usagebar.margin_top = 0;
+        usagebar.set_max_value (100.0);
+        usagebar.set_min_value (0.0);
+        usagebar.set_value (69.0);
+
+        drive_grid.attach (drive_name_label, 0, 0, 1, 1);
+        drive_grid.attach (drive_block_name_and_size_label, 0, 1, 1, 1);
+        drive_grid.attach (usagebar, 0, 2, 1, 1);
+
+        container.add (drive_grid);
+
+        return container;
     }
 
     public void update () {
-        double up_bytes = storage.bytes_read;
-        double down_bytes = storage.bytes_write;
-        if (up_bytes >= 0 && down_bytes >= 0) {
-            storage_write_label.set_text (("%s/s").printf (Utils.HumanUnitFormatter.string_bytes_to_human (down_bytes.to_string ())));
-            storage_read_label.set_text (("%s/s").printf (Utils.HumanUnitFormatter.string_bytes_to_human (up_bytes.to_string ())));
-            storage_chart.update (0, up_bytes);
-            storage_chart.update (1, down_bytes);
-        }
+        //  double up_bytes = storage.bytes_read;
+        //  double down_bytes = storage.bytes_write;
+        //  if (up_bytes >= 0 && down_bytes >= 0) {
+        //      storage_write_label.set_text (("%s/s").printf (Utils.HumanUnitFormatter.string_bytes_to_human (down_bytes.to_string ())));
+        //      storage_read_label.set_text (("%s/s").printf (Utils.HumanUnitFormatter.string_bytes_to_human (up_bytes.to_string ())));
+            //  storage_chart.update (0, up_bytes);
+            //  storage_chart.update (1, down_bytes);
+        //  }
     }
 
 }

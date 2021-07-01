@@ -11,13 +11,25 @@ public class Monitor.Resources : Object {
         swap = new Swap ();
         network = new Network ();
         storage = new Storage ();
+        storage.init ();
+
+        if (!storage.init ()) {
+            //
+        } else {
+            storage.get_drives ().foreach (add_drive);
+        }
+    }
+
+    private bool add_drive (owned DiskDrive? drive) {
+        debug(drive.model);
+        return true;
     }
 
     public void update () {
         cpu.update ();
         memory.update ();
         network.update ();
-        storage.update ();
+        //  storage.update ();
     }
 
     public ResourcesSerialized serialize () {

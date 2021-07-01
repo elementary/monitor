@@ -8,6 +8,7 @@ class TemperatureSensor : Object {
     public double cpu {
         get {
             double total_temperature = 0;
+            // this hsould handle null
             foreach (var path in cpu_temp_paths) {
                 total_temperature += double.parse (open_file (path));
             }
