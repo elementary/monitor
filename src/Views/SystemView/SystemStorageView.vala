@@ -50,16 +50,15 @@ public class Monitor.SystemStorageView : Gtk.Grid {
     }
 
     private bool add_drive_card (owned DiskDrive? drive) {
-        drive_cards_container.add (build_drive_card (drive.model));
+        drive_cards_container.add (build_drive_card (drive.model, drive.device, drive.size));
         debug(drive.model);
         return true;
     }
 
-    private Gtk.Box build_drive_card (string model) {
+    private Gtk.Box build_drive_card (string model, string device, uint64 size) {
         var drive_card = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         drive_card.get_style_context ().add_class ("card");
         drive_card.get_style_context ().add_class ("rounded");
-        drive_card.get_style_context ().add_class ("flat");
 
         drive_card.halign = Gtk.Align.START;
         drive_card.margin_end = 12;
@@ -77,7 +76,9 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         drive_name_label.margin_bottom = 0;
         drive_name_label.halign = Gtk.Align.START;
 
-        string drive_block_name_and_size_string = "%s 𐄁 %s".printf ("/dev/sdb", "356GB / 500GB");
+        string size_string = Utils.HumanUnitFormatter.double_bytes_to_human(size);
+
+        string drive_block_name_and_size_string = "%s 𐄁 %s".printf (device, size_string);
         var drive_block_name_and_size_label = new Gtk.Label (drive_block_name_and_size_string);
         drive_block_name_and_size_label.get_style_context ().add_class ("h4");
         drive_block_name_and_size_label.get_style_context ().add_class ("text-secondary");
