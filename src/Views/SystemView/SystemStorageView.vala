@@ -6,6 +6,8 @@ public class Monitor.SystemStorageView : Gtk.Grid {
     private LabelRoundy storage_read_label;
     private LabelRoundy storage_write_label;
 
+    private Gtk.Box drive_cards_container;
+
     construct {
         margin = 12;
         column_spacing = 12;
@@ -16,7 +18,6 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         storage = _storage;
 
         storage_name_label = new LabelH4 (_("Storage"));
-
 
         storage_write_label = new LabelRoundy (_("WRITE"));
         storage_write_label.val.set_width_chars (7);
@@ -38,24 +39,39 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         labels_grid.attach (storage_write_label, 0, 0, 1, 1);
         labels_grid.attach (storage_read_label, 1, 0, 1, 1);
 
+        drive_cards_container = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+
+        storage.get_drives ().foreach (add_drive_card);
+
         attach (storage_name_label, 0, 0, 1, 1);
-        attach (build_drive_card(), 0, 1, 1, 1);
+        attach (drive_cards_container, 0, 1, 1, 1);
         attach (labels_grid, 0, 2, 2, 2);
         attach (storage_chart, 0, 2, 2, 2);
     }
 
-    private Gtk.Box build_drive_card () {
-        var container = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        container.get_style_context ().add_class ("card");
-        container.get_style_context ().add_class ("rounded");
-        container.halign = Gtk.Align.START;
+    private bool add_drive_card (owned DiskDrive? drive) {
+        drive_cards_container.add (build_drive_card (drive.model));
+        debug(drive.model);
+        return true;
+    }
+
+    private Gtk.Box build_drive_card (string model) {
+        var drive_card = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        drive_card.get_style_context ().add_class ("card");
+        drive_card.get_style_context ().add_class ("rounded");
+        drive_card.get_style_context ().add_class ("flat");
+
+        drive_card.halign = Gtk.Align.START;
+        drive_card.margin_end = 12;
+        drive_card.margin_top = 6;
+        drive_card.margin_bottom = 12;
 
         var drive_grid = new Gtk.Grid ();
         //  drive_grid.row_spacing = 6;
         drive_grid.column_spacing = 6;
         drive_grid.margin = 6;
 
-        var drive_name_label = new Gtk.Label ("Hitachi HTS547550A9E384");
+        var drive_name_label = new Gtk.Label (model);
         drive_name_label.get_style_context ().add_class ("h3");
         drive_name_label.margin = 6;
         drive_name_label.margin_bottom = 0;
@@ -81,9 +97,9 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         drive_grid.attach (drive_block_name_and_size_label, 0, 1, 1, 1);
         drive_grid.attach (usagebar, 0, 2, 1, 1);
 
-        container.add (drive_grid);
+        drive_card.add (drive_grid);
 
-        return container;
+        return drive_card;
     }
 
     public void update () {
