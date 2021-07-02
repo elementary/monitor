@@ -22,6 +22,7 @@ public struct Monitor.MonitorVolume {
 public class Monitor.DiskDrive : GLib.Object {
     public string model;
     public uint64 size;
+    public uint64 free;
     public string revision;
     public string id;
     public string device;
@@ -40,6 +41,7 @@ public class Monitor.DiskDrive : GLib.Object {
     }
 
     public DiskDrive () {
+        free = 0;
         volumes = new Gee.ArrayList <MonitorVolume?> ();
     }
 
@@ -47,12 +49,13 @@ public class Monitor.DiskDrive : GLib.Object {
         return smart;
     }
 
-    public void add_smart (DriveSmart s) {
-        smart = s;
+    public void add_smart (DriveSmart _smart) {
+        smart = _smart;
     }
 
     public void add_volume (MonitorVolume vol) {
         volumes.add (vol);
+        free = free + vol.free;
     }
 
     public Gee.ArrayList<MonitorVolume?> get_volumes () {

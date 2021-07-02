@@ -50,12 +50,12 @@ public class Monitor.SystemStorageView : Gtk.Grid {
     }
 
     private bool add_drive_card (owned DiskDrive? drive) {
-        drive_cards_container.add (build_drive_card (drive.model, drive.device, drive.size));
+        drive_cards_container.add (build_drive_card (drive.model, drive.device, drive.size, drive.free));
         debug(drive.model);
         return true;
     }
 
-    private Gtk.Box build_drive_card (string model, string device, uint64 size) {
+    private Gtk.Box build_drive_card (string model, string device, uint64 size, uint64 free) {
         var drive_card = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         drive_card.get_style_context ().add_class ("card");
         drive_card.get_style_context ().add_class ("rounded");
@@ -77,8 +77,16 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         drive_name_label.halign = Gtk.Align.START;
 
         string size_string = Utils.HumanUnitFormatter.double_bytes_to_human(size);
+        string used_string = Utils.HumanUnitFormatter.double_bytes_to_human((size - free));
 
-        string drive_block_name_and_size_string = "%s 𐄁 %s".printf (device, size_string);
+        string drive_block_name_and_size_string = "%s 𐄁 %s / %s".printf (device, used_string, size_string);
+
+        debug (size.to_string());
+
+        if (free == 0) {
+            drive_block_name_and_size_string = "%s 𐄁 %s".printf (device, size_string);
+        }
+
         var drive_block_name_and_size_label = new Gtk.Label (drive_block_name_and_size_string);
         drive_block_name_and_size_label.get_style_context ().add_class ("h4");
         drive_block_name_and_size_label.get_style_context ().add_class ("text-secondary");
@@ -92,7 +100,7 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         usagebar.margin_top = 0;
         usagebar.set_max_value (100.0);
         usagebar.set_min_value (0.0);
-        usagebar.set_value (69.0);
+        usagebar.set_value (100.0 * (size - free) / size);
 
         drive_grid.attach (drive_name_label, 0, 0, 1, 1);
         drive_grid.attach (drive_block_name_and_size_label, 0, 1, 1, 1);
