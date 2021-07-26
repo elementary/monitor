@@ -5,3 +5,4 @@ builddir
 *~
 .goutputstream-*
 # subprojects/*/
+.flatpak-builder
