@@ -21,10 +21,10 @@ gtk = dependency('gtk+-3.0')
 gee = dependency('gee-0.8')
 gio = dependency('gio-2.0')
 gobject = dependency('gobject-2.0')
-bamf = dependency('libbamf3') # to remove
+# bamf = dependency('libbamf3') # to remove
 gtop = dependency('libgtop-2.0')
 wnck = dependency('libwnck-3.0')
-wingpanel = dependency('wingpanel-2.0')
+# wingpanel = dependency('wingpanel-2.0')
 gdk_x11 = dependency('gdk-x11-3.0')
 
 config_data = configuration_data()
@@ -93,7 +93,7 @@ executable(
     'src/Models/TreeViewModel.vala',
 
     # Other
-    'src/Managers/AppManager.vala',
+    # 'src/Managers/AppManager.vala',
     'src/Managers/ProcessManager.vala',
     'src/Managers/Process.vala',
     'src/Managers/ProcessStructs.vala',
@@ -120,7 +120,7 @@ executable(
         gee,
         gio,
         gobject,
-        bamf, # to remove
+        # bamf, # to remove
         gtop,
         wnck,
         gdk_x11,
@@ -134,32 +134,32 @@ executable(
     install: true
 )
 
-shared_module(
-    'monitor',
-    'src/Indicator/Indicator.vala',
-    'src/Utils.vala',
-    'src/Resources/ResourcesSerialized.vala',
+# shared_module(
+#     'monitor',
+#     'src/Indicator/Indicator.vala',
+#     'src/Utils.vala',
+#     'src/Resources/ResourcesSerialized.vala',
 
-    'src/Indicator/Widgets/DisplayWidget.vala',
-    'src/Indicator/Widgets/PopoverWidget.vala',
-    'src/Indicator/Widgets/IndicatorWidget.vala',
-    'src/Indicator/Widgets/TemperatureWidget.vala',
-    'src/Indicator/Widgets/NetworkWidget.vala',
+#     'src/Indicator/Widgets/DisplayWidget.vala',
+#     'src/Indicator/Widgets/PopoverWidget.vala',
+#     'src/Indicator/Widgets/IndicatorWidget.vala',
+#     'src/Indicator/Widgets/TemperatureWidget.vala',
+#     'src/Indicator/Widgets/NetworkWidget.vala',
 
-    'src/Indicator/Services/DBusClient.vala',
-    # 'src/Widgets/RevealerSwitch.vala',
-    icons_gresource,
-    c_args: c_args,
-    dependencies: [
-        glib,
-        granite,
-        gobject,
-        gtk,
-        wingpanel
-    ],
-    install: true,
-    install_dir : wingpanel.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir]),
-)
+#     'src/Indicator/Services/DBusClient.vala',
+#     # 'src/Widgets/RevealerSwitch.vala',
+#     icons_gresource,
+#     c_args: c_args,
+#     dependencies: [
+#         glib,
+#         granite,
+#         gobject,
+#         gtk,
+#         wingpanel
+#     ],
+#     install: true,
+#     install_dir : wingpanel.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir]),
+# )
 
 # Add in a post install script
 meson.add_install_script('meson/post_install.py')
