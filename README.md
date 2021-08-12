@@ -44,8 +44,17 @@
     cd build
     sudo ninja install
 
+#### Build Flatpak
+
+    flatpak-builder build  com.github.stsdc.monitor.yml --user --install --force-clean
+
 ### Debug
 `G_MESSAGES_DEBUG=all ./com.github.stsdc.monitor`
+
+#### Debug Flatpak
+
+    flatpak run --command=sh  --devel  com.github.stsdc.monitor
+    
 
 ## Other distributions (unofficial)
 
