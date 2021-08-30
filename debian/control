@@ -1,7 +1,7 @@
 Source: com.github.stsdc.monitor
-Section: system
+Section: util
 Priority: extra
-Maintainer: Stanisław Dac <stanislaw.dac@gmail.com>
+Maintainer: Kristopher Ives <kristopher.ives@gmail.com>
 Build-Depends: meson,
                appstream,
                debhelper (>= 9),
