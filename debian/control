@@ -1,5 +1,5 @@
 Source: com.github.stsdc.monitor
-Section: system
+Section: util
 Priority: extra
 Maintainer: Stanisław Dac <stanislaw.dac@gmail.com>
 Build-Depends: meson,
