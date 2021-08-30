@@ -1,4 +1,4 @@
-project('com.github.stsdc.monitor', 'vala', 'c', version: '0.9.2')
+project('com.github.stsdc.monitor', 'vala', 'c', version: '0.9.5')
 
 # these are Meson modules
 gnome = import('gnome')
@@ -21,10 +21,9 @@ gtk = dependency('gtk+-3.0')
 gee = dependency('gee-0.8')
 gio = dependency('gio-2.0')
 gobject = dependency('gobject-2.0')
-bamf = dependency('libbamf3') # to remove
 gtop = dependency('libgtop-2.0')
 wnck = dependency('libwnck-3.0')
-wingpanel = dependency('wingpanel-2.0')
+wingpanel = dependency('wingpanel', version: '>=2.1.0')
 gdk_x11 = dependency('gdk-x11-3.0')
 
 config_data = configuration_data()
@@ -93,7 +92,7 @@ executable(
     'src/Models/TreeViewModel.vala',
 
     # Other
-    'src/Managers/AppManager.vala',
+    # 'src/Managers/AppManager.vala',
     'src/Managers/ProcessManager.vala',
     'src/Managers/Process.vala',
     'src/Managers/ProcessStructs.vala',
@@ -120,7 +119,6 @@ executable(
         gee,
         gio,
         gobject,
-        bamf, # to remove
         gtop,
         wnck,
         gdk_x11,
