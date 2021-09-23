@@ -28,11 +28,16 @@
 <url type="help">https://github.com/stsdc/monitor/issues</url>
 
 <releases>
+<release version="0.10.0" date="2021-09-23">
+​      <description>
+​         <p>Adds dark theme 🌚</p>
+​      </description>
+​</release>
 <release version="0.9.5" date="2021-08-30">
 ​      <description>
 ​         <p>Uses Wingpanel v3; New *.deb package maintainer: Kristopher Ives </p>
 ​      </description>
-​    </release>
+​</release>
 <release version="0.9.4" date="2021-04-23">
 ​      <description>
 ​         <p>🐛 Should fix empty Indicator. Please reboot after installation ⚡️</p>
