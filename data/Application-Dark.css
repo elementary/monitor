@@ -81,13 +81,13 @@
 }
 
 .core_badge {
-    background-color: @BLACK_100;
+    background-color: @BLACK_300;
     border-radius: 8px;
     padding-right: 4px;
     padding-left:2px;
     font-size: 10px;
     /* font-weight:bold; */
-    color: black;
+    color: @SILVER_300;
     border: 1px solid @BLACK_300;
 }
 
