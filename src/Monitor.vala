@@ -74,12 +74,20 @@ namespace Monitor {
                 }
             });
 
-            var provider = new Gtk.CssProvider ();
-            provider.load_from_resource ("/com/github/stsdc/monitor/Application.css");
-            Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-
             // Controls the direction of the sort indicators
             Gtk.Settings.get_default ().set ("gtk-alternative-sort-arrows", true, null);
+
+            // Dark style preference
+            var granite_settings = Granite.Settings.get_default ();
+            var gtk_settings = Gtk.Settings.get_default ();
+
+            gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+            granite_settings.notify["prefers-color-scheme"].connect (() => {
+                gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+                load_css_provider ();
+            });
+
+            load_css_provider ();
         }
 
         public static int main (string[] args) {
@@ -98,6 +106,21 @@ namespace Monitor {
             var app = new MonitorApp (start_in_background);
 
             return app.run (args);
+        }
+
+        public static void load_css_provider (){
+            var custom_css = "";
+            var gtk_settings = Gtk.Settings.get_default ();
+
+            if (gtk_settings.gtk_application_prefer_dark_theme == true) {
+                custom_css = "Application-Dark.css";
+            } else {
+                custom_css = "Application.css";
+            }
+
+            var provider = new Gtk.CssProvider ();
+            provider.load_from_resource ("/com/github/stsdc/monitor/" + custom_css);
+            Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
         }
 
     }

@@ -4,7 +4,7 @@
 .roundy-label:selected:focus,
 .roundy-label:hover:selected {
     background-image: none;
-    background-color: @SILVER_300;
+    background-color: @BLACK_300;
     box-shadow: none;
     color: alpha(@text_color, 0.7);
     font-weight: 700;
@@ -44,14 +44,14 @@
 }
 
 .usage-label-container {
-    border: 1px solid @SILVER_300;;
+    border: 1px solid @BLACK_300;;
     border-radius: 3px;
-    background-color: alpha(@SILVER_100, 0.5);
+    background-color: alpha(@BLACK_500, 0.5);
     }
 
 .username-current {
-    background-color: @SILVER_300;
-    color: @SILVER_900;
+    background-color: @BLACK_300;
+    color: @SILVER_300;
 }
 
 .username-other {
@@ -61,7 +61,7 @@
 
 .username-root {
     background-color: @STRAWBERRY_300;
-    color: @SILVER_100;
+    color: @BLACK_100;
 }
 
 .state_badge,
@@ -81,14 +81,14 @@
 }
 
 .core_badge {
-    background-color: @SILVER_100;
+    background-color: @BLACK_100;
     border-radius: 8px;
     padding-right: 4px;
     padding-left:2px;
     font-size: 10px;
     /* font-weight:bold; */
     color: black;
-    border: 1px solid @SILVER_300;
+    border: 1px solid @BLACK_300;
 }
 
 .core_badge-mild-warning {
@@ -124,37 +124,37 @@
 }
 
 .small-text {
-    color: @BLACK_100;
+    color: @SILVER_100;
     font-weight: bold;
     font-size: 9px;
 }
 
 .graph {
-    border: 1px @SILVER_300 solid;
+    border: 1px @BLACK_300 solid;
     border-radius: 6px
 
 }
 
 .open_files_list_box_wrapper {
-    border: 1px @SILVER_300 solid;
+    border: 1px @BLACK_300 solid;
 }
 
 .open_files_list_box {
 
 }
 .open_files_list_box_row {
-    border-bottom: 1px @SILVER_100 solid;
+    border-bottom: 1px @BLACK_100 solid;
 }
 
 .open_files_list_box_row label {
     font-family: monospace;
-    /* background-color: @SILVER_300; */
+    /* background-color: @BLACK_300; */
     padding: 6px 2px 2px;
     border-radius: 4px;
 }
 
 .open_files_list_box_row image {
-    color: @SILVER_700;
+    color: @BLACK_700;
     margin: 6px;
 }
 
@@ -163,5 +163,5 @@
 }
 
 .text-secondary {
-    color: @SILVER_700;
+    color: @BLACK_700;
 }

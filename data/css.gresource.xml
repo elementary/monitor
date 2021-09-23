@@ -2,5 +2,6 @@
 <gresources>
   <gresource prefix="/com/github/stsdc/monitor">
     <file alias="Application.css" compressed="true">Application.css</file>
+    <file alias="Application-Dark.css" compressed="true">Application-Dark.css</file>
   </gresource>
 </gresources>
