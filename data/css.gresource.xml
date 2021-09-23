@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/com/github/stsdc/monitor">
-    <file alias="Application.css" compressed="true">Application.css</file>
+    <file alias="light.css" compressed="true">light.css</file>
+    <file alias="dark.css" compressed="true">dark.css</file>
   </gresource>
 </gresources>

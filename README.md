@@ -30,11 +30,9 @@
 * valac
 * libgtk-3-dev
 * libgranite-dev (>= 5.2.0)
-* libbamf3-dev
 * libwnck-3-dev
 * libgtop2-dev
 * libwingpanel-2.0-dev
-* libxml2-utils
 * meson
 
 ### Clone, Build & Install
