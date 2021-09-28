@@ -1,14 +1,14 @@
 # Japanese translations for com.github.stsdc.monitor package.
 # Copyright (C) 2019 THE com.github.stsdc.monitor'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.stsdc.monitor package.
-# Ryo Nakano <ryonakaknock3@gmail.com>, 2019-2020.
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2019-2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-25 22:12+0400\n"
-"PO-Revision-Date: 2019-10-22 00:09+0900\n"
+"POT-Creation-Date: 2021-09-28 15:21+0900\n"
+"PO-Revision-Date: 2021-09-28 15:27+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -26,8 +26,8 @@ msgid "System"
 msgstr "システム"
 
 #: src/Utils.vala:2
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:32
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:35
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:38
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:24
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:25
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:29
@@ -37,22 +37,22 @@ msgstr "システム"
 msgid "N/A"
 msgstr "N/A"
 
-#: src/Utils.vala:67
+#: src/Utils.vala:76
 msgid "B"
 msgstr "B"
 
-#: src/Utils.vala:72
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:116
+#: src/Utils.vala:81
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:117
 msgid "KiB"
 msgstr "KiB"
 
-#: src/Utils.vala:78
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:121
+#: src/Utils.vala:87
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:122
 msgid "MiB"
 msgstr "MiB"
 
-#: src/Utils.vala:83
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:127
+#: src/Utils.vala:92
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:128
 #: src/Widgets/Statusbar/Statusbar.vala:55
 msgid "GiB"
 msgstr "GiB"
@@ -69,61 +69,60 @@ msgstr "モニターを終了"
 msgid "Deleted"
 msgstr "削除済み"
 
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:20
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:19
 msgid "Are you sure you want to do this?"
 msgstr "この操作を実行してもよろしいですか？"
 
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:23
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:22
 msgid "Yes"
 msgstr "はい"
 
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:27
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:26
 msgid "No"
 msgstr "いいえ"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:39
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:59
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:42
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:61
 msgid "PID"
-msgstr "プロセスID"
+msgstr "PID"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:40
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:43
 msgid "NI"
-msgstr "NICE値"
+msgstr "NICE 値"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:44
 msgid "PRI"
 msgstr "優先度"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:42
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
 msgid "THR"
 msgstr "スレッド数"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:110
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:112
 msgid "The app is waiting in an uninterruptible disk sleep"
 msgstr "ディスクの入出力待ち"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:112
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:114
 msgid "Idle kernel thread"
 msgstr "アイドル中のカーネルスレッド"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:114
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:116
 msgid "The process is running or runnable (on run queue)"
 msgstr "実行中、あるいは実行可能のプロセス"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:116
-msgid ""
-"The process is in an interruptible sleep; waiting for an event to complete"
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:118
+msgid "The process is in an interruptible sleep; waiting for an event to complete"
 msgstr "スリープ中、あるいはイベントの完了待ちのプロセス"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:118
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:120
 msgid "The process is stopped by a job control signal"
 msgstr "ジョブコントロールシグナルによって停止されたプロセス"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:120
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:122
 msgid "The process is stopped stopped by a debugger during the tracing"
 msgstr "トレース中にデバッガーによって停止されたプロセス"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:122
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:124
 msgid "The app is terminated but not reaped by its parent"
 msgstr "終了したが、親プロセスによって回収されなかった子プロセス"
 
@@ -171,28 +170,33 @@ msgstr "プロセスを強制終了してもよろしいですか？"
 msgid "Confirm end of the process?"
 msgstr "プロセスを終了してもよろしいですか？"
 
+#. *INDENT-OFF*
+#. vala-lint=space-before-paren,
+#. *INDENT-ON*
 #. setup name column
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:17
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:19
 msgid "Process Name"
 msgstr "プロセス名"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:38
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:40
+#: src/Widgets/Headerbar/Headerbar.vala:54
 #: src/Widgets/Statusbar/Statusbar.vala:8
 msgid "CPU"
 msgstr "CPU"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:49
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:51
 #: src/Views/SystemView/SystemMemoryView.vala:26
+#: src/Widgets/Headerbar/Headerbar.vala:58
 #: src/Widgets/Statusbar/Statusbar.vala:11
 msgid "Memory"
 msgstr "メモリー"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:50
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:48
 #, c-format
 msgid "CPU: %.1f%%"
 msgstr "CPU: %.1f%%"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:51
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:49
 #, c-format
 msgid "RAM: %.1f%%"
 msgstr "RAM: %.1f%%"
@@ -200,42 +204,42 @@ msgstr "RAM: %.1f%%"
 #: src/Views/SystemView/SystemCPUView.vala:32
 #: src/Views/SystemView/SystemMemoryView.vala:28
 msgid "UTILIZATION"
-msgstr ""
+msgstr "使用率"
 
 #: src/Views/SystemView/SystemCPUView.vala:34
-#: src/Views/SystemView/SystemCPUView.vala:94
+#: src/Views/SystemView/SystemCPUView.vala:92
 #: src/Views/SystemView/SystemMemoryView.vala:30
 #: src/Views/SystemView/SystemMemoryView.vala:35
 msgid "Show detailed info"
-msgstr ""
+msgstr "詳細情報を表示します"
 
 #: src/Views/SystemView/SystemCPUView.vala:36
 msgid "FREQUENCY"
-msgstr ""
+msgstr "周波数"
 
 #: src/Views/SystemView/SystemCPUView.vala:40
 msgid "TEMPERATURE"
-msgstr ""
+msgstr "温度"
 
-#: src/Views/SystemView/SystemCPUView.vala:96
+#: src/Views/SystemView/SystemCPUView.vala:94
 #: src/Views/SystemView/SystemMemoryView.vala:37
 msgid "Hide detailed info"
-msgstr ""
+msgstr "詳細情報を非表示にします"
 
-#: src/Views/SystemView/SystemCPUView.vala:152
-#: src/Views/SystemView/SystemMemoryView.vala:100
+#: src/Views/SystemView/SystemCPUView.vala:150
+#: src/Views/SystemView/SystemMemoryView.vala:98
 #, c-format
 msgid "%d%%"
-msgstr ""
+msgstr "%d%%"
 
-#: src/Views/SystemView/SystemCPUView.vala:153
+#: src/Views/SystemView/SystemCPUView.vala:151
 #: src/Widgets/Statusbar/Statusbar.vala:44
 msgid "GHz"
 msgstr "GHz"
 
-#: src/Views/SystemView/SystemCPUView.vala:154
+#: src/Views/SystemView/SystemCPUView.vala:152
 msgid "℃"
-msgstr ""
+msgstr "℃"
 
 #: src/Views/SystemView/SystemMemoryView.vala:41
 msgid "Total: "
@@ -261,57 +265,73 @@ msgstr "キャッシュ: "
 msgid "Locked: "
 msgstr "ロック: "
 
-#: src/Views/SystemView/SystemMemoryView.vala:103
+#: src/Views/SystemView/SystemMemoryView.vala:101
 #, c-format
 msgid "Total: %s"
 msgstr "合計: %s"
 
-#: src/Views/SystemView/SystemMemoryView.vala:104
+#: src/Views/SystemView/SystemMemoryView.vala:102
 #, c-format
 msgid "Used: %s"
 msgstr "使用済み: %s"
 
-#: src/Views/SystemView/SystemMemoryView.vala:105
+#: src/Views/SystemView/SystemMemoryView.vala:103
 #, c-format
 msgid "Shared: %s"
 msgstr "共有: %s"
 
-#: src/Views/SystemView/SystemMemoryView.vala:106
+#: src/Views/SystemView/SystemMemoryView.vala:104
 #, c-format
 msgid "Buffered: %s"
 msgstr "バッファー: %s"
 
-#: src/Views/SystemView/SystemMemoryView.vala:107
+#: src/Views/SystemView/SystemMemoryView.vala:105
 #, c-format
 msgid "Cached: %s"
 msgstr "キャッシュ: %s"
 
-#: src/Views/SystemView/SystemMemoryView.vala:108
+#: src/Views/SystemView/SystemMemoryView.vala:106
 #, c-format
 msgid "Locked: %s"
 msgstr "ロック: %s"
 
-#: src/Widgets/Headerbar/Headerbar.vala:13
+#: src/Widgets/Headerbar/Headerbar.vala:16
 msgid "Monitor"
 msgstr "モニター"
 
-#: src/Widgets/Headerbar/Headerbar.vala:21
+#: src/Widgets/Headerbar/Headerbar.vala:24
 msgid "Settings"
 msgstr "設定"
 
-#: src/Widgets/Headerbar/Headerbar.vala:35
+#: src/Widgets/Headerbar/Headerbar.vala:38
 msgid "Show an indicator:"
 msgstr "インジケーターを表示:"
 
-#: src/Widgets/Headerbar/Headerbar.vala:41
+#: src/Widgets/Headerbar/Headerbar.vala:44
 msgid "Start in background:"
 msgstr "バックグラウンドで起動:"
 
-#: src/Widgets/Headerbar/Search.vala:14
+#: src/Widgets/Headerbar/Headerbar.vala:51
+msgid "Items in indicator:"
+msgstr "インジケーターに表示する項目:"
+
+#: src/Widgets/Headerbar/Headerbar.vala:62
+msgid "Temperature"
+msgstr "温度"
+
+#: src/Widgets/Headerbar/Headerbar.vala:66
+msgid "Network up"
+msgstr "ネットワーク送信"
+
+#: src/Widgets/Headerbar/Headerbar.vala:70
+msgid "Network down"
+msgstr "ネットワーク受信"
+
+#: src/Widgets/Headerbar/Search.vala:12
 msgid "Search Process"
 msgstr "プロセスを検索"
 
-#: src/Widgets/Headerbar/Search.vala:15
+#: src/Widgets/Headerbar/Search.vala:13
 msgid "Type process name or PID to search"
 msgstr "検索するにはプロセス名か PID を入力してください"
 
