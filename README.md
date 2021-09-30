@@ -32,7 +32,7 @@
 * libgranite-dev (>= 5.2.0)
 * libwnck-3-dev
 * libgtop2-dev
-* libwingpanel-2.0-dev
+* libwingpanel-3.0-dev
 * meson
 
 ### Clone, Build & Install
