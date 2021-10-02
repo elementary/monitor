@@ -35,7 +35,7 @@
 }
 
 .label-vertical-val {
-    color: @text_color, 1;
+    color: @text_color;
     font-size: 30px;
     font-weight: 200;
     /* padding: 0 6px;
