@@ -4,4 +4,5 @@ builddir
 .vscode
 *~
 .goutputstream-*
+*.css
 # subprojects/*/
