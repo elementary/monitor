@@ -1,4 +1,4 @@
-public class Monitor.MainWindow : Gtk.Window {
+public class Monitor.MainWindow : Hdy.ApplicationWindow {
     // application reference
     private Shortcuts shortcuts;
 
@@ -18,6 +18,7 @@ public class Monitor.MainWindow : Gtk.Window {
 
     // Constructs a main window
     public MainWindow (MonitorApp app) {
+        Hdy.init ();
         this.set_application (app);
 
         setup_window_state ();
@@ -39,7 +40,7 @@ public class Monitor.MainWindow : Gtk.Window {
 
         headerbar = new Headerbar (this);
         headerbar.set_custom_title (stack_switcher);
-        set_titlebar (headerbar);
+        //  set_titlebar (headerbar);
 
         statusbar = new Statusbar ();
 
