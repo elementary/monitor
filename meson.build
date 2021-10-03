@@ -25,6 +25,7 @@ gtop = dependency('libgtop-2.0')
 wnck = dependency('libwnck-3.0')
 wingpanel = dependency('wingpanel', version: '>=2.1.0')
 gdk_x11 = dependency('gdk-x11-3.0')
+handy = dependency('libhandy-1', version: '>=0.90.0')
 
 config_data = configuration_data()
 config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
@@ -147,6 +148,7 @@ executable(
         gtop,
         wnck,
         gdk_x11,
+        handy,
         livechart_dep,
         meson.get_compiler('c').find_library('m', required : false),
         meson.get_compiler('vala').find_library('posix')
