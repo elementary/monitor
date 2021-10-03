@@ -11,6 +11,28 @@ foreach i : icon_sizes
     )
 endforeach
 
+# sass_command = [
+#     sass,
+#     '@INPUT@',
+#     '@OUTPUT@'
+# ]
+
+# target_light = custom_target(
+#     'theme-monitor-light',
+#     input : './stylesheet/monitor-light.scss',
+#     output : 'monitor-light.css',
+#     command : sass_command,
+#     build_by_default: true
+# )
+
+
+
+# src = join_paths(meson.build_root(), 'data/monitor-dark.css')
+# dest = join_paths(meson.source_root(), 'data/monitor-dark.css')
+# message('copying @0@ to @1@ ...'.format(src, dest))
+# run_command('cp', src, dest)
+
+
 install_data(
     meson.project_name() + '.gschema.xml',
     install_dir: join_paths(datadir, 'glib-2.0', 'schemas')
@@ -32,3 +54,4 @@ i18n.merge_file(
     install: true,
     install_dir: join_paths(datadir, 'metainfo')
 )
+

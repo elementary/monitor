@@ -3,7 +3,7 @@ project('com.github.stsdc.monitor', 'vala', 'c', version: '0.10.0')
 # these are Meson modules
 gnome = import('gnome')
 i18n = import('i18n')
-
+sass = find_program('sassc')
 
 # common dirs
 prefix = get_option('prefix')
@@ -38,10 +38,35 @@ icons_gresource = gnome.compile_resources(
     c_name: 'as1'
 )
 
+sass_command = [
+    sass,
+    '@INPUT@',
+    '@OUTPUT@'
+]
+
+target_light = custom_target(
+    'theme-monitor-light',
+    input : './data/stylesheet/monitor-light.scss',
+    output : 'monitor-light.css',
+    command : sass_command,
+    build_by_default: true
+)
+
+target_dark = custom_target(
+    'theme-monitor-dark',
+    input : './data/stylesheet/monitor-dark.scss',
+    output : 'monitor-dark.css',
+    command : sass_command,
+    build_by_default: true
+)
+
 css_gresource = gnome.compile_resources(
-    'gresource_css', 'data/css.gresource.xml',
+    'gresource_css',
+    'data/css.gresource.xml',
     source_dir: 'data',
-    c_name: 'as2'
+    c_name: 'as2',
+    dependencies: [target_dark, target_light],
+
 )
 
 c_args = [
