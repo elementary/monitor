@@ -45,7 +45,7 @@ sass_command = [
     '@OUTPUT@'
 ]
 
-target_light = custom_target(
+stylesheet_light = custom_target(
     'theme-monitor-light',
     input : './data/stylesheet/monitor-light.scss',
     output : 'monitor-light.css',
@@ -53,10 +53,18 @@ target_light = custom_target(
     build_by_default: true
 )
 
-target_dark = custom_target(
+stylesheet_dark = custom_target(
     'theme-monitor-dark',
     input : './data/stylesheet/monitor-dark.scss',
     output : 'monitor-dark.css',
+    command : sass_command,
+    build_by_default: true
+)
+
+stylesheet_retrofit = custom_target(
+    'theme-monitor-retrofit',
+    input : './data/stylesheet/monitor-retrofit.scss',
+    output : 'monitor-retrofit.css',
     command : sass_command,
     build_by_default: true
 )
@@ -66,7 +74,7 @@ css_gresource = gnome.compile_resources(
     'data/css.gresource.xml',
     source_dir: 'data',
     c_name: 'as2',
-    dependencies: [target_dark, target_light],
+    dependencies: [stylesheet_dark, stylesheet_light, stylesheet_retrofit],
 
 )
 
@@ -124,8 +132,10 @@ executable(
     'src/Managers/ProcessStructs.vala',
     'src/Managers/ProcessUtils.vala',
 
+    # Services
     'src/Services/Shortcuts.vala',
     'src/Services/DBusServer.vala',
+    'src/Services/Appearance.vala',
 
     # Resources
     'src/Resources/Resources.vala',
