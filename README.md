@@ -34,6 +34,7 @@
 * libgtop2-dev
 * libwingpanel-3.0-dev
 * meson
+* sassc
 
 ### Clone, Build & Install
 
