@@ -24,13 +24,8 @@ jobs:
       run: |
         meson --prefix=/usr build
         cd build
-        ninja install
-    - name: Test
-      env:
-        DESTDIR: out
-      run: |
-        cd build
-        ninja test
+        ninja
+
   lint:
 
     runs-on: ubuntu-latest
