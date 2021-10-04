@@ -28,8 +28,8 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
         network_chart = new Chart (2);
         network_chart.config.y_axis.fixed_max = null;
 
-        network_chart.set_serie_color(0, { 155/255.0, 219/255.0, 77/255.0, 1.0 });
-        network_chart.set_serie_color(1, { 100/255.0, 186/255.0, 255/255.0, 1.0 });
+        network_chart.set_serie_color (0, { 155/255.0, 219/255.0, 77/255.0, 1.0 });
+        network_chart.set_serie_color (1, { 100/255.0, 186/255.0, 255/255.0, 1.0 });
 
         var labels_grid = new Gtk.Grid ();
         labels_grid.row_spacing = 6;
