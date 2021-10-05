@@ -2,13 +2,13 @@
 %global appname com.github.stsdc.monitor
 
 Name: com.github.stsdc.monitor
-Version: 0.10.0
+Version: {{{ git_dir_version }}}
 Release: %autorelease
 Summary: Summary tbd
-License: License tbd
+License: GPLv3
 URL: https://github.com/stsdc/monitor
 
-Source0: %{expand:%%(pwd)}
+Source: {{{ git_dir_pack }}}
 # BuildRoot: %{expand:%%(pwd)}
 
 BuildRequires: meson
@@ -31,8 +31,9 @@ BuildRequires: pkgconfig(libhandy-1)
 
 %prep
 # clean out old files
-find . -mindepth 1 -delete
-cp -af %{SOURCEURL0}/. .
+# rm -rf ./build
+# meson --prefix "${RPM_BUILD_ROOT}/usr" ./build "%{SOURCEURL0}"
+%autosetup -n %{srcname}-%{version} -p1
 
 %build
 %meson
