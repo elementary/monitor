@@ -30,7 +30,9 @@ BuildRequires: pkgconfig(libhandy-1)
 %description
 
 %prep
-%autosetup -n %{srcname}-%{version} -p1
+# clean out old files
+find . -mindepth 1 -delete
+cp -af %{SOURCEURL0}/. .
 
 %build
 %meson
