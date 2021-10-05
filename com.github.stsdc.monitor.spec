@@ -1,10 +1,13 @@
+%global srcname monitor
+%global appname com.github.stsdc.monitor
+
 Name: com.github.stsdc.monitor
 Version: 0.10.0
 Release: 1%{?dist}
 Summary: Summary tbd
 License: License tbd
 URL: https://github.com/stsdc/monitor
-Source0: https://github.com/stsdc/monitor/archive/refs/tags/0.10.0.tar.gz
+Source0: %{url}/archive/%{version}/%{srcname}-%{version}.tar.gz
 
 BuildRequires: meson
 BuildRequires: vala
