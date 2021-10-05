@@ -3,7 +3,7 @@
 
 Name: com.github.stsdc.monitor
 Version: 0.10.0
-Release: 1%{?dist}
+Release: %autorelease
 Summary: Summary tbd
 License: License tbd
 URL: https://github.com/stsdc/monitor
@@ -28,7 +28,7 @@ BuildRequires: pkgconfig(libhandy-1)
 %description
 
 %prep
-%autosetup
+%autosetup -n %{srcname}-%{version} -p1
 
 %build
 %meson
