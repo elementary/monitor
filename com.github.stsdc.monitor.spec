@@ -2,13 +2,13 @@
 %global appname com.github.stsdc.monitor
 
 Name: com.github.stsdc.monitor
-Version: {{{ git_dir_version }}}
+Version: 0.10.0
 Release: %autorelease
 Summary: Summary tbd
 License: GPLv3
 URL: https://github.com/stsdc/monitor
 
-Source: {{{ git_dir_pack }}}
+Source: %{expand:%%(pwd)}
 # BuildRoot: %{expand:%%(pwd)}
 
 BuildRequires: meson
