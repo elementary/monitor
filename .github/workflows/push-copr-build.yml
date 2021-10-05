@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Check out proper version of sources
         uses: actions/checkout@v1
+        with:
+          submodules: true
 
       - name: Install API token for copr-cli
         env:
@@ -23,13 +25,20 @@ jobs:
           mkdir -p "$HOME/.config"
           echo "$API_TOKEN_CONTENT" > "$HOME/.config/copr"
 
+      # - name: Check spec for bumped version
+      #   run: |
+      #     grep -q ${{ github.event.release.tag_name }} spc.spec || { echo "Version not bumped!" && exit 1; }
+
       - name: Install tooling for source RPM build
         run: |
-          dnf -y install @development-tools @rpm-development-tools
-          dnf -y install copr-cli make
+          dnf -y install copr-cli
 
-      - name: Build the source RPM
-        run: cd rpm && make srpm
 
-      - name: Submit the build by uploading the source RPM
-        run: copr build praiskup/argparse-manpage-ci rpm/*.src.rpm
+      - name: Submit the build by uploading the spec
+        run: copr build dvdmuckle/spc spc.spec
+
+      # - name: Build the source RPM
+      #   run: cd rpm && make srpm
+
+      # - name: Submit the build by uploading the source RPM
+      #   run: copr build praiskup/argparse-manpage-ci rpm/*.src.rpm

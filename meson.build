@@ -12,7 +12,8 @@ libdir = join_paths(prefix, get_option('libdir'))
 icondir = join_paths(datadir, 'icons', 'hicolor')
 
 livechart_proj = subproject('live-chart')
-elementary_stylesheet = subproject('stylesheet')
+# elementary_stylesheet = subproject('stylesheet')
+
 
 livechart_dep = livechart_proj.get_variable('livechart_dep')
 
@@ -203,6 +204,9 @@ meson.add_install_script('meson/post_install.py')
 
 subdir('data')
 subdir('po')
+
+rpm = import('rpm')
+rpm.generate_spec_template()
 
 # shows size of binary
 # meson.add_postconf_script('du', '-h', meson.project_name())
