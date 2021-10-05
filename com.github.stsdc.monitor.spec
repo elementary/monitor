@@ -7,7 +7,7 @@ Release: %autorelease
 Summary: Summary tbd
 License: License tbd
 URL: https://github.com/stsdc/monitor
-Source0: %{url}/archive/%{version}/%{srcname}-%{version}.tar.gz
+Source0: %{srcname}-%{version}.tar.gz
 
 BuildRequires: meson
 BuildRequires: vala

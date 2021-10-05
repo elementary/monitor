@@ -35,7 +35,7 @@ jobs:
 
 
       - name: Submit the build by uploading the spec
-        run: copr build stsdc/Monitor com.github.stsdc.monitor.spec
+        run: copr build stsdc/monitor com.github.stsdc.monitor.spec
 
       # - name: Build the source RPM
       #   run: cd rpm && make srpm
