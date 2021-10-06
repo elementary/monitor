@@ -39,13 +39,16 @@ BuildRequires: pkgconfig(libhandy-1)
 
 %install
 %meson_install
+%find_lang %{appname}
 
-%files
+%files -f %{appname}.lang
 %{_bindir}/com.github.stsdc.monitor
 %{_libdir}/liblivechart.so
 %{_libdir}/wingpanel/libmonitor.so
 
 %{_libdir}/pkgconfig/livechart.pc
+%{_datadir}/vala/vapi/livechart.vapi
+%{_includedir}/livechart.h
 
 %{_datadir}/applications/%{appname}.desktop
 %{_datadir}/glib-2.0/schemas/%{appname}.gschema.xml
