@@ -12,7 +12,8 @@ libdir = join_paths(prefix, get_option('libdir'))
 icondir = join_paths(datadir, 'icons', 'hicolor')
 
 livechart_proj = subproject('live-chart')
-elementary_stylesheet = subproject('stylesheet')
+# elementary_stylesheet = subproject('stylesheet')
+
 
 livechart_dep = livechart_proj.get_variable('livechart_dep')
 
