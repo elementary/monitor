@@ -40,9 +40,6 @@ BuildRequires: pkgconfig(libhandy-1)
 %install
 %meson_install
 
-%check
-%meson_test
-
 %files
 %{_bindir}/com.github.stsdc.monitor
 %{_libdir}/liblivechart.so
