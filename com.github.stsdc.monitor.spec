@@ -8,12 +8,13 @@ Summary: Summary tbd
 License: GPLv3
 URL: https://github.com/stsdc/monitor
 
-Source: %{expand:%%(pwd)}
-# BuildRoot: %{expand:%%(pwd)}
+Source: monitor.tar.gz
+
 
 BuildRequires: meson
 BuildRequires: vala
 BuildRequires: gcc
+BuildRequires: sassc
 BuildRequires: git
 BuildRequires: pkgconfig(gtk+-3.0)
 BuildRequires: pkgconfig(gee-0.8)
@@ -30,10 +31,7 @@ BuildRequires: pkgconfig(libhandy-1)
 %description
 
 %prep
-# clean out old files
-# rm -rf ./build
-# meson --prefix "${RPM_BUILD_ROOT}/usr" ./build "%{SOURCEURL0}"
-%autosetup -n %{srcname}-%{version} -p1
+%autosetup -n %{srcname} -p1
 
 %build
 %meson
@@ -56,4 +54,3 @@ BuildRequires: pkgconfig(libhandy-1)
 %changelog
 * Tue Oct 05 2021 meson <meson@example.com> - 
 - 
-
