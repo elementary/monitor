@@ -1,9 +1,10 @@
 ---
 name: RPM build in Fedora Copr
 
-push:
-    tags:
-       - '*'
+on:
+  push:
+      tags:
+        - '*'
 
 jobs:
   build:
