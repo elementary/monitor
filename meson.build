@@ -205,8 +205,5 @@ meson.add_install_script('meson/post_install.py')
 subdir('data')
 subdir('po')
 
-rpm = import('rpm')
-rpm.generate_spec_template()
-
 # shows size of binary
 # meson.add_postconf_script('du', '-h', meson.project_name())
