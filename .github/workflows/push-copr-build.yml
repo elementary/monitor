@@ -52,4 +52,4 @@ jobs:
                -bs *.spec
 
       - name: Submit the build by uploading the source RPM
-        run: copr build praiskup/argparse-manpage-ci rpm/*.src.rpm
+        run: copr build stsdc/monitor *.src.rpm
