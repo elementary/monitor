@@ -31,8 +31,8 @@ jobs:
 
       - name: Install tooling for source RPM build
         run: |
-        dnf -y install @development-tools @rpm-development-tools
-        dnf -y install copr-cli
+          dnf -y install @development-tools @rpm-development-tools
+          dnf -y install copr-cli
 
       - name: Archive the source
         run: |
