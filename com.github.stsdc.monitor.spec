@@ -4,7 +4,7 @@
 Name: com.github.stsdc.monitor
 Version: 0.10.0
 Release: %autorelease
-Summary: Summary tbd
+Summary: Manage processes and monitor system resources
 License: GPLv3
 URL: https://github.com/stsdc/monitor
 

@@ -1,14 +1,13 @@
 ---
 name: RPM build in Fedora Copr
-# on:
-#   push:
-#     branches: [master]
 
-on: [push]
+push:
+    tags:
+       - '*'
 
 jobs:
   build:
-    name: Submit a build from Fedora container
+    name: Submit a build for Copr
     container: fedora:latest
     runs-on: ubuntu-latest
 
