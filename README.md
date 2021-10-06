@@ -12,9 +12,7 @@
     <a href="https://github.com/stsdc/monitor/releases">
         <img src="https://img.shields.io/github/release/stsdc/monitor.svg" alt="Release">
     </a>
-    
     <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/stsdc/monitor/CI">
-    
     <a href="https://github.com/stsdc/monitor/blob/master/LICENSE">
         <img src="https://img.shields.io/github/license/stsdc/monitor.svg">
     </a>
