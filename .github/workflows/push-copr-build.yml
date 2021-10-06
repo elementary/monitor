@@ -31,14 +31,25 @@ jobs:
 
       - name: Install tooling for source RPM build
         run: |
-          dnf -y install copr-cli
+        dnf -y install @development-tools @rpm-development-tools
+        dnf -y install copr-cli
 
+      - name: Archive the source
+        run: |
+          git archive --prefix "monitor/" -o "monitor.tar" HEAD
+          git submodule foreach --recursive "git archive --prefix=monitor/\$path/ --output=\$sha1.tar HEAD && tar --concatenate --file=$(pwd)/monitor.tar \$sha1.tar && rm \$sha1.tar"
+          gzip "monitor.tar"
 
-      - name: Submit the build by uploading the spec
-        run: copr build stsdc/monitor com.github.stsdc.monitor.spec
+      - name: Build the source RPM
+        run: |
+          rm -f *.src.rpm ;          \
+          rpmbuild                   \
+             --define "_sourcedir `pwd`" \
+             --define "_rpmdir    `pwd`" \
+             --define "_builddir  `pwd`" \
+             --define "_specdir   `pwd`" \
+             --define "_srcrpmdir `pwd`" \
+               -bs *.spec
 
-      # - name: Build the source RPM
-      #   run: cd rpm && make srpm
-
-      # - name: Submit the build by uploading the source RPM
-      #   run: copr build praiskup/argparse-manpage-ci rpm/*.src.rpm
+      - name: Submit the build by uploading the source RPM
+        run: copr build praiskup/argparse-manpage-ci rpm/*.src.rpm

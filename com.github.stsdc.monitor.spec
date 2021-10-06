@@ -46,7 +46,14 @@ BuildRequires: pkgconfig(libhandy-1)
 %files
 %{_bindir}/com.github.stsdc.monitor
 %{_libdir}/liblivechart.so
-%{_libdir}/libmonitor.so
+%{_libdir}/wingpanel/libmonitor.so
+
+%{_libdir}/pkgconfig/livechart.pc
+
+%{_datadir}/applications/%{appname}.desktop
+%{_datadir}/glib-2.0/schemas/%{appname}.gschema.xml
+%{_datadir}/icons/hicolor/*/apps/%{appname}.svg
+%{_datadir}/metainfo/%{appname}.appdata.xml
 
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
