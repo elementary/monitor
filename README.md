@@ -1,5 +1,5 @@
 <p align="center">
-    <img align="left" width="64" height="64" src="data/icons/64/com.github.stsdc.monitor.svg">
+    <img align="left" width="64" height="64" src="data/icons/64/com.github.stsdc.monitor.svg"><a href="https://copr.fedorainfracloud.org/coprs/stsdc/monitor/package/com.github.stsdc.monitor/"><img src="https://copr.fedorainfracloud.org/coprs/stsdc/monitor/package/com.github.stsdc.monitor/status_image/last_build.png" /></a>
     <h1 class="rich-diff-level-zero">Monitor</h1>
 </p>
 
@@ -13,6 +13,7 @@
         <img src="https://img.shields.io/github/release/stsdc/monitor.svg" alt="Release">
     </a>
     <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/stsdc/monitor/CI">
+    <a href="https://copr.fedorainfracloud.org/coprs/stsdc/monitor/package/com.github.stsdc.monitor/"><img src="https://copr.fedorainfracloud.org/coprs/stsdc/monitor/package/com.github.stsdc.monitor/status_image/last_build.png" /></a>
     <a href="https://github.com/stsdc/monitor/blob/master/LICENSE">
         <img src="https://img.shields.io/github/license/stsdc/monitor.svg">
     </a>
