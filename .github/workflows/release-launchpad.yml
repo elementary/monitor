@@ -32,7 +32,7 @@ jobs:
           apt update
           apt install -y devscripts dput
           apt install -y libgala-dev libgee-0.8-dev libglib2.0-dev libgranite-dev libgtk-3-dev libhandy-1-dev
-          apt install -y libdbus-glib-1-dev libwnck-3-dev libgtop2-dev libwingpanel-3.0-dev
+          apt install -y libdbus-glib-1-dev libwnck-3-dev libgtop2-dev libwingpanel-3.0-dev appstream debhelper
           apt install -y meson valac sassc git
 
       - name: Build the package
