@@ -1,7 +1,7 @@
 Source: com.github.stsdc.monitor
 Section: util
 Priority: extra
-Maintainer: Kristopher Ives <kristopher.ives@gmail.com>
+Maintainer: @stsdc
 Build-Depends: meson,
                appstream,
                debhelper (>= 9),
@@ -9,10 +9,10 @@ Build-Depends: meson,
                libglib2.0-dev,
                valac (>= 0.26),
                libgranite-dev (>= 5.2.0),
-               libbamf3-dev,
                libwnck-3-dev,
                libgtop2-dev,
-               libwingpanel-3.0-dev
+               libwingpanel-3.0-dev,
+               sassc
 Standards-Version: 4.1.1
 
 Package: com.github.stsdc.monitor
