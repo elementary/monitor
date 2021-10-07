@@ -1,5 +1,5 @@
 <p align="center">
-    <img align="left" width="64" height="64" src="data/icons/64/com.github.stsdc.monitor.svg"><a href="https://copr.fedorainfracloud.org/coprs/stsdc/monitor/package/com.github.stsdc.monitor/"><img src="https://copr.fedorainfracloud.org/coprs/stsdc/monitor/package/com.github.stsdc.monitor/status_image/last_build.png" /></a>
+    <img align="left" width="64" height="64" src="data/icons/64/com.github.stsdc.monitor.svg">
     <h1 class="rich-diff-level-zero">Monitor</h1>
 </p>
 
