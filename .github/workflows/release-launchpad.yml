@@ -29,6 +29,9 @@ jobs:
         run: |
           sudo apt-get install -y devscripts dput
 
+      - name: Build the package
+        run: debuild -uc -us
+
       - name: Send to Launchpad
         run: |
           dput ppa:stsdc/monitor ../*.changes
