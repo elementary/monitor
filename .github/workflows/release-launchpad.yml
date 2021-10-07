@@ -1,0 +1,34 @@
+---
+name: Launchpad release
+
+# on:
+#   push:
+#       tags:
+#         - '*'
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Submit a build for Launchpad
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out proper version of sources
+        uses: actions/checkout@v1
+        with:
+          submodules: true
+
+      - uses: crazy-max/ghaction-import-gpg@v1
+        env:
+           GPG_PRIVATE_KEY: ${{ secrets.GPG_SIGNING_KEY }}
+           PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+      - name: Check changelog for bumped version
+        run: |
+          grep -q ${{ github.event.release.tag_name }} debian/changelog || { echo "Version not bumped!" && exit 1; }
+      - name: Install build dependencies
+        run: |
+          sudo apt-get install -y devscripts dput
+
+      - name: Send to Launchpad
+        run: |
+          dput ppa:stsdc/monitor ../*.changes
