@@ -22,9 +22,9 @@ jobs:
         env:
            GPG_PRIVATE_KEY: ${{ secrets.GPG_SIGNING_KEY }}
            PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-      - name: Check changelog for bumped version
-        run: |
-          grep -q ${{ github.event.release.tag_name }} debian/changelog || { echo "Version not bumped!" && exit 1; }
+      # - name: Check changelog for bumped version
+      #   run: |
+      #     grep -q ${{ github.event.release.tag_name }} debian/changelog || { echo "Version not bumped!" && exit 1; }
       - name: Install build dependencies
         run: |
           sudo apt-get install -y devscripts dput
