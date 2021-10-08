@@ -37,8 +37,7 @@ jobs:
           apt install -y meson valac sassc git
 
       - name: Build the package
-        run: debuild -S -no-lintian
-
+        run: debuild --no-lintian -S
 
       - name: Send to Launchpad
         run: |
