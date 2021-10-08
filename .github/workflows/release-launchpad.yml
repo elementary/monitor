@@ -21,7 +21,7 @@ jobs:
           submodules: true
 
       - name: Import GPG key
-      - uses: crazy-max/ghaction-import-gpg@v4
+        uses: crazy-max/ghaction-import-gpg@v4
         with:
            gpg_private_key: ${{ secrets.GPG_SIGNING_KEY }}
            passphrase: ${{ secrets.GPG_PASSPHRASE }}
