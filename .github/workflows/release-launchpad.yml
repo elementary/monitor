@@ -20,7 +20,7 @@ jobs:
         with:
           submodules: true
 
-      - uses: crazy-max/ghaction-import-gpg@v1
+      - uses: crazy-max/ghaction-import-gpg@v4
         env:
            GPG_PRIVATE_KEY: ${{ secrets.GPG_SIGNING_KEY }}
            PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
@@ -36,8 +36,9 @@ jobs:
           apt install -y meson valac sassc git
 
       - name: Build the package
-        run: debuild -uc -us
+        run: debuild -S --no-lintian
+
 
       - name: Send to Launchpad
         run: |
-          dput ppa:stsdc/monitor ../*.changes
+          dput ppa:stsdc/monitor ../*_source.changes

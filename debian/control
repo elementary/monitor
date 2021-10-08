@@ -1,7 +1,7 @@
 Source: com.github.stsdc.monitor
 Section: util
 Priority: extra
-Maintainer: @stsdc
+Maintainer: stsdc
 Build-Depends: meson,
                appstream,
                debhelper (>= 9),
