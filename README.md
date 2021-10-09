@@ -22,6 +22,21 @@
 ![Monitor Screenshot](https://github.com/stsdc/monitor/raw/master/data/screenshots/monitor-processes.png)
 ![Monitor Screenshot](https://github.com/stsdc/monitor/raw/master/data/screenshots/monitor-system.png)
 
+## Install
+
+### elementary os (Odin)
+
+```bash
+    sudo add-apt-repository ppa:stsdc/monitor
+    sudo apt install com.github.stsdc.monitor
+```
+### Fedora (34)
+
+```bash
+    sudo dnf copr enable stsdc/monitor 
+    sudo dnf install com.github.stsdc.monitor
+```
+
 ## Development
 
 ### Install dependencies
@@ -45,11 +60,3 @@
 
 ### Debug
 `G_MESSAGES_DEBUG=all ./com.github.stsdc.monitor`
-
-## Other distributions (unofficial)
-
-### Arch Linux
-
-Arch Linux users can find Monitor under the name [pantheon-system-monitor-git](https://aur.archlinux.org/packages/pantheon-system-monitor-git/) in the **AUR**:
-
-`$ aurman -S pantheon-system-monitor-git`
