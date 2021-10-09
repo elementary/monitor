@@ -47,6 +47,7 @@
 * libwnck-3-dev
 * libgtop2-dev
 * libwingpanel-3.0-dev
+* libhandy-1-dev
 * meson
 * sassc
 
@@ -59,4 +60,4 @@
     sudo ninja install
 
 ### Debug
-`G_MESSAGES_DEBUG=all ./com.github.stsdc.monitor`
+`G_MESSAGES_DEBUG=all GTK_DEBUG=interactive ./com.github.stsdc.monitor`
