@@ -2,13 +2,13 @@ com.github.stsdc.monitor (0.10.0) focal; urgency=low
 
   * Add dark theme
 
--- Stanisław Dac <stadac@pm.me>  Thu, 07 Oct 2021 21:49:24 +0200
+ -- Stanisław Dac <stadac@pm.me>  Thu, 07 Oct 2021 21:49:24 +0200
 
 com.github.stsdc.monitor (0.8.0) bionic; urgency=low
 
   * System resources tab
 
--- Stanisław Dac <stadac@pm.me>  Sun, 19 Jul 2020 00:30:43 +0200
+ -- Stanisław Dac <stadac@pm.me>  Sun, 19 Jul 2020 00:30:43 +0200
 
 com.github.stsdc.monitor (0.7.3) bionic; urgency=low
 

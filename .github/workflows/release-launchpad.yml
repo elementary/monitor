@@ -1,11 +1,11 @@
 ---
 name: Launchpad release
 
-# on:
-#   push:
-#       tags:
-#         - '*'
-on: [push, pull_request]
+on:
+  push:
+      tags:
+        - '*'
+# on: [push, pull_request]
 
 jobs:
   build:
@@ -25,9 +25,11 @@ jobs:
         with:
            gpg_private_key: ${{ secrets.GPG_SIGNING_KEY }}
            passphrase: ${{ secrets.GPG_PASSPHRASE }}
-      # - name: Check changelog for bumped version
-      #   run: |
-      #     grep -q ${{ github.event.release.tag_name }} debian/changelog || { echo "Version not bumped!" && exit 1; }
+
+      - name: Check changelog for bumped version
+        run: |
+          grep -q ${{ github.event.release.tag_name }} debian/changelog || { echo "Version not bumped!" && exit 1; }
+
       - name: Install build dependencies
         run: |
           apt update

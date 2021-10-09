@@ -1,7 +1,7 @@
 Source: com.github.stsdc.monitor
-Section: util
+Section: utils
 Priority: extra
-Maintainer: stsdc
+Maintainer: Stanisław Dac <stadac@pm.me>
 Build-Depends: meson,
                appstream,
                debhelper (>= 9),
@@ -12,6 +12,7 @@ Build-Depends: meson,
                libwnck-3-dev,
                libgtop2-dev,
                libwingpanel-3.0-dev,
+               libhandy-1-dev,
                sassc
 Standards-Version: 4.1.1
 
