@@ -48,6 +48,7 @@
 * libgtop2-dev
 * libwingpanel-3.0-dev
 * libhandy-1-dev
+* libudisks2-dev
 * meson
 * sassc
 

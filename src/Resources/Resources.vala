@@ -11,14 +11,13 @@ public class Monitor.Resources : Object {
         swap = new Swap ();
         network = new Network ();
         storage = new Storage ();
-        storage.init ();
     }
 
     public void update () {
         cpu.update ();
         memory.update ();
         network.update ();
-        //  storage.update ();
+        storage.update ();
     }
 
     public ResourcesSerialized serialize () {

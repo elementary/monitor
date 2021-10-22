@@ -19,34 +19,43 @@
 
  public class Monitor.Storage : GLib.Object {
 
+    public int bytes_write;
+    private ulong sectors_write_old;
+
+    public int bytes_read;
+    private ulong sectors_read_old;
+
+    // flag first run
+    // bc first calculasion is wrong
+    private bool dumb_flag;
+
     private UDisks.Client? udisks_client;
     private GLib.List<GLib.DBusObject> obj_proxies;
 
     private Gee.HashMap<string, DiskDrive?> drives_hash;
 
-    public Storage () {
+    construct {
+        bytes_write = 0;
+        sectors_write_old = 0;
+        bytes_read = 0;
+        sectors_read_old = 0;
+        dumb_flag = true;
+        
         try {
             udisks_client = new UDisks.Client.sync ();
             var dbus_obj_manager = udisks_client.get_object_manager ();
             obj_proxies = dbus_obj_manager.get_objects ();
+            drives_hash = new Gee.HashMap<string, DiskDrive?> ();
+
+            init_drives ();
+            init_volumes ();
+
         } catch (Error e) {
             warning (e.message);
             udisks_client = null;
         }
     }
 
-    public bool init () {
-        if (udisks_client == null) {
-            return false;
-        }
-
-        drives_hash = new Gee.HashMap<string, DiskDrive?> ();
-
-        init_drives ();
-        init_volumes ();
-
-        return true;
-    }
 
     private void init_drives () {
         obj_proxies.foreach ((iter) => {
@@ -302,5 +311,39 @@
         }
 
         return GLib.strcmp (vol1.device, vol2.device);
+    }
+
+    public void update () {
+        ulong sectors_read_new = 0;
+        ulong sectors_write_new = 0;
+
+        try {
+            string content = null;
+            FileUtils.get_contents ("/proc/diskstats", out content);
+            InputStream input_stream = new MemoryInputStream.from_data (content.data, GLib.g_free);
+            DataInputStream dis = new DataInputStream (input_stream);
+            string line;
+
+            while ((line = dis.read_line ()) != null) {
+                string[] reg_split = Regex.split_simple ("[ ]+", line);
+                if ((reg_split[1] == "8" | reg_split[1] == "252" | reg_split[1] == "259") && 
+                Regex.match_simple ("((sd|vd)[a-z]{1}|nvme[0-9]{1}n[0-9]{1})$", reg_split[3])) {
+                    sectors_read_new += ulong.parse (reg_split[6]);
+                    sectors_write_new += ulong.parse (reg_split[10]);
+                }
+            }
+        } catch (Error e) {
+            warning ("Unable to retrieve storage data.");
+        }
+
+        // bc 2 sec updates
+        if (!dumb_flag) {
+            bytes_read = (int) ((sectors_read_new - sectors_read_old) * 512 / 2);
+            bytes_write = (int) ((sectors_write_new - sectors_write_old) * 512 / 2);
+        }
+        dumb_flag = false;
+
+        sectors_read_old = sectors_read_new;
+        sectors_write_old = sectors_write_new;
     }
 }

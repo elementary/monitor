@@ -118,14 +118,14 @@ public class Monitor.SystemStorageView : Gtk.Grid {
     }
 
     public void update () {
-        //  double up_bytes = storage.bytes_read;
-        //  double down_bytes = storage.bytes_write;
-        //  if (up_bytes >= 0 && down_bytes >= 0) {
-        //      storage_write_label.set_text (("%s/s").printf (Utils.HumanUnitFormatter.string_bytes_to_human (down_bytes.to_string ())));
-        //      storage_read_label.set_text (("%s/s").printf (Utils.HumanUnitFormatter.string_bytes_to_human (up_bytes.to_string ())));
-            //  storage_chart.update (0, up_bytes);
-            //  storage_chart.update (1, down_bytes);
-        //  }
+        double up_bytes = storage.bytes_read;
+        double down_bytes = storage.bytes_write;
+        if (up_bytes >= 0 && down_bytes >= 0) {
+            storage_write_label.set_text (("%s/s").printf (Utils.HumanUnitFormatter.string_bytes_to_human (down_bytes.to_string ())));
+            storage_read_label.set_text (("%s/s").printf (Utils.HumanUnitFormatter.string_bytes_to_human (up_bytes.to_string ())));
+            storage_chart.update (0, up_bytes);
+            storage_chart.update (1, down_bytes);
+        }
     }
 
 }
