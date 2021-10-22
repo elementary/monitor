@@ -105,6 +105,9 @@ namespace Monitor {
                 }
             });
 
+            Appearance.set_prefered_style ();
+            Appearance.retrofit ();
+
 
             // Controls the direction of the sort indicators
             Gtk.Settings.get_default ().set ("gtk-alternative-sort-arrows", true, null);

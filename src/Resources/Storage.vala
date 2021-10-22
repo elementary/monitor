@@ -30,7 +30,8 @@ public class Monitor.Storage : GLib.Object {
 
             while ((line = dis.read_line ()) != null) {
                 string[] reg_split = Regex.split_simple ("[ ]+", line);
-                if (reg_split[1] == "8" && Regex.match_simple ("sd[a-z]{1}$", reg_split[3])) {
+                if ((reg_split[1] == "8" | reg_split[1] == "252" | reg_split[1] == "259") &&
+                Regex.match_simple ("((sd|vd)[a-z]{1}|nvme[0-9]{1}n[0-9]{1})$", reg_split[3])) {
                     sectors_read_new += ulong.parse (reg_split[6]);
                     sectors_write_new += ulong.parse (reg_split[10]);
                 }

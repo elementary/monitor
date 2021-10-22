@@ -23,7 +23,7 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         icon = new Gtk.Image.from_icon_name ("application-x-executable", Gtk.IconSize.DIALOG);
         icon.set_pixel_size (64);
         icon.valign = Gtk.Align.END;
-    
+
         state = new Gtk.Label ("?");
         state.halign = Gtk.Align.START;
         state.get_style_context ().add_class ("state_badge");

@@ -31,7 +31,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         dbusclient.interface.indicator_temperature_state.connect ((state) => display_widget.temperature_widget.visible = state);
         dbusclient.interface.indicator_network_up_state.connect ((state) => display_widget.network_up_widget.visible = state);
         dbusclient.interface.indicator_network_down_state.connect ((state) => display_widget.network_down_widget.visible = state);
-    
+
         dbusclient.interface.update.connect ((sysres) => {
             display_widget.cpu_widget.percentage = sysres.cpu_percentage;
             display_widget.temperature_widget.degree = sysres.cpu_temperature;

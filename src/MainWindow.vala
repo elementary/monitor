@@ -1,4 +1,4 @@
-public class Monitor.MainWindow : Gtk.Window {
+public class Monitor.MainWindow : Hdy.ApplicationWindow {
     // application reference
     private Shortcuts shortcuts;
 
@@ -18,6 +18,7 @@ public class Monitor.MainWindow : Gtk.Window {
 
     // Constructs a main window
     public MainWindow (MonitorApp app) {
+        Hdy.init ();
         this.set_application (app);
 
         setup_window_state ();
@@ -35,18 +36,30 @@ public class Monitor.MainWindow : Gtk.Window {
         stack.add_titled (system_view, "system_view", _("System"));
 
         Gtk.StackSwitcher stack_switcher = new Gtk.StackSwitcher ();
+        stack_switcher.valign = Gtk.Align.CENTER;
         stack_switcher.set_stack (stack);
 
         headerbar = new Headerbar (this);
         headerbar.set_custom_title (stack_switcher);
-        set_titlebar (headerbar);
+        //  set_titlebar (headerbar);
 
         statusbar = new Statusbar ();
 
-        var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        main_box.pack_start (stack, true, true, 0);
-        main_box.pack_start (statusbar, false, true, 0);
-        this.add (main_box);
+        //  var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        //  main_box.pack_start (headerbar, false, false, 0);
+        //  main_box.pack_start (stack, true, true, 0);
+        //  main_box.pack_start (statusbar, false, true, 0);
+        //  this.add (main_box);
+
+        var grid = new Gtk.Grid () {
+            orientation = Gtk.Orientation.VERTICAL
+        };
+
+        grid.add (headerbar);
+        grid.add (stack);
+        grid.add (statusbar);
+
+        add (grid);
 
         show_all ();
 
