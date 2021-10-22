@@ -1,3 +1,9 @@
+com.github.stsdc.monitor (0.10.1) focal; urgency=low
+
+  * Add support for vdx (vm) and nvme disks
+
+ -- Stanisław Dac <stadac@pm.me>  Fri, 22 Oct 2021 21:52:50 +0200
+
 com.github.stsdc.monitor (0.10.0) focal; urgency=low
 
   * Add dark theme
