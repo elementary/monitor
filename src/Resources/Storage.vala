@@ -17,7 +17,7 @@
  *
  */
 
-public class Monitor.Storage : GLib.Object {
+ public class Monitor.Storage : GLib.Object {
 
     private UDisks.Client? udisks_client;
     private GLib.List<GLib.DBusObject> obj_proxies;
