@@ -13,6 +13,7 @@ Build-Depends: meson,
                libgtop2-dev,
                libwingpanel-3.0-dev,
                libhandy-1-dev,
+               libudisks2-dev,
                sassc
 Standards-Version: 4.1.1
 

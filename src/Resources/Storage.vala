@@ -112,7 +112,7 @@
 
                 var block_dev = udisks_obj.get_block ();
                 if (block_dev != null && block_dev.drive != "/") {
-                    MonitorVolume current_volume = {};
+                    DriveVolume current_volume = {};
                     current_volume.device = block_dev.device;
                     current_volume.label = block_dev.id_label;
                     current_volume.type = block_dev.id_type;
@@ -225,8 +225,8 @@
         return drives_arr;
     }
 
-    public Gee.ArrayList<MonitorVolume?> get_drive_volumes (string dev_id) {
-        var volumes_arr = new Gee.ArrayList<MonitorVolume?> ();
+    public Gee.ArrayList<DriveVolume?> get_drive_volumes (string dev_id) {
+        var volumes_arr = new Gee.ArrayList<DriveVolume?> ();
 
         if (drives_hash.has_key (dev_id)) {
             drives_hash[dev_id].get_volumes ().foreach ((vol) => {
@@ -241,8 +241,8 @@
         return volumes_arr;
     }
 
-    public Gee.ArrayList<MonitorVolume?> get_mounted_volumes () {
-        var volumes_list = new Gee.ArrayList<MonitorVolume?> ();
+    public Gee.ArrayList<DriveVolume?> get_mounted_volumes () {
+        var volumes_list = new Gee.ArrayList<DriveVolume?> ();
 
         if (udisks_client != null) {
             obj_proxies.foreach ((iter) => {
@@ -255,7 +255,7 @@
                     if (block_dev != null && block_dev.drive != "/") {
                         var block_fs = udisks_obj.get_filesystem ();
                         if (block_fs != null && block_fs.mount_points[0] != null) {
-                            MonitorVolume current_volume = {};
+                            DriveVolume current_volume = {};
                             current_volume.device = block_dev.device;
                             current_volume.label = block_dev.id_label;
                             current_volume.type = block_dev.id_type;
@@ -301,7 +301,7 @@
         return GLib.strcmp (drive1.device, drive2.device);
     }
 
-    private int compare_volumes (MonitorVolume? vol1, MonitorVolume? vol2) {
+    private int compare_volumes (DriveVolume? vol1, DriveVolume? vol2) {
         if (vol1 == null) {
             return (vol2 == null) ? 0 : -1;
         }

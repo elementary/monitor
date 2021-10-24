@@ -27,7 +27,7 @@ public struct Monitor.DriveSmart {
     public uint life_left;
 }
 
-public struct Monitor.MonitorVolume {
+public struct Monitor.DriveVolume {
     public string device;
     public string label;
     public string type;
@@ -50,7 +50,7 @@ public class Monitor.DiskDrive : GLib.Object {
 
 
 
-    private Gee.ArrayList<MonitorVolume?> volumes;
+    private Gee.ArrayList<DriveVolume?> volumes;
 
     private DriveSmart? smart = null;
     public bool has_smart {
@@ -61,7 +61,7 @@ public class Monitor.DiskDrive : GLib.Object {
 
     public DiskDrive () {
         free = 0;
-        volumes = new Gee.ArrayList <MonitorVolume?> ();
+        volumes = new Gee.ArrayList <DriveVolume?> ();
     }
 
     public DriveSmart? get_smart () {
@@ -72,13 +72,13 @@ public class Monitor.DiskDrive : GLib.Object {
         smart = _smart;
     }
 
-    public void add_volume (MonitorVolume vol) {
+    public void add_volume (DriveVolume vol) {
         volumes.add (vol);
         free = free + vol.free;
     }
 
-    public Gee.ArrayList<MonitorVolume?> get_volumes () {
-        var volumes_arr = new Gee.ArrayList<MonitorVolume?> ();
+    public Gee.ArrayList<DriveVolume?> get_volumes () {
+        var volumes_arr = new Gee.ArrayList<DriveVolume?> ();
 
         volumes.foreach ((vol) => {
 
@@ -92,7 +92,7 @@ public class Monitor.DiskDrive : GLib.Object {
         return volumes_arr;
     }
 
-    private int compare_volumes (MonitorVolume? vol1, MonitorVolume? vol2) {
+    private int compare_volumes (DriveVolume? vol1, DriveVolume? vol2) {
         if (vol1 == null) {
             return (vol2 == null) ? 0 : -1;
         }

@@ -51,7 +51,6 @@ public class Monitor.SystemStorageView : Gtk.Grid {
 
     private bool add_drive_card (owned DiskDrive? drive) {
         drive_cards_container.add (build_drive_card (drive.model, drive.device, drive.size, drive.free));
-        debug(drive.model);
         return true;
     }
 
@@ -80,6 +79,7 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         string used_string = Utils.HumanUnitFormatter.double_bytes_to_human((size - free));
 
         string drive_block_name_and_size_string = "%s 𐄁 %s / %s".printf (device, used_string, size_string);
+        
 
         debug (size.to_string());
 
