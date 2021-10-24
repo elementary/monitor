@@ -75,13 +75,10 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         drive_name_label.margin_bottom = 0;
         drive_name_label.halign = Gtk.Align.START;
 
-        string size_string = Utils.HumanUnitFormatter.double_bytes_to_human(size);
-        string used_string = Utils.HumanUnitFormatter.double_bytes_to_human((size - free));
+        string size_string = Utils.HumanUnitFormatter.double_bytes_to_human (size);
+        string used_string = Utils.HumanUnitFormatter.double_bytes_to_human ((size - free));
 
         string drive_block_name_and_size_string = "%s 𐄁 %s / %s".printf (device, used_string, size_string);
-        
-
-        debug (size.to_string());
 
         if (free == 0) drive_block_name_and_size_string = "%s 𐄁 %s".printf (device, size_string);
 
@@ -127,5 +124,4 @@ public class Monitor.SystemStorageView : Gtk.Grid {
             storage_chart.update (1, down_bytes);
         }
     }
-
 }
