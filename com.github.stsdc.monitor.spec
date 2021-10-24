@@ -2,7 +2,7 @@
 %global appname com.github.stsdc.monitor
 
 Name: com.github.stsdc.monitor
-Version: 0.10.1
+Version: 0.11.0
 Release: %autorelease
 Summary: Manage processes and monitor system resources
 License: GPLv3
@@ -27,6 +27,7 @@ BuildRequires: pkgconfig(libwnck-3.0)
 BuildRequires: pkgconfig(wingpanel)
 BuildRequires: pkgconfig(gdk-x11-3.0)
 BuildRequires: pkgconfig(libhandy-1)
+BuildRequires: pkgconfig(libudisks2-1)
 
 %description
 
