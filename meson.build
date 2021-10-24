@@ -1,4 +1,4 @@
-project('com.github.stsdc.monitor', 'vala', 'c', version: '0.10.1')
+project('com.github.stsdc.monitor', 'vala', 'c', version: '0.11.0')
 
 # these are Meson modules
 gnome = import('gnome')
@@ -28,6 +28,7 @@ gtop = dependency('libgtop-2.0')
 wnck = dependency('libwnck-3.0')
 wingpanel = dependency('wingpanel', version: '>=2.1.0')
 gdk_x11 = dependency('gdk-x11-3.0')
+udisks2 = dependency ('udisks2')
 handy = dependency('libhandy-1', version: '>=0.90.0')
 
 config_data = configuration_data()
@@ -150,6 +151,7 @@ executable(
     'src/Resources/TemperatureSensor.vala',
     'src/Resources/Network.vala',
     'src/Resources/Storage.vala',
+    'src/Resources/Drive.vala',
     c_args: c_args,
     dependencies: [
         glib,
@@ -161,6 +163,7 @@ executable(
         gtop,
         wnck,
         gdk_x11,
+        udisks2,
         handy,
         livechart_dep,
         meson.get_compiler('c').find_library('m', required : false),

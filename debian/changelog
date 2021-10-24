@@ -1,3 +1,9 @@
+com.github.stsdc.monitor (0.11.0) focal; urgency=low
+
+  * Add info about drives (based on Dirli's code)
+
+ -- Stanisław Dac <stadac@pm.me>  Sun, 24 Oct 2021 21:38:26 +0200
+
 com.github.stsdc.monitor (0.10.1) focal; urgency=low
 
   * Add support for vdx (vm) and nvme disks

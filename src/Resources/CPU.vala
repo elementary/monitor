@@ -55,7 +55,7 @@ public class Monitor.CPU : Object {
         }
 
         // Temperature sensor shouldn't be created here since it
-        // will provides not only cpu temperature
+        // will provide not only a cpu temperature
         temperature_sensor = new TemperatureSensor ();
     }
 

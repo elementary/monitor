@@ -1,10 +1,9 @@
 ---
-name: RPM build in Fedora Copr
+name: Release on Copr
 
 on:
-  push:
-      tags:
-        - '*'
+  release:
+    types: [published]
 
 jobs:
   build:

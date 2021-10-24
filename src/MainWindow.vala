@@ -23,6 +23,8 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
         setup_window_state ();
 
+        title = _("Monitor");
+
         get_style_context ().add_class ("rounded");
 
         resources = new Resources ();
