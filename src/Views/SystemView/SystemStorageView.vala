@@ -93,7 +93,7 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         drive_not_mounted_label.halign = Gtk.Align.START;
         drive_not_mounted_label.get_style_context ().add_class ("h4");
         drive_not_mounted_label.margin_start = 6;
-        
+
         var usagebar = new Gtk.LevelBar ();
         usagebar.get_style_context ().add_class ("flat");
         usagebar.margin = 6;
@@ -104,7 +104,7 @@ public class Monitor.SystemStorageView : Gtk.Grid {
 
         drive_grid.attach (drive_name_label, 0, 0, 1, 1);
         drive_grid.attach (drive_block_name_and_size_label, 0, 1, 1, 1);
-        if (free == 0) { 
+        if (free == 0) {
             drive_grid.attach (drive_not_mounted_label, 0, 2, 1, 1);
         } else {
             drive_grid.attach (usagebar, 0, 2, 1, 1);
