@@ -40,7 +40,7 @@
         bytes_read = 0;
         sectors_read_old = 0;
         dumb_flag = true;
-        
+
         try {
             udisks_client = new UDisks.Client.sync ();
             var dbus_obj_manager = udisks_client.get_object_manager ();
@@ -80,7 +80,7 @@
                             if (drive_dev.id == "") {
                                 current_drive.id = "";
                             } else {
-                                var dev_id = drive_dev.id.split("-");
+                                var dev_id = drive_dev.id.split ("-");
                                 current_drive.id = dev_id[dev_id.length - 1];
                             }
                             current_drive.device = block_dev.device;
@@ -135,7 +135,7 @@
 
                     var d = udisks_client.get_drive_for_block (block_dev);
                     if (d != null) {
-                        var dev_id = d.id.split("-");
+                        var dev_id = d.id.split ("-");
                         var did = dev_id[dev_id.length - 1];
                         if (drives_hash.has_key (did) && block_dev.device.contains (drives_hash[did].device)) {
                             drives_hash[did].add_volume (current_volume);
