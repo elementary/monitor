@@ -4,6 +4,7 @@ public class Monitor.Resources : Object {
     public Swap swap;
     public Network network;
     public Storage storage;
+    public GPU gpu;
 
     construct {
         memory = new Memory ();
@@ -11,6 +12,7 @@ public class Monitor.Resources : Object {
         swap = new Swap ();
         network = new Network ();
         storage = new Storage ();
+        gpu = new GPU ();
     }
 
     public void update () {

@@ -27,7 +27,7 @@ public class Monitor.CPU : Object {
     private double _frequency;
     public double frequency {
         get {
-            // Convert kH to GHz
+            // Convert kHz to GHz
             return (double) (_frequency / 1000000);
         }
     }
