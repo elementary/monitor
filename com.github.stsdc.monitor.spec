@@ -27,7 +27,7 @@ BuildRequires: pkgconfig(libwnck-3.0)
 BuildRequires: pkgconfig(wingpanel)
 BuildRequires: pkgconfig(gdk-x11-3.0)
 BuildRequires: pkgconfig(libhandy-1)
-BuildRequires: pkgconfig(libudisks2-1)
+BuildRequires: pkgconfig(libudisks2-devel)
 
 %description
 
