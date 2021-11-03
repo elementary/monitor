@@ -109,6 +109,7 @@ executable(
     'src/Views/SystemView/SystemMemoryView.vala',
     'src/Views/SystemView/SystemNetworkView.vala',
     'src/Views/SystemView/SystemStorageView.vala',
+    'src/Views/SystemView/SystemGPUView.vala',
 
     # Widgets related only to ProcessInfoView
     'src/Views/ProcessView/ProcessInfoView/Preventor.vala',
@@ -125,6 +126,7 @@ executable(
     'src/Widgets/Labels/LabelRoundy.vala',
     'src/Widgets/Labels/LabelH4.vala',
     'src/Widgets/Chart/Chart.vala',
+    'src/Widgets/WidgetResource/WidgetResource.vala',
 
     # Models
     'src/Models/TreeViewModel.vala',
@@ -152,6 +154,7 @@ executable(
     'src/Resources/Network.vala',
     'src/Resources/Storage.vala',
     'src/Resources/Drive.vala',
+    'src/Resources/GPU.vala',
     c_args: c_args,
     dependencies: [
         glib,
