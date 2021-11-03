@@ -29,7 +29,7 @@ public class Monitor.GPU : Object {
 
     public int memory_vram_used {
         get {
-            return int.parse( get_sysfs_value ("/sys/class/drm/card0/device/mem_info_vram_used"));
+            return int.parse ( get_sysfs_value ("/sys/class/drm/card0/device/mem_info_vram_used"));
         }
     }
 

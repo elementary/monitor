@@ -1,5 +1,5 @@
 public class Monitor.WidgetResource : Gtk.Box {
-    private LabelH4 _title = new LabelH4(Utils.NO_DATA);
+    private LabelH4 _title = new LabelH4 (Utils.NO_DATA);
 
     public string title {
         set {
@@ -8,11 +8,11 @@ public class Monitor.WidgetResource : Gtk.Box {
     }
 
     public Gtk.Popover popover_more_info;
-    private LabelVertical _label_vertical_main_metric = new LabelVertical(_("UTILIZATION"));
+    private LabelVertical _label_vertical_main_metric = new LabelVertical (_("UTILIZATION"));
 
     public string label_vertical_main_metric {
         set {
-            _label_vertical_main_metric.set_text(value);
+            _label_vertical_main_metric.set_text (value);
         }
     }
 
@@ -86,7 +86,7 @@ public class Monitor.WidgetResource : Gtk.Box {
         icon.pixel_size = 16;
         button_more_info.set_image (icon);
 
-        popover_more_info = new Gtk.Popover(button_more_info) {
+        popover_more_info = new Gtk.Popover (button_more_info) {
             position = Gtk.PositionType.BOTTOM,
             modal = true,
             visible = false,
