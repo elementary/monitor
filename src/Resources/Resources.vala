@@ -17,6 +17,7 @@ public class Monitor.Resources : Object {
         gpu = new GPU ();
 
         hwmon = new Hwmon ();
+
     }
 
     public void update () {
