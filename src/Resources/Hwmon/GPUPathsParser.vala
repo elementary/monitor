@@ -12,7 +12,7 @@ public class Monitor.GPUPathsParser : Object {
     }
 
     public void parse () {
-        foreach (var path  in all_paths) {
+        foreach (var path in all_paths) {
             var basename = Path.get_basename (path);
             if (basename.contains ("name")) {
                 this.name = basename;
