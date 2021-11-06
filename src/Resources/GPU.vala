@@ -6,7 +6,8 @@ public interface SessionManager : Object {
 
 public class Monitor.GPU : Object {
     private SessionManager? session_manager;
-    private TemperatureSensor temperature_sensor;
+
+    public Gee.HashMap<string, PathsTemperature> paths_temperatures;
 
     public string name {
         owned get {
@@ -34,7 +35,7 @@ public class Monitor.GPU : Object {
 
     public double temperature {
         get {
-            return temperature_sensor.gpu / 1000;
+            return int.parse (get_sysfs_value (paths_temperatures.get ("edge").input)) / 1000;
         }
     }
 
@@ -48,12 +49,11 @@ public class Monitor.GPU : Object {
         } catch (IOError e) {
             warning (e.message);
         }
-        // Temperature sensor shouldn't be created here since it
-        // will provide not only a cpu temperature
-        temperature_sensor = new TemperatureSensor ();
 
         debug (session_manager.renderer);
     }
+
+
 
     private string get_sysfs_value (string path) {
         string content;

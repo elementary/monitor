@@ -6,17 +6,19 @@ public class Monitor.Resources : Object {
     public Storage storage;
     public GPU gpu;
 
-    private Hwmon hwmon;
+    private HwmonPathParser hwmon_path_parser;
 
     construct {
+        hwmon_path_parser = new HwmonPathParser ();
+
         memory = new Memory ();
         cpu = new CPU ();
         swap = new Swap ();
         network = new Network ();
         storage = new Storage ();
         gpu = new GPU ();
+        gpu.paths_temperatures = hwmon_path_parser.gpu_paths_parser.paths_temperatures;
 
-        hwmon = new Hwmon ();
 
     }
 

@@ -1,7 +1,7 @@
-class Monitor.Hwmon : Object {
+class Monitor.HwmonPathParser : Object {
     private const string HWMON_PATH = "/sys/class/hwmon";
 
-    public PathsGPU paths_gpu = new PathsGPU();
+    public GPUPathsParser gpu_paths_parser = new GPUPathsParser();
 
     //  public Gee.HashMap<string, AppInfo> apps_info_list;
 
@@ -20,7 +20,6 @@ class Monitor.Hwmon : Object {
         }
     }
 
-    private string path_hwmon_amdgpu;
     public double gpu {
         get {
             return double.parse (open_file (HWMON_PATH + "/hwmon0/temp1_input"));
@@ -30,9 +29,6 @@ class Monitor.Hwmon : Object {
     construct {
         cpu_temp_paths = new Gee.ArrayList<string> ();
         detect_sensors ();
-    }
-
-    public Hwmon () {
     }
 
     private void detect_sensors () {
@@ -94,7 +90,7 @@ class Monitor.Hwmon : Object {
                     while ((hwmonx_prop = hwmonx_dir.read_name ()) != null) {
                         //  if (hwmonx_prop.contains ("temp")) {
 
-                            paths_gpu.add_path (Path.build_filename (HWMON_PATH, hwmonx, hwmonx_prop));
+                            gpu_paths_parser.add_path (Path.build_filename (HWMON_PATH, hwmonx, hwmonx_prop));
 
                             //  string tempx_input = "temp%c_input".printf (hwmonx_prop[4]);
                             //  debug (hwmonx_prop);
@@ -103,7 +99,7 @@ class Monitor.Hwmon : Object {
                         //  }
                     }
 
-                    paths_gpu.parse ();
+                    gpu_paths_parser.parse ();
                 } else {
                     debug ("Found temp. sensor: %s", interface_name);
                 }

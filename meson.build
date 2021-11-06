@@ -156,9 +156,9 @@ executable(
     'src/Resources/Drive.vala',
     'src/Resources/GPU.vala',
 
-    'src/Resources/Hwmon/Hwmon.vala',
-    'src/Resources/Hwmon/PathsGPU.vala',
-    'src/Resources/Hwmon/PathsTemp.vala',
+    'src/Resources/Hwmon/HwmonPathsParser.vala',
+    'src/Resources/Hwmon/GPUPathsParser.vala',
+    'src/Resources/Hwmon/PathsTemperature.vala',
 
     c_args: c_args,
     dependencies: [
