@@ -4,7 +4,6 @@ public interface SessionManager : Object {
     public abstract string renderer { owned get;}
 }
 
-
 public class Monitor.GPU : Object {
     private SessionManager? session_manager;
     private TemperatureSensor temperature_sensor;

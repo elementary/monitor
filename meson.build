@@ -155,6 +155,11 @@ executable(
     'src/Resources/Storage.vala',
     'src/Resources/Drive.vala',
     'src/Resources/GPU.vala',
+
+    'src/Resources/Hwmon/Hwmon.vala',
+    'src/Resources/Hwmon/PathsGPU.vala',
+    'src/Resources/Hwmon/PathsTemp.vala',
+
     c_args: c_args,
     dependencies: [
         glib,

@@ -6,6 +6,8 @@ public class Monitor.Resources : Object {
     public Storage storage;
     public GPU gpu;
 
+    private Hwmon hwmon;
+
     construct {
         memory = new Memory ();
         cpu = new CPU ();
@@ -13,6 +15,8 @@ public class Monitor.Resources : Object {
         network = new Network ();
         storage = new Storage ();
         gpu = new GPU ();
+
+        hwmon = new Hwmon ();
     }
 
     public void update () {
