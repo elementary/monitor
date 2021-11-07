@@ -8,4 +8,6 @@ public struct ResourcesSerialized {
     public int swap_percentage;
     public double swap_used;
     public double swap_total;
+    public int network_up;
+    public int network_down;
 }

@@ -1,5 +1,5 @@
 namespace Monitor.Utils {
-    const string NOT_AVAILABLE = (_ ("N/A"));
+    const string NOT_AVAILABLE = (_("N/A"));
     const string NO_DATA = "\u2014";
 }
 
@@ -16,13 +16,13 @@ public class Monitor.Utils.Strings {
 
 
         const GraphicsReplaceStrings REPLACE_STRINGS[] = {
-            //  { "Mesa DRI ", ""},
-            { "[(]R[)]", "®"},
-            { "[(]TM[)]", "™"},
-            //  { "Gallium .* on (AMD .*)", "\\1"},
-            //  { "(AMD .*) [(].*", "\\1"},
-            //  { "(AMD [A-Z])(.*)", "\\1\\L\\2\\E"},
-            //  { "Graphics Controller", "Graphics"},
+            // { "Mesa DRI ", ""},
+            { "[(]R[)]", "®" },
+            { "[(]TM[)]", "™" },
+            // { "Gallium .* on (AMD .*)", "\\1"},
+            // { "(AMD .*) [(].*", "\\1"},
+            // { "(AMD [A-Z])(.*)", "\\1\\L\\2\\E"},
+            // { "Graphics Controller", "Graphics"},
         };
 
         try {
@@ -36,6 +36,7 @@ public class Monitor.Utils.Strings {
 
         return pretty;
     }
+
 }
 
 /**
@@ -43,19 +44,27 @@ public class Monitor.Utils.Strings {
  * Author: Laurent Callarec @lcallarec
  */
 public class Monitor.Utils.HumanUnitFormatter {
-    const string[] SIZE_UNITS   = {"B", "KiB", "MiB", "GiB", "TiB"};
+    const string[] SIZE_UNITS = { "B", "KiB", "MiB", "GiB", "TiB" };
+    const string[] PACKED_SIZE_UNITS = { "B", "K", "M", "G", "T" };
     const double KFACTOR = 1024;
 
     /**
      * format a string of bytes to an human readable format with units
      */
-    public static string string_bytes_to_human (string bytes) {
-        double current_size = double.parse (bytes);
-        string current_size_formatted = bytes.to_string () + HumanUnitFormatter.SIZE_UNITS[0];
+    public static string string_bytes_to_human (string bytes, bool packed = false) {
+        string[] units;
 
-        for (int i = 0; i<= HumanUnitFormatter.SIZE_UNITS.length; i++) {
+        if (packed)
+            units = HumanUnitFormatter.PACKED_SIZE_UNITS;
+        else
+            units = HumanUnitFormatter.SIZE_UNITS;
+
+        double current_size = double.parse (bytes);
+        string current_size_formatted = bytes.to_string () + units[0];
+
+        for (int i = 0; i <= units.length; i++) {
             if (current_size < HumanUnitFormatter.KFACTOR) {
-                return GLib.Math.round (current_size).to_string () + HumanUnitFormatter.SIZE_UNITS[i];
+                return GLib.Math.round (current_size).to_string () + units[i];
             }
             current_size = current_size / HumanUnitFormatter.KFACTOR;
         }
@@ -64,25 +73,26 @@ public class Monitor.Utils.HumanUnitFormatter {
     }
 
     public static string double_bytes_to_human (double bytes) {
-        string units = _ ("B");
+        string units = _("B");
 
         // convert to MiB if needed
         if (bytes > 1024.0) {
             bytes /= 1024.0;
-            units = _ ("KiB");
+            units = _("KiB");
         }
 
         // convert to GiB if needed
         if (bytes > 1024.0) {
             bytes /= 1024.0;
-            units = _ ("MiB");
+            units = _("MiB");
         }
 
         if (bytes > 1024.0) {
             bytes /= 1024.0;
-            units = _ ("GiB");
+            units = _("GiB");
         }
 
         return "%.1f %s".printf (bytes, units);
     }
+
 }

@@ -4,21 +4,21 @@ public class Monitor.CPU : Object {
     private float load;
     private TemperatureSensor temperature_sensor;
 
-    public string? model_name;
-    public string? model;
-    public string? family;
-    public string? microcode;
-    public string? cache_size;
-    public string? flags;
-    public string? bogomips;
-    public string? bugs;
-    public string? address_sizes;
+    public string ? model_name;
+    public string ? model;
+    public string ? family;
+    public string ? microcode;
+    public string ? cache_size;
+    public string ? flags;
+    public string ? bogomips;
+    public string ? bugs;
+    public string ? address_sizes;
 
     GTop.Cpu ? cpu;
 
     public int percentage {
         get {
-            return (int)(Math.round (load * 100));
+            return (int) (Math.round (load * 100));
         }
     }
 
@@ -28,7 +28,7 @@ public class Monitor.CPU : Object {
     public double frequency {
         get {
             // Convert kH to GHz
-            return (double)(_frequency / 1000000);
+            return (double) (_frequency / 1000000);
         }
     }
 
@@ -42,7 +42,7 @@ public class Monitor.CPU : Object {
         last_used = 0;
         last_total = 0;
 
-        core_list = new  Gee.ArrayList<Core> ();
+        core_list = new Gee.ArrayList<Core> ();
 
         model_name = get_cpu_info ();
 
@@ -50,29 +50,29 @@ public class Monitor.CPU : Object {
 
         debug ("Number of cores: %d", (int) get_num_processors ());
         for (int i = 0; i < (int) get_num_processors (); i++) {
-            var core = new Core(i);
+            var core = new Core (i);
             core_list.add (core);
         }
 
         // Temperature sensor shouldn't be created here since it
-        // will provides not only cpu temperature
+        // will provide not only a cpu temperature
         temperature_sensor = new TemperatureSensor ();
     }
 
     public void update () {
-        update_percentage();
-        update_frequency();
+        update_percentage ();
+        update_frequency ();
 
         foreach (var core in core_list) {
-            core.update();
+            core.update ();
         }
     }
 
     private void update_percentage () {
         GTop.get_cpu (out cpu);
 
-        var used = (float)(cpu.user + cpu.sys + cpu.nice + cpu.irq + cpu.softirq);
-        var idle = (float)(cpu.idle + cpu.iowait);
+        var used = (float) (cpu.user + cpu.sys + cpu.nice + cpu.irq + cpu.softirq);
+        var idle = (float) (cpu.idle + cpu.iowait);
         var total = used + idle;
 
         var diff_used = used - last_used;
@@ -87,7 +87,7 @@ public class Monitor.CPU : Object {
     // From https://github.com/PlugaruT/wingpanel-monitor/blob/edcfea6a31f794aa44da6d8b997378ea1a8d8fa3/src/Services/Cpu.vala#L61-L85
     private void update_frequency () {
         double maxcur = 0;
-        for (uint cpu_id = 0, isize = (int)get_num_processors (); cpu_id < isize; ++cpu_id) {
+        for (uint cpu_id = 0, isize = (int) get_num_processors (); cpu_id < isize; ++cpu_id) {
             string cur_content;
             try {
                 FileUtils.get_contents ("/sys/devices/system/cpu/cpu%u/cpufreq/scaling_cur_freq".printf (cpu_id), out cur_content);
@@ -105,11 +105,11 @@ public class Monitor.CPU : Object {
             }
         }
 
-        _frequency = (double)maxcur;
+        _frequency = (double) maxcur;
     }
 
     private void parse_cpuinfo () {
-        unowned GTop.SysInfo? info = GTop.glibtop_get_sysinfo ();
+        unowned GTop.SysInfo ? info = GTop.glibtop_get_sysinfo ();
 
         if (info == null) {
             warning ("No CPU info");
@@ -132,8 +132,8 @@ public class Monitor.CPU : Object {
     }
 
     // straight from elementary about-plug
-    private string? get_cpu_info () {
-        unowned GTop.SysInfo? info = GTop.glibtop_get_sysinfo ();
+    private string ? get_cpu_info () {
+        unowned GTop.SysInfo ? info = GTop.glibtop_get_sysinfo ();
 
         if (info == null) {
             return null;
@@ -144,7 +144,7 @@ public class Monitor.CPU : Object {
 
         for (int i = 0; i < info.ncpu; i++) {
             unowned GLib.HashTable<string, string> values = info.cpuinfo[i].values;
-            string? model = null;
+            string ? model = null;
             foreach (var key in KEYS) {
                 model = values.lookup (key);
 
@@ -153,7 +153,7 @@ public class Monitor.CPU : Object {
                 }
             }
 
-            string? core_count = values.lookup ("cpu cores");
+            string ? core_count = values.lookup ("cpu cores");
             if (core_count != null) {
                 counts.@set (model, int.parse (core_count));
                 continue;
@@ -177,16 +177,16 @@ public class Monitor.CPU : Object {
             }
 
             if (cpu.@value == 2) {
-                result += _("Dual-Core %s").printf ( (cpu.key));
+                result += _("Dual-Core %s").printf ((cpu.key));
             } else if (cpu.@value == 4) {
-                result += _("Quad-Core %s").printf ( (cpu.key));
+                result += _("Quad-Core %s").printf ((cpu.key));
             } else if (cpu.@value == 6) {
-                result += _("Hexa-Core %s").printf ( (cpu.key));
+                result += _("Hexa-Core %s").printf ((cpu.key));
             } else {
-                result += "%u\u00D7 %s ".printf (cpu.@value,  (cpu.key));
+                result += "%u\u00D7 %s ".printf (cpu.@value, (cpu.key));
             }
         }
 
-       return Utils.Strings.beautify (result);
+        return Utils.Strings.beautify (result);
     }
 }

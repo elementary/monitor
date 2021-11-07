@@ -3,14 +3,16 @@ public class Monitor.Widgets.IndicatorWidget : Gtk.Box {
 
     public string icon_name { get; construct; }
     public int percentage {
-        set { percentage_label.label = "%i%%".printf (value); }
+        set {
+            percentage_label.label = "%i%%".printf (value);
+        }
     }
 
     public IndicatorWidget (string icon_name) {
         Object (
             orientation: Gtk.Orientation.HORIZONTAL,
             icon_name: icon_name
-        );
+            );
     }
 
     construct {

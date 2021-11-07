@@ -1,7 +1,6 @@
 // For more info look at: http://man7.org/linux/man-pages/man5/proc.5.html
 
 public struct Monitor.ProcessIO {
-
     // characters read
     public uint64 rchar;
 
@@ -26,29 +25,28 @@ public struct Monitor.ProcessIO {
 }
 
 public struct Monitor.ProcessStatusMemory {
-
-    // total program size (pages)		(same as VmSize in status)
+    // total program size (pages)  (same as VmSize in status)
     public uint64 size;
 
-    // size of memory portions (pages)	(same as VmRSS in status)
+    // size of memory portions (pages) (same as VmRSS in status)
     public uint64 resident;
 
-    // number of pages that are shared	
+    // number of pages that are shared
     // (i.e. backed by a file, same as RssFile+RssShmem in status)
     public uint64 shared;
 
-    // number of pages that are 'code'	(not including libs; broken,
+    // number of pages that are 'code' (not including libs; broken,
     // includes data segment)
     public uint64 trs;
 
-    // number of pages of library		(always 0 on 2.6)
+    // number of pages of library  (always 0 on 2.6)
     public uint64 lrs;
 
-    // number of pages of data/stack		(including libs; broken,
+    // number of pages of data/stack  (including libs; broken,
     // includes library text)
     public uint64 drs;
 
-    // number of dirty pages			(always 0 on 2.6)
+    // number of dirty pages   (always 0 on 2.6)
     public uint64 dt;
 }
 
@@ -62,15 +60,15 @@ public struct Monitor.ProcessStatus {
     public string comm;
 
     // Should contain one of the following value:
-    //  D    uninterruptible sleep (usually IO)
-    //  I    Idle kernel thread
-    //  R    running or runnable (on run queue)
-    //  S    interruptible sleep (waiting for an event to complete)
-    //  T    stopped by job control signal
-    //  t    stopped by debugger during the tracing
-    //  W    paging (not valid since the 2.6.xx kernel)
-    //  X    dead (should never be seen)
-    //  Z    defunct ("zombie") process, terminated but not reaped by its parent
+    // D    uninterruptible sleep (usually IO)
+    // I    Idle kernel thread
+    // R    running or runnable (on run queue)
+    // S    interruptible sleep (waiting for an event to complete)
+    // T    stopped by job control signal
+    // t    stopped by debugger during the tracing
+    // W    paging (not valid since the 2.6.xx kernel)
+    // X    dead (should never be seen)
+    // Z    defunct ("zombie") process, terminated but not reaped by its parent
     public string state;
 
     // The PID of the parent of this process.
@@ -83,7 +81,7 @@ public struct Monitor.ProcessStatus {
     public uint session;
 
     // The controlling terminal of the process.
-    // (The minor device number is contained in 
+    // (The minor device number is contained in
     // the combination of bits 31 to 20 and 7 to 0;
     // the major device number is in bits 15 to 8.)
     public uint tty_nr;
@@ -103,5 +101,4 @@ public struct Monitor.ProcessStatus {
 
     // The time the process started after system boot.
     public uint64 starttime;
-
 }

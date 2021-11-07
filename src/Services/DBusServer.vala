@@ -11,6 +11,11 @@ public class Monitor.DBusServer : Object {
 
     public signal void update (ResourcesSerialized data);
     public signal void indicator_state (bool state);
+    public signal void indicator_cpu_state (bool state);
+    public signal void indicator_memory_state (bool state);
+    public signal void indicator_temperature_state (bool state);
+    public signal void indicator_network_up_state (bool state);
+    public signal void indicator_network_down_state (bool state);
     public signal void quit ();
     public signal void show ();
 
@@ -20,7 +25,7 @@ public class Monitor.DBusServer : Object {
             DBUS_NAME,
             BusNameOwnerFlags.NONE,
             (connection) => on_bus_aquired (connection),
-            () => { },
+            () => {},
             null
             );
     }
@@ -41,6 +46,7 @@ public class Monitor.DBusServer : Object {
             error (e.message);
         }
     }
+
 }
 
 [DBus (name = "com.github.stsdc.monitor")]

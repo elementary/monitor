@@ -25,4 +25,5 @@ public class Monitor.Swap : Object {
         total = (double) (swap.total / 1024 / 1024) / 1000;
         used = (double) (swap.used / 1024 / 1024) / 1000;
     }
+
 }
