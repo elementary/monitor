@@ -1,0 +1,338 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-25 22:12+0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Andrey Kultyapov <camellan@yandex.ru>\n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+
+#: src/MainWindow.vala:34
+msgid "Processes"
+msgstr "Процессы"
+
+#: src/MainWindow.vala:35
+msgid "System"
+msgstr "Система"
+
+#: src/Utils.vala:2
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:32
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:35
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:24
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:25
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:29
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:30
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:34
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:35
+msgid "N/A"
+msgstr "Н/Д"
+
+#: src/Utils.vala:67
+msgid "B"
+msgstr "Б"
+
+#: src/Utils.vala:72
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:116
+msgid "KiB"
+msgstr "КиБ"
+
+#: src/Utils.vala:78
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:121
+msgid "MiB"
+msgstr "МиБ"
+
+#: src/Utils.vala:83
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:127
+#: src/Widgets/Statusbar/Statusbar.vala:55
+msgid "GiB"
+msgstr "ГиБ"
+
+#: src/Indicator/Widgets/PopoverWidget.vala:13
+msgid "Show Monitor"
+msgstr "Показать монитор"
+
+#: src/Indicator/Widgets/PopoverWidget.vala:16
+msgid "Quit Monitor"
+msgstr "Выход"
+
+#: src/Views/ProcessView/ProcessInfoView/OpenFilesListBox.vala:56
+msgid "Deleted"
+msgstr "Удалено"
+
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:20
+msgid "Are you sure you want to do this?"
+msgstr "Вы уверены, что хотите это сделать?"
+
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:23
+msgid "Yes"
+msgstr "Да"
+
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:27
+msgid "No"
+msgstr "Нет"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:39
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:59
+msgid "PID"
+msgstr "PID"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:40
+msgid "NI"
+msgstr "NI"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
+msgid "PRI"
+msgstr "PRI"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:42
+msgid "THR"
+msgstr "THR"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:110
+msgid "The app is waiting in an uninterruptible disk sleep"
+msgstr "Приложение ожидает в непрерывном режиме ожидания диска"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:112
+msgid "Idle kernel thread"
+msgstr "Неактивный поток ядра"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:114
+msgid "The process is running or runnable (on run queue)"
+msgstr "Процесс запущен или готов к выполнению (в очереди выполнения)"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:116
+msgid "The process is in an interruptible sleep; waiting for an event to complete"
+msgstr "Процесс находится в прерывистом сне; ожидая завершения события"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:118
+msgid "The process is stopped by a job control signal"
+msgstr "Процесс останавливается сигналом управления заданием"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:120
+msgid "The process is stopped stopped by a debugger during the tracing"
+msgstr "Процесс остановлен отладчиком во время трассировки"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:122
+msgid "The app is terminated but not reaped by its parent"
+msgstr "Приложение завершается, но не используется родителем"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:18
+msgid "Opened files"
+msgstr "Открытые файлы"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:22
+msgid "Characters"
+msgstr "Символы"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
+msgid "System calls"
+msgstr "Системные вызовы"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
+msgid "Read/Written"
+msgstr "Чтение/Запись"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
+msgid "Cancelled write"
+msgstr "Отменённая запись"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:73
+msgid "End Process"
+msgstr "Завершить процесс"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:75
+msgid "End selected process"
+msgstr "Завершает выбранные процессы"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:79
+msgid "Kill Process"
+msgstr "Убить процесс"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:80
+msgid "Kill selected process"
+msgstr "Убивает выбранные процессы"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:90
+msgid "Confirm kill of the process?"
+msgstr "Действительно убить процесс?"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:97
+msgid "Confirm end of the process?"
+msgstr "Действительно завершить процесс?"
+
+#. setup name column
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:17
+msgid "Process Name"
+msgstr "Имя процесса"
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:38
+#: src/Widgets/Statusbar/Statusbar.vala:8
+msgid "CPU"
+msgstr "ЦПУ"
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:49
+#: src/Views/SystemView/SystemMemoryView.vala:26
+#: src/Widgets/Statusbar/Statusbar.vala:11
+msgid "Memory"
+msgstr "Память"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:50
+#, c-format
+msgid "CPU: %.1f%%"
+msgstr "ЦПУ: %.1f%%"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:51
+#, c-format
+msgid "RAM: %.1f%%"
+msgstr "Память: %.1f%%"
+
+#: src/Views/SystemView/SystemCPUView.vala:32
+#: src/Views/SystemView/SystemMemoryView.vala:28
+msgid "UTILIZATION"
+msgstr "ИСПОЛЬЗОВАНИЕ"
+
+#: src/Views/SystemView/SystemCPUView.vala:34
+#: src/Views/SystemView/SystemCPUView.vala:94
+#: src/Views/SystemView/SystemMemoryView.vala:30
+#: src/Views/SystemView/SystemMemoryView.vala:35
+msgid "Show detailed info"
+msgstr "Показать подробную информацию"
+
+#: src/Views/SystemView/SystemCPUView.vala:36
+msgid "FREQUENCY"
+msgstr "ЧАСТОТА"
+
+#: src/Views/SystemView/SystemCPUView.vala:40
+msgid "TEMPERATURE"
+msgstr "ТЕМПЕРАТУРА"
+
+#: src/Views/SystemView/SystemCPUView.vala:96
+#: src/Views/SystemView/SystemMemoryView.vala:37
+msgid "Hide detailed info"
+msgstr "Скрыть подробную информацию"
+
+#: src/Views/SystemView/SystemCPUView.vala:152
+#: src/Views/SystemView/SystemMemoryView.vala:100
+#, c-format
+msgid "%d%%"
+msgstr "%d%%"
+
+#: src/Views/SystemView/SystemCPUView.vala:153
+#: src/Widgets/Statusbar/Statusbar.vala:44
+msgid "GHz"
+msgstr "ГГц"
+
+#: src/Views/SystemView/SystemCPUView.vala:154
+msgid "℃"
+msgstr "℃"
+
+#: src/Views/SystemView/SystemMemoryView.vala:41
+msgid "Total: "
+msgstr "Всего: "
+
+#: src/Views/SystemView/SystemMemoryView.vala:44
+msgid "Used: "
+msgstr "Использовано: "
+
+#: src/Views/SystemView/SystemMemoryView.vala:47
+msgid "Shared: "
+msgstr "Общий: "
+
+#: src/Views/SystemView/SystemMemoryView.vala:50
+msgid "Buffered: "
+msgstr "Буферизовано: "
+
+#: src/Views/SystemView/SystemMemoryView.vala:53
+msgid "Cached: "
+msgstr "Кешировано: "
+
+#: src/Views/SystemView/SystemMemoryView.vala:56
+msgid "Locked: "
+msgstr "Заблокировано: "
+
+#: src/Views/SystemView/SystemMemoryView.vala:103
+#, c-format
+msgid "Total: %s"
+msgstr "Всего: %s"
+
+#: src/Views/SystemView/SystemMemoryView.vala:104
+#, c-format
+msgid "Used: %s"
+msgstr "Использовано: %s"
+
+#: src/Views/SystemView/SystemMemoryView.vala:105
+#, c-format
+msgid "Shared: %s"
+msgstr "Общий: %s"
+
+#: src/Views/SystemView/SystemMemoryView.vala:106
+#, c-format
+msgid "Buffered: %s"
+msgstr "Буферизовано: %s"
+
+#: src/Views/SystemView/SystemMemoryView.vala:107
+#, c-format
+msgid "Cached: %s"
+msgstr "Кешировано: %s"
+
+#: src/Views/SystemView/SystemMemoryView.vala:108
+#, c-format
+msgid "Locked: %s"
+msgstr "Заблокировано: %s"
+
+#: src/Widgets/Headerbar/Headerbar.vala:13
+msgid "Monitor"
+msgstr "Monitor"
+
+#: src/Widgets/Headerbar/Headerbar.vala:21
+msgid "Settings"
+msgstr "Параметры"
+
+#: src/Widgets/Headerbar/Headerbar.vala:35
+msgid "Show an indicator:"
+msgstr "Показывать индикатор:"
+
+#: src/Widgets/Headerbar/Headerbar.vala:41
+msgid "Start in background:"
+msgstr "Запустить в фоновом режиме:"
+
+#: src/Widgets/Headerbar/Search.vala:14
+msgid "Search Process"
+msgstr "Найти процесс"
+
+#: src/Widgets/Headerbar/Search.vala:15
+msgid "Type process name or PID to search"
+msgstr "Для поиска введите имя или ИД процесса"
+
+#: src/Widgets/Statusbar/Statusbar.vala:14
+msgid "Swap"
+msgstr "Подкачка"
+
+#: src/Widgets/Statusbar/Statusbar.vala:16
+#: src/Widgets/Statusbar/Statusbar.vala:22
+#: src/Widgets/Statusbar/Statusbar.vala:29
+msgid "Calculating…"
+msgstr "Вычисление…"
+
+#~ msgid "Monitor Indicator"
+#~ msgstr "Индикатор монитора"
+
+#~ msgid "Show system resources"
+#~ msgstr "Показывать системные ресурсы"
+
+#~ msgid "Background Applications"
+#~ msgstr "Фоновые приложения"
+
+#~ msgid "Ctrl+E"
+#~ msgstr "Ctrl+E"
+
+#~ msgid "CPU:"
+#~ msgstr "ЦПУ:"
+
+#~ msgid "Memory:"
+#~ msgstr "Память:"
