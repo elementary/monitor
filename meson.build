@@ -25,7 +25,7 @@ gobject = dependency('gobject-2.0')
 bamf = dependency('libbamf3') # to remove
 gtop = dependency('libgtop-2.0')
 wnck = dependency('libwnck-3.0')
-wingpanel = dependency('wingpanel-2.0')
+wingpanel = dependency('wingpanel')
 gdk_x11 = dependency('gdk-x11-3.0')
 
 config_data = configuration_data()
@@ -80,7 +80,7 @@ executable(
     'src/Widgets/Headerbar/Headerbar.vala',
     'src/Widgets/Headerbar/Search.vala',
     'src/Widgets/Statusbar/Statusbar.vala',
-  
+
 
     # Models
     'src/Models/TreeViewModel.vala',
