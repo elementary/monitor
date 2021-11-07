@@ -19,7 +19,7 @@ public class Monitor.Widgets.PopoverWidget : Gtk.Grid {
         quit_monitor_button.clicked.connect (() => quit_monitor ());
 
         add (show_monitor_button);
-        add (new Wingpanel.Widgets.Separator ());
+        add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
         add (quit_monitor_button);
     }
 }
