@@ -1,9 +1,9 @@
-project('com.github.stsdc.monitor', 'vala', 'c', version: '0.9.2')
+project('com.github.stsdc.monitor', 'vala', 'c', version: '0.11.0')
 
 # these are Meson modules
 gnome = import('gnome')
 i18n = import('i18n')
-
+sass = find_program('sassc')
 
 # common dirs
 prefix = get_option('prefix')
@@ -12,6 +12,9 @@ libdir = join_paths(prefix, get_option('libdir'))
 icondir = join_paths(datadir, 'icons', 'hicolor')
 
 livechart_proj = subproject('live-chart')
+# elementary_stylesheet = subproject('stylesheet')
+
+
 livechart_dep = livechart_proj.get_variable('livechart_dep')
 
 # and these are project dependencies
@@ -21,11 +24,12 @@ gtk = dependency('gtk+-3.0')
 gee = dependency('gee-0.8')
 gio = dependency('gio-2.0')
 gobject = dependency('gobject-2.0')
-bamf = dependency('libbamf3') # to remove
 gtop = dependency('libgtop-2.0')
 wnck = dependency('libwnck-3.0')
-wingpanel = dependency('wingpanel-2.0')
+wingpanel = dependency('wingpanel', version: '>=2.1.0')
 gdk_x11 = dependency('gdk-x11-3.0')
+udisks2 = dependency ('udisks2')
+handy = dependency('libhandy-1', version: '>=0.90.0')
 
 config_data = configuration_data()
 config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
@@ -39,10 +43,43 @@ icons_gresource = gnome.compile_resources(
     c_name: 'as1'
 )
 
+sass_command = [
+    sass,
+    '@INPUT@',
+    '@OUTPUT@'
+]
+
+stylesheet_light = custom_target(
+    'theme-monitor-light',
+    input : './data/stylesheet/monitor-light.scss',
+    output : 'monitor-light.css',
+    command : sass_command,
+    build_by_default: true
+)
+
+stylesheet_dark = custom_target(
+    'theme-monitor-dark',
+    input : './data/stylesheet/monitor-dark.scss',
+    output : 'monitor-dark.css',
+    command : sass_command,
+    build_by_default: true
+)
+
+stylesheet_retrofit = custom_target(
+    'theme-monitor-retrofit',
+    input : './data/stylesheet/monitor-retrofit.scss',
+    output : 'monitor-retrofit.css',
+    command : sass_command,
+    build_by_default: true
+)
+
 css_gresource = gnome.compile_resources(
-    'gresource_css', 'data/css.gresource.xml',
+    'gresource_css',
+    'data/css.gresource.xml',
     source_dir: 'data',
-    c_name: 'as2'
+    c_name: 'as2',
+    dependencies: [stylesheet_dark, stylesheet_light, stylesheet_retrofit],
+
 )
 
 c_args = [
@@ -72,6 +109,7 @@ executable(
     'src/Views/SystemView/SystemMemoryView.vala',
     'src/Views/SystemView/SystemNetworkView.vala',
     'src/Views/SystemView/SystemStorageView.vala',
+    'src/Views/SystemView/SystemGPUView.vala',
 
     # Widgets related only to ProcessInfoView
     'src/Views/ProcessView/ProcessInfoView/Preventor.vala',
@@ -88,19 +126,22 @@ executable(
     'src/Widgets/Labels/LabelRoundy.vala',
     'src/Widgets/Labels/LabelH4.vala',
     'src/Widgets/Chart/Chart.vala',
+    'src/Widgets/WidgetResource/WidgetResource.vala',
 
     # Models
     'src/Models/TreeViewModel.vala',
 
     # Other
-    'src/Managers/AppManager.vala',
+    # 'src/Managers/AppManager.vala',
     'src/Managers/ProcessManager.vala',
     'src/Managers/Process.vala',
     'src/Managers/ProcessStructs.vala',
     'src/Managers/ProcessUtils.vala',
 
+    # Services
     'src/Services/Shortcuts.vala',
     'src/Services/DBusServer.vala',
+    'src/Services/Appearance.vala',
 
     # Resources
     'src/Resources/Resources.vala',
@@ -112,6 +153,8 @@ executable(
     'src/Resources/TemperatureSensor.vala',
     'src/Resources/Network.vala',
     'src/Resources/Storage.vala',
+    'src/Resources/Drive.vala',
+    'src/Resources/GPU.vala',
     c_args: c_args,
     dependencies: [
         glib,
@@ -120,10 +163,11 @@ executable(
         gee,
         gio,
         gobject,
-        bamf, # to remove
         gtop,
         wnck,
         gdk_x11,
+        udisks2,
+        handy,
         livechart_dep,
         meson.get_compiler('c').find_library('m', required : false),
         meson.get_compiler('vala').find_library('posix')

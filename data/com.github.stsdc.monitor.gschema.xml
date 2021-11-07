@@ -41,17 +41,17 @@
       <description>To start Monitor in background or not</description>
     </key>
     <key type='b' name="indicator-cpu-state">
-      <default>false</default>
+      <default>true</default>
       <summary>To show CPU usage in Monitor Indicator or not</summary>
       <description>To show CPU usage in Monitor Indicator or not</description>
     </key>
     <key type='b' name="indicator-memory-state">
-      <default>false</default>
+      <default>true</default>
       <summary>To show memory usage in Monitor Indicator or not</summary>
       <description>To show memory usage in Monitor Indicator or not</description>
     </key>
     <key type='b' name="indicator-temperature-state">
-      <default>false</default>
+      <default>true</default>
       <summary>To show temperature value in Monitor Indicator or not</summary>
       <description>To show temperature value in Monitor Indicator or not</description>
     </key>

@@ -8,6 +8,7 @@ class TemperatureSensor : Object {
     public double cpu {
         get {
             double total_temperature = 0;
+            // this should handle null
             foreach (var path in cpu_temp_paths) {
                 total_temperature += double.parse (open_file (path));
             }
@@ -15,15 +16,22 @@ class TemperatureSensor : Object {
         }
     }
 
+    private string path_hwmon_amdgpu;
+    public double gpu {
+        get {
+            return double.parse (open_file (HWMON_PATH + "/hwmon0/temp1_input"));
+        }
+    }
+
     construct {
         cpu_temp_paths = new Gee.ArrayList<string> ();
-        traverser ();
+        detect_sensors ();
     }
 
     public TemperatureSensor () {
     }
 
-    private void traverser () {
+    private void detect_sensors () {
         try {
             Dir hwmon_dir = Dir.open (HWMON_PATH, 0);
 
@@ -75,6 +83,8 @@ class TemperatureSensor : Object {
 
                 } else if (sensor_name == "amdgpu") {
                     debug ("Found temp. sensor: %s", sensor_name);
+                    path_hwmon_amdgpu = Path.build_filename (HWMON_PATH, hwmonx, "temp1_input");
+                    debug (open_file (path_hwmon_amdgpu));
                 } else {
                     debug ("Found temp. sensor: %s", sensor_name);
                 }
