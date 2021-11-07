@@ -86,17 +86,9 @@ class Monitor.HwmonPathParser : Object {
 
                     Dir hwmonx_dir = Dir.open (Path.build_filename (HWMON_PATH, hwmonx), 0);
                     string ? hwmonx_prop = null;
-                    
-                    while ((hwmonx_prop = hwmonx_dir.read_name ()) != null) {
-                        //  if (hwmonx_prop.contains ("temp")) {
 
-                            gpu_paths_parser.add_path (Path.build_filename (HWMON_PATH, hwmonx, hwmonx_prop));
-
-                            //  string tempx_input = "temp%c_input".printf (hwmonx_prop[4]);
-                            //  debug (hwmonx_prop);
-                            //  path_hwmon_amdgpu = Path.build_filename (HWMON_PATH, hwmonx, tempx_input);
-                            //  debug (open_file (path_hwmon_amdgpu));
-                        //  }
+                    while (( hwmonx_prop = hwmonx_dir.read_name ()) != null) {
+                        gpu_paths_parser.add_path (Path.build_filename (HWMON_PATH, hwmonx, hwmonx_prop));
                     }
 
                     gpu_paths_parser.parse ();

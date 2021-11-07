@@ -159,6 +159,11 @@ executable(
     'src/Resources/Hwmon/HwmonPathsParser.vala',
     'src/Resources/Hwmon/GPUPathsParser.vala',
     'src/Resources/Hwmon/PathsTemperature.vala',
+    'src/Resources/Hwmon/PathsVoltage.vala',
+    'src/Resources/Hwmon/PathsFrequency.vala',
+    'src/Resources/Hwmon/PathsFan.vala',
+    'src/Resources/Hwmon/PathsPWM.vala',
+    'src/Resources/Hwmon/PathsPower.vala',
 
     c_args: c_args,
     dependencies: [

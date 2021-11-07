@@ -7,7 +7,7 @@ public class Monitor.PathsTemperature : Object {
     // temp2_label and temp3_label are supported on SOC15 dGPUs only
     public string label;
 
-    // the on die GPU temperature in millidegrees Celsius
+    // the on die temperature in millidegrees Celsius
     // temp2_input and temp3_input are supported on SOC15 dGPUs only
     public string input;
 
