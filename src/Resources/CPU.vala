@@ -27,7 +27,7 @@ public class Monitor.CPU : Object {
     private double _frequency;
     public double frequency {
         get {
-            // Convert kH to GHz
+            // Convert kHz to GHz
             return (double) (_frequency / 1000000);
         }
     }
@@ -55,7 +55,7 @@ public class Monitor.CPU : Object {
         }
 
         // Temperature sensor shouldn't be created here since it
-        // will provides not only cpu temperature
+        // will provide not only a cpu temperature
         temperature_sensor = new TemperatureSensor ();
     }
 

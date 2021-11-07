@@ -1,4 +1,4 @@
-public class Monitor.Headerbar : Gtk.HeaderBar {
+public class Monitor.Headerbar : Hdy.HeaderBar {
     private MainWindow window;
     private Gtk.Switch show_indicator_switch;
     private Gtk.Switch background_switch;
