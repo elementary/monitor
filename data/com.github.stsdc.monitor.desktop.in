@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Monitor
+GenericName=System Monitor
+Comment=Manage processes and monitor resource usage of the system
+Categories=System;Utility;
+Exec=com.github.stsdc.monitor %U
+Icon=com.github.stsdc.monitor
+Terminal=false
+Type=Application
+X-GNOME-Gettext-Domain=monitor
+Keywords=System monitor;System usage;Task manager;
+X-GNOME-UsesNotifications=false
