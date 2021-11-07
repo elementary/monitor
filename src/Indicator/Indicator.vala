@@ -1,8 +1,7 @@
 // TODO: Change namespace
 public class Monitor.Indicator : Wingpanel.Indicator {
-
-    private Widgets.DisplayWidget? display_widget = null;
-    private Widgets.PopoverWidget? popover_widget = null;
+    private Widgets.DisplayWidget ? display_widget = null;
+    private Widgets.PopoverWidget ? popover_widget = null;
     private Settings settings;
     private DBusClient dbusclient;
 
@@ -16,13 +15,29 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         dbusclient = DBusClient.get_default ();
 
         dbusclient.monitor_vanished.connect (() => this.visible = false);
-        dbusclient.monitor_appeared.connect (() => this.visible = settings.get_boolean ("indicator-state"));
+        dbusclient.monitor_appeared.connect (() => {
+            this.visible = settings.get_boolean ("indicator-state");
+            display_widget.cpu_widget.visible = settings.get_boolean ("indicator-cpu-state");
+            display_widget.memory_widget.visible = settings.get_boolean ("indicator-memory-state");
+            display_widget.temperature_widget.visible = settings.get_boolean ("indicator-temperature-state");
+            display_widget.network_up_widget.visible = settings.get_boolean ("indicator-network-up-state");
+            display_widget.network_down_widget.visible = settings.get_boolean ("indicator-network-down-state");
+
+        });
 
         dbusclient.interface.indicator_state.connect ((state) => this.visible = state);
-
+        dbusclient.interface.indicator_cpu_state.connect ((state) => display_widget.cpu_widget.visible = state);
+        dbusclient.interface.indicator_memory_state.connect ((state) => display_widget.memory_widget.visible = state);
+        dbusclient.interface.indicator_temperature_state.connect ((state) => display_widget.temperature_widget.visible = state);
+        dbusclient.interface.indicator_network_up_state.connect ((state) => display_widget.network_up_widget.visible = state);
+        dbusclient.interface.indicator_network_down_state.connect ((state) => display_widget.network_down_widget.visible = state);
+    
         dbusclient.interface.update.connect ((sysres) => {
             display_widget.cpu_widget.percentage = sysres.cpu_percentage;
+            display_widget.temperature_widget.degree = sysres.cpu_temperature;
             display_widget.memory_widget.percentage = sysres.memory_percentage;
+            display_widget.network_up_widget.bandwith = sysres.network_up;
+            display_widget.network_down_widget.bandwith = sysres.network_down;
         });
 
         popover_widget.quit_monitor.connect (() => {
@@ -42,7 +57,6 @@ public class Monitor.Indicator : Wingpanel.Indicator {
                 warning (e.message);
             }
         });
-
     }
 
     public Indicator () {
@@ -53,7 +67,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         return display_widget;
     }
 
-    public override Gtk.Widget? get_widget () {
+    public override Gtk.Widget ? get_widget () {
         return popover_widget;
     }
 
@@ -62,9 +76,10 @@ public class Monitor.Indicator : Wingpanel.Indicator {
 
     public override void closed () {
     }
+
 }
 
-public Wingpanel.Indicator? get_indicator (Module module, Wingpanel.IndicatorManager.ServerType server_type) {
+public Wingpanel.Indicator ? get_indicator (Module module, Wingpanel.IndicatorManager.ServerType server_type) {
     debug ("Activating Monitor Indicator");
 
     if (server_type != Wingpanel.IndicatorManager.ServerType.SESSION) {

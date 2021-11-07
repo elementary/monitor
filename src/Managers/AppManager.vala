@@ -1,9 +1,8 @@
 namespace Monitor {
-
     public struct App {
         public string name;
         public string icon;
-        public string? desktop_file;
+        public string ? desktop_file;
         public int[] pids;
         public uint32 xid;
     }
@@ -14,8 +13,8 @@ namespace Monitor {
         public signal void application_opened (App app);
         public signal void application_closed (App app);
 
-        static AppManager? app_manager = null;
-        private Bamf.Matcher? matcher;
+        static AppManager ? app_manager = null;
+        private Bamf.Matcher ? matcher;
         private Gee.ArrayList<uint> transient_xids;
 
         public static AppManager get_default () {
@@ -24,7 +23,6 @@ namespace Monitor {
             return app_manager;
         }
 
-
         public AppManager () {
             transient_xids = new Gee.ArrayList<uint> ();
 
@@ -32,7 +30,6 @@ namespace Monitor {
             matcher.view_opened.connect_after (handle_view_opened);
             matcher.view_closed.connect_after (handle_view_closed);
         }
-
 
         ~AppManager () {
             matcher.view_opened.disconnect (handle_view_opened);
@@ -49,18 +46,17 @@ namespace Monitor {
                 int[] win_pids = {};
                 var window = (Bamf.Window)view;
                 var app = matcher.get_application_for_window (window);
-                win_pids += (int)window.get_pid ();
+                win_pids += (int) window.get_pid ();
                 if (has_desktop_file (app.get_desktop_file ())) {
                     debug ("Handle View Opened: %s", view.get_name ());
                     application_opened (
                         App () {
-                            name = app.get_name (),
-                            icon = app.get_icon (),
-                            desktop_file = app.get_desktop_file (),
-                            pids = win_pids,
-                            xid = app.get_xids ().index (0)
-                        }
-                    );
+                        name = app.get_name (),
+                        icon = app.get_icon (),
+                        desktop_file = app.get_desktop_file (),
+                        pids = win_pids,
+                        xid = app.get_xids ().index (0)
+                    });
                 }
             }
         }
@@ -70,23 +66,22 @@ namespace Monitor {
                 int[] win_pids = {};
                 var window = (Bamf.Window)view;
                 var app = matcher.get_application_for_window (window);
-                win_pids += (int)window.get_pid ();
+                win_pids += (int) window.get_pid ();
                 if (has_desktop_file (app.get_desktop_file ())) {
                     debug ("Handle View Closed: %s", view.get_name ());
                     application_closed (
                         App () {
-                            name = app.get_name (),
-                            icon = app.get_icon (),
-                            desktop_file = app.get_desktop_file (),
-                            pids = win_pids,
-                            xid = app.get_xids ().index (0)
-                        }
-                    );
+                        name = app.get_name (),
+                        icon = app.get_icon (),
+                        desktop_file = app.get_desktop_file (),
+                        pids = win_pids,
+                        xid = app.get_xids ().index (0)
+                    });
                 }
             }
         }
 
-        private bool has_desktop_file (string? desktop_file) {
+        private bool has_desktop_file (string ? desktop_file) {
             return !(desktop_file == null || desktop_file == "");
         }
 
@@ -99,16 +94,16 @@ namespace Monitor {
                 // go through the windows of the application and add all of the pids
                 var windows = bamf_app.get_windows ();
                 foreach (var window in windows) {
-                    win_pids += (int)window.get_pid ();
+                    win_pids += (int) window.get_pid ();
                 }
                 if (has_desktop_file (bamf_app.get_desktop_file ())) {
                     apps += App () {
-                                name = bamf_app.get_name (),
-                                icon = bamf_app.get_icon (),
-                                desktop_file = bamf_app.get_desktop_file (),
-                                pids = win_pids,
-                                xid = bamf_app.get_xids ().index (0)
-                            };
+                        name = bamf_app.get_name (),
+                        icon = bamf_app.get_icon (),
+                        desktop_file = bamf_app.get_desktop_file (),
+                        pids = win_pids,
+                        xid = bamf_app.get_xids ().index (0)
+                    };
                 }
             }
             return apps;
@@ -116,7 +111,7 @@ namespace Monitor {
 
         private bool is_main_window (Bamf.View view) {
             var window_type = ((Bamf.Window)view).get_window_type ();
-            debug ("Window type: %d, Is transient: %d", window_type, (int)is_transient (view));
+            debug ("Window type: %d, Is transient: %d", window_type, (int) is_transient (view));
             return (window_type == Bamf.WindowType.NORMAL ||
                     window_type == Bamf.WindowType.DOCK) && !is_transient (view);
         }
@@ -132,5 +127,6 @@ namespace Monitor {
             }
             return false;
         }
+
     }
 }

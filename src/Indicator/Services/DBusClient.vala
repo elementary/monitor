@@ -2,12 +2,18 @@
 public interface Monitor.DBusClientInterface : Object {
     public abstract void quit_monitor () throws Error;
     public abstract void show_monitor () throws Error;
-    public signal void update (Utils.SystemResources data);
+    public signal void update (ResourcesSerialized data);
     public signal void indicator_state (bool state);
+    public signal void indicator_cpu_state (bool state);
+    public signal void indicator_memory_state (bool state);
+    public signal void indicator_temperature_state (bool state);
+    public signal void indicator_network_up_state (bool state);
+    public signal void indicator_network_down_state (bool state);
+
 }
 
 public class Monitor.DBusClient : Object {
-    public DBusClientInterface? interface = null;
+    public DBusClientInterface ? interface = null;
 
     private static GLib.Once<DBusClient> instance;
     public static unowned DBusClient get_default () {
@@ -31,10 +37,7 @@ public class Monitor.DBusClient : Object {
                 BusNameWatcherFlags.NONE,
                 () => monitor_appeared (),
                 () => monitor_vanished ()
-            );
-
-
-
+                );
         } catch (IOError e) {
             error ("Monitor Indicator DBus: %s\n", e.message);
         }

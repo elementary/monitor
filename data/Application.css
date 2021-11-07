@@ -14,6 +14,41 @@
     border-width: 0;
 }
 
+.green {
+    background-color: alpha(@LIME_300, 0.6);
+}
+
+.blue {
+    background-color: alpha(@BLUEBERRY_300, 0.6);
+}
+
+/* .vertical-label,
+.vertical-label:hover,
+.vertical-label:selected,
+.vertical-label:selected:focus,
+.vertical-label:hover:selected {
+
+} */
+
+.label-vertical {
+
+}
+
+.label-vertical-val {
+    color: alpha(@text_color, 1);
+    font-size: 30px;
+    font-weight: 100;
+    /* padding: 0 6px;
+    margin: 0 3px; */
+    border-width: 0;
+}
+
+.usage-label-container {
+    border: 1px solid @SILVER_300;;
+    border-radius: 3px;
+    background-color: alpha(@SILVER_100, 0.5);
+    }
+
 .username-current {
     background-color: @SILVER_300;
     color: @SILVER_900;
@@ -45,6 +80,35 @@
     border-width: 0;
 }
 
+.core_badge {
+    background-color: @SILVER_100;
+    border-radius: 8px;
+    padding-right: 4px;
+    padding-left:2px;
+    font-size: 10px;
+    /* font-weight:bold; */
+    color: black;
+    border: 1px solid @SILVER_300;
+}
+
+.core_badge-mild-warning {
+    background-color: alpha(@BANANA_100, 0.7);
+    color: @BANANA_900;
+    border: 1px solid alpha(@BANANA_300, 0.7);
+}
+
+.core_badge-strong-warning {
+    background-color: alpha(@ORANGE_100, 0.7);
+    color: @ORANGE_900;
+    border: 1px solid alpha(@ORANGE_300, 0.7);
+}
+
+.core_badge-critical-warning {
+    background-color: @STRAWBERRY_100;
+    color: @STRAWBERRY_700;
+    border: 1px solid @STRAWBERRY_300;
+}
+
 .command_wrapper {
     background-color: #fdf6e3;
     border-radius: 3px;
@@ -59,10 +123,10 @@
     font-family: monospace;
 }
 
-.pid {
+.small-text {
     color:grey;
-font-weight:bold;
-font-size:9px;
+    font-weight:bold;
+    font-size:9px;
 }
 
 .graph {
@@ -92,4 +156,12 @@ font-size:9px;
 .open_files_list_box_row image {
     color: @SILVER_700;
     margin: 6px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.text-secondary {
+    color: @SILVER_700;
 }
