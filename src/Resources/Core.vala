@@ -1,5 +1,5 @@
 namespace Monitor {
-    //from Monilet
+    // from Monilet
     public class Core : GLib.Object {
         private float last_total;
         private float last_used;
@@ -8,7 +8,9 @@ namespace Monitor {
 
         public int number { get; set; }
         public float percentage_used {
-            get { return _percentage_used; }
+            get {
+                return _percentage_used;
+            }
         }
 
         public Core (int number) {
@@ -25,14 +27,15 @@ namespace Monitor {
 
             var difference_used = (float) used - last_used;
             var difference_total = (float) cpu.xcpu_total[number] - last_total;
-            var pre_percentage = difference_used.abs () / difference_total.abs ();  // calculate the pre percentage
+            var pre_percentage = difference_used.abs () / difference_total.abs (); // calculate the pre percentage
 
             _percentage_used = pre_percentage * 100;
 
             last_used = (float) used;
             last_total = (float) cpu.xcpu_total[number];
 
-            //  debug("Core %d: %f%%", number, _percentage_used);
+            // debug("Core %d: %f%%", number, _percentage_used);
         }
+
     }
 }

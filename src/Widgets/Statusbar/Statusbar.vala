@@ -5,13 +5,13 @@ public class Monitor.Statusbar : Gtk.ActionBar {
 
     construct {
         var cpu_icon = new Gtk.Image.from_icon_name ("cpu-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-        cpu_icon.tooltip_text = _ ("CPU");
+        cpu_icon.tooltip_text = _("CPU");
 
         var ram_icon = new Gtk.Image.from_icon_name ("ram-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-        ram_icon.tooltip_text = _ ("Memory");
+        ram_icon.tooltip_text = _("Memory");
 
         var swap_icon = new Gtk.Image.from_icon_name ("swap-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-        swap_icon.tooltip_text = _ ("Swap");
+        swap_icon.tooltip_text = _("Swap");
 
         cpu_usage_label = new Gtk.Label (_("Calculating…"));
         cpu_usage_label.set_width_chars (4);
@@ -41,10 +41,10 @@ public class Monitor.Statusbar : Gtk.ActionBar {
         cpu_usage_label.set_text (("%d%%").printf (sysres.cpu_percentage));
         memory_usage_label.set_text (("%d%%").printf (sysres.memory_percentage));
 
-        string cpu_tooltip_text = ("%.2f %s").printf (sysres.cpu_frequency, _ ("GHz"));
+        string cpu_tooltip_text = ("%.2f %s").printf (sysres.cpu_frequency, _("GHz"));
         cpu_usage_label.tooltip_text = cpu_tooltip_text;
 
-        string memory_tooltip_text = ("%s / %s").printf (Utils.HumanUnitFormatter.double_bytes_to_human(sysres.memory_used), Utils.HumanUnitFormatter.double_bytes_to_human(sysres.memory_total));
+        string memory_tooltip_text = ("%s / %s").printf (Utils.HumanUnitFormatter.double_bytes_to_human (sysres.memory_used), Utils.HumanUnitFormatter.double_bytes_to_human (sysres.memory_total));
         memory_usage_label.tooltip_text = memory_tooltip_text;
 
         // The total amount of the swap is 0 when it is unavailable
@@ -52,10 +52,11 @@ public class Monitor.Statusbar : Gtk.ActionBar {
             swap_usage_label.set_text ("N/A");
         } else {
             swap_usage_label.set_text (("%d%%").printf (sysres.swap_percentage));
-            string swap_tooltip_text = ("%.1f %s / %.1f %s").printf (sysres.swap_used, _ ("GiB"), sysres.swap_total, _ ("GiB"));
+            string swap_tooltip_text = ("%.1f %s / %.1f %s").printf (sysres.swap_used, _("GiB"), sysres.swap_total, _("GiB"));
             swap_usage_label.tooltip_text = swap_tooltip_text;
         }
 
         return true;
     }
+
 }

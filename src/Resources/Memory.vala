@@ -1,5 +1,4 @@
 namespace Monitor {
-
     public class Memory : Object {
         public double total;
         public double used;
@@ -21,17 +20,18 @@ namespace Monitor {
             used = 0;
         }
 
-        public Memory () { }
+        public Memory () {
+        }
 
         public void update () {
             GTop.get_mem (out mem);
-            total = (double) (mem.total );
+            total = (double) (mem.total);
             used = (double) mem.user;
             shared = (double) (mem.shared);
             buffer = (double) (mem.buffer);
             cached = (double) (mem.cached);
             locked = (double) (mem.locked);
-
         }
+
     }
 }

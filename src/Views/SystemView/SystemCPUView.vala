@@ -9,11 +9,11 @@ public class Monitor.SystemCPUView : Gtk.Box {
     private LabelRoundy cpu_temperature_label;
     private LabelH4 processor_name_label;
 
-    //  private Gtk.Button view_threads_usage_button;
+    // private Gtk.Button view_threads_usage_button;
 
     private Gtk.Revealer cpu_threads_revealer;
 
-    private Gee.ArrayList<Gtk.Label?> core_label_list;
+    private Gee.ArrayList<Gtk.Label ? > core_label_list;
 
     construct {
         margin = 12;
@@ -26,7 +26,7 @@ public class Monitor.SystemCPUView : Gtk.Box {
 
 
 
-    public SystemCPUView(CPU _cpu) {
+    public SystemCPUView (CPU _cpu) {
         cpu = _cpu;
 
         cpu_percentage_label = new LabelVertical (_("UTILIZATION"));
@@ -45,7 +45,7 @@ public class Monitor.SystemCPUView : Gtk.Box {
 
         var processor_info_button = new Gtk.ToggleButton ();
         processor_info_button.get_style_context ().add_class ("circular");
-        //  processor_info_button.get_style_context ().add_class ("popup");
+        // processor_info_button.get_style_context ().add_class ("popup");
         processor_info_button.has_focus = false;
         var icon = new Gtk.Image ();
         icon.gicon = new ThemedIcon ("dialog-information");
@@ -61,17 +61,15 @@ public class Monitor.SystemCPUView : Gtk.Box {
         title_grid.column_spacing = 6;
 
         var popover = new SystemCPUInfoPopover (processor_info_button, cpu);
-        
-        processor_info_button.clicked.connect(() => { popover.show_all(); });
+
+        processor_info_button.clicked.connect (() => { popover.show_all (); });
 
         cpu_utilization_chart = new Chart (cpu.core_list.size);
 
         var grid_utilization_info = new Gtk.Grid ();
-        grid_utilization_info.attach (grid_usage_labels(), 0, 0, 1, 1);
+        grid_utilization_info.attach (grid_usage_labels (), 0, 0, 1, 1);
         grid_utilization_info.attach (cpu_utilization_chart, 0, 0, 1, 1);
 
-
-        
         cpu_frequency_chart = new Chart (1);
         cpu_frequency_chart.height_request = -1;
         cpu_frequency_chart.config.y_axis.fixed_max = 5.0;
@@ -87,7 +85,7 @@ public class Monitor.SystemCPUView : Gtk.Box {
         grid_temperature_info.attach (cpu_temperature_chart, 0, 0, 1, 1);
 
 
-        cpu_percentage_label.clicked.connect(() => {
+        cpu_percentage_label.clicked.connect (() => {
             cpu_threads_revealer.reveal_child = !(cpu_threads_revealer.child_revealed);
 
             if (cpu_threads_revealer.child_revealed) {
@@ -109,7 +107,7 @@ public class Monitor.SystemCPUView : Gtk.Box {
         // Thanks Goncalo
         var charts_container = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         charts_container.pack_start (grid_utilization_info, true, true, 0);
-        charts_container.pack_start(smol_charts_container, false, false, 0);
+        charts_container.pack_start (smol_charts_container, false, false, 0);
 
         add (title_grid);
         add (charts_container);
@@ -122,8 +120,8 @@ public class Monitor.SystemCPUView : Gtk.Box {
 
         for (int i = 0; i < cpu.core_list.size; i++) {
             double core_percentage = cpu.core_list[i].percentage_used;
-            cpu_utilization_chart.update(i, core_percentage);
-            string percentage_formatted = ("% 3d%%").printf ( (int)core_percentage);
+            cpu_utilization_chart.update (i, core_percentage);
+            string percentage_formatted = ("% 3d%%").printf ((int) core_percentage);
             core_label_list[i].set_text (percentage_formatted);
 
             core_label_list[i].get_style_context ().remove_class ("core_badge-mild-warning");
@@ -150,12 +148,11 @@ public class Monitor.SystemCPUView : Gtk.Box {
         }
 
         cpu_percentage_label.set_text ((_("%d%%")).printf (cpu.percentage));
-        cpu_frequency_label.set_text (("%.2f %s").printf (cpu.frequency, _ ("GHz")));
-        cpu_temperature_label.set_text (("%.2f %s").printf (cpu.temperature, _ ("℃")));
+        cpu_frequency_label.set_text (("%.2f %s").printf (cpu.frequency, _("GHz")));
+        cpu_temperature_label.set_text (("%.2f %s").printf (cpu.temperature, _("℃")));
     }
 
     private Gtk.Grid grid_usage_labels () {
-
         Gtk.Grid grid = new Gtk.Grid ();
         grid.column_spacing = 6;
         grid.margin = 6;
@@ -163,14 +160,14 @@ public class Monitor.SystemCPUView : Gtk.Box {
         grid.halign = Gtk.Align.START;
         grid.get_style_context ().add_class ("usage-label-container");
 
-        grid.attach(cpu_percentage_label, 0, 0, 1, 1);
-        grid.attach(grid_core_labels(), 1, 0, 1, 1);
+        grid.attach (cpu_percentage_label, 0, 0, 1, 1);
+        grid.attach (grid_core_labels (), 1, 0, 1, 1);
 
         return grid;
     }
 
     private Gtk.Revealer grid_core_labels () {
-        cpu_threads_revealer = new Gtk.Revealer();
+        cpu_threads_revealer = new Gtk.Revealer ();
         cpu_threads_revealer.margin = 6;
         cpu_threads_revealer.transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT;
         cpu_threads_revealer.valign = Gtk.Align.CENTER;
@@ -184,10 +181,10 @@ public class Monitor.SystemCPUView : Gtk.Box {
             var core_label = new Gtk.Label (Utils.NO_DATA);
             core_label.set_width_chars (4);
             core_label.get_style_context ().add_class ("core_badge");
-            //  core_label.set_text (Utils.NO_DATA);
+            // core_label.set_text (Utils.NO_DATA);
             core_label_list.add (core_label);
 
-            grid.attach(core_label, column, row, 1, 1);
+            grid.attach (core_label, column, row, 1, 1);
 
             row++;
             if (row > 1) {
@@ -199,8 +196,9 @@ public class Monitor.SystemCPUView : Gtk.Box {
 
         var threads_label = new Gtk.Label ("THREADS");
         threads_label.get_style_context ().add_class ("small-text");
-        grid.attach(threads_label, 0, -1, column, 1);
+        grid.attach (threads_label, 0, -1, column, 1);
 
         return cpu_threads_revealer;
     }
+
 }

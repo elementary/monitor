@@ -1,33 +1,30 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# Raí B. Toffoletto <rai@raibtoffoletto.com>, 2019.
+# French translations for com.github.stsdc.monitor package.
+# Copyright (C) 2019 THE com.github.stsdc.monitor'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.stsdc.monitor package.
+# Tiberiu Frățilă <tiberiu.fratila@gmail.com>, 2020.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-25 22:12+0400\n"
-"PO-Revision-Date: 2020-08-16 14:07+0100\n"
-"Last-Translator: André Barata <andretiagob@protonmail.com>\n"
+"POT-Creation-Date: 2020-12-16 10:30+0200\n"
+"PO-Revision-Date: 2020-12-16 10:30+0200\n"
+"Last-Translator: Tiberiu Frățilă\n"
 "Language-Team: \n"
-"Language: pt\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.1\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: src/MainWindow.vala:34
-#, fuzzy
 msgid "Processes"
-msgstr "Nome do processo"
+msgstr "Procese"
 
 #: src/MainWindow.vala:35
-#, fuzzy
 msgid "System"
-msgstr "Chamadas de sistema"
+msgstr "Sistem"
 
 #: src/Utils.vala:2
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:32
@@ -43,47 +40,47 @@ msgstr "N/A"
 
 #: src/Utils.vala:67
 msgid "B"
-msgstr "B"
+msgstr "o"
 
 #: src/Utils.vala:72
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:116
 msgid "KiB"
-msgstr "KiB"
+msgstr "Kio"
 
 #: src/Utils.vala:78
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:121
 msgid "MiB"
-msgstr "MiB"
+msgstr "Mio"
 
 #: src/Utils.vala:83
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:127
 #: src/Widgets/Statusbar/Statusbar.vala:55
 msgid "GiB"
-msgstr "GiB"
+msgstr "Gio"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:13
 msgid "Show Monitor"
-msgstr "Mostrar Monitor"
+msgstr "Arată monitorul"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:16
 msgid "Quit Monitor"
-msgstr "Fechar Monitor"
+msgstr "Închide monitorul"
 
 #: src/Views/ProcessView/ProcessInfoView/OpenFilesListBox.vala:56
 msgid "Deleted"
-msgstr "Apagado"
+msgstr "Șters"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:20
 msgid "Are you sure you want to do this?"
-msgstr "Tem a certeza que quer fazer isso?"
+msgstr "Sunteți sigur că doriți să faceți asta?"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:23
 msgid "Yes"
-msgstr "Sim"
+msgstr "Da"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:27
 msgid "No"
-msgstr "Não"
+msgstr "Nu"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:39
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:59
@@ -112,11 +109,10 @@ msgstr ""
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:114
 msgid "The process is running or runnable (on run queue)"
-msgstr ""
+msgstr "Procesul rulează sau poate fi rulat (în coada de rulare)"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:116
-msgid ""
-"The process is in an interruptible sleep; waiting for an event to complete"
+msgid "The process is in an interruptible sleep; waiting for an event to complete"
 msgstr ""
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:118
@@ -133,104 +129,104 @@ msgstr ""
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:18
 msgid "Opened files"
-msgstr "Ficheiros abertos"
+msgstr "Fișiere deschise"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:22
 msgid "Characters"
-msgstr "Caracteres"
+msgstr "Caractere"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
 msgid "System calls"
-msgstr "Chamadas de sistema"
+msgstr "Apeluri de sistem"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
 msgid "Read/Written"
-msgstr "Ler/Escrita"
+msgstr "Citit/scris"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
 msgid "Cancelled write"
-msgstr "Escrita cancelada"
+msgstr "Scriere anulată"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:73
 msgid "End Process"
-msgstr "Terminar processo"
+msgstr "Termină procesul"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:75
 msgid "End selected process"
-msgstr "Terminar processo selecionado"
+msgstr "Termină procesul selectat"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:79
 msgid "Kill Process"
-msgstr "Matar processo"
+msgstr "Omoară procesul"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:80
 msgid "Kill selected process"
-msgstr "Matar processo selecionado"
+msgstr "Omoară procesul selectat"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:90
 msgid "Confirm kill of the process?"
-msgstr "Confirma matar o processo?"
+msgstr "Confirmi omorârea procesului?"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:97
 msgid "Confirm end of the process?"
-msgstr "Confirma terminar o processo?"
+msgstr "Confirmi terminarea procesului?"
 
 #. setup name column
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:17
 msgid "Process Name"
-msgstr "Nome do processo"
+msgstr "Numele procesului"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:38
 #: src/Widgets/Statusbar/Statusbar.vala:8
 msgid "CPU"
-msgstr "CPU"
+msgstr "Procesor"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:49
 #: src/Views/SystemView/SystemMemoryView.vala:26
 #: src/Widgets/Statusbar/Statusbar.vala:11
 msgid "Memory"
-msgstr "Memória"
+msgstr "Memorie"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:50
 #, c-format
 msgid "CPU: %.1f%%"
-msgstr "CPU: %.1f%%"
+msgstr "Procesor: %.1f%%"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:51
 #, c-format
 msgid "RAM: %.1f%%"
-msgstr "RAM: %.1f%%"
+msgstr "Memorie: %.1f%%"
 
 #: src/Views/SystemView/SystemCPUView.vala:32
 #: src/Views/SystemView/SystemMemoryView.vala:28
 msgid "UTILIZATION"
-msgstr ""
+msgstr "UTILIZARE"
 
 #: src/Views/SystemView/SystemCPUView.vala:34
 #: src/Views/SystemView/SystemCPUView.vala:94
 #: src/Views/SystemView/SystemMemoryView.vala:30
 #: src/Views/SystemView/SystemMemoryView.vala:35
 msgid "Show detailed info"
-msgstr ""
+msgstr "Arată informații detaliate"
 
 #: src/Views/SystemView/SystemCPUView.vala:36
 msgid "FREQUENCY"
-msgstr ""
+msgstr "FRECVENȚĂ"
 
 #: src/Views/SystemView/SystemCPUView.vala:40
 msgid "TEMPERATURE"
-msgstr ""
+msgstr "TEMPERATURĂ"
 
 #: src/Views/SystemView/SystemCPUView.vala:96
 #: src/Views/SystemView/SystemMemoryView.vala:37
 msgid "Hide detailed info"
-msgstr ""
+msgstr "Ascunde informațiile detaliate"
 
 #: src/Views/SystemView/SystemCPUView.vala:152
 #: src/Views/SystemView/SystemMemoryView.vala:100
 #, c-format
 msgid "%d%%"
-msgstr ""
+msgstr "%d%%"
 
 #: src/Views/SystemView/SystemCPUView.vala:153
 #: src/Widgets/Statusbar/Statusbar.vala:44
@@ -239,61 +235,61 @@ msgstr "GHz"
 
 #: src/Views/SystemView/SystemCPUView.vala:154
 msgid "℃"
-msgstr ""
+msgstr "℃"
 
 #: src/Views/SystemView/SystemMemoryView.vala:41
 msgid "Total: "
-msgstr ""
+msgstr "Total: "
 
 #: src/Views/SystemView/SystemMemoryView.vala:44
 msgid "Used: "
-msgstr ""
+msgstr "Folosit: "
 
 #: src/Views/SystemView/SystemMemoryView.vala:47
 msgid "Shared: "
-msgstr ""
+msgstr "Partajat: "
 
 #: src/Views/SystemView/SystemMemoryView.vala:50
 msgid "Buffered: "
-msgstr ""
+msgstr "Buffer: "
 
 #: src/Views/SystemView/SystemMemoryView.vala:53
 msgid "Cached: "
-msgstr ""
+msgstr "Cache: "
 
 #: src/Views/SystemView/SystemMemoryView.vala:56
 msgid "Locked: "
-msgstr ""
+msgstr "Blocat: "
 
 #: src/Views/SystemView/SystemMemoryView.vala:103
 #, c-format
 msgid "Total: %s"
-msgstr ""
+msgstr "Total: %s"
 
 #: src/Views/SystemView/SystemMemoryView.vala:104
 #, c-format
 msgid "Used: %s"
-msgstr ""
+msgstr "Folosit: %s"
 
 #: src/Views/SystemView/SystemMemoryView.vala:105
 #, c-format
 msgid "Shared: %s"
-msgstr ""
+msgstr "Partajat: %s"
 
 #: src/Views/SystemView/SystemMemoryView.vala:106
 #, c-format
 msgid "Buffered: %s"
-msgstr ""
+msgstr "Buffer: %s"
 
 #: src/Views/SystemView/SystemMemoryView.vala:107
 #, c-format
 msgid "Cached: %s"
-msgstr ""
+msgstr "Cache: %s"
 
 #: src/Views/SystemView/SystemMemoryView.vala:108
 #, c-format
 msgid "Locked: %s"
-msgstr ""
+msgstr "Blocat: %s"
 
 #: src/Widgets/Headerbar/Headerbar.vala:13
 msgid "Monitor"
@@ -301,48 +297,39 @@ msgstr "Monitor"
 
 #: src/Widgets/Headerbar/Headerbar.vala:21
 msgid "Settings"
-msgstr "Definições"
+msgstr "Configurări"
 
 #: src/Widgets/Headerbar/Headerbar.vala:35
 msgid "Show an indicator:"
-msgstr "Mostra um indicador:"
+msgstr "Arată un indicator:"
 
 #: src/Widgets/Headerbar/Headerbar.vala:41
 msgid "Start in background:"
-msgstr "Inicia em segundo plano:"
+msgstr "Pornește în fundal:"
 
 #: src/Widgets/Headerbar/Search.vala:14
 msgid "Search Process"
-msgstr "Procurar processo"
+msgstr "Caută un proces"
 
 #: src/Widgets/Headerbar/Search.vala:15
 msgid "Type process name or PID to search"
-msgstr "Escreva o nome do processo ou PID a pesquisar"
+msgstr "Introdu numele unui proces sau un PID pentru a căuta"
 
 #: src/Widgets/Statusbar/Statusbar.vala:14
 msgid "Swap"
-msgstr "Trocar"
+msgstr "Swap"
 
 #: src/Widgets/Statusbar/Statusbar.vala:16
 #: src/Widgets/Statusbar/Statusbar.vala:22
 #: src/Widgets/Statusbar/Statusbar.vala:29
 msgid "Calculating…"
-msgstr "A calcular…"
+msgstr "Se calculează..."
 
 #~ msgid "Monitor Indicator"
-#~ msgstr "Indicador do monitor"
+#~ msgstr "Indicateur du panneau"
 
 #~ msgid "Show system resources"
-#~ msgstr "Mostrar recursos do sistema"
+#~ msgstr "Afficher les ressources du système"
 
 #~ msgid "Background Applications"
-#~ msgstr "Aplicações em segundo plano"
-
-#~ msgid "Ctrl+E"
-#~ msgstr "Ctrl+E"
-
-#~ msgid "CPU:"
-#~ msgstr "CPU:"
-
-#~ msgid "Memory:"
-#~ msgstr "Memória:"
+#~ msgstr "Applications en arrière-plan"

@@ -1,5 +1,4 @@
 public class Monitor.Preventor : Gtk.Stack {
-
     private Gtk.Box preventive_action_bar;
     private Gtk.Label confirmation_label;
     private Gtk.Button confirm_button;
@@ -17,9 +16,9 @@ public class Monitor.Preventor : Gtk.Stack {
         preventive_action_bar.halign = Gtk.Align.END;
 
 
-        confirmation_label = new Gtk.Label (_ ("Are you sure you want to do this?"));
+        confirmation_label = new Gtk.Label (_("Are you sure you want to do this?"));
         confirmation_label.margin_end = 10;
-        
+
         confirm_button = new Gtk.Button.with_label (_("Yes"));
         confirm_button.margin_end = 10;
         confirm_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
@@ -37,20 +36,20 @@ public class Monitor.Preventor : Gtk.Stack {
         add_named (preventive_action_bar, "preventive_action_bar");
 
         deny_button.clicked.connect (() => {
-            set_transition_type(Gtk.StackTransitionType.SLIDE_UP);
+            set_transition_type (Gtk.StackTransitionType.SLIDE_UP);
             set_visible_child (child_widget);
-            confirmed(false);
+            confirmed (false);
         });
 
-        confirm_button.clicked.connect(() => {
-            set_transition_type(Gtk.StackTransitionType.SLIDE_UP);
+        confirm_button.clicked.connect (() => {
+            set_transition_type (Gtk.StackTransitionType.SLIDE_UP);
             set_visible_child (child_widget);
-            confirmed(true);
+            confirmed (true);
         });
     }
 
     public void set_prevention (string confirmation_text) {
-        set_transition_type(Gtk.StackTransitionType.SLIDE_DOWN);
+        set_transition_type (Gtk.StackTransitionType.SLIDE_DOWN);
         confirmation_label.set_text (_(confirmation_text));
         set_visible_child (preventive_action_bar);
     }

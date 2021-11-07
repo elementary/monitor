@@ -41,6 +41,21 @@ namespace Monitor {
                 if (!MonitorApp.settings.get_boolean ("indicator-state")) {
                     MonitorApp.settings.set_boolean ("indicator-state", true);
                 }
+                if (!MonitorApp.settings.get_boolean ("indicator-cpu-state")) {
+                    MonitorApp.settings.set_boolean ("indicator-cpu-state", true);
+                }
+                if (!MonitorApp.settings.get_boolean ("indicator-memory-state")) {
+                    MonitorApp.settings.set_boolean ("indicator-memory-state", true);
+                }
+                if (!MonitorApp.settings.get_boolean ("indicator-temperature-state")) {
+                    MonitorApp.settings.set_boolean ("indicator-temperature-state", true);
+                }
+                if (!MonitorApp.settings.get_boolean ("indicator-network-up-state")) {
+                    MonitorApp.settings.set_boolean ("indicator-network-up-state", false);
+                }
+                if (!MonitorApp.settings.get_boolean ("indicator-network-down-state")) {
+                    MonitorApp.settings.set_boolean ("indicator-network-down-state", false);
+                }
 
                 window.hide ();
                 MonitorApp.settings.set_boolean ("background-state", true);
@@ -52,22 +67,22 @@ namespace Monitor {
 
             var quit_action = new SimpleAction ("quit", null);
             add_action (quit_action);
-            set_accels_for_action ("app.quit", {"<Ctrl>q"});
+            set_accels_for_action ("app.quit", { "<Ctrl>q" });
             quit_action.activate.connect (() => {
                 if (window != null) {
                     window.destroy ();
                 }
             });
 
-            var provider = new Gtk.CssProvider ();
-            provider.load_from_resource ("/com/github/stsdc/monitor/Application.css");
-            Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+            Appearance.set_prefered_style ();
+            Appearance.retrofit ();
+
 
             // Controls the direction of the sort indicators
             Gtk.Settings.get_default ().set ("gtk-alternative-sort-arrows", true, null);
         }
 
-        public static int main (string [] args) {
+        public static int main (string[] args) {
             // add command line options
             try {
                 var opt_context = new OptionContext ("");
@@ -75,7 +90,7 @@ namespace Monitor {
                 opt_context.add_main_entries (CMD_OPTIONS, null);
                 opt_context.parse (ref args);
             } catch (OptionError e) {
-                print ("Error: %s\n",                                                               e.message);
+                print ("Error: %s\n", e.message);
                 print ("Run '%s --help' to see a full list of available command line options.\n\n", args[0]);
                 return 0;
             }
@@ -84,5 +99,6 @@ namespace Monitor {
 
             return app.run (args);
         }
+
     }
 }
