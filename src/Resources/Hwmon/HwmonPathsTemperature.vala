@@ -5,7 +5,7 @@
 public class Monitor.HwmonPathsTemperature : Object {
     // temperature channel label
     // temp2_label and temp3_label are supported on SOC15 dGPUs only
-    public string label;
+    public string ? label;
 
     // the on die temperature in millidegrees Celsius
     // temp2_input and temp3_input are supported on SOC15 dGPUs only
@@ -13,19 +13,19 @@ public class Monitor.HwmonPathsTemperature : Object {
 
     // temperature critical max value in millidegrees Celsius
     // temp2_crit and temp3_crit are supported on SOC15 dGPUs only
-    public string crit;
+    public string ? crit;
 
     // temperature hysteresis for critical limit in millidegrees Celsius
     // temp2_crit_hyst and temp3_crit_hyst are supported on SOC15 dGPUs only
-    public string crit_hyst;
+    public string ? crit_hyst;
 
     //  temperature emergency max value(asic shutdown) in millidegrees Celsius
     // these are supported on SOC15 dGPUs only
-    public string emergency;
+    public string ? emergency;
 
     // Temperature max value.
-    public string max;
+    public string ? max;
 
     // Temperature min value.
-    public string min;
+    public string ? min;
 }

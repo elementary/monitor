@@ -158,6 +158,7 @@ executable(
 
     'src/Resources/Hwmon/HwmonPathsParser.vala',
     'src/Resources/Hwmon/HwmonGPUPathsParser.vala',
+    'src/Resources/Hwmon/HwmonIwlwifiPathsParser.vala',
     'src/Resources/Hwmon/HwmonNVMePathsParser.vala',
     'src/Resources/Hwmon/HwmonPathsTemperature.vala',
     'src/Resources/Hwmon/HwmonPathsVoltage.vala',

@@ -3,6 +3,7 @@ class Monitor.HwmonPathParser : Object {
 
     public HwmonGPUPathsParser gpu_paths_parser = new HwmonGPUPathsParser ();
     public HwmonNVMePathsParser nvme_paths_parser = new HwmonNVMePathsParser ();
+    public HwmonIwlwifiPathsParser iwlwifi_paths_parser = new HwmonIwlwifiPathsParser ();
 
     // contains list of paths to files with a temperature values
     // Intel reports per core temperature, while AMD Ryzen Tdie
@@ -102,6 +103,17 @@ class Monitor.HwmonPathParser : Object {
                     }
 
                     nvme_paths_parser.parse ();
+                } else if (interface_name == "iwlwifi_1") {
+                    debug ("Found HWMON Interface: %s", interface_name);
+
+                    Dir hwmonx_dir = Dir.open (Path.build_filename (HWMON_PATH, hwmonx), 0);
+                    string ? hwmonx_prop = null;
+
+                    while (( hwmonx_prop = hwmonx_dir.read_name ()) != null) {
+                        iwlwifi_paths_parser.add_path (Path.build_filename (HWMON_PATH, hwmonx, hwmonx_prop));
+                    }
+
+                    iwlwifi_paths_parser.parse ();
                 } else {
                     debug ("Found temp. sensor: %s", interface_name);
                 }
