@@ -22,4 +22,10 @@ public class Monitor.HwmonPathsTemperature : Object {
     //  temperature emergency max value(asic shutdown) in millidegrees Celsius
     // these are supported on SOC15 dGPUs only
     public string emergency;
+
+    // Temperature max value.
+    public string max;
+
+    // Temperature min value.
+    public string min;
 }

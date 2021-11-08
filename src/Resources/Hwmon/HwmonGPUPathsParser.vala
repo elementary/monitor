@@ -29,7 +29,7 @@ public class Monitor.HwmonGPUPathsParser : Object {
             if (basename.contains ("name")) {
                 this.name = basename;
             } else if (basename.contains ("temp")) {
-                debug ("Found GPU temperature interface path: %s", basename);
+                debug ("Found HWMON GPU temperature interface path: %s", basename);
                 if (!_paths_temperatures.has_key (basename[4])) {
                     _paths_temperatures.set (basename[4], new HwmonPathsTemperature ());
                     //  debug ("- Created struct");
@@ -48,7 +48,7 @@ public class Monitor.HwmonGPUPathsParser : Object {
                 }
 
             } else if (basename.has_prefix ("in")) {
-                debug ("Found GPU voltage interface path: %s", basename);
+                debug ("Found HWMON GPU voltage interface path: %s", basename);
                 if (!_paths_voltages.has_key (basename[2])) {
                     _paths_voltages.set (basename[2], new HwmonPathsVoltage ());
                 }
@@ -61,7 +61,7 @@ public class Monitor.HwmonGPUPathsParser : Object {
             }
 
             else if (basename.contains ("freq")) {
-                debug ("Found GPU frequnecy interface path: %s", basename);
+                debug ("Found HWMON GPU frequnecy interface path: %s", basename);
                 if (!_paths_frequencies.has_key (basename[4])) {
                     _paths_frequencies.set (basename[4], new HwmonPathsFrequency ());
                 }
@@ -74,7 +74,7 @@ public class Monitor.HwmonGPUPathsParser : Object {
             }
 
             else if (basename.contains ("fan")) {
-                debug ("Found GPU fan interface path: %s", basename);
+                debug ("Found HWMON GPU fan interface path: %s", basename);
                 if (!paths_fans.has_key (basename[3])) {
                     paths_fans.set (basename[3], new HwmonPathsFan ());
                 }
@@ -93,7 +93,7 @@ public class Monitor.HwmonGPUPathsParser : Object {
             }
 
             else if (basename.contains ("pwm")) {
-                debug ("Found GPU PWM interface path: %s", basename);
+                debug ("Found HWMON GPU PWM interface path: %s", basename);
                 if (!paths_pwms.has_key (basename[3])) {
                     paths_pwms.set (basename[3], new HwmonPathsPWM ());
                 }
@@ -111,7 +111,7 @@ public class Monitor.HwmonGPUPathsParser : Object {
 
             // `power` is a dir
             else if (basename.contains ("power") && basename != "power") {
-                debug ("Found GPU power interface path: %s", basename);
+                debug ("Found HWMON GPU power interface path: %s", basename);
                 if (!paths_powers.has_key (basename[5])) {
                     paths_powers.set (basename[5], new HwmonPathsPower ());
                 }
@@ -130,22 +130,22 @@ public class Monitor.HwmonGPUPathsParser : Object {
 
         foreach (var paths_holder in _paths_temperatures.values) {
             paths_temperatures.set (open_file (paths_holder.label), paths_holder);
-            debug ("🌡️ Parsed GPU temperature interface: %s", open_file (paths_holder.label));
+            debug ("🌡️ Parsed HWMON GPU temperature interface: %s", open_file (paths_holder.label));
         }
 
         foreach (var paths_holder in _paths_voltages.values) {
             paths_voltages.set (open_file (paths_holder.label), paths_holder);
-            debug ("⚡ Parsed GPU voltage interface: %s", open_file (paths_holder.label));
+            debug ("⚡ Parsed HWMON GPU voltage interface: %s", open_file (paths_holder.label));
         }
 
         foreach (var paths_holder in _paths_frequencies.values) {
             paths_frequencies.set (open_file (paths_holder.label), paths_holder);
-            debug ("⏰ Parsed GPU frequency interface: %s", open_file (paths_holder.label));
+            debug ("⏰ Parsed HWMON GPU frequency interface: %s", open_file (paths_holder.label));
         }
 
-        debug ("💨 Parsed GPU fan interfaces: %d", paths_fans.size);
-        debug ("✨ Parsed GPU PWM interfaces: %d", paths_pwms.size);
-        debug ("💪 Parsed GPU power interfaces: %d", paths_powers.size);
+        debug ("💨 Parsed HWMON GPU fan interfaces: %d", paths_fans.size);
+        debug ("✨ Parsed HWMON GPU PWM interfaces: %d", paths_pwms.size);
+        debug ("💪 Parsed HWMON GPU power interfaces: %d", paths_powers.size);
 
     }
 

@@ -1,7 +1,8 @@
 class Monitor.HwmonPathParser : Object {
     private const string HWMON_PATH = "/sys/class/hwmon";
 
-    public HwmonGPUPathsParser gpu_paths_parser = new HwmonGPUPathsParser();
+    public HwmonGPUPathsParser gpu_paths_parser = new HwmonGPUPathsParser ();
+    public HwmonNVMePathsParser nvme_paths_parser = new HwmonNVMePathsParser ();
 
     // contains list of paths to files with a temperature values
     // Intel reports per core temperature, while AMD Ryzen Tdie
@@ -90,6 +91,17 @@ class Monitor.HwmonPathParser : Object {
                     }
 
                     gpu_paths_parser.parse ();
+                } else if (interface_name == "nvme") {
+                    debug ("Found HWMON Interface: %s", interface_name);
+
+                    Dir hwmonx_dir = Dir.open (Path.build_filename (HWMON_PATH, hwmonx), 0);
+                    string ? hwmonx_prop = null;
+
+                    while (( hwmonx_prop = hwmonx_dir.read_name ()) != null) {
+                        nvme_paths_parser.add_path (Path.build_filename (HWMON_PATH, hwmonx, hwmonx_prop));
+                    }
+
+                    nvme_paths_parser.parse ();
                 } else {
                     debug ("Found temp. sensor: %s", interface_name);
                 }
@@ -98,6 +110,7 @@ class Monitor.HwmonPathParser : Object {
             warning ("Could not open dir: %s", e.message);
         }
     }
+
 
     private string open_file (string filename) {
         try {
