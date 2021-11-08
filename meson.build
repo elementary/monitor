@@ -157,13 +157,13 @@ executable(
     'src/Resources/GPU.vala',
 
     'src/Resources/Hwmon/HwmonPathsParser.vala',
-    'src/Resources/Hwmon/GPUPathsParser.vala',
-    'src/Resources/Hwmon/PathsTemperature.vala',
-    'src/Resources/Hwmon/PathsVoltage.vala',
-    'src/Resources/Hwmon/PathsFrequency.vala',
-    'src/Resources/Hwmon/PathsFan.vala',
-    'src/Resources/Hwmon/PathsPWM.vala',
-    'src/Resources/Hwmon/PathsPower.vala',
+    'src/Resources/Hwmon/HwmonGPUPathsParser.vala',
+    'src/Resources/Hwmon/HwmonPathsTemperature.vala',
+    'src/Resources/Hwmon/HwmonPathsVoltage.vala',
+    'src/Resources/Hwmon/HwmonPathsFrequency.vala',
+    'src/Resources/Hwmon/HwmonPathsFan.vala',
+    'src/Resources/Hwmon/HwmonPathsPWM.vala',
+    'src/Resources/Hwmon/HwmonPathsPower.vala',
 
     c_args: c_args,
     dependencies: [

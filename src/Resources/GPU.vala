@@ -7,7 +7,7 @@ public interface SessionManager : Object {
 public class Monitor.GPU : Object {
     private SessionManager? session_manager;
 
-    public Gee.HashMap<string, PathsTemperature> paths_temperatures;
+    public Gee.HashMap<string, HwmonPathsTemperature> paths_temperatures;
 
     public string name {
         owned get {

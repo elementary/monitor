@@ -2,11 +2,11 @@
 // Learn more: https://www.kernel.org/doc/html/v5.11/gpu/amdgpu.html#hwmon-interfaces
 
 [Compact]
-public class Monitor.PathsVoltage : Object {
-    // voltage channel label
+public class Monitor.HwmonPathsFrequency : Object {
+    // freq channel label
     public string label;
 
-    // in0_input: the voltage on the GPU in millivolts
-    // in1_input: the voltage on the Northbridge in millivolts
+    // freq1_input: the gfx/compute clock in hertz
+    // freq2_input: the memory clock in hertz
     public string input;
 }

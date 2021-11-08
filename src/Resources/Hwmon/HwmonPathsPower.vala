@@ -2,7 +2,7 @@
 // Learn more: https://www.kernel.org/doc/html/v5.11/gpu/amdgpu.html#hwmon-interfaces
 
 [Compact]
-public class Monitor.PathsPower : Object {
+public class Monitor.HwmonPathsPower : Object {
     // average power used by the GPU in microWatts
     public string average;
 

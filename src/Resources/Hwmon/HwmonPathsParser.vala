@@ -1,9 +1,7 @@
 class Monitor.HwmonPathParser : Object {
     private const string HWMON_PATH = "/sys/class/hwmon";
 
-    public GPUPathsParser gpu_paths_parser = new GPUPathsParser();
-
-    //  public Gee.HashMap<string, AppInfo> apps_info_list;
+    public HwmonGPUPathsParser gpu_paths_parser = new HwmonGPUPathsParser();
 
     // contains list of paths to files with a temperature values
     // Intel reports per core temperature, while AMD Ryzen Tdie

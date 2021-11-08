@@ -1,21 +1,21 @@
-public class Monitor.GPUPathsParser : Object {
+public class Monitor.HwmonGPUPathsParser : Object {
 
     public string name;
 
-    private Gee.HashMap<int, PathsTemperature> _paths_temperatures = new Gee.HashMap<int, PathsTemperature> ();
-    public Gee.HashMap<string, PathsTemperature> paths_temperatures = new Gee.HashMap<string, PathsTemperature> ();
+    private Gee.HashMap<int, HwmonPathsTemperature> _paths_temperatures = new Gee.HashMap<int, HwmonPathsTemperature> ();
+    public Gee.HashMap<string, HwmonPathsTemperature> paths_temperatures = new Gee.HashMap<string, HwmonPathsTemperature> ();
 
-    private Gee.HashMap<int, PathsVoltage> _paths_voltages= new Gee.HashMap<int, PathsVoltage> ();
-    public Gee.HashMap<string, PathsVoltage> paths_voltages = new Gee.HashMap<string, PathsVoltage> ();
+    private Gee.HashMap<int, HwmonPathsVoltage> _paths_voltages= new Gee.HashMap<int, HwmonPathsVoltage> ();
+    public Gee.HashMap<string, HwmonPathsVoltage> paths_voltages = new Gee.HashMap<string, HwmonPathsVoltage> ();
 
-    private Gee.HashMap<int, PathsFrequency> _paths_frequencies= new Gee.HashMap<int, PathsFrequency> ();
-    public Gee.HashMap<string, PathsFrequency> paths_frequencies = new Gee.HashMap<string, PathsFrequency> ();
+    private Gee.HashMap<int, HwmonPathsFrequency> _paths_frequencies= new Gee.HashMap<int, HwmonPathsFrequency> ();
+    public Gee.HashMap<string, HwmonPathsFrequency> paths_frequencies = new Gee.HashMap<string, HwmonPathsFrequency> ();
 
-    public Gee.HashMap<int, PathsFan> paths_fans= new Gee.HashMap<int, PathsFan> ();
+    public Gee.HashMap<int, HwmonPathsFan> paths_fans= new Gee.HashMap<int, HwmonPathsFan> ();
 
-    public Gee.HashMap<int, PathsPWM> paths_pwms = new Gee.HashMap<int, PathsPWM> ();
+    public Gee.HashMap<int, HwmonPathsPWM> paths_pwms = new Gee.HashMap<int, HwmonPathsPWM> ();
 
-    public Gee.HashMap<int, PathsPower> paths_powers = new Gee.HashMap<int, PathsPower> ();
+    public Gee.HashMap<int, HwmonPathsPower> paths_powers = new Gee.HashMap<int, HwmonPathsPower> ();
 
     private Gee.HashSet<string> all_paths = new Gee.HashSet<string> ();
 
@@ -31,7 +31,7 @@ public class Monitor.GPUPathsParser : Object {
             } else if (basename.contains ("temp")) {
                 debug ("Found GPU temperature interface path: %s", basename);
                 if (!_paths_temperatures.has_key (basename[4])) {
-                    _paths_temperatures.set (basename[4], new PathsTemperature ());
+                    _paths_temperatures.set (basename[4], new HwmonPathsTemperature ());
                     //  debug ("- Created struct");
                 }
 
@@ -50,7 +50,7 @@ public class Monitor.GPUPathsParser : Object {
             } else if (basename.has_prefix ("in")) {
                 debug ("Found GPU voltage interface path: %s", basename);
                 if (!_paths_voltages.has_key (basename[2])) {
-                    _paths_voltages.set (basename[2], new PathsVoltage ());
+                    _paths_voltages.set (basename[2], new HwmonPathsVoltage ());
                 }
 
                 if (basename.contains ("label")) {
@@ -63,7 +63,7 @@ public class Monitor.GPUPathsParser : Object {
             else if (basename.contains ("freq")) {
                 debug ("Found GPU frequnecy interface path: %s", basename);
                 if (!_paths_frequencies.has_key (basename[4])) {
-                    _paths_frequencies.set (basename[4], new PathsFrequency ());
+                    _paths_frequencies.set (basename[4], new HwmonPathsFrequency ());
                 }
 
                 if (basename.contains ("label")) {
@@ -76,7 +76,7 @@ public class Monitor.GPUPathsParser : Object {
             else if (basename.contains ("fan")) {
                 debug ("Found GPU fan interface path: %s", basename);
                 if (!paths_fans.has_key (basename[3])) {
-                    paths_fans.set (basename[3], new PathsFan ());
+                    paths_fans.set (basename[3], new HwmonPathsFan ());
                 }
 
                 if (basename.contains ("input")) {
@@ -95,7 +95,7 @@ public class Monitor.GPUPathsParser : Object {
             else if (basename.contains ("pwm")) {
                 debug ("Found GPU PWM interface path: %s", basename);
                 if (!paths_pwms.has_key (basename[3])) {
-                    paths_pwms.set (basename[3], new PathsPWM ());
+                    paths_pwms.set (basename[3], new HwmonPathsPWM ());
                 }
 
                 if (basename == "pwm") {
@@ -113,7 +113,7 @@ public class Monitor.GPUPathsParser : Object {
             else if (basename.contains ("power") && basename != "power") {
                 debug ("Found GPU power interface path: %s", basename);
                 if (!paths_powers.has_key (basename[5])) {
-                    paths_powers.set (basename[5], new PathsPower());
+                    paths_powers.set (basename[5], new HwmonPathsPower ());
                 }
 
                 if (basename.contains ("average")) {
