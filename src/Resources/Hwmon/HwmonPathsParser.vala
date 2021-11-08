@@ -4,6 +4,7 @@ class Monitor.HwmonPathParser : Object {
     public HwmonGPUPathsParser gpu_paths_parser = new HwmonGPUPathsParser ();
     public HwmonNVMePathsParser nvme_paths_parser = new HwmonNVMePathsParser ();
     public HwmonIwlwifiPathsParser iwlwifi_paths_parser = new HwmonIwlwifiPathsParser ();
+    public HwmonCPUPathsParser cpu_paths_parser = new HwmonCPUPathsParser ();
 
     // contains list of paths to files with a temperature values
     // Intel reports per core temperature, while AMD Ryzen Tdie
@@ -17,12 +18,6 @@ class Monitor.HwmonPathParser : Object {
                 total_temperature += double.parse (open_file (path));
             }
             return total_temperature / cpu_temp_paths.size;
-        }
-    }
-
-    public double gpu {
-        get {
-            return double.parse (open_file (HWMON_PATH + "/hwmon0/temp1_input"));
         }
     }
 
@@ -45,33 +40,14 @@ class Monitor.HwmonPathParser : Object {
                 if (interface_name == "") continue;
 
                 if (interface_name == "coretemp" || interface_name == "k10temp") {
-                    debug ("Found temp. sensor: %s", interface_name);
+                    debug ("Found HWMON CPU Interface: %s", interface_name);
 
                     Dir hwmonx_dir = Dir.open (Path.build_filename (HWMON_PATH, hwmonx), 0);
                     string ? hwmonx_prop = null;
                     while ((hwmonx_prop = hwmonx_dir.read_name ()) != null) {
-                        // debug (open_file (hwmonx_name));
-
-                        if (hwmonx_prop.contains ("temp")) {
-                            // AMD stuff
-                            // Tdie contains true temperature value, while Tctl contains value for fans
-                            // Tctl = Tdie + offset in some processors
-                            if ("Tdie" == open_file (Path.build_filename (HWMON_PATH, hwmonx, hwmonx_prop))) {
-                                string tempx_input = "temp%c_input".printf (hwmonx_prop[4]);
-                                cpu_temp_paths.add (Path.build_filename (HWMON_PATH, hwmonx, tempx_input));
-
-                                debug (open_file (cpu_temp_paths[0]));
-
-                                // Intel stuff
-                                // Intel reports per core
-                            } else if (open_file (Path.build_filename (HWMON_PATH, hwmonx, hwmonx_prop)).contains ("Core")) {
-                                string tempx_input = "temp%c_input".printf (hwmonx_prop[4]);
-                                cpu_temp_paths.add (Path.build_filename (HWMON_PATH, hwmonx, tempx_input));
-                                debug (open_file (cpu_temp_paths[0]));
-                            }
-                        }
+                        cpu_paths_parser.add_path (Path.build_filename (HWMON_PATH, hwmonx, hwmonx_prop));
                     }
-
+                    cpu_paths_parser.parse ();
                 // Raspberry Pi 4
                 } else if (interface_name == "cpu_thermal") {
                     debug ("Found temp. sensor: %s", interface_name);
@@ -82,7 +58,7 @@ class Monitor.HwmonPathParser : Object {
                     debug (open_file (cpu_temp_paths[0]));
 
                 } else if (interface_name == "amdgpu") {
-                    debug ("Found HWMON Interface: %s", interface_name);
+                    debug ("Found HWMON GPU Interface: %s", interface_name);
 
                     Dir hwmonx_dir = Dir.open (Path.build_filename (HWMON_PATH, hwmonx), 0);
                     string ? hwmonx_prop = null;
@@ -93,7 +69,7 @@ class Monitor.HwmonPathParser : Object {
 
                     gpu_paths_parser.parse ();
                 } else if (interface_name == "nvme") {
-                    debug ("Found HWMON Interface: %s", interface_name);
+                    debug ("Found HWMON NVMe Interface: %s", interface_name);
 
                     Dir hwmonx_dir = Dir.open (Path.build_filename (HWMON_PATH, hwmonx), 0);
                     string ? hwmonx_prop = null;
@@ -104,7 +80,7 @@ class Monitor.HwmonPathParser : Object {
 
                     nvme_paths_parser.parse ();
                 } else if (interface_name == "iwlwifi_1") {
-                    debug ("Found HWMON Interface: %s", interface_name);
+                    debug ("Found HWMON iwlwifi Interface: %s", interface_name);
 
                     Dir hwmonx_dir = Dir.open (Path.build_filename (HWMON_PATH, hwmonx), 0);
                     string ? hwmonx_prop = null;
@@ -115,7 +91,7 @@ class Monitor.HwmonPathParser : Object {
 
                     iwlwifi_paths_parser.parse ();
                 } else {
-                    debug ("Found temp. sensor: %s", interface_name);
+                    debug ("Found uknown HWMON Interface: %s", interface_name);
                 }
             }
         } catch (FileError e) {
