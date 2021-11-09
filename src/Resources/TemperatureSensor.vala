@@ -69,6 +69,11 @@ class TemperatureSensor : Object {
                                 cpu_temp_paths.add (Path.build_filename (HWMON_PATH, hwmonx, tempx_input));
                                 debug (open_file (cpu_temp_paths[0]));
                             }
+                            else{
+                                string tempx_input = "temp%c_input".printf (hwmonx_prop[4]);
+                                cpu_temp_paths.add (Path.build_filename (HWMON_PATH, hwmonx, tempx_input));
+                                debug (open_file (cpu_temp_paths[0]));
+                            }
                         }
                     }
 
