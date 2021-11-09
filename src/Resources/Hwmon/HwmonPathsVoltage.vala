@@ -1,0 +1,12 @@
+// This struct holds paths to temperature data
+// Learn more: https://www.kernel.org/doc/html/v5.11/gpu/amdgpu.html#hwmon-interfaces
+
+[Compact]
+public class Monitor.HwmonPathsVoltage : Object {
+    // voltage channel label
+    public string label;
+
+    // in0_input: the voltage on the GPU in millivolts
+    // in1_input: the voltage on the Northbridge in millivolts
+    public string input;
+}

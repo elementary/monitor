@@ -4,10 +4,10 @@ public interface SessionManager : Object {
     public abstract string renderer { owned get;}
 }
 
-
 public class Monitor.GPU : Object {
     private SessionManager? session_manager;
-    private TemperatureSensor temperature_sensor;
+
+    public Gee.HashMap<string, HwmonPathsTemperature> paths_temperatures;
 
     public string name {
         owned get {
@@ -29,13 +29,13 @@ public class Monitor.GPU : Object {
 
     public int memory_vram_used {
         get {
-            return int.parse ( get_sysfs_value ("/sys/class/drm/card0/device/mem_info_vram_used"));
+            return int.parse (get_sysfs_value ("/sys/class/drm/card0/device/mem_info_vram_used"));
         }
     }
 
     public double temperature {
         get {
-            return temperature_sensor.gpu / 1000;
+            return int.parse (get_sysfs_value (paths_temperatures.get ("edge").input)) / 1000;
         }
     }
 
@@ -49,12 +49,11 @@ public class Monitor.GPU : Object {
         } catch (IOError e) {
             warning (e.message);
         }
-        // Temperature sensor shouldn't be created here since it
-        // will provide not only a cpu temperature
-        temperature_sensor = new TemperatureSensor ();
 
         debug (session_manager.renderer);
     }
+
+
 
     private string get_sysfs_value (string path) {
         string content;
