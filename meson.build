@@ -157,6 +157,7 @@ executable(
     'src/Resources/GPU.vala',
 
     'src/Resources/Hwmon/HwmonPathsParser.vala',
+    'src/Resources/Hwmon/IHwmonInterfacePathsParser.vala',
     'src/Resources/Hwmon/HwmonCPUPathsParser.vala',
     'src/Resources/Hwmon/HwmonGPUPathsParser.vala',
     'src/Resources/Hwmon/HwmonIwlwifiPathsParser.vala',

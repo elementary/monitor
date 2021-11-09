@@ -71,14 +71,7 @@ class Monitor.HwmonPathParser : Object {
                 } else if (interface_name == "nvme") {
                     debug ("Found HWMON NVMe Interface: %s", interface_name);
 
-                    Dir hwmonx_dir = Dir.open (Path.build_filename (HWMON_PATH, hwmonx), 0);
-                    string ? hwmonx_prop = null;
-
-                    while (( hwmonx_prop = hwmonx_dir.read_name ()) != null) {
-                        nvme_paths_parser.add_path (Path.build_filename (HWMON_PATH, hwmonx, hwmonx_prop));
-                    }
-
-                    nvme_paths_parser.parse ();
+                    this.parse (nvme_paths_parser, hwmonx);
                 } else if (interface_name == "iwlwifi_1") {
                     debug ("Found HWMON iwlwifi Interface: %s", interface_name);
 
@@ -97,6 +90,17 @@ class Monitor.HwmonPathParser : Object {
         } catch (FileError e) {
             warning ("Could not open dir: %s", e.message);
         }
+    }
+
+    private void parse (IHwmonInterfacePathsParser parser, string hwmonx) {
+        Dir hwmonx_dir = Dir.open (Path.build_filename (HWMON_PATH, hwmonx), 0);
+        string ? hwmonx_prop = null;
+
+        while (( hwmonx_prop = hwmonx_dir.read_name ()) != null) {
+            parser.add_path (Path.build_filename (HWMON_PATH, hwmonx, hwmonx_prop));
+        }
+
+        parser.parse ();
     }
 
 
