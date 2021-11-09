@@ -1,6 +1,6 @@
-public class Monitor.HwmonGPUPathsParser : Object {
+public class Monitor.HwmonPathsParserGPU: Object, IHwmonPathsParserInterface {
 
-    public string name;
+    public string name { get; protected set; }
 
     private Gee.HashMap<int, HwmonPathsTemperature> _paths_temperatures = new Gee.HashMap<int, HwmonPathsTemperature> ();
     public Gee.HashMap<string, HwmonPathsTemperature> paths_temperatures = new Gee.HashMap<string, HwmonPathsTemperature> ();
@@ -17,10 +17,10 @@ public class Monitor.HwmonGPUPathsParser : Object {
 
     public Gee.HashMap<int, HwmonPathsPower> paths_powers = new Gee.HashMap<int, HwmonPathsPower> ();
 
-    private Gee.HashSet<string> all_paths = new Gee.HashSet<string> ();
+    protected Gee.HashSet<string> all_paths { get; protected set; }
 
     construct {
-
+        all_paths = new Gee.HashSet<string> ();
     }
 
     public void parse () {
@@ -147,20 +147,5 @@ public class Monitor.HwmonGPUPathsParser : Object {
         debug ("✨ Parsed HWMON GPU PWM interfaces: %d", paths_pwms.size);
         debug ("💪 Parsed HWMON GPU power interfaces: %d", paths_powers.size);
 
-    }
-
-    public void add_path (string path) {
-        all_paths.add (path);
-    }
-
-    private string open_file (string filename) {
-        try {
-            string read;
-            FileUtils.get_contents (filename, out read);
-            return read.replace ("\n", "");
-        } catch (FileError e) {
-            warning ("%s", e.message);
-            return "";
-        }
     }
 }

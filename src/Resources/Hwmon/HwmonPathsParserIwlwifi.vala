@@ -1,4 +1,4 @@
-public class Monitor.HwmonNVMePathsParser : Object, IHwmonInterfacePathsParser {
+public class Monitor.HwmonPathsParserIwlwifi : Object, IHwmonPathsParserInterface {
 
     public string name { get; protected set; }
 
@@ -17,7 +17,7 @@ public class Monitor.HwmonNVMePathsParser : Object, IHwmonInterfacePathsParser {
             if (basename.contains ("name")) {
                 this.name = basename;
             } else if (basename.contains ("temp")) {
-                debug ("Found HWMON NVMe temperature interface path: %s", basename);
+                debug ("Found HWMON iwlwifi temperature interface path: %s", basename);
                 if (!_paths_temperatures.has_key (basename[4])) {
                     _paths_temperatures.set (basename[4], new HwmonPathsTemperature ());
                 }
@@ -41,8 +41,13 @@ public class Monitor.HwmonNVMePathsParser : Object, IHwmonInterfacePathsParser {
         }
 
         foreach (var paths_holder in _paths_temperatures.values) {
-            paths_temperatures.set (open_file (paths_holder.label), paths_holder);
-            debug ("🌡️ Parsed HWMON NVMe temperature interface: %s", open_file (paths_holder.label));
+            if (paths_holder.label != null) {
+                this.paths_temperatures.set (paths_holder.label, paths_holder);
+            } else {
+                // let's just hope that there is always one temp_input per iwlwifi
+                paths_temperatures.set (this.name, paths_holder);
+            }
+            debug ("🌡️ Parsed HWMON iwlwifi temperature interface.");
         }
     }
 }

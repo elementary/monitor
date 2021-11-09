@@ -1,14 +1,14 @@
-public class Monitor.HwmonCPUPathsParser : Object {
+public class Monitor.HwmonPathsParserNVMe : Object, IHwmonPathsParserInterface {
 
-    public string name;
+    public string name { get; protected set; }
 
     private Gee.HashMap<int, HwmonPathsTemperature> _paths_temperatures = new Gee.HashMap<int, HwmonPathsTemperature> ();
     public Gee.HashMap<string, HwmonPathsTemperature> paths_temperatures = new Gee.HashMap<string, HwmonPathsTemperature> ();
 
-    private Gee.HashSet<string> all_paths = new Gee.HashSet<string> ();
+    protected Gee.HashSet<string> all_paths { get; protected set; }
 
     construct {
-
+        all_paths = new Gee.HashSet<string> ();
     }
 
     public void parse () {
@@ -17,7 +17,7 @@ public class Monitor.HwmonCPUPathsParser : Object {
             if (basename.contains ("name")) {
                 this.name = basename;
             } else if (basename.contains ("temp")) {
-                debug ("Found HWMON CPU temperature interface path: %s", basename);
+                debug ("Found HWMON NVMe temperature interface path: %s", basename);
                 if (!_paths_temperatures.has_key (basename[4])) {
                     _paths_temperatures.set (basename[4], new HwmonPathsTemperature ());
                 }
@@ -42,22 +42,7 @@ public class Monitor.HwmonCPUPathsParser : Object {
 
         foreach (var paths_holder in _paths_temperatures.values) {
             paths_temperatures.set (open_file (paths_holder.label), paths_holder);
-            debug ("🌡️ Parsed HWMON CPU temperature interface: %s", open_file (paths_holder.label));
-        }
-    }
-
-    public void add_path (string path) {
-        all_paths.add (path);
-    }
-
-    private string open_file (string filename) {
-        try {
-            string read;
-            FileUtils.get_contents (filename, out read);
-            return read.replace ("\n", "");
-        } catch (FileError e) {
-            warning ("%s", e.message);
-            return "";
+            debug ("🌡️ Parsed HWMON NVMe temperature interface: %s", open_file (paths_holder.label));
         }
     }
 }

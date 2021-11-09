@@ -1,4 +1,4 @@
-public interface  Monitor.IHwmonInterfacePathsParser : Object {
+public interface Monitor.IHwmonPathsParserInterface : Object {
 
     public abstract string name { get; protected set; }
 
