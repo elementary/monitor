@@ -2,7 +2,6 @@ public class Monitor.CPU : Object {
     private float last_used;
     private float last_total;
     private float load;
-    private TemperatureSensor temperature_sensor;
 
     public string ? model_name;
     public string ? model;
@@ -13,6 +12,8 @@ public class Monitor.CPU : Object {
     public string ? bogomips;
     public string ? bugs;
     public string ? address_sizes;
+
+    public Gee.HashMap<string, HwmonPathsTemperature> paths_temperatures;
 
     GTop.Cpu ? cpu;
 
@@ -34,7 +35,11 @@ public class Monitor.CPU : Object {
 
     public double temperature {
         get {
-            return temperature_sensor.cpu / 1000;
+            if (paths_temperatures.has_key ("Tdie")) {
+                return int.parse (get_sysfs_value (paths_temperatures.get ("Tdie").input)) / 1000;
+            } else {
+                return 0.0;
+            }
         }
     }
 
@@ -54,9 +59,7 @@ public class Monitor.CPU : Object {
             core_list.add (core);
         }
 
-        // Temperature sensor shouldn't be created here since it
-        // will provide not only a cpu temperature
-        temperature_sensor = new TemperatureSensor ();
+
     }
 
     public void update () {
@@ -188,5 +191,16 @@ public class Monitor.CPU : Object {
         }
 
         return Utils.Strings.beautify (result);
+    }
+
+    private string get_sysfs_value (string path) {
+        string content;
+        try {
+            FileUtils.get_contents (path, out content);
+        } catch (Error e) {
+            warning (e.message);
+            content = "0";
+        }
+        return content;
     }
 }
