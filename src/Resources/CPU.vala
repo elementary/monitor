@@ -35,8 +35,10 @@ public class Monitor.CPU : Object {
 
     public double temperature {
         get {
-            if (paths_temperatures.has_key ("Tdie")) {
+            if (paths_temperatures.has_key ("Tdie") ) {
                 return int.parse (get_sysfs_value (paths_temperatures.get ("Tdie").input)) / 1000;
+            } else if (paths_temperatures.has_key ("k10temp")) {
+                return int.parse (get_sysfs_value (paths_temperatures.get ("k10temp").input)) / 1000;
             } else {
                 return 0.0;
             }

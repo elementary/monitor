@@ -46,9 +46,9 @@ public class Monitor.HwmonPathsParserCPU : Object, IHwmonPathsParserInterface {
                 this.paths_temperatures.set (paths_holder.label, paths_holder);
                 debug ("🌡️ Parsed HWMON CPU temperature interface: %s", open_file (paths_holder.label));
             } else {
-                // let's just hope that there is always one temp_input per iwlwifi
+
                 paths_temperatures.set (this.name, paths_holder);
-                debug ("🌡️ Parsed HWMON CPU temperature interface.");
+                debug ("🌡️ Parsed HWMON CPU temperature interface %s", this.name);
             }
         }
     }
