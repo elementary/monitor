@@ -65,7 +65,7 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
 
         set_main_chart_overlay (grid_core_labels ());
 
-        cpu_temperature_chart = new Chart (cpu.paths_temperatures.size);
+        cpu_temperature_chart = new Chart (cpu.temperatures.size);
         cpu_temperature_chart.height_request = -1;
         grid_temperature_info.attach (cpu_temperature_chart, 0, 0, 1, 1);
     }

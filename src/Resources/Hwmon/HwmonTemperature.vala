@@ -3,14 +3,14 @@
 // Learn more: https://www.kernel.org/doc/html/v5.11/gpu/amdgpu.html#hwmon-interfaces
 
 [Compact]
-public class Monitor.HwmonPathsTemperature : Object {
+public class Monitor.HwmonTemperature : Object {
     // temperature channel label
     // temp2_label and temp3_label are supported on SOC15 dGPUs only
     public string _label;
-    public string label { 
-        owned get {
+    public string label {
+        get {
             if (_label == null) return "";
-            return open_file (_label);
+            return _label;
         }
         set {
             _label = value;
@@ -19,7 +19,7 @@ public class Monitor.HwmonPathsTemperature : Object {
     // the on die temperature in millidegrees Celsius
     // temp2_input and temp3_input are supported on SOC15 dGPUs only
     private string _input;
-    public string input { 
+    public string input {
         owned get {
             return open_file (_input);
         }

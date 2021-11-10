@@ -13,7 +13,7 @@ public class Monitor.CPU : Object {
     public string ? bugs;
     public string ? address_sizes;
 
-    public Gee.HashMap<string, HwmonPathsTemperature> paths_temperatures;
+    public Gee.HashMap<string, HwmonTemperature> temperatures;
 
     GTop.Cpu ? cpu;
 
@@ -35,13 +35,13 @@ public class Monitor.CPU : Object {
     public double temperature_mean {
         get {
             double summed = 0;
-            foreach (var temperature in paths_temperatures.values) {
+            foreach (var temperature in temperatures.values) {
 
                 // checking if AMD Ryzen; in AMD Ryzen we only want Tdie
                 if (temperature.label == "Tdie") return double.parse (temperature.input) / 1000;
                 summed += double.parse (temperature.input) / 1000;
             }
-            return summed / paths_temperatures.size;
+            return summed / temperatures.size;
         }
     }
 
