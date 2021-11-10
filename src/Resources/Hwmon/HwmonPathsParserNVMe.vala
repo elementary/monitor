@@ -41,8 +41,8 @@ public class Monitor.HwmonPathsParserNVMe : Object, IHwmonPathsParserInterface {
         }
 
         foreach (var paths_holder in _paths_temperatures.values) {
-            paths_temperatures.set (open_file (paths_holder.label), paths_holder);
-            debug ("🌡️ Parsed HWMON NVMe temperature interface: %s", open_file (paths_holder.label));
+            paths_temperatures.set (paths_holder.label, paths_holder);
+            debug ("🌡️ Parsed HWMON NVMe temperature interface: %s", paths_holder.label);
         }
     }
 }

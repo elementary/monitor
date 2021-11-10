@@ -32,16 +32,16 @@ public class Monitor.CPU : Object {
             return (double) (_frequency / 1000000);
         }
     }
-
-    public double temperature {
+    public double temperature_mean {
         get {
-            if (paths_temperatures.has_key ("Tdie") ) {
-                return int.parse (get_sysfs_value (paths_temperatures.get ("Tdie").input)) / 1000;
-            } else if (paths_temperatures.has_key ("k10temp")) {
-                return int.parse (get_sysfs_value (paths_temperatures.get ("k10temp").input)) / 1000;
-            } else {
-                return 0.0;
+            double summed = 0;
+            foreach (var temperature in paths_temperatures.values) {
+
+                // checking if AMD Ryzen; in AMD Ryzen we only want Tdie
+                if (temperature.label == "Tdie") return double.parse (temperature.input) / 1000;
+                summed += double.parse (temperature.input) / 1000;
             }
+            return summed / paths_temperatures.size;
         }
     }
 

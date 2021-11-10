@@ -43,7 +43,7 @@ public class Monitor.HwmonPathsParserIwlwifi : Object, IHwmonPathsParserInterfac
         foreach (var paths_holder in _paths_temperatures.values) {
             if (paths_holder.label != null) {
                 this.paths_temperatures.set (paths_holder.label, paths_holder);
-                debug ("🌡️ Parsed HWMON iwlwifi temperature interface: %s", open_file (paths_holder.label));
+                debug ("🌡️ Parsed HWMON iwlwifi temperature interface: %s", paths_holder.label);
 
             } else {
                 // let's just hope that there is always one temp_input per iwlwifi

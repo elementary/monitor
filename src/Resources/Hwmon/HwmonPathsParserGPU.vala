@@ -27,12 +27,11 @@ public class Monitor.HwmonPathsParserGPU: Object, IHwmonPathsParserInterface {
         foreach (var path in all_paths) {
             var basename = Path.get_basename (path);
             if (basename.contains ("name")) {
-                this.name = basename;
+                this.name = open_file (path);
             } else if (basename.contains ("temp")) {
                 debug ("Found HWMON GPU temperature interface path: %s", basename);
                 if (!_paths_temperatures.has_key (basename[4])) {
                     _paths_temperatures.set (basename[4], new HwmonPathsTemperature ());
-                    //  debug ("- Created struct");
                 }
 
                 if (basename.contains ("label")) {
@@ -129,18 +128,18 @@ public class Monitor.HwmonPathsParserGPU: Object, IHwmonPathsParserInterface {
         }
 
         foreach (var paths_holder in _paths_temperatures.values) {
-            paths_temperatures.set (open_file (paths_holder.label), paths_holder);
-            debug ("🌡️ Parsed HWMON GPU temperature interface: %s", open_file (paths_holder.label));
+            paths_temperatures.set (paths_holder.label, paths_holder);
+            debug ("🌡️ Parsed HWMON GPU temperature interface: %s", paths_holder.label);
         }
 
         foreach (var paths_holder in _paths_voltages.values) {
-            paths_voltages.set (open_file (paths_holder.label), paths_holder);
+            paths_voltages.set (paths_holder.label, paths_holder);
             debug ("⚡ Parsed HWMON GPU voltage interface: %s", open_file (paths_holder.label));
         }
 
         foreach (var paths_holder in _paths_frequencies.values) {
-            paths_frequencies.set (open_file (paths_holder.label), paths_holder);
-            debug ("⏰ Parsed HWMON GPU frequency interface: %s", open_file (paths_holder.label));
+            paths_frequencies.set (paths_holder.label, paths_holder);
+            debug ("⏰ Parsed HWMON GPU frequency interface: %s", paths_holder.label);
         }
 
         debug ("💨 Parsed HWMON GPU fan interfaces: %d", paths_fans.size);

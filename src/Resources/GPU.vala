@@ -35,7 +35,7 @@ public class Monitor.GPU : Object {
 
     public double temperature {
         get {
-            return int.parse (get_sysfs_value (paths_temperatures.get ("edge").input)) / 1000;
+            return double.parse (paths_temperatures.get ("edge").input) / 1000;
         }
     }
 

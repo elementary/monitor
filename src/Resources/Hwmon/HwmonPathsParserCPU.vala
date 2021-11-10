@@ -42,8 +42,8 @@ public class Monitor.HwmonPathsParserCPU : Object, IHwmonPathsParserInterface {
 
         foreach (var paths_holder in _paths_temperatures.values) {
             if (paths_holder.label != null) {
-                this.paths_temperatures.set (open_file (paths_holder.label), paths_holder);
-                debug ("🌡️ Parsed HWMON CPU temperature interface: %s", open_file (paths_holder.label));
+                this.paths_temperatures.set (paths_holder.label, paths_holder);
+                debug ("🌡️ Parsed HWMON CPU temperature interface: %s", paths_holder.label);
             } else {
 
                 paths_temperatures.set (this.name, paths_holder);
