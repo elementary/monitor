@@ -155,6 +155,20 @@ executable(
     'src/Resources/Storage.vala',
     'src/Resources/Drive.vala',
     'src/Resources/GPU.vala',
+
+    'src/Resources/Hwmon/HwmonPathsParser.vala',
+    'src/Resources/Hwmon/IHwmonPathsParserInterface.vala',
+    'src/Resources/Hwmon/HwmonPathsParserCPU.vala',
+    'src/Resources/Hwmon/HwmonPathsParserGPU.vala',
+    'src/Resources/Hwmon/HwmonPathsParserIwlwifi.vala',
+    'src/Resources/Hwmon/HwmonPathsParserNVMe.vala',
+    'src/Resources/Hwmon/HwmonPathsTemperature.vala',
+    'src/Resources/Hwmon/HwmonPathsVoltage.vala',
+    'src/Resources/Hwmon/HwmonPathsFrequency.vala',
+    'src/Resources/Hwmon/HwmonPathsFan.vala',
+    'src/Resources/Hwmon/HwmonPathsPWM.vala',
+    'src/Resources/Hwmon/HwmonPathsPower.vala',
+
     c_args: c_args,
     dependencies: [
         glib,
