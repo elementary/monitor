@@ -162,12 +162,12 @@ executable(
     'src/Resources/Hwmon/HwmonPathsParserGPU.vala',
     'src/Resources/Hwmon/HwmonPathsParserIwlwifi.vala',
     'src/Resources/Hwmon/HwmonPathsParserNVMe.vala',
-    'src/Resources/Hwmon/HwmonPathsTemperature.vala',
-    'src/Resources/Hwmon/HwmonPathsVoltage.vala',
-    'src/Resources/Hwmon/HwmonPathsFrequency.vala',
-    'src/Resources/Hwmon/HwmonPathsFan.vala',
-    'src/Resources/Hwmon/HwmonPathsPWM.vala',
-    'src/Resources/Hwmon/HwmonPathsPower.vala',
+    'src/Resources/Hwmon/HwmonTemperature.vala',
+    'src/Resources/Hwmon/HwmonVoltage.vala',
+    'src/Resources/Hwmon/HwmonFrequency.vala',
+    'src/Resources/Hwmon/HwmonFan.vala',
+    'src/Resources/Hwmon/HwmonPWM.vala',
+    'src/Resources/Hwmon/HwmonPower.vala',
 
     c_args: c_args,
     dependencies: [

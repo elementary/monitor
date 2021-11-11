@@ -8,6 +8,8 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
     private LabelRoundy cpu_frequency_label;
     private LabelRoundy cpu_temperature_label;
 
+    private Gtk.Grid grid_temperature_info = new Gtk.Grid ();
+
     private Gee.ArrayList<Gtk.Label ? > core_label_list;
 
     construct {
@@ -28,16 +30,15 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         cpu_frequency_chart = new Chart (1);
         cpu_frequency_chart.height_request = -1;
         cpu_frequency_chart.config.y_axis.fixed_max = 5.0;
-        cpu_temperature_chart = new Chart (1);
-        cpu_temperature_chart.height_request = -1;
+
+
+
 
         var grid_frequency_info = new Gtk.Grid ();
         grid_frequency_info.attach (cpu_frequency_label, 0, 0, 1, 1);
         grid_frequency_info.attach (cpu_frequency_chart, 0, 0, 1, 1);
 
-        var grid_temperature_info = new Gtk.Grid ();
         grid_temperature_info.attach (cpu_temperature_label, 0, 0, 1, 1);
-        grid_temperature_info.attach (cpu_temperature_chart, 0, 0, 1, 1);
 
 
 
@@ -63,11 +64,23 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         set_main_chart (cpu_utilization_chart);
 
         set_main_chart_overlay (grid_core_labels ());
+
+        cpu_temperature_chart = new Chart (cpu.temperatures.size);
+        cpu_temperature_chart.height_request = -1;
+        grid_temperature_info.attach (cpu_temperature_chart, 0, 0, 1, 1);
     }
 
     public void update () {
         cpu_frequency_chart.update (0, cpu.frequency);
-        cpu_temperature_chart.update (0, cpu.temperature);
+
+        //  int temperature_index = 0;
+        //  foreach (var temperature in cpu.paths_temperatures.values) {
+        //      debug (temperature.input);
+        //      cpu_temperature_chart.update (temperature_index, int.parse (temperature.input) / 1000);
+        //      temperature_index++;
+        //  }
+        cpu_temperature_chart.update (0, cpu.temperature_mean);
+        cpu_temperature_label.set_text (("%.2f %s").printf (cpu.temperature_mean, _("℃")));
 
         for (int i = 0; i < cpu.core_list.size; i++) {
             double core_percentage = cpu.core_list[i].percentage_used;
@@ -99,7 +112,6 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         }
         label_vertical_main_metric = ("%d%%").printf (cpu.percentage);
         cpu_frequency_label.set_text (("%.2f %s").printf (cpu.frequency, _("GHz")));
-        cpu_temperature_label.set_text (("%.2f %s").printf (cpu.temperature, _("℃")));
     }
 
     private Gtk.Grid grid_core_labels () {

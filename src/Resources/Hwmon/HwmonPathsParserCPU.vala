@@ -2,8 +2,8 @@ public class Monitor.HwmonPathsParserCPU : Object, IHwmonPathsParserInterface {
 
     public string name { get; protected set; }
 
-    private Gee.HashMap<int, HwmonPathsTemperature> _paths_temperatures = new Gee.HashMap<int, HwmonPathsTemperature> ();
-    public Gee.HashMap<string, HwmonPathsTemperature> paths_temperatures = new Gee.HashMap<string, HwmonPathsTemperature> ();
+    private Gee.HashMap<int, HwmonTemperature> _temperatures = new Gee.HashMap<int, HwmonTemperature> ();
+    public Gee.HashMap<string, HwmonTemperature> temperatures = new Gee.HashMap<string, HwmonTemperature> ();
 
     protected Gee.HashSet<string> all_paths { get; protected set; }
 
@@ -15,40 +15,39 @@ public class Monitor.HwmonPathsParserCPU : Object, IHwmonPathsParserInterface {
         foreach (var path in all_paths) {
             var basename = Path.get_basename (path);
             if (basename.contains ("name")) {
-                this.name = basename;
+                this.name = open_file (path);
             } else if (basename.contains ("temp")) {
                 debug ("Found HWMON CPU temperature interface path: %s", basename);
-                if (!_paths_temperatures.has_key (basename[4])) {
-                    _paths_temperatures.set (basename[4], new HwmonPathsTemperature ());
+                if (!_temperatures.has_key (basename[4])) {
+                    _temperatures.set (basename[4], new HwmonTemperature ());
                 }
 
                 if (basename.contains ("label")) {
-                    _paths_temperatures.get (basename[4]).label = path;
+                    _temperatures.get (basename[4]).label = open_file (path);
                 } else if (basename.contains ("input")) {
-                    _paths_temperatures.get (basename[4]).input = path;
+                    _temperatures.get (basename[4]).input = path;
                 } else if (basename.contains ("crit")) {
-                    _paths_temperatures.get (basename[4]).crit = path;
+                    _temperatures.get (basename[4]).crit = path;
                 } else if (basename.contains ("crit_hyst")) {
-                    _paths_temperatures.get (basename[4]).crit_hyst = path;
+                    _temperatures.get (basename[4]).crit_hyst = path;
                 } else if (basename.contains ("emergency")) {
-                    _paths_temperatures.get (basename[4]).emergency = path;
+                    _temperatures.get (basename[4]).emergency = path;
                 } else if (basename.contains ("max")) {
-                    _paths_temperatures.get (basename[4]).max = path;
+                    _temperatures.get (basename[4]).max = path;
                 } else if (basename.contains ("min")) {
-                    _paths_temperatures.get (basename[4]).min = path;
+                    _temperatures.get (basename[4]).min = path;
                 }
             }
         }
 
-        foreach (var paths_holder in _paths_temperatures.values) {
-            paths_temperatures.set (open_file (paths_holder.label), paths_holder);
-            if (paths_holder.label != null) {
-                this.paths_temperatures.set (paths_holder.label, paths_holder);
-                debug ("🌡️ Parsed HWMON CPU temperature interface: %s", open_file (paths_holder.label));
+        foreach (var holder in _temperatures.values) {
+            if (holder.label != null) {
+                this.temperatures.set (holder.label, holder);
+                debug ("🌡️ Parsed HWMON CPU temperature interface: %s", holder.label);
             } else {
-                // let's just hope that there is always one temp_input per iwlwifi
-                paths_temperatures.set (this.name, paths_holder);
-                debug ("🌡️ Parsed HWMON CPU temperature interface.");
+
+                temperatures.set (this.name, holder);
+                debug ("🌡️ Parsed HWMON CPU temperature interface %s", this.name);
             }
         }
     }
