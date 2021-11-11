@@ -1,6 +1,6 @@
 class Monitor.HwmonPathParser : Object {
-    //  private const string HWMON_PATH = "/sys/class/hwmon";
-    private const string HWMON_PATH = "/home/stsdc/test";
+    private const string HWMON_PATH = "/sys/class/hwmon";
+    //  private const string HWMON_PATH = "/home/stsdc/test";
 
     public HwmonPathsParserGPU gpu_paths_parser = new HwmonPathsParserGPU ();
     public HwmonPathsParserNVMe nvme_paths_parser = new HwmonPathsParserNVMe ();
