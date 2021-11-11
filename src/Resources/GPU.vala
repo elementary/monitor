@@ -9,6 +9,8 @@ public class Monitor.GPU : Object {
 
     public Gee.HashMap<string, HwmonTemperature> temperatures;
 
+    public string hwmon_module_name;
+
     public string name {
         owned get {
             return session_manager.renderer.split ("(", 2)[0];

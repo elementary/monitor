@@ -16,11 +16,12 @@ public class Monitor.Resources : Object {
         swap = new Swap ();
         network = new Network ();
         storage = new Storage ();
-        gpu = new GPU ();
-        gpu.temperatures = hwmon_path_parser.gpu_paths_parser.temperatures;
-        cpu.temperatures = hwmon_path_parser.cpu_paths_parser.temperatures;
 
-
+        if (hwmon_path_parser.gpu_paths_parser.name == "amdgpu") {
+            gpu = new GPU ();
+            gpu.temperatures = hwmon_path_parser.gpu_paths_parser.temperatures;
+            cpu.temperatures = hwmon_path_parser.cpu_paths_parser.temperatures;
+        }
     }
 
     public void update () {
