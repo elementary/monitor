@@ -7,7 +7,9 @@ public interface SessionManager : Object {
 public class Monitor.GPU : Object {
     private SessionManager? session_manager;
 
-    public Gee.HashMap<string, HwmonPathsTemperature> paths_temperatures;
+    public Gee.HashMap<string, HwmonTemperature> temperatures;
+
+    public string hwmon_module_name;
 
     public string name {
         owned get {
@@ -35,7 +37,7 @@ public class Monitor.GPU : Object {
 
     public double temperature {
         get {
-            return int.parse (get_sysfs_value (paths_temperatures.get ("edge").input)) / 1000;
+            return double.parse (temperatures.get ("edge").input) / 1000;
         }
     }
 

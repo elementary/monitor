@@ -2,7 +2,7 @@
 // Learn more: https://www.kernel.org/doc/html/v5.11/gpu/amdgpu.html#hwmon-interfaces
 
 [Compact]
-public class Monitor.HwmonPathsFan : Object {
+public class Monitor.HwmonFan : Object {
     // fan speed in RPM
     public string input;
 

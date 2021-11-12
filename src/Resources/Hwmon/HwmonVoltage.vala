@@ -2,7 +2,7 @@
 // Learn more: https://www.kernel.org/doc/html/v5.11/gpu/amdgpu.html#hwmon-interfaces
 
 [Compact]
-public class Monitor.HwmonPathsVoltage : Object {
+public class Monitor.HwmonVoltage : Object {
     // voltage channel label
     public string label;
 
