@@ -13,7 +13,7 @@ public class Monitor.CPU : Object {
     public string ? bugs;
     public string ? address_sizes;
 
-    public Gee.HashMap<string, HwmonPathsTemperature> paths_temperatures;
+    public Gee.HashMap<string, HwmonTemperature> temperatures;
 
     GTop.Cpu ? cpu;
 
@@ -32,16 +32,24 @@ public class Monitor.CPU : Object {
             return (double) (_frequency / 1000000);
         }
     }
-
-    public double temperature {
+    public double temperature_mean {
         get {
-            if (paths_temperatures.has_key ("Tdie") ) {
-                return int.parse (get_sysfs_value (paths_temperatures.get ("Tdie").input)) / 1000;
-            } else if (paths_temperatures.has_key ("k10temp")) {
-                return int.parse (get_sysfs_value (paths_temperatures.get ("k10temp").input)) / 1000;
-            } else {
-                return 0.0;
+            double summed = 0;
+            int number_of_temperatures = temperatures.size;
+            foreach (var temperature in temperatures.values) {
+
+                // checking if AMD Ryzen; in AMD Ryzen we only want Tdie
+                if (temperature.label == "Tdie") return double.parse (temperature.input) / 1000;
+
+                // for Intel we want only temperatures of cores
+                if (temperature.label.contains ("Package")) {
+                    number_of_temperatures--;
+                    continue;
+                };
+
+                summed += double.parse (temperature.input) / 1000;
             }
+            return summed / number_of_temperatures;
         }
     }
 
