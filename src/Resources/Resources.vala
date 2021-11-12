@@ -21,6 +21,8 @@ public class Monitor.Resources : Object {
             gpu = new GPU ();
             gpu.temperatures = hwmon_path_parser.gpu_paths_parser.temperatures;
             cpu.temperatures = hwmon_path_parser.cpu_paths_parser.temperatures;
+        } else {
+            cpu.temperatures = hwmon_path_parser.cpu_paths_parser.temperatures;
         }
     }
 

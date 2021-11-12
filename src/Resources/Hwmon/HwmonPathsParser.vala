@@ -30,7 +30,6 @@ class Monitor.HwmonPathParser : Object {
             string ? hwmonx = null;
             while ((hwmonx = hwmon_dir.read_name ()) != null) {
                 string hwmonx_name = Path.build_filename (HWMON_PATH, hwmonx, "name");
-                debug ("HWMONX: %s", hwmonx);
                 string interface_name = open_file (hwmonx_name);
 
                 // thank u, next
@@ -79,7 +78,6 @@ class Monitor.HwmonPathParser : Object {
     private string open_file (string filename) {
         try {
             string read;
-            debug ("FILENAME: %s", filename);
             if (!FileUtils.test (filename, FileTest.IS_REGULAR)) return "";
             FileUtils.get_contents (filename, out read);
             return read.replace ("\n", "");
