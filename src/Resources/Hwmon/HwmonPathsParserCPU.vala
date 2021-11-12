@@ -16,6 +16,7 @@ public class Monitor.HwmonPathsParserCPU : Object, IHwmonPathsParserInterface {
             var basename = Path.get_basename (path);
             if (basename.contains ("name")) {
                 this.name = open_file (path);
+                debug("Interface name is: %s in %s", this.name, path);
             } else if (basename.contains ("temp")) {
                 debug ("Found HWMON CPU temperature interface path: %s", basename);
                 if (!_temperatures.has_key (basename[4])) {
@@ -47,7 +48,7 @@ public class Monitor.HwmonPathsParserCPU : Object, IHwmonPathsParserInterface {
             } else {
 
                 temperatures.set (this.name, holder);
-                debug ("🌡️ Parsed HWMON CPU temperature interface %s", this.name);
+                debug ("🌡️ Parsed HWMON CPU temperature interface: %s", this.name);
             }
         }
     }
