@@ -36,7 +36,7 @@ class Monitor.HwmonPathParser : Object {
                 if (interface_name == "") continue;
 
                 if (interface_name == "coretemp" || interface_name == "k10temp" || interface_name == "cpu_thermal") {
-                    debug ("Found HWMON CPU Interface: %s", interface_name);
+                    debug ("Found HWMON CPU Interface: %s in: %s", interface_name, hwmonx_name);
                     this.parse (cpu_paths_parser, hwmonx);
 
                 } else if (interface_name == "amdgpu") {
