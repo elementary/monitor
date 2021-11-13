@@ -35,21 +35,22 @@ public class Monitor.CPU : Object {
     public double temperature_mean {
         get {
             double summed = 0;
-            int number_of_temperatures = temperatures.size;
-            foreach (var temperature in temperatures.values) {
+                int number_of_temperatures = temperatures.size;
+                if (number_of_temperatures == 0) return 0.0;
+                foreach (var temperature in temperatures.values) {
 
-                // checking if AMD Ryzen; in AMD Ryzen we only want Tdie
-                if (temperature.label == "Tdie") return double.parse (temperature.input) / 1000;
+                    // checking if AMD Ryzen; in AMD Ryzen we only want Tdie
+                    if (temperature.label == "Tdie") return double.parse (temperature.input) / 1000;
 
-                // for Intel we want only temperatures of cores
-                if (temperature.label.contains ("Package")) {
-                    number_of_temperatures--;
-                    continue;
-                };
+                    // for Intel we want only temperatures of cores
+                    if (temperature.label.contains ("Package")) {
+                        number_of_temperatures--;
+                        continue;
+                    };
 
-                summed += double.parse (temperature.input) / 1000;
-            }
-            return summed / number_of_temperatures;
+                    summed += double.parse (temperature.input) / 1000;
+                }
+                return summed / number_of_temperatures;
         }
     }
 

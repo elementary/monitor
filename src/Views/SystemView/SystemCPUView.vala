@@ -65,7 +65,8 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
 
         set_main_chart_overlay (grid_core_labels ());
 
-        cpu_temperature_chart = new Chart (cpu.temperatures.size);
+        cpu_temperature_chart = new Chart (1);
+
         cpu_temperature_chart.height_request = -1;
         grid_temperature_info.attach (cpu_temperature_chart, 0, 0, 1, 1);
     }
@@ -78,7 +79,7 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         //      debug (temperature.input);
         //      cpu_temperature_chart.update (temperature_index, int.parse (temperature.input) / 1000);
         //      temperature_index++;
-        //  }
+        //  }]
         cpu_temperature_chart.update (0, cpu.temperature_mean);
         cpu_temperature_label.set_text (("%.2f %s").printf (cpu.temperature_mean, _("℃")));
 

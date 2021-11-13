@@ -23,7 +23,6 @@ public class Monitor.Resources : Object {
             gpu = new GPU ();
             gpu.temperatures = hwmon_path_parser.gpu_paths_parser.temperatures;
         }
-        
     }
 
     public void update () {

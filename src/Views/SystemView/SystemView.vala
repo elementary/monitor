@@ -33,9 +33,10 @@ public class Monitor.SystemView : Gtk.Box {
         wrapper.add (network_view);
         wrapper.add (storage_view);
 
-        if (resources.gpu != null)
+        if (resources.gpu != null) {
             gpu_view = new SystemGPUView (resources.gpu);
             wrapper.add (gpu_view);
+        }
 
         add (scrolled_window);
     }
