@@ -37,7 +37,7 @@ class Monitor.HwmonPathParser : Object {
                 if (interface_name == "") continue;
 
                 if (interface_name == "coretemp" || interface_name == "k10temp" || interface_name == "cpu_thermal") {
-                    debug ("Found HWMON CPU Interface: %s", interface_name);
+                    debug ("Found HWMON CPU Interface: %s in: %s", interface_name, hwmonx_name);
                     this.parse (cpu_paths_parser, hwmonx);
 
                 } else if (interface_name == "amdgpu") {
@@ -75,6 +75,7 @@ class Monitor.HwmonPathParser : Object {
     private string open_file (string filename) {
         try {
             string read;
+            if (!FileUtils.test (filename, FileTest.IS_REGULAR)) return "";
             FileUtils.get_contents (filename, out read);
             return read.replace ("\n", "");
         } catch (FileError e) {
