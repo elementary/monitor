@@ -9,6 +9,7 @@ public class Monitor.Headerbar : Hdy.HeaderBar {
     private Gtk.CheckButton indicator_network_down_check;
 
     public Search search;
+    public Gtk.Grid preferences_grid;
 
     construct {
         show_close_button = true;
@@ -25,11 +26,9 @@ public class Monitor.Headerbar : Hdy.HeaderBar {
         preferences_button.set_image (new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR));
         pack_end (preferences_button);
 
-        var preferences_grid = new Gtk.Grid ();
-        preferences_grid.margin = 6;
-        preferences_grid.row_spacing = 6;
-        preferences_grid.column_spacing = 12;
-        preferences_grid.orientation = Gtk.Orientation.VERTICAL;
+        preferences_grid = new Gtk.Grid () {
+            orientation = Gtk.Orientation.VERTICAL
+        };
 
         var preferences_popover = new Gtk.Popover (null);
         preferences_popover.add (preferences_grid);
@@ -71,10 +70,10 @@ public class Monitor.Headerbar : Hdy.HeaderBar {
         indicator_network_down_check = new Gtk.CheckButton ();
         indicator_network_down_check.active = MonitorApp.settings.get_boolean ("indicator-network-down-state");
 
-        preferences_grid.attach (indicator_label, 0, 0, 1, 1);
-        preferences_grid.attach (show_indicator_switch, 1, 0, 1, 1);
-        preferences_grid.attach (background_label, 0, 1, 1, 1);
-        preferences_grid.attach (background_switch, 1, 1, 1, 1);
+        //  preferences_grid.attach (indicator_label, 0, 0, 1, 1);
+        //  preferences_grid.attach (show_indicator_switch, 1, 0, 1, 1);
+        //  preferences_grid.attach (background_label, 0, 1, 1, 1);
+        //  preferences_grid.attach (background_switch, 1, 1, 1, 1);
 
         // Settings popup needs design.
         // Also not sure about new network indicator.
@@ -98,12 +97,12 @@ public class Monitor.Headerbar : Hdy.HeaderBar {
         search.valign = Gtk.Align.CENTER;
         pack_start (search);
 
-        show_indicator_switch.notify["active"].connect (() => {
-            MonitorApp.settings.set_boolean ("indicator-state", show_indicator_switch.state);
-            window.dbusserver.indicator_state (show_indicator_switch.state);
-            set_background_switch_state ();
-            set_indicators_check_sensitive ();
-        });
+        //  show_indicator_switch.notify["active"].connect (() => {
+        //      MonitorApp.settings.set_boolean ("indicator-state", show_indicator_switch.state);
+        //      window.dbusserver.indicator_state (show_indicator_switch.state);
+        //      set_background_switch_state ();
+        //      set_indicators_check_sensitive ();
+        //  });
         indicator_cpu_check.notify["active"].connect (() => {
             MonitorApp.settings.set_boolean ("indicator-cpu-state", indicator_cpu_check.active);
             window.dbusserver.indicator_cpu_state (indicator_cpu_check.active);
