@@ -1,6 +1,6 @@
 class Monitor.HwmonPathParser : Object {
     private const string HWMON_PATH = "/sys/class/hwmon";
-    //  private const string HWMON_PATH = "/home/stsdc/test";
+    //  private const string HWMON_PATH = "/home/stsdc/test2";
 
     public HwmonPathsParserGPU gpu_paths_parser = new HwmonPathsParserGPU ();
     public HwmonPathsParserNVMe nvme_paths_parser = new HwmonPathsParserNVMe ();
@@ -36,7 +36,10 @@ class Monitor.HwmonPathParser : Object {
                 // thank u, next
                 if (interface_name == "") continue;
 
-                if (interface_name == "coretemp" || interface_name == "k10temp" || interface_name == "cpu_thermal") {
+                if (interface_name == "coretemp" ||
+                    interface_name == "k10temp" ||
+                    interface_name == "cpu_thermal"
+                ) {
                     debug ("Found HWMON CPU Interface: %s in: %s", interface_name, hwmonx_name);
                     this.parse (cpu_paths_parser, hwmonx);
 

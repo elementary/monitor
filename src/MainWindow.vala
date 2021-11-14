@@ -43,15 +43,11 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
         headerbar = new Headerbar (this);
         headerbar.set_custom_title (stack_switcher);
-        //  set_titlebar (headerbar);
+        var sv = new PreferencesView ();
+        headerbar.preferences_grid.add (sv);
+        sv.show_all ();
 
         statusbar = new Statusbar ();
-
-        //  var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        //  main_box.pack_start (headerbar, false, false, 0);
-        //  main_box.pack_start (stack, true, true, 0);
-        //  main_box.pack_start (statusbar, false, true, 0);
-        //  this.add (main_box);
 
         var grid = new Gtk.Grid () {
             orientation = Gtk.Orientation.VERTICAL

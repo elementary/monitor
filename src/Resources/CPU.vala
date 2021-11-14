@@ -203,15 +203,4 @@ public class Monitor.CPU : Object {
 
         return Utils.Strings.beautify (result);
     }
-
-    private string get_sysfs_value (string path) {
-        string content;
-        try {
-            FileUtils.get_contents (path, out content);
-        } catch (Error e) {
-            warning (e.message);
-            content = "0";
-        }
-        return content;
-    }
 }
