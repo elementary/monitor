@@ -33,16 +33,6 @@ public class Monitor.Headerbar : Hdy.HeaderBar {
         preferences_popover.add (preferences_grid);
         preferences_button.popover = preferences_popover;
 
-        //  var indicator_label = new Gtk.Label (_("Show an indicator:"));
-        //  indicator_label.halign = Gtk.Align.END;
-
-        //  show_indicator_switch = new Gtk.Switch ();
-        //  show_indicator_switch.state = MonitorApp.settings.get_boolean ("indicator-state");
-
-
-
-        //  var indicator_list_label = new Gtk.Label (_("Items in indicator:"));
-        //  indicator_list_label.halign = Gtk.Align.END;
 
         //  var indicator_network_up_label = new Gtk.Label (_("Network up"));
         //  indicator_network_up_check = new Gtk.CheckButton ();

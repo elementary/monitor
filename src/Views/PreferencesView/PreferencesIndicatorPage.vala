@@ -57,13 +57,40 @@
             dbusserver.indicator_temperature_state (temperature_switch.state);
         });
 
+        var network_upload_label = new Gtk.Label (_("Display network upload"));
+        network_upload_label.halign = Gtk.Align.START;
+        network_upload_label.xalign = 1;
+
+        var network_upload_switch = new Gtk.Switch ();
+        network_upload_switch.halign = Gtk.Align.END;
+        network_upload_switch.state = MonitorApp.settings.get_boolean ("indicator-network-upload-state");
+        network_upload_switch.notify["active"].connect (() => {
+            MonitorApp.settings.set_boolean ("indicator-network-upload-state", network_upload_switch.state);
+            dbusserver.indicator_network_up_state (network_upload_switch.state);
+        });
+
+        var network_download_label = new Gtk.Label (_("Display network download"));
+        network_download_label.halign = Gtk.Align.START;
+        network_download_label.xalign = 1;
+
+        var network_download_switch = new Gtk.Switch ();
+        network_download_switch.halign = Gtk.Align.END;
+        network_download_switch.state = MonitorApp.settings.get_boolean ("indicator-network-download-state");
+        network_download_switch.notify["active"].connect (() => {
+            MonitorApp.settings.set_boolean ("indicator-network-download-state", network_download_switch.state);
+            dbusserver.indicator_network_down_state (network_download_switch.state);
+        });
+
         content_area.attach (cpu_label, 0, 0, 1, 1);
         content_area.attach (cpu_percentage_switch, 1, 0, 1, 1);
         content_area.attach (memory_label, 0, 1, 1, 1);
         content_area.attach (memory_percentage_switch, 1, 1, 1, 1);
         content_area.attach (temperature_label, 0, 2, 1, 1);
         content_area.attach (temperature_switch, 1, 2, 1, 1);
-
+        content_area.attach (network_upload_label, 0, 3, 1, 1);
+        content_area.attach (network_upload_switch, 1, 3, 1, 1);
+        content_area.attach (network_download_label, 0, 4, 1, 1);
+        content_area.attach (network_download_switch, 1, 4, 1, 1);
         update_status ();
 
         status_switch.notify["active"].connect (update_status);

@@ -37,7 +37,6 @@
 
         background_switch.notify["active"].connect (() => {
             MonitorApp.settings.set_boolean ("background-state", background_switch.state);
-            //  MonitorApp.settings.set_boolean ("indicator-state", true);
         });
     }
 
