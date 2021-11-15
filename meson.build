@@ -105,6 +105,7 @@ executable(
 
     'src/Views/PreferencesView/PreferencesView.vala',
     'src/Views/PreferencesView/PreferencesIndicatorPage.vala',
+    'src/Views/PreferencesView/PreferencesGeneralPage.vala',
 
     'src/Views/SystemView/SystemView.vala',
     'src/Views/SystemView/SystemCPUView.vala',

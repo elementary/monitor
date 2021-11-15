@@ -5,13 +5,14 @@
 
  public class Monitor.PreferencesView : Gtk.Paned {
     construct {
-        var settings_page = new SimpleSettingsPage ();
+        var indicator_page = new SimpleSettingsPage ();
+        var general_page = new PreferencesGeneralPage ();
         height_request = 300;
         width_request = 500;
 
         var stack = new Gtk.Stack ();
-        stack.add_named (settings_page, "settings_page");
-        //  stack.add_named (settings_page_two, "settings_page_two");
+        //  stack.add_named (general_page, "general_page");
+        stack.add_named (indicator_page, "indicator_page");
 
         var settings_sidebar = new Granite.SettingsSidebar (stack);
 
