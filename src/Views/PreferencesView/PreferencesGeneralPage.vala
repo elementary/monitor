@@ -4,7 +4,7 @@
  */
 
  public class Monitor.PreferencesGeneralPage : Granite.SettingsPage {
-    private Gtk.Switch background_switch;
+    public Gtk.Switch background_switch;
 
     public PreferencesGeneralPage () {
 
@@ -37,15 +37,9 @@
 
         background_switch.notify["active"].connect (() => {
             MonitorApp.settings.set_boolean ("background-state", background_switch.state);
-            //  set_background_switch_state ();
+            //  MonitorApp.settings.set_boolean ("indicator-state", true);
         });
     }
 
-    //  private void set_background_switch_state () {
-    //      background_switch.sensitive = show_indicator_switch.active;
 
-    //      if (!show_indicator_switch.active) {
-    //          background_switch.state = false;
-    //      }
-    //  }
 }
