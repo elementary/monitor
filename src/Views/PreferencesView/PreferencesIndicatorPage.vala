@@ -3,10 +3,10 @@
  * SPDX-License-Identifier: LGPL-3.0-or-later
  */
 
- public class Monitor.SimpleSettingsPage : Granite.SimpleSettingsPage {
+ public class Monitor.PreferencesIndicatorPage : Granite.SimpleSettingsPage {
     private DBusServer dbusserver;
 
-    public SimpleSettingsPage () {
+    public PreferencesIndicatorPage () {
         Object (
             activatable: true,
             description: _("Show Indicator in Wingpanel"),
@@ -18,6 +18,7 @@
 
     construct {
         dbusserver = DBusServer.get_default ();
+        status_switch.set_active (MonitorApp.settings.get_boolean ("indicator-state"));
 
         var cpu_label = new Gtk.Label (_("Display CPU percentage"));
         cpu_label.halign = Gtk.Align.START;
@@ -72,11 +73,14 @@
         if (status_switch.active) {
             status_type = Granite.SettingsPage.StatusType.SUCCESS;
             status = _("Enabled");
+            MonitorApp.settings.set_boolean ("indicator-state", status_switch.active);
+            dbusserver.indicator_state (status_switch.state);
         } else {
             status_type = Granite.SettingsPage.StatusType.OFFLINE;
             status = _("Disabled");
+            MonitorApp.settings.set_boolean ("indicator-state", status_switch.active);
+            dbusserver.indicator_state (status_switch.state);
         }
-        MonitorApp.settings.set_boolean ("indicator-state", status_switch.state);
-        dbusserver.indicator_state (status_switch.state);
+
     }
 }
