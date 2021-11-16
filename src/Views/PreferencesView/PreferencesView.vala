@@ -14,15 +14,18 @@
 
         height_request = 300;
         width_request = 500;
+        set_position (135);
 
         var stack = new Gtk.Stack ();
-        stack.add_named (general_page, "general_page");
         stack.add_named (indicator_page, "indicator_page");
+        stack.add_named (general_page, "general_page");
 
-        var settings_sidebar = new Granite.SettingsSidebar (stack);
+        var settings_sidebar = new Granite.SettingsSidebar (stack) {
+            width_request = 135
+        };
 
-        add (settings_sidebar);
-        add (stack);
+        pack1 (settings_sidebar, true, false);
+        pack2 (stack, true, false);
     }
 
     private void set_background_switch_state () {
