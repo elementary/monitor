@@ -65,14 +65,19 @@ class Monitor.HwmonPathParser : Object {
     }
 
     private void parse (IHwmonPathsParserInterface parser, string hwmonx) {
-        Dir hwmonx_dir = Dir.open (Path.build_filename (HWMON_PATH, hwmonx), 0);
-        string ? hwmonx_prop = null;
+        try {
+            string ? hwmonx_prop = null;
+            Dir hwmonx_dir = Dir.open (Path.build_filename (HWMON_PATH, hwmonx), 0);
 
-        while (( hwmonx_prop = hwmonx_dir.read_name ()) != null) {
-            parser.add_path (Path.build_filename (HWMON_PATH, hwmonx, hwmonx_prop));
+            while (( hwmonx_prop = hwmonx_dir.read_name ()) != null) {
+                parser.add_path (Path.build_filename (HWMON_PATH, hwmonx, hwmonx_prop));
+            }
+            parser.parse ();
+
+        } catch (FileError e) {
+            warning ("Could not open dir: %s", e.message);
         }
 
-        parser.parse ();
     }
 
     private string open_file (string filename) {

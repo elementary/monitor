@@ -7,8 +7,6 @@ public class Monitor.SystemView : Gtk.Box {
     private SystemStorageView storage_view;
     private SystemGPUView gpu_view;
 
-    private WidgetResource widget_resource;
-
     construct {
         orientation = Gtk.Orientation.VERTICAL;
         hexpand = true;
