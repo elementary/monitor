@@ -8,8 +8,10 @@
 
     public PreferencesGeneralPage () {
 
+        var icon = new Gtk.Image.from_icon_name ("preferences-system", Gtk.IconSize.DND);
+
         Object (
-            //  display_widget: display_widget,
+            display_widget: icon,
             //  status: "Spinning",
             //  header: "General Preferences",
             title: "General"

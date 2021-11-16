@@ -24,6 +24,7 @@
         cpu_label.halign = Gtk.Align.START;
         cpu_label.xalign = 1;
 
+        // TODO: needs switch and label builder
         var cpu_percentage_switch = new Gtk.Switch ();
         cpu_percentage_switch.halign = Gtk.Align.END;
         cpu_percentage_switch.hexpand = true;
