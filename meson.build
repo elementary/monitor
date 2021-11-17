@@ -103,12 +103,17 @@ executable(
     'src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala',
     'src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala',
 
+    'src/Views/PreferencesView/PreferencesView.vala',
+    'src/Views/PreferencesView/PreferencesIndicatorPage.vala',
+    'src/Views/PreferencesView/PreferencesGeneralPage.vala',
+
     'src/Views/SystemView/SystemView.vala',
     'src/Views/SystemView/SystemCPUView.vala',
     'src/Views/SystemView/SystemCPUInfoPopover.vala',
     'src/Views/SystemView/SystemMemoryView.vala',
     'src/Views/SystemView/SystemNetworkView.vala',
     'src/Views/SystemView/SystemStorageView.vala',
+    'src/Views/SystemView/SystemGPUView.vala',
 
     # Widgets related only to ProcessInfoView
     'src/Views/ProcessView/ProcessInfoView/Preventor.vala',
@@ -125,6 +130,7 @@ executable(
     'src/Widgets/Labels/LabelRoundy.vala',
     'src/Widgets/Labels/LabelH4.vala',
     'src/Widgets/Chart/Chart.vala',
+    'src/Widgets/WidgetResource/WidgetResource.vala',
 
     # Models
     'src/Models/TreeViewModel.vala',
@@ -152,6 +158,21 @@ executable(
     'src/Resources/Network.vala',
     'src/Resources/Storage.vala',
     'src/Resources/Drive.vala',
+    'src/Resources/GPU.vala',
+
+    'src/Resources/Hwmon/HwmonPathsParser.vala',
+    'src/Resources/Hwmon/IHwmonPathsParserInterface.vala',
+    'src/Resources/Hwmon/HwmonPathsParserCPU.vala',
+    'src/Resources/Hwmon/HwmonPathsParserGPU.vala',
+    'src/Resources/Hwmon/HwmonPathsParserIwlwifi.vala',
+    'src/Resources/Hwmon/HwmonPathsParserNVMe.vala',
+    'src/Resources/Hwmon/HwmonTemperature.vala',
+    'src/Resources/Hwmon/HwmonVoltage.vala',
+    'src/Resources/Hwmon/HwmonFrequency.vala',
+    'src/Resources/Hwmon/HwmonFan.vala',
+    'src/Resources/Hwmon/HwmonPWM.vala',
+    'src/Resources/Hwmon/HwmonPower.vala',
+
     c_args: c_args,
     dependencies: [
         glib,

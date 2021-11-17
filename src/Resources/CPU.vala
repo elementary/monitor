@@ -2,7 +2,6 @@ public class Monitor.CPU : Object {
     private float last_used;
     private float last_total;
     private float load;
-    private TemperatureSensor temperature_sensor;
 
     public string ? model_name;
     public string ? model;
@@ -13,6 +12,8 @@ public class Monitor.CPU : Object {
     public string ? bogomips;
     public string ? bugs;
     public string ? address_sizes;
+
+    public Gee.HashMap<string, HwmonTemperature> temperatures;
 
     GTop.Cpu ? cpu;
 
@@ -27,14 +28,29 @@ public class Monitor.CPU : Object {
     private double _frequency;
     public double frequency {
         get {
-            // Convert kH to GHz
+            // Convert kHz to GHz
             return (double) (_frequency / 1000000);
         }
     }
-
-    public double temperature {
+    public double temperature_mean {
         get {
-            return temperature_sensor.cpu / 1000;
+            double summed = 0;
+                int number_of_temperatures = temperatures.size;
+                if (number_of_temperatures == 0) return 0.0;
+                foreach (var temperature in temperatures.values) {
+
+                    // checking if AMD Ryzen; in AMD Ryzen we only want Tdie
+                    if (temperature.label == "Tdie") return double.parse (temperature.input) / 1000;
+
+                    // for Intel we want only temperatures of cores
+                    if (temperature.label.contains ("Package")) {
+                        number_of_temperatures--;
+                        continue;
+                    };
+
+                    summed += double.parse (temperature.input) / 1000;
+                }
+                return summed / number_of_temperatures;
         }
     }
 
@@ -54,9 +70,7 @@ public class Monitor.CPU : Object {
             core_list.add (core);
         }
 
-        // Temperature sensor shouldn't be created here since it
-        // will provide not only a cpu temperature
-        temperature_sensor = new TemperatureSensor ();
+
     }
 
     public void update () {
