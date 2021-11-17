@@ -7,8 +7,6 @@ public class Monitor.SystemView : Gtk.Box {
     private SystemStorageView storage_view;
     private SystemGPUView gpu_view;
 
-    private WidgetResource widget_resource;
-
     construct {
         orientation = Gtk.Orientation.VERTICAL;
         hexpand = true;
@@ -21,7 +19,6 @@ public class Monitor.SystemView : Gtk.Box {
         memory_view = new SystemMemoryView (resources.memory);
         network_view = new SystemNetworkView (resources.network);
         storage_view = new SystemStorageView (resources.storage);
-        gpu_view = new SystemGPUView (resources.gpu);
 
         var scrolled_window = new Gtk.ScrolledWindow (null, null);
         var wrapper = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
@@ -34,8 +31,10 @@ public class Monitor.SystemView : Gtk.Box {
         wrapper.add (network_view);
         wrapper.add (storage_view);
 
-        if (resources.gpu != null)
+        if (resources.gpu != null) {
+            gpu_view = new SystemGPUView (resources.gpu);
             wrapper.add (gpu_view);
+        }
 
         add (scrolled_window);
     }
