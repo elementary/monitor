@@ -30,6 +30,7 @@ class Monitor.HwmonPathParser : Object {
             string ? hwmonx = null;
             while ((hwmonx = hwmon_dir.read_name ()) != null) {
                 string hwmonx_name = Path.build_filename (HWMON_PATH, hwmonx, "name");
+
                 string interface_name = open_file (hwmonx_name);
 
                 // thank u, next
@@ -65,19 +66,6 @@ class Monitor.HwmonPathParser : Object {
 
     private void parse (IHwmonPathsParserInterface parser, string hwmonx) {
         try {
-<<<<<<< HEAD
-            Dir hwmonx_dir = Dir.open (Path.build_filename (HWMON_PATH, hwmonx), 0);
-            string ? hwmonx_prop = null;
-
-            while (( hwmonx_prop = hwmonx_dir.read_name ()) != null) {
-                parser.add_path (Path.build_filename (HWMON_PATH, hwmonx, hwmonx_prop));
-            }
-
-            parser.parse ();
-        } catch (FileError e) {
-            warning ("%s", e.message);
-        }
-=======
             string ? hwmonx_prop = null;
             Dir hwmonx_dir = Dir.open (Path.build_filename (HWMON_PATH, hwmonx), 0);
 
@@ -90,7 +78,6 @@ class Monitor.HwmonPathParser : Object {
             warning ("Could not open dir: %s", e.message);
         }
 
->>>>>>> 659f7f87a06a229145b6a05a7c45dea2423b18b4
     }
 
     private string open_file (string filename) {
