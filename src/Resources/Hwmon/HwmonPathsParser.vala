@@ -1,6 +1,6 @@
 class Monitor.HwmonPathParser : Object {
     private const string HWMON_PATH = "/sys/class/hwmon";
-    //  private const string HWMON_PATH = "/home/stsdc/test";
+    //  private const string HWMON_PATH = "/home/stsdc/test2";
 
     public HwmonPathsParserGPU gpu_paths_parser = new HwmonPathsParserGPU ();
     public HwmonPathsParserNVMe nvme_paths_parser = new HwmonPathsParserNVMe ();
@@ -35,7 +35,10 @@ class Monitor.HwmonPathParser : Object {
                 // thank u, next
                 if (interface_name == "") continue;
 
-                if (interface_name == "coretemp" || interface_name == "k10temp" || interface_name == "cpu_thermal") {
+                if (interface_name == "coretemp" ||
+                    interface_name == "k10temp" ||
+                    interface_name == "cpu_thermal"
+                ) {
                     debug ("Found HWMON CPU Interface: %s in: %s", interface_name, hwmonx_name);
                     this.parse (cpu_paths_parser, hwmonx);
 
@@ -62,6 +65,7 @@ class Monitor.HwmonPathParser : Object {
 
     private void parse (IHwmonPathsParserInterface parser, string hwmonx) {
         try {
+<<<<<<< HEAD
             Dir hwmonx_dir = Dir.open (Path.build_filename (HWMON_PATH, hwmonx), 0);
             string ? hwmonx_prop = null;
 
@@ -73,6 +77,20 @@ class Monitor.HwmonPathParser : Object {
         } catch (FileError e) {
             warning ("%s", e.message);
         }
+=======
+            string ? hwmonx_prop = null;
+            Dir hwmonx_dir = Dir.open (Path.build_filename (HWMON_PATH, hwmonx), 0);
+
+            while (( hwmonx_prop = hwmonx_dir.read_name ()) != null) {
+                parser.add_path (Path.build_filename (HWMON_PATH, hwmonx, hwmonx_prop));
+            }
+            parser.parse ();
+
+        } catch (FileError e) {
+            warning ("Could not open dir: %s", e.message);
+        }
+
+>>>>>>> 659f7f87a06a229145b6a05a7c45dea2423b18b4
     }
 
     private string open_file (string filename) {

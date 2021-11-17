@@ -103,6 +103,10 @@ executable(
     'src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala',
     'src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala',
 
+    'src/Views/PreferencesView/PreferencesView.vala',
+    'src/Views/PreferencesView/PreferencesIndicatorPage.vala',
+    'src/Views/PreferencesView/PreferencesGeneralPage.vala',
+
     'src/Views/SystemView/SystemView.vala',
     'src/Views/SystemView/SystemCPUView.vala',
     'src/Views/SystemView/SystemCPUInfoPopover.vala',
