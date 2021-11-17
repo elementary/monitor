@@ -32,10 +32,12 @@ public class Monitor.Statusbar : Gtk.ActionBar {
         swap_icon.margin_start = 6;
         pack_start (swap_icon);
         pack_start (swap_usage_label);
-    }
 
-    public Statusbar () {
-    }
+        var github_label = new Gtk.LinkButton.with_label ("https://github.com/stsdc/monitor", _("Check on Github")) {
+            margin_end = 6
+        };
+
+        pack_end (github_label);    }
 
     public bool update (ResourcesSerialized sysres) {
         cpu_usage_label.set_text (("%d%%").printf (sysres.cpu_percentage));
