@@ -37,7 +37,8 @@ public class Monitor.Statusbar : Gtk.ActionBar {
             margin_end = 6
         };
 
-        pack_end (github_label);    }
+        pack_end (github_label);
+    }
 
     public bool update (ResourcesSerialized sysres) {
         cpu_usage_label.set_text (("%d%%").printf (sysres.cpu_percentage));
