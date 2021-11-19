@@ -67,22 +67,20 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
             headerbar.search.sensitive = stack.visible_child_name == "process_view";
         });
 
-        Timeout.add_seconds (2, () => {
-            //  new Thread<bool> ("resource-updates", () => {
-                resources.update ();
-                var res = resources.serialize ();
-                statusbar.update (res);
-                dbusserver.update (res);
+        new Thread<void> ("upd", () => {
+            Timeout.add_seconds (2, () => {
+                process_view.update ();
 
                 Idle.add (() => {
-                    process_view.update ();
                     system_view.update ();
                     dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
+                    var res = resources.serialize ();
+                    statusbar.update (res);
+                    dbusserver.update (res);
                     return false;
                 });
                 return true;
-            //  });
-            //  return true;
+            });
         });
 
 

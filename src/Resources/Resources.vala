@@ -23,13 +23,22 @@ public class Monitor.Resources : Object {
             gpu = new GPU ();
             gpu.temperatures = hwmon_path_parser.gpu_paths_parser.temperatures;
         }
+
+        update ();
     }
 
     public void update () {
-        cpu.update ();
-        memory.update ();
-        network.update ();
-        storage.update ();
+        Timeout.add_seconds (2, () => {
+            new Thread<void> ("update-resources", () => {
+                    cpu.update ();
+                    memory.update ();
+                    network.update ();
+                    storage.update ();
+                    if (gpu != null) gpu.update ();
+
+            });
+            return true;
+        });
     }
 
     public ResourcesSerialized serialize () {
