@@ -17,29 +17,13 @@ public class Monitor.GPU : Object {
         }
     }
 
-    public int percentage {
-        get {
-            return int.parse (get_sysfs_value ("/sys/class/drm/card0/device/gpu_busy_percent"));
-        }
-    }
+    public int percentage;
 
-    public int memory_percentage {
-        get {
-            return int.parse (get_sysfs_value ("/sys/class/drm/card0/device/mem_busy_percent"));
-        }
-    }
+    public int memory_percentage;
 
-    public int memory_vram_used {
-        get {
-            return int.parse (get_sysfs_value ("/sys/class/drm/card0/device/mem_info_vram_used"));
-        }
-    }
+    public int memory_vram_used;
 
-    public double temperature {
-        get {
-            return double.parse (temperatures.get ("edge").input) / 1000;
-        }
-    }
+    public double temperature;
 
     construct {
         try {
@@ -55,6 +39,28 @@ public class Monitor.GPU : Object {
         debug (session_manager.renderer);
     }
 
+    private void update_temperature () {
+        temperature = double.parse (temperatures.get ("edge").input) / 1000;
+    }
+
+    private void update_memory_vram_used () {
+        memory_vram_used = int.parse (get_sysfs_value ("/sys/class/drm/card0/device/mem_info_vram_used"));
+    }
+
+    private void update_memory_percentage () {
+        memory_percentage = int.parse (get_sysfs_value ("/sys/class/drm/card0/device/mem_busy_percent"));
+    }
+
+    private void update_percentage () {
+        percentage = int.parse (get_sysfs_value ("/sys/class/drm/card0/device/gpu_busy_percent"));
+    }
+
+    public void update () {
+        update_temperature ();
+        update_memory_vram_used ();
+        update_memory_percentage ();
+        update_percentage ();
+    }
 
 
     private string get_sysfs_value (string path) {
