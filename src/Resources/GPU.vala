@@ -17,13 +17,13 @@ public class Monitor.GPU : Object {
         }
     }
 
-    public int percentage;
+    public int percentage { get; private set; }
 
-    public int memory_percentage;
+    public int memory_percentage { get; private set; }
 
-    public int memory_vram_used;
+    public int memory_vram_used { get; private set; }
 
-    public double temperature;
+    public double temperature { get; private set; }
 
     construct {
         try {
