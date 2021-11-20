@@ -15,9 +15,9 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Grid {
         memory_widget.visible = false;
         temperature_widget = new TemperatureWidget ("temperature-sensor-symbolic");
         temperature_widget.visible = false;
-        network_up_widget = new NetworkWidget ("up-arrow-symbolic");
+        network_up_widget = new NetworkWidget ("go-up-symbolic");
         network_up_widget.visible = false;
-        network_down_widget = new NetworkWidget ("down-arrow-symbolic");
+        network_down_widget = new NetworkWidget ("go-down-symbolic");
         network_down_widget.visible = false;
 
         add (cpu_widget);
