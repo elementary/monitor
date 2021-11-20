@@ -16,13 +16,13 @@ public class Monitor.Widgets.NetworkWidget : Gtk.Box {
     }
 
     construct {
-        //var icon = new Gtk.Image.from_icon_name (icon_name, Gtk.IconSize.SMALL_TOOLBAR);
+        var icon = new Gtk.Image.from_icon_name (icon_name, Gtk.IconSize.SMALL_TOOLBAR);
 
         bandwith_label = new Gtk.Label (Utils.NOT_AVAILABLE);
         bandwith_label.margin = 2;
         bandwith_label.width_chars = 4;
 
-        //pack_start (icon);
+        pack_start (icon);
         pack_start (bandwith_label);
     }
 }
