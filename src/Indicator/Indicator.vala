@@ -20,8 +20,8 @@ public class Monitor.Indicator : Wingpanel.Indicator {
             display_widget.cpu_widget.visible = settings.get_boolean ("indicator-cpu-state");
             display_widget.memory_widget.visible = settings.get_boolean ("indicator-memory-state");
             display_widget.temperature_widget.visible = settings.get_boolean ("indicator-temperature-state");
-            display_widget.network_up_widget.visible = settings.get_boolean ("indicator-network-up-state");
-            display_widget.network_down_widget.visible = settings.get_boolean ("indicator-network-down-state");
+            display_widget.network_up_widget.visible = settings.get_boolean ("indicator-network-upload-state");
+            display_widget.network_down_widget.visible = settings.get_boolean ("indicator-network-download-state");
 
         });
 
