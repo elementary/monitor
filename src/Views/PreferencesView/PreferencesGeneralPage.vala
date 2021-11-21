@@ -14,7 +14,7 @@
             display_widget: icon,
             //  status: "Spinning",
             //  header: "General Preferences",
-            title: "General"
+            title: _("General")
         );
     }
 

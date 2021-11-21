@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-08 01:52+0400\n"
+"POT-Creation-Date: 2021-11-21 21:18+0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Andrey Kultyapov <camellan@yandex.ru>\n"
 "Language-Team: \n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.3\n"
 
-#: src/MainWindow.vala:26 src/Widgets/Headerbar/Headerbar.vala:16
+#: src/MainWindow.vala:26 src/Widgets/Headerbar/Headerbar.vala:10
 msgid "Monitor"
 msgstr "Монитор"
 
@@ -52,7 +52,7 @@ msgstr "МиБ"
 
 #: src/Utils.vala:92
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:128
-#: src/Widgets/Statusbar/Statusbar.vala:55
+#: src/Widgets/Statusbar/Statusbar.vala:57
 msgid "GiB"
 msgstr "ГиБ"
 
@@ -178,14 +178,12 @@ msgid "Process Name"
 msgstr "Имя процесса"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:40
-#: src/Widgets/Headerbar/Headerbar.vala:54
 #: src/Widgets/Statusbar/Statusbar.vala:8
 msgid "CPU"
 msgstr "ЦПУ"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:51
 #: src/Views/SystemView/SystemMemoryView.vala:13
-#: src/Widgets/Headerbar/Headerbar.vala:58
 #: src/Widgets/Statusbar/Statusbar.vala:11
 msgid "Memory"
 msgstr "Память"
@@ -200,34 +198,87 @@ msgstr "ЦПУ: %.1f%%"
 msgid "RAM: %.1f%%"
 msgstr "Память: %.1f%%"
 
-#: src/Views/SystemView/SystemCPUView.vala:16
+#. status: "Spinning",
+#. header: "General Preferences",
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:17
+msgid "General"
+msgstr "Общие"
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:22
+msgid "Start in background:"
+msgstr "Запустить в фоновом режиме:"
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
+msgid "Show Indicator in Wingpanel"
+msgstr "Показывать индикаторы в Wingpanel"
+
+#. header: "Simple Pages",
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:15
+msgid "Indicator"
+msgstr "Индикаторы"
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:23
+msgid "Display CPU percentage"
+msgstr "Использование процессора"
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:37
+msgid "Display Memory percentage"
+msgstr "Использование памяти"
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:49
+msgid "Display temperature"
+msgstr "Температура процессора"
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:61
+msgid "Display network upload"
+msgstr "Скорость отдачи сети"
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:73
+msgid "Display network download"
+msgstr "Скорость загрузки сети"
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:103
+msgid "Enabled"
+msgstr "Включен"
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:108
+msgid "Disabled"
+msgstr "Отключен"
+
+#: src/Views/SystemView/SystemCPUView.vala:18
 msgid "UTILIZATION"
 msgstr "ИСПОЛЬЗОВАНИЕ"
 
-#: src/Views/SystemView/SystemCPUView.vala:18
+#: src/Views/SystemView/SystemCPUView.vala:20
 msgid "Show detailed info"
 msgstr "Показать подробную информацию"
 
-#: src/Views/SystemView/SystemCPUView.vala:20
+#: src/Views/SystemView/SystemCPUView.vala:22
 msgid "FREQUENCY"
 msgstr "ЧАСТОТА"
 
-#: src/Views/SystemView/SystemCPUView.vala:24
+#: src/Views/SystemView/SystemCPUView.vala:26
 #: src/Views/SystemView/SystemGPUView.vala:16
 msgid "TEMPERATURE"
 msgstr "ТЕМПЕРАТУРА"
 
-#: src/Views/SystemView/SystemCPUView.vala:101
-#: src/Widgets/Statusbar/Statusbar.vala:44
-msgid "GHz"
-msgstr "ГГц"
-
-#: src/Views/SystemView/SystemCPUView.vala:102
+#. int temperature_index = 0;
+#. foreach (var temperature in cpu.paths_temperatures.values) {
+#. debug (temperature.input);
+#. cpu_temperature_chart.update (temperature_index, int.parse (temperature.input) / 1000);
+#. temperature_index++;
+#. }]
+#: src/Views/SystemView/SystemCPUView.vala:84
 #: src/Views/SystemView/SystemGPUView.vala:76
 msgid "℃"
 msgstr "℃"
 
-#: src/Views/SystemView/SystemCPUView.vala:129
+#: src/Views/SystemView/SystemCPUView.vala:115
+#: src/Widgets/Statusbar/Statusbar.vala:46
+msgid "GHz"
+msgstr "ГГц"
+
+#: src/Views/SystemView/SystemCPUView.vala:142
 msgid "THREADS"
 msgstr "ПОТОКИ"
 
@@ -345,33 +396,9 @@ msgstr "ЧТЕНИЕ"
 msgid "VRAM"
 msgstr "ПАМЯТЬ"
 
-#: src/Widgets/Headerbar/Headerbar.vala:24
+#: src/Widgets/Headerbar/Headerbar.vala:18
 msgid "Settings"
 msgstr "Параметры"
-
-#: src/Widgets/Headerbar/Headerbar.vala:38
-msgid "Show an indicator:"
-msgstr "Показывать индикатор:"
-
-#: src/Widgets/Headerbar/Headerbar.vala:44
-msgid "Start in background:"
-msgstr "Запустить в фоновом режиме:"
-
-#: src/Widgets/Headerbar/Headerbar.vala:51
-msgid "Items in indicator:"
-msgstr "Элементы в индикаторе:"
-
-#: src/Widgets/Headerbar/Headerbar.vala:62
-msgid "Temperature"
-msgstr "Температура"
-
-#: src/Widgets/Headerbar/Headerbar.vala:66
-msgid "Network up"
-msgstr "Отправка"
-
-#: src/Widgets/Headerbar/Headerbar.vala:70
-msgid "Network down"
-msgstr "Получение"
 
 #: src/Widgets/Headerbar/Search.vala:12
 msgid "Search Process"
@@ -391,14 +418,24 @@ msgstr "Подкачка"
 msgid "Calculating…"
 msgstr "Вычисление…"
 
+#: src/Widgets/Statusbar/Statusbar.vala:36
+msgid "Check on Github"
+msgstr "Проект на Github"
+
+#~ msgid "Show an indicator:"
+#~ msgstr "Показывать индикатор:"
+
+#~ msgid "Items in indicator:"
+#~ msgstr "Элементы в индикаторе:"
+
+#~ msgid "Network up"
+#~ msgstr "Отправка"
+
 #~ msgid "Hide detailed info"
 #~ msgstr "Скрыть подробную информацию"
 
 #~ msgid "%d%%"
 #~ msgstr "%d%%"
-
-#~ msgid "Monitor Indicator"
-#~ msgstr "Индикатор монитора"
 
 #~ msgid "Show system resources"
 #~ msgstr "Показывать системные ресурсы"
