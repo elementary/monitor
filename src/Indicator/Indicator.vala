@@ -33,11 +33,11 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         dbusclient.interface.indicator_network_down_state.connect ((state) => display_widget.network_down_widget.visible = state);
 
         dbusclient.interface.update.connect ((sysres) => {
-            display_widget.cpu_widget.percentage = sysres.cpu_percentage;
-            display_widget.temperature_widget.degree = sysres.cpu_temperature;
-            display_widget.memory_widget.percentage = sysres.memory_percentage;
-            display_widget.network_up_widget.bandwith = sysres.network_up;
-            display_widget.network_down_widget.bandwith = sysres.network_down;
+            display_widget.cpu_widget.state_percentage = sysres.cpu_percentage;
+            display_widget.temperature_widget.state_temperature = (int) Math.round (sysres.cpu_temperature);
+            display_widget.memory_widget.state_percentage = sysres.memory_percentage;
+            display_widget.network_up_widget.state_bandwith = sysres.network_up;
+            display_widget.network_down_widget.state_bandwith = sysres.network_down;
         });
 
         popover_widget.quit_monitor.connect (() => {
@@ -60,7 +60,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
     }
 
     public Indicator () {
-        Object (code_name: "monitor");
+        Object (code_name: "Monitor Indicator");
     }
 
     public override Gtk.Widget get_display_widget () {
