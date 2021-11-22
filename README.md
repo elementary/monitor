@@ -54,7 +54,7 @@
 
 ### Clone, Build & Install
 
-    git clone https://github.com/stsdc/monitor
+    git clone --recursive https://github.com/stsdc/monitor
     cd monitor
     meson build --prefix=/usr
     cd build
