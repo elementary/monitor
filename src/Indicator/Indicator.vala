@@ -12,6 +12,12 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         display_widget = new Widgets.DisplayWidget ();
         popover_widget = new Widgets.PopoverWidget ();
 
+        try {
+            apply_custom_styles();
+        } catch (GLib.Error e) {
+            error("Failed to load Monitor Indicator CSS styles: %s", e.message);
+        }
+
         dbusclient = DBusClient.get_default ();
 
         dbusclient.monitor_vanished.connect (() => this.visible = false);
@@ -75,6 +81,25 @@ public class Monitor.Indicator : Wingpanel.Indicator {
     }
 
     public override void closed () {
+    }
+
+    public void apply_custom_styles() throws GLib.Error {
+        var provider = new Gtk.CssProvider();
+        string CUSTOM_CSS = """
+        .composited-indicator > revealer label.monitor-indicator-label-warning {
+            color: @warning_color;
+        }
+        .composited-indicator > revealer label.monitor-indicator-label-critical {
+            color: @error_color;
+        }
+        """;
+        provider.load_from_data(CUSTOM_CSS, -1);
+
+        Gtk.StyleContext.add_provider_for_screen (
+            Gdk.Screen.get_default (),
+            provider,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        );
     }
 
 }

@@ -5,6 +5,15 @@ public class Monitor.IndicatorWidget : Gtk.Box {
     public int state_percentage {
         set {
             label.label = "%i%%".printf (value);
+            label.get_style_context ().remove_class ("monitor-indicator-label-warning");
+            label.get_style_context ().remove_class ("monitor-indicator-label-critical");
+
+            if (value > 80) {
+                label.get_style_context ().add_class ("monitor-indicator-label-warning");
+            } 
+            if (value > 90) {
+                label.get_style_context ().add_class ("monitor-indicator-label-critical");
+            }
         }
     }
 
