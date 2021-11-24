@@ -193,7 +193,7 @@ executable(
         meson.get_compiler('c').find_library('m', required : false),
         meson.get_compiler('c').find_library('XNVCtrl'),
         meson.get_compiler('c').find_library('X11'),
-        meson.get_compiler('vala').find_library('libxnvctrl0', dirs: vapi_dir),
+        meson.get_compiler('vala').find_library('libxnvctrl', dirs: vapi_dir),
         meson.get_compiler('vala').find_library('posix')
     ],
     vala_args: [

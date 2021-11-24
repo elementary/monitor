@@ -1,4 +1,4 @@
-namespace NVCtrlLib {
+namespace NVCtrl {
    [CCode (cheader_filename = "NVCtrl/NVCtrlLib.h", cname = "XNVCTRLQueryAttribute", cprefix = "nv_ctrl_lib_", has_type_id = false)]
    public static bool XNVCTRLQueryAttribute (
       X.Display *dpy,
@@ -27,7 +27,6 @@ namespace NVCtrlLib {
       uint attribute,
       char **ptr
    );
-
 }
 
 [CCode (cheader_filename = "NVCtrl/NVCtrl.h")]
@@ -37,4 +36,6 @@ public const uint NV_CTRL_TOTAL_GPU_MEMORY;
 public const uint NV_CTRL_STRING_GPU_UTILIZATION;
 public const uint NV_CTRL_USED_DEDICATED_GPU_MEMORY;
 public const uint NV_CTRL_GPU_CURRENT_PROCESSOR_CLOCK_FREQS;
-public const int NV_CTRL_TARGET_TYPE_GPU;
+public const uint NV_CTRL_STRING_PRODUCT_NAME;
+public const uint NV_CTRL_PCI_ID;
+public const  int NV_CTRL_TARGET_TYPE_GPU;

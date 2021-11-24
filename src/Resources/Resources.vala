@@ -1,15 +1,18 @@
-using NVCtrlLib;
-using X;
 public class Monitor.Resources : Object {
     public CPU cpu;
     public Memory memory;
     public Swap swap;
     public Network network;
     public Storage storage;
+    public static bool nv_card = false;
     public GPU gpu;
     public int temp = 0;
+    public int v_info = 0;
     public bool res;
-    public Display nvidia_display;
+    public bool res1;
+    public int vendor;
+    public int dev_id;
+    public X.Display nvidia_display;
     private HwmonPathParser hwmon_path_parser;
 
     construct {
@@ -20,28 +23,37 @@ public class Monitor.Resources : Object {
         swap = new Swap ();
         network = new Network ();
         storage = new Storage ();
-        nvidia_display = new Display ();
+        nvidia_display = new X.Display ();
 
-        res = XNVCTRLQueryAttribute(
+         res1 = NVCtrl.XNVCTRLQueryTargetAttribute(
             nvidia_display,
+            NV_CTRL_TARGET_TYPE_GPU,
             0,
             0,
-            NV_CTRL_GPU_CORE_TEMPERATURE,
-            &temp
+            NV_CTRL_PCI_ID,
+            &v_info
         );
 
-        if(!res) {
-            stdout.printf("Could not query NV_CTRL_GPU_CORE_TEMPERATURE attribute!\n");
-            return;
+        if(!res1) {
+            stdout.printf("Could not query NV_CTRL_PCI_ID attribute!\n");
+            return ;
         }
 
-        debug("GPU_CORE_TEMPERATURE: %d°C\n", temp);
+        vendor = v_info>>16;
+        // dev_id = v_info&0xFFFF;
+        debug("VENDOR_ID: %d\n", vendor);
+        // debug("DEVICE_ID: %d\n", dev_id);
 
         cpu.temperatures = hwmon_path_parser.cpu_paths_parser.temperatures;
 
         if (hwmon_path_parser.gpu_paths_parser.name == "amdgpu") {
             gpu = new GPU ();
             gpu.temperatures = hwmon_path_parser.gpu_paths_parser.temperatures;
+        }
+
+        if (vendor == 4318) {
+            nv_card = true;
+            gpu = new GPU ();
         }
 
         update ();
@@ -55,7 +67,6 @@ public class Monitor.Resources : Object {
                     network.update ();
                     storage.update ();
                     if (gpu != null) gpu.update ();
-
             });
             return true;
         });
