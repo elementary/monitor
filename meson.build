@@ -197,6 +197,7 @@ executable(
     'src/Resources/Drive.vala',
     'src/Resources/GPU/IGPU.vala',
     'src/Resources/GPU/GPUAmd.vala',
+    'src/Resources/GPU/GPUNvidia.vala',
 
     'src/Resources/Hwmon/HwmonPathsParser.vala',
     'src/Resources/Hwmon/IHwmonPathsParserInterface.vala',
