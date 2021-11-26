@@ -4,7 +4,7 @@ public class Monitor.Resources : Object {
     public Swap swap;
     public Network network;
     public Storage storage;
-    public GPU gpu;
+    public IGPU gpu;
 
     private HwmonPathParser hwmon_path_parser;
 
@@ -20,8 +20,8 @@ public class Monitor.Resources : Object {
         cpu.temperatures = hwmon_path_parser.cpu_paths_parser.temperatures;
 
         if (hwmon_path_parser.gpu_paths_parser.name == "amdgpu") {
-            gpu = new GPU ();
-            gpu.temperatures = hwmon_path_parser.gpu_paths_parser.temperatures;
+            gpu = new GPUAmd ();
+            gpu.hwmon_temperatures = hwmon_path_parser.gpu_paths_parser.temperatures;
         }
 
         update ();
