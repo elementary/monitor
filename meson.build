@@ -160,7 +160,9 @@ executable(
     'src/Resources/Network.vala',
     'src/Resources/Storage.vala',
     'src/Resources/Drive.vala',
-    'src/Resources/GPU.vala',
+    'src/Resources/GPU/IGPU.vala',
+    'src/Resources/GPU/GPUAmd.vala',
+    'src/Resources/GPU/GPUNvidia.vala',
 
     'src/Resources/Hwmon/HwmonPathsParser.vala',
     'src/Resources/Hwmon/IHwmonPathsParserInterface.vala',
@@ -211,8 +213,6 @@ shared_module(
     'src/Indicator/Widgets/DisplayWidget.vala',
     'src/Indicator/Widgets/PopoverWidget.vala',
     'src/Indicator/Widgets/IndicatorWidget.vala',
-    'src/Indicator/Widgets/TemperatureWidget.vala',
-    'src/Indicator/Widgets/NetworkWidget.vala',
 
     'src/Indicator/Services/DBusClient.vala',
     # 'src/Widgets/RevealerSwitch.vala',
