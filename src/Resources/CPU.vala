@@ -8,9 +8,9 @@ public class Monitor.CPU : Object {
     public string ? family;
     public string ? microcode;
     public string ? cache_size;
-    public string ? flags;
+    public string[] ? flags;
     public string ? bogomips;
-    public string ? bugs;
+    public string[] ? bugs;
     public string ? address_sizes;
 
     public Gee.HashMap<string, HwmonTemperature> temperatures;
@@ -139,9 +139,9 @@ public class Monitor.CPU : Object {
         family = values["cpu family"];
         microcode = values["microcode"];
         cache_size = values["cache size"];
-        flags = values["flags"];
+        flags = values["flags"].split (" ");
         bogomips = values["bogomips"];
-        bugs = values["bugs"];
+        bugs = values["bugs"].split (" ");
         address_sizes = values["address sizes"];
     }
 
