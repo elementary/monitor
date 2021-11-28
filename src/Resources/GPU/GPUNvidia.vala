@@ -74,8 +74,8 @@ public class Monitor.GPUNvidia : IGPU, Object {
         );
 
         // var str_used = (string)nvidia_used;
-        nvidia_percentage = int.parse (((string)nvidia_used).split_set("=,")[1]);
-        nvidia_memory_percentage = int.parse (((string)nvidia_used).split_set("=,")[3]);
+        nvidia_percentage = int.parse (((string)nvidia_used).split_set ("=,")[1]);
+        nvidia_memory_percentage = int.parse (((string)nvidia_used).split_set ("=,")[3]);
         debug ("USED_GRAPHICS: %d%\n", nvidia_percentage);
         debug ("USED_MEMORY: %d%\n", nvidia_memory_percentage);
 
