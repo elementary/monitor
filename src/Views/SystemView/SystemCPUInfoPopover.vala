@@ -1,22 +1,9 @@
-public class Monitor.SystemCPUInfoPopover : Gtk.Grid {
+public class Monitor.SystemCPUInfoPopover : Gtk.Box {
     private CPU cpu;
 
     construct {
         margin = 12;
-        column_spacing = 6;
-
-        attach (label (_("Model")), 0, 0, 1, 1);
-        attach (label (_("Family")), 0, 1, 1, 1);
-        attach (label (_("Microcode ver.")), 0, 2, 1, 1);
-        attach (label (_("Bogomips")), 0, 3, 1, 1);
-        attach (label (_("Cache size")), 0, 4, 1, 1);
-        attach (label (_("Address sizes")), 0, 5, 1, 1);
-        attach (label (_("Flags")), 0, 6, 1, 1);
-        attach (label (_("Bugs")), 0, 7, 1, 1);
-
-        for (int i; i <= 7; i++) {
-            attach (label (":"), 1, i, 1, 1);
-        }
+        orientation = Gtk.Orientation.VERTICAL;
     }
 
 
@@ -24,14 +11,21 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Grid {
 
         cpu = _cpu;
 
-        attach (label (cpu.model), 2, 0, 1, 1);
-        attach (label (cpu.family), 2, 1, 1, 1);
-        attach (label (cpu.microcode), 2, 2, 1, 1);
-        attach (label (cpu.bogomips), 2, 3, 1, 1);
-        attach (label (cpu.cache_size), 2, 4, 1, 1);
-        attach (label (cpu.address_sizes), 2, 5, 1, 1);
-        attach (label (cpu.flags), 2, 6, 1, 1);
-        attach (label (cpu.bugs), 2, 7, 1, 1);
+        var stack = new Gtk.Stack ();
+        stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
+
+        stack.add_titled (general_page (), "general_page", _("General"));
+        stack.add_titled (flags_page (), "flags_page", _("Flags"));
+        stack.add_titled (bugs_page (), "bugs_page", _("Bugs"));
+
+        Gtk.StackSwitcher stack_switcher = new Gtk.StackSwitcher (){
+            valign = Gtk.Align.CENTER,
+            halign = Gtk.Align.CENTER,
+        };
+        stack_switcher.set_stack (stack);
+
+        add (stack_switcher);
+        add (stack);
     }
 
     private Gtk.Label label (string text) {
@@ -42,6 +36,51 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Grid {
         label.max_width_chars = 80;
 
         return label;
+    }
+
+    private Gtk.ListBox general_page () {
+        var listbox = new Gtk.ListBox () {
+            activate_on_single_click = false
+        };
+
+        listbox.add (label (_("Model:") + " " + cpu.model));
+        listbox.add (label (_("Family:") + " " + cpu.family));
+        listbox.add (label (_("Microcode ver.:") + " " + cpu.microcode));
+        listbox.add (label (_("Bogomips:") + " " + cpu.bogomips));
+        listbox.add (label (_("Cache size:") + " " + cpu.cache_size));
+        listbox.add (label (_("Address sizes:") + " " + cpu.address_sizes));
+
+        return listbox;
+    }
+
+    private Gtk.Widget flags_page () {
+        var listbox = new Gtk.ListBox () {
+            activate_on_single_click = false
+        };
+
+        foreach (unowned string flag in cpu.flags) {
+            listbox.add (label (flag));
+        }
+
+        var scrolled_window = new Gtk.ScrolledWindow (null, null);
+        scrolled_window.add (listbox);
+
+        return scrolled_window;
+    }
+
+    private Gtk.Widget bugs_page () {
+        var listbox = new Gtk.ListBox () {
+            activate_on_single_click = false
+        };
+
+        foreach (unowned string bug in cpu.bugs) {
+            listbox.add (label (bug));
+        }
+
+        var scrolled_window = new Gtk.ScrolledWindow (null, null);
+        scrolled_window.add (listbox);
+
+        return scrolled_window;
     }
 
 }
