@@ -85,7 +85,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
 
     public void apply_custom_styles () throws GLib.Error {
         var provider = new Gtk.CssProvider ();
-        string CUSTOMCSS = """
+        string CUSTOM_CSS = """
         .composited-indicator > revealer label.monitor-indicator-label-warning {
             color: @warning_color;
         }
@@ -93,7 +93,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
             color: @error_color;
         }
         """;
-        provider.load_from_data (CUSTOMCSS, -1);
+        provider.load_from_data (CUSTOM_CSS, -1);
 
         Gtk.StyleContext.add_provider_for_screen (
             Gdk.Screen.get_default (),
