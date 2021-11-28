@@ -37,7 +37,7 @@ public class Monitor.GPUNvidia : IGPU, Object {
     }
 
     private void update_nv_resources () {
-        nvidia_resources_temperature = NVCtrl.XNVCTRLQueryAttribute(
+        nvidia_resources_temperature = NVCtrl.XNVCTRLQueryAttribute (
             nvidia_display,
             0,
             0,
@@ -45,12 +45,12 @@ public class Monitor.GPUNvidia : IGPU, Object {
             &nvidia_temperature
         );
 
-        if(!nvidia_resources_temperature) {
-            stdout.printf("Could not query NV_CTRL_GPU_CORE_TEMPERATURE attribute!\n");
+        if (!nvidia_resources_temperature) {
+            stdout.printf ("Could not query NV_CTRL_GPU_CORE_TEMPERATURE attribute!\n");
             return;
         }
 
-        nvidia_resources_vram_used = NVCtrl.XNVCTRLQueryTargetAttribute(
+        nvidia_resources_vram_used = NVCtrl.XNVCTRLQueryTargetAttribute (
             nvidia_display,
             NV_CTRL_TARGET_TYPE_GPU,
             0,
@@ -59,12 +59,12 @@ public class Monitor.GPUNvidia : IGPU, Object {
             &nvidia_memory_vram_used
         );
 
-        if(!nvidia_resources_vram_used) {
-            stdout.printf("Could not query NV_CTRL_USED_DEDICATED_GPU_MEMORY attribute!\n");
+        if (!nvidia_resources_vram_used) {
+            stdout.printf ("Could not query NV_CTRL_USED_DEDICATED_GPU_MEMORY attribute!\n");
             return ;
         }
 
-        nvidia_resources_used = NVCtrl.XNVCTRLQueryTargetStringAttribute(
+        nvidia_resources_used = NVCtrl.XNVCTRLQueryTargetStringAttribute (
             nvidia_display,
             NV_CTRL_TARGET_TYPE_GPU,
             0,
@@ -74,13 +74,13 @@ public class Monitor.GPUNvidia : IGPU, Object {
         );
 
         // var str_used = (string)nvidia_used;
-        nvidia_percentage = int.parse(((string)nvidia_used).split_set("=,")[1]);
-        nvidia_memory_percentage = int.parse(((string)nvidia_used).split_set("=,")[3]);
-        debug("USED_GRAPHICS: %d%\n", nvidia_percentage);
-        debug("USED_MEMORY: %d%\n", nvidia_memory_percentage);
+        nvidia_percentage = int.parse (((string)nvidia_used).split_set("=,")[1]);
+        nvidia_memory_percentage = int.parse (((string)nvidia_used).split_set("=,")[3]);
+        debug ("USED_GRAPHICS: %d%\n", nvidia_percentage);
+        debug ("USED_MEMORY: %d%\n", nvidia_memory_percentage);
 
-        if(!nvidia_resources_used) {
-            stdout.printf("Could not query NV_CTRL_STRING_GPU_UTILIZATION attribute!\n");
+        if (!nvidia_resources_used) {
+            stdout.printf ("Could not query NV_CTRL_STRING_GPU_UTILIZATION attribute!\n");
             return ;
         }
 

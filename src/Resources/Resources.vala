@@ -23,7 +23,7 @@ public class Monitor.Resources : Object {
         storage = new Storage ();
         nvidia_display = new X.Display ();
 
-        nvidia_resources = NVCtrl.XNVCTRLQueryTargetAttribute(
+        nvidia_resources = NVCtrl.XNVCTRLQueryTargetAttribute (
             nvidia_display,
             NV_CTRL_TARGET_TYPE_GPU,
             0,
@@ -32,15 +32,15 @@ public class Monitor.Resources : Object {
             &nvidia_info
         );
 
-        if(!nvidia_resources) {
-            stdout.printf("Could not query NV_CTRL_PCI_ID attribute!\n");
+        if (!nvidia_resources) {
+            stdout.printf ("Could not query NV_CTRL_PCI_ID attribute!\n");
             return ;
         }
 
-        vendor_id = nvidia_info>>16;
+        vendor_id = nvidia_info >> 16;
         // dev_id = nvidia_info&0xFFFF;
-        debug("VENDOR_ID: %d\n", vendor_id);
-        // debug("DEVICE_ID: %d\n", dev_id);
+        debug ("VENDOR_ID: %d\n", vendor_id);
+        // debug ("DEVICE_ID: %d\n", dev_id);
 
         cpu.temperatures = hwmon_path_parser.cpu_paths_parser.temperatures;
 
@@ -85,5 +85,4 @@ public class Monitor.Resources : Object {
                    network_down = network.bytes_in
         };
     }
-
 }
