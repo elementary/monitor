@@ -13,23 +13,21 @@ public class Monitor.GPUNvidia : IGPU, Object {
 
     public double temperature { get; protected set; }
 
-    public int temp = 0;
+    public int nvidia_temperature = 0;
 
-    public int u_mem = 0;
+    public int nvidia_memory_vram_used = 0;
 
-    public int p_mem = 0;
+    public int nvidia_memory_percentage = 0;
 
-    public int p_gpu = 0;
+    public int nvidia_percentage = 0;
 
-    public bool res;
+    public char *nvidia_used = "";
 
-    public bool res1;
+    public bool nvidia_resources_temperature;
 
-    public bool res2;
+    public bool nvidia_resources_vram_used;
 
-    public bool res3;
-
-    public char *used = "";
+    public bool nvidia_resources_used;
 
     public X.Display nvidia_display;
 
@@ -39,62 +37,62 @@ public class Monitor.GPUNvidia : IGPU, Object {
     }
 
     private void update_nv_resources () {
-        res = NVCtrl.XNVCTRLQueryAttribute(
+        nvidia_resources_temperature = NVCtrl.XNVCTRLQueryAttribute(
             nvidia_display,
             0,
             0,
             NV_CTRL_GPU_CORE_TEMPERATURE,
-            &temp
+            &nvidia_temperature
         );
 
-        if(!res) {
+        if(!nvidia_resources_temperature) {
             stdout.printf("Could not query NV_CTRL_GPU_CORE_TEMPERATURE attribute!\n");
             return;
         }
 
-        res1 = NVCtrl.XNVCTRLQueryTargetAttribute(
+        nvidia_resources_vram_used = NVCtrl.XNVCTRLQueryTargetAttribute(
             nvidia_display,
             NV_CTRL_TARGET_TYPE_GPU,
             0,
             0,
             NV_CTRL_USED_DEDICATED_GPU_MEMORY,
-            &u_mem
+            &nvidia_memory_vram_used
         );
 
-        if(!res1) {
+        if(!nvidia_resources_vram_used) {
             stdout.printf("Could not query NV_CTRL_USED_DEDICATED_GPU_MEMORY attribute!\n");
             return ;
         }
 
-        res3 = NVCtrl.XNVCTRLQueryTargetStringAttribute(
+        nvidia_resources_used = NVCtrl.XNVCTRLQueryTargetStringAttribute(
             nvidia_display,
             NV_CTRL_TARGET_TYPE_GPU,
             0,
             0,
             NV_CTRL_STRING_GPU_UTILIZATION,
-            &used
+            &nvidia_used
         );
 
-        var str_used = (string)used;
-        p_gpu = int.parse(str_used.split_set("=,")[1]);
-        p_mem = int.parse(str_used.split_set("=,")[3]);
-        debug("USED_GRAPHICS: %d%\n", p_gpu);
-        debug("USED_MEMORY: %d%\n", p_mem);
+        // var str_used = (string)nvidia_used;
+        nvidia_percentage = int.parse(((string)nvidia_used).split_set("=,")[1]);
+        nvidia_memory_percentage = int.parse(((string)nvidia_used).split_set("=,")[3]);
+        debug("USED_GRAPHICS: %d%\n", nvidia_percentage);
+        debug("USED_MEMORY: %d%\n", nvidia_memory_percentage);
 
-        if(!res3) {
+        if(!nvidia_resources_used) {
             stdout.printf("Could not query NV_CTRL_STRING_GPU_UTILIZATION attribute!\n");
             return ;
         }
 
     }
 
-    private void update_temperature () { temperature = temp; }
+    private void update_temperature () { temperature = nvidia_temperature; }
 
-    private void update_memory_vram_used () { memory_vram_used = u_mem; }
+    private void update_memory_vram_used () { memory_vram_used = nvidia_memory_vram_used; }
 
-    private void update_memory_percentage () { memory_percentage = p_mem; }
+    private void update_memory_percentage () { memory_percentage = nvidia_memory_percentage; }
 
-    private void update_percentage () { percentage = p_gpu; }
+    private void update_percentage () { percentage = nvidia_percentage; }
 
     public void update () {
         update_nv_resources ();
