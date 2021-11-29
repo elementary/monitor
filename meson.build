@@ -10,6 +10,7 @@ prefix = get_option('prefix')
 datadir = join_paths(prefix, get_option('datadir'))
 libdir = join_paths(prefix, get_option('libdir'))
 icondir = join_paths(datadir, 'icons', 'hicolor')
+vapi_dir = meson.current_source_dir() / 'vapi'
 
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()), language:'c')
 
@@ -29,6 +30,7 @@ gio = dependency('gio-2.0')
 gobject = dependency('gobject-2.0')
 gtop = dependency('libgtop-2.0')
 wnck = dependency('libwnck-3.0')
+x11 = dependency('x11')
 wingpanel = dependency('wingpanel', version: '>=2.1.0')
 gdk_x11 = dependency('gdk-x11-3.0')
 udisks2 = dependency ('udisks2')
@@ -225,10 +227,14 @@ executable(
         gtop,
         wnck,
         gdk_x11,
+        x11,
         udisks2,
         handy,
         livechart_dep,
         meson.get_compiler('c').find_library('m', required : false),
+        meson.get_compiler('c').find_library('XNVCtrl'),
+        meson.get_compiler('c').find_library('X11'),
+        meson.get_compiler('vala').find_library('libxnvctrl', dirs: vapi_dir),
         meson.get_compiler('vala').find_library('posix')
     ],
     vala_args: [

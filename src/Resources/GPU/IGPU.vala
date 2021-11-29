@@ -55,7 +55,7 @@ public interface Monitor.IGPU : Object {
     public abstract void update ();
 
 
-    public virtual  string get_sysfs_value (string path) {
+    public virtual string get_sysfs_value (string path) {
         string content;
         try {
             FileUtils.get_contents (path, out content);

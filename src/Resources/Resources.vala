@@ -5,6 +5,11 @@ public class Monitor.Resources : Object {
     public Network network;
     public Storage storage;
     public IGPU gpu;
+    public int nvidia_info = 0;
+    public bool nvidia_resources;
+    public int vendor_id;
+    // public int dev_id;
+    public X.Display nvidia_display;
 
     private HwmonPathParser hwmon_path_parser;
 
@@ -16,12 +21,36 @@ public class Monitor.Resources : Object {
         swap = new Swap ();
         network = new Network ();
         storage = new Storage ();
+        nvidia_display = new X.Display ();
+
+        nvidia_resources = NVCtrl.XNVCTRLQueryTargetAttribute (
+            nvidia_display,
+            NV_CTRL_TARGET_TYPE_GPU,
+            0,
+            0,
+            NV_CTRL_PCI_ID,
+            &nvidia_info
+        );
+
+        if (!nvidia_resources) {
+            stdout.printf ("Could not query NV_CTRL_PCI_ID attribute!\n");
+            return ;
+        }
+
+        vendor_id = nvidia_info >> 16;
+        // dev_id = nvidia_info&0xFFFF;
+        debug ("VENDOR_ID: %d\n", vendor_id);
+        // debug ("DEVICE_ID: %d\n", dev_id);
 
         cpu.temperatures = hwmon_path_parser.cpu_paths_parser.temperatures;
 
         if (hwmon_path_parser.gpu_paths_parser.name == "amdgpu") {
             gpu = new GPUAmd ();
             gpu.hwmon_temperatures = hwmon_path_parser.gpu_paths_parser.temperatures;
+        }
+
+        if (vendor_id == 4318) {
+            gpu = new GPUNvidia ();
         }
 
         update ();
@@ -56,5 +85,4 @@ public class Monitor.Resources : Object {
                    network_down = network.bytes_in
         };
     }
-
 }
