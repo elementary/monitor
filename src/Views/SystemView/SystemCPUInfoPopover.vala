@@ -13,7 +13,7 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
 
         var stack = new Gtk.Stack () {
             transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT,
-            height_request = 200,
+            height_request = 300,
             width_request = 400,
             margin_top = 12,
         };
@@ -91,7 +91,8 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
     private Gtk.ListBoxRow create_row (string flag, string flag_description) {
         var row = new Gtk.ListBoxRow ();
         var grid = new Gtk.Grid (){
-            column_spacing = 2
+            column_spacing = 2,
+            margin_bottom = 12
         };
 
         var flag_label = new Gtk.Label (flag) {
@@ -100,11 +101,11 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
             wrap = true,
             margin = 6,
         };
-        flag_label.get_style_context ().add_class ("core_badge");
+        flag_label.get_style_context ().add_class ("flags_badge");
 
 
         grid.attach (flag_label, 0, 0, 1, 1);
-        grid.attach (label (flag_description), 1, 0, 1, 1);
+        grid.attach (label (flag_description), 0, 1, 1, 1);
         row.add (grid);
 
         return row;
