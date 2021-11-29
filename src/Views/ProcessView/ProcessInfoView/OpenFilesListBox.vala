@@ -8,7 +8,6 @@ public class Monitor.OpenFilesListBox : Gtk.ScrolledWindow {
         listbox = new Gtk.ListBox ();
         listbox.get_style_context ().add_class ("open_files_list_box");
         listbox.set_selection_mode (Gtk.SelectionMode.NONE);
-        listbox.get_style_context ().add_class ("open_files_list_box");
         listbox.vexpand = true;
 
         add (listbox);
