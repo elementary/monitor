@@ -32,7 +32,7 @@ public class Monitor.GPUNvidia : IGPU, Object {
     public X.Display nvidia_display;
 
     construct {
-        session_manager = get_sessman ();
+        //  session_manager = get_sessman ();
         nvidia_display = new X.Display ();
     }
 
@@ -46,7 +46,7 @@ public class Monitor.GPUNvidia : IGPU, Object {
         );
 
         if (!nvidia_resources_temperature) {
-            stdout.printf ("Could not query NV_CTRL_GPU_CORE_TEMPERATURE attribute!\n");
+            warning ("Could not query NV_CTRL_GPU_CORE_TEMPERATURE attribute!\n");
             return;
         }
 
@@ -60,7 +60,7 @@ public class Monitor.GPUNvidia : IGPU, Object {
         );
 
         if (!nvidia_resources_vram_used) {
-            stdout.printf ("Could not query NV_CTRL_USED_DEDICATED_GPU_MEMORY attribute!\n");
+            warning ("Could not query NV_CTRL_USED_DEDICATED_GPU_MEMORY attribute!\n");
             return ;
         }
 
@@ -80,7 +80,7 @@ public class Monitor.GPUNvidia : IGPU, Object {
         debug ("USED_MEMORY: %d%\n", nvidia_memory_percentage);
 
         if (!nvidia_resources_used) {
-            stdout.printf ("Could not query NV_CTRL_STRING_GPU_UTILIZATION attribute!\n");
+            warning ("Could not query NV_CTRL_STRING_GPU_UTILIZATION attribute!\n");
             return ;
         }
 

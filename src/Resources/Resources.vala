@@ -1,3 +1,9 @@
+[DBus (name = "org.gnome.SessionManager")]
+public interface SessionManager : Object {
+    [DBus (name = "Renderer")]
+    public abstract string renderer { owned get;}
+}
+
 public class Monitor.Resources : Object {
     public CPU cpu;
     public Memory memory;
@@ -5,12 +11,6 @@ public class Monitor.Resources : Object {
     public Network network;
     public Storage storage;
     public IGPU gpu;
-    public int nvidia_info = 0;
-    public bool nvidia_resources;
-    public int vendor_id;
-    // public int dev_id;
-    public X.Display nvidia_display;
-
     private HwmonPathParser hwmon_path_parser;
 
     construct {
@@ -21,37 +21,22 @@ public class Monitor.Resources : Object {
         swap = new Swap ();
         network = new Network ();
         storage = new Storage ();
-        nvidia_display = new X.Display ();
 
-        nvidia_resources = NVCtrl.XNVCTRLQueryTargetAttribute (
-            nvidia_display,
-            NV_CTRL_TARGET_TYPE_GPU,
-            0,
-            0,
-            NV_CTRL_PCI_ID,
-            &nvidia_info
-        );
 
-        if (!nvidia_resources) {
-            stdout.printf ("Could not query NV_CTRL_PCI_ID attribute!\n");
-            return ;
-        }
+        string gpu_name = get_sessman ().renderer.down ();
 
-        vendor_id = nvidia_info >> 16;
-        // dev_id = nvidia_info&0xFFFF;
-        debug ("VENDOR_ID: %d\n", vendor_id);
-        // debug ("DEVICE_ID: %d\n", dev_id);
-
-        cpu.temperatures = hwmon_path_parser.cpu_paths_parser.temperatures;
-
-        if (hwmon_path_parser.gpu_paths_parser.name == "amdgpu") {
+        if (gpu_name.contains ("intel")) {
+            
+        } else if (gpu_name.contains ("nvidia")) {
+            gpu = new GPUNvidia ();
+        } else if (gpu_name.contains ("amd")) {
             gpu = new GPUAmd ();
             gpu.hwmon_temperatures = hwmon_path_parser.gpu_paths_parser.temperatures;
+        } else {
+            debug ("GPU: Unknown\n");
         }
 
-        if (vendor_id == 4318) {
-            gpu = new GPUNvidia ();
-        }
+        cpu.temperatures = hwmon_path_parser.cpu_paths_parser.temperatures;
 
         update ();
     }
@@ -68,6 +53,22 @@ public class Monitor.Resources : Object {
             });
             return true;
         });
+    }
+
+    public SessionManager? get_sessman () {
+        try {
+            SessionManager session_manager = Bus.get_proxy_sync (
+                BusType.SESSION,
+                "org.gnome.SessionManager",
+                "/org/gnome/SessionManager"
+            );
+            debug (session_manager.renderer);
+            return session_manager;
+
+        } catch (IOError e) {
+            warning (e.message);
+            return null;
+        }
     }
 
     public ResourcesSerialized serialize () {

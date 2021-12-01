@@ -14,7 +14,7 @@ public class Monitor.GPUAmd : IGPU, Object {
     public double temperature { get; protected set; }
 
     construct {
-        session_manager = get_sessman ();
+        //  session_manager = get_sessman ();
     }
 
     private void update_temperature () {
