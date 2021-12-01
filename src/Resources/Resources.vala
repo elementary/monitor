@@ -22,18 +22,20 @@ public class Monitor.Resources : Object {
         network = new Network ();
         storage = new Storage ();
 
-
-        string gpu_name = get_sessman ().renderer.down ();
+        SessionManager session_manager = get_sessman ();
+        string gpu_name = session_manager.renderer.down ();
 
         if (gpu_name.contains ("intel")) {
             
-        } else if (gpu_name.contains ("nvidia")) {
+        } else if (gpu_name.contains ("nvidia") || gpu_name.contains ("geforce")) {
             gpu = new GPUNvidia ();
+            gpu.session_manager = session_manager;
         } else if (gpu_name.contains ("amd")) {
             gpu = new GPUAmd ();
+            gpu.session_manager = session_manager;
             gpu.hwmon_temperatures = hwmon_path_parser.gpu_paths_parser.temperatures;
         } else {
-            debug ("GPU: Unknown\n");
+            warning ("GPU: Unknown");
         }
 
         cpu.temperatures = hwmon_path_parser.cpu_paths_parser.temperatures;
@@ -62,7 +64,7 @@ public class Monitor.Resources : Object {
                 "org.gnome.SessionManager",
                 "/org/gnome/SessionManager"
             );
-            debug (session_manager.renderer);
+            debug ("GPU: %s", session_manager.renderer);
             return session_manager;
 
         } catch (IOError e) {
