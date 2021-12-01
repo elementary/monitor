@@ -26,7 +26,7 @@ public class Monitor.Resources : Object {
         string gpu_name = session_manager.renderer.down ();
 
         if (gpu_name.contains ("intel")) {
-            
+
         } else if (gpu_name.contains ("nvidia") || gpu_name.contains ("geforce")) {
             gpu = new GPUNvidia ();
             gpu.session_manager = session_manager;
