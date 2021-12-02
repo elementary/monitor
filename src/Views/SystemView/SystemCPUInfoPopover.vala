@@ -19,7 +19,7 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
         };
 
         stack.add_titled (general_page (), "general_page", _("General"));
-        stack.add_titled (flags_page (), "flags_page", _("Flags"));
+        stack.add_titled (features_page (), "features_page", _("Features"));
         stack.add_titled (bugs_page (), "bugs_page", _("Bugs"));
 
         Gtk.StackSwitcher stack_switcher = new Gtk.StackSwitcher (){
@@ -35,7 +35,7 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
     private Gtk.Label label (string text) {
         var label = new Gtk.Label (text) {
             halign = Gtk.Align.START,
-            valign = Gtk.Align.START,
+            valign = Gtk.Align.CENTER,
             wrap = true,
             margin = 6,
         };
@@ -58,13 +58,13 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
         return listbox;
     }
 
-    private Gtk.Widget flags_page () {
+    private Gtk.Widget features_page () {
         var listbox = new Gtk.ListBox () {
             activate_on_single_click = false
         };
 
-        foreach (unowned string flag in cpu.flags) {
-            listbox.add (label (flag));
+        foreach (var feature in cpu.features) {
+            listbox.add (create_row (feature.key, feature.value));
         }
 
         var scrolled_window = new Gtk.ScrolledWindow (null, null);
@@ -92,7 +92,7 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
         var row = new Gtk.ListBoxRow ();
         var grid = new Gtk.Grid (){
             column_spacing = 2,
-            margin_bottom = 12
+            margin_bottom = 6
         };
 
         var flag_label = new Gtk.Label (flag) {
@@ -105,7 +105,7 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
 
 
         grid.attach (flag_label, 0, 0, 1, 1);
-        grid.attach (label (flag_description), 0, 1, 1, 1);
+        grid.attach (label (flag_description), 1, 0, 1, 1);
         row.add (grid);
 
         return row;

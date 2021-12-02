@@ -8,9 +8,10 @@ public class Monitor.CPU : Object {
     public string ? family;
     public string ? microcode;
     public string ? cache_size;
-    public string[] ? flags;
     public string ? bogomips;
     public Gee.HashMap<string, string> bugs = new Gee.HashMap<string, string>();
+    public Gee.HashMap<string, string> features = new Gee.HashMap<string, string>();
+
     public string ? address_sizes;
 
     public Gee.HashMap<string, HwmonTemperature> temperatures;
@@ -139,7 +140,7 @@ public class Monitor.CPU : Object {
         family = values["cpu family"];
         microcode = values["microcode"];
         cache_size = values["cache size"];
-        flags = values["flags"].split (" ");
+        parse_features (values["flags"]);
         bogomips = values["bogomips"];
         parse_bugs (values["bugs"]);
         address_sizes = values["address sizes"];
@@ -173,6 +174,36 @@ public class Monitor.CPU : Object {
             }
         }
     }
+
+    private void parse_features (string _features) {
+        File csv_file = File.new_for_path("../data/database/cpu_features.csv");
+        DataInputStream dis;
+        var all_bugs = new Gee.HashMap<string, string> ();
+        if (!csv_file.query_exists ()) {
+            warning ("File %s does not exist", csv_file.get_path ());
+        } else {
+            try {
+                dis = new DataInputStream (csv_file.read());
+                string[] flag_data;
+                while ((flag_data = dis.read_line ().split (",")) != null) {
+                    all_bugs.set (flag_data[0], flag_data[1].replace ("\r", ""));
+                }
+                debug ("Parsed file %s", csv_file.get_path ());
+
+            } catch (Error e) {
+                warning (e.message);
+            }
+        }
+
+        foreach (string bug in _features.split(" ")) {
+            if (all_bugs.has_key (bug)) {
+                features.set (bug, all_bugs.get (bug));
+            } else {
+                features.set (bug, Utils.NOT_AVAILABLE);
+            }
+        }
+    }
+    
 
     // straight from elementary about-plug
     private string ? get_cpu_info () {
