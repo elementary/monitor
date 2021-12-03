@@ -151,6 +151,7 @@ executable(
     'src/Resources/Resources.vala',
     'src/Resources/ResourcesSerialized.vala',
     'src/Resources/CPU.vala',
+    'src/Resources/CPUCache.vala',
     'src/Resources/Core.vala',
     'src/Resources/Memory.vala',
     'src/Resources/Swap.vala',

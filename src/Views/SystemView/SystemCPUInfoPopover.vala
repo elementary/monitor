@@ -52,7 +52,19 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
         listbox.add (label (_("Family:") + " " + cpu.family));
         listbox.add (label (_("Microcode ver.:") + " " + cpu.microcode));
         listbox.add (label (_("Bogomips:") + " " + cpu.bogomips));
-        listbox.add (label (_("Cache size:") + " " + cpu.cache_size));
+
+        if (cpu.core_list[0].caches.has_key ("L1Instruction")) {
+            listbox.add (label (_("L1 Instruction cache:") + " " + cpu.core_list[0].caches["L1Instruction"].size));
+        } 
+        if (cpu.core_list[0].caches.has_key ("L1Data")) {
+            listbox.add (label (_("L1 Data cache:") + " " + cpu.core_list[0].caches["L1Data"].size));
+        } 
+        if (cpu.core_list[0].caches.has_key ("L1")) {
+            listbox.add (label (_("L1 cache:") + " " + cpu.core_list[0].caches["L1"].size));
+        }
+
+        listbox.add (label (_("L2 Cache size:") + " " + cpu.core_list[0].caches.get ("L2").size));
+        listbox.add (label (_("L3 Cache size:") + " " + cpu.core_list[0].caches.get ("L3").size));
         listbox.add (label (_("Address sizes:") + " " + cpu.address_sizes));
 
         return listbox;
