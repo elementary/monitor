@@ -24,7 +24,7 @@ public class Monitor.CPU : Object {
         }
     }
 
-    public Gee.ArrayList<Core> core_list;
+    public Gee.ArrayList<Core> core_list = new Gee.ArrayList<Core> ();
 
     private double _frequency;
     public double frequency {
@@ -58,8 +58,6 @@ public class Monitor.CPU : Object {
     construct {
         last_used = 0;
         last_total = 0;
-
-        core_list = new Gee.ArrayList<Core> ();
 
         model_name = get_cpu_info ();
 
@@ -122,6 +120,29 @@ public class Monitor.CPU : Object {
 
         _frequency = (double) maxcur;
     }
+
+    //  private void get_cache () {
+    //      double maxcur = 0;
+    //      for (uint cpu_id = 0, isize = (int) get_num_processors (); cpu_id < isize; ++cpu_id) {
+    //          string cur_content;
+    //          try {
+    //              FileUtils.get_contents ("/sys/devices/system/cpu/cpu%u/cpufreq/scaling_cur_freq".printf (cpu_id), out cur_content);
+    //          } catch (Error e) {
+    //              warning (e.message);
+    //              cur_content = "0";
+    //          }
+
+    //          var cur = double.parse (cur_content);
+
+    //          if (cpu_id == 0) {
+    //              maxcur = cur;
+    //          } else {
+    //              maxcur = double.max (cur, maxcur);
+    //          }
+    //      }
+
+    //      _frequency = (double) maxcur;
+    //  }
 
     private void parse_cpuinfo () {
         unowned GTop.SysInfo ? info = GTop.glibtop_get_sysinfo ();
