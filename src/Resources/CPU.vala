@@ -161,9 +161,9 @@ public class Monitor.CPU : Object {
         family = values["cpu family"];
         microcode = values["microcode"];
         cache_size = values["cache size"];
-        parse_flags (values["flags"], features, "../data/database/cpu_features.csv");
+        parse_flags (values["flags"], features, DBDIR + "/cpu_features.csv");
         bogomips = values["bogomips"];
-        parse_flags (values["bugs"], bugs, "../data/database/cpu_bugs.csv");
+        parse_flags (values["bugs"], bugs, DBDIR + "/cpu_bugs.csv");
         address_sizes = values["address sizes"];
     }
 
