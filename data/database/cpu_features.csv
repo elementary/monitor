@@ -1,0 +1,318 @@
+fpu,Onboard FPU
+vme,Virtual Mode Extensions
+de,Debugging Extensions
+pse,Page Size Extensions
+tsc,Time Stamp Counter
+msr,Model-Specific Registers
+pae,Physical Address Extensions
+mce,Machine Check Exception
+cx8,CMPXCHG8 instruction
+apic,Onboard APIC
+sep,SYSENTER/SYSEXIT
+mtrr,Memory Type Range Registers
+pge,Page Global Enable
+mca,Machine Check Architecture
+cmov,"CMOV instructions (plus FCMOVcc, FCOMI with FPU)"
+pat,Page Attribute Table
+pse36,36-bit PSEs
+pn,Processor serial number
+clflush,CLFLUSH instruction
+ds,dts Debug Store
+acpi,ACPI via MSR
+mmx,Multimedia Extensions
+fxsr,"FXSAVE/FXRSTOR, CR4.OSFXSR"
+xmm,sse
+xmm2,sse2
+selfsnoop,ss CPU self snoop
+ht,Hyper-Threading
+acc,tm Automatic clock control
+ia64,IA-64 processor
+pbe,Pending Break Enable
+syscall,SYSCALL/SYSRET
+mp,MP Capable
+nx,Execute Disable
+mmxext,AMD MMX extensions
+fxsr_opt,FXSAVE/FXRSTOR optimizations
+gbpages,pdpe1gb GB pages
+rdtscp,RDTSCP
+lm,"Long Mode (x86-64, 64-bit support)"
+3dnowext,AMD 3DNow extensions
+3dnow,3DNow
+recovery,CPU in recovery mode
+longrun,Longrun power control
+lrti,LongRun table interface
+cxmmx,Cyrix MMX extensions
+k6_mtrr,AMD K6 nonstandard MTRRs
+cyrix_arr,Cyrix ARRs (= MTRRs)
+centaur_mcr,Centaur MCRs (= MTRRs)
+k8,"Opteron, Athlon64"
+p3,P3
+p4,P4
+constant_tsc,TSC ticks at a constant rate
+up,SMP kernel running on UP
+art,Always running timer (ART)
+arch_perfmon,Intel Architectural PerfMon
+pebs,Precise-Event Based Sampling
+bts,Branch Trace Store
+syscall32,syscall in IA32 userspace
+sysenter32,sysenter in IA32 userspace
+rep_good,REP microcode works well
+lfence_rdtsc,LFENCE synchronizes RDTSC
+acc_power,AMD Accumulated Power Mechanism
+nopl,The NOPL (0F 1F) instructions
+always,Always-present feature
+xtopology,CPU topology enum extensions
+tsc_reliable,TSC is known to be reliable
+nonstop_tsc,TSC does not stop in C states
+cpuid,CPU has CPUID instruction itself
+extd_apicid,Extended APICID (8 bits)
+amd_dcm,AMD multi-node processor
+aperfmperf,P-State hardware coordination feedback capability (APERF/MPERF MSRs)
+rapl,AMD/Hygon RAPL interface
+nonstop_tsc_s3,TSC doesn't stop in S3 state
+tsc_known_freq,TSC has known frequency
+xmm3,pni SSE-3
+pclmulqdq,PCLMULQDQ instruction
+dtes64,64-bit Debug Store
+mwait,monitor MONITOR/MWAIT support
+dscpl,ds_cpl CPL-qualified (filtered) Debug Store
+vmx,Hardware virtualization
+smx,Safer Mode eXtensions
+est,Enhanced SpeedStep
+tm2,Thermal Monitor 2
+ssse3,Supplemental SSE-3
+cid,Context ID
+sdbg,Silicon Debug
+fma,Fused multiply-add
+cx16,CMPXCHG16B instruction
+xtpr,Send Task Priority Messages
+pdcm,Perf/Debug Capabilities MSR
+pcid,Process Context Identifiers
+dca,Direct Cache Access
+xmm4_1,sse4_1 SSE-4.1
+xmm4_2,sse4_2 SSE-4.2
+x2apic,X2APIC
+movbe,MOVBE instruction
+popcnt,POPCNT instruction
+tsc_deadline_timer,TSC deadline timer
+aes,AES instructions
+xsave,XSAVE/XRSTOR/XSETBV/XGETBV instructions
+osxsave,XSAVE instruction enabled in the OS
+avx,Advanced Vector Extensions
+f16c,16-bit FP conversions
+rdrand,RDRAND instruction
+hypervisor,Running on a hypervisor
+xstore,rng RNG present (xstore)
+xstore_en,rng_en RNG enabled
+xcrypt,ace on-CPU crypto (xcrypt)
+xcrypt_en,ace_en on-CPU crypto enabled
+ace2,Advanced Cryptography Engine v2
+ace2_en,ACE v2 enabled
+phe,PadLock Hash Engine
+phe_en,PHE enabled
+pmm,PadLock Montgomery Multiplier
+pmm_en,PMM enabled
+lahf_lm,LAHF/SAHF in long mode
+cmp_legacy,If yes HyperThreading not valid
+svm,Secure Virtual Machine
+extapic,Extended APIC space
+cr8_legacy,CR8 in 32-bit mode
+abm,Advanced bit manipulation
+sse4a,SSE-4A
+misalignsse,Misaligned SSE mode
+3dnowprefetch,3DNow prefetch instructions
+osvw,OS Visible Workaround
+ibs,Instruction Based Sampling
+xop,extended AVX instructions
+skinit,SKINIT/STGI instructions
+wdt,Watchdog timer
+lwp,Light Weight Profiling
+fma4,4 operands MAC instructions
+tce,Translation Cache Extension
+nodeid_msr,NodeId MSR
+tbm,Trailing Bit Manipulations
+topoext,Topology extensions CPUID leafs
+perfctr_core,Core performance counter extensions
+perfctr_nb,NB performance counter extensions
+bpext,Data breakpoint extension
+ptsc,Performance time-stamp counter
+perfctr_llc,Last Level Cache performance counter extensions
+mwaitx,MWAIT extension (MONITORX/MWAITX instructions)
+ring3mwait,Ring 3 MONITOR/MWAIT instructions
+cpuid_fault,Intel CPUID faulting
+cpb,AMD Core Performance Boost
+epb,IA32_ENERGY_PERF_BIAS support
+cat_l3,Cache Allocation Technology L3
+cat_l2,Cache Allocation Technology L2
+cdp_l3,Code and Data Prioritization L3
+invpcid_single,Effectively INVPCID && CR4.PCIDE=1
+hw_pstate,AMD HW-PState
+proc_feedback,AMD ProcFeedbackInterface
+pti,Kernel Page Table Isolation enabled
+retpoline,Generic Retpoline mitigation for Spectre variant 2
+retpoline_amd,AMD Retpoline mitigation for Spectre variant 2
+intel_ppin,Intel Processor Inventory Number
+cdp_l2,Code and Data Prioritization L2
+msr_spec_ctrl,MSR SPEC_CTRL is implemented
+ssbd,Speculative Store Bypass Disable
+mba,Memory Bandwidth Allocation
+rsb_ctxsw,Fill RSB on context switches
+use_ibpb,Indirect Branch Prediction Barrier enabled
+use_ibrs_fw,Use IBRS during runtime firmware calls
+spec_store_bypass_disable,Disable Speculative Store Bypass.
+ls_cfg_ssbd,AMD SSBD implementation via LS_CFG MSR
+ibrs,Indirect Branch Restricted Speculation
+ibpb,Indirect Branch Prediction Barrier
+stibp,Single Thread Indirect Branch Predictors
+zen,CPU is AMD family 0x17 or above (Zen)
+l1tf_pteinv,L1TF workaround PTE inversion
+ibrs_enhanced,Enhanced IBRS
+msr_ia32_feat_ctl,MSR IA32_FEAT_CTL configured
+tpr_shadow,Intel TPR Shadow
+vnmi,Intel Virtual NMI
+flexpriority,Intel FlexPriority
+ept,Intel Extended Page Table
+vpid,Intel Virtual Processor ID
+vmmcall,Prefer VMMCALL to VMCALL
+xenpv,Xen paravirtual guest
+ept_ad,Intel Extended Page Table access-dirty bit
+vmcall,Hypervisor supports the VMCALL instruction
+vmw_vmmcall,VMware prefers VMMCALL hypercall instruction
+pvunlock,PV unlock function
+vcpupreempt,PV vcpu_is_preempted function
+fsgsbase,"RDFSBASE, WRFSBASE, RDGSBASE, WRGSBASE instructions"
+tsc_adjust,TSC adjustment MSR 0x3B
+sgx,Software Guard Extensions
+bmi1,1st group bit manipulation extensions
+hle,Hardware Lock Elision
+avx2,AVX2 instructions
+fdp_excptn_only,FPU data pointer updated only on x87 exceptions
+smep,Supervisor Mode Execution Protection
+bmi2,2nd group bit manipulation extensions
+erms,Enhanced REP MOVSB/STOSB instructions
+invpcid,Invalidate Processor Context ID
+rtm,Restricted Transactional Memory
+cqm,Cache QoS Monitoring
+zero_fcs_fds,Zero out FPU CS and FPU DS
+mpx,Memory Protection Extension
+rdt_a,Resource Director Technology Allocation
+avx512f,AVX-512 Foundation
+avx512dq,AVX-512 DQ (Double/Quad granular) Instructions
+rdseed,RDSEED instruction
+adx,ADCX and ADOX instructions
+smap,Supervisor Mode Access Prevention
+avx512ifma,AVX-512 Integer Fused Multiply-Add instructions
+clflushopt,CLFLUSHOPT instruction
+clwb,CLWB instruction
+intel_pt,Intel Processor Trace
+avx512pf,AVX-512 Prefetch
+avx512er,AVX-512 Exponential and Reciprocal
+avx512cd,AVX-512 Conflict Detection
+sha_ni,SHA1/SHA256 Instruction Extensions
+avx512bw,AVX-512 BW (Byte/Word granular) Instructions
+avx512vl,AVX-512 VL (128/256 Vector Length) Extensions
+xsaveopt,XSAVEOPT instruction
+xsavec,XSAVEC instruction
+xgetbv1,XGETBV with ECX = 1 instruction
+xsaves,XSAVES/XRSTORS instructions
+xfd,eXtended Feature Disabling
+cqm_llc,LLC QoS if 1
+cqm_occup_llc,LLC occupancy monitoring
+cqm_mbm_total,LLC Total MBM monitoring
+cqm_mbm_local,LLC Local MBM monitoring
+fence_swapgs_user,LFENCE in user entry SWAPGS path
+fence_swapgs_kernel,LFENCE in kernel entry SWAPGS path
+split_lock_detect,#AC for split lock
+per_thread_mba,Per-thread Memory Bandwidth Allocation
+sgx1,Basic SGX
+sgx2,SGX Enclave Dynamic Memory Management (EDMM)
+avx_vnni,AVX VNNI instructions
+avx512_bf16,AVX512 BFLOAT16 instructions
+amx_tile,AMX tile Support
+clzero,CLZERO instruction
+irperf,Instructions Retired Count
+xsaveerptr,Always save/restore FP error pointers
+rdpru,Read processor register at user level
+wbnoinvd,WBNOINVD instruction
+amd_ibpb,Indirect Branch Prediction Barrier
+amd_ibrs,Indirect Branch Restricted Speculation
+amd_stibp,Single Thread Indirect Branch Predictors
+amd_stibp_always_on,Single Thread Indirect Branch Predictors always-on preferred
+amd_ppin,Protected Processor Inventory Number
+amd_ssbd,Speculative Store Bypass Disable
+virt_ssbd,Virtualized Speculative Store Bypass Disable
+amd_ssb_no,Speculative Store Bypass is fixed in hardware.
+dtherm,Digital Thermal Sensor
+ida,Intel Dynamic Acceleration
+arat,Always Running APIC Timer
+pln,Intel Power Limit Notification
+pts,Intel Package Thermal Status
+hwp,Intel Hardware P-states
+hwp_notify,HWP Notification
+hwp_act_window,HWP Activity Window
+hwp_epp,HWP Energy Perf. Preference
+hwp_pkg_req,HWP Package Level Request
+npt,Nested Page Table support
+lbrv,LBR Virtualization support
+svml,svm_lock SVM locking MSR
+nrips,nrip_save SVM next_rip save
+tscratemsr,tsc_scale TSC scaling support
+vmcbclean,vmcb_clean VMCB clean bits support
+flushbyasid,flush-by-ASID support
+decodeassists,Decode Assists support
+pausefilter,filtered pause intercept
+pfthreshold,pause filter threshold
+avic,Virtual Interrupt Controller
+v_vmsave_vmload,Virtual VMSAVE VMLOAD
+vgif,Virtual GIF
+v_spec_ctrl,Virtual SPEC_CTRL
+svme_addr_chk,SVME addr check
+avx512vbmi,AVX512 Vector Bit Manipulation instructions
+umip,User Mode Instruction Protection
+pku,Protection Keys for Userspace
+ospke,OS Protection Keys Enable
+waitpkg,UMONITOR/UMWAIT/TPAUSE Instructions
+avx512_vbmi2,Additional AVX512 Vector Bit Manipulation Instructions
+gfni,Galois Field New Instructions
+vaes,Vector AES
+vpclmulqdq,Carry-Less Multiplication Double Quadword
+avx512_vnni,Vector Neural Network Instructions
+avx512_bitalg,"Support for VPOPCNT[B,W] and VPSHUF-BITQMB instructions"
+tme,Intel Total Memory Encryption
+avx512_vpopcntdq,POPCNT for vectors of DW/QW
+la57,5-level page tables
+rdpid,RDPID instruction
+bus_lock_detect,Bus Lock detect
+cldemote,CLDEMOTE instruction
+movdiri,MOVDIRI instruction
+movdir64b,MOVDIR64B instruction
+enqcmd,ENQCMD and ENQCMDS instructions
+sgx_lc,Software Guard Extensions Launch Control
+overflow_recov,MCA overflow recovery support
+succor,Uncorrectable error containment and recovery
+smca,Scalable MCA
+avx512_4vnniw,AVX-512 Neural Network Instructions
+avx512_4fmaps,AVX-512 Multiply Accumulation Single precision
+fsrm,Fast Short Rep Mov
+avx512_vp2intersect,AVX-512 Intersect for D/Q
+srbds_ctrl,SRBDS mitigation MSR available
+md_clear,VERW clears CPU buffers
+rtm_always_abort,RTM transaction always aborts
+tsx_force_abort,TSX_FORCE_ABORT
+serialize,SERIALIZE instruction
+hybrid_cpu,This part has CPUs of more than one type
+tsxldtrk,TSX Suspend Load Address Tracking
+pconfig,Intel PCONFIG
+arch_lbr,Intel ARCH LBR
+avx512_fp16,AVX512 FP16
+spec_ctrl,Speculation Control (IBRS + IBPB)
+intel_stibp,Single Thread Indirect Branch Predictors
+flush_l1d,Flush L1D cache
+arch_capabilities,IA32_ARCH_CAPABILITIES MSR (Intel)
+core_capabilities,IA32_CORE_CAPABILITIES MSR
+spec_ctrl_ssbd,Speculative Store Bypass Disable
+sme,AMD Secure Memory Encryption
+sev,AMD Secure Encrypted Virtualization
+vm_page_flush,VM Page Flush MSR is supported
+sev_es,AMD Secure Encrypted Virtualization - Encrypted State
+sme_coherent,AMD hardware-enforced cache coherency

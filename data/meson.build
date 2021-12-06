@@ -11,6 +11,19 @@ foreach i : icon_sizes
     )
 endforeach
 
+dbdir = join_paths(datadir, meson.project_name(), 'database')
+config_data.set('DBDIR', dbdir)
+
+install_data(
+    join_paths('database', 'cpu_bugs.csv'),
+    install_dir: dbdir
+)
+
+install_data(
+    join_paths('database', 'cpu_features.csv'),
+    install_dir: dbdir
+)
+
 # sass_command = [
 #     sass,
 #     '@INPUT@',

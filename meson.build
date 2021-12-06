@@ -11,6 +11,9 @@ datadir = join_paths(prefix, get_option('datadir'))
 libdir = join_paths(prefix, get_option('libdir'))
 icondir = join_paths(datadir, 'icons', 'hicolor')
 
+add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()), language:'c')
+
+
 livechart_proj = subproject('live-chart')
 # elementary_stylesheet = subproject('stylesheet')
 
@@ -31,11 +34,12 @@ gdk_x11 = dependency('gdk-x11-3.0')
 udisks2 = dependency ('udisks2')
 handy = dependency('libhandy-1', version: '>=0.90.0')
 
-config_data = configuration_data()
-config_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 
-configure_file(output: 'config.h', configuration: config_data)
-config_h_dir = include_directories('.')
+config_data = configuration_data()
+config_data.set('GETTEXT_PACKAGE', meson.project_name())
+
+subdir('data')
+
 
 icons_gresource = gnome.compile_resources(
     'gresource_icons', 'data/icons/icons.indicator.gresource.xml',
@@ -83,12 +87,44 @@ css_gresource = gnome.compile_resources(
 )
 
 c_args = [
-    '-include', 'config.h',
     '-DWNCK_I_KNOW_THIS_IS_UNSTABLE',
     '-w',
     # '-g',
     # '--save-temps'
 ]
+
+# conf_data = configuration_data()
+# conf_data.set('PROJECT_NAME', meson.project_name())
+# conf_data.set('GETTEXT_PACKAGE', meson.project_name())
+# conf_data.set('GETTEXT_DIR', join_paths(get_option('prefix'), get_option('localedir')))
+# conf_data.set('VERSION', meson.project_version())
+# conf_data.set('PREFIX', get_option('prefix'))
+# conf_data.set('DATADIR', join_paths(get_option('prefix'), get_option('datadir')))
+# conf_data.set('BINDIR', join_paths(get_option('prefix'), get_option('bindir')))
+
+project_config = vcs_tag(
+	input: vcs_tag(
+		input: vcs_tag(
+			input: configure_file(
+				input: 'src/Conf.vala.in',
+				output: 'Conf.vala.in.in.in',
+				configuration: config_data
+			),
+			output: 'Conf.vala.in.in',
+			command: ['git', 'rev-parse', '--short', 'HEAD'],
+			replace_string: '@GIT_COMMIT_SHORT@',
+			fallback: ''
+		),
+		output: 'Conf.vala.in',
+		command: ['git', 'rev-parse', 'HEAD'],
+		replace_string: '@GIT_COMMIT@',
+		fallback: ''
+	),
+	output: 'Conf.vala',
+	command: ['git', 'symbolic-ref', '--short', '-q', 'HEAD'],
+	replace_string: '@GIT_BRANCH@',
+	fallback: ''
+)
 
 executable(
     meson.project_name(),
@@ -151,6 +187,7 @@ executable(
     'src/Resources/Resources.vala',
     'src/Resources/ResourcesSerialized.vala',
     'src/Resources/CPU.vala',
+    'src/Resources/CPUCache.vala',
     'src/Resources/Core.vala',
     'src/Resources/Memory.vala',
     'src/Resources/Swap.vala',
@@ -172,6 +209,8 @@ executable(
     'src/Resources/Hwmon/HwmonFan.vala',
     'src/Resources/Hwmon/HwmonPWM.vala',
     'src/Resources/Hwmon/HwmonPower.vala',
+
+    project_config,
 
     c_args: c_args,
     dependencies: [
@@ -224,7 +263,6 @@ shared_module(
 # Add in a post install script
 meson.add_install_script('meson/post_install.py')
 
-subdir('data')
 subdir('po')
 
 # shows size of binary

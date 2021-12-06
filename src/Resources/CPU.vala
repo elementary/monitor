@@ -8,9 +8,10 @@ public class Monitor.CPU : Object {
     public string ? family;
     public string ? microcode;
     public string ? cache_size;
-    public string ? flags;
     public string ? bogomips;
-    public string ? bugs;
+    public Gee.HashMap<string, string> bugs = new Gee.HashMap<string, string>();
+    public Gee.HashMap<string, string> features = new Gee.HashMap<string, string>();
+
     public string ? address_sizes;
 
     public Gee.HashMap<string, HwmonTemperature> temperatures;
@@ -23,7 +24,7 @@ public class Monitor.CPU : Object {
         }
     }
 
-    public Gee.ArrayList<Core> core_list;
+    public Gee.ArrayList<Core> core_list = new Gee.ArrayList<Core> ();
 
     private double _frequency;
     public double frequency {
@@ -57,8 +58,6 @@ public class Monitor.CPU : Object {
     construct {
         last_used = 0;
         last_total = 0;
-
-        core_list = new Gee.ArrayList<Core> ();
 
         model_name = get_cpu_info ();
 
@@ -122,6 +121,29 @@ public class Monitor.CPU : Object {
         _frequency = (double) maxcur;
     }
 
+    //  private void get_cache () {
+    //      double maxcur = 0;
+    //      for (uint cpu_id = 0, isize = (int) get_num_processors (); cpu_id < isize; ++cpu_id) {
+    //          string cur_content;
+    //          try {
+    //              FileUtils.get_contents ("/sys/devices/system/cpu/cpu%u/cpufreq/scaling_cur_freq".printf (cpu_id), out cur_content);
+    //          } catch (Error e) {
+    //              warning (e.message);
+    //              cur_content = "0";
+    //          }
+
+    //          var cur = double.parse (cur_content);
+
+    //          if (cpu_id == 0) {
+    //              maxcur = cur;
+    //          } else {
+    //              maxcur = double.max (cur, maxcur);
+    //          }
+    //      }
+
+    //      _frequency = (double) maxcur;
+    //  }
+
     private void parse_cpuinfo () {
         unowned GTop.SysInfo ? info = GTop.glibtop_get_sysinfo ();
 
@@ -139,10 +161,40 @@ public class Monitor.CPU : Object {
         family = values["cpu family"];
         microcode = values["microcode"];
         cache_size = values["cache size"];
-        flags = values["flags"];
+        parse_flags (values["flags"], features, DBDIR + "/cpu_features.csv");
         bogomips = values["bogomips"];
-        bugs = values["bugs"];
+        parse_flags (values["bugs"], bugs, DBDIR + "/cpu_bugs.csv");
         address_sizes = values["address sizes"];
+    }
+
+    private void parse_flags (string _flags, Gee.HashMap<string, string> flags, string path) {
+        File csv_file = File.new_for_path(path);
+        DataInputStream dis;
+        var all_flags = new Gee.HashMap<string, string> ();
+        if (!csv_file.query_exists ()) {
+            warning ("File %s does not exist", csv_file.get_path ());
+        } else {
+            try {
+                dis = new DataInputStream (csv_file.read());
+                string flag_data;
+                while ((flag_data = dis.read_line ()) != null) {
+                    var splitted = flag_data.split (",");
+                    all_flags.set (splitted[0], splitted[1].replace ("\r", ""));
+                }
+                debug ("Parsed file %s", csv_file.get_path ());
+
+            } catch (Error e) {
+                warning (e.message);
+            }
+        }
+
+        foreach (string flag in _flags.split(" ")) {
+            if (all_flags.has_key (flag)) {
+                flags.set (flag, all_flags.get (flag));
+            } else {
+                flags.set (flag, Utils.NOT_AVAILABLE);
+            }
+        }
     }
 
     // straight from elementary about-plug
