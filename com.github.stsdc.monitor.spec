@@ -16,6 +16,7 @@ BuildRequires: vala
 BuildRequires: gcc
 BuildRequires: sassc
 BuildRequires: git
+BuildRequires: libxnvctrl0
 BuildRequires: pkgconfig(gtk+-3.0)
 BuildRequires: pkgconfig(gee-0.8)
 BuildRequires: pkgconfig(glib-2.0)
@@ -26,6 +27,7 @@ BuildRequires: pkgconfig(libgtop-2.0)
 BuildRequires: pkgconfig(libwnck-3.0)
 BuildRequires: pkgconfig(wingpanel)
 BuildRequires: pkgconfig(gdk-x11-3.0)
+BuildRequires: pkgconfig(libx11-6)
 BuildRequires: pkgconfig(libhandy-1)
 BuildRequires: pkgconfig(libudisks2-devel)
 
@@ -50,6 +52,8 @@ BuildRequires: pkgconfig(libudisks2-devel)
 %{_libdir}/pkgconfig/livechart.pc
 %{_datadir}/vala/vapi/livechart.vapi
 %{_includedir}/livechart.h
+
+%{_datadir}/vala/vapi/libxnvctrl.vapi
 
 %{_datadir}/applications/%{appname}.desktop
 %{_datadir}/glib-2.0/schemas/%{appname}.gschema.xml
