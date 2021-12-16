@@ -4,7 +4,6 @@ public interface Monitor.IHwmonPathsParserInterface : Object {
 
     protected abstract Gee.HashSet<string> all_paths { get; protected set; }
 
-
     public abstract void parse ();
 
     public virtual void add_path (string path) {

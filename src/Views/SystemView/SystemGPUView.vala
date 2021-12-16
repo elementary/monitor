@@ -2,7 +2,7 @@ public class Monitor.SystemGPUView : Monitor.WidgetResource {
     private Chart gpu_chart;
     private Chart gpu_vram_percentage_chart;
     private Chart gpu_temperature_chart;
-    private GPU gpu;
+    private IGPU gpu;
 
     private LabelRoundy gpu_vram_percentage_label;
     private LabelRoundy gpu_temperature_label;
@@ -45,7 +45,7 @@ public class Monitor.SystemGPUView : Monitor.WidgetResource {
         add_charts_container (smol_charts_container);
     }
 
-    public SystemGPUView (GPU _gpu) {
+    public SystemGPUView (IGPU _gpu) {
         gpu = _gpu;
 
         title = gpu.name;

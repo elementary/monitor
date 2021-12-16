@@ -1,11 +1,16 @@
+[DBus (name = "org.gnome.SessionManager")]
+public interface SessionManager : Object {
+    [DBus (name = "Renderer")]
+    public abstract string renderer { owned get;}
+}
+
 public class Monitor.Resources : Object {
     public CPU cpu;
     public Memory memory;
     public Swap swap;
     public Network network;
     public Storage storage;
-    public GPU gpu;
-
+    public IGPU gpu;
     private HwmonPathParser hwmon_path_parser;
 
     construct {
@@ -17,12 +22,23 @@ public class Monitor.Resources : Object {
         network = new Network ();
         storage = new Storage ();
 
-        cpu.temperatures = hwmon_path_parser.cpu_paths_parser.temperatures;
+        SessionManager session_manager = get_sessman ();
+        string gpu_name = session_manager.renderer.down ();
 
-        if (hwmon_path_parser.gpu_paths_parser.name == "amdgpu") {
-            gpu = new GPU ();
-            gpu.temperatures = hwmon_path_parser.gpu_paths_parser.temperatures;
+        if (gpu_name.contains ("intel")) {
+
+        } else if (gpu_name.contains ("nvidia") || gpu_name.contains ("geforce")) {
+            gpu = new GPUNvidia ();
+            gpu.session_manager = session_manager;
+        } else if (gpu_name.contains ("amd")) {
+            gpu = new GPUAmd ();
+            gpu.session_manager = session_manager;
+            gpu.hwmon_temperatures = hwmon_path_parser.gpu_paths_parser.temperatures;
+        } else {
+            warning ("GPU: Unknown");
         }
+
+        cpu.temperatures = hwmon_path_parser.cpu_paths_parser.temperatures;
 
         update ();
     }
@@ -41,6 +57,22 @@ public class Monitor.Resources : Object {
         });
     }
 
+    public SessionManager? get_sessman () {
+        try {
+            SessionManager session_manager = Bus.get_proxy_sync (
+                BusType.SESSION,
+                "org.gnome.SessionManager",
+                "/org/gnome/SessionManager"
+            );
+            debug ("GPU: %s", session_manager.renderer);
+            return session_manager;
+
+        } catch (IOError e) {
+            warning (e.message);
+            return null;
+        }
+    }
+
     public ResourcesSerialized serialize () {
         return ResourcesSerialized () {
                    cpu_percentage = cpu.percentage,
@@ -56,5 +88,4 @@ public class Monitor.Resources : Object {
                    network_down = network.bytes_in
         };
     }
-
 }

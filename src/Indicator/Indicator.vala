@@ -13,9 +13,9 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         popover_widget = new Widgets.PopoverWidget ();
 
         try {
-            apply_custom_styles();
+            apply_custom_styles ();
         } catch (GLib.Error e) {
-            error("Failed to load Monitor Indicator CSS styles: %s", e.message);
+            error ("Failed to load Monitor Indicator CSS styles: %s", e.message);
         }
 
         dbusclient = DBusClient.get_default ();
@@ -83,9 +83,9 @@ public class Monitor.Indicator : Wingpanel.Indicator {
     public override void closed () {
     }
 
-    public void apply_custom_styles() throws GLib.Error {
-        var provider = new Gtk.CssProvider();
-        string CUSTOM_CSS = """
+    public void apply_custom_styles () throws GLib.Error {
+        var provider = new Gtk.CssProvider ();
+        string css = """
         .composited-indicator > revealer label.monitor-indicator-label-warning {
             color: @warning_color;
         }
@@ -93,7 +93,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
             color: @error_color;
         }
         """;
-        provider.load_from_data(CUSTOM_CSS, -1);
+        provider.load_from_data (css, -1);
 
         Gtk.StyleContext.add_provider_for_screen (
             Gdk.Screen.get_default (),

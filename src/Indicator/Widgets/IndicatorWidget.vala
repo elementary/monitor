@@ -10,7 +10,7 @@ public class Monitor.IndicatorWidget : Gtk.Box {
 
             if (value > 80) {
                 label.get_style_context ().add_class ("monitor-indicator-label-warning");
-            } 
+            }
             if (value > 90) {
                 label.get_style_context ().add_class ("monitor-indicator-label-critical");
             }
