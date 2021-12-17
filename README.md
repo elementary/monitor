@@ -24,7 +24,7 @@
 
 ## Install
 
-### elementary os (Odin)
+### elementary os 6 and 6.1
 
 ```bash
     sudo add-apt-repository ppa:stsdc/monitor
@@ -54,11 +54,11 @@
 
 ### Clone, Build & Install
 
-    git clone --recursive https://github.com/stsdc/monitor
-    cd monitor
-    meson build --prefix=/usr
-    cd build
-    sudo ninja install
+* `git clone --recursive https://github.com/stsdc/monitor`
+* `cd monitor`
+* `meson build --prefix=/usr` or `meson build --prefix=/usr -Dwith-indicator-wingpanel`
+* `cd build`
+* `sudo ninja install`
 
 ### Debug
 `G_MESSAGES_DEBUG=all GTK_DEBUG=interactive ./com.github.stsdc.monitor`
