@@ -102,8 +102,6 @@ executable(
 
     source_app_files,
     project_config,
-
-    c_args: c_args,
     dependencies: app_dependencies,
     install: true
 )
@@ -116,7 +114,6 @@ shared_module(
     source_indicator_files,
 
     icons_gresource,
-    c_args: c_args,
     dependencies: app_dependencies,
     install: true,
     install_dir : wingpanel_dep.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir]),

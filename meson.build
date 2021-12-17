@@ -10,11 +10,17 @@ prefix = get_option('prefix')
 datadir = join_paths(prefix, get_option('datadir'))
 libdir = join_paths(prefix, get_option('libdir'))
 icondir = join_paths(datadir, 'icons', 'hicolor')
-vapi_dir = meson.current_source_dir() / 'vapi/'
+vapidir = meson.current_source_dir() / 'vapi/'
 
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()), language:'c')
 
-add_project_arguments(['--vapidir', vapi_dir], language: 'vala')
+add_project_arguments(['--vapidir', vapidir], language: 'vala')
+add_project_arguments([
+    '-DWNCK_I_KNOW_THIS_IS_UNSTABLE',
+    '-w',
+    # '-g',
+    # '--save-temps'
+], language: 'c')
 
 livechart_proj = subproject('live-chart')
 # elementary_stylesheet = subproject('stylesheet')
@@ -40,7 +46,7 @@ app_dependencies = [
     meson.get_compiler('vala').find_library('posix'),
     meson.get_compiler('c').find_library('XNVCtrl'),
     meson.get_compiler('c').find_library('X11'),
-    meson.get_compiler('vala').find_library('libxnvctrl', dirs: vapi_dir),
+    meson.get_compiler('vala').find_library('libxnvctrl', dirs: vapidir),
 ]
 
 
@@ -94,17 +100,6 @@ css_gresource = gnome.compile_resources(
     dependencies: [stylesheet_dark, stylesheet_light, stylesheet_retrofit],
 
 )
-
-c_args = [
-    '-DWNCK_I_KNOW_THIS_IS_UNSTABLE',
-    '-w',
-    # '-g',
-    # '--save-temps'
-]
-
-vala_args = [
-        '--vapidir=' + vapi_dir,
-    ]
 
 # conf_data = configuration_data()
 # conf_data.set('PROJECT_NAME', meson.project_name())
