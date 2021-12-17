@@ -15,14 +15,12 @@ vapidir = meson.current_source_dir() / 'vapi/'
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()), language:'c')
 
 add_project_arguments(['--vapidir', vapidir], language: 'vala')
-add_project_arguments([
-    '-DWNCK_I_KNOW_THIS_IS_UNSTABLE',
-    '-w',
-    # '-g',
-    # '--save-temps'
-], language: 'c')
+add_project_arguments(['-DWNCK_I_KNOW_THIS_IS_UNSTABLE', '-w'], language: 'c')
 
 livechart_proj = subproject('live-chart')
+
+# subprojects should be skipped: https://mesonbuild.com/Release-notes-for-0-58-0.html#skip-subprojects-installation
+# needs meson 0.58.0
 # elementary_stylesheet = subproject('stylesheet')
 
 
@@ -54,61 +52,6 @@ config_data = configuration_data()
 config_data.set('GETTEXT_PACKAGE', meson.project_name())
 
 subdir('data')
-
-
-icons_gresource = gnome.compile_resources(
-    'gresource_icons', 'data/icons/icons.indicator.gresource.xml',
-    source_dir: 'data/icons',
-    c_name: 'as1'
-)
-
-sass_command = [
-    sass,
-    '@INPUT@',
-    '@OUTPUT@'
-]
-
-stylesheet_light = custom_target(
-    'theme-monitor-light',
-    input : './data/stylesheet/monitor-light.scss',
-    output : 'monitor-light.css',
-    command : sass_command,
-    build_by_default: true
-)
-
-stylesheet_dark = custom_target(
-    'theme-monitor-dark',
-    input : './data/stylesheet/monitor-dark.scss',
-    output : 'monitor-dark.css',
-    command : sass_command,
-    build_by_default: true
-)
-
-stylesheet_retrofit = custom_target(
-    'theme-monitor-retrofit',
-    input : './data/stylesheet/monitor-retrofit.scss',
-    output : 'monitor-retrofit.css',
-    command : sass_command,
-    build_by_default: true
-)
-
-css_gresource = gnome.compile_resources(
-    'gresource_css',
-    'data/css.gresource.xml',
-    source_dir: 'data',
-    c_name: 'as2',
-    dependencies: [stylesheet_dark, stylesheet_light, stylesheet_retrofit],
-
-)
-
-# conf_data = configuration_data()
-# conf_data.set('PROJECT_NAME', meson.project_name())
-# conf_data.set('GETTEXT_PACKAGE', meson.project_name())
-# conf_data.set('GETTEXT_DIR', join_paths(get_option('prefix'), get_option('localedir')))
-# conf_data.set('VERSION', meson.project_version())
-# conf_data.set('PREFIX', get_option('prefix'))
-# conf_data.set('DATADIR', join_paths(get_option('prefix'), get_option('datadir')))
-# conf_data.set('BINDIR', join_paths(get_option('prefix'), get_option('bindir')))
 
 project_config = vcs_tag(
 	input: vcs_tag(
@@ -143,4 +86,4 @@ meson.add_install_script('meson/post_install.py')
 subdir('po')
 
 # shows size of binary
-# meson.add_postconf_script('du', '-h', meson.project_name())
+meson.add_postconf_script('du', '-h', meson.project_name())
