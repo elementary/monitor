@@ -10,7 +10,7 @@ prefix = get_option('prefix')
 datadir = join_paths(prefix, get_option('datadir'))
 libdir = join_paths(prefix, get_option('libdir'))
 icondir = join_paths(datadir, 'icons', 'hicolor')
-vapi_dir = meson.current_source_dir() / 'vapi'
+vapi_dir = meson.current_source_dir() / 'vapi/'
 
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()), language:'c')
 
@@ -40,13 +40,8 @@ app_dependencies = [
     meson.get_compiler('vala').find_library('posix'),
     meson.get_compiler('c').find_library('XNVCtrl'),
     meson.get_compiler('c').find_library('X11'),
-    # meson.get_compiler('vala').find_library('libxnvctrl', dirs: vapi_dir),
+    meson.get_compiler('vala').find_library('libxnvctrl', dirs: vapi_dir),
 ]
-
-# should put if here
-# app_dependencies += [
-#     dependency('wingpanel', version: '>=2.1.0'),
-# ]
 
 
 config_data = configuration_data()

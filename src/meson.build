@@ -64,7 +64,10 @@ source_app_files = [
     'Resources/Network.vala',
     'Resources/Storage.vala',
     'Resources/Drive.vala',
-    'Resources/GPU.vala',
+
+    'Resources/GPU/IGPU.vala',
+    'Resources/GPU/GPUAmd.vala',
+    'Resources/GPU/GPUNvidia.vala',
 
     'Resources/Hwmon/HwmonPathsParser.vala',
     'Resources/Hwmon/IHwmonPathsParserInterface.vala',
@@ -98,8 +101,6 @@ executable(
     css_gresource,
 
     source_app_files,
-
-
     project_config,
 
     c_args: c_args,
