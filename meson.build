@@ -23,7 +23,6 @@ livechart_proj = subproject('live-chart')
 # needs meson 0.58.0
 # elementary_stylesheet = subproject('stylesheet')
 
-
 app_dependencies = [
     dependency('granite', version: '>= 5.2.0'),
     dependency('glib-2.0'),
@@ -84,6 +83,3 @@ subdir('src')
 meson.add_install_script('meson/post_install.py')
 
 subdir('po')
-
-# shows size of binary
-meson.add_postconf_script('du', '-h', meson.project_name())

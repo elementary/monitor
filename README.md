@@ -62,3 +62,4 @@
 
 ### Debug
 `G_MESSAGES_DEBUG=all GTK_DEBUG=interactive ./com.github.stsdc.monitor`
+

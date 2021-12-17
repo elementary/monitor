@@ -99,22 +99,21 @@ executable(
     meson.project_name(),
     icons_gresource,
     css_gresource,
-
     source_app_files,
     project_config,
     dependencies: app_dependencies,
     install: true
 )
 
-
-wingpanel_dep = dependency('wingpanel', version: '>=2.1.0')
-app_dependencies += [wingpanel_dep]
-shared_module(
-    'monitor',
-    source_indicator_files,
-
-    icons_gresource,
-    dependencies: app_dependencies,
-    install: true,
-    install_dir : wingpanel_dep.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir]),
-)
+if get_option('with-indicator-wingpanel').enabled()
+    wingpanel_dep = dependency('wingpanel', version: '>=2.1.0')
+    app_dependencies += [wingpanel_dep]
+    shared_module(
+        'monitor',
+        source_indicator_files,
+        icons_gresource,
+        dependencies: app_dependencies,
+        install: true,
+        install_dir : wingpanel_dep.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir]),
+    )
+endif
