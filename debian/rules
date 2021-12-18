@@ -12,4 +12,5 @@
 %:
 	dh $@
 
-override_dh_auto_test:
+override_dh_auto_configure:
+	dh_auto_configure -- -Dindicator-wingpanel=enabled

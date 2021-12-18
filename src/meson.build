@@ -105,7 +105,8 @@ executable(
     install: true
 )
 
-if get_option('with-indicator-wingpanel').enabled()
+if get_option('indicator-wingpanel').enabled()
+    message ('Indicator Wingpanel will be built') 
     wingpanel_dep = dependency('wingpanel', version: '>=2.1.0')
     app_dependencies += [wingpanel_dep]
     shared_module(
