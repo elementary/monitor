@@ -37,7 +37,7 @@ BuildRequires: pkgconfig(libudisks2-devel)
 %autosetup -n %{srcname} -p1
 
 %build
-%meson
+%meson -Dindicator-wingpanel=enabled # this will probably go, since majority uses gnome on Fedora
 %meson_build
 
 %install

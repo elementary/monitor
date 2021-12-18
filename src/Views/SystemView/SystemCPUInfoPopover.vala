@@ -22,7 +22,7 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
         stack.add_titled (features_page (), "features_page", _("Features"));
         stack.add_titled (bugs_page (), "bugs_page", _("Bugs"));
 
-        Gtk.StackSwitcher stack_switcher = new Gtk.StackSwitcher (){
+        Gtk.StackSwitcher stack_switcher = new Gtk.StackSwitcher () {
             valign = Gtk.Align.CENTER,
             halign = Gtk.Align.CENTER,
         };
@@ -55,10 +55,10 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
 
         if (cpu.core_list[0].caches.has_key ("L1Instruction")) {
             listbox.add (label (_("L1 Instruction cache:") + " " + cpu.core_list[0].caches["L1Instruction"].size));
-        } 
+        }
         if (cpu.core_list[0].caches.has_key ("L1Data")) {
             listbox.add (label (_("L1 Data cache:") + " " + cpu.core_list[0].caches["L1Data"].size));
-        } 
+        }
         if (cpu.core_list[0].caches.has_key ("L1")) {
             listbox.add (label (_("L1 cache:") + " " + cpu.core_list[0].caches["L1"].size));
         }
@@ -102,7 +102,7 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
 
     private Gtk.ListBoxRow create_row (string flag, string flag_description) {
         var row = new Gtk.ListBoxRow ();
-        var grid = new Gtk.Grid (){
+        var grid = new Gtk.Grid () {
             column_spacing = 2,
             margin_bottom = 6
         };

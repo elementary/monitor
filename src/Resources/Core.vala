@@ -25,7 +25,7 @@ public class Monitor.Core : GLib.Object {
             last_used = 0;
             last_total = 0;
 
-            caches = new Gee.HashMap<string, CPUCache>();
+            caches = new Gee.HashMap<string, CPUCache> ();
             get_cache (number);
 
             //  foreach (var item in caches.keys) {
@@ -129,7 +129,6 @@ public class Monitor.Core : GLib.Object {
                     } else {
                         caches.set ("L" + level.strip (), cpu_cache);
                     }
-                    
 
                 }
             } catch (FileError e) {

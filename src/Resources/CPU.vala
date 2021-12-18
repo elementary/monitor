@@ -9,8 +9,8 @@ public class Monitor.CPU : Object {
     public string ? microcode;
     public string ? cache_size;
     public string ? bogomips;
-    public Gee.HashMap<string, string> bugs = new Gee.HashMap<string, string>();
-    public Gee.HashMap<string, string> features = new Gee.HashMap<string, string>();
+    public Gee.HashMap<string, string> bugs = new Gee.HashMap<string, string> ();
+    public Gee.HashMap<string, string> features = new Gee.HashMap<string, string> ();
 
     public string ? address_sizes;
 
@@ -168,14 +168,14 @@ public class Monitor.CPU : Object {
     }
 
     private void parse_flags (string _flags, Gee.HashMap<string, string> flags, string path) {
-        File csv_file = File.new_for_path(path);
+        File csv_file = File.new_for_path (path);
         DataInputStream dis;
         var all_flags = new Gee.HashMap<string, string> ();
         if (!csv_file.query_exists ()) {
             warning ("File %s does not exist", csv_file.get_path ());
         } else {
             try {
-                dis = new DataInputStream (csv_file.read());
+                dis = new DataInputStream (csv_file.read ());
                 string flag_data;
                 while ((flag_data = dis.read_line ()) != null) {
                     var splitted = flag_data.split (",");
@@ -188,7 +188,7 @@ public class Monitor.CPU : Object {
             }
         }
 
-        foreach (string flag in _flags.split(" ")) {
+        foreach (string flag in _flags.split (" ")) {
             if (all_flags.has_key (flag)) {
                 flags.set (flag, all_flags.get (flag));
             } else {
