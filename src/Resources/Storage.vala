@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Dirli <litandrej85@gmail.com>
+ * Copyright (c) 2021 Dirli <litandrej85@gmail.com>
  * Copyright (c) 2021 stsdc
  *
  * This program is free software: you can redistribute it and/or modify
@@ -58,6 +58,8 @@
 
 
     private void init_drives () {
+            debug ("init drives start");
+
         obj_proxies.foreach ((iter) => {
             var udisks_obj = udisks_client.peek_object (iter.get_object_path ());
             if (udisks_obj != null) {
@@ -77,12 +79,8 @@
                             current_drive.size = drive_dev.size;
                             current_drive.revision = drive_dev.revision;
 
-                            if (drive_dev.id == "") {
-                                current_drive.id = "";
-                            } else {
-                                var dev_id = drive_dev.id.split ("-");
-                                current_drive.id = dev_id[dev_id.length - 1];
-                            }
+                            current_drive.id = get_pretty_id (drive_dev.id);
+
                             current_drive.device = block_dev.device;
                             current_drive.partition = p_type_display != null ? p_type_display : "Unknown";
 
@@ -97,6 +95,16 @@
             }
         });
     }
+
+    private string get_pretty_id (string id) {
+        var did = "";
+        if (id != "") {
+            var id_arr = id.split ("-");
+            did = id_arr[id_arr.length - 1];
+        }
+    return did;
+    }
+
 
     private void init_volumes () {
         obj_proxies.foreach ((iter) => {
@@ -135,8 +143,7 @@
 
                     var d = udisks_client.get_drive_for_block (block_dev);
                     if (d != null) {
-                        var dev_id = d.id.split ("-");
-                        var did = dev_id[dev_id.length - 1];
+                        var did = get_pretty_id (d.id);
                         if (drives_hash.has_key (did) && block_dev.device.contains (drives_hash[did].device)) {
                             drives_hash[did].add_volume (current_volume);
                         }
@@ -154,8 +161,8 @@
     //              return;
     //          }
 
-    //          var id_arr = d.id.split("-");
-    //          var did = id_arr[id_arr.length - 1];
+
+    //          var did = get_pretty_id (d.id);
 
     //          if (!drives_hash.has_key (did)) {
     //              return;
