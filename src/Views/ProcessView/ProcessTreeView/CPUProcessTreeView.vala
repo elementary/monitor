@@ -211,15 +211,17 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
         }
     }
 
-    public void get_sorting_state () {
-        var columns = this.get_columns ();
+    public string get_sorting_state () {
+        string sorting_state = "";
 
-        foreach (var column in columns) {
-            var sort_column_id = column.get_sort_column_id ();
-            var sort_order = column.get_sort_order ();
-            var ind = column.sort_indicator;
-            debug ("sort_column_id: %d sort_order: %d, indicator: %s", sort_column_id, sort_order, ind.to_string ());
+        foreach (var column in this.get_columns ()) {
+            int sort_indicator = column.sort_indicator ? 1 : 0;
+            sorting_state += "%d%d".printf (sort_indicator, column.get_sort_order ());
+
         }
+        debug ("Sorting state: " + sorting_state);
+
+        return sorting_state;
     }
 
     public void set_sorting_state () {
