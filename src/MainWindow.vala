@@ -30,6 +30,10 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
         resources = new Resources ();
 
         process_view = new ProcessView ();
+        var sorting_state = MonitorApp.settings.get_string ("process-view-columns-sorting-state");
+        debug ("sorting state: " + sorting_state);
+
+        process_view.process_tree_view.set_sorting_state (sorting_state);
         system_view = new SystemView (resources);
 
         stack = new Gtk.Stack ();
@@ -90,6 +94,7 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
             this.present ();
             setup_window_state ();
             this.show_all ();
+
         });
 
         shortcuts = new Shortcuts (this);
@@ -106,6 +111,8 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
             MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized);
 
             MonitorApp.settings.set_string ("opened-view", stack.visible_child_name);
+
+            MonitorApp.settings.set_string ("process-view-columns-sorting-state", process_view.process_tree_view.get_sorting_state ());
 
             if (MonitorApp.settings.get_boolean ("indicator-state")) {
                 this.hide_on_delete ();
@@ -138,6 +145,9 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
         } else {
             move (position_x, position_y);
         }
+
+
+
     }
 
 }
