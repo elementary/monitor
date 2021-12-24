@@ -89,7 +89,7 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         drive_block_name_and_size_label.margin_top = 0;
         drive_block_name_and_size_label.halign = Gtk.Align.START;
 
-        var drive_not_mounted_label = new Gtk.Label ("Not mounted");
+        var drive_not_mounted_label = new Gtk.Label (_("Not mounted"));
         drive_not_mounted_label.halign = Gtk.Align.START;
         drive_not_mounted_label.get_style_context ().add_class ("h4");
         drive_not_mounted_label.margin_start = 6;

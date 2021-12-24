@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 01:29+0400\n"
+"POT-Creation-Date: 2021-12-25 00:35+0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Andrey Kultyapov <camellan@yandex.ru>\n"
 "Language-Team: \n"
@@ -64,7 +64,7 @@ msgstr "Показать монитор"
 msgid "Quit Monitor"
 msgstr "Выход"
 
-#: src/Views/ProcessView/ProcessInfoView/OpenFilesListBox.vala:56
+#: src/Views/ProcessView/ProcessInfoView/OpenFilesListBox.vala:55
 msgid "Deleted"
 msgstr "Удалено"
 
@@ -201,6 +201,7 @@ msgstr "Память: %.1f%%"
 #. status: "Spinning",
 #. header: "General Preferences",
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:17
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:21
 msgid "General"
 msgstr "Общие"
 
@@ -282,37 +283,53 @@ msgstr "ГГц"
 msgid "THREADS"
 msgstr "ПОТОКИ"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:8
-msgid "Model"
-msgstr "Модель"
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:22
+msgid "Features"
+msgstr "Характеристики"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:9
-msgid "Family"
-msgstr "Семейство"
-
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:10
-msgid "Microcode ver."
-msgstr "Вер. микрокода"
-
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:11
-msgid "Bogomips"
-msgstr "Операций в сек."
-
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:12
-msgid "Cache size"
-msgstr "Размер кеша"
-
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:13
-msgid "Address sizes"
-msgstr "Размеры адресов"
-
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:14
-msgid "Flags"
-msgstr "Флаги"
-
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:15
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:23
 msgid "Bugs"
 msgstr "Баги"
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:51
+msgid "Model:"
+msgstr "Модель:"
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:52
+msgid "Family:"
+msgstr "Семейство:"
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:53
+msgid "Microcode ver.:"
+msgstr "Вер. микрокода:"
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:54
+msgid "Bogomips:"
+msgstr "Операций в сек.:"
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:57
+msgid "L1 Instruction cache:"
+msgstr "Кэш инструкций L1:"
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:60
+msgid "L1 Data cache:"
+msgstr "Кэш данных L1:"
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:63
+msgid "L1 cache:"
+msgstr "Кэш L1:"
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:66
+msgid "L2 Cache size:"
+msgstr "Размер L2 кэша:"
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:67
+msgid "L3 Cache size:"
+msgstr "Размер L3 кэша:"
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:68
+msgid "Address sizes:"
+msgstr "Размеры адресов:"
 
 #: src/Views/SystemView/SystemMemoryView.vala:19
 msgid "Total: "
@@ -392,6 +409,10 @@ msgstr "ЗАПИСЬ"
 msgid "READ"
 msgstr "ЧТЕНИЕ"
 
+#: src/Views/SystemView/SystemStorageView.vala:92
+msgid "Not mounted"
+msgstr "Не подключено"
+
 #: src/Views/SystemView/SystemGPUView.vala:12
 msgid "VRAM"
 msgstr "ПАМЯТЬ"
@@ -421,6 +442,9 @@ msgstr "Вычисление…"
 #: src/Widgets/Statusbar/Statusbar.vala:36
 msgid "Check on Github"
 msgstr "Проект на Github"
+
+#~ msgid "Flags"
+#~ msgstr "Флаги"
 
 #~ msgid "Show an indicator:"
 #~ msgstr "Показывать индикатор:"
