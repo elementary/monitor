@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 01:29+0400\n"
+"POT-Creation-Date: 2021-12-25 00:35+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,7 +69,7 @@ msgstr ""
 msgid "Quit Monitor"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/OpenFilesListBox.vala:56
+#: src/Views/ProcessView/ProcessInfoView/OpenFilesListBox.vala:55
 msgid "Deleted"
 msgstr ""
 
@@ -207,6 +207,7 @@ msgstr ""
 #. status: "Spinning",
 #. header: "General Preferences",
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:17
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:21
 msgid "General"
 msgstr ""
 
@@ -288,36 +289,52 @@ msgstr ""
 msgid "THREADS"
 msgstr ""
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:8
-msgid "Model"
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:22
+msgid "Features"
 msgstr ""
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:9
-msgid "Family"
-msgstr ""
-
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:10
-msgid "Microcode ver."
-msgstr ""
-
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:11
-msgid "Bogomips"
-msgstr ""
-
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:12
-msgid "Cache size"
-msgstr ""
-
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:13
-msgid "Address sizes"
-msgstr ""
-
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:14
-msgid "Flags"
-msgstr ""
-
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:15
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:23
 msgid "Bugs"
+msgstr ""
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:51
+msgid "Model:"
+msgstr ""
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:52
+msgid "Family:"
+msgstr ""
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:53
+msgid "Microcode ver.:"
+msgstr ""
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:54
+msgid "Bogomips:"
+msgstr ""
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:57
+msgid "L1 Instruction cache:"
+msgstr ""
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:60
+msgid "L1 Data cache:"
+msgstr ""
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:63
+msgid "L1 cache:"
+msgstr ""
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:66
+msgid "L2 Cache size:"
+msgstr ""
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:67
+msgid "L3 Cache size:"
+msgstr ""
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:68
+msgid "Address sizes:"
 msgstr ""
 
 #: src/Views/SystemView/SystemMemoryView.vala:19
@@ -396,6 +413,10 @@ msgstr ""
 
 #: src/Views/SystemView/SystemStorageView.vala:26
 msgid "READ"
+msgstr ""
+
+#: src/Views/SystemView/SystemStorageView.vala:92
+msgid "Not mounted"
 msgstr ""
 
 #: src/Views/SystemView/SystemGPUView.vala:12
