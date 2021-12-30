@@ -127,6 +127,7 @@
             //  });
 
             var udisks_obj = udisks_client.peek_object (iter.get_object_path ());
+            debug ("path: " + iter.get_object_path ());
 
             //  var ata = udisks_obj.get_drive_ata ();
             //  if (ata != null) {
