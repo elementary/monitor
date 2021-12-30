@@ -48,7 +48,7 @@
             drives_hash = new Gee.HashMap<string, DiskDrive?> ();
 
             init_drives ();
-            init_volumes ();
+            //  init_volumes ();
 
         } catch (Error e) {
             warning (e.message);
@@ -71,6 +71,13 @@
 
                         var drive_dev = udisks_client.get_drive_for_block (block_dev);
                         if (drive_dev != null) {
+
+                            var siblings = udisks_client.get_drive_siblings (drive_dev);
+
+                            siblings.foreach ( (sib) => {
+                                debug ("sibling: " + sib.model);
+                            });
+
                             var current_drive = new DiskDrive ();
 
                             current_drive.model = drive_dev.model;
@@ -82,9 +89,14 @@
                             current_drive.device = block_dev.device;
                             current_drive.partition = p_type_display != null ? p_type_display : "Unknown";
 
+                            debug ("Found drive: " + current_drive.model + " " + current_drive.revision + " " + current_drive.id + " " + current_drive.device);
+
                             if (obj_icon != null) {
                                 current_drive.drive_icon = obj_icon;
                             }
+
+                            var storage_parser = new StorageParser ();
+                            storage_parser.detect_blocks (current_drive);
 
                             drives_hash[current_drive.id] = current_drive;
                         }
@@ -106,8 +118,15 @@
 
     private void init_volumes () {
         obj_proxies.foreach ((iter) => {
+
+            //  var bl = udisks_client.get_block_for_uuid ("a6b16b8f-9153-41c5-b3d8-908e17ed4eda");
+
+            
+            //  bl.foreach ((entry) => {
+            //      print (entry.device);
+            //  });
+
             var udisks_obj = udisks_client.peek_object (iter.get_object_path ());
-            debug ("path: " + iter.get_object_path ());
 
             //  var ata = udisks_obj.get_drive_ata ();
             //  if (ata != null) {
@@ -116,14 +135,23 @@
 
             var p_table = udisks_obj.get_partition_table ();
             if (p_table == null) {
+                debug ("path: " + iter.get_object_path ());
+
                 debug ("  - no partition table");
 
                 var block_dev = udisks_obj.get_block ();
 
-                if (block_dev != null && block_dev.drive != "/") {
+                if (block_dev != null && block_dev.id_uuid != "") {
                     debug ("  - block device: " + block_dev.device);
+                    debug ("  - drive: " + block_dev.drive);
                     debug ("  - uuid: " + block_dev.id_uuid);
                     debug ("  - crypto_backing_device: " + block_dev.crypto_backing_device);
+                    debug ("  - id: " + block_dev.id);
+                    debug ("  - id_usage: " + block_dev.id_usage);
+                    debug ("  - id_type: " + block_dev.id_type);
+                    debug ("  - id_label: " + block_dev.id_label);
+                    debug ("  - id_version: " + block_dev.id_version);
+
 
                 //      DriveVolume current_volume = {};
                 //      current_volume.device = block_dev.device;
