@@ -27,18 +27,9 @@ public struct Monitor.DriveSmart {
     public uint life_left;
 }
 
-public struct Monitor.DriveVolume {
-    public string device;
-    public string label;
-    public string type;
-    public string uuid;
-    public string mount_point;
-    public uint64 size;
-    public uint64 free;
-    public uint64 offset;
-}
 
-public class Monitor.DiskDrive : GLib.Object {
+
+public class Monitor.Disk : GLib.Object {
     public string model;
     public uint64 size;
     public uint64 free;
@@ -50,35 +41,27 @@ public class Monitor.DiskDrive : GLib.Object {
 
 
 
-    private Gee.ArrayList<DriveVolume?> volumes;
+    private Gee.ArrayList<Volume?> volumes = new Gee.ArrayList <Volume?> ();
 
-    private DriveSmart? smart = null;
-    public bool has_smart {
-        get {
-            return smart != null;
-        }
-    }
 
-    public DiskDrive () {
+    public Disk (UDisks.Drive drive) {
+        model = drive.model;
+        size = drive.size;
+        revision = drive.revision;
+        id = drive.id;
+
+
         free = 0;
-        volumes = new Gee.ArrayList <DriveVolume?> ();
     }
 
-    public DriveSmart? get_smart () {
-        return smart;
-    }
 
-    public void add_smart (DriveSmart _smart) {
-        smart = _smart;
-    }
-
-    public void add_volume (DriveVolume vol) {
+    public void add_volume (Volume vol) {
         volumes.add (vol);
         free = free + vol.free;
     }
 
-    public Gee.ArrayList<DriveVolume?> get_volumes () {
-        var volumes_arr = new Gee.ArrayList<DriveVolume?> ();
+    public Gee.ArrayList<Volume?> get_volumes () {
+        var volumes_arr = new Gee.ArrayList<Volume?> ();
 
         volumes.foreach ((vol) => {
 
@@ -92,7 +75,7 @@ public class Monitor.DiskDrive : GLib.Object {
         return volumes_arr;
     }
 
-    private int compare_volumes (DriveVolume? vol1, DriveVolume? vol2) {
+    private int compare_volumes (Volume? vol1, Volume? vol2) {
         if (vol1 == null) {
             return (vol2 == null) ? 0 : -1;
         }
@@ -104,3 +87,4 @@ public class Monitor.DiskDrive : GLib.Object {
         return GLib.strcmp (vol1.device, vol2.device);
     }
 }
+

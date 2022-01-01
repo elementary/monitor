@@ -65,7 +65,8 @@ source_app_files = [
 
     'Resources/Storage/Storage.vala',
     'Resources/Storage/StorageParser.vala',
-    'Resources/Storage/Drive.vala',
+    'Resources/Storage/Disk.vala',
+    'Resources/Storage/Volume.vala',
 
     'Resources/GPU/IGPU.vala',
     'Resources/GPU/GPUAmd.vala',

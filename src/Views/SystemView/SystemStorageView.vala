@@ -49,7 +49,7 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         attach (storage_chart, 0, 2, 2, 2);
     }
 
-    private bool add_drive_card (owned DiskDrive? drive) {
+    private bool add_drive_card (owned Disk? drive) {
         drive_cards_container.add (build_drive_card (drive.model, drive.device, drive.size, drive.free));
         return true;
     }

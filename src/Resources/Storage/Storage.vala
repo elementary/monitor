@@ -32,7 +32,7 @@
     private UDisks.Client? udisks_client;
     private GLib.List<GLib.DBusObject> obj_proxies;
 
-    private Gee.HashMap<string, DiskDrive?> drives_hash;
+    private Gee.HashMap<string, Disk?> disks;
 
     construct {
         bytes_write = 0;
@@ -45,17 +45,17 @@
             udisks_client = new UDisks.Client.sync ();
             var dbus_obj_manager = udisks_client.get_object_manager ();
             obj_proxies = dbus_obj_manager.get_objects ();
-            drives_hash = new Gee.HashMap<string, DiskDrive?> ();
+
+            disks = new Gee.HashMap<string, Disk?> ();
 
             init_drives ();
-            //  init_volumes ();
+            init_volumes ();
 
         } catch (Error e) {
             warning (e.message);
             udisks_client = null;
         }
     }
-
 
     private void init_drives () {
         obj_proxies.foreach ((iter) => {
@@ -65,28 +65,18 @@
                 if (p_table != null) {
                     var p_type_display = udisks_client.get_partition_table_type_for_display (p_table.type);
 
-                    var block_dev = udisks_obj.get_block ();
-                    if (block_dev != null) {
+                    var part = udisks_obj.get_partition ();
+
+                    var block_device = udisks_obj.get_block ();
+                    if (block_device != null) {
                         var obj_icon = udisks_client.get_object_info (udisks_obj).get_icon ();
 
-                        var drive_dev = udisks_client.get_drive_for_block (block_dev);
+                        var drive_dev = udisks_client.get_drive_for_block (block_device);
                         if (drive_dev != null) {
 
-                            var siblings = udisks_client.get_drive_siblings (drive_dev);
+                            var current_drive = new Disk (drive_dev);
+                            current_drive.device = block_device.device;
 
-                            siblings.foreach ( (sib) => {
-                                debug ("sibling: " + sib.model);
-                            });
-
-                            var current_drive = new DiskDrive ();
-
-                            current_drive.model = drive_dev.model;
-                            current_drive.size = drive_dev.size;
-                            current_drive.revision = drive_dev.revision;
-
-                            current_drive.id = get_pretty_id (drive_dev.id);
-
-                            current_drive.device = block_dev.device;
                             current_drive.partition = p_type_display != null ? p_type_display : "Unknown";
 
                             debug ("Found drive: " + current_drive.model + " " + current_drive.revision + " " + current_drive.id + " " + current_drive.device);
@@ -95,26 +85,16 @@
                                 current_drive.drive_icon = obj_icon;
                             }
 
-                            var storage_parser = new StorageParser ();
-                            storage_parser.detect_blocks (current_drive);
+                            //  var storage_parser = new StorageParser ();
+                            //  storage_parser.detect_blocks (current_drive);
 
-                            drives_hash[current_drive.id] = current_drive;
+                            disks[current_drive.device] = current_drive;
                         }
                     }
                 }
             }
         });
     }
-
-    private string get_pretty_id (string id) {
-        var did = "";
-        if (id != "") {
-            var id_arr = id.split ("-");
-            did = id_arr[id_arr.length - 1];
-        }
-    return did;
-    }
-
 
     private void init_volumes () {
         obj_proxies.foreach ((iter) => {
@@ -127,71 +107,66 @@
             //  });
 
             var udisks_obj = udisks_client.peek_object (iter.get_object_path ());
-            debug ("path: " + iter.get_object_path ());
-
-            //  var ata = udisks_obj.get_drive_ata ();
-            //  if (ata != null) {
-            //      //  get_smart (udisks_obj, ata);
-            //  }
 
             var p_table = udisks_obj.get_partition_table ();
             if (p_table == null) {
-                debug ("path: " + iter.get_object_path ());
-
-                debug ("  - no partition table");
-
-                var block_dev = udisks_obj.get_block ();
-
-                if (block_dev != null && block_dev.id_uuid != "") {
-                    debug ("  - block device: " + block_dev.device);
-                    debug ("  - drive: " + block_dev.drive);
-                    debug ("  - uuid: " + block_dev.id_uuid);
-                    debug ("  - crypto_backing_device: " + block_dev.crypto_backing_device);
-                    debug ("  - id: " + block_dev.id);
-                    debug ("  - id_usage: " + block_dev.id_usage);
-                    debug ("  - id_type: " + block_dev.id_type);
-                    debug ("  - id_label: " + block_dev.id_label);
-                    debug ("  - id_version: " + block_dev.id_version);
 
 
-                //      DriveVolume current_volume = {};
-                //      current_volume.device = block_dev.device;
-                //      current_volume.label = block_dev.id_label;
-                //      current_volume.type = block_dev.id_type;
-                //      current_volume.size = block_dev.size;
-                //      current_volume.uuid = block_dev.id_uuid;
-                //      var partition = udisks_obj.get_partition ();
-                //      if (partition != null) {
-                //          current_volume.offset = partition.offset;
-                //      }
+                var block_device = udisks_obj.get_block ();
 
-                //      var block_fs = udisks_obj.get_filesystem ();
-                //      if (block_fs != null && block_fs.mount_points[0] != null) {
-                //          current_volume.mount_point = block_fs.mount_points[0];
-                //          Posix.statvfs buf;
-                //          Posix.statvfs_exec (block_fs.mount_points[0], out buf);
-                //          current_volume.free = (uint64) buf.f_bfree * (uint64) buf.f_bsize;
+                if (block_device != null && block_device.id_uuid != "") {
 
-                //      // } else {
-                //      //     current_volume.mount_point = "";
-                //      }
+                    debug ("path: " + iter.get_object_path ());
 
-                //      var d = udisks_client.get_drive_for_block (block_dev);
-                //      if (d != null) {
-                //          var did = get_pretty_id (d.id);
-                //          if (drives_hash.has_key (did) && block_dev.device.contains (drives_hash[did].device)) {
-                //              drives_hash[did].add_volume (current_volume);
-                //          }
-                //      }
-                //      foreach (var dd in drives_hash.values) {
-                //          var vv = dd.get_volumes ();
-                //          foreach (var v in vv) {
-                //              debug ("[*] Volume: " + v.device + " " + v.size.to_string () + " " + v.free.to_string ());
-                //          }
-                //      }
+                    debug ("  - no partition table");
+
+
+                    Volume current_volume = new Volume (block_device);
+
+                    var partition = udisks_obj.get_partition ();
+                    if (partition != null) {
+                        current_volume.offset = partition.offset;
+                    }
+
+                    var block_fs = udisks_obj.get_filesystem ();
+                    if (block_fs != null && block_fs.mount_points[0] != null) {
+                        current_volume.mount_point = block_fs.mount_points[0];
+                        Posix.statvfs buf;
+                        Posix.statvfs_exec (block_fs.mount_points[0], out buf);
+                        current_volume.free = (uint64) buf.f_bfree * (uint64) buf.f_bsize;
+
+                    // } else {
+                    //     current_volume.mount_point = "";
+                    }
+
+
+
+                    foreach (var disk in disks) {
+                        if (current_volume.device.contains (disk.key)) {
+                            disk.value.add_volume (current_volume);
+                            debug ("Adding volume %s to %s", current_volume.device, disk.key);
+                            //  debug ("  - block device: " + block_device.device);
+                            //  debug ("  - drive: " + block_device.drive);
+                            //  debug ("  - uuid: " + block_device.id_uuid);
+                            //  debug ("  - crypto_backing_device: " + block_device.crypto_backing_device);
+                            //  debug ("  - id: " + block_device.id);
+                            //  debug ("  - id_usage: " + block_device.id_usage);
+                            //  debug ("  - id_type: " + block_device.id_type);
+                            //  debug ("  - id_label: " + block_device.id_label);
+                            //  debug ("  - id_version: " + block_device.id_version);    
+                        }
+                    }
+
                 }
             }
         });
+
+        foreach (var dd in disks.values) {
+            var vv = dd.get_volumes ();
+            foreach (var v in vv) {
+                debug ("[*] Volume: " + v.device + " " + v.size.to_string () + " " + v.free.to_string ());
+            }
+        }
     }
 
     //  public void get_smart (UDisks.Object obj, UDisks.DriveAta ata) {
@@ -205,7 +180,7 @@
 
     //          var did = get_pretty_id (d.id);
 
-    //          if (!drives_hash.has_key (did)) {
+    //          if (!disks.has_key (did)) {
     //              return;
     //          }
 
@@ -245,7 +220,7 @@
     //                      }
     //                  }
 
-    //                  drives_hash[did].add_smart (d_smart);
+    //                  disks[did].add_smart (d_smart);
     //              }
     //          } catch (Error e) {
     //              warning (e.message);
@@ -253,17 +228,17 @@
     //      }
     //  }
 
-    public DiskDrive? get_drive (string did) {
-        if (drives_hash.has_key (did)) {
-            return drives_hash[did];
+    public Disk? get_drive (string did) {
+        if (disks.has_key (did)) {
+            return disks[did];
         }
 
         return null;
     }
 
-    public Gee.ArrayList<DiskDrive?> get_drives () {
-        var drives_arr = new Gee.ArrayList<DiskDrive?> ();
-        drives_hash.values.foreach ((d) => {
+    public Gee.ArrayList<Disk?> get_drives () {
+        var drives_arr = new Gee.ArrayList<Disk?> ();
+        disks.values.foreach ((d) => {
             drives_arr.add (d);
             return true;
         });
@@ -273,11 +248,11 @@
         return drives_arr;
     }
 
-    public Gee.ArrayList<DriveVolume?> get_drive_volumes (string dev_id) {
-        var volumes_arr = new Gee.ArrayList<DriveVolume?> ();
+    public Gee.ArrayList<Volume?> get_drive_volumes (string dev_id) {
+        var volumes_arr = new Gee.ArrayList<Volume?> ();
 
-        if (drives_hash.has_key (dev_id)) {
-            drives_hash[dev_id].get_volumes ().foreach ((vol) => {
+        if (disks.has_key (dev_id)) {
+            disks[dev_id].get_volumes ().foreach ((vol) => {
                 volumes_arr.add (vol);
 
                 return true;
@@ -289,55 +264,55 @@
         return volumes_arr;
     }
 
-    public Gee.ArrayList<DriveVolume?> get_mounted_volumes () {
-        var volumes_list = new Gee.ArrayList<DriveVolume?> ();
+    //  public Gee.ArrayList<Volume?> get_mounted_volumes () {
+    //      var volumes_list = new Gee.ArrayList<Volume?> ();
 
-        if (udisks_client != null) {
-            obj_proxies.foreach ((iter) => {
-                var udisks_obj = udisks_client.peek_object (iter.get_object_path ());
+    //      if (udisks_client != null) {
+    //          obj_proxies.foreach ((iter) => {
+    //              var udisks_obj = udisks_client.peek_object (iter.get_object_path ());
 
-                var p_table = udisks_obj.get_partition_table ();
-                if (p_table == null) {
+    //              var p_table = udisks_obj.get_partition_table ();
+    //              if (p_table == null) {
 
-                    var block_dev = udisks_obj.get_block ();
-                    if (block_dev != null && block_dev.drive != "/") {
-                        var block_fs = udisks_obj.get_filesystem ();
-                        if (block_fs != null && block_fs.mount_points[0] != null) {
-                            DriveVolume current_volume = {};
-                            current_volume.device = block_dev.device;
-                            current_volume.label = block_dev.id_label;
-                            current_volume.type = block_dev.id_type;
-                            current_volume.size = block_dev.size;
-                            current_volume.uuid = block_dev.id_uuid;
-                            var partition = udisks_obj.get_partition ();
-                            if (partition != null) {
-                                current_volume.offset = partition.offset;
-                            }
+    //                  var block_device = udisks_obj.get_block ();
+    //                  if (block_device != null && block_device.drive != "/") {
+    //                      var block_fs = udisks_obj.get_filesystem ();
+    //                      if (block_fs != null && block_fs.mount_points[0] != null) {
+    //                          Volume current_volume = {};
+    //                          current_volume.device = block_device.device;
+    //                          current_volume.label = block_device.id_label;
+    //                          current_volume.type = block_device.id_type;
+    //                          current_volume.size = block_device.size;
+    //                          current_volume.uuid = block_device.id_uuid;
+    //                          var partition = udisks_obj.get_partition ();
+    //                          if (partition != null) {
+    //                              current_volume.offset = partition.offset;
+    //                          }
 
-                            current_volume.mount_point = block_fs.mount_points[0];
-                            Posix.statvfs buf;
-                            Posix.statvfs_exec (block_fs.mount_points[0], out buf);
-                            current_volume.free = (uint64) buf.f_bfree * (uint64) buf.f_bsize;
+    //                          current_volume.mount_point = block_fs.mount_points[0];
+    //                          Posix.statvfs buf;
+    //                          Posix.statvfs_exec (block_fs.mount_points[0], out buf);
+    //                          current_volume.free = (uint64) buf.f_bfree * (uint64) buf.f_bsize;
 
-                            volumes_list.add (current_volume);
-                        // } else {
-                        //     current_volume.mount_point = "";
-                        }
-                    }
-                }
-            });
+    //                          volumes_list.add (current_volume);
+    //                      // } else {
+    //                      //     current_volume.mount_point = "";
+    //                      }
+    //                  }
+    //              }
+    //          });
 
-            volumes_list.sort (compare_volumes);
-        }
+    //          volumes_list.sort (compare_volumes);
+    //      }
 
-        return volumes_list;
-    }
+    //      return volumes_list;
+    //  }
 
     public string size_to_display (uint64 size_to_fmt) {
         return udisks_client.get_size_for_display (size_to_fmt, false, false);
     }
 
-    private int compare_drives (DiskDrive? drive1, DiskDrive? drive2) {
+    private int compare_drives (Disk? drive1, Disk? drive2) {
         if (drive1 == null) {
             return (drive2 == null) ? 0 : -1;
         }
@@ -349,7 +324,7 @@
         return GLib.strcmp (drive1.device, drive2.device);
     }
 
-    private int compare_volumes (DriveVolume? vol1, DriveVolume? vol2) {
+    private int compare_volumes (Volume? vol1, Volume? vol2) {
         if (vol1 == null) {
             return (vol2 == null) ? 0 : -1;
         }
