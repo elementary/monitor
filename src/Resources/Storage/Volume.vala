@@ -9,6 +9,9 @@ public class Monitor.Volume : Object {
     public uint64 free;
     public uint64 offset;
 
+    public Gee.ArrayList<string?> slaves = new Gee.ArrayList <string?> ();
+
+
     public Volume (UDisks.Block block) {
         device = block.device;
         label = block.id_label;

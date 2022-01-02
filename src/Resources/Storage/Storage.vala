@@ -32,7 +32,12 @@
     private UDisks.Client? udisks_client;
     private GLib.List<GLib.DBusObject> obj_proxies;
 
-    private Gee.HashMap<string, Disk?> disks;
+    private Gee.HashMap<string, Disk?> disks = new Gee.HashMap<string, Disk?> ();
+
+    private Gee.HashMap<string, Volume?> logical_volumes = new Gee.HashMap<string, Volume?> ();
+
+    StorageParser storage_parser = new StorageParser ();
+
 
     construct {
         bytes_write = 0;
@@ -45,8 +50,6 @@
             udisks_client = new UDisks.Client.sync ();
             var dbus_obj_manager = udisks_client.get_object_manager ();
             obj_proxies = dbus_obj_manager.get_objects ();
-
-            disks = new Gee.HashMap<string, Disk?> ();
 
             init_drives ();
             init_volumes ();
@@ -85,10 +88,7 @@
                                 current_drive.drive_icon = obj_icon;
                             }
 
-                            //  var storage_parser = new StorageParser ();
-                            //  storage_parser.detect_blocks (current_drive);
-
-                            disks[current_drive.device] = current_drive;
+                            disks.set (current_drive.device, current_drive);
                         }
                     }
                 }
@@ -118,10 +118,8 @@
 
                     debug ("path: " + iter.get_object_path ());
 
-                    debug ("  - no partition table");
-
-
                     Volume current_volume = new Volume (block_device);
+                    debug ("device: " + current_volume.device);
 
                     var partition = udisks_obj.get_partition ();
                     if (partition != null) {
@@ -141,6 +139,7 @@
 
 
 
+
                     foreach (var disk in disks) {
                         if (current_volume.device.contains (disk.key)) {
                             disk.value.add_volume (current_volume);
@@ -154,6 +153,12 @@
                             //  debug ("  - id_type: " + block_device.id_type);
                             //  debug ("  - id_label: " + block_device.id_label);
                             //  debug ("  - id_version: " + block_device.id_version);    
+                        } else if (current_volume.device.has_prefix ("/dev/dm")) {
+                            debug ("Found logical volume: " + current_volume.device);
+                            logical_volumes.set (current_volume.device, current_volume);
+
+                            storage_parser.get_slaves_names (current_volume.device.split ("/")[2]);
+
                         }
                     }
 
