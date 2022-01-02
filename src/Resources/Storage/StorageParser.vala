@@ -72,17 +72,8 @@ class Monitor.StorageParser : Object{
 
             while ((slave = slaves_dir.read_name ()) != null) {
                 debug ("Found slave: " + slave);
+                slaves_names.add (slave);
             }
-
-            //  string slaves_dir_path = Path.build_filename (BLOCKS_PATH, volume_name, slave);
-            //  Dir slaves_dir = Dir.open (slaves_dir_path, 0);
-
-            //  string ? slave_file = null;
-            //  while ((slave_file = slaves_dir.read_name ()) != null) {
-            //      if (slave_file.contains ("slaves")) {
-            //          debug ("Found slave: " + slave_file);
-            //      }
-            //  }
 
         } catch (FileError e) {
             warning ("%s", e.message);

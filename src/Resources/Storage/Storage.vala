@@ -155,9 +155,14 @@
                             //  debug ("  - id_version: " + block_device.id_version);    
                         } else if (current_volume.device.has_prefix ("/dev/dm")) {
                             debug ("Found logical volume: " + current_volume.device);
-                            logical_volumes.set (current_volume.device, current_volume);
 
-                            storage_parser.get_slaves_names (current_volume.device.split ("/")[2]);
+                            var slaves_names = storage_parser.get_slaves_names (current_volume.device.split ("/")[2]);
+
+                            foreach (var slave_name in slaves_names) {
+                                current_volume.add_slave (slave_name);
+                            }
+
+                            logical_volumes.set (current_volume.device, current_volume);
 
                         }
                     }
