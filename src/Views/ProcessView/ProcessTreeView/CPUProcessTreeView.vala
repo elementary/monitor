@@ -222,18 +222,22 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
     }
 
     public void set_sorting_state (string sorting_state) {
+        debug ("== Going to set sorting state: " + sorting_state);
+
         var columns = this.get_columns ();
 
         int index = 0;
         foreach (var column in columns) {
+            
             column.sort_indicator = (sorting_state[index] == '1');
-            column.set_sort_order (sorting_state[index + 1] == '1' ? Gtk.SortType.ASCENDING : Gtk.SortType.DESCENDING);
 
-            debug ((sorting_state[index] == '1').to_string () + " " + sorting_state[index + 1].to_string ());
+            var sort_type = sorting_state[index + 1] == '1' ? Gtk.SortType.ASCENDING : Gtk.SortType.DESCENDING;
+            column.set_sort_order (sort_type);
+
+            debug ("== " + (sorting_state[index] == '1').to_string () + " " + sort_type.to_string ());
 
             index += 2;
         }
-        debug ("Set sorting state: " + sorting_state);
         get_sorting_state ();
         set_model (model);
 
