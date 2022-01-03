@@ -35,7 +35,7 @@ public class Monitor.Volume : Object {
                     strict_affiliation = true;
                     debug ("Slave volume %s of %s is on the same disk as all other slave volumes", new_slave, device);
                 } else {
-                    strict_affiliation = false; 
+                    strict_affiliation = false;
                     debug ("Slave volume %s of %s is on the same disk as all other slave volumes", new_slave, device);
                 }
             }

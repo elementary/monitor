@@ -17,18 +17,6 @@
  *
  */
 
-public struct Monitor.DriveSmart {
-    public bool enabled;
-    public uint64 updated;
-    public bool failing;
-    public uint64 power_seconds;
-    public uint64 power_counts;
-    public string selftest_status;
-    public uint life_left;
-}
-
-
-
 public class Monitor.Disk : GLib.Object {
     public string model;
     public uint64 size;
@@ -39,21 +27,15 @@ public class Monitor.Disk : GLib.Object {
     public string partition;
     public GLib.Icon drive_icon;
 
-
-
     private Gee.ArrayList<Volume?> volumes = new Gee.ArrayList <Volume?> ();
-
 
     public Disk (UDisks.Drive drive) {
         model = drive.model;
         size = drive.size;
         revision = drive.revision;
         id = drive.id;
-
-
         free = 0;
     }
-
 
     public void add_volume (Volume vol) {
         volumes.add (vol);
@@ -87,4 +69,3 @@ public class Monitor.Disk : GLib.Object {
         return GLib.strcmp (vol1.device, vol2.device);
     }
 }
-

@@ -99,13 +99,6 @@
     private void init_volumes () {
         obj_proxies.foreach ((iter) => {
 
-            //  var bl = udisks_client.get_block_for_uuid ("a6b16b8f-9153-41c5-b3d8-908e17ed4eda");
-
-            
-            //  bl.foreach ((entry) => {
-            //      print (entry.device);
-            //  });
-
             var udisks_obj = udisks_client.peek_object (iter.get_object_path ());
 
             var p_table = udisks_obj.get_partition_table ();
@@ -218,50 +211,6 @@
 
         return volumes_arr;
     }
-
-    //  public Gee.ArrayList<Volume?> get_mounted_volumes () {
-    //      var volumes_list = new Gee.ArrayList<Volume?> ();
-
-    //      if (udisks_client != null) {
-    //          obj_proxies.foreach ((iter) => {
-    //              var udisks_obj = udisks_client.peek_object (iter.get_object_path ());
-
-    //              var p_table = udisks_obj.get_partition_table ();
-    //              if (p_table == null) {
-
-    //                  var block_device = udisks_obj.get_block ();
-    //                  if (block_device != null && block_device.drive != "/") {
-    //                      var block_fs = udisks_obj.get_filesystem ();
-    //                      if (block_fs != null && block_fs.mount_points[0] != null) {
-    //                          Volume current_volume = {};
-    //                          current_volume.device = block_device.device;
-    //                          current_volume.label = block_device.id_label;
-    //                          current_volume.type = block_device.id_type;
-    //                          current_volume.size = block_device.size;
-    //                          current_volume.uuid = block_device.id_uuid;
-    //                          var partition = udisks_obj.get_partition ();
-    //                          if (partition != null) {
-    //                              current_volume.offset = partition.offset;
-    //                          }
-
-    //                          current_volume.mount_point = block_fs.mount_points[0];
-    //                          Posix.statvfs buf;
-    //                          Posix.statvfs_exec (block_fs.mount_points[0], out buf);
-    //                          current_volume.free = (uint64) buf.f_bfree * (uint64) buf.f_bsize;
-
-    //                          volumes_list.add (current_volume);
-    //                      // } else {
-    //                      //     current_volume.mount_point = "";
-    //                      }
-    //                  }
-    //              }
-    //          });
-
-    //          volumes_list.sort (compare_volumes);
-    //      }
-
-    //      return volumes_list;
-    //  }
 
     public string size_to_display (uint64 size_to_fmt) {
         return udisks_client.get_size_for_display (size_to_fmt, false, false);
