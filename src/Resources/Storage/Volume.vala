@@ -24,12 +24,24 @@ public class Monitor.Volume : Object {
     }
 
     public void add_slave (string? new_slave) {
-        foreach (string slave in slaves) {
-            if (!slave.contains (new_slave[0:3])) {
-                debug ("Volume %s is not strictly affilitated with a certain disk", device);
-                strict_affiliation = false;
-            }
-        }
+        check_affiliation (new_slave);
         slaves.add (new_slave);
+    }
+
+    private void check_affiliation (string new_slave) {
+        if (slaves.size > 0) {
+            foreach (string slave in slaves) {
+                if (slave.contains (new_slave[0:3])) {
+                    strict_affiliation = true;
+                    debug ("Slave volume %s of %s is on the same disk as all other slave volumes", new_slave, device);
+                } else {
+                    strict_affiliation = false; 
+                    debug ("Slave volume %s of %s is on the same disk as all other slave volumes", new_slave, device);
+                }
+            }
+        } else {
+            debug ("First slave: %s", new_slave);
+            strict_affiliation = true;
+        }
     }
 }

@@ -152,91 +152,36 @@
                             //  debug ("  - id_usage: " + block_device.id_usage);
                             //  debug ("  - id_type: " + block_device.id_type);
                             //  debug ("  - id_label: " + block_device.id_label);
-                            //  debug ("  - id_version: " + block_device.id_version);    
+                            //  debug ("  - id_version: " + block_device.id_version);
                         } else if (current_volume.device.has_prefix ("/dev/dm")) {
                             debug ("Found logical volume: " + current_volume.device);
 
+                            // getting names of slave volumes on which this volume is based
                             var slaves_names = storage_parser.get_slaves_names (current_volume.device.split ("/")[2]);
 
                             foreach (var slave_name in slaves_names) {
                                 current_volume.add_slave (slave_name);
                             }
-
                             logical_volumes.set (current_volume.device, current_volume);
 
+                            // if all slave volumes are coming from a single drive,
+                            // then we can calculate free space on this drive
+                            if (current_volume.strict_affiliation) {
+                                string affiliated_disk_device = current_volume.slaves[0][0:-1];
+
+                                var affiliated_disk = disks.get ("/dev/" + affiliated_disk_device);
+                                if (affiliated_disk != null) {
+                                    affiliated_disk.free = affiliated_disk.free + current_volume.free;
+                                }
+                            }
                         }
                     }
 
                 }
             }
         });
-
-        foreach (var dd in disks.values) {
-            var vv = dd.get_volumes ();
-            foreach (var v in vv) {
-                debug ("[*] Volume: " + v.device + " " + v.size.to_string () + " " + v.free.to_string ());
-            }
-        }
     }
 
-    //  public void get_smart (UDisks.Object obj, UDisks.DriveAta ata) {
-    //      if (ata.smart_supported) {
-    //          var d = obj.get_drive ();
-
-    //          if (d == null) {
-    //              return;
-    //          }
-
-
-    //          var did = get_pretty_id (d.id);
-
-    //          if (!disks.has_key (did)) {
-    //              return;
-    //          }
-
-    //          DriveSmart d_smart = {};
-
-    //          d_smart.enabled = ata.smart_enabled;
-    //          d_smart.updated = ata.smart_updated;
-    //          d_smart.failing = ata.smart_failing;
-    //          d_smart.power_seconds = ata.smart_power_on_seconds;
-    //          d_smart.selftest_status = ata.smart_selftest_status;
-
-    //          try {
-    //              GLib.Variant var_p = null;
-    //              if (ata.call_smart_get_attributes_sync (new GLib.Variant ("a{sv}"), out var_p)) {
-    //                  GLib.VariantIter v_iter = var_p.iterator ();
-    //                  uchar id;
-    //                  int current, worst, threshold, pretty_unit;
-    //                  string name;
-    //                  uint16 flags;
-    //                  uint64 pretty;
-    //                  GLib.Variant expansion;
-    //                  while (v_iter.next ("(ysqiiixi@a{sv})",
-    //                                      out id,
-    //                                      out name,
-    //                                      out flags,
-    //                                      out current,
-    //                                      out worst,
-    //                                      out threshold,
-    //                                      out pretty,
-    //                                      out pretty_unit,
-    //                                      out expansion)) {
-
-    //                      if (id == 231) {
-    //                          d_smart.life_left = (uint) Utils.parse_pretty (pretty, pretty_unit);
-    //                      } else if (id == 12) {
-    //                          d_smart.power_counts = pretty;
-    //                      }
-    //                  }
-
-    //                  disks[did].add_smart (d_smart);
-    //              }
-    //          } catch (Error e) {
-    //              warning (e.message);
-    //          }
-    //      }
-    //  }
 
     public Disk? get_drive (string did) {
         if (disks.has_key (did)) {
