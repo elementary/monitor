@@ -82,8 +82,15 @@ namespace Monitor {
             Gtk.Settings.get_default ().set ("gtk-alternative-sort-arrows", true, null);
         }
 
+        private void header () {
+            
+        }
+
         public static int main (string[] args) {
-            debug ("Starting Monitor %s", VCS_TAG);
+            Intl.setlocale ();
+            print ("┌──────────────────────────────────┐\n");
+            print ("| Monitor %s |\n", VCS_TAG);
+            print ("└──────────────────────────────────┘\n");
 
             // add command line options
             try {
@@ -97,6 +104,7 @@ namespace Monitor {
                 return 0;
             }
 
+            
             var app = new MonitorApp (start_in_background);
 
             return app.run (args);

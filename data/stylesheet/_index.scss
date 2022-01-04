@@ -173,6 +173,10 @@ $text_color: $fg_color;
     }
 }
 
+.dim-label {
+    color: rgba($text_color, 0.5);
+}
+
 .small-text {
     font-weight:bold;
     font-size:9px;
