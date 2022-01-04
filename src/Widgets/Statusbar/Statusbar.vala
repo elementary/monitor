@@ -37,7 +37,15 @@ public class Monitor.Statusbar : Gtk.ActionBar {
             margin_end = 6
         };
 
+        var version_label = new Gtk.Label ("𐄁    %s".printf (VCS_TAG)) {
+            margin_end = 6,
+            selectable = true
+        };
+        version_label.get_style_context ().add_class ("dim-label");
+
+        pack_end (version_label);
         pack_end (github_label);
+
     }
 
     public bool update (ResourcesSerialized sysres) {
