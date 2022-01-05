@@ -60,7 +60,6 @@ source_app_files = [
     'Resources/Core.vala',
     'Resources/Memory.vala',
     'Resources/Swap.vala',
-    'Resources/TemperatureSensor.vala',
     'Resources/Network.vala',
 
     'Resources/Storage/Storage.vala',

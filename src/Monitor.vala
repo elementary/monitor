@@ -84,9 +84,9 @@ namespace Monitor {
 
         public static int main (string[] args) {
             Intl.setlocale ();
-            print ("┌──────────────────────────────────┐\n");
-            print ("| Monitor %s |\n", VCS_TAG);
-            print ("└──────────────────────────────────┘\n");
+            print ("\n");
+            print (" Monitor %s \n", VCS_TAG);
+            print ("\n");
 
             // add command line options
             try {

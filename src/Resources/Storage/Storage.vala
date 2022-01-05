@@ -68,8 +68,6 @@
                 if (p_table != null) {
                     var p_type_display = udisks_client.get_partition_table_type_for_display (p_table.type);
 
-                    var part = udisks_obj.get_partition ();
-
                     var block_device = udisks_obj.get_block ();
                     if (block_device != null) {
                         var obj_icon = udisks_client.get_object_info (udisks_obj).get_icon ();
