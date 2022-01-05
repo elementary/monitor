@@ -68,8 +68,6 @@ public class Monitor.CPU : Object {
             var core = new Core (i);
             core_list.add (core);
         }
-
-
     }
 
     public void update () {
