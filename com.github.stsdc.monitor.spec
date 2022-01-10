@@ -66,7 +66,7 @@ BuildRequires: libudisks2-devel
 %{_datadir}/vala/vapi/livechart.vapi
 %{_includedir}/livechart.h
 
-%{_srcdir}/vapi/libxnvctrl.vapi
+# %{_srcdir}/vapi/libxnvctrl.vapi
 
 %{_datadir}/applications/%{appname}.desktop
 %{_datadir}/glib-2.0/schemas/%{appname}.gschema.xml
