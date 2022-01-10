@@ -16,20 +16,33 @@ BuildRequires: vala
 BuildRequires: gcc
 BuildRequires: sassc
 BuildRequires: git
-BuildRequires: libxnvctrl0-devel
+BuildRequires: cmake
+BuildRequires: libXNVCtrl-devel
 BuildRequires: pkgconfig(gtk+-3.0)
 BuildRequires: pkgconfig(gee-0.8)
 BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(granite)
 BuildRequires: pkgconfig(gio-2.0)
 BuildRequires: pkgconfig(gobject-2.0)
-BuildRequires: pkgconfig(libgtop-2.0) # libgtop2-devel
-BuildRequires: pkgconfig(libwnck-3.0) # libwnck3-devel
-BuildRequires: pkgconfig(wingpanel) # wingpanel-devel
-BuildRequires: pkgconfig(gdk-x11-3.0) # gdk3-devel
+
+# libgtop2-devel
+BuildRequires: pkgconfig(libgtop-2.0)
+
+# libwnck3-devel
+BuildRequires: pkgconfig(libwnck-3.0)
+
+# wingpanel-devel 
+BuildRequires: pkgconfig(wingpanel)
+
+# gdk3-devel
+BuildRequires: pkgconfig(gdk-x11-3.0) 
+
 BuildRequires: pkgconfig(libx11-6)
-BuildRequires: pkgconfig(libhandy-1) # libhandy-devel
-BuildRequires: pkgconfig(libudisks2-devel)
+
+# libhandy-devel
+BuildRequires: pkgconfig(libhandy-1) 
+
+BuildRequires: libudisks2-devel
 
 %description
 
