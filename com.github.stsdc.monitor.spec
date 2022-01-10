@@ -50,7 +50,7 @@ BuildRequires: libudisks2-devel
 %autosetup -n %{srcname} -p1
 
 %build
-%meson -Dindicator-wingpanel=enabled # this will probably go, since majority uses gnome on Fedora
+%meson -Dindicator-wingpanel=enabled # this will probably go away, since majority uses gnome on Fedora
 %meson_build
 
 %install
@@ -66,7 +66,7 @@ BuildRequires: libudisks2-devel
 %{_datadir}/vala/vapi/livechart.vapi
 %{_includedir}/livechart.h
 
-%{_datadir}/vala/vapi/libxnvctrl.vapi
+%{_builddir}/vapi/libxnvctrl.vapi
 
 %{_datadir}/applications/%{appname}.desktop
 %{_datadir}/glib-2.0/schemas/%{appname}.gschema.xml
