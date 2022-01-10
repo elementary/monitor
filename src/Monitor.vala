@@ -18,7 +18,7 @@ namespace Monitor {
             Object (
                 application_id: "com.github.stsdc.monitor",
                 flags : ApplicationFlags.FLAGS_NONE
-                );
+            );
             status_background = status_indicator;
         }
 
@@ -50,11 +50,11 @@ namespace Monitor {
                 if (!MonitorApp.settings.get_boolean ("indicator-temperature-state")) {
                     MonitorApp.settings.set_boolean ("indicator-temperature-state", true);
                 }
-                if (!MonitorApp.settings.get_boolean ("indicator-network-up-state")) {
-                    MonitorApp.settings.set_boolean ("indicator-network-up-state", false);
+                if (!MonitorApp.settings.get_boolean ("indicator-network-upload-state")) {
+                    MonitorApp.settings.set_boolean ("indicator-network-upload-state", false);
                 }
-                if (!MonitorApp.settings.get_boolean ("indicator-network-down-state")) {
-                    MonitorApp.settings.set_boolean ("indicator-network-down-state", false);
+                if (!MonitorApp.settings.get_boolean ("indicator-network-download-state")) {
+                    MonitorApp.settings.set_boolean ("indicator-network-download-state", false);
                 }
 
                 window.hide ();
@@ -83,6 +83,11 @@ namespace Monitor {
         }
 
         public static int main (string[] args) {
+            Intl.setlocale ();
+            print ("\n");
+            print (" Monitor %s \n", VCS_TAG);
+            print ("\n");
+
             // add command line options
             try {
                 var opt_context = new OptionContext ("");

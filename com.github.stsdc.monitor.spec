@@ -2,7 +2,7 @@
 %global appname com.github.stsdc.monitor
 
 Name: com.github.stsdc.monitor
-Version: 0.11.0
+Version: 0.12.0
 Release: %autorelease
 Summary: Manage processes and monitor system resources
 License: GPLv3
@@ -16,18 +16,20 @@ BuildRequires: vala
 BuildRequires: gcc
 BuildRequires: sassc
 BuildRequires: git
+BuildRequires: libxnvctrl0-devel
 BuildRequires: pkgconfig(gtk+-3.0)
 BuildRequires: pkgconfig(gee-0.8)
 BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(granite)
 BuildRequires: pkgconfig(gio-2.0)
 BuildRequires: pkgconfig(gobject-2.0)
-BuildRequires: pkgconfig(libgtop-2.0)
-BuildRequires: pkgconfig(libwnck-3.0)
-BuildRequires: pkgconfig(wingpanel)
-BuildRequires: pkgconfig(gdk-x11-3.0)
-BuildRequires: pkgconfig(libhandy-1)
-BuildRequires: pkgconfig(libudisks2-1)
+BuildRequires: pkgconfig(libgtop-2.0) # libgtop2-devel
+BuildRequires: pkgconfig(libwnck-3.0) # libwnck3-devel
+BuildRequires: pkgconfig(wingpanel) # wingpanel-devel
+BuildRequires: pkgconfig(gdk-x11-3.0) # gdk3-devel
+BuildRequires: pkgconfig(libx11-6)
+BuildRequires: pkgconfig(libhandy-1) # libhandy-devel
+BuildRequires: pkgconfig(libudisks2-devel)
 
 %description
 
@@ -35,7 +37,7 @@ BuildRequires: pkgconfig(libudisks2-1)
 %autosetup -n %{srcname} -p1
 
 %build
-%meson
+%meson -Dindicator-wingpanel=enabled # this will probably go, since majority uses gnome on Fedora
 %meson_build
 
 %install
@@ -50,6 +52,8 @@ BuildRequires: pkgconfig(libudisks2-1)
 %{_libdir}/pkgconfig/livechart.pc
 %{_datadir}/vala/vapi/livechart.vapi
 %{_includedir}/livechart.h
+
+%{_datadir}/vala/vapi/libxnvctrl.vapi
 
 %{_datadir}/applications/%{appname}.desktop
 %{_datadir}/glib-2.0/schemas/%{appname}.gschema.xml

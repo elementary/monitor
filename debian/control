@@ -14,6 +14,8 @@ Build-Depends: meson,
                libwingpanel-3.0-dev,
                libhandy-1-dev,
                libudisks2-dev,
+               libxnvctrl0,
+               libxnvctrl-dev,
                sassc
 Standards-Version: 4.1.1
 

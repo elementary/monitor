@@ -55,12 +55,12 @@
       <summary>To show temperature value in Monitor Indicator or not</summary>
       <description>To show temperature value in Monitor Indicator or not</description>
     </key>
-    <key type='b' name="indicator-network-up-state">
+    <key type='b' name="indicator-network-upload-state">
       <default>false</default>
       <summary>To show network up bandwith data in Monitor Indicator or not</summary>
       <description>To show network up bandwith in Monitor Indicator or not</description>
     </key>    
-    <key type='b' name="indicator-network-down-state">
+    <key type='b' name="indicator-network-download-state">
       <default>false</default>
       <summary>To show network down bandwith in Monitor Indicator or not</summary>
       <description>To show network down bandwith in Monitor Indicator or not</description>

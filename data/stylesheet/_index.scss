@@ -151,6 +151,13 @@ $text_color: $fg_color;
     }
 }
 
+.flags_badge {
+    @extend .core_badge;
+    font-size: 12px;
+    padding: 1px 4px;
+
+}
+
 .command_wrapper {
     background-color: #fdf6e3;
     border-radius: 3px;
@@ -164,6 +171,10 @@ $text_color: $fg_color;
     text {
         background-color: #fdf6e3;
     }
+}
+
+.dim-label {
+    color: rgba($text_color, 0.5);
 }
 
 .small-text {

@@ -1,55 +1,143 @@
-public class Monitor.SystemCPUInfoPopover : Gtk.Popover {
-    private Gtk.Grid grid;
-
+public class Monitor.SystemCPUInfoPopover : Gtk.Box {
     private CPU cpu;
 
     construct {
-        grid = new Gtk.Grid ();
-        grid.margin = 12;
-        grid.column_spacing = 6;
-
-        grid.attach (label (_("Model")), 0, 0, 1, 1);
-        grid.attach (label (_("Family")), 0, 1, 1, 1);
-        grid.attach (label (_("Microcode ver.")), 0, 2, 1, 1);
-        grid.attach (label (_("Bogomips")), 0, 3, 1, 1);
-        grid.attach (label (_("Cache size")), 0, 4, 1, 1);
-        grid.attach (label (_("Address sizes")), 0, 5, 1, 1);
-        grid.attach (label (_("Flags")), 0, 6, 1, 1);
-        grid.attach (label (_("Bugs")), 0, 7, 1, 1);
-
-        for (int i; i <= 7; i++) {
-            grid.attach (label (":"), 1, i, 1, 1);
-        }
-
-        add (grid);
+        margin = 12;
+        orientation = Gtk.Orientation.VERTICAL;
     }
 
 
-    public SystemCPUInfoPopover (Gtk.ToggleButton ? relative_to, CPU _cpu) {
-        Object (relative_to: relative_to);
-
-        closed.connect (() => { relative_to.set_active (false); });
+    public SystemCPUInfoPopover (CPU _cpu) {
 
         cpu = _cpu;
 
-        grid.attach (label (cpu.model), 2, 0, 1, 1);
-        grid.attach (label (cpu.family), 2, 1, 1, 1);
-        grid.attach (label (cpu.microcode), 2, 2, 1, 1);
-        grid.attach (label (cpu.bogomips), 2, 3, 1, 1);
-        grid.attach (label (cpu.cache_size), 2, 4, 1, 1);
-        grid.attach (label (cpu.address_sizes), 2, 5, 1, 1);
-        grid.attach (label (cpu.flags), 2, 6, 1, 1);
-        grid.attach (label (cpu.bugs), 2, 7, 1, 1);
+        var stack = new Gtk.Stack () {
+            transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT,
+            height_request = 300,
+            width_request = 400,
+            margin_top = 12,
+        };
+
+        stack.add_titled (general_page (), "general_page", _("General"));
+        stack.add_titled (features_page (), "features_page", _("Features"));
+        stack.add_titled (bugs_page (), "bugs_page", _("Bugs"));
+
+        Gtk.StackSwitcher stack_switcher = new Gtk.StackSwitcher () {
+            valign = Gtk.Align.CENTER,
+            halign = Gtk.Align.CENTER,
+        };
+        stack_switcher.set_stack (stack);
+
+        add (stack_switcher);
+        add (stack);
     }
 
     private Gtk.Label label (string text) {
-        var label = new Gtk.Label (text);
-        label.halign = Gtk.Align.START;
-        label.valign = Gtk.Align.START;
-        label.wrap = true;
-        label.max_width_chars = 80;
+        var label = new Gtk.Label (text) {
+            halign = Gtk.Align.START,
+            valign = Gtk.Align.CENTER,
+            wrap = true,
+            margin = 6,
+        };
 
         return label;
     }
 
+    private Gtk.ListBox general_page () {
+        var listbox = new Gtk.ListBox () {
+            activate_on_single_click = false
+        };
+
+        listbox.add (label (_("Model:") + " " + cpu.model));
+        listbox.add (label (_("Family:") + " " + cpu.family));
+        listbox.add (label (_("Microcode ver.:") + " " + cpu.microcode));
+        listbox.add (label (_("Bogomips:") + " " + cpu.bogomips));
+
+        if (cpu.core_list[0].caches.has_key ("L1Instruction")) {
+            listbox.add (label (_("L1 Instruction cache:") + " " + cpu.core_list[0].caches["L1Instruction"].size));
+        }
+        if (cpu.core_list[0].caches.has_key ("L1Data")) {
+            listbox.add (label (_("L1 Data cache:") + " " + cpu.core_list[0].caches["L1Data"].size));
+        }
+        if (cpu.core_list[0].caches.has_key ("L1")) {
+            listbox.add (label (_("L1 cache:") + " " + cpu.core_list[0].caches["L1"].size));
+        }
+
+        listbox.add (label (_("L2 Cache size:") + " " + cpu.core_list[0].caches.get ("L2").size));
+        listbox.add (label (_("L3 Cache size:") + " " + cpu.core_list[0].caches.get ("L3").size));
+        listbox.add (label (_("Address sizes:") + " " + cpu.address_sizes));
+
+        return listbox;
+    }
+
+    private Gtk.Widget features_page () {
+        var listbox = new Gtk.ListBox () {
+            activate_on_single_click = false
+        };
+
+        foreach (var feature in cpu.features) {
+            listbox.add (create_row (feature.key, feature.value));
+        }
+
+        var scrolled_window = new Gtk.ScrolledWindow (null, null);
+        scrolled_window.add (listbox);
+
+        return scrolled_window;
+    }
+
+    private Gtk.Widget bugs_page () {
+        var listbox = new Gtk.ListBox () {
+            activate_on_single_click = false
+        };
+
+        foreach (var bug in cpu.bugs) {
+            listbox.add (create_row (bug.key, bug.value));
+        }
+
+        var scrolled_window = new Gtk.ScrolledWindow (null, null);
+        scrolled_window.add (listbox);
+
+        return scrolled_window;
+    }
+
+    private Gtk.ListBoxRow create_row (string flag, string flag_description) {
+        var row = new Gtk.ListBoxRow ();
+        var grid = new Gtk.Grid () {
+            column_spacing = 2,
+            margin_bottom = 6
+        };
+
+        var flag_label = new Gtk.Label (flag) {
+            halign = Gtk.Align.START,
+            valign = Gtk.Align.CENTER,
+            wrap = true,
+            margin = 6,
+        };
+        flag_label.get_style_context ().add_class ("flags_badge");
+
+
+        grid.attach (flag_label, 0, 0, 1, 1);
+        grid.attach (label (flag_description), 1, 0, 1, 1);
+        row.add (grid);
+
+        return row;
+    }
+
 }
+
+//  public class Monitor.X : Gtk.ListBoxRow {
+//      construct {
+//          get_style_context ().add_class ("open_files_list_box_row");
+//      }
+//      public X (string _text) {
+//          var text = _text;
+//          var grid = new Gtk.Grid ();
+//          grid.column_spacing = 2;
+
+//          Gtk.Label label = new Gtk.Label (text);
+//          label.halign = Gtk.Align.START;
+//          grid.attach (label, 1, 0, 1, 1);
+
+//          add (grid);
+//      }
+//  }

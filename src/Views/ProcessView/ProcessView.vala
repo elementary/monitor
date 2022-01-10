@@ -38,8 +38,16 @@ public class Monitor.ProcessView : Gtk.Box {
     }
 
     public void update () {
-        process_info_view.update ();
-        treeview_model.process_manager.update_processes.begin ();
+        new Thread<bool> ("update-processes", () => {
+            Idle.add (() => {
+                process_info_view.update ();
+                treeview_model.process_manager.update_processes.begin ();
+
+                return false;
+            });
+            return true;
+        });
+
     }
 
 }
