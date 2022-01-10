@@ -1,0 +1,17 @@
+name: Lint
+
+on: [push, pull_request]
+
+jobs:
+
+  lint:
+    runs-on: ubuntu-latest
+    container:
+      image: valalang/lint
+
+    steps:
+    - uses: actions/checkout@v1
+      with:
+          submodules: false
+    - name: Lint
+      run: io.elementary.vala-lint -d .
