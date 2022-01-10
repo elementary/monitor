@@ -37,7 +37,7 @@ BuildRequires: pkgconfig(wingpanel)
 # gdk3-devel
 BuildRequires: pkgconfig(gdk-x11-3.0) 
 
-BuildRequires: pkgconfig(libx11-6)
+BuildRequires: libX11-devel
 
 # libhandy-devel
 BuildRequires: pkgconfig(libhandy-1) 
