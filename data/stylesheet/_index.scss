@@ -1,0 +1,236 @@
+@import "../../subprojects/stylesheet/src/palette";
+@import "../../subprojects/stylesheet/src/index";
+
+$text_color: $fg_color;
+
+.roundy-label,
+.roundy-label:hover,
+.roundy-label:selected,
+.roundy-label:selected:focus,
+.roundy-label:hover:selected {
+    background-image: none;
+    box-shadow: none;
+    color: rgba($text_color, 0.7);
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 0 6px;
+    margin: 0 3px;
+    border-width: 0;
+
+    @if $color-scheme == "light" {
+        background-color: $SILVER_300;
+    } @else if $color-scheme == "dark" {
+        background-color: $SILVER_900;
+    }
+}
+
+.green {
+    background-color: rgba($LIME_300, 0.6);
+}
+
+.blue {
+    background-color: rgba($BLUEBERRY_300, 0.6);
+}
+
+.label-vertical {
+    &-val {
+        color: $text_color;
+        font-size: 30px;
+        font-weight: 200;
+        border-width: 0;
+    }
+}
+
+
+
+.usage-label-container {
+    border-radius: 3px;
+    @if $color-scheme == "light" {
+        background-color: rgba($SILVER_100, 0.5);
+        border: 1px solid $SILVER_300;
+    } @else if $color-scheme == "dark" {
+        background-color: rgba($SILVER_900, 0.5);
+        border: 1px solid $SILVER_900;
+    }
+}
+
+.username {
+    &-current {
+        @if $color-scheme == "light" {
+            background-color: $SILVER_300;
+            color: $SILVER_900;
+        } @else if $color-scheme == "dark" {
+            background-color: $SILVER_900;
+            color: rgba($text_color, 0.7);
+        }
+    }
+
+    &-other {
+        background-color: $BANANA_300;
+        color: #381F00;
+    }
+
+    &-root {
+        background-color: $STRAWBERRY_300;
+        color: $SILVER_100;
+    }
+}
+
+.state_badge,
+.state_badge:hover,
+.state_badge:selected,
+.state_badge:selected:focus,
+.state_badge:hover:selected {
+    background-image: none;
+    background-color: $BLUEBERRY_500;
+    box-shadow: none;
+    color: white;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 0 6px;
+    margin: 0 3px;
+    border-width: 0;
+}
+
+.core_badge {
+    border-radius: 8px;
+    padding-right: 4px;
+    padding-left:2px;
+    font-size: 10px;
+    /* font-weight:bold; */
+    color: $text_color;
+
+    @if $color-scheme == "light" {
+        border: 1px solid $SILVER_300;
+        background-color: $SILVER_100;
+
+    } @else if $color-scheme == "dark" {
+        border: 1px solid $SILVER_700;
+        background-color: $SILVER_900;
+    }
+    
+
+    &-mild-warning {
+        @if $color-scheme == "light" {
+            background-color: rgba($BANANA_100, 0.7);
+            color: $BANANA_900;
+            border: 1px solid rgba($BANANA_300, 0.7);    
+        } @else if $color-scheme == "dark" {
+            background-color: rgba($BANANA_900, 0.7);
+            color: $BANANA_300;
+            border: 1px solid rgba($BANANA_700, 0.7);
+        }
+    }
+
+    &-strong-warning {
+        @if $color-scheme == "light" {
+            background-color: rgba($ORANGE_100, 0.7);
+            color: $ORANGE_900;
+            border: 1px solid rgba($ORANGE_300, 0.7);
+        } @else if $color-scheme == "dark" {
+            background-color: rgba($ORANGE_900, 0.7);
+            color: $ORANGE_300;
+            border: 1px solid rgba($ORANGE_700, 0.7);
+        }
+    }
+
+    &-critical-warning {
+        background-color: $STRAWBERRY_100;
+        color: $STRAWBERRY_700;
+        border: 1px solid $STRAWBERRY_300;
+
+        @if $color-scheme == "light" {
+            background-color: rgba($STRAWBERRY_100, 0.7);
+            color: $STRAWBERRY_700;
+            border: 1px solid rgba($STRAWBERRY_300, 0.7);
+        } @else if $color-scheme == "dark" {
+            background-color: rgba($STRAWBERRY_900, 0.7);
+            color: $STRAWBERRY_100;
+            border: 1px solid rgba($STRAWBERRY_700, 0.7);
+        }
+    }
+}
+
+.flags_badge {
+    @extend .core_badge;
+    font-size: 12px;
+    padding: 1px 4px;
+
+}
+
+.command_wrapper {
+    background-color: #fdf6e3;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.20);
+    padding: 5px;
+}
+
+.command {
+    font-family: monospace;
+
+    text {
+        background-color: #fdf6e3;
+    }
+}
+
+.dim-label {
+    color: rgba($text_color, 0.5);
+}
+
+.small-text {
+    font-weight:bold;
+    font-size:9px;
+    @if $color-scheme == "light" {
+        color:grey;
+    } @else if $color-scheme == "dark" {
+        color: $SILVER_500;
+    }
+}
+
+.graph {
+    border-radius: 6px;
+
+    @if $color-scheme == "light" {
+        border: 1px $SILVER_300 solid;
+    } @else if $color-scheme == "dark" {
+        border: 1px $SILVER_900 solid;
+    }
+}
+
+.open_files_list_box_wrapper {
+    @if $color-scheme == "light" {
+        border: 1px $SILVER_300 solid;
+    } @else if $color-scheme == "dark" {
+        border: 1px $SILVER_900 solid;
+    }
+}
+
+.open_files_list_box {
+    &_row {
+        @if $color-scheme == "light" {
+            border-bottom: 1px $SILVER_100 solid;
+        } @else if $color-scheme == "dark" {
+            border-bottom: 1px $SILVER_900 solid;
+        }
+        
+        label {
+            font-family: monospace;
+            /* background-color: $SILVER_300; */
+            padding: 6px 2px 2px;
+            border-radius: 4px;
+        }
+
+        image {
+            color: $SILVER_700;
+            margin: 6px;
+        }
+    }
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.text-secondary {
+    color: $SILVER_700;
+}

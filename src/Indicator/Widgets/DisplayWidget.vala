@@ -1,21 +1,18 @@
 public class Monitor.Widgets.DisplayWidget : Gtk.Grid {
-    public IndicatorWidget cpu_widget;
-    public IndicatorWidget memory_widget;
+    public IndicatorWidget cpu_widget = new IndicatorWidget ("cpu-symbolic");
+    public IndicatorWidget memory_widget = new IndicatorWidget ("ram-symbolic");
 
-    public TemperatureWidget temperature_widget;
+    public IndicatorWidget temperature_widget = new IndicatorWidget ("temperature-sensor-symbolic");
+    public IndicatorWidget network_up_widget = new IndicatorWidget ("go-up-symbolic");
+    public IndicatorWidget network_down_widget = new IndicatorWidget ("go-down-symbolic");
 
     construct {
         valign = Gtk.Align.CENTER;
 
-        cpu_widget = new IndicatorWidget ("cpu-symbolic");
-
-        memory_widget = new IndicatorWidget ("ram-symbolic");
-
-        temperature_widget = new TemperatureWidget ("temperature-sensor-symbolic");
-
-
         add (cpu_widget);
         add (memory_widget);
         add (temperature_widget);
+        add (network_up_widget);
+        add (network_down_widget);
     }
 }

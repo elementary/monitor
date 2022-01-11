@@ -1,0 +1,5 @@
+namespace Monitor {
+    public const string DBDIR = "@DBDIR@";
+    public const string GETTEXT_PACKAGE = "@GETTEXT_PACKAGE@";
+    public const string VCS_TAG = "@VCS_TAG@";
+}

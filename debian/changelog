@@ -1,76 +1,105 @@
+com.github.stsdc.monitor (0.12.0) focal; urgency=low
+
+  * Handle LUKS volumes
+  * Update Russian translation
+  * Better CPU info UI
+  * Add support for GPUs (AMD, Nvidia)
+  * Indicate high usage of cpu and memory in the Indicator
+  * Better CPU temperature detection
+
+ -- Stanisław Dac <stadac@pm.me>  Wed, 05 Jan 2022 23:59:56 +0000
+
+com.github.stsdc.monitor (0.11.0) focal; urgency=low
+
+  * Add info about drives (based on Dirli's code)
+
+ -- Stanisław Dac <stadac@pm.me>  Sun, 24 Oct 2021 21:38:26 +0200
+
+com.github.stsdc.monitor (0.10.1) focal; urgency=low
+
+  * Add support for vdx (vm) and nvme disks
+
+ -- Stanisław Dac <stadac@pm.me>  Fri, 22 Oct 2021 21:52:50 +0200
+
+com.github.stsdc.monitor (0.10.0) focal; urgency=low
+
+  * Add dark theme
+
+ -- Stanisław Dac <stadac@pm.me>  Thu, 07 Oct 2021 21:49:24 +0200
+
 com.github.stsdc.monitor (0.8.0) bionic; urgency=low
 
-      * System resources tab
+  * System resources tab
 
--- Stanisław Dac <stanislawdac@gmail.com>  Sun, 19 Jul 2020 00:30:43 +0200
+ -- Stanisław Dac <stadac@pm.me>  Sun, 19 Jul 2020 00:30:43 +0200
 
 com.github.stsdc.monitor (0.7.3) bionic; urgency=low
 
-      * Added tooltips to process state label (Ryo Nakano)
-      * Small bugfix
+  * Added tooltips to process state label (Ryo Nakano)
+  * Small bugfix
 
--- Stanisław Dac <stanislawdac@gmail.com>  Mon, 22 Jun 2020 20:21:37 +0200
+-- Stanisław Dac <stadac@pm.me> Mon, 22 Jun 2020 20:21:37 +0200
 
 com.github.stsdc.monitor (0.7.2) bionic; urgency=low
 
-      * Fix sorting arrows
-      * Update Russian translation (camellan)
-      * Add Turkish translation (Harun Yasar)
-      * Use newest version of live-chart (Laurent Callarec) ← Check his lib for creating charts, it's amazing!
+  * Fix sorting arrows
+  * Update Russian translation (camellan)
+  * Add Turkish translation (Harun Yasar)
+  * Use newest version of live-chart (Laurent Callarec) ← Check his lib for creating charts, it's amazing!
 
--- Stanisław Dac <stanislawdac@gmail.com>  Sat, 15 Apr 2020 21:01:15 +0200
+-- Stanisław Dac <stadac@pm.me> Sat, 15 Apr 2020 21:01:15 +0200
 
 com.github.stsdc.monitor (0.7.0) bionic; urgency=low
 
-      * Detailed process info in sidebar
-      * CPU frequency in tooltip (Ryo Nakano)
+  * Detailed process info in sidebar
+  * CPU frequency in tooltip (Ryo Nakano)
 
--- Stanisław Dac <stanislawdac@gmail.com>  Sat, 11 Apr 2020 21:01:15 +0200
+-- Stanisław Dac <stadac@pm.me> Sat, 11 Apr 2020 21:01:15 +0200
 
 com.github.stsdc.monitor (0.6.2) bionic; urgency=low
 
-      * Bugfix (potential) of crushes and high CPU usage
-      * Update German translation (Carsten Dietrich)
+  * Bugfix (potential) of crushes and high CPU usage
+  * Update German translation (Carsten Dietrich)
 
--- Stanisław Dac <stanislawdac@gmail.com>  Sat, 21 Dec 2019 14:06:37 +0100
+-- Stanisław Dac <stadac@pm.me> Sat, 21 Dec 2019 14:06:37 +0100
 
 com.github.stsdc.monitor (0.6.1) bionic; urgency=low
 
-      * Update Portuguese translation (Hugo Carvalho)
-      * Update French translation (Nathan Bonnemains and Skeudwenn)
-      * Fix: Don't show swap percentage when it's not available (Ryo Nakano)
+  * Update Portuguese translation (Hugo Carvalho)
+  * Update French translation (Nathan Bonnemains and Skeudwenn)
+  * Fix: Don't show swap percentage when it's not available (Ryo Nakano)
 
--- Stanisław Dac <stanislawdac@gmail.com>  Wed, 13 Nov 2019 21:18:52 +0100
+-- Stanisław Dac <stadac@pm.me> Wed, 13 Nov 2019 21:18:52 +0100
 
 com.github.stsdc.monitor (0.6.0) bionic; urgency=low
 
-      * Update Italian translation (Mirko Brombin)
-      * Show swap usage (Ryo Nakano)
-      * Update Russian translation (camellan)
-      * Code refactoring (Ryo Nakano)
-      * Update Japanese translation (Ryo Nakano)
+  * Update Italian translation (Mirko Brombin)
+  * Show swap usage (Ryo Nakano)
+  * Update Russian translation (camellan)
+  * Code refactoring (Ryo Nakano)
+  * Update Japanese translation (Ryo Nakano)
 
--- Stanisław Dac <stanislawdac@gmail.com>  Tue, 29 Oct 2019 17:48:02 +0100
+-- Stanisław Dac <stadac@pm.me> Tue, 29 Oct 2019 17:48:02 +0100
 
 com.github.stsdc.monitor (0.5.0) bionic; urgency=low
 
-      * Fix contents of the window are not shown (Ryo Nakano)
-      * Fix no row is still selected when indicator options are enabled (Ryo Nakano)
-      * Fix the app crashes by clicking the "End/Kill Process" buttons when no process is selected (Ryo Nakano)
-      * Added buttons to either "kill" or "end" a process. (Evan Buss)
-      * Change screenshot to English (Christopher Crouse)
-      * Update Russian translation (camellan)
-      * Check if the default display is a X11 display (Hannes Schulze)
-      * Update German translation (J0Ar)
-      * Update Spanish translation (Mario Rodrigo)
+  * Fix contents of the window are not shown (Ryo Nakano)
+  * Fix no row is still selected when indicator options are enabled (Ryo Nakano)
+  * Fix the app crashes by clicking the "End/Kill Process" buttons when no process is selected (Ryo Nakano)
+  * Added buttons to either "kill" or "end" a process. (Evan Buss)
+  * Change screenshot to English (Christopher Crouse)
+  * Update Russian translation (camellan)
+  * Check if the default display is a X11 display (Hannes Schulze)
+  * Update German translation (J0Ar)
+  * Update Spanish translation (Mario Rodrigo)
 
--- Stanisław Dac <stanislawdac@gmail.com>  Fri, 07 Jun 2019 11:03:57 +0200
+-- Stanisław Dac <stadac@pm.me> Fri, 07 Jun 2019 11:03:57 +0200
 
 com.github.stsdc.monitor (0.4.4) bionic; urgency=low
 
     * Add start-in-background option to UI
 
--- Stanisław Dac <stanislawdac@gmail.com>  Fri, 12 Apr 2019 18:17:34 +0200
+-- Stanisław Dac <stadac@pm.me> Fri, 12 Apr 2019 18:17:34 +0200
 
 com.github.stsdc.monitor (0.4.3) bionic; urgency=low
 
@@ -79,7 +108,7 @@ com.github.stsdc.monitor (0.4.3) bionic; urgency=low
     * Update Dutch, French and Spanish translations
     * Fix Japanese translation
 
--- Stanisław Dac <stanislawdac@gmail.com>  Wed, 03 Apr 2019 20:23:01 +0200
+-- Stanisław Dac <stadac@pm.me> Wed, 03 Apr 2019 20:23:01 +0200
 
 com.github.stsdc.monitor (0.4.2) bionic; urgency=low
 
@@ -87,7 +116,7 @@ com.github.stsdc.monitor (0.4.2) bionic; urgency=low
     * Make End process button red
     * Add Japanese translation
 
--- Stanisław Dac <stanislawdac@gmail.com>  Mon, 11 Mar 2019 21:06:18 +0100
+-- Stanisław Dac <stadac@pm.me> Mon, 11 Mar 2019 21:06:18 +0100
 
 com.github.stsdc.monitor (0.4.1) bionic; urgency=low
 
@@ -95,7 +124,7 @@ com.github.stsdc.monitor (0.4.1) bionic; urgency=low
     * Update Polish and Russian translation
     * Fix bug, that caused hanging
 
--- Stanisław Dac <stanislawdac@gmail.com>  Wed, 20 Feb 2019 00:42:22 +0100
+-- Stanisław Dac <stadac@pm.me> Wed, 20 Feb 2019 00:42:22 +0100
 
 com.github.stsdc.monitor (0.4.0) bionic; urgency=low
 
@@ -105,20 +134,20 @@ com.github.stsdc.monitor (0.4.0) bionic; urgency=low
     * Fix: search erases my input while I'm typing
     * Fix POTFILES
 
--- Stanisław Dac <stanislawdac@gmail.com>  Thu, 31 Jan 2019 23:24:10 +0100
+-- Stanisław Dac <stadac@pm.me> Thu, 31 Jan 2019 23:24:10 +0100
 
 com.github.stsdc.monitor (0.3.7) xenial; urgency=low
 
     * Update French translation
 
--- Stanisław Dac <stanislawdac@gmail.com>  Wed, 23 Jan 2019 17:44:15 +0100
+-- Stanisław Dac <stadac@pm.me> Wed, 23 Jan 2019 17:44:15 +0100
 
 com.github.stsdc.monitor (0.3.6) xenial; urgency=low
 
     * New icon
     * Quit the app with Ctrl+Q
 
--- Stanisław Dac <stanislawdac@gmail.com>  Fri, 23 Nov 2018 16:25:58 +0100
+-- Stanisław Dac <stadac@pm.me> Fri, 23 Nov 2018 16:25:58 +0100
 
 com.github.stsdc.monitor (0.3.5) xenial; urgency=low
 
@@ -126,7 +155,7 @@ com.github.stsdc.monitor (0.3.5) xenial; urgency=low
     * Pressing Enter focuses on process list
     * Filtering: process will be highlighted if its group has no other processes
 
--- Stanisław Dac <stanislawdac@gmail.com>  Sat, 20 Jan 2018 14:01:21 +0100
+-- Stanisław Dac <stadac@pm.me> Sat, 20 Jan 2018 14:01:21 +0100
 
 com.github.stsdc.monitor (0.3.2) xenial; urgency=low
 
@@ -136,13 +165,13 @@ com.github.stsdc.monitor (0.3.2) xenial; urgency=low
   * German translation
   * Spanish translation
 
- -- Stanisław Dac <stanislawdac@gmail.com>  Tue, 28 Nov 2017 18:17:00 +0100
+ -- Stanisław Dac <stadac@pm.me> Tue, 28 Nov 2017 18:17:00 +0100
 
 com.github.stsdc.monitor (0.3.1) xenial; urgency=low
 
   * Added Russian translation
 
- -- Stanisław Dac <stanislawdac@gmail.com>  Tue, 05 Sep 2017 19:16:05 +0200
+ -- Stanisław Dac <stadac@pm.me> Tue, 05 Sep 2017 19:16:05 +0200
 
 com.github.stsdc.monitor (0.3.0) xenial; urgency=low
 
@@ -151,64 +180,64 @@ com.github.stsdc.monitor (0.3.0) xenial; urgency=low
   * Added shortcuts (CTRL + E to end process, arrows to navigate in tree)
   * Added statusbar showing CPU and RAM usage
 
- -- Stanisław Dac <stanislawdac@gmail.com>  Tue, 05 Sep 2017 12:20:33 +0200
+ -- Stanisław Dac <stadac@pm.me> Tue, 05 Sep 2017 12:20:33 +0200
 
 com.github.stsdc.monitor (0.2.10) xenial; urgency=low
 
   * Update screenshot.
 
- -- Stanisław Dac <stanislawdac@gmail.com>  Sun, 20 Aug 2017 21:32:56 +0200
+ -- Stanisław Dac <stadac@pm.me> Sun, 20 Aug 2017 21:32:56 +0200
 
 com.github.stsdc.monitor (0.2.9) xenial; urgency=low
 
   * Fixed bugs.
 
- -- Stanisław Dac <stanislawdac@gmail.com>  Sun, 20 Aug 2017 14:40:56 +0200
+ -- Stanisław Dac <stadac@pm.me> Sun, 20 Aug 2017 14:40:56 +0200
 
 com.github.stsdc.monitor (0.2.8) xenial; urgency=low
 
   * Initial Release.
 
- -- Stanisław Dac <stanislawdac@gmail.com>  Sun, 20 Aug 2017 14:40:56 +0200
+ -- Stanisław Dac <stadac@pm.me> Sun, 20 Aug 2017 14:40:56 +0200
 
 com.github.stsdc.monitor (0.2.7) xenial; urgency=low
 
   * Initial Release.
 
- -- Stanisław Dac <stanislawdac@gmail.com>  Sun, 20 Aug 2017 12:41:59 +0200
+ -- Stanisław Dac <stadac@pm.me> Sun, 20 Aug 2017 12:41:59 +0200
 
 com.github.stsdc.monitor (0.2.6) xenial; urgency=low
 
   * Initial Release.
 
- -- Stanisław Dac <stanislawdac@gmail.com>  Fri, 18 Aug 2017 23:55:29 +0200
+ -- Stanisław Dac <stadac@pm.me> Fri, 18 Aug 2017 23:55:29 +0200
 
 com.github.stsdc.monitor (0.2.5) xenial; urgency=low
 
   * Initial Release.
 
- -- Stanisław Dac <stanislawdac@gmail.com>  Fri, 18 Aug 2017 18:11:55 +0200
+ -- Stanisław Dac <stadac@pm.me> Fri, 18 Aug 2017 18:11:55 +0200
 
 com.github.stsdc.monitor (0.2.4) xenial; urgency=low
 
   * Initial Release.
 
- -- Stanisław Dac <stanislawdac@gmail.com>  Fri, 18 Aug 2017 16:48:40 +0200
+ -- Stanisław Dac <stadac@pm.me> Fri, 18 Aug 2017 16:48:40 +0200
 
 com.github.stsdc.monitor (0.2.3) xenial; urgency=low
 
   * Initial Release.
 
- -- Stanisław Dac <stanislawdac@gmail.com>  Fri, 18 Aug 2017 16:30:09 +0200
+ -- Stanisław Dac <stadac@pm.me> Fri, 18 Aug 2017 16:30:09 +0200
 
 com.github.stsdc.monitor (0.2.2) xenial; urgency=low
 
   * Initial Release.
 
- -- Stanisław Dac <stanislawdac@gmail.com>  Fri, 18 Aug 2017 16:23:15 +0200
+ -- Stanisław Dac <stadac@pm.me> Fri, 18 Aug 2017 16:23:15 +0200
 
 com.github.stsdc.monitor (0.2.0) xenial; urgency=low
 
   * Initial Release.
 
- -- Stanisław Dac <stanislawdac@gmail.com>  Fri, 18 Aug 2017 12:25:26 +0200
+ -- Stanisław Dac <stadac@pm.me> Fri, 18 Aug 2017 12:25:26 +0200

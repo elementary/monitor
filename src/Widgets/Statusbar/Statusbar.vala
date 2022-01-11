@@ -32,9 +32,20 @@ public class Monitor.Statusbar : Gtk.ActionBar {
         swap_icon.margin_start = 6;
         pack_start (swap_icon);
         pack_start (swap_usage_label);
-    }
 
-    public Statusbar () {
+        var github_label = new Gtk.LinkButton.with_label ("https://github.com/stsdc/monitor", _("Check on Github")) {
+            margin_end = 6
+        };
+
+        var version_label = new Gtk.Label ("𐄁    %s".printf (VCS_TAG)) {
+            margin_end = 6,
+            selectable = true
+        };
+        version_label.get_style_context ().add_class ("dim-label");
+
+        pack_end (version_label);
+        pack_end (github_label);
+
     }
 
     public bool update (ResourcesSerialized sysres) {
