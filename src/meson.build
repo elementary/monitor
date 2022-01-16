@@ -60,10 +60,12 @@ source_app_files = [
     'Resources/Core.vala',
     'Resources/Memory.vala',
     'Resources/Swap.vala',
-    'Resources/TemperatureSensor.vala',
     'Resources/Network.vala',
-    'Resources/Storage.vala',
-    'Resources/Drive.vala',
+
+    'Resources/Storage/Storage.vala',
+    'Resources/Storage/StorageParser.vala',
+    'Resources/Storage/Disk.vala',
+    'Resources/Storage/Volume.vala',
 
     'Resources/GPU/IGPU.vala',
     'Resources/GPU/GPUAmd.vala',

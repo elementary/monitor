@@ -1,4 +1,4 @@
-project('com.github.stsdc.monitor', 'vala', 'c', version: '0.11.0')
+project('com.github.stsdc.monitor', 'vala', 'c', version: '0.12.0')
 
 # these are Meson modules
 gnome = import('gnome')
@@ -52,28 +52,15 @@ config_data.set('GETTEXT_PACKAGE', meson.project_name())
 
 subdir('data')
 
+config_data.set('VCS_TAG', '@VCS_TAG@')
 project_config = vcs_tag(
-	input: vcs_tag(
-		input: vcs_tag(
-			input: configure_file(
-				input: 'src/Conf.vala.in',
-				output: 'Conf.vala.in.in.in',
-				configuration: config_data
-			),
-			output: 'Conf.vala.in.in',
-			command: ['git', 'rev-parse', '--short', 'HEAD'],
-			replace_string: '@GIT_COMMIT_SHORT@',
-			fallback: ''
-		),
-		output: 'Conf.vala.in',
-		command: ['git', 'rev-parse', 'HEAD'],
-		replace_string: '@GIT_COMMIT@',
-		fallback: ''
-	),
-	output: 'Conf.vala',
-	command: ['git', 'symbolic-ref', '--short', '-q', 'HEAD'],
-	replace_string: '@GIT_BRANCH@',
-	fallback: ''
+  input: configure_file(
+    input: 'src/Conf.vala.in',
+    output: 'Conf.vala.in',
+    configuration: config_data
+  ),
+  output: 'Conf.vala',
+  command: ['git', 'describe', '--tags', '--dirty']
 )
 
 subdir('src')

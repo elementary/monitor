@@ -56,8 +56,8 @@
 
 * `git clone --recursive https://github.com/stsdc/monitor`
 * `cd monitor`
-* `meson build --prefix=/usr` or `meson build --prefix=/usr -Dindicator-wingpanel=enabled`
-* `cd build`
+* `meson builddir --prefix=/usr` or `meson builddir --prefix=/usr -Dindicator-wingpanel=enabled`
+* `cd builddir`
 * `sudo ninja install`
 
 ### Debug

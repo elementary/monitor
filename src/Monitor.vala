@@ -18,7 +18,7 @@ namespace Monitor {
             Object (
                 application_id: "com.github.stsdc.monitor",
                 flags : ApplicationFlags.FLAGS_NONE
-                );
+            );
             status_background = status_indicator;
         }
 
@@ -83,6 +83,11 @@ namespace Monitor {
         }
 
         public static int main (string[] args) {
+            Intl.setlocale ();
+            print ("\n");
+            print (" Monitor %s \n", VCS_TAG);
+            print ("\n");
+
             // add command line options
             try {
                 var opt_context = new OptionContext ("");
