@@ -26,15 +26,26 @@
 
 ### elementary os 6 and 6.1
 
+If you have never added a PPA on your system before, you might need to run this command first:
+
 ```bash
-    sudo add-apt-repository ppa:stsdc/monitor
-    sudo apt install com.github.stsdc.monitor
+sudo apt install -y software-properties-common
 ```
+
+Add the PPA of Monitor and then install it:
+
+```bash
+sudo add-apt-repository ppa:stsdc/monitor
+sudo apt install com.github.stsdc.monitor
+```
+
+Monitor will be avilable from the Applications menu.
+
 ### Fedora (34)
 
 ```bash
-    sudo dnf copr enable stsdc/monitor 
-    sudo dnf install com.github.stsdc.monitor
+sudo dnf copr enable stsdc/monitor 
+sudo dnf install com.github.stsdc.monitor
 ```
 
 ## Development
@@ -54,12 +65,16 @@
 
 ### Clone, Build & Install
 
-* `git clone --recursive https://github.com/stsdc/monitor`
-* `cd monitor`
-* `meson builddir --prefix=/usr` or `meson builddir --prefix=/usr -Dindicator-wingpanel=enabled`
-* `cd builddir`
-* `sudo ninja install`
+```bash
+git clone --recursive https://github.com/stsdc/monitor
+cd monitor
+meson builddir --prefix=/usr` or `meson builddir --prefix=/usr -Dindicator-wingpanel=enabled
+cd builddir
+sudo ninja install
+```
 
-### Debug
-`G_MESSAGES_DEBUG=all GTK_DEBUG=interactive ./com.github.stsdc.monitor`
+### Debug logging
 
+```bash
+G_MESSAGES_DEBUG=all GTK_DEBUG=interactive com.github.stsdc.monitor
+```
