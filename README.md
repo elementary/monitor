@@ -71,13 +71,13 @@ sudo dnf install com.github.stsdc.monitor
    cd monitor
    ```
 
-2. You can either build without the wingpanel indicator:
-   ```bash
-   meson builddir --prefix=/usr
-   ```
-   Or with the wingpanel indicator:
+2. To build with the wingpanel indicator:
    ```bash
    meson builddir --prefix=/usr -Dindicator-wingpanel=enabled
+   ```
+   Alternatively, to build without the wingpanel indicator:
+   ```bash
+   meson builddir --prefix=/usr
    ```
 
 3. Install:
