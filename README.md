@@ -41,7 +41,7 @@ sudo apt install com.github.stsdc.monitor
 
 Monitor will then be available from the Applications menu.
 
-### Fedora (34)
+### Fedora (34, 35)
 
 ```bash
 sudo dnf copr enable stsdc/monitor 
