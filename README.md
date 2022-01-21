@@ -39,7 +39,7 @@ sudo add-apt-repository ppa:stsdc/monitor
 sudo apt install com.github.stsdc.monitor
 ```
 
-Monitor will be avilable from the Applications menu.
+Monitor will then be available from the Applications menu.
 
 ### Fedora (34)
 
@@ -65,13 +65,26 @@ sudo dnf install com.github.stsdc.monitor
 
 ### Clone, Build & Install
 
-```bash
-git clone --recursive https://github.com/stsdc/monitor
-cd monitor
-meson builddir --prefix=/usr` or `meson builddir --prefix=/usr -Dindicator-wingpanel=enabled
-cd builddir
-sudo ninja install
-```
+1. Clone:
+   ```bash
+   git clone --recursive https://github.com/stsdc/monitor
+   cd monitor
+   ```
+
+2. You can either build without the wingpanel indicator:
+   ```bash
+   meson builddir --prefix=/usr
+   ```
+   Or with the wingpanel indicator:
+   ```bash
+   meson builddir --prefix=/usr -Dindicator-wingpanel=enabled
+   ```
+
+3. Install:
+   ```bash
+   cd builddir
+   sudo ninja install
+   ```
 
 ### Debug logging
 
