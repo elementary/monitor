@@ -60,6 +60,7 @@ sudo dnf install com.github.stsdc.monitor
 * libwingpanel-3.0-dev
 * libhandy-1-dev
 * libudisks2-dev
+* libxnvctrl-dev
 * meson
 * sassc
 
