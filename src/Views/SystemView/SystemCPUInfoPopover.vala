@@ -54,18 +54,21 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
         listbox.add (label (_("Bogomips:") + " " + cpu.bogomips));
 
         if (cpu.core_list[0].caches.has_key ("L1Instruction")) {
-            listbox.add (label (_("L1 Instruction cache:") + " " + cpu.core_list[0].caches["L1Instruction"].size));
+            var value = cpu.cache_multipliers["L1Instruction"].to_string () +"×"+ cpu.core_list[0].caches["L1Instruction"].size;
+            listbox.add (label (_("L1 Instruction cache: ") + value));
         }
         if (cpu.core_list[0].caches.has_key ("L1Data")) {
-            listbox.add (label (_("L1 Data cache:") + " " + cpu.core_list[0].caches["L1Data"].size));
+            var value = cpu.cache_multipliers["L1Data"].to_string () +"×"+ cpu.core_list[0].caches["L1Data"].size;
+            listbox.add (label (_("L1 Data cache: ") + value));
         }
         if (cpu.core_list[0].caches.has_key ("L1")) {
-            listbox.add (label (_("L1 cache:") + " " + cpu.core_list[0].caches["L1"].size));
+            var value = cpu.cache_multipliers["L1"].to_string () +"×"+ cpu.core_list[0].caches["L1"].size;
+            listbox.add (label (_("L1 cache: ") + value));
         }
 
-        listbox.add (label (_("L2 Cache size:") + " " + cpu.core_list[0].caches.get ("L2").size));
-        listbox.add (label (_("L3 Cache size:") + " " + cpu.core_list[0].caches.get ("L3").size));
-        listbox.add (label (_("Address sizes:") + " " + cpu.address_sizes));
+        listbox.add (label (_("L2 Cache size: ") + cpu.cache_multipliers["L2"].to_string () +"×"+ cpu.core_list[0].caches["L2"].size));
+        listbox.add (label (_("L3 Cache size: ") + cpu.cache_multipliers["L3"].to_string () +"×"+ cpu.core_list[0].caches["L3"].size));
+        listbox.add (label (_("Address sizes: ") + cpu.address_sizes));
 
         return listbox;
     }

@@ -72,6 +72,8 @@ BuildRequires: libudisks2-devel
 %{_datadir}/glib-2.0/schemas/%{appname}.gschema.xml
 %{_datadir}/icons/hicolor/*/apps/%{appname}.svg
 %{_datadir}/metainfo/%{appname}.appdata.xml
+%{_datadir}/%{appname}/database/cpu_bugs.csv
+%{_datadir}/%{appname}/database/cpu_features.csv
 
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
