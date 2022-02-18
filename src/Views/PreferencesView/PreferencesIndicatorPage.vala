@@ -9,7 +9,7 @@
     public PreferencesIndicatorPage () {
         Object (
             activatable: true,
-            description: _("Show Indicator in Wingpanel"),
+            description: _("Show indicator in Wingpanel"),
             //  header: "Simple Pages",
             icon_name: "preferences-system",
             title: _("Indicator")
@@ -34,7 +34,7 @@
             dbusserver.indicator_cpu_state (cpu_percentage_switch.state);
         });
 
-        var memory_label = new Gtk.Label (_("Display Memory percentage"));
+        var memory_label = new Gtk.Label (_("Display RAM percentage"));
         memory_label.halign = Gtk.Align.START;
         memory_label.xalign = 1;
 
