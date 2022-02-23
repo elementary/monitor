@@ -61,6 +61,8 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         set_popover_more_info (new SystemCPUInfoPopover (cpu));
 
         cpu_utilization_chart = new Chart (cpu.core_list.size);
+        cpu_utilization_chart.config.y_axis.tick_interval = 100;
+        cpu_utilization_chart.config.y_axis.fixed_max = 100.0 * cpu.core_list.size;
         set_main_chart (cpu_utilization_chart);
 
         set_main_chart_overlay (grid_core_labels ());
@@ -83,9 +85,24 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         cpu_temperature_chart.update (0, cpu.temperature_mean);
         cpu_temperature_label.set_text (("%.2f %s").printf (cpu.temperature_mean, _("℃")));
 
+        double cpu_prev_util = 0;
+
         for (int i = 0; i < cpu.core_list.size; i++) {
+
+            // must reverse to render layers in the right order
+            int reversed_i = cpu.core_list.size - i - 1;
+
             double core_percentage = cpu.core_list[i].percentage_used;
-            cpu_utilization_chart.update (i, core_percentage);
+            double core_percentage_reversed = cpu.core_list[reversed_i].percentage_used;
+
+            if (i == 0) {
+                cpu_utilization_chart.update (reversed_i, core_percentage_reversed);
+            } else {
+                cpu_utilization_chart.update (reversed_i, core_percentage_reversed + cpu_prev_util);
+            }
+
+            cpu_prev_util = cpu_prev_util + core_percentage_reversed;
+
             string percentage_formatted = ("% 3d%%").printf ((int) core_percentage);
             core_label_list[i].set_text (percentage_formatted);
 
