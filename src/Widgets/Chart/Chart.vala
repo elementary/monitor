@@ -36,8 +36,12 @@ public class Monitor.Chart : Gtk.Box {
     public Chart (int series_quantity) {
         for (int i = 0; i < series_quantity; i++) {
             var renderer = new LiveChart.SmoothLineArea (new LiveChart.Values (1000));
+            //  renderer.area_alpha = 1.0;
             var serie = new LiveChart.Serie (("Serie %d").printf (i), renderer);
-            serie.line.color = { 0.35 + i / 20, 0.8, 0.1, 1.0 };
+
+            Gdk.RGBA rgba = Gdk.RGBA ();
+            rgba.parse(Utils.Colors.c[i]);
+            serie.line.color = rgba;
             live_chart.add_serie (serie);
         }
         add (live_chart);

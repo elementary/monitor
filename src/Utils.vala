@@ -96,3 +96,27 @@ public class Monitor.Utils.HumanUnitFormatter {
     }
 
 }
+
+
+public class Monitor.Utils.Colors {
+    public static string strawberry_500 = "#c6262e";
+    public static string blueberry_500 = "#3689e6";
+    public static string lime_500 = "#68b723";
+    public static string orange_500 = "#f37329";
+    public static string banana_500 = "#f9c440";
+    public static string grape_500 = "#a56de2";
+    public static string mint_500 = "#28bca3";
+    public static string bubblegum_500 = "#de3e80";
+
+    public const string[] c = {
+        "#c6262e",
+        "#3689e6",
+        "#68b723",
+        "#f37329",
+        "#f9c440",
+        "#a56de2",
+        "#28bca3",
+        "#de3e80",
+    };
+
+}
