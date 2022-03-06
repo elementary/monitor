@@ -28,19 +28,19 @@ public class Monitor.Chart : Gtk.Box {
         live_chart.legend.visible = false;
         live_chart.grid.visible = true;
         live_chart.background.visible = false;
-        //  live_chart.background.color = Gdk.RGBA () {
-        //      red = 1, green = 1, blue = 1, alpha = 1
-        //  }; // White background
+        // live_chart.background.color = Gdk.RGBA () {
+        // red = 1, green = 1, blue = 1, alpha = 1
+        // }; // White background
     }
 
     public Chart (int series_quantity) {
         Utils.Colors colors = new Utils.Colors ();
         for (int i = 0; i < series_quantity; i++) {
             var renderer = new LiveChart.SmoothLineArea (new LiveChart.Values (1000));
-            //  renderer.area_alpha = 1.0;
+            // renderer.area_alpha = 1.0;
             var serie = new LiveChart.Serie (("Serie %d").printf (i), renderer);
 
-            serie.line.color = colors.get_color_by_index(i);
+            serie.line.color = colors.get_color_by_index (i);
             live_chart.add_serie (serie);
         }
         add (live_chart);

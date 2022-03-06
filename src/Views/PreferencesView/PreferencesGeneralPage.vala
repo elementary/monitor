@@ -5,6 +5,7 @@
 
  public class Monitor.PreferencesGeneralPage : Granite.SettingsPage {
     public Gtk.Switch background_switch;
+    public Gtk.Switch enable_smooth_lines_switch;
 
     public PreferencesGeneralPage () {
 
@@ -26,7 +27,15 @@
         background_switch.state = MonitorApp.settings.get_boolean ("background-state");
         background_switch.halign = Gtk.Align.END;
         background_switch.hexpand = true;
-        //  set_background_switch_state ();
+
+
+        var enable_smooth_lines_label = new Gtk.Label (_("Enable smooth lines:"));
+        enable_smooth_lines_label.halign = Gtk.Align.START;
+
+        enable_smooth_lines_switch = new Gtk.Switch ();
+        enable_smooth_lines_switch.state = MonitorApp.settings.get_boolean ("smooth-lines-state");
+        enable_smooth_lines_switch.halign = Gtk.Align.END;
+        enable_smooth_lines_switch.hexpand = true;
 
         var content_area = new Gtk.Grid ();
         content_area.column_spacing = 12;
@@ -34,7 +43,8 @@
         content_area.margin = 12;
         content_area.attach (background_label, 0, 1, 1, 1);
         content_area.attach (background_switch, 1, 1, 1, 1);
-
+        content_area.attach (enable_smooth_lines_label, 0, 2, 1, 1);
+        content_area.attach (enable_smooth_lines_switch, 1, 2, 1, 1);
         add (content_area);
 
         background_switch.notify["active"].connect (() => {
