@@ -34,14 +34,13 @@ public class Monitor.Chart : Gtk.Box {
     }
 
     public Chart (int series_quantity) {
+        Utils.Colors colors = new Utils.Colors ();
         for (int i = 0; i < series_quantity; i++) {
             var renderer = new LiveChart.SmoothLineArea (new LiveChart.Values (1000));
             //  renderer.area_alpha = 1.0;
             var serie = new LiveChart.Serie (("Serie %d").printf (i), renderer);
 
-            Gdk.RGBA rgba = Gdk.RGBA ();
-            rgba.parse(Utils.Colors.c[i]);
-            serie.line.color = rgba;
+            serie.line.color = colors.get_color_by_index(i);
             live_chart.add_serie (serie);
         }
         add (live_chart);
