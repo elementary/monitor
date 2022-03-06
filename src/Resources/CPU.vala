@@ -29,8 +29,6 @@ public class Monitor.CPU : Object {
 
     public Gee.ArrayList<Core> core_list = new Gee.ArrayList<Core> ();
 
-    int mult = 0;
-
     private double _frequency;
     public double frequency {
         get {
