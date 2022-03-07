@@ -1,5 +1,6 @@
 public class Monitor.Chart : Gtk.Box {
     private LiveChart.Chart live_chart;
+    private uint series_quantity;
     public LiveChart.Config config;
 
     construct {
@@ -33,17 +34,40 @@ public class Monitor.Chart : Gtk.Box {
         // }; // White background
     }
 
-    public Chart (int series_quantity) {
+    public Chart (uint _series_quantity, bool smooth = true) {
+        series_quantity = _series_quantity;
+
+        if (smooth) {
+            with_smooth_line ();
+        } else {
+            with_straight_line ();
+        }
+    }
+
+    private Chart with_smooth_line () {
         Utils.Colors colors = new Utils.Colors ();
         for (int i = 0; i < series_quantity; i++) {
             var renderer = new LiveChart.SmoothLineArea (new LiveChart.Values (1000));
-            // renderer.area_alpha = 1.0;
             var serie = new LiveChart.Serie (("Serie %d").printf (i), renderer);
 
             serie.line.color = colors.get_color_by_index (i);
             live_chart.add_serie (serie);
         }
         add (live_chart);
+        return this;
+    }
+
+    private Chart with_straight_line () {
+        Utils.Colors colors = new Utils.Colors ();
+        for (int i = 0; i < series_quantity; i++) {
+            var renderer = new LiveChart.LineArea (new LiveChart.Values (1000));
+            var serie = new LiveChart.Serie (("Serie %d").printf (i), renderer);
+
+            serie.line.color = colors.get_color_by_index (i);
+            live_chart.add_serie (serie);
+        }
+        add (live_chart);
+        return this;
     }
 
     public void set_serie_color (int serie_number, Gdk.RGBA color) {
