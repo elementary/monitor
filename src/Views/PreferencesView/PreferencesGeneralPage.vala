@@ -29,7 +29,7 @@
         background_switch.hexpand = true;
 
 
-        var enable_smooth_lines_label = new Gtk.Label (_("Enable smooth lines:"));
+        var enable_smooth_lines_label = new Gtk.Label (_("Enable smooth lines for a CPU chart:"));
         enable_smooth_lines_label.halign = Gtk.Align.START;
 
         enable_smooth_lines_switch = new Gtk.Switch ();
@@ -49,6 +49,10 @@
 
         background_switch.notify["active"].connect (() => {
             MonitorApp.settings.set_boolean ("background-state", background_switch.state);
+        });
+
+        enable_smooth_lines_switch.notify["active"].connect (() => {
+            MonitorApp.settings.set_boolean ("smooth-lines-state", enable_smooth_lines_switch.state);
         });
     }
 
