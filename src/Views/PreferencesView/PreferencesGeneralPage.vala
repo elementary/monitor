@@ -29,7 +29,7 @@
         background_switch.hexpand = true;
 
 
-        var enable_smooth_lines_label = new Gtk.Label (_("Enable smooth lines for a CPU chart:"));
+        var enable_smooth_lines_label = new Gtk.Label (_("Enable smooth lines for a CPU chart (needs restart):"));
         enable_smooth_lines_label.halign = Gtk.Align.START;
 
         enable_smooth_lines_switch = new Gtk.Switch ();
