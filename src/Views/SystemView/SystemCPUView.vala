@@ -28,6 +28,7 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         cpu_temperature_label.margin_top = 2;
 
         cpu_frequency_chart = new Chart (1);
+        cpu_frequency_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
         cpu_frequency_chart.height_request = -1;
         cpu_frequency_chart.config.y_axis.fixed_max = 5.0;
 
@@ -68,6 +69,7 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         set_main_chart_overlay (grid_core_labels ());
 
         cpu_temperature_chart = new Chart (1);
+        cpu_temperature_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
 
         cpu_temperature_chart.height_request = -1;
         grid_temperature_info.attach (cpu_temperature_chart, 0, 0, 1, 1);

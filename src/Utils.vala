@@ -221,7 +221,7 @@ public class Monitor.Utils.Colors : Object {
         return _rgba_colors.get (index);
     }
 
-    private static Gdk.RGBA get_rgba_color (string hex_code) {
+    public static Gdk.RGBA get_rgba_color (string hex_code) {
         Gdk.RGBA color = Gdk.RGBA ();
         color.parse (hex_code);
         return color;
