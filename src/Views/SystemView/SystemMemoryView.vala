@@ -35,6 +35,7 @@ public class Monitor.SystemMemoryView : Monitor.WidgetResource {
         memory_locked_label.halign = Gtk.Align.START;
 
         memory_chart = new Chart (1);
+        memory_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
         set_main_chart (memory_chart);
 
         set_main_chart_overlay (memory_usage_grid ());
