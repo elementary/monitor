@@ -1,7 +1,7 @@
 namespace Monitor {
     public class Memory : Object {
-        public double total;
-        public double used;
+        public double total = 0;
+        public double used = 0;
         public double shared;
         public double buffer;
         public double cached;
@@ -9,18 +9,34 @@ namespace Monitor {
 
         private GTop.Memory mem;
 
-        public int percentage {
+        public uint used_percentage {
             get {
-                return (int) (Math.round ((used / total) * 100));
+                return (uint) (Math.round ((used / total) * 100));
             }
         }
 
-        construct {
-            total = 0;
-            used = 0;
+        public uint shared_percentage {
+            get {
+                return (uint) (Math.round ((shared / used) * 100));
+            }
         }
 
-        public Memory () {
+        public uint buffer_percentage {
+            get {
+                return (uint) (Math.round ((buffer / used) * 100));
+            }
+        }
+
+        public uint cached_percentage {
+            get {
+                return (uint) (Math.round ((cached / used) * 100));
+            }
+        }
+
+        public uint locked_percentage {
+            get {
+                return (uint) (Math.round ((locked / used) * 100));
+            }
         }
 
         public void update () {
