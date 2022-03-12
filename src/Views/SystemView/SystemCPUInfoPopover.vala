@@ -107,7 +107,6 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
         var row = new Gtk.ListBoxRow ();
         var grid = new Gtk.Grid () {
             column_spacing = 2,
-            margin_bottom = 6
         };
 
         var flag_label = new Gtk.Label (flag) {

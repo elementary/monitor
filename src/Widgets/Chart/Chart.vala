@@ -3,7 +3,6 @@ public class Monitor.Chart : Gtk.Box {
     private uint series_quantity;
     private Utils.Colors colors = new Utils.Colors ();
     public LiveChart.Config config;
-    
 
     construct {
         get_style_context ().add_class ("graph");
@@ -47,7 +46,7 @@ public class Monitor.Chart : Gtk.Box {
     }
 
     private Chart with_smooth_line () {
-        
+
         for (int i = 0; i < series_quantity; i++) {
             var renderer = new LiveChart.SmoothLineArea (new LiveChart.Values (1000));
             var serie = new LiveChart.Serie (("Serie %d").printf (i), renderer);

@@ -33,19 +33,35 @@ public class Monitor.Statusbar : Gtk.ActionBar {
         pack_start (swap_icon);
         pack_start (swap_usage_label);
 
-        var github_label = new Gtk.LinkButton.with_label ("https://github.com/stsdc/monitor", _("Check on Github")) {
-            margin_end = 6
-        };
+        var peace_label = new Gtk.Label ("🕊️");
+        peace_label.tooltip_text = (_("Peace"));
 
-        var version_label = new Gtk.Label ("𐄁    %s".printf (VCS_TAG)) {
-            margin_end = 6,
+        var github_label = new Gtk.LinkButton.with_label ("https://github.com/stsdc/monitor", _("Check on Github"));
+        var donate_label = new Gtk.LinkButton.with_label ("https://www.paypal.me/stsdc/10", _("Donate 💸"));
+
+
+        var version_label = new Gtk.Label ("%s".printf (VCS_TAG)) {
             selectable = true
         };
         version_label.get_style_context ().add_class ("dim-label");
 
-        pack_end (version_label);
+        pack_end (donate_label);
+        pack_end (build_separator_middot ());
         pack_end (github_label);
+        pack_end (build_separator_middot ());
+        pack_end (version_label);
+        pack_end (build_separator_middot ());
+        pack_end (peace_label);
 
+    }
+
+    private Gtk.Label build_separator_middot () {
+        var label = new Gtk.Label ("𐄁") {
+            margin_end = 6,
+            margin_start = 6,
+        };
+        label.get_style_context ().add_class ("dim-label");
+        return label;
     }
 
     public bool update (ResourcesSerialized sysres) {

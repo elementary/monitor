@@ -9,6 +9,7 @@
     <a href="https://paypal.me/stsdc/10">
         <img src="https://img.shields.io/badge/Donate-PayPal-green.svg">
     </a>
+    <a href='https://ko-fi.com/stsdc' target='_blank'><img height='35' style='border:0px;height:20px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' />
     <a href="https://github.com/stsdc/monitor/releases">
         <img src="https://img.shields.io/github/release/stsdc/monitor.svg" alt="Release">
     </a>
