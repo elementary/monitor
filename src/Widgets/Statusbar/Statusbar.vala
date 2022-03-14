@@ -66,7 +66,7 @@ public class Monitor.Statusbar : Gtk.ActionBar {
 
     public bool update (ResourcesSerialized sysres) {
         cpu_usage_label.set_text (("%d%%").printf (sysres.cpu_percentage));
-        memory_usage_label.set_text (("%d%%").printf (sysres.memory_percentage));
+        memory_usage_label.set_text (("%u%%").printf (sysres.memory_percentage));
 
         string cpu_tooltip_text = ("%.2f %s").printf (sysres.cpu_frequency, _("GHz"));
         cpu_usage_label.tooltip_text = cpu_tooltip_text;
