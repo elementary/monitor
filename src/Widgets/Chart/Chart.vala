@@ -3,7 +3,7 @@ public class Monitor.Chart : Gtk.Box {
     private uint series_quantity;
     private Utils.Colors colors = new Utils.Colors ();
     public LiveChart.Config config;
-    
+
 
     construct {
         get_style_context ().add_class ("graph");

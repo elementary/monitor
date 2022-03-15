@@ -37,7 +37,7 @@ public class Monitor.Statusbar : Gtk.ActionBar {
         peace_label.tooltip_text = (_("Peace"));
 
         var github_label = new Gtk.LinkButton.with_label ("https://github.com/stsdc/monitor", _("Check on Github"));
-        var donate_label = new Gtk.LinkButton.with_label ("https://www.paypal.me/stsdc/10", _("Donate 💸"));
+        var donate_label = new Gtk.LinkButton.with_label ("https://ko-fi.com/stsdc", _("Donate 💸"));
 
 
         var version_label = new Gtk.Label ("%s".printf (VCS_TAG)) {
