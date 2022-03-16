@@ -19,7 +19,7 @@ public class Monitor.LabelVertical : Gtk.EventBox {
 
         val.get_style_context ().add_class ("label-vertical-val");
 
-        desc = new Gtk.Label (description);
+        desc = new Gtk.Label (description.up ());
         desc.get_style_context ().add_class ("small-text");
 
         grid.attach (desc, 0, 0, 1, 1);

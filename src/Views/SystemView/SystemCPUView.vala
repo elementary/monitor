@@ -15,15 +15,15 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
     construct {
         core_label_list = new Gee.ArrayList<Gtk.Label> ();
 
-        cpu_percentage_label = new LabelVertical (_("UTILIZATION"));
+        cpu_percentage_label = new LabelVertical (_("Utilization"));
         cpu_percentage_label.has_tooltip = true;
         cpu_percentage_label.tooltip_text = (_("Show detailed info"));
 
-        cpu_frequency_label = new LabelRoundy (_("FREQUENCY"));
+        cpu_frequency_label = new LabelRoundy (_("Frequency"));
         cpu_frequency_label.margin = 6;
         cpu_frequency_label.margin_top = 2;
 
-        cpu_temperature_label = new LabelRoundy (_("TEMPERATURE"));
+        cpu_temperature_label = new LabelRoundy (_("Temperature"));
         cpu_temperature_label.margin = 6;
         cpu_temperature_label.margin_top = 2;
 
@@ -158,7 +158,7 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
                 row = 0;
             }
         }
-        var threads_label = new Gtk.Label (_("THREADS"));
+        var threads_label = new Gtk.Label (_("Threads".up ()));
         threads_label.get_style_context ().add_class ("small-text");
         grid.attach (threads_label, 0, -1, column, 1);
 
