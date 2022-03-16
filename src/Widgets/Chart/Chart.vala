@@ -1,6 +1,9 @@
 public class Monitor.Chart : Gtk.Box {
     private LiveChart.Chart live_chart;
+    private uint series_quantity;
+    private Utils.Colors colors = new Utils.Colors ();
     public LiveChart.Config config;
+
 
     construct {
         get_style_context ().add_class ("graph");
@@ -28,19 +31,43 @@ public class Monitor.Chart : Gtk.Box {
         live_chart.legend.visible = false;
         live_chart.grid.visible = true;
         live_chart.background.visible = false;
-        //  live_chart.background.color = Gdk.RGBA () {
-        //      red = 1, green = 1, blue = 1, alpha = 1
-        //  }; // White background
+        // live_chart.background.color = Gdk.RGBA () {
+        // red = 1, green = 1, blue = 1, alpha = 1
+        // }; // White background
     }
 
-    public Chart (int series_quantity) {
+    public Chart (uint _series_quantity, bool smooth = true) {
+        series_quantity = _series_quantity;
+
+        if (smooth) {
+            with_smooth_line ();
+        } else {
+            with_straight_line ();
+        }
+    }
+
+    private Chart with_smooth_line () {
         for (int i = 0; i < series_quantity; i++) {
             var renderer = new LiveChart.SmoothLineArea (new LiveChart.Values (1000));
             var serie = new LiveChart.Serie (("Serie %d").printf (i), renderer);
-            serie.line.color = { 0.35 + i / 20, 0.8, 0.1, 1.0 };
+
+            serie.line.color = colors.get_color_by_index (i);
             live_chart.add_serie (serie);
         }
         add (live_chart);
+        return this;
+    }
+
+    private Chart with_straight_line () {
+        for (int i = 0; i < series_quantity; i++) {
+            var renderer = new LiveChart.LineArea (new LiveChart.Values (1000));
+            var serie = new LiveChart.Serie (("Serie %d").printf (i), renderer);
+
+            serie.line.color = colors.get_color_by_index (i);
+            live_chart.add_serie (serie);
+        }
+        add (live_chart);
+        return this;
     }
 
     public void set_serie_color (int serie_number, Gdk.RGBA color) {

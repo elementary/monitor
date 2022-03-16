@@ -2,7 +2,7 @@
 %global appname com.github.stsdc.monitor
 
 Name: com.github.stsdc.monitor
-Version: 0.12.0
+Version: 0.13.0
 Release: %autorelease
 Summary: Manage processes and monitor system resources
 License: GPLv3
@@ -72,6 +72,8 @@ BuildRequires: libudisks2-devel
 %{_datadir}/glib-2.0/schemas/%{appname}.gschema.xml
 %{_datadir}/icons/hicolor/*/apps/%{appname}.svg
 %{_datadir}/metainfo/%{appname}.appdata.xml
+%{_datadir}/%{appname}/database/cpu_bugs.csv
+%{_datadir}/%{appname}/database/cpu_features.csv
 
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig

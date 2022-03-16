@@ -41,21 +41,21 @@ namespace Monitor {
                 if (!MonitorApp.settings.get_boolean ("indicator-state")) {
                     MonitorApp.settings.set_boolean ("indicator-state", true);
                 }
-                if (!MonitorApp.settings.get_boolean ("indicator-cpu-state")) {
-                    MonitorApp.settings.set_boolean ("indicator-cpu-state", true);
-                }
-                if (!MonitorApp.settings.get_boolean ("indicator-memory-state")) {
-                    MonitorApp.settings.set_boolean ("indicator-memory-state", true);
-                }
-                if (!MonitorApp.settings.get_boolean ("indicator-temperature-state")) {
-                    MonitorApp.settings.set_boolean ("indicator-temperature-state", true);
-                }
-                if (!MonitorApp.settings.get_boolean ("indicator-network-upload-state")) {
-                    MonitorApp.settings.set_boolean ("indicator-network-upload-state", false);
-                }
-                if (!MonitorApp.settings.get_boolean ("indicator-network-download-state")) {
-                    MonitorApp.settings.set_boolean ("indicator-network-download-state", false);
-                }
+                //  if (!MonitorApp.settings.get_boolean ("indicator-cpu-state")) {
+                //      MonitorApp.settings.set_boolean ("indicator-cpu-state", true);
+                //  }
+                //  if (!MonitorApp.settings.get_boolean ("indicator-memory-state")) {
+                //      MonitorApp.settings.set_boolean ("indicator-memory-state", true);
+                //  }
+                //  if (!MonitorApp.settings.get_boolean ("indicator-temperature-state")) {
+                //      MonitorApp.settings.set_boolean ("indicator-temperature-state", true);
+                //  }
+                //  if (!MonitorApp.settings.get_boolean ("indicator-network-upload-state")) {
+                //      MonitorApp.settings.set_boolean ("indicator-network-upload-state", false);
+                //  }
+                //  if (!MonitorApp.settings.get_boolean ("indicator-network-download-state")) {
+                //      MonitorApp.settings.set_boolean ("indicator-network-download-state", false);
+                //  }
 
                 window.hide ();
                 MonitorApp.settings.set_boolean ("background-state", true);

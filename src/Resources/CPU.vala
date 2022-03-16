@@ -16,6 +16,9 @@ public class Monitor.CPU : Object {
 
     public Gee.HashMap<string, HwmonTemperature> temperatures;
 
+    public Gee.HashMap<string, int> cache_multipliers = new Gee.HashMap<string, int> ();
+
+
     GTop.Cpu ? cpu;
 
     public int percentage {
@@ -36,22 +39,23 @@ public class Monitor.CPU : Object {
     public double temperature_mean {
         get {
             double summed = 0;
-                int number_of_temperatures = temperatures.size;
-                if (number_of_temperatures == 0) return 0.0;
-                foreach (var temperature in temperatures.values) {
+            int number_of_temperatures = temperatures.size;
+            if (number_of_temperatures == 0) return 0.0;
+            foreach (var temperature in temperatures.values) {
 
-                    // checking if AMD Ryzen; in AMD Ryzen we only want Tdie
-                    if (temperature.label == "Tdie") return double.parse (temperature.input) / 1000;
+                // checking if AMD Ryzen; in AMD Ryzen we only want Tdie
+                if (temperature.label == "Tdie") return double.parse (temperature.input) / 1000;
 
-                    // for Intel we want only temperatures of cores
-                    if (temperature.label.contains ("Package")) {
-                        number_of_temperatures--;
-                        continue;
-                    };
-
-                    summed += double.parse (temperature.input) / 1000;
+                // for Intel we want only temperatures of cores
+                if (temperature.label.contains ("Package")) {
+                    number_of_temperatures--;
+                    continue;
                 }
-                return summed / number_of_temperatures;
+                ;
+
+                summed += double.parse (temperature.input) / 1000;
+            }
+            return summed / number_of_temperatures;
         }
     }
 
@@ -68,6 +72,32 @@ public class Monitor.CPU : Object {
             var core = new Core (i);
             core_list.add (core);
         }
+
+
+        // This will iterate through all the cores (not only physical) and will create 
+        // a flat hashset of all the caches. Then we will count the caches that share 
+        // the same cores (threads).
+        // If You feel like this could be done in a better way, please let me know.
+        var temp_caches = new Gee.HashMap<string, string> ();
+
+        foreach (var core in core_list) {
+            foreach (var cache in core.caches) {
+
+                if (temp_caches.has_key (cache.key)) {
+                    if (temp_caches.get (cache.key) == cache.value.shared_cpu_map) {
+                        cache_multipliers.set (cache.key, cache_multipliers.get (cache.key) + 1);
+                    }
+                } else {
+                    cache_multipliers.set (cache.key, 1);
+                    temp_caches.set (cache.key, cache.value.shared_cpu_map);
+                }
+            }
+        }
+
+        foreach (var mult in cache_multipliers) {
+            mult.value = core_list.size / mult.value;
+        }
+        temp_caches.clear ();
     }
 
     public void update () {
@@ -119,28 +149,28 @@ public class Monitor.CPU : Object {
         _frequency = (double) maxcur;
     }
 
-    //  private void get_cache () {
-    //      double maxcur = 0;
-    //      for (uint cpu_id = 0, isize = (int) get_num_processors (); cpu_id < isize; ++cpu_id) {
-    //          string cur_content;
-    //          try {
-    //              FileUtils.get_contents ("/sys/devices/system/cpu/cpu%u/cpufreq/scaling_cur_freq".printf (cpu_id), out cur_content);
-    //          } catch (Error e) {
-    //              warning (e.message);
-    //              cur_content = "0";
-    //          }
+    // private void get_cache () {
+    // double maxcur = 0;
+    // for (uint cpu_id = 0, isize = (int) get_num_processors (); cpu_id < isize; ++cpu_id) {
+    // string cur_content;
+    // try {
+    // FileUtils.get_contents ("/sys/devices/system/cpu/cpu%u/cpufreq/scaling_cur_freq".printf (cpu_id), out cur_content);
+    // } catch (Error e) {
+    // warning (e.message);
+    // cur_content = "0";
+    // }
 
-    //          var cur = double.parse (cur_content);
+    // var cur = double.parse (cur_content);
 
-    //          if (cpu_id == 0) {
-    //              maxcur = cur;
-    //          } else {
-    //              maxcur = double.max (cur, maxcur);
-    //          }
-    //      }
+    // if (cpu_id == 0) {
+    // maxcur = cur;
+    // } else {
+    // maxcur = double.max (cur, maxcur);
+    // }
+    // }
 
-    //      _frequency = (double) maxcur;
-    //  }
+    // _frequency = (double) maxcur;
+    // }
 
     private void parse_cpuinfo () {
         unowned GTop.SysInfo ? info = GTop.glibtop_get_sysinfo ();
@@ -163,6 +193,10 @@ public class Monitor.CPU : Object {
         bogomips = values["bogomips"];
         parse_flags (values["bugs"], bugs, DBDIR + "/cpu_bugs.csv");
         address_sizes = values["address sizes"];
+
+        // values.foreach ((key, value) => {
+        // debug("%s: %s\n", key, value);
+        // });
     }
 
     private void parse_flags (string _flags, Gee.HashMap<string, string> flags, string path) {

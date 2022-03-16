@@ -32,6 +32,14 @@ $text_color: $fg_color;
     background-color: rgba($BLUEBERRY_300, 0.6);
 }
 
+.grape_500 {
+    background-color: rgba($GRAPE_500, 0.6);
+}
+
+.blueberry_100 {
+    background-color: rgba($BLUEBERRY_100, 0.6);
+}
+
 .label-vertical {
     &-val {
         color: $text_color;

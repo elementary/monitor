@@ -9,6 +9,7 @@
     <a href="https://paypal.me/stsdc/10">
         <img src="https://img.shields.io/badge/Donate-PayPal-green.svg">
     </a>
+    <a href="https://ko-fi.com/stsdc" title="Donate to this project using Buy Me A Coffee"><img src="https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg" alt="Buy Me A Coffee" /></a>
     <a href="https://github.com/stsdc/monitor/releases">
         <img src="https://img.shields.io/github/release/stsdc/monitor.svg" alt="Release">
     </a>
@@ -26,15 +27,26 @@
 
 ### elementary os 6 and 6.1
 
-```bash
-    sudo add-apt-repository ppa:stsdc/monitor
-    sudo apt install com.github.stsdc.monitor
-```
-### Fedora (34)
+If you have never added a PPA on your system before, you might need to run this command first:
 
 ```bash
-    sudo dnf copr enable stsdc/monitor 
-    sudo dnf install com.github.stsdc.monitor
+sudo apt install -y software-properties-common
+```
+
+Add the PPA of Monitor and then install it:
+
+```bash
+sudo add-apt-repository ppa:stsdc/monitor
+sudo apt install com.github.stsdc.monitor
+```
+
+Monitor will then be available from the Applications menu.
+
+### Fedora (34, 35)
+
+```bash
+sudo dnf copr enable stsdc/monitor 
+sudo dnf install com.github.stsdc.monitor
 ```
 
 ## Development
@@ -49,17 +61,35 @@
 * libwingpanel-3.0-dev
 * libhandy-1-dev
 * libudisks2-dev
+* libxnvctrl-dev
 * meson
 * sassc
 
 ### Clone, Build & Install
 
-* `git clone --recursive https://github.com/stsdc/monitor`
-* `cd monitor`
-* `meson builddir --prefix=/usr` or `meson builddir --prefix=/usr -Dindicator-wingpanel=enabled`
-* `cd builddir`
-* `sudo ninja install`
+1. Clone:
+   ```bash
+   git clone --recursive https://github.com/stsdc/monitor
+   cd monitor
+   ```
 
-### Debug
-`G_MESSAGES_DEBUG=all GTK_DEBUG=interactive ./com.github.stsdc.monitor`
+2. To build with the wingpanel indicator:
+   ```bash
+   meson builddir --prefix=/usr -Dindicator-wingpanel=enabled
+   ```
+   Alternatively, to build without the wingpanel indicator:
+   ```bash
+   meson builddir --prefix=/usr
+   ```
 
+3. Install:
+   ```bash
+   cd builddir
+   sudo ninja install
+   ```
+
+### Debug logging
+
+```bash
+G_MESSAGES_DEBUG=all GTK_DEBUG=interactive com.github.stsdc.monitor
+```
