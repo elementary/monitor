@@ -18,6 +18,9 @@ jobs:
         uses: actions/checkout@v1
         with:
           submodules: true
+          
+      - name: Install GPG Agent
+        run: apt install -y gpg-agent
 
       - name: Import GPG key
         uses: crazy-max/ghaction-import-gpg@v4
