@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-25 00:35+0400\n"
+"POT-Creation-Date: 2022-03-19 20:19+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,7 +57,7 @@ msgstr ""
 
 #: src/Utils.vala:92
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:128
-#: src/Widgets/Statusbar/Statusbar.vala:58
+#: src/Widgets/Statusbar/Statusbar.vala:82
 msgid "GiB"
 msgstr ""
 
@@ -194,29 +194,33 @@ msgstr ""
 msgid "Memory"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:48
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:50
 #, c-format
 msgid "CPU: %.1f%%"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:49
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:51
 #, c-format
 msgid "RAM: %.1f%%"
 msgstr ""
 
 #. status: "Spinning",
 #. header: "General Preferences",
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:17
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:18
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:21
 msgid "General"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:22
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:23
 msgid "Start in background:"
 msgstr ""
 
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:32
+msgid "Enable smooth lines for a CPU chart (needs restart):"
+msgstr ""
+
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
-msgid "Show Indicator in Wingpanel"
+msgid "Show indicator in Wingpanel"
 msgstr ""
 
 #. header: "Simple Pages",
@@ -229,7 +233,7 @@ msgid "Display CPU percentage"
 msgstr ""
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:37
-msgid "Display Memory percentage"
+msgid "Display RAM percentage"
 msgstr ""
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:49
@@ -253,7 +257,7 @@ msgid "Disabled"
 msgstr ""
 
 #: src/Views/SystemView/SystemCPUView.vala:18
-msgid "UTILIZATION"
+msgid "Utilization"
 msgstr ""
 
 #: src/Views/SystemView/SystemCPUView.vala:20
@@ -261,12 +265,11 @@ msgid "Show detailed info"
 msgstr ""
 
 #: src/Views/SystemView/SystemCPUView.vala:22
-msgid "FREQUENCY"
+msgid "Frequency"
 msgstr ""
 
 #: src/Views/SystemView/SystemCPUView.vala:26
-#: src/Views/SystemView/SystemGPUView.vala:16
-msgid "TEMPERATURE"
+msgid "Temperature"
 msgstr ""
 
 #. int temperature_index = 0;
@@ -275,18 +278,18 @@ msgstr ""
 #. cpu_temperature_chart.update (temperature_index, int.parse (temperature.input) / 1000);
 #. temperature_index++;
 #. }]
-#: src/Views/SystemView/SystemCPUView.vala:84
-#: src/Views/SystemView/SystemGPUView.vala:76
+#: src/Views/SystemView/SystemCPUView.vala:88
+#: src/Views/SystemView/SystemGPUView.vala:79
 msgid "℃"
 msgstr ""
 
-#: src/Views/SystemView/SystemCPUView.vala:115
-#: src/Widgets/Statusbar/Statusbar.vala:47
+#: src/Views/SystemView/SystemCPUView.vala:134
+#: src/Widgets/Statusbar/Statusbar.vala:71
 msgid "GHz"
 msgstr ""
 
-#: src/Views/SystemView/SystemCPUView.vala:142
-msgid "THREADS"
+#: src/Views/SystemView/SystemCPUView.vala:161
+msgid "Threads"
 msgstr ""
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:22
@@ -313,82 +316,52 @@ msgstr ""
 msgid "Bogomips:"
 msgstr ""
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:57
-msgid "L1 Instruction cache:"
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:58
+msgid "L1 Instruction cache: "
 msgstr ""
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:60
-msgid "L1 Data cache:"
-msgstr ""
-
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:63
-msgid "L1 cache:"
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:62
+msgid "L1 Data cache: "
 msgstr ""
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:66
-msgid "L2 Cache size:"
+msgid "L1 cache: "
 msgstr ""
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:67
-msgid "L3 Cache size:"
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:69
+msgid "L2 Cache size: "
 msgstr ""
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:68
-msgid "Address sizes:"
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:70
+msgid "L3 Cache size: "
 msgstr ""
 
-#: src/Views/SystemView/SystemMemoryView.vala:19
-msgid "Total: "
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:71
+msgid "Address sizes: "
 msgstr ""
 
-#: src/Views/SystemView/SystemMemoryView.vala:22
-msgid "Used: "
+#: src/Views/SystemView/SystemMemoryView.vala:5
+msgid "Buffered"
 msgstr ""
 
-#: src/Views/SystemView/SystemMemoryView.vala:25
-msgid "Shared: "
+#: src/Views/SystemView/SystemMemoryView.vala:6
+msgid "Cached"
 msgstr ""
 
-#: src/Views/SystemView/SystemMemoryView.vala:28
-msgid "Buffered: "
+#: src/Views/SystemView/SystemMemoryView.vala:7
+msgid "Locked"
 msgstr ""
 
-#: src/Views/SystemView/SystemMemoryView.vala:31
-msgid "Cached: "
+#: src/Views/SystemView/SystemMemoryView.vala:8
+msgid "Total"
 msgstr ""
 
-#: src/Views/SystemView/SystemMemoryView.vala:34
-msgid "Locked: "
+#: src/Views/SystemView/SystemMemoryView.vala:9
+msgid "Used"
 msgstr ""
 
-#: src/Views/SystemView/SystemMemoryView.vala:64
-#, c-format
-msgid "Total: %s"
-msgstr ""
-
-#: src/Views/SystemView/SystemMemoryView.vala:65
-#, c-format
-msgid "Used: %s"
-msgstr ""
-
-#: src/Views/SystemView/SystemMemoryView.vala:66
-#, c-format
-msgid "Shared: %s"
-msgstr ""
-
-#: src/Views/SystemView/SystemMemoryView.vala:67
-#, c-format
-msgid "Buffered: %s"
-msgstr ""
-
-#: src/Views/SystemView/SystemMemoryView.vala:68
-#, c-format
-msgid "Cached: %s"
-msgstr ""
-
-#: src/Views/SystemView/SystemMemoryView.vala:69
-#, c-format
-msgid "Locked: %s"
+#: src/Views/SystemView/SystemMemoryView.vala:10
+msgid "Shared"
 msgstr ""
 
 #: src/Views/SystemView/SystemNetworkView.vala:18
@@ -423,6 +396,10 @@ msgstr ""
 msgid "VRAM"
 msgstr ""
 
+#: src/Views/SystemView/SystemGPUView.vala:16
+msgid "TEMPERATURE"
+msgstr ""
+
 #: src/Widgets/Headerbar/Headerbar.vala:18
 msgid "Settings"
 msgstr ""
@@ -445,6 +422,18 @@ msgstr ""
 msgid "Calculating…"
 msgstr ""
 
-#: src/Widgets/Statusbar/Statusbar.vala:36
+#: src/Widgets/Statusbar/Statusbar.vala:37
+msgid "Peace"
+msgstr ""
+
+#: src/Widgets/Statusbar/Statusbar.vala:39
 msgid "Check on Github"
+msgstr ""
+
+#: src/Widgets/Statusbar/Statusbar.vala:40
+msgid "Donate 💸"
+msgstr ""
+
+#: src/Widgets/WidgetResource/WidgetResource.vala:11
+msgid "UTILIZATION"
 msgstr ""

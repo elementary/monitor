@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-25 00:35+0400\n"
+"POT-Creation-Date: 2022-03-19 20:19+0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Andrey Kultyapov <camellan@yandex.ru>\n"
 "Language-Team: \n"
@@ -52,7 +52,7 @@ msgstr "МиБ"
 
 #: src/Utils.vala:92
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:128
-#: src/Widgets/Statusbar/Statusbar.vala:58
+#: src/Widgets/Statusbar/Statusbar.vala:82
 msgid "GiB"
 msgstr "ГиБ"
 
@@ -188,29 +188,33 @@ msgstr "ЦПУ"
 msgid "Memory"
 msgstr "Память"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:48
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:50
 #, c-format
 msgid "CPU: %.1f%%"
 msgstr "ЦПУ: %.1f%%"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:49
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:51
 #, c-format
 msgid "RAM: %.1f%%"
 msgstr "Память: %.1f%%"
 
 #. status: "Spinning",
 #. header: "General Preferences",
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:17
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:18
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:21
 msgid "General"
 msgstr "Общие"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:22
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:23
 msgid "Start in background:"
 msgstr "Запустить в фоновом режиме:"
 
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:32
+msgid "Enable smooth lines for a CPU chart (needs restart):"
+msgstr "Включить плавные линии для графика ЦП (требуется перезапуск):"
+
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
-msgid "Show Indicator in Wingpanel"
+msgid "Show indicator in Wingpanel"
 msgstr "Показывать индикаторы в Wingpanel"
 
 #. header: "Simple Pages",
@@ -223,7 +227,7 @@ msgid "Display CPU percentage"
 msgstr "Использование процессора"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:37
-msgid "Display Memory percentage"
+msgid "Display RAM percentage"
 msgstr "Использование памяти"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:49
@@ -247,21 +251,20 @@ msgid "Disabled"
 msgstr "Отключен"
 
 #: src/Views/SystemView/SystemCPUView.vala:18
-msgid "UTILIZATION"
-msgstr "ИСПОЛЬЗОВАНИЕ"
+msgid "Utilization"
+msgstr "Использование"
 
 #: src/Views/SystemView/SystemCPUView.vala:20
 msgid "Show detailed info"
 msgstr "Показать подробную информацию"
 
 #: src/Views/SystemView/SystemCPUView.vala:22
-msgid "FREQUENCY"
-msgstr "ЧАСТОТА"
+msgid "Frequency"
+msgstr "Частота"
 
 #: src/Views/SystemView/SystemCPUView.vala:26
-#: src/Views/SystemView/SystemGPUView.vala:16
-msgid "TEMPERATURE"
-msgstr "ТЕМПЕРАТУРА"
+msgid "Temperature"
+msgstr "Температура"
 
 #. int temperature_index = 0;
 #. foreach (var temperature in cpu.paths_temperatures.values) {
@@ -269,19 +272,19 @@ msgstr "ТЕМПЕРАТУРА"
 #. cpu_temperature_chart.update (temperature_index, int.parse (temperature.input) / 1000);
 #. temperature_index++;
 #. }]
-#: src/Views/SystemView/SystemCPUView.vala:84
-#: src/Views/SystemView/SystemGPUView.vala:76
+#: src/Views/SystemView/SystemCPUView.vala:88
+#: src/Views/SystemView/SystemGPUView.vala:79
 msgid "℃"
 msgstr "℃"
 
-#: src/Views/SystemView/SystemCPUView.vala:115
-#: src/Widgets/Statusbar/Statusbar.vala:47
+#: src/Views/SystemView/SystemCPUView.vala:134
+#: src/Widgets/Statusbar/Statusbar.vala:71
 msgid "GHz"
 msgstr "ГГц"
 
-#: src/Views/SystemView/SystemCPUView.vala:142
-msgid "THREADS"
-msgstr "ПОТОКИ"
+#: src/Views/SystemView/SystemCPUView.vala:161
+msgid "Threads"
+msgstr "Потоки"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:22
 msgid "Features"
@@ -307,83 +310,53 @@ msgstr "Вер. микрокода:"
 msgid "Bogomips:"
 msgstr "Операций в сек.:"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:57
-msgid "L1 Instruction cache:"
-msgstr "Кэш инструкций L1:"
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:58
+msgid "L1 Instruction cache: "
+msgstr "Кэш инструкций L1: "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:60
-msgid "L1 Data cache:"
-msgstr "Кэш данных L1:"
-
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:63
-msgid "L1 cache:"
-msgstr "Кэш L1:"
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:62
+msgid "L1 Data cache: "
+msgstr "Кэш данных L1: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:66
-msgid "L2 Cache size:"
-msgstr "Размер L2 кэша:"
+msgid "L1 cache: "
+msgstr "Кэш L1: "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:67
-msgid "L3 Cache size:"
-msgstr "Размер L3 кэша:"
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:69
+msgid "L2 Cache size: "
+msgstr "Размер L2 кэша: "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:68
-msgid "Address sizes:"
-msgstr "Размеры адресов:"
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:70
+msgid "L3 Cache size: "
+msgstr "Размер L3 кэша: "
 
-#: src/Views/SystemView/SystemMemoryView.vala:19
-msgid "Total: "
-msgstr "Всего: "
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:71
+msgid "Address sizes: "
+msgstr "Размеры адресов: "
 
-#: src/Views/SystemView/SystemMemoryView.vala:22
-msgid "Used: "
-msgstr "Использовано: "
+#: src/Views/SystemView/SystemMemoryView.vala:5
+msgid "Buffered"
+msgstr "Буферизировано"
 
-#: src/Views/SystemView/SystemMemoryView.vala:25
-msgid "Shared: "
-msgstr "Общая: "
+#: src/Views/SystemView/SystemMemoryView.vala:6
+msgid "Cached"
+msgstr "Кэшировано"
 
-#: src/Views/SystemView/SystemMemoryView.vala:28
-msgid "Buffered: "
-msgstr "Буферизовано: "
+#: src/Views/SystemView/SystemMemoryView.vala:7
+msgid "Locked"
+msgstr "Заблокировано"
 
-#: src/Views/SystemView/SystemMemoryView.vala:31
-msgid "Cached: "
-msgstr "Кешировано: "
+#: src/Views/SystemView/SystemMemoryView.vala:8
+msgid "Total"
+msgstr "Суммарно"
 
-#: src/Views/SystemView/SystemMemoryView.vala:34
-msgid "Locked: "
-msgstr "Заблокировано: "
+#: src/Views/SystemView/SystemMemoryView.vala:9
+msgid "Used"
+msgstr "Использовано"
 
-#: src/Views/SystemView/SystemMemoryView.vala:64
-#, c-format
-msgid "Total: %s"
-msgstr "Всего: %s"
-
-#: src/Views/SystemView/SystemMemoryView.vala:65
-#, c-format
-msgid "Used: %s"
-msgstr "Использовано: %s"
-
-#: src/Views/SystemView/SystemMemoryView.vala:66
-#, c-format
-msgid "Shared: %s"
-msgstr "Общий: %s"
-
-#: src/Views/SystemView/SystemMemoryView.vala:67
-#, c-format
-msgid "Buffered: %s"
-msgstr "Буферизовано: %s"
-
-#: src/Views/SystemView/SystemMemoryView.vala:68
-#, c-format
-msgid "Cached: %s"
-msgstr "Кешировано: %s"
-
-#: src/Views/SystemView/SystemMemoryView.vala:69
-#, c-format
-msgid "Locked: %s"
-msgstr "Заблокировано: %s"
+#: src/Views/SystemView/SystemMemoryView.vala:10
+msgid "Shared"
+msgstr "Общий"
 
 #: src/Views/SystemView/SystemNetworkView.vala:18
 msgid "Network"
@@ -417,6 +390,10 @@ msgstr "Не подключено"
 msgid "VRAM"
 msgstr "ПАМЯТЬ"
 
+#: src/Views/SystemView/SystemGPUView.vala:16
+msgid "TEMPERATURE"
+msgstr "ТЕМПЕРАТУРА"
+
 #: src/Widgets/Headerbar/Headerbar.vala:18
 msgid "Settings"
 msgstr "Параметры"
@@ -439,9 +416,48 @@ msgstr "Подкачка"
 msgid "Calculating…"
 msgstr "Вычисление…"
 
-#: src/Widgets/Statusbar/Statusbar.vala:36
+#: src/Widgets/Statusbar/Statusbar.vala:37
+msgid "Peace"
+msgstr "Мир"
+
+#: src/Widgets/Statusbar/Statusbar.vala:39
 msgid "Check on Github"
 msgstr "Проект на Github"
+
+#: src/Widgets/Statusbar/Statusbar.vala:40
+msgid "Donate 💸"
+msgstr "Пожертвовать 💸"
+
+#: src/Widgets/WidgetResource/WidgetResource.vala:11
+msgid "UTILIZATION"
+msgstr "ИСПОЛЬЗОВАНИЕ"
+
+#~ msgid "Display Memory percentage"
+#~ msgstr "Использование памяти"
+
+#~ msgid "FREQUENCY"
+#~ msgstr "ЧАСТОТА"
+
+#~ msgid "THREADS"
+#~ msgstr "ПОТОКИ"
+
+#~ msgid "Total: %s"
+#~ msgstr "Всего: %s"
+
+#~ msgid "Used: %s"
+#~ msgstr "Использовано: %s"
+
+#~ msgid "Shared: %s"
+#~ msgstr "Общий: %s"
+
+#~ msgid "Buffered: %s"
+#~ msgstr "Буферизовано: %s"
+
+#~ msgid "Cached: %s"
+#~ msgstr "Кешировано: %s"
+
+#~ msgid "Locked: %s"
+#~ msgstr "Заблокировано: %s"
 
 #~ msgid "Flags"
 #~ msgstr "Флаги"
