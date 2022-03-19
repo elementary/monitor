@@ -8,6 +8,14 @@ public class Monitor.ProcessUtils {
         return false;
     }
 
+    private static bool is_python (string chunk) {
+        if (chunk.contains ("python") ) {
+            debug (chunk);
+            return true;
+        }
+        return false;
+    }
+
     public static string sanitize_commandline (string ? commandline) {
         if (commandline == null) return Path.get_basename ("");
 
@@ -15,7 +23,7 @@ public class Monitor.ProcessUtils {
         var splitted_commandline = commandline.split (" ");
 
         // check if started by any shell
-        if (is_shell (splitted_commandline[0])) {
+        if (is_shell (splitted_commandline[0]) || is_python (splitted_commandline[0]) ) {
             return Path.get_basename (splitted_commandline[1]);
         }
 
