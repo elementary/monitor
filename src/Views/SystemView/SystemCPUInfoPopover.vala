@@ -54,21 +54,21 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
         listbox.add (label (_("Bogomips:") + " " + cpu.bogomips));
 
         if (cpu.core_list[0].caches.has_key ("L1Instruction")) {
-            listbox.add (label (_("L1 Instruction cache:") + " " + cpu.core_list[0].caches["L1Instruction"].size));
+            var value = cpu.cache_multipliers["L1Instruction"].to_string () + "×" + cpu.core_list[0].caches["L1Instruction"].size;
+            listbox.add (label (_("L1 Instruction cache: ") + value));
         }
         if (cpu.core_list[0].caches.has_key ("L1Data")) {
-            listbox.add (label (_("L1 Data cache:") + " " + cpu.core_list[0].caches["L1Data"].size));
+            var value = cpu.cache_multipliers["L1Data"].to_string () + "×" + cpu.core_list[0].caches["L1Data"].size;
+            listbox.add (label (_("L1 Data cache: ") + value));
         }
         if (cpu.core_list[0].caches.has_key ("L1")) {
-            listbox.add (label (_("L1 cache:") + " " + cpu.core_list[0].caches["L1"].size));
+            var value = cpu.cache_multipliers["L1"].to_string () + "×" + cpu.core_list[0].caches["L1"].size;
+            listbox.add (label (_("L1 cache: ") + value));
         }
-        if (cpu.core_list[0].caches.has_key ("L2")) {
-            listbox.add (label (_("L2 Cache size:") + " " + cpu.core_list[0].caches.get ("L2").size));
-        }
-        if (cpu.core_list[0].caches.has_key ("L3")) {
-            listbox.add (label (_("L3 Cache size:") + " " + cpu.core_list[0].caches.get ("L3").size));
-        }
-        listbox.add (label (_("Address sizes:") + " " + cpu.address_sizes));
+
+        listbox.add (label (_("L2 Cache size: ") + cpu.cache_multipliers["L2"].to_string () + "×" + cpu.core_list[0].caches["L2"].size));
+        listbox.add (label (_("L3 Cache size: ") + cpu.cache_multipliers["L3"].to_string () + "×" + cpu.core_list[0].caches["L3"].size));
+        listbox.add (label (_("Address sizes: ") + cpu.address_sizes));
 
         return listbox;
     }
@@ -107,7 +107,6 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
         var row = new Gtk.ListBoxRow ();
         var grid = new Gtk.Grid () {
             column_spacing = 2,
-            margin_bottom = 6
         };
 
         var flag_label = new Gtk.Label (flag) {
@@ -128,19 +127,19 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
 
 }
 
-//  public class Monitor.X : Gtk.ListBoxRow {
-//      construct {
-//          get_style_context ().add_class ("open_files_list_box_row");
-//      }
-//      public X (string _text) {
-//          var text = _text;
-//          var grid = new Gtk.Grid ();
-//          grid.column_spacing = 2;
+// public class Monitor.X : Gtk.ListBoxRow {
+// construct {
+// get_style_context ().add_class ("open_files_list_box_row");
+// }
+// public X (string _text) {
+// var text = _text;
+// var grid = new Gtk.Grid ();
+// grid.column_spacing = 2;
 
-//          Gtk.Label label = new Gtk.Label (text);
-//          label.halign = Gtk.Align.START;
-//          grid.attach (label, 1, 0, 1, 1);
+// Gtk.Label label = new Gtk.Label (text);
+// label.halign = Gtk.Align.START;
+// grid.attach (label, 1, 0, 1, 1);
 
-//          add (grid);
-//      }
-//  }
+// add (grid);
+// }
+// }

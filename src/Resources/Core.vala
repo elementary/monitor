@@ -1,24 +1,23 @@
 public class Monitor.Core : GLib.Object {
     private float last_total;
-        private float last_used;
+    private float last_used;
 
-        private float _percentage_used;
+    private float _percentage_used;
 
-        private string cache_path {
-            owned get {
-                return "/sys/devices/system/cpu/cpu%d/cache".printf (number);
-            }
+    private string cache_path {
+        owned get {
+            return "/sys/devices/system/cpu/cpu%d/cache".printf (number);
         }
+    }
 
-        public Gee.HashMap<string, CPUCache> caches { public get; private set; }
+    public Gee.HashMap<string, CPUCache> caches { public get; private set; }
 
-
-        public int number { get; set; }
-        public float percentage_used {
-            get {
-                return _percentage_used;
-            }
+    public int number { get; set; }
+    public float percentage_used {
+        get {
+            return _percentage_used;
         }
+    }
 
         public Core (int number) {
             Object (number: number);
@@ -53,7 +52,6 @@ public class Monitor.Core : GLib.Object {
         }
 
         private void get_cache (int core_id) {
-
             try {
 
                 Dir cache_dir = Dir.open (cache_path, 0);

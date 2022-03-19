@@ -2,9 +2,9 @@ public class Monitor.IndicatorWidget : Gtk.Box {
 
     public string icon_name { get; construct; }
 
-    public int state_percentage {
+    public uint state_percentage {
         set {
-            label.label = "%i%%".printf (value);
+            label.label = "%u%%".printf (value);
             label.get_style_context ().remove_class ("monitor-indicator-label-warning");
             label.get_style_context ().remove_class ("monitor-indicator-label-critical");
 

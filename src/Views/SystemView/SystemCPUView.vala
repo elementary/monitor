@@ -15,19 +15,20 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
     construct {
         core_label_list = new Gee.ArrayList<Gtk.Label> ();
 
-        cpu_percentage_label = new LabelVertical (_("UTILIZATION"));
+        cpu_percentage_label = new LabelVertical (_("Utilization"));
         cpu_percentage_label.has_tooltip = true;
         cpu_percentage_label.tooltip_text = (_("Show detailed info"));
 
-        cpu_frequency_label = new LabelRoundy (_("FREQUENCY"));
+        cpu_frequency_label = new LabelRoundy (_("Frequency"));
         cpu_frequency_label.margin = 6;
         cpu_frequency_label.margin_top = 2;
 
-        cpu_temperature_label = new LabelRoundy (_("TEMPERATURE"));
+        cpu_temperature_label = new LabelRoundy (_("Temperature"));
         cpu_temperature_label.margin = 6;
         cpu_temperature_label.margin_top = 2;
 
         cpu_frequency_chart = new Chart (1);
+        cpu_frequency_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
         cpu_frequency_chart.height_request = -1;
         cpu_frequency_chart.config.y_axis.fixed_max = 5.0;
 
@@ -60,12 +61,15 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
 
         set_popover_more_info (new SystemCPUInfoPopover (cpu));
 
-        cpu_utilization_chart = new Chart (cpu.core_list.size);
+        cpu_utilization_chart = new Chart (cpu.core_list.size, MonitorApp.settings.get_boolean ("smooth-lines-state"));
+        cpu_utilization_chart.config.y_axis.tick_interval = 100;
+        cpu_utilization_chart.config.y_axis.fixed_max = 100.0 * cpu.core_list.size;
         set_main_chart (cpu_utilization_chart);
 
         set_main_chart_overlay (grid_core_labels ());
 
         cpu_temperature_chart = new Chart (1);
+        cpu_temperature_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
 
         cpu_temperature_chart.height_request = -1;
         grid_temperature_info.attach (cpu_temperature_chart, 0, 0, 1, 1);
@@ -83,9 +87,24 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         cpu_temperature_chart.update (0, cpu.temperature_mean);
         cpu_temperature_label.set_text (("%.2f %s").printf (cpu.temperature_mean, _("℃")));
 
+        double cpu_prev_util = 0;
+
         for (int i = 0; i < cpu.core_list.size; i++) {
+
+            // must reverse to render layers in the right order
+            int reversed_i = cpu.core_list.size - i - 1;
+
             double core_percentage = cpu.core_list[i].percentage_used;
-            cpu_utilization_chart.update (i, core_percentage);
+            double core_percentage_reversed = cpu.core_list[reversed_i].percentage_used;
+
+            if (i == 0) {
+                cpu_utilization_chart.update (reversed_i, core_percentage_reversed);
+            } else {
+                cpu_utilization_chart.update (reversed_i, core_percentage_reversed + cpu_prev_util);
+            }
+
+            cpu_prev_util = cpu_prev_util + core_percentage_reversed;
+
             string percentage_formatted = ("% 3d%%").printf ((int) core_percentage);
             core_label_list[i].set_text (percentage_formatted);
 
@@ -139,7 +158,7 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
                 row = 0;
             }
         }
-        var threads_label = new Gtk.Label (_("THREADS"));
+        var threads_label = new Gtk.Label (_("Threads".up ()));
         threads_label.get_style_context ().add_class ("small-text");
         grid.attach (threads_label, 0, -1, column, 1);
 

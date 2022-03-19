@@ -18,9 +18,11 @@ public class Monitor.SystemGPUView : Monitor.WidgetResource {
         gpu_temperature_label.margin_top = 2;
 
         gpu_vram_percentage_chart = new Chart (1);
+        gpu_vram_percentage_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
         gpu_vram_percentage_chart.height_request = -1;
         gpu_vram_percentage_chart.config.y_axis.fixed_max = 100.0;
         gpu_temperature_chart = new Chart (1);
+        gpu_temperature_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
         gpu_temperature_chart.height_request = -1;
 
         var grid_frequency_info = new Gtk.Grid ();
@@ -51,6 +53,7 @@ public class Monitor.SystemGPUView : Monitor.WidgetResource {
         title = gpu.name;
 
         gpu_chart = new Chart (1);
+        gpu_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
         set_main_chart (gpu_chart);
 
         set_main_chart_overlay (gpu_usage_grid ());

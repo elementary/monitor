@@ -64,7 +64,12 @@
       <default>false</default>
       <summary>To show network down bandwith in Monitor Indicator or not</summary>
       <description>To show network down bandwith in Monitor Indicator or not</description>
-    </key>    
+    </key>
+    <key type='b' name="smooth-lines-state">
+      <default>true</default>
+      <summary>To enable smooth lines in charts</summary>
+      <description>To enable smooth lines in charts or not</description>
+    </key>
     <key type="s" name="opened-view">
       <default>'process_view'</default>
       <summary>Opened view</summary>
