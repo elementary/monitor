@@ -1,19 +1,11 @@
 public class Monitor.ProcessUtils {
     // checks if it is run by shell
     private static bool is_shell (string chunk) {
-        if ("sh" == chunk || "bash" == chunk || "zsh" == chunk) {
-            debug (chunk);
-            return true;
-        }
-        return false;
+        return "sh" == chunk || "bash" == chunk || "zsh" == chunk;
     }
 
     private static bool is_python (string chunk) {
-        if (chunk.contains ("python") ) {
-            debug (chunk);
-            return true;
-        }
-        return false;
+        return chunk.contains ("python");
     }
 
     public static string sanitize_commandline (string ? commandline) {
@@ -65,5 +57,9 @@ public class Monitor.ProcessUtils {
             warning (e.message);
             return null;
         }
+    }
+
+    public static Icon ? get_bash_icon () {
+        return new ThemedIcon ("bash-monochrome-dark");
     }
 }
