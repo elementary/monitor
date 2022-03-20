@@ -65,9 +65,13 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
             var value = cpu.cache_multipliers["L1"].to_string () + "×" + cpu.core_list[0].caches["L1"].size;
             listbox.add (label (_("L1 cache: ") + value));
         }
+        if (cpu.core_list[0].caches.has_key ("L2")) {
+            listbox.add (label (_("L2 Cache size: ") + cpu.cache_multipliers["L2"].to_string () + "×" + cpu.core_list[0].caches["L2"].size));
+        }
+        if (cpu.core_list[0].caches.has_key ("L3")) {
+            listbox.add (label (_("L3 Cache size: ") + cpu.cache_multipliers["L3"].to_string () + "×" + cpu.core_list[0].caches["L3"].size));
+        }
 
-        listbox.add (label (_("L2 Cache size: ") + cpu.cache_multipliers["L2"].to_string () + "×" + cpu.core_list[0].caches["L2"].size));
-        listbox.add (label (_("L3 Cache size: ") + cpu.cache_multipliers["L3"].to_string () + "×" + cpu.core_list[0].caches["L3"].size));
         listbox.add (label (_("Address sizes: ") + cpu.address_sizes));
 
         return listbox;
