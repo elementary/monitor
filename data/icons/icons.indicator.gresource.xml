@@ -6,6 +6,8 @@
     <file compressed="true" preprocess="xml-stripblanks">swap-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks">file-deleted-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks">temperature-sensor-symbolic.svg</file>
-    <file compressed="true" preprocess="xml-stripblanks">bash-monochrome-dark.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="16x16/actions/bash.svg">extra/16/bash.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="48x48/actions/bash.svg">extra/48/bash.svg</file>
+
   </gresource>
 </gresources>
