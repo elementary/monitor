@@ -211,7 +211,7 @@ namespace Monitor {
                 if (key.contains (process.application_name)) {
                     process.application_name = apps_info_list.get (key).get_name ();
                     // debug (apps_info_list.get (key).get_icon ().to_string ());
-                    //  process.icon = apps_info_list.get (key).get_icon ();
+                    process.icon = apps_info_list.get (key).get_icon ();
                 }
             }
 

@@ -28,8 +28,6 @@ public class Monitor.Process : GLib.Object {
         set {
             if (value == null) {
                 _icon = ProcessUtils.get_default_icon ();
-            //  } else if (application_name == "bash") {
-            //      _icon = ProcessUtils.get_bash_icon ();
             } else {
                 _icon = value;
             }
