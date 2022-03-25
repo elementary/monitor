@@ -60,6 +60,6 @@ public class Monitor.ProcessUtils {
     }
 
     public static Icon ? get_bash_icon () {
-        return new ThemedIcon ("bash-monochrome-dark");
+        return new ThemedIcon ("bash");
     }
 }
