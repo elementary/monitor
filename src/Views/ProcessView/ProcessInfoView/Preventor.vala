@@ -14,6 +14,7 @@ public class Monitor.Preventor : Gtk.Stack {
         preventive_action_bar = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         preventive_action_bar.valign = Gtk.Align.START;
         preventive_action_bar.halign = Gtk.Align.END;
+        preventive_action_bar.margin_top = 10;
 
 
         confirmation_label = new Gtk.Label (_("Are you sure you want to do this?"));
