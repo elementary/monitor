@@ -4,6 +4,10 @@ public class Monitor.Headerbar : Hdy.HeaderBar {
     public Search search;
     public Gtk.Grid preferences_grid;
 
+    public Gtk.Revealer search_revealer = new Gtk.Revealer () {
+        transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT,
+    };
+
     construct {
         show_close_button = true;
         has_subtitle = false;
@@ -33,7 +37,9 @@ public class Monitor.Headerbar : Hdy.HeaderBar {
             valign = Gtk.Align.CENTER
         };
 
-        pack_start (search);
+        search_revealer.add (search);
+
+        pack_start (search_revealer);
 
     }
 }
