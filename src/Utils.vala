@@ -175,6 +175,19 @@ public class Monitor.Utils.Colors : Object {
     public const string BLACK_900 = "#000000";
 
     private Gee.ArrayList<Gdk.RGBA ? > _rgba_colors = new Gee.ArrayList<Gdk.RGBA ? >.wrap ({
+        get_rgba_color (Colors.STRAWBERRY_100),
+        get_rgba_color (Colors.ORANGE_100),
+        get_rgba_color (Colors.BANANA_100),
+        get_rgba_color (Colors.LIME_100),
+        get_rgba_color (Colors.MINT_100),
+        get_rgba_color (Colors.BLUEBERRY_100),
+        get_rgba_color (Colors.GRAPE_100),
+        get_rgba_color (Colors.BUBBLEGUM_100),
+        get_rgba_color (Colors.COCOA_100),
+        get_rgba_color (Colors.SILVER_100),
+        get_rgba_color (Colors.SLATE_100),
+        get_rgba_color (Colors.BLACK_100),
+
         get_rgba_color (Colors.STRAWBERRY_300),
         get_rgba_color (Colors.ORANGE_300),
         get_rgba_color (Colors.BANANA_300),
@@ -212,13 +225,33 @@ public class Monitor.Utils.Colors : Object {
         get_rgba_color (Colors.COCOA_700),
         get_rgba_color (Colors.SILVER_700),
         get_rgba_color (Colors.SLATE_700),
-        get_rgba_color (Colors.BLACK_700)
+        get_rgba_color (Colors.BLACK_700),
+    
+        get_rgba_color (Colors.STRAWBERRY_900),
+        get_rgba_color (Colors.ORANGE_900),
+        get_rgba_color (Colors.BANANA_900),
+        get_rgba_color (Colors.LIME_900),
+        get_rgba_color (Colors.MINT_900),
+        get_rgba_color (Colors.BLUEBERRY_900),
+        get_rgba_color (Colors.GRAPE_900),
+        get_rgba_color (Colors.BUBBLEGUM_900),
+        get_rgba_color (Colors.COCOA_900),
+        get_rgba_color (Colors.SILVER_900),
+        get_rgba_color (Colors.SLATE_900),
+        get_rgba_color (Colors.BLACK_900)
     });
 
 
 
     public Gdk.RGBA get_color_by_index (int index) {
-        return _rgba_colors.get (index);
+        int int_index; 
+        if (index > 60) {
+            int_index = index % 60;
+        } else {
+            int_index = index;
+        }
+
+        return _rgba_colors.get (int_index);
     }
 
     public static Gdk.RGBA get_rgba_color (string hex_code) {
