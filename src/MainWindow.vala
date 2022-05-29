@@ -63,8 +63,9 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
         dbusserver = DBusServer.get_default ();
 
+        headerbar.search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
         stack.notify["visible-child-name"].connect (() => {
-            headerbar.search.sensitive = stack.visible_child_name == "process_view";
+            headerbar.search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
         });
 
         new Thread<void> ("upd", () => {

@@ -215,6 +215,11 @@ namespace Monitor {
                 }
             }
 
+            if (process.application_name == "bash") {
+                debug ("app name is bash" + process.application_name);
+                process.icon = ProcessUtils.get_bash_icon ();
+            }
+
             if (process.exists) {
                 if (process.stat.pgrp != 0) {
                     // regular process, add it to our cache
