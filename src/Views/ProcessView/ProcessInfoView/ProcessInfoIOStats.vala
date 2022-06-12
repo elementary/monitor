@@ -46,7 +46,7 @@ public class Monitor.ProcessInfoIOStats : Gtk.Grid {
         attach (cancelled_write_label, 1, 1, 1, 1);
         attach (cancelled_write_bytes_label, 1, 2, 1, 1);
 
-        //  attach (opened_files_label, 0, 3, 3, 1);
+        // attach (opened_files_label, 0, 3, 3, 1);
 
         var model = new OpenFilesTreeViewModel ();
         var open_files_tree_view_scrolled = new Gtk.ScrolledWindow (null, null);
@@ -60,7 +60,7 @@ public class Monitor.ProcessInfoIOStats : Gtk.Grid {
         read_bytes_label.set_text (Utils.HumanUnitFormatter.double_bytes_to_human (process.io.read_bytes));
         cancelled_write_bytes_label.set_text (Utils.HumanUnitFormatter.double_bytes_to_human (process.io.cancelled_write_bytes));
 
-        //  open_files_listbox.update (process);
+        // open_files_listbox.update (process);
     }
 
     private Gtk.Label create_label (string text) {

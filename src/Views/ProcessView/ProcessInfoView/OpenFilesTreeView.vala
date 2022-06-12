@@ -43,10 +43,10 @@ public class Monitor.OpenFilesTreeView : Gtk.TreeView {
 
     }
 
-    //  public void update (Process process) {
-    //      model.update_model (process);
-    //      show_all ();
-    //  }
+    // public void update (Process process) {
+    // model.update_model (process);
+    // show_all ();
+    // }
 
     public void icon_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer icon_cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
         try {
@@ -56,6 +56,5 @@ public class Monitor.OpenFilesTreeView : Gtk.TreeView {
             warning (e.message);
         }
     }
-
 
 }
