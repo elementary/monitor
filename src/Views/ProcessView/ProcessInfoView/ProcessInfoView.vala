@@ -1,4 +1,7 @@
 public class Monitor.ProcessInfoView : Gtk.Box {
+
+    private ProcessInfoIOStats process_info_io_stats = new ProcessInfoIOStats ();
+
     private Process _process;
     public Process ? process {
         get {
@@ -19,6 +22,10 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
             permission_error_infobar.revealed = false;
             _process.fd_permission_error.connect (show_permission_error_infobar);
+
+            process_info_io_stats.open_files_tree_view.model.process = _process;
+            process_info_io_stats.open_files_tree_view.show_all ();
+
         }
     }
     public string ? icon_name;
@@ -27,7 +34,6 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     private Gtk.Label permission_error_label;
 
     private ProcessInfoHeader process_info_header;
-    private ProcessInfoIOStats process_info_io_stats;
     private ProcessInfoCPURAM process_info_cpu_ram;
 
     private Gtk.Button end_process_button;
@@ -61,7 +67,6 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         process_info_cpu_ram = new ProcessInfoCPURAM ();
         grid.attach (process_info_cpu_ram, 0, 2, 1, 1);
 
-        process_info_io_stats = new ProcessInfoIOStats ();
         grid.attach (process_info_io_stats, 0, 4, 1, 1);
 
 

@@ -25,7 +25,7 @@ source_app_files = [
     'Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala',
     'Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala',
     'Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala',
-    'Views/ProcessView/ProcessInfoView/OpenFilesListBox.vala',
+    'Views/ProcessView/ProcessInfoView/OpenFilesTreeView.vala',
 
     # Widgets
     'Widgets/Headerbar/Headerbar.vala',
@@ -39,6 +39,7 @@ source_app_files = [
 
     # Models
     'Models/TreeViewModel.vala',
+    'Models/OpenFilesTreeViewModel.vala',
 
     # Other
     # 'Managers/AppManager.vala',
