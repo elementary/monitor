@@ -7,7 +7,7 @@ public class Monitor.ProcessInfoIOStats : Gtk.Grid {
     private Gtk.Label read_bytes_label;
     private Gtk.Label cancelled_write_bytes_label;
 
-    private OpenFilesListBox open_files_listbox;
+    public OpenFilesTreeView open_files_tree_view;
 
     construct {
         column_spacing = 6;
@@ -46,13 +46,13 @@ public class Monitor.ProcessInfoIOStats : Gtk.Grid {
         attach (cancelled_write_label, 1, 1, 1, 1);
         attach (cancelled_write_bytes_label, 1, 2, 1, 1);
 
-        attach (opened_files_label, 0, 3, 3, 1);
+        //  attach (opened_files_label, 0, 3, 3, 1);
 
-        open_files_listbox = new OpenFilesListBox ();
-        attach (open_files_listbox, 0, 4, 3, 1);
-    }
-
-    public ProcessInfoIOStats () {
+        var model = new OpenFilesTreeViewModel ();
+        var open_files_tree_view_scrolled = new Gtk.ScrolledWindow (null, null);
+        open_files_tree_view = new OpenFilesTreeView (model);
+        open_files_tree_view_scrolled.add (open_files_tree_view);
+        attach (open_files_tree_view_scrolled, 0, 4, 3, 1);
     }
 
     public void update (Process process) {
@@ -60,7 +60,7 @@ public class Monitor.ProcessInfoIOStats : Gtk.Grid {
         read_bytes_label.set_text (Utils.HumanUnitFormatter.double_bytes_to_human (process.io.read_bytes));
         cancelled_write_bytes_label.set_text (Utils.HumanUnitFormatter.double_bytes_to_human (process.io.cancelled_write_bytes));
 
-        open_files_listbox.update (process);
+        //  open_files_listbox.update (process);
     }
 
     private Gtk.Label create_label (string text) {
