@@ -244,13 +244,10 @@ public class Monitor.Utils.Colors : Object {
 
 
     public Gdk.RGBA get_color_by_index (int index) {
-        int int_index; 
+        int int_index = index;
         if (index > 60) {
             int_index = index % 60;
-        } else {
-            int_index = index;
         }
-
         return _rgba_colors.get (int_index);
     }
 
@@ -259,5 +256,4 @@ public class Monitor.Utils.Colors : Object {
         color.parse (hex_code);
         return color;
     }
-
 }
