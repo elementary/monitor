@@ -226,7 +226,7 @@ public class Monitor.Utils.Colors : Object {
         get_rgba_color (Colors.SILVER_700),
         get_rgba_color (Colors.SLATE_700),
         get_rgba_color (Colors.BLACK_700),
-    
+
         get_rgba_color (Colors.STRAWBERRY_900),
         get_rgba_color (Colors.ORANGE_900),
         get_rgba_color (Colors.BANANA_900),
@@ -256,4 +256,5 @@ public class Monitor.Utils.Colors : Object {
         color.parse (hex_code);
         return color;
     }
+
 }
