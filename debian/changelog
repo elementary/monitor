@@ -1,3 +1,15 @@
+com.github.stsdc.monitor (0.14.0) focal; urgency=low
+
+  * Sort list of opened files by process for easier reading
+  * Improve command parsing: support python commands
+  * Display bash icon for bash processes
+  * improve wording for disabling smooth lines option
+  * Fix incorrect spacing when confirming to kill process
+  * Hide search bar when avtive view is not a ProcessView
+  * Render charts for more than 36 cores
+
+ -- Stanisław Dac <stadac@pm.me>  Thu, 16 Jun 2022 13:53:33 +0000
+
 com.github.stsdc.monitor (0.13.0) focal; urgency=low
 
   * Fix saving indicator preferences
