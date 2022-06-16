@@ -43,11 +43,6 @@ public class Monitor.OpenFilesTreeView : Gtk.TreeView {
 
     }
 
-    // public void update (Process process) {
-    // model.update_model (process);
-    // show_all ();
-    // }
-
     public void icon_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer icon_cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
         try {
             var icon = Icon.new_for_string ("emblem-documents-symbolic");

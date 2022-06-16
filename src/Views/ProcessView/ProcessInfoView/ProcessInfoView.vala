@@ -120,6 +120,9 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             process_info_header.update (process);
             process_info_cpu_ram.update (process);
             process_info_io_stats.update (process);
+
+            process_info_io_stats.open_files_tree_view.model.process = _process;
+            process_info_io_stats.open_files_tree_view.show_all ();
         }
     }
 
