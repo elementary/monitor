@@ -30,7 +30,6 @@ public class Monitor.OpenFilesTreeViewModel : Gtk.TreeStore {
         foreach (var path in process.open_files_paths) {
             add_path (path);
         }
-        debug ("Added paths: %d", open_files_paths.size);
     }
 
     private bool add_path (string path) {
