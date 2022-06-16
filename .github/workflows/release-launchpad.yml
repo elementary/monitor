@@ -11,7 +11,7 @@ jobs:
     name: Submit a build for Launchpad
     runs-on: ubuntu-latest
     container:
-      image: elementary/docker:unstable
+      image: elementary/docker:stable
 
     steps:
       - name: Check out proper version of sources
