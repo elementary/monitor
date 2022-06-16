@@ -2,9 +2,9 @@
 name: Release on Launchpad
 
 on:
-  release:
-    types: [published]
-# on: [push, pull_request]
+  # release:
+  #   types: [published]
+on: [push]
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Check out proper version of sources
-        uses: actions/checkout@v3
+        uses: actions/checkout@v1
         with:
           submodules: true
           
