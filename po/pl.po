@@ -187,7 +187,7 @@ msgstr "RAM: %.1f%%"
 
 #: src/Views/SystemView/SystemCPUView.vala:32
 #: src/Views/SystemView/SystemMemoryView.vala:28
-msgid "UTILIZATION"
+msgid "Utilization"
 msgstr ""
 
 #: src/Views/SystemView/SystemCPUView.vala:34
@@ -198,12 +198,12 @@ msgid "Show detailed info"
 msgstr "Pokaż szczegóły"
 
 #: src/Views/SystemView/SystemCPUView.vala:36
-msgid "FREQUENCY"
-msgstr "CZĘSTOTLIWOŚĆ"
+msgid "Frequency"
+msgstr "Częstotliwość"
 
 #: src/Views/SystemView/SystemCPUView.vala:40
-msgid "TEMPERATURE"
-msgstr "TEMPERATURA"
+msgid "Temperature"
+msgstr "Temperatura"
 
 #: src/Views/SystemView/SystemCPUView.vala:96
 #: src/Views/SystemView/SystemMemoryView.vala:37
@@ -224,28 +224,28 @@ msgstr "GHz"
 msgid "℃"
 msgstr "℃"
 
-#: src/Views/SystemView/SystemMemoryView.vala:41
-msgid "Total: "
+#: src/Views/SystemView/SystemMemoryView.vala:5
+msgid "Buffered"
 msgstr ""
 
-#: src/Views/SystemView/SystemMemoryView.vala:44
-msgid "Used: "
+#: src/Views/SystemView/SystemMemoryView.vala:6
+msgid "Cached"
 msgstr ""
 
-#: src/Views/SystemView/SystemMemoryView.vala:47
-msgid "Shared: "
+#: src/Views/SystemView/SystemMemoryView.vala:7
+msgid "Locked"
 msgstr ""
 
-#: src/Views/SystemView/SystemMemoryView.vala:50
-msgid "Buffered: "
+#: src/Views/SystemView/SystemMemoryView.vala:8
+msgid "Total"
 msgstr ""
 
-#: src/Views/SystemView/SystemMemoryView.vala:53
-msgid "Cached: "
+#: src/Views/SystemView/SystemMemoryView.vala:9
+msgid "Used"
 msgstr ""
 
-#: src/Views/SystemView/SystemMemoryView.vala:56
-msgid "Locked: "
+#: src/Views/SystemView/SystemMemoryView.vala:10
+msgid "Shared"
 msgstr ""
 
 #: src/Views/SystemView/SystemMemoryView.vala:103
