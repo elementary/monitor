@@ -226,7 +226,7 @@ public class Monitor.Utils.Colors : Object {
         get_rgba_color (Colors.SILVER_700),
         get_rgba_color (Colors.SLATE_700),
         get_rgba_color (Colors.BLACK_700),
-    
+
         get_rgba_color (Colors.STRAWBERRY_900),
         get_rgba_color (Colors.ORANGE_900),
         get_rgba_color (Colors.BANANA_900),
@@ -244,13 +244,10 @@ public class Monitor.Utils.Colors : Object {
 
 
     public Gdk.RGBA get_color_by_index (int index) {
-        int int_index; 
+        int int_index = index;
         if (index > 60) {
             int_index = index % 60;
-        } else {
-            int_index = index;
         }
-
         return _rgba_colors.get (int_index);
     }
 
