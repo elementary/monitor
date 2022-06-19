@@ -199,8 +199,8 @@ msgstr "Memorie: %.1f%%"
 
 #: src/Views/SystemView/SystemCPUView.vala:32
 #: src/Views/SystemView/SystemMemoryView.vala:28
-msgid "UTILIZATION"
-msgstr "UTILIZARE"
+msgid "Utilization"
+msgstr "Utilizare"
 
 #: src/Views/SystemView/SystemCPUView.vala:34
 #: src/Views/SystemView/SystemCPUView.vala:94
@@ -210,12 +210,12 @@ msgid "Show detailed info"
 msgstr "Arată informații detaliate"
 
 #: src/Views/SystemView/SystemCPUView.vala:36
-msgid "FREQUENCY"
-msgstr "FRECVENȚĂ"
+msgid "Frequency"
+msgstr "Frecvență"
 
 #: src/Views/SystemView/SystemCPUView.vala:40
-msgid "TEMPERATURE"
-msgstr "TEMPERATURĂ"
+msgid "Temperature"
+msgstr "Temperatură"
 
 #: src/Views/SystemView/SystemCPUView.vala:96
 #: src/Views/SystemView/SystemMemoryView.vala:37
@@ -237,29 +237,29 @@ msgstr "GHz"
 msgid "℃"
 msgstr "℃"
 
-#: src/Views/SystemView/SystemMemoryView.vala:41
-msgid "Total: "
-msgstr "Total: "
+#: src/Views/SystemView/SystemMemoryView.vala:5
+msgid "Buffered"
+msgstr "Buffer"
 
-#: src/Views/SystemView/SystemMemoryView.vala:44
-msgid "Used: "
-msgstr "Folosit: "
+#: src/Views/SystemView/SystemMemoryView.vala:6
+msgid "Cached"
+msgstr "Cache"
 
-#: src/Views/SystemView/SystemMemoryView.vala:47
-msgid "Shared: "
-msgstr "Partajat: "
+#: src/Views/SystemView/SystemMemoryView.vala:7
+msgid "Locked"
+msgstr "Blocat"
 
-#: src/Views/SystemView/SystemMemoryView.vala:50
-msgid "Buffered: "
-msgstr "Buffer: "
+#: src/Views/SystemView/SystemMemoryView.vala:8
+msgid "Total"
+msgstr "Total"
 
-#: src/Views/SystemView/SystemMemoryView.vala:53
-msgid "Cached: "
-msgstr "Cache: "
+#: src/Views/SystemView/SystemMemoryView.vala:9
+msgid "Used"
+msgstr "Folosit"
 
-#: src/Views/SystemView/SystemMemoryView.vala:56
-msgid "Locked: "
-msgstr "Blocat: "
+#: src/Views/SystemView/SystemMemoryView.vala:10
+msgid "Shared"
+msgstr "Partajat"
 
 #: src/Views/SystemView/SystemMemoryView.vala:103
 #, c-format

@@ -203,7 +203,7 @@ msgstr "RAM: %.1f%%"
 
 #: src/Views/SystemView/SystemCPUView.vala:32
 #: src/Views/SystemView/SystemMemoryView.vala:28
-msgid "UTILIZATION"
+msgid "Utilization"
 msgstr "使用率"
 
 #: src/Views/SystemView/SystemCPUView.vala:34
@@ -214,11 +214,11 @@ msgid "Show detailed info"
 msgstr "詳細情報を表示します"
 
 #: src/Views/SystemView/SystemCPUView.vala:36
-msgid "FREQUENCY"
+msgid "Frequency"
 msgstr "周波数"
 
 #: src/Views/SystemView/SystemCPUView.vala:40
-msgid "TEMPERATURE"
+msgid "Temperature"
 msgstr "温度"
 
 #: src/Views/SystemView/SystemCPUView.vala:94
@@ -241,29 +241,29 @@ msgstr "GHz"
 msgid "℃"
 msgstr "℃"
 
-#: src/Views/SystemView/SystemMemoryView.vala:41
-msgid "Total: "
-msgstr "合計: "
+#: src/Views/SystemView/SystemMemoryView.vala:5
+msgid "Buffered"
+msgstr "バッファー"
 
-#: src/Views/SystemView/SystemMemoryView.vala:44
-msgid "Used: "
-msgstr "使用済み: "
+#: src/Views/SystemView/SystemMemoryView.vala:6
+msgid "Cached"
+msgstr "キャッシュ"
 
-#: src/Views/SystemView/SystemMemoryView.vala:47
-msgid "Shared: "
-msgstr "共有: "
+#: src/Views/SystemView/SystemMemoryView.vala:7
+msgid "Locked"
+msgstr "ロック"
 
-#: src/Views/SystemView/SystemMemoryView.vala:50
-msgid "Buffered: "
-msgstr "バッファー: "
+#: src/Views/SystemView/SystemMemoryView.vala:8
+msgid "Total"
+msgstr "合計"
 
-#: src/Views/SystemView/SystemMemoryView.vala:53
-msgid "Cached: "
-msgstr "キャッシュ: "
+#: src/Views/SystemView/SystemMemoryView.vala:9
+msgid "Used"
+msgstr "使用済み"
 
-#: src/Views/SystemView/SystemMemoryView.vala:56
-msgid "Locked: "
-msgstr "ロック: "
+#: src/Views/SystemView/SystemMemoryView.vala:10
+msgid "Shared"
+msgstr "共有"
 
 #: src/Views/SystemView/SystemMemoryView.vala:101
 #, c-format

@@ -199,8 +199,8 @@ msgstr "RAM: %.1f%%"
 
 #: src/Views/SystemView/SystemCPUView.vala:32
 #: src/Views/SystemView/SystemMemoryView.vala:28
-msgid "UTILIZATION"
-msgstr "ВИКОРИСТАННЯ"
+msgid "Utilization"
+msgstr "Використання"
 
 #: src/Views/SystemView/SystemCPUView.vala:34
 #: src/Views/SystemView/SystemCPUView.vala:94
@@ -210,12 +210,12 @@ msgid "Show detailed info"
 msgstr "Показати подробиці"
 
 #: src/Views/SystemView/SystemCPUView.vala:36
-msgid "FREQUENCY"
-msgstr "ЧАСТОТА"
+msgid "Frequency"
+msgstr "Частота"
 
 #: src/Views/SystemView/SystemCPUView.vala:40
-msgid "TEMPERATURE"
-msgstr "ТЕМПЕРАТУРА"
+msgid "Temperature"
+msgstr "Температура"
 
 #: src/Views/SystemView/SystemCPUView.vala:96
 #: src/Views/SystemView/SystemMemoryView.vala:37
@@ -237,29 +237,29 @@ msgstr "ГГц"
 msgid "℃"
 msgstr "℃"
 
-#: src/Views/SystemView/SystemMemoryView.vala:41
-msgid "Total: "
-msgstr "Загалом: "
+#: src/Views/SystemView/SystemMemoryView.vala:5
+msgid "Buffered"
+msgstr "Буферизовано"
 
-#: src/Views/SystemView/SystemMemoryView.vala:44
-msgid "Used: "
-msgstr "Використано: "
+#: src/Views/SystemView/SystemMemoryView.vala:6
+msgid "Cached"
+msgstr "Кешовано"
 
-#: src/Views/SystemView/SystemMemoryView.vala:47
-msgid "Shared: "
-msgstr "Спільний: "
+#: src/Views/SystemView/SystemMemoryView.vala:7
+msgid "Locked"
+msgstr "Заблоковано"
 
-#: src/Views/SystemView/SystemMemoryView.vala:50
-msgid "Buffered: "
-msgstr "Буферизовано: "
+#: src/Views/SystemView/SystemMemoryView.vala:8
+msgid "Total"
+msgstr "Загалом"
 
-#: src/Views/SystemView/SystemMemoryView.vala:53
-msgid "Cached: "
-msgstr "Кешовано: "
+#: src/Views/SystemView/SystemMemoryView.vala:9
+msgid "Used"
+msgstr "Використано"
 
-#: src/Views/SystemView/SystemMemoryView.vala:56
-msgid "Locked: "
-msgstr "Заблоковано: "
+#: src/Views/SystemView/SystemMemoryView.vala:10
+msgid "Shared"
+msgstr "Спільний"
 
 #: src/Views/SystemView/SystemMemoryView.vala:103
 #, c-format

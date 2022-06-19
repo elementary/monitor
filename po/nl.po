@@ -252,21 +252,21 @@ msgid "Disabled"
 msgstr "Uitgeschakeld"
 
 #: src/Views/SystemView/SystemCPUView.vala:18
-msgid "UTILIZATION"
-msgstr "GEBRUIK"
+msgid "Utilization"
+msgstr "Gebruik"
 
 #: src/Views/SystemView/SystemCPUView.vala:20
 msgid "Show detailed info"
 msgstr "Uitgebreide informatie tonen"
 
 #: src/Views/SystemView/SystemCPUView.vala:22
-msgid "FREQUENCY"
-msgstr "FREQUENTIE"
+msgid "Frequency"
+msgstr "Frequentie"
 
 #: src/Views/SystemView/SystemCPUView.vala:26
 #: src/Views/SystemView/SystemGPUView.vala:16
-msgid "TEMPERATURE"
-msgstr "TEMPERATUUR"
+msgid "Temperature"
+msgstr "Temperatuur"
 
 #. int temperature_index = 0;
 #. foreach (var temperature in cpu.paths_temperatures.values) {
@@ -336,29 +336,29 @@ msgstr "L3-cache-omvang:"
 msgid "Address sizes:"
 msgstr "Adresgroottes:"
 
-#: src/Views/SystemView/SystemMemoryView.vala:19
-msgid "Total: "
-msgstr "Totaal: "
+#: src/Views/SystemView/SystemMemoryView.vala:5
+msgid "Buffered"
+msgstr "Gebufferd"
 
-#: src/Views/SystemView/SystemMemoryView.vala:22
-msgid "Used: "
-msgstr "Gebruikt: "
+#: src/Views/SystemView/SystemMemoryView.vala:6
+msgid "Cached"
+msgstr "Gecachet"
 
-#: src/Views/SystemView/SystemMemoryView.vala:25
-msgid "Shared: "
-msgstr "Gedeeld: "
+#: src/Views/SystemView/SystemMemoryView.vala:7
+msgid "Locked"
+msgstr "Vergrendeld"
 
-#: src/Views/SystemView/SystemMemoryView.vala:28
-msgid "Buffered: "
-msgstr "Gebufferd: "
+#: src/Views/SystemView/SystemMemoryView.vala:8
+msgid "Total"
+msgstr "Totaal"
 
-#: src/Views/SystemView/SystemMemoryView.vala:31
-msgid "Cached: "
-msgstr "Gecachet: "
+#: src/Views/SystemView/SystemMemoryView.vala:9
+msgid "Used"
+msgstr "Gebruikt"
 
-#: src/Views/SystemView/SystemMemoryView.vala:34
-msgid "Locked: "
-msgstr "Vergrendeld: "
+#: src/Views/SystemView/SystemMemoryView.vala:10
+msgid "Shared"
+msgstr "Gedeeld"
 
 #: src/Views/SystemView/SystemMemoryView.vala:64
 #, c-format

@@ -253,7 +253,7 @@ msgid "Disabled"
 msgstr ""
 
 #: src/Views/SystemView/SystemCPUView.vala:18
-msgid "UTILIZATION"
+msgid "Utilization"
 msgstr ""
 
 #: src/Views/SystemView/SystemCPUView.vala:20
@@ -261,12 +261,12 @@ msgid "Show detailed info"
 msgstr ""
 
 #: src/Views/SystemView/SystemCPUView.vala:22
-msgid "FREQUENCY"
+msgid "Frequency"
 msgstr ""
 
 #: src/Views/SystemView/SystemCPUView.vala:26
 #: src/Views/SystemView/SystemGPUView.vala:16
-msgid "TEMPERATURE"
+msgid "Temperature"
 msgstr ""
 
 #. int temperature_index = 0;
