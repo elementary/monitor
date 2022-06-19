@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-19 20:19+0400\n"
+"POT-Creation-Date: 2022-06-19 14:24+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/MainWindow.vala:26 src/Widgets/Headerbar/Headerbar.vala:10
+#: src/MainWindow.vala:26 src/Widgets/Headerbar/Headerbar.vala:14
 msgid "Monitor"
 msgstr ""
 
@@ -69,19 +69,15 @@ msgstr ""
 msgid "Quit Monitor"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/OpenFilesListBox.vala:55
-msgid "Deleted"
-msgstr ""
-
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:19
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:20
 msgid "Are you sure you want to do this?"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:22
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:23
 msgid "Yes"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:26
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:27
 msgid "No"
 msgstr ""
 
@@ -151,27 +147,27 @@ msgstr ""
 msgid "Cancelled write"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:73
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:78
 msgid "End Process"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:75
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:80
 msgid "End selected process"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:79
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:84
 msgid "Kill Process"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:80
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:85
 msgid "Kill selected process"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:90
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:95
 msgid "Confirm kill of the process?"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:97
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:102
 msgid "Confirm end of the process?"
 msgstr ""
 
@@ -216,7 +212,7 @@ msgid "Start in background:"
 msgstr ""
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:32
-msgid "Enable smooth lines for a CPU chart (needs restart):"
+msgid "Draw smooth lines on CPU chart (requires restart):"
 msgstr ""
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
@@ -332,11 +328,11 @@ msgstr ""
 msgid "L2 Cache size: "
 msgstr ""
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:70
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:72
 msgid "L3 Cache size: "
 msgstr ""
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:71
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:75
 msgid "Address sizes: "
 msgstr ""
 
@@ -400,7 +396,7 @@ msgstr ""
 msgid "TEMPERATURE"
 msgstr ""
 
-#: src/Widgets/Headerbar/Headerbar.vala:18
+#: src/Widgets/Headerbar/Headerbar.vala:22
 msgid "Settings"
 msgstr ""
 
