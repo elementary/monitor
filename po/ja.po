@@ -315,10 +315,6 @@ msgstr "バックグラウンドで起動:"
 msgid "Items in indicator:"
 msgstr "インジケーターに表示する項目:"
 
-#: src/Widgets/Headerbar/Headerbar.vala:62
-msgid "Temperature"
-msgstr "温度"
-
 #: src/Widgets/Headerbar/Headerbar.vala:66
 msgid "Network up"
 msgstr "ネットワーク送信"
