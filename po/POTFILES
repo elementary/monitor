@@ -2,7 +2,6 @@ src/Monitor.vala
 src/MainWindow.vala
 src/Utils.vala
 src/Indicator/Widgets/PopoverWidget.vala
-src/Views/ProcessView/ProcessInfoView/OpenFilesListBox.vala
 src/Views/ProcessView/ProcessInfoView/Preventor.vala
 src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala
 src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala
@@ -20,3 +19,4 @@ src/Views/SystemView/SystemGPUView.vala
 src/Widgets/Headerbar/Headerbar.vala
 src/Widgets/Headerbar/Search.vala
 src/Widgets/Statusbar/Statusbar.vala
+src/Widgets/WidgetResource/WidgetResource.vala
