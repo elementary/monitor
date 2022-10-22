@@ -1,14 +1,14 @@
 # Japanese translations for extra package.
 # Copyright (C) 2019 THE extra'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extra package.
-# Ryo Nakano <ryonakaknock3@gmail.com>, 2019.
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2019, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-20 11:51+0900\n"
-"PO-Revision-Date: 2019-02-20 11:58+0900\n"
+"POT-Creation-Date: 2022-10-22 19:13+0900\n"
+"PO-Revision-Date: 2022-10-22 20:29+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -16,7 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.2.1\n"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:7
 #: data/com.github.stsdc.monitor.desktop.in:3
@@ -31,21 +30,283 @@ msgstr "プロセスを管理し、システムリソースを監視します"
 msgid "Display usage of system resources, filter and manage processes."
 msgstr "システムリソースの消費量を表示し、プロセスをフィルターし管理します。"
 
-#: data/com.github.stsdc.monitor.appdata.xml.in:22
+#: data/com.github.stsdc.monitor.appdata.xml.in:25
 msgid "Stanisław Dac"
 msgstr "Stanisław Dac"
 
-#: data/com.github.stsdc.monitor.appdata.xml.in:31
+#: data/com.github.stsdc.monitor.appdata.xml.in:33
+msgid "Add info about drives (based on Dirli's code)"
+msgstr "ドライバーに関する情報を表示 (Dirli のコードがベース)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:38
+msgid "Adds dark theme 🌚"
+msgstr "ダークテーマを追加 🌚"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:43
+msgid "Uses Wingpanel v3; New *.deb package maintainer: Kristopher Ives"
+msgstr ""
+"Wingpanel 3にバージョンアップしました。また、Kristopher Ives が *.deb パッ"
+"ケージのメンテナーになりました"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:48
+msgid "🐛 Should fix empty Indicator. Please reboot after installation ⚡️"
+msgstr ""
+"🐛 インジケーターに何も表示されない不具合を修正しました。インストール後に再起"
+"動してください ⚡️"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:54
+msgid "🐛 Try to fix frequent GUI hangs 🥶"
+msgstr "🐛 GUI が頻繁に固まる不具合を修正する試みを行いました 🥶"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:55
+msgid "🇳🇱 Update Dutch translation (@Vistaus)"
+msgstr "🇳🇱 オランダ語翻訳を更新 (@Vistaus)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:56
+msgid "🇵🇹 Update Portuguese translation (@hugok79)"
+msgstr "🇵🇹 ポルトガル語翻訳を更新 (@hugok79)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:57
+msgid "🇷🇴 Add Romanian translation (@tiberiufrat)"
+msgstr "🇷🇴 ルーマニア語翻訳を更新 (@tiberiufrat)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:64
+msgid "Display Storage usage"
+msgstr "ストレージの使用状況を表示"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:65
+msgid "Update Russian translation (@camellan)"
+msgstr "ロシア語翻訳を更新 (@camellan)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:66
+msgid "Update Portuguese translation (@hugok79)"
+msgstr "ポルトガル語翻訳を更新 (@hugok79)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:67
+msgid "Different colours for Upload and Download"
+msgstr "送信と受信を異なる色で表示するように修正"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:74
+#: data/com.github.stsdc.monitor.appdata.xml.in:86
+msgid "Update Portuguese translation (@rottenpants466)"
+msgstr "ポルトガル語翻訳を更新 (@rottenpants466)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:75
+msgid "Update Dutch translation (@Vistaus)"
+msgstr "オランダ語翻訳を更新 (@Vistaus)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:76
+msgid "Smoother animations (@DevAlien)"
+msgstr "描画がなめらかになるように修正 (@DevAlien)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:77
+msgid "Preselect first entry so that the info panel is always open (@DevAlien)"
+msgstr ""
+"情報パネルが常に表示されるように、プロセス一覧の先頭要素を自動で選択するよう"
+"に修正 (@DevAlien)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:78
+msgid "Show CPU temperature in the Indicator"
+msgstr "CPU 温度をインジケーターに表示するように修正"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:85
+msgid "Better System Tab"
+msgstr "“システム”タブを改善"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:87
+msgid "Save last opened view (@ryonakano)"
+msgstr "最後に開いたタブを復元するように修正 (@ryonakano)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:94
+#: data/com.github.stsdc.monitor.appdata.xml.in:157
+msgid "Update Japanese translation (Ryo Nakano)"
+msgstr "日本語翻訳を更新 (Ryo Nakano)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:95
+msgid "Disable search entry, when System tab is active"
+msgstr "“システム”タブを表示している場合は検索欄を無効化するように修正"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:96
+msgid "Add screenshots"
+msgstr "スクリーンショットを追加"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:103
+msgid "Add System resources tab"
+msgstr "システムリソースを表示するタブを追加"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:110
+msgid "Added tooltips to process state label (Ryo Nakano)"
+msgstr "プロセスの状態を示すラベルにツールチップを追加 (Ryo Nakano)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:111
+msgid "Small bugfix"
+msgstr "軽微なバグ修正"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:118
+msgid "Fix sorting arrows"
+msgstr "並べ替えを示す矢印アイコンを修正"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:119
+#: data/com.github.stsdc.monitor.appdata.xml.in:155
+#: data/com.github.stsdc.monitor.appdata.xml.in:169
+msgid "Update Russian translation (camellan)"
+msgstr "ロシア語翻訳を更新 (camellan)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:120
+msgid "Add Turkish translation (Harun Yasar)"
+msgstr "トルコ語翻訳を追加 (Harun Yasar)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:121
+msgid ""
+"Use newest version of live-chart (Laurent Callarec) ← Check his lib for "
+"creating charts, it's amazing!"
+msgstr ""
+"最新バージョンの live-chart に更新 (Laurent Callarec) ← グラフを作るためのラ"
+"イブラリです。ぜひ一度見に行っていただきたいほど素晴らしい！"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:128
+msgid "Detailed process info in sidebar"
+msgstr "サイドバーにプロセスの詳細情報を表示する機能を追加"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:129
+msgid "CPU frequency in tooltip (Ryo Nakano)"
+msgstr "ツールチップに CPU 使用率を表示するように修正 (Ryo Nakano)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:136
+msgid "Bugfix (potential) of crushes and high CPU usage"
+msgstr "クラッシュや CPU 使用率を占有してしまう不具合を部分的に修正"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:137
+msgid "Update German translation (Carsten Dietrich)"
+msgstr "ドイツ語翻訳を更新 (Carsten Dietrich)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:144
+msgid "Update Portuguese translation (Hugo Carvalho)"
+msgstr "ポルトガル語翻訳を更新 (Hugo Carvalho)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:145
+msgid "Update French translation (Nathan Bonnemains and Skeudwenn)"
+msgstr "フランス語翻訳を更新 (Nathan Bonnemains と Skeudwenn)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:146
+msgid "Fix: Don't show swap percentage when it's not available (Ryo Nakano)"
+msgstr "スワップが使用できない場合は使用率を表示しないように修正 (Ryo Nakano)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:153
+msgid "Update Italian translation (Mirko Brombin)"
+msgstr "イタリア語翻訳を更新 (Mirko Brombin)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:154
+msgid "Show swap usage (Ryo Nakano)"
+msgstr "スワップ使用率を表示する機能を追加 (Ryo Nakano)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:156
+msgid "Code refactoring (Ryo Nakano)"
+msgstr "コードをリファクタリング (Ryo Nakano)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:164
+msgid "Fix contents of the window are not shown (Ryo Nakano)"
+msgstr "ウィンドウの内容が表示されない不具合を修正 (Ryo Nakano)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:165
+msgid ""
+"ix no row is still selected when indicator options are enabled (Ryo Nakano)"
+msgstr ""
+"インジケーター機能が有効になっている場合も、プロセスが選択されない不具合を修"
+"正 (Ryo Nakano)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:166
+msgid ""
+"Fix the app crashes by clicking the \"End/Kill Process\" buttons when no "
+"process is selected (Ryo Nakano)"
+msgstr ""
+"プロセスが選択されていない状態で \"プロセスを終了\" ボタンや \"プロセスを強制"
+"終了\" ボタンを押すと、アプリがクラッシュする不具合を修正 (Ryo Nakano)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:167
+msgid "Added buttons to either \"kill\" or \"end\" a process. (Evan Buss)"
+msgstr ""
+"プロセスの“強制終了”と“終了”とで別々のボタンに変更しました。(Evan Buss)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:168
+msgid "Change screenshot to English (Christopher Crouse)"
+msgstr "英語のスクリーンショットに変更 (Christopher Crouse)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:170
+msgid "Check if the default display is a X11 display (Hannes Schulze)"
+msgstr ""
+"デフォルトのディスプレイが X11 かどうかを確認するように修正 (Hannes Schulze)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:171
+msgid "Update Spanish translation (Mario Rodrigo)"
+msgstr "スペイン語翻訳を更新 (Mario Rodrigo)"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:178
+msgid "Add start-in-background option to UI"
+msgstr "“バックグラウンドで起動”オプションを UI に追加"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:185
+msgid "Add start-in-background command line option"
+msgstr "“バックグラウンドで起動”コマンドラインオプションを追加"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:186
+msgid "Add Italian and Portuguese translations"
+msgstr "イタリア語とポルトガル語の翻訳を更新"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:187
+msgid "Update Dutch, French and Spanish translations"
+msgstr "オランダ語、フランス語、スペイン語の翻訳を更新"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:188
+msgid "Fix Japanese translation"
+msgstr "日本語翻訳を修正"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:195
+msgid "Minor bug fix"
+msgstr "軽微なバグ修正"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:196
+msgid "Make End process button red"
+msgstr "“プロセスを終了”ボタンを赤色に変更"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:197
+msgid "Add Japanese translation"
+msgstr "日本語翻訳を追加"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:204
 msgid "Add CPU and RAM icons"
 msgstr "CPU と RAM のアイコンを追加"
 
-#: data/com.github.stsdc.monitor.appdata.xml.in:32
-msgid "Update Polish and Russian translation"
-msgstr "ポーランド語とロシア語の翻訳をアップデート"
-
-#: data/com.github.stsdc.monitor.appdata.xml.in:33
+#: data/com.github.stsdc.monitor.appdata.xml.in:205
 msgid "Fix bug, that caused hanging"
-msgstr "フリーズの原因となるバグを修正"
+msgstr "フリーズの原因となっていたバグを修正"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:206
+msgid "Update Polish and Russian translation"
+msgstr "ポーランド語とロシア語の翻訳を更新"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:213
+msgid "Add Monitor indicator"
+msgstr "専用のインジケーターを追加"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:214
+msgid "Add missing extra French translations"
+msgstr "メタデータ用のフランス語翻訳を追加"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:215
+msgid ""
+"Fix: if icon missing for the process, icon is taken from previous process"
+msgstr ""
+"プロセスのアイコンが存在しない場合、列の一つ前のプロセスと同じアイコンを表示"
+"していた不具合を修正"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:216
+msgid "Fix: search erases my input while I'm typing"
+msgstr "検索処理が文字入力と干渉する不具合を修正"
+
+#: data/com.github.stsdc.monitor.appdata.xml.in:217
+msgid "Fix POTFILES"
+msgstr "POTFILES を修正"
 
 #: data/com.github.stsdc.monitor.desktop.in:4
 msgid "System Monitor"
@@ -55,10 +316,8 @@ msgstr "システムモニター"
 msgid "Manage processes and monitor resource usage of the system"
 msgstr "プロセスを管理し、システムリソースの消費量を監視します"
 
-#: data/com.github.stsdc.monitor.desktop.in:8
-msgid "com.github.stsdc.monitor"
-msgstr "com.github.stsdc.monitor"
-
 #: data/com.github.stsdc.monitor.desktop.in:12
 msgid "System monitor;System usage;Task manager;"
-msgstr "System monitor;System usage;Task manager;システムモニター;システム消費量;タスクマネージャー;"
+msgstr ""
+"System monitor;System usage;Task manager;システムモニター;システム消費量;タス"
+"クマネージャー;"
