@@ -6,6 +6,9 @@ name: Release on Launchpad
 #     types: [published]
 on: [push]
 
+env:
+  LANG: "pl_PL.UTF-8"
+
 jobs:
   build:
     name: Submit a build for Launchpad
@@ -13,7 +16,12 @@ jobs:
     container:
       image: elementary/docker:stable
 
-    steps:        
+    steps:
+      - name: Set pl_PL.UTF-8
+        run: |
+            sudo locale-gen pl_PL.UTF-8
+            sudo update-locale LANG=pl_PL.UTF-8
+
       - name: Install GPG Agent
         run: apt update && apt install -y gpg-agent
         
