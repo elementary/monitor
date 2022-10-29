@@ -8,6 +8,8 @@ on: [push]
 
 env:
   LANG: "pl_PL.UTF-8"
+  LANGUAGE: "pl_PL:en"
+  LC_ALL: "pl_PL.UTF-8"
 
 jobs:
   build:
@@ -17,10 +19,6 @@ jobs:
       image: elementary/docker:stable
 
     steps:
-      - name: Set pl_PL.UTF-8
-        run: |
-            locale-gen pl_PL.UTF-8
-            update-locale LANG=pl_PL.UTF-8
 
       - name: Install GPG Agent
         run: apt update && apt install -y gpg-agent
@@ -49,7 +47,7 @@ jobs:
           apt install -y meson valac sassc git
 
       - name: Build the package
-        run: debuild --no-lintian -S
+        run: LC_ALL=pl_PL.UTF-8 debuild --no-lintian -S
 
       - name: Send to Launchpad
         run: |
