@@ -19,9 +19,9 @@ jobs:
         
       - name: Import GPG key
         uses: crazy-max/ghaction-import-gpg@v2
-        with:
-           gpg_private_key: ${{ secrets.GPG_SIGNING_KEY }}
-           passphrase: ${{ secrets.GPG_PASSPHRASE }}
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          PASSPHRASE: ${{ secrets.PASSPHRASE }}
         
       - name: Check out source code
         uses: actions/checkout@v1
