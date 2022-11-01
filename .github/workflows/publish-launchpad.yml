@@ -1,10 +1,9 @@
 ---
-name: Release on Launchpad
+name: Publish on Launchpad
 
-# on:
-#   release:
-#     types: [published]
-on: [push]
+on:
+  release:
+    types: [published]
 
 env:
   LANG: "pl_PL.UTF-8"
