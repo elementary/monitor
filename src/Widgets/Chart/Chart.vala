@@ -47,11 +47,20 @@ public class Monitor.Chart : Gtk.Box {
     }
 
     private Chart with_smooth_line () {
+        var color_critical_line = Utils.Colors.get_rgba_color(Utils.Colors.STRAWBERRY_500);
+        var color_critical_area = Utils.Colors.get_rgba_color(Utils.Colors.STRAWBERRY_100);
+        color_critical_area.alpha = 0.5;
+
         for (int i = 0; i < series_quantity; i++) {
             var renderer = new LiveChart.SmoothLineArea (new LiveChart.Values (1000));
             var serie = new LiveChart.Serie (("Serie %d").printf (i), renderer);
 
             serie.line.color = colors.get_color_by_index (i);
+
+            // Don't want coloring multiple or stacked charts
+            if (series_quantity == 1){
+                renderer.region = new LiveChart.Region.between(50, 100).with_line_color(color_critical_line).with_area_color(color_critical_area);
+            }
             live_chart.add_serie (serie);
         }
         add (live_chart);
