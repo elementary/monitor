@@ -79,8 +79,7 @@
         });
 
         update_time_adjustment.value_changed.connect (() => {
-            //  MonitorApp.settings.set_int ("update-time", (int) update_time_adjustment.get_value ());
-            debug("%f", update_time_adjustment.get_value ());
+            MonitorApp.settings.set_int ("update-time", (int) update_time_adjustment.get_value ());
         });
 
     }
