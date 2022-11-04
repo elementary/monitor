@@ -75,5 +75,11 @@
       <summary>Opened view</summary>
       <description>The last opened view</description>
     </key>
+
+    <key type="s" name="process-view-columns-sorting-state">
+      <default>'00000000'</default>
+      <summary>Process view columns sorting state</summary>
+      <description>Process view columns sorting state</description>
+    </key>
   </schema>
 </schemalist>

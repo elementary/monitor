@@ -77,6 +77,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
 
         cursor_changed.connect (_cursor_changed);
         // model.process_manager.updated.connect (_cursor_changed);
+
     }
     public void icon_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer icon_cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
         Value icon_name;
@@ -205,6 +206,41 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
             process_selected (process);
             // debug ("cursor changed");
         }
+    }
+
+    public string get_sorting_state () {
+        string sorting_state = "";
+
+        foreach (var column in this.get_columns ()) {
+            int sort_indicator = column.sort_indicator ? 1 : 0;
+            sorting_state += "%d%d".printf (sort_indicator, column.get_sort_order ());
+
+        }
+        debug ("Get sorting state: " + sorting_state);
+
+        return sorting_state;
+    }
+
+    public void set_sorting_state (string sorting_state) {
+        debug ("== Going to set sorting state: " + sorting_state);
+
+        var columns = this.get_columns ();
+
+        int index = 0;
+        foreach (var column in columns) {
+            
+            column.sort_indicator = (sorting_state[index] == '1');
+
+            var sort_type = sorting_state[index + 1] == '1' ? Gtk.SortType.ASCENDING : Gtk.SortType.DESCENDING;
+            column.set_sort_order (sort_type);
+
+            debug ("== " + (sorting_state[index] == '1').to_string () + " " + sort_type.to_string ());
+
+            index += 2;
+        }
+        get_sorting_state ();
+        set_model (model);
+
     }
 
 }
