@@ -263,8 +263,8 @@
 
         // bc 2 sec updates
         if (!dumb_flag) {
-            bytes_read = (int) ((sectors_read_new - sectors_read_old) * 512 / 2);
-            bytes_write = (int) ((sectors_write_new - sectors_write_old) * 512 / 2);
+            bytes_read = (int) ((sectors_read_new - sectors_read_old) * 512 / MonitorApp.settings.get_int ("update-time"));
+            bytes_write = (int) ((sectors_write_new - sectors_write_old) * 512 / MonitorApp.settings.get_int ("update-time"));
         }
         dumb_flag = false;
 

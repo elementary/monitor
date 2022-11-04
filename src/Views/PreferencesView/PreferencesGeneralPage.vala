@@ -1,5 +1,6 @@
 /*
  * Copyright 2017 elementary, Inc. (https://elementary.io)
+ * Copyright 2022 @stsdc
  * SPDX-License-Identifier: LGPL-3.0-or-later
  */
 
@@ -34,7 +35,7 @@
         var enable_smooth_lines_label = new Gtk.Label (_("Draw smooth lines on CPU chart (requires restart):"));
         enable_smooth_lines_label.halign = Gtk.Align.START;
 
-        enable_smooth_lines_switch = new Gtk.Switch (); 
+        enable_smooth_lines_switch = new Gtk.Switch ();
         enable_smooth_lines_switch.state = MonitorApp.settings.get_boolean ("smooth-lines-state");
         enable_smooth_lines_switch.halign = Gtk.Align.END;
         enable_smooth_lines_switch.hexpand = true;
@@ -83,6 +84,4 @@
         });
 
     }
-
-
 }

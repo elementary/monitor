@@ -44,7 +44,7 @@ public class Monitor.Resources : Object {
     }
 
     public void update () {
-        Timeout.add_seconds (2, () => {
+        Timeout.add_seconds (MonitorApp.settings.get_int ("update-time"), () => {
             new Thread<void> ("update-resources", () => {
                     cpu.update ();
                     memory.update ();
