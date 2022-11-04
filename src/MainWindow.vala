@@ -69,7 +69,7 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
         });
 
         new Thread<void> ("upd", () => {
-            Timeout.add_seconds (2, () => {
+            Timeout.add_seconds (MonitorApp.settings.get_int ("update-time"), () => {
                 process_view.update ();
 
                 Idle.add (() => {
