@@ -75,5 +75,10 @@
       <summary>Opened view</summary>
       <description>The last opened view</description>
     </key>
+    <key type="i" name="update-time">
+      <default>2</default>
+      <summary>Update time</summary>
+      <description>This value sets update time for updating data and charts.</description>
+    </key>
   </schema>
 </schemalist>
