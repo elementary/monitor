@@ -7,6 +7,8 @@
     public Gtk.Switch background_switch;
     public Gtk.Switch enable_smooth_lines_switch;
 
+    private Gtk.Adjustment update_time_adjustment;
+
     public PreferencesGeneralPage () {
 
         var icon = new Gtk.Image.from_icon_name ("preferences-system", Gtk.IconSize.DND);
@@ -39,16 +41,19 @@
 
         var update_time_label = new Gtk.Label (_("Update every:"));
         update_time_label.halign = Gtk.Align.START;
-        var update_time_scale = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, 1, 5, 1);
-        update_time_scale.set_value (MonitorApp.settings.get_int ("update-time"));
-        update_time_scale.halign = Gtk.Align.FILL;
-        update_time_scale.hexpand = true;
-        update_time_scale.set_draw_value (false);  
-        update_time_scale.add_mark (1.0, Gtk.PositionType.BOTTOM, "1s");
-        update_time_scale.add_mark (2.0, Gtk.PositionType.BOTTOM, "2s");
-        update_time_scale.add_mark (3.0, Gtk.PositionType.BOTTOM, "3s");
-        update_time_scale.add_mark (4.0, Gtk.PositionType.BOTTOM, "4s");
-        update_time_scale.add_mark (5.0, Gtk.PositionType.BOTTOM, "5s");
+        update_time_adjustment = new Gtk.Adjustment (MonitorApp.settings.get_int ("update-time"), 1, 5, 1.0, 1, 0);
+        Gtk.Scale update_time_scale = new Gtk.Scale (Gtk.Orientation.HORIZONTAL, update_time_adjustment) {
+            halign = Gtk.Align.FILL,
+            hexpand = true,
+            draw_value = false,
+            round_digits = 0,
+        };
+
+        update_time_scale.add_mark (1.0, Gtk.PositionType.BOTTOM, _("1s"));
+        update_time_scale.add_mark (2.0, Gtk.PositionType.BOTTOM, _("2s"));
+        update_time_scale.add_mark (3.0, Gtk.PositionType.BOTTOM, _("3s"));
+        update_time_scale.add_mark (4.0, Gtk.PositionType.BOTTOM, _("4s"));
+        update_time_scale.add_mark (5.0, Gtk.PositionType.BOTTOM, _("5s"));
 
 
 
@@ -72,6 +77,12 @@
         enable_smooth_lines_switch.notify["active"].connect (() => {
             MonitorApp.settings.set_boolean ("smooth-lines-state", enable_smooth_lines_switch.state);
         });
+
+        update_time_adjustment.value_changed.connect (() => {
+            //  MonitorApp.settings.set_int ("update-time", (int) update_time_adjustment.get_value ());
+            debug("%f", update_time_adjustment.get_value ());
+        });
+
     }
 
 
