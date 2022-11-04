@@ -32,10 +32,24 @@
         var enable_smooth_lines_label = new Gtk.Label (_("Draw smooth lines on CPU chart (requires restart):"));
         enable_smooth_lines_label.halign = Gtk.Align.START;
 
-        enable_smooth_lines_switch = new Gtk.Switch ();
+        enable_smooth_lines_switch = new Gtk.Switch (); 
         enable_smooth_lines_switch.state = MonitorApp.settings.get_boolean ("smooth-lines-state");
         enable_smooth_lines_switch.halign = Gtk.Align.END;
         enable_smooth_lines_switch.hexpand = true;
+
+        var refresh_time_label = new Gtk.Label (_("Update every:"));
+        refresh_time_label.halign = Gtk.Align.START;
+        var refresh_time_scale = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, 1, 5, 1);
+        refresh_time_scale.halign = Gtk.Align.FILL;
+        refresh_time_scale.hexpand = true;
+        refresh_time_scale.set_draw_value (false);
+        refresh_time_scale.add_mark (1.0, Gtk.PositionType.BOTTOM, "1s");
+        refresh_time_scale.add_mark (2.0, Gtk.PositionType.BOTTOM, "2s");
+        refresh_time_scale.add_mark (3.0, Gtk.PositionType.BOTTOM, "3s");
+        refresh_time_scale.add_mark (4.0, Gtk.PositionType.BOTTOM, "4s");
+        refresh_time_scale.add_mark (5.0, Gtk.PositionType.BOTTOM, "5s");
+
+
 
         var content_area = new Gtk.Grid ();
         content_area.column_spacing = 12;
@@ -45,6 +59,9 @@
         content_area.attach (background_switch, 1, 1, 1, 1);
         content_area.attach (enable_smooth_lines_label, 0, 2, 1, 1);
         content_area.attach (enable_smooth_lines_switch, 1, 2, 1, 1);
+        content_area.attach (refresh_time_label, 0, 3, 1, 1);
+        content_area.attach (refresh_time_scale, 0, 4, 1, 1);
+
         add (content_area);
 
         background_switch.notify["active"].connect (() => {
