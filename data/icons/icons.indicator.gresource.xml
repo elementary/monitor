@@ -8,6 +8,7 @@
     <file compressed="true" preprocess="xml-stripblanks">temperature-sensor-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="16x16/actions/bash.svg">extra/16/bash.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="48x48/actions/bash.svg">extra/48/bash.svg</file>
-
+    <file compressed="true" preprocess="xml-stripblanks" alias="16x16/actions/docker.svg">extra/16/docker.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="48x48/actions/docker.svg">extra/48/docker.svg</file>
   </gresource>
 </gresources>
