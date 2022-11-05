@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-19 14:24+0400\n"
+"POT-Creation-Date: 2022-11-06 03:07+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -202,17 +202,41 @@ msgstr ""
 
 #. status: "Spinning",
 #. header: "General Preferences",
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:18
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:21
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:21
 msgid "General"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:23
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:26
 msgid "Start in background:"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:32
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:35
 msgid "Draw smooth lines on CPU chart (requires restart):"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:43
+msgid "Update every:"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:53
+msgid "1s"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:54
+msgid "2s"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:55
+msgid "3s"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:56
+msgid "4s"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:57
+msgid "5s"
 msgstr ""
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
@@ -285,7 +309,7 @@ msgid "GHz"
 msgstr ""
 
 #: src/Views/SystemView/SystemCPUView.vala:161
-msgid "Threads"
+msgid "THREADS"
 msgstr ""
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:22
