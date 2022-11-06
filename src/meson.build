@@ -20,6 +20,8 @@ source_app_files = [
     'Views/SystemView/SystemStorageView.vala',
     'Views/SystemView/SystemGPUView.vala',
 
+    'Views/ContainerView/ContainerView.vala',
+
     # Widgets related only to ProcessInfoView
     'Views/ProcessView/ProcessInfoView/Preventor.vala',
     'Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala',
@@ -47,6 +49,8 @@ source_app_files = [
     'Managers/Process.vala',
     'Managers/ProcessStructs.vala',
     'Managers/ProcessUtils.vala',
+    'Managers/HttpClient.vala',
+    'Managers/ContainerManager.vala',
 
     # Services
     'Services/Shortcuts.vala',
