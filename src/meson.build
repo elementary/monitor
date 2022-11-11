@@ -51,6 +51,7 @@ source_app_files = [
     'Managers/ProcessUtils.vala',
     'Managers/HttpClient.vala',
     'Managers/ContainerManager.vala',
+    'Managers/Container.vala',
 
     # Services
     'Services/Shortcuts.vala',
