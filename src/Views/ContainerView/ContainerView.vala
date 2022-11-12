@@ -1,7 +1,6 @@
 public class Monitor.ContainerView : Gtk.Box {
     private ContainerManager container_manager;
-
-    private Gee.ArrayList<DockerContainer> containers = new Gee.ArrayList<DockerContainer> ();
+    private Gtk.ListBox listbox_containers = new Gtk.ListBox ();
 
     construct {
         orientation = Gtk.Orientation.VERTICAL;
@@ -15,21 +14,32 @@ public class Monitor.ContainerView : Gtk.Box {
         update ();
 
         var scrolled_window = new Gtk.ScrolledWindow (null, null);
-        var wrapper = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        wrapper.expand = true;
+        var wrapper = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
+            expand = true
+        };
         scrolled_window.add (wrapper);
+
+        wrapper.add (listbox_containers);
 
         add (scrolled_window);
     }
 
     public async void update () {
-        var api_containers = yield container_manager.list_containers ();
+        var containers = yield container_manager.list_containers ();
 
-        for (var i = 0; i < api_containers.length; i++) {
-            var container = api_containers[i];
-
-            debug("%s", container.name);
+        foreach (var container in containers) {
+            debug ("%s", container.name);
+            var container_label = new Gtk.Label (container.name){
+                visible = true
+            };
+            listbox_containers.insert (container_label, -1);
         }
+
+        //  for (var i = 0; i < api_containers.length; i++) {
+        //      var container = api_containers[i];
+
+        //      debug("%s", container.name);
+        //  }
     }
 
     //  private async void containers_load () throws ApiClientError {

@@ -58,9 +58,10 @@ namespace Monitor {
             }
         }
 
-        public async Container[] list_containers () throws ApiClientError {
+        public async Gee.ArrayList<DockerContainer> list_containers () throws ApiClientError {
             try {
-                var container_list = new Container[0];
+                Gee.ArrayList<DockerContainer> containers = new Gee.ArrayList<DockerContainer> ();
+
                 var resp = yield this.http_client.r_get ("/containers/json?all=true");
 
                 //
@@ -85,20 +86,20 @@ namespace Monitor {
                 assert_nonnull (root_array);
 
                 foreach (var container_node in root_array.get_elements ()) {
-                    var container = Container ();
+                    var container = new DockerContainer ();
                     var container_object = container_node.get_object ();
                     assert_nonnull (container_object);
 
                     //
                     container.id = container_object.get_string_member ("Id");
                     container.image = container_object.get_string_member ("Image");
-                    container.state = container_object.get_string_member ("State");
+                    container.state = container.get_state (container_object.get_string_member ("State"));
 
                     //
                     var name_array = container_object.get_array_member ("Names");
 
                     foreach (var name_node in name_array.get_elements ()) {
-                        container.name = name_node.get_string ();
+                        container.name = container.format_name (name_node.get_string ());
                         assert_nonnull (container.name);
                         break;
                     }
@@ -107,24 +108,24 @@ namespace Monitor {
                     var labels_object = container_object.get_object_member ("Labels");
                     assert_nonnull (labels_object);
 
-                    if (labels_object.has_member ("com.docker.compose.project")) {
-                        container.label_project = labels_object.get_string_member ("com.docker.compose.project");
-                    }
-                    if (labels_object.has_member ("com.docker.compose.service")) {
-                        container.label_service = labels_object.get_string_member ("com.docker.compose.service");
-                    }
-                    if (labels_object.has_member ("com.docker.compose.project.config_files")) {
-                        container.label_config = labels_object.get_string_member ("com.docker.compose.project.config_files");
-                    }
-                    if (labels_object.has_member ("com.docker.compose.project.working_dir")) {
-                        container.label_workdir = labels_object.get_string_member ("com.docker.compose.project.working_dir");
-                    }
+                    //  if (labels_object.has_member ("com.docker.compose.project")) {
+                    //      container.label_project = container.labels_object.get_string_member ("com.docker.compose.project");
+                    //  }
+                    //  if (labels_object.has_member ("com.docker.compose.service")) {
+                    //      container.label_service = labels_object.get_string_member ("com.docker.compose.service");
+                    //  }
+                    //  if (labels_object.has_member ("com.docker.compose.project.config_files")) {
+                    //      container.label_config = labels_object.get_string_member ("com.docker.compose.project.config_files");
+                    //  }
+                    //  if (labels_object.has_member ("com.docker.compose.project.working_dir")) {
+                    //      container.label_workdir = labels_object.get_string_member ("com.docker.compose.project.working_dir");
+                    //  }
 
                     //
-                    container_list += container;
+                    containers.add (container);
                 }
 
-                return container_list;
+                return containers;
             } catch (HttpClientError error) {
                 if (error is HttpClientError.ERROR_NO_ENTRY) {
                     throw new ApiClientError.ERROR_NO_ENTRY (error.message);
