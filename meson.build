@@ -73,4 +73,4 @@ subdir('src')
 meson.add_install_script('meson/post_install.py')
 
 subdir('po')
-subdir('tests')
+# subdir('tests')
