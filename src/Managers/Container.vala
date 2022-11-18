@@ -60,5 +60,37 @@ namespace Monitor {
         public static bool equal (DockerContainer a, DockerContainer b) {
             return a.id == b.id;
         }
+
+        public string get_memory() {
+            return read_file("/sys/fs/cgroup/memory/docker/%s/memory.stat".printf (id));
+        }
+
+        public static string ? read_file (string path) {
+            var file = File.new_for_path (path);
+    
+            /* make sure that it exists, not an error if it doesn't */
+            if (!file.query_exists ()) {
+                return null;
+            }
+            var text = new StringBuilder ();
+            try {
+                var dis = new DataInputStream (file.read ());
+    
+                // Doing this because of cmdline file.
+                // cmdline is a single line file with each arg seperated by a null character ('\0')
+                string line = dis.read_upto ("\0", 1, null);
+                while (line != null) {
+                    text.append (line);
+                    text.append (" ");
+                    dis.skip (1);
+                    line = dis.read_upto ("\0", 1, null);
+                }
+    
+                return text.str;
+            } catch (Error e) {
+                warning ("Error reading cmdline file '%s': %s\n", file.get_path (), e.message);
+                return null;
+            }
+        }
     }
 }
