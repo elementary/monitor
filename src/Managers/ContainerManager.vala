@@ -164,19 +164,19 @@ namespace Monitor {
                 assert_nonnull (root_object);
 
                 //
-                container_info.name = root_object.get_string_member_with_default ("Name", _ ("Unknown"));
+                container_info.name = root_object.get_string_member("Name");
 
                 //
                 var state_object = root_object.get_object_member ("State");
                 assert_nonnull (state_object);
 
-                container_info.status = state_object.get_string_member_with_default ("Status", _ ("Unknown"));
+                container_info.status = state_object.get_string_member("Status");
 
                 //
                 var config_object = root_object.get_object_member ("Config");
                 assert_nonnull (config_object);
 
-                container_info.image = config_object.get_string_member_with_default ("Image", _ ("Unknown"));
+                container_info.image = config_object.get_string_member ("Image");
 
                 //
                 var env_array = config_object.get_array_member ("Env");
@@ -217,10 +217,12 @@ namespace Monitor {
                             foreach (var port_node in port_binding_array.get_elements ()) {
                                 var port_object = port_node.get_object ();
                                 assert_nonnull (port_object);
-
-                                var ip = port_object.get_string_member_with_default ("HostIp", "");
-                                var port = port_object.get_string_member_with_default ("HostPort", "-");
-
+                                
+                                // *with_default () works only with > 1.6.0 of json-glib
+                                //  var ip = port_object.get_string_member_with_default ("HostIp", "");
+                                //  var port = port_object.get_string_member_with_default ("HostPort", "-");
+                                var ip = port_object.get_string_member ("HostIp");
+                                var port = port_object.get_string_member ("HostPort");
                                 container_info.ports += key + (ip.length > 0 ? @"$ip:" : ":") + port;
                             }
                         }
@@ -248,9 +250,11 @@ namespace Monitor {
                 var root_object = root_node.get_object ();
                 assert_nonnull (root_object);
 
-                version.version = root_object.get_string_member_with_default ("Version", "-");
-                version.api_version = root_object.get_string_member_with_default ("ApiVersion", "-");
-
+                // *with_default () works only with > 1.6.0 of json-glib
+                //  version.version = root_object.get_string_member_with_default ("Version", "-");
+                //  version.api_version = root_object.get_string_member_with_default ("ApiVersion", "-");
+                version.version = root_object.get_string_member ("Version");
+                version.api_version = root_object.get_string_member ("ApiVersion");
                 return version;
             } catch (HttpClientError error) {
                 throw new ApiClientError.ERROR (error.message);
