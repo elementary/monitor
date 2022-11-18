@@ -12,7 +12,7 @@ namespace Monitor {
     }
 
     class DockerContainer : Object {
-        public Container? api_container {get; construct set;}
+        public Container ? api_container { get; construct set; }
 
         public string id;
         public string name;
@@ -20,8 +20,8 @@ namespace Monitor {
         public DockerContainerType type;
         public DockerContainerState state;
 
-        public string? config_path;
-        public Gee.ArrayList<DockerContainer>? services;
+        public string ? config_path;
+        public Gee.ArrayList<DockerContainer> ? services;
 
         public DockerContainer.from_docker_api_container (Container container) {
             this.api_container = container;
@@ -61,35 +61,58 @@ namespace Monitor {
             return a.id == b.id;
         }
 
-        public string get_memory() {
-            return read_file("/sys/fs/cgroup/memory/docker/%s/memory.stat".printf (id));
+        public uint64 get_memory () {
+            return get_mem_usage_file () - get_mem_stat_total_inactive_file ();
         }
 
-        public static string ? read_file (string path) {
-            var file = File.new_for_path (path);
-    
+        private uint64 get_mem_stat_total_inactive_file () {
+            var file = File.new_for_path ("/sys/fs/cgroup/memory/docker/%s/memory.stat".printf (id));
+
             /* make sure that it exists, not an error if it doesn't */
             if (!file.query_exists ()) {
-                return null;
+                warning ("File doesn't exist ???");
+
+                return 0;
             }
-            var text = new StringBuilder ();
+
+            string mem_stat_total_inactive_file = "bruh";
+
+
             try {
                 var dis = new DataInputStream (file.read ());
-    
-                // Doing this because of cmdline file.
-                // cmdline is a single line file with each arg seperated by a null character ('\0')
-                string line = dis.read_upto ("\0", 1, null);
-                while (line != null) {
-                    text.append (line);
-                    text.append (" ");
-                    dis.skip (1);
-                    line = dis.read_upto ("\0", 1, null);
+                string ? line;
+                while ((line = dis.read_line ()) != null) {
+                    var splitted_line = line.split (" ");
+                    switch (splitted_line[0]) {
+                    case "total_inactive_file":
+                        mem_stat_total_inactive_file = splitted_line[1];
+                        break;
+                    default:
+                        break;
+                    }
                 }
-    
-                return text.str;
+                return uint64.parse (mem_stat_total_inactive_file);
             } catch (Error e) {
                 warning ("Error reading cmdline file '%s': %s\n", file.get_path (), e.message);
-                return null;
+                return 0;
+            }
+        }
+
+        private uint64 get_mem_usage_file () {
+            var file = File.new_for_path ("/sys/fs/cgroup/memory/docker/%s/memory.usage_in_bytes".printf (id));
+
+            /* make sure that it exists, not an error if it doesn't */
+            if (!file.query_exists ()) {
+                warning ("File doesn't exist ???");
+                return 0;
+            }
+
+            try {
+                var dis = new DataInputStream (file.read ());
+                return uint64.parse (dis.read_line ());
+            } catch (Error e) {
+                warning ("Error reading cmdline file '%s': %s\n", file.get_path (), e.message);
+                return 0;
             }
         }
     }
