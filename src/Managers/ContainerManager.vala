@@ -86,14 +86,14 @@ namespace Monitor {
                 assert_nonnull (root_array);
 
                 foreach (var container_node in root_array.get_elements ()) {
-                    var container = new DockerContainer ();
                     var container_object = container_node.get_object ();
                     assert_nonnull (container_object);
 
-                    //
-                    container.id = container_object.get_string_member ("Id");
-                    container.image = container_object.get_string_member ("Image");
-                    container.state = container.get_state (container_object.get_string_member ("State"));
+                    var container = new DockerContainer (container_object.get_string_member ("Id")) {
+                        image = container_object.get_string_member ("Image"),
+                        //  state = container.get_state (container_object.get_string_member ("State"));
+                    };
+
 
                     //
                     var name_array = container_object.get_array_member ("Names");
