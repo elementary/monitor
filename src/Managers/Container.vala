@@ -15,7 +15,14 @@ namespace Monitor {
         public Container ? api_container { get; construct set; }
 
         public string id;
-        public string name;
+
+        private string _name;
+        public string name {
+            get { return _name; }
+            set {
+                _name = format_name (value);
+            }
+        }
         public string image;
         public DockerContainerType type;
         public DockerContainerState state;
@@ -23,14 +30,14 @@ namespace Monitor {
         public string ? config_path;
         public Gee.ArrayList<DockerContainer> ? services;
 
-        public DockerContainer.from_docker_api_container (Container container) {
-            this.api_container = container;
+        private Cgroup cgroup;
 
-            this.id = container.id;
-            this.name = this.format_name (container.name);
-            this.image = container.image;
-            this.type = DockerContainerType.CONTAINER;
-            this.state = this.get_state (container.state);
+        public DockerContainer (string id) {
+            this.id = id;
+            this.cgroup = new Cgroup (this.id);
+            //  this.id = id;
+            //  this.type = DockerContainerType.CONTAINER;
+            //  this.state = this.get_state (container.state);
         }
 
         public string format_name (string name) {
@@ -62,7 +69,7 @@ namespace Monitor {
         }
 
         public uint64 get_memory () {
-            return get_mem_usage_file () - get_mem_stat_total_inactive_file ();
+            return uint64.parse (cgroup.memory_usage_by_bytes) - 0;
         }
 
         private uint64 get_mem_stat_total_inactive_file () {
@@ -93,27 +100,28 @@ namespace Monitor {
                 }
                 return uint64.parse (mem_stat_total_inactive_file);
             } catch (Error e) {
-                warning ("Error reading cmdline file '%s': %s\n", file.get_path (), e.message);
+                warning ("Error reading file '%s': %s\n", file.get_path (), e.message);
                 return 0;
             }
         }
 
-        private uint64 get_mem_usage_file () {
-            var file = File.new_for_path ("/sys/fs/cgroup/memory/docker/%s/memory.usage_in_bytes".printf (id));
+        //  private uint64 get_mem_usage_file () {
+        //      var file = File.new_for_path ("/sys/fs/cgroup/memory/docker/%s/memory.usage_in_bytes".printf (id));
 
-            /* make sure that it exists, not an error if it doesn't */
-            if (!file.query_exists ()) {
-                warning ("File doesn't exist ???");
-                return 0;
-            }
+        //      /* make sure that it exists, not an error if it doesn't */
+        //      if (!file.query_exists ()) {
+        //          warning ("File doesn't exist ???");
+        //          return 0;
+        //      }
 
-            try {
-                var dis = new DataInputStream (file.read ());
-                return uint64.parse (dis.read_line ());
-            } catch (Error e) {
-                warning ("Error reading cmdline file '%s': %s\n", file.get_path (), e.message);
-                return 0;
-            }
-        }
+        //      try {
+        //          var dis = new DataInputStream (file.read ());
+        //          return uint64.parse (dis.read_line ());
+        //      } catch (Error e) {
+        //          warning ("Error reading file '%s': %s\n", file.get_path (), e.message);
+        //          return 0;
+        //      }
+        //  }
+
     }
 }

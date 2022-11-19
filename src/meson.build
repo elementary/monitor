@@ -67,6 +67,7 @@ source_app_files = [
     'Resources/Memory.vala',
     'Resources/Swap.vala',
     'Resources/Network.vala',
+    'Resources/Cgroup.vala',
 
     'Resources/Storage/Storage.vala',
     'Resources/Storage/StorageParser.vala',
@@ -89,6 +90,7 @@ source_app_files = [
     'Resources/Hwmon/HwmonFan.vala',
     'Resources/Hwmon/HwmonPWM.vala',
     'Resources/Hwmon/HwmonPower.vala',
+
 ]
 
 source_indicator_files = [
