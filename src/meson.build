@@ -67,7 +67,8 @@ source_app_files = [
     'Resources/Memory.vala',
     'Resources/Swap.vala',
     'Resources/Network.vala',
-    'Resources/Cgroup.vala',
+    'Resources/Cgroup/Cgroup.vala',
+    'Resources/Cgroup/CgroupStructs.vala',
 
     'Resources/Storage/Storage.vala',
     'Resources/Storage/StorageParser.vala',
