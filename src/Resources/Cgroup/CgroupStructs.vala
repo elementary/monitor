@@ -37,5 +37,4 @@ public struct Monitor.CgroupMemoryStat {
     public uint64 total_inactive_file;
     public uint64 total_active_file;
     public uint64 total_unevictable;
-
 }

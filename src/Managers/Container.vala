@@ -69,41 +69,41 @@ namespace Monitor {
         }
 
         public uint64 get_memory () {
-            return uint64.parse (cgroup.memory_usage_by_bytes) - 0;
+            return uint64.parse (cgroup.memory_usage_by_bytes) - uint64.parse (cgroup.memory_stat_total_inactive_file);
         }
 
-        private uint64 get_mem_stat_total_inactive_file () {
-            var file = File.new_for_path ("/sys/fs/cgroup/memory/docker/%s/memory.stat".printf (id));
+        //  private uint64 get_mem_stat_total_inactive_file () {
+        //      var file = File.new_for_path ("/sys/fs/cgroup/memory/docker/%s/memory.stat".printf (id));
 
-            /* make sure that it exists, not an error if it doesn't */
-            if (!file.query_exists ()) {
-                warning ("File doesn't exist ???");
+        //      /* make sure that it exists, not an error if it doesn't */
+        //      if (!file.query_exists ()) {
+        //          warning ("File doesn't exist ???");
 
-                return 0;
-            }
+        //          return 0;
+        //      }
 
-            string mem_stat_total_inactive_file = "bruh";
+        //      string mem_stat_total_inactive_file = "bruh";
 
 
-            try {
-                var dis = new DataInputStream (file.read ());
-                string ? line;
-                while ((line = dis.read_line ()) != null) {
-                    var splitted_line = line.split (" ");
-                    switch (splitted_line[0]) {
-                    case "total_inactive_file":
-                        mem_stat_total_inactive_file = splitted_line[1];
-                        break;
-                    default:
-                        break;
-                    }
-                }
-                return uint64.parse (mem_stat_total_inactive_file);
-            } catch (Error e) {
-                warning ("Error reading file '%s': %s\n", file.get_path (), e.message);
-                return 0;
-            }
-        }
+        //      try {
+        //          var dis = new DataInputStream (file.read ());
+        //          string ? line;
+        //          while ((line = dis.read_line ()) != null) {
+        //              var splitted_line = line.split (" ");
+        //              switch (splitted_line[0]) {
+        //              case "total_inactive_file":
+        //                  mem_stat_total_inactive_file = splitted_line[1];
+        //                  break;
+        //              default:
+        //                  break;
+        //              }
+        //          }
+        //          return uint64.parse (mem_stat_total_inactive_file);
+        //      } catch (Error e) {
+        //          warning ("Error reading file '%s': %s\n", file.get_path (), e.message);
+        //          return 0;
+        //      }
+        //  }
 
         //  private uint64 get_mem_usage_file () {
         //      var file = File.new_for_path ("/sys/fs/cgroup/memory/docker/%s/memory.usage_in_bytes".printf (id));
