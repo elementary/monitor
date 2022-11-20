@@ -1,8 +1,19 @@
 public class Monitor.Cgroup : GLib.Object {
+    /**
+     * This class only parses necessery values from cgroup files.
+     * @TODO: Properly parse all values in files.
+     */
     public string id;
     public string memory_usage_by_bytes {
         owned get {
             return open_file ("/sys/fs/cgroup/memory/docker/%s/memory.usage_in_bytes".printf (id), read_memory_usage_in_bytes) ?? "0";
+        } private set {
+        }
+    }
+
+    public string memory_stat_total_inactive_file {
+        owned get {
+            return open_file ("/sys/fs/cgroup/memory/docker/%s/memory.stat".printf (id), read_memory_stat_total_inactive_file) ?? "0";
         } private set {
         }
     }
@@ -35,8 +46,21 @@ public class Monitor.Cgroup : GLib.Object {
         }
     }
 
-    // public string get_memory_usage_by_bytes () {
-    // return open_file ("/sys/fs/cgroup/memory/docker/%s/memory.usage_in_bytes".printf (this.id), read_memory_usage_in_bytes);
-    // }
+    private string read_memory_stat_total_inactive_file (File file) {
+        try {
+            var dis = new DataInputStream (file.read ());
+            string ? line;
+            while ((line = dis.read_line ()) != null) {
+                var splitted_line = line.split (":");
+                if (splitted_line[0] == "total_inactive_file") {
+                    return splitted_line[1];
+                }
+            }
+            return "";
+        } catch (Error e) {
+            warning ("Error reading file '%s': %s\n", file.get_path (), e.message);
+            return "";
+        }
+    }
 
 }
