@@ -6,6 +6,8 @@ public class Monitor.Cgroup : GLib.Object {
         } private set {
         }
     }
+
+    public CgroupMemoryStat memory_stat;
     public Cgroup (string _id) {
         id = _id;
     }
