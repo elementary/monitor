@@ -46,7 +46,7 @@ namespace Monitor {
             r = curl.setopt (Curl.Option.WRITEFUNCTION, HttpClientResponse.read_body_data);
             assert_true (r == Curl.Code.OK);
 
-            //  debug ("call api method: %s - %s", this.get_request_method (method), url);
+            debug ("call api method: %s - %s", this.get_request_method (method), url);
 
             yield this.perform (curl);
 
@@ -143,7 +143,7 @@ namespace Monitor {
             Posix.memcpy ((void*)buffer, buf, real_size);
             response_memory_stream.add_data (buffer);
 
-            //  debug ("http client bytes read: %d", (int)real_size);
+            debug ("http client bytes read: %d", (int)real_size);
 
             return real_size;
         }

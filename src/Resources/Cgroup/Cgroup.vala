@@ -18,7 +18,14 @@ public class Monitor.Cgroup : GLib.Object {
         }
     }
 
-    public CgroupMemoryStat memory_stat;
+    public string cpuaact_usage_sys {
+        owned get {
+            return open_file ("/sys/fs/cgroup/cpuacct/docker/%s/memory.usage_in_bytes".printf (id), read_cpuacct_usage_sys) ?? "0";
+        } private set {
+        }
+    }
+
+    //  public CgroupMemoryStat memory_stat;
     public Cgroup (string _id) {
         id = _id;
     }
@@ -46,6 +53,8 @@ public class Monitor.Cgroup : GLib.Object {
         }
     }
 
+    // Reads very specific value from a file. Should basically read whole file
+    // but am too lazy
     private string read_memory_stat_total_inactive_file (File file) {
         try {
             var dis = new DataInputStream (file.read ());
@@ -57,6 +66,16 @@ public class Monitor.Cgroup : GLib.Object {
                 }
             }
             return "";
+        } catch (Error e) {
+            warning ("Error reading file '%s': %s\n", file.get_path (), e.message);
+            return "";
+        }
+    }
+
+    private string read_cpuacct_usage_sys (File file) {
+        try {
+            var dis = new DataInputStream (file.read ());
+            return dis.read_line ();
         } catch (Error e) {
             warning ("Error reading file '%s': %s\n", file.get_path (), e.message);
             return "";
