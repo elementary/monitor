@@ -28,7 +28,10 @@ public class Monitor.ContainerView : Gtk.Box {
         var containers = yield container_manager.list_containers ();
 
         foreach (var container in containers) {
-            debug ("%s, %s", container.name, Utils.HumanUnitFormatter.double_bytes_to_human (container.get_memory ()));
+            debug ("%s", container.name);
+            var a = yield container_manager.stats (container);
+            debug (a);
+
             var container_label = new Gtk.Label (container.name){
                 visible = true
             };

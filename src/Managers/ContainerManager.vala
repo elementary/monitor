@@ -11,19 +11,19 @@ namespace Monitor {
         public string name;
         public string image;
         public string state;
-        public string? label_project;
-        public string? label_service;
-        public string? label_config;
-        public string? label_workdir;
+        public string ? label_project;
+        public string ? label_service;
+        public string ? label_config;
+        public string ? label_workdir;
     }
 
     struct ContainerInspectInfo {
         public string name;
         public string image;
         public string status;
-        public string[]? binds;
-        public string[]? envs;
-        public string[]? ports;
+        public string[] ? binds;
+        public string[] ? envs;
+        public string[] ? ports;
     }
 
     struct DockerVersionInfo {
@@ -74,7 +74,7 @@ namespace Monitor {
 
                 //
                 var json = "";
-                string? line = null;
+                string ? line = null;
 
                 while ((line = yield resp.body_data_stream.read_line_utf8_async ()) != null) {
                     json += line;
@@ -91,7 +91,7 @@ namespace Monitor {
 
                     var container = new DockerContainer (container_object.get_string_member ("Id")) {
                         image = container_object.get_string_member ("Image"),
-                        //  state = container.get_state (container_object.get_string_member ("State"));
+                        // state = container.get_state (container_object.get_string_member ("State"));
                     };
 
 
@@ -108,18 +108,18 @@ namespace Monitor {
                     var labels_object = container_object.get_object_member ("Labels");
                     assert_nonnull (labels_object);
 
-                    //  if (labels_object.has_member ("com.docker.compose.project")) {
-                    //      container.label_project = container.labels_object.get_string_member ("com.docker.compose.project");
-                    //  }
-                    //  if (labels_object.has_member ("com.docker.compose.service")) {
-                    //      container.label_service = labels_object.get_string_member ("com.docker.compose.service");
-                    //  }
-                    //  if (labels_object.has_member ("com.docker.compose.project.config_files")) {
-                    //      container.label_config = labels_object.get_string_member ("com.docker.compose.project.config_files");
-                    //  }
-                    //  if (labels_object.has_member ("com.docker.compose.project.working_dir")) {
-                    //      container.label_workdir = labels_object.get_string_member ("com.docker.compose.project.working_dir");
-                    //  }
+                    // if (labels_object.has_member ("com.docker.compose.project")) {
+                    // container.label_project = container.labels_object.get_string_member ("com.docker.compose.project");
+                    // }
+                    // if (labels_object.has_member ("com.docker.compose.service")) {
+                    // container.label_service = labels_object.get_string_member ("com.docker.compose.service");
+                    // }
+                    // if (labels_object.has_member ("com.docker.compose.project.config_files")) {
+                    // container.label_config = labels_object.get_string_member ("com.docker.compose.project.config_files");
+                    // }
+                    // if (labels_object.has_member ("com.docker.compose.project.working_dir")) {
+                    // container.label_workdir = labels_object.get_string_member ("com.docker.compose.project.working_dir");
+                    // }
 
                     //
                     containers.add (container);
@@ -139,13 +139,41 @@ namespace Monitor {
             }
         }
 
+        public async string stats (DockerContainer container) throws ApiClientError {
+            try {
+                debug ("______________");
 
+                var resp = yield this.http_client.r_get (@"/containers/$(container.id)/stats?stream=false");
+                var json = yield resp.body_data_stream.read_line_utf8_async ();
+                assert_nonnull (json);
 
+                var root_node = parse_json (json);
+                var root_object = root_node.get_object ();
+                //  assert_nonnull (root_object);
 
-        public async ContainerInspectInfo inspect_container (Container container) throws ApiClientError {
+                debug ("______________");
+                debug (root_object.get_string_member ("read"));
+
+                return root_object.get_string_member ("read");
+
+            } catch (HttpClientError error) {
+                throw new ApiClientError.ERROR (error.message);
+            } catch (IOError error) {
+                throw new ApiClientError.ERROR (error.message);
+            }
+        }
+
+        public async ContainerInspectInfo inspect_container (DockerContainer container) throws ApiClientError {
             try {
                 var container_info = ContainerInspectInfo ();
                 var resp = yield this.http_client.r_get (@"/containers/$(container.id)/json");
+
+                if (resp.code == 404) {
+                    throw new ApiClientError.ERROR ("No such container");
+                }
+                if (resp.code == 500) {
+                    throw new ApiClientError.ERROR ("Server error");
+                }
 
                 //
                 if (resp.code == 404) {
@@ -157,6 +185,7 @@ namespace Monitor {
 
                 //
                 var json = yield resp.body_data_stream.read_line_utf8_async ();
+
                 assert_nonnull (json);
 
                 var root_node = parse_json (json);
@@ -164,13 +193,13 @@ namespace Monitor {
                 assert_nonnull (root_object);
 
                 //
-                container_info.name = root_object.get_string_member("Name");
+                container_info.name = root_object.get_string_member ("Name");
 
                 //
                 var state_object = root_object.get_object_member ("State");
                 assert_nonnull (state_object);
 
-                container_info.status = state_object.get_string_member("Status");
+                container_info.status = state_object.get_string_member ("Status");
 
                 //
                 var config_object = root_object.get_object_member ("Config");
@@ -185,7 +214,7 @@ namespace Monitor {
                     container_info.envs = new string[0];
 
                     foreach (var env_node in env_array.get_elements ()) {
-                        container_info.envs += env_node.get_string () ?? _ ("Unknown");
+                        container_info.envs += env_node.get_string () ?? _("Unknown");
                     }
                 }
 
@@ -199,7 +228,7 @@ namespace Monitor {
                         container_info.binds = new string[0];
 
                         foreach (var bind_node in binds_array.get_elements ()) {
-                            container_info.binds += bind_node.get_string () ?? _ ("Unknown");
+                            container_info.binds += bind_node.get_string () ?? _("Unknown");
                         }
                     }
                 }
@@ -217,10 +246,10 @@ namespace Monitor {
                             foreach (var port_node in port_binding_array.get_elements ()) {
                                 var port_object = port_node.get_object ();
                                 assert_nonnull (port_object);
-                                
+
                                 // *with_default () works only with > 1.6.0 of json-glib
-                                //  var ip = port_object.get_string_member_with_default ("HostIp", "");
-                                //  var port = port_object.get_string_member_with_default ("HostPort", "-");
+                                // var ip = port_object.get_string_member_with_default ("HostIp", "");
+                                // var port = port_object.get_string_member_with_default ("HostPort", "-");
                                 var ip = port_object.get_string_member ("HostIp");
                                 var port = port_object.get_string_member ("HostPort");
                                 container_info.ports += key + (ip.length > 0 ? @"$ip:" : ":") + port;
@@ -244,6 +273,7 @@ namespace Monitor {
 
                 //
                 var json = yield resp.body_data_stream.read_line_utf8_async ();
+
                 assert_nonnull (json);
 
                 var root_node = parse_json (json);
@@ -251,8 +281,8 @@ namespace Monitor {
                 assert_nonnull (root_object);
 
                 // *with_default () works only with > 1.6.0 of json-glib
-                //  version.version = root_object.get_string_member_with_default ("Version", "-");
-                //  version.api_version = root_object.get_string_member_with_default ("ApiVersion", "-");
+                // version.version = root_object.get_string_member_with_default ("Version", "-");
+                // version.api_version = root_object.get_string_member_with_default ("ApiVersion", "-");
                 version.version = root_object.get_string_member ("Version");
                 version.api_version = root_object.get_string_member ("ApiVersion");
                 return version;
@@ -266,6 +296,7 @@ namespace Monitor {
         public async void ping () throws ApiClientError {
             try {
                 yield this.http_client.r_get ("/_ping");
+
             } catch (HttpClientError error) {
                 if (error is HttpClientError.ERROR_NO_ENTRY) {
                     throw new ApiClientError.ERROR_NO_ENTRY (error.message);
@@ -274,5 +305,6 @@ namespace Monitor {
                 }
             }
         }
+
     }
 }
