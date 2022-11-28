@@ -30,11 +30,14 @@ namespace Monitor {
         public string ? config_path;
         public Gee.ArrayList<DockerContainer> ? services;
 
+        public HttpClient http_client;
+
         private Cgroup cgroup;
 
-        public DockerContainer (string id) {
+        public DockerContainer (string id, ref HttpClient http_client) {
             this.id = id;
             this.cgroup = new Cgroup (this.id);
+            this.http_client = http_client;
             //  this.id = id;
             //  this.type = DockerContainerType.CONTAINER;
             //  this.state = this.get_state (container.state);
@@ -70,6 +73,47 @@ namespace Monitor {
 
         public uint64 get_memory () {
             return uint64.parse (cgroup.memory_usage_by_bytes) - uint64.parse (cgroup.memory_stat_total_inactive_file);
+        }
+
+        private static Json.Node parse_json (string data) throws ApiClientError {
+            try {
+                var parser = new Json.Parser ();
+                parser.load_from_data (data);
+
+                var node = parser.get_root ();
+
+                if (node == null) {
+                    throw new ApiClientError.ERROR_JSON ("Cannot parse json from: %s", data);
+                }
+
+                return node;
+            } catch (Error error) {
+                throw new ApiClientError.ERROR_JSON (error.message);
+            }
+        }
+
+        public async string stats () throws ApiClientError {
+            try {
+                debug ("______________");
+
+                var resp = yield this.http_client.r_get (@"/containers/$(this.id)/stats?stream=false");
+                var json = yield resp.body_data_stream.read_line_utf8_async ();
+                assert_nonnull (json);
+
+                var root_node = parse_json (json);
+                var root_object = root_node.get_object ();
+                //  assert_nonnull (root_object);
+
+                debug ("______________");
+                debug (root_object.get_string_member ("read"));
+
+                return root_object.get_string_member ("read");
+
+            } catch (HttpClientError error) {
+                throw new ApiClientError.ERROR (error.message);
+            } catch (IOError error) {
+                throw new ApiClientError.ERROR (error.message);
+            }
         }
 
         //  private uint64 get_mem_stat_total_inactive_file () {

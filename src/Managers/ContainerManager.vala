@@ -89,7 +89,7 @@ namespace Monitor {
                     var container_object = container_node.get_object ();
                     assert_nonnull (container_object);
 
-                    var container = new DockerContainer (container_object.get_string_member ("Id")) {
+                    var container = new DockerContainer (container_object.get_string_member ("Id"), ref this.http_client) {
                         image = container_object.get_string_member ("Image"),
                         // state = container.get_state (container_object.get_string_member ("State"));
                     };
@@ -139,29 +139,7 @@ namespace Monitor {
             }
         }
 
-        public async string stats (DockerContainer container) throws ApiClientError {
-            try {
-                debug ("______________");
 
-                var resp = yield this.http_client.r_get (@"/containers/$(container.id)/stats?stream=false");
-                var json = yield resp.body_data_stream.read_line_utf8_async ();
-                assert_nonnull (json);
-
-                var root_node = parse_json (json);
-                var root_object = root_node.get_object ();
-                //  assert_nonnull (root_object);
-
-                debug ("______________");
-                debug (root_object.get_string_member ("read"));
-
-                return root_object.get_string_member ("read");
-
-            } catch (HttpClientError error) {
-                throw new ApiClientError.ERROR (error.message);
-            } catch (IOError error) {
-                throw new ApiClientError.ERROR (error.message);
-            }
-        }
 
         public async ContainerInspectInfo inspect_container (DockerContainer container) throws ApiClientError {
             try {

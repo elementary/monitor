@@ -29,7 +29,7 @@ public class Monitor.ContainerView : Gtk.Box {
 
         foreach (var container in containers) {
             debug ("%s", container.name);
-            var a = yield container_manager.stats (container);
+            var a = yield container.stats ();
             debug (a);
 
             var container_label = new Gtk.Label (container.name){
