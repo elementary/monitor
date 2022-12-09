@@ -12,6 +12,16 @@ namespace Monitor {
     }
 
     class DockerContainer : Object {
+
+        public int64 mem_used { get; private set; }
+        public int64 mem_available { get; private set; }
+
+        public uint mem_percentage {
+            get {
+                return (uint) (Math.round ((mem_used / mem_available) * 100.0));
+            }
+        }
+
         public Container ? api_container { get; construct set; }
 
         public string id;
@@ -92,9 +102,9 @@ namespace Monitor {
             }
         }
 
-        public async string stats () throws ApiClientError {
+        public async void stats () throws ApiClientError {
             try {
-                debug ("______________");
+                debug (">>______________");
 
                 var resp = yield this.http_client.r_get (@"/containers/$(this.id)/stats?stream=false");
                 var json = yield resp.body_data_stream.read_line_utf8_async ();
@@ -104,10 +114,15 @@ namespace Monitor {
                 var root_object = root_node.get_object ();
                 //  assert_nonnull (root_object);
 
-                debug ("______________");
+                debug ("______________<<");
                 debug (root_object.get_string_member ("read"));
 
-                return root_object.get_string_member ("read");
+                var json_memory_stats = root_object.get_object_member ("memory_stats");
+                var json_memory_stats_stats = json_memory_stats.get_object_member ("stats");
+
+
+                this.mem_used = json_memory_stats.get_int_member ("usage") - json_memory_stats_stats.get_int_member ("cache");
+                debug ("************** %lld", mem_used);
 
             } catch (HttpClientError error) {
                 throw new ApiClientError.ERROR (error.message);

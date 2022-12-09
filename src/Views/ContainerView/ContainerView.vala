@@ -28,9 +28,14 @@ public class Monitor.ContainerView : Gtk.Box {
         var containers = yield container_manager.list_containers ();
 
         foreach (var container in containers) {
-            debug ("%s", container.name);
-            var a = yield container.stats ();
-            debug (a);
+            try {
+                yield container.stats ();
+                debug (">>>>>> %s %lld", container.name, container.mem_used);
+
+            } catch (ApiClientError error) {
+                if (error is ApiClientError.ERROR_NO_ENTRY) warning ("No such entry.");
+            }
+            
 
             var container_label = new Gtk.Label (container.name){
                 visible = true
