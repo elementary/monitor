@@ -1,6 +1,7 @@
 public class Monitor.ContainerView : Gtk.Box {
     private ContainerManager container_manager;
-    private Gtk.ListBox listbox_containers = new Gtk.ListBox ();
+
+    private ContainerSidebarView sidebar_view = new ContainerSidebarView ();
 
     construct {
         orientation = Gtk.Orientation.VERTICAL;
@@ -13,15 +14,13 @@ public class Monitor.ContainerView : Gtk.Box {
 
         update ();
 
-        var scrolled_window = new Gtk.ScrolledWindow (null, null);
-        var wrapper = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
-            expand = true
-        };
-        scrolled_window.add (wrapper);
+        var detailed_view = new ContainerDetailedView ();
 
-        wrapper.add (listbox_containers);
+        var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
+        paned.pack1 (sidebar_view, true, false);
+        paned.pack2 (detailed_view, true, false);
 
-        add (scrolled_window);
+        add (paned);
     }
 
     public async void update () {
@@ -35,12 +34,8 @@ public class Monitor.ContainerView : Gtk.Box {
             } catch (ApiClientError error) {
                 if (error is ApiClientError.ERROR_NO_ENTRY) warning ("No such entry.");
             }
-            
 
-            var container_label = new Gtk.Label (container.name){
-                visible = true
-            };
-            listbox_containers.insert (container_label, -1);
+            sidebar_view.insert (ref container);
         }
 
         //  for (var i = 0; i < api_containers.length; i++) {

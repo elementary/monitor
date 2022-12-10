@@ -21,6 +21,9 @@ source_app_files = [
     'Views/SystemView/SystemGPUView.vala',
 
     'Views/ContainerView/ContainerView.vala',
+    'Views/ContainerView/ContainerSidebarView.vala',
+    'Views/ContainerView/ContainerSidebarItem.vala',
+    'Views/ContainerView/ContainerDetailedView.vala',
 
     # Widgets related only to ProcessInfoView
     'Views/ProcessView/ProcessInfoView/Preventor.vala',
