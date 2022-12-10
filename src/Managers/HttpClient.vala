@@ -1,17 +1,17 @@
 namespace Monitor {
-    errordomain HttpClientError {
+    public errordomain HttpClientError {
         ERROR,
         ERROR_ACCESS,
         ERROR_NO_ENTRY
     }
 
-    enum HttpClientMethod {
+    public enum HttpClientMethod {
         GET,
         POST,
         DELETE,
     }
 
-    class HttpClient : Object {
+    public class HttpClient : Object {
         public bool verbose = false;
         public string? unix_socket_path {get; set;}
         public string? base_url;
@@ -124,7 +124,7 @@ namespace Monitor {
         }
     }
 
-    class HttpClientResponse : Object {
+    public class HttpClientResponse : Object {
         public int code;
         public MemoryInputStream memory_stream {get; construct set;}
         public DataInputStream body_data_stream {get; construct set;}

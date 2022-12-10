@@ -4,14 +4,14 @@ namespace Monitor {
         CONTAINER
     }
 
-    enum DockerContainerState {
+    public enum DockerContainerState {
         UNKNOWN,
         PAUSED,
         RUNNING,
         STOPPED,
     }
 
-    class DockerContainer : Object {
+    public class DockerContainer : Object {
 
         public int64 mem_used { get; private set; }
         public int64 mem_available { get; private set; }
@@ -22,7 +22,7 @@ namespace Monitor {
             }
         }
 
-        public Container ? api_container { get; construct set; }
+        //  public Container ? api_container { get; construct set; }
 
         public string id;
 
@@ -34,8 +34,8 @@ namespace Monitor {
             }
         }
         public string image;
-        public DockerContainerType type;
-        public DockerContainerState state;
+        //  public DockerContainerType type;
+        //  public DockerContainerState state;
 
         public string ? config_path;
         public Gee.ArrayList<DockerContainer> ? services;
@@ -79,10 +79,6 @@ namespace Monitor {
 
         public static bool equal (DockerContainer a, DockerContainer b) {
             return a.id == b.id;
-        }
-
-        public uint64 get_memory () {
-            return uint64.parse (cgroup.memory_usage_by_bytes) - uint64.parse (cgroup.memory_stat_total_inactive_file);
         }
 
         private static Json.Node parse_json (string data) throws ApiClientError {

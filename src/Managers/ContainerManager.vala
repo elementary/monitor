@@ -1,5 +1,5 @@
 namespace Monitor {
-    errordomain ApiClientError {
+    public errordomain ApiClientError {
         ERROR,
         ERROR_JSON,
         ERROR_ACCESS,

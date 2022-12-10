@@ -1,7 +1,7 @@
-class Monitor.ContainerItem : Gtk.ListBoxRow {
+class Monitor.ContainerSidebarItem : Gtk.ListBoxRow {
     public DockerContainer container;
 
-    public ContainerItem (DockerContainer service) {
+    public ContainerSidebarItem (DockerContainer service) {
         var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
         this.container = service;
@@ -29,5 +29,7 @@ class Monitor.ContainerItem : Gtk.ListBoxRow {
         container_image.ellipsize = Pango.EllipsizeMode.END;
         container_image.halign = Gtk.Align.START;
         box.pack_end (container_image, false);
+
+        show_all ();
     }
 }
