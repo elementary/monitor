@@ -18,10 +18,12 @@ namespace Monitor {
 
         public double mem_percentage {
             get {
-                if (this.mem_used == 0.0) return 0;
+                if (this.mem_used == 0) return 0;
                 return (((double) mem_used / (double) mem_available) * 1000.0);
             }
         }
+
+        public double cpu_percentage { get; private set; }
 
         const int HISTORY_BUFFER_SIZE = 30;
         public Gee.ArrayList<double ? > cpu_percentage_history = new Gee.ArrayList<double ? > ();
@@ -59,6 +61,7 @@ namespace Monitor {
             // this.id = id;
             // this.type = DockerContainerType.CONTAINER;
             // this.state = this.get_state (container.state);
+            cpu_percentage = 0;
         }
 
         public string format_name (string name) {
@@ -138,11 +141,43 @@ namespace Monitor {
                     this.mem_available = 0;
                 }
 
+                var json_cpu_stats = root_object.get_object_member ("cpu_stats");
+                assert_nonnull (json_cpu_stats);
+                var json_precpu_stats = root_object.get_object_member ("precpu_stats");
+
+                var json_cpu_usage = json_cpu_stats.get_object_member ("cpu_usage");
+                int64 total_usage = json_cpu_usage.get_int_member ("total_usage");
+
+                var json_precpu_usage = json_precpu_stats.get_object_member ("cpu_usage");
+                int64 pretotal_usage = json_precpu_usage.get_int_member ("total_usage");
+
+                int64 cpu_delta = total_usage - pretotal_usage;
+
+                if (json_cpu_stats.has_member ("system_cpu_usage")) {
+                int64 system_cpu_usage = json_cpu_stats.get_int_member ("system_cpu_usage");
+                int64 presystem_cpu_usage = json_precpu_stats.get_int_member ("system_cpu_usage");
+
+                int64 system_cpu_delta = system_cpu_usage - presystem_cpu_usage;
+                int64 number_cpus = json_cpu_stats.get_int_member ("online_cpus");
+
+                //  debug("%lld, %lld", total_usage, pretotal_usage);
+
+                cpu_percentage = ((double)cpu_delta / (double)system_cpu_delta) * (double)number_cpus * 1000.0;
+                } else {
+                    cpu_percentage = 1;
+                }
+
                 // Making RAM history
                 if (mem_percentage_history.size == HISTORY_BUFFER_SIZE) {
                     mem_percentage_history.remove_at (0);
                 }
                 mem_percentage_history.add (mem_percentage);
+
+                // Making RAM history
+                if (cpu_percentage_history.size == HISTORY_BUFFER_SIZE) {
+                    cpu_percentage_history.remove_at (0);
+                }
+                cpu_percentage_history.add (cpu_percentage);
 
 
             } catch (HttpClientError error) {

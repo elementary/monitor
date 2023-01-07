@@ -43,6 +43,7 @@ public class Monitor.ContainerView : Gtk.Box {
         foreach (var container in containers) {
                 container.stats ();
         debug ("Container name: %s, memory used: %lld, perc: %f", container.name, container.mem_used, container.mem_percentage);
+        debug ("Container name: %s,  cpu: %f", container.name, container.cpu_percentage);
         }
         detailed_view.update();
 

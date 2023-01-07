@@ -76,10 +76,10 @@ public class Monitor.ContainerDetailedView : Gtk.Grid  {
     //  }
 
     public void update () {
-        cpu_label.set_text ((_("CPU: %.1f%%")).printf (0));
+        cpu_label.set_text ((_("CPU: %.1f%%")).printf (container.cpu_percentage));
         ram_label.set_text ((_("RAM: %.1f%%")).printf (container.mem_percentage));
 
-        //  cpu_chart.update (0, 0);
+        cpu_chart.update (0, container.cpu_percentage);
         ram_chart.update (0, container.mem_percentage);
     }
 }
