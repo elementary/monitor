@@ -58,5 +58,4 @@ public class Monitor.ProcessInfoCPURAM : Gtk.Grid {
         cpu_chart.clear ();
         ram_chart.clear ();
     }
-
 }
