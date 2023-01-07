@@ -2,6 +2,9 @@ public class Monitor.ContainerView : Gtk.Box {
     private ContainerManager container_manager;
 
     private ContainerSidebarView sidebar_view = new ContainerSidebarView ();
+    private ContainerDetailedView detailed_view = new ContainerDetailedView ();
+
+    private Gee.ArrayList<DockerContainer> containers;
 
     construct {
         orientation = Gtk.Orientation.VERTICAL;
@@ -12,9 +15,9 @@ public class Monitor.ContainerView : Gtk.Box {
 
         container_manager = new ContainerManager ();
 
-        update ();
+        sidebar_view.container_selected.connect(set_container_detailed_view);
 
-        var detailed_view = new ContainerDetailedView ();
+        prepopulate ();
 
         var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
         paned.pack1 (sidebar_view, true, false);
@@ -23,20 +26,27 @@ public class Monitor.ContainerView : Gtk.Box {
         add (paned);
     }
 
-    public async void update () {
-        var containers = yield container_manager.list_containers ();
+    private void set_container_detailed_view(DockerContainer container) {
+        this.detailed_view.container = container;
+    }
+
+    private async void prepopulate () {
+        this.containers = yield container_manager.list_containers ();
 
         foreach (var container in containers) {
-            try {
-                yield container.stats ();
-                debug (">>>>>> %s %lld", container.name, container.mem_used);
-
-            } catch (ApiClientError error) {
-                if (error is ApiClientError.ERROR_NO_ENTRY) warning ("No such entry.");
-            }
-
             sidebar_view.insert (ref container);
         }
+    }
+
+
+    public void update () {
+        foreach (var container in containers) {
+                container.stats ();
+        debug ("Container name: %s, memory used: %lld, perc: %f", container.name, container.mem_used, container.mem_percentage);
+        }
+        detailed_view.update();
+
+        
 
         //  for (var i = 0; i < api_containers.length; i++) {
         //      var container = api_containers[i];
