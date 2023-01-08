@@ -1,51 +1,46 @@
 public class Monitor.ContainerView : Gtk.Box {
-    private ContainerManager container_manager;
-
-    private ContainerSidebarView sidebar_view = new ContainerSidebarView ();
-    private ContainerDetailedView detailed_view = new ContainerDetailedView ();
+    public ContainersTreeViewModel container_treeview_model = new ContainersTreeViewModel ();
+    public ContainerTreeView container_treeview;
+    private ContainerInfoView container_info_view = new ContainerInfoView ();
 
     private Gee.ArrayList<DockerContainer> containers;
 
     construct {
         orientation = Gtk.Orientation.VERTICAL;
         hexpand = true;
+
+        this.container_treeview = new ContainerTreeView (container_treeview_model);
+        this.container_treeview.container_selected.connect(set_container_container_info_view);
+
     }
 
     public ContainerView () {
 
-        container_manager = new ContainerManager ();
-
-        sidebar_view.container_selected.connect(set_container_detailed_view);
-
-        prepopulate ();
+        var container_tree_view_scrolled = new Gtk.ScrolledWindow (null, null);
+        container_tree_view_scrolled.add (container_treeview);
 
         var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-        paned.pack1 (sidebar_view, true, false);
-        paned.pack2 (detailed_view, true, false);
+        paned.pack1 (container_tree_view_scrolled, true, false);
+        paned.pack2 (container_info_view, true, false);
 
         add (paned);
     }
 
-    private void set_container_detailed_view(DockerContainer container) {
-        this.detailed_view.container = container;
-    }
-
-    private async void prepopulate () {
-        this.containers = yield container_manager.list_containers ();
-
-        foreach (var container in containers) {
-            sidebar_view.insert (ref container);
-        }
+    private void set_container_container_info_view(DockerContainer container) {
+        this.container_info_view.container = container;
     }
 
 
     public void update () {
-        foreach (var container in containers) {
-                container.stats ();
-        debug ("Container name: %s, memory used: %lld, perc: %f", container.name, container.mem_used, container.mem_percentage);
-        debug ("Container name: %s,  cpu: %f", container.name, container.cpu_percentage);
-        }
-        detailed_view.update();
+        new Thread<bool> ("update-containers", () => {
+            Idle.add (() => {
+                container_info_view.update();
+                container_treeview_model.container_manager.update_containers.begin ();
+
+                return false;
+            });
+            return true;
+        });
 
         
 

@@ -1,4 +1,4 @@
-public class Monitor.ContainerDetailedView : Gtk.Grid  {
+public class Monitor.ContainerInfoView : Gtk.Grid  {
 
     private DockerContainer _container;
     public DockerContainer ? container {
@@ -7,10 +7,14 @@ public class Monitor.ContainerDetailedView : Gtk.Grid  {
         }
         set {
             _container = value;
-            clear_graphs ();
-            set_charts_data (_container);
+            this.container_charts.clear_graphs ();
+            this.container_charts.set_charts_data (_container);
+            this.container_header.update(container);
         }
     }
+
+    private ContainerInfoHeader container_header = new ContainerInfoHeader ();
+    private ContainerInfoCharts container_charts = new ContainerInfoCharts ();
 
     private Gtk.Label cpu_label;
     private Gtk.Label ram_label;
@@ -19,12 +23,13 @@ public class Monitor.ContainerDetailedView : Gtk.Grid  {
     private Chart ram_chart;
 
     construct {
-        this.expand = true;
+        this.expand = false;
         this.width_request = 200;
 
         column_spacing = 6;
         row_spacing = 6;
         vexpand = false;
+        margin = 12;
         column_homogeneous = true;
         row_homogeneous = false;
 
@@ -50,21 +55,14 @@ public class Monitor.ContainerDetailedView : Gtk.Grid  {
         ram_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
         ram_label.halign = Gtk.Align.START;
 
-        attach (cpu_label, 0, 0, 1, 1);
-        attach (ram_label, 1, 0, 1, 1);
+        attach (container_header, 0, 0, 1, 1);
+        attach (container_charts, 0, 1, 1, 1);
 
-        attach (cpu_graph_box, 0, 1, 1, 1);
-        attach (mem_graph_box, 1, 1, 1, 1);
-    }
+        //  attach (cpu_label, 0, 0, 1, 1);
+        //  attach (ram_label, 1, 0, 1, 1);
 
-    public void set_charts_data (DockerContainer container) {
-        cpu_chart.preset_data (0, container.cpu_percentage_history);
-        ram_chart.preset_data (0, container.mem_percentage_history);
-    }
-
-    public void clear_graphs () {
-        cpu_chart.clear ();
-        ram_chart.clear ();
+        //  attach (cpu_graph_box, 0, 1, 1, 1);
+        //  attach (mem_graph_box, 1, 1, 1, 1);
     }
 
     //  private Gtk.Widget build_container_name () {
@@ -76,10 +74,9 @@ public class Monitor.ContainerDetailedView : Gtk.Grid  {
     //  }
 
     public void update () {
-        cpu_label.set_text ((_("CPU: %.1f%%")).printf (container.cpu_percentage));
-        ram_label.set_text ((_("RAM: %.1f%%")).printf (container.mem_percentage));
-
-        cpu_chart.update (0, container.cpu_percentage);
-        ram_chart.update (0, container.mem_percentage);
+        if (container != null) {
+            this.container_header.update(container);
+            this.container_charts.update (container);
+        }
     }
 }

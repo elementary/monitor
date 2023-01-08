@@ -21,9 +21,12 @@ source_app_files = [
     'Views/SystemView/SystemGPUView.vala',
 
     'Views/ContainerView/ContainerView.vala',
+    'Views/ContainerView/ContainerTreeView.vala',
     'Views/ContainerView/ContainerSidebarView.vala',
     'Views/ContainerView/ContainerSidebarItem.vala',
-    'Views/ContainerView/ContainerDetailedView.vala',
+    'Views/ContainerView/ContainerInfoView/ContainerInfoView.vala',
+    'Views/ContainerView/ContainerInfoView/ContainerInfoHeader.vala',
+    'Views/ContainerView/ContainerInfoView/ContainerInfoCharts.vala',
 
     # Widgets related only to ProcessInfoView
     'Views/ProcessView/ProcessInfoView/Preventor.vala',
@@ -45,6 +48,7 @@ source_app_files = [
     # Models
     'Models/TreeViewModel.vala',
     'Models/OpenFilesTreeViewModel.vala',
+    'Models/ContainersTreeViewModel.vala',
 
     # Other
     # 'Managers/AppManager.vala',
