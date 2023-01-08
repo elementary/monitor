@@ -50,10 +50,11 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         permission_error_infobar.get_content_area ().add (permission_error_label);
         add (permission_error_infobar);
 
-        var grid = new Gtk.Grid ();
-        grid.margin = 12;
-        grid.hexpand = true;
-        grid.column_spacing = 12;
+        var grid = new Gtk.Grid () {
+            margin = 12,
+            hexpand = true,
+            column_spacing = 12
+        };
         add (grid);
 
 

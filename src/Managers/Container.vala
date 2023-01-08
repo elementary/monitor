@@ -19,11 +19,24 @@ namespace Monitor {
         public double mem_percentage {
             get {
                 if (this.mem_used == 0) return 0;
-                return (((double) mem_used / (double) mem_available) * 1000.0);
+                return (((double) mem_used / (double) mem_available) * 100.0);
             }
         }
 
-        public double cpu_percentage { get; private set; }
+        int64 total_usage;
+        int64 pre_total_usage;
+        int64 system_cpu_usage;
+        int64 pre_system_cpu_usage;
+        int64 number_cpus;
+
+        public double cpu_percentage {
+            get {
+                if (this.total_usage == 0) return 0;
+                int64 cpu_delta = total_usage - this.pre_total_usage;
+                int64 system_cpu_delta = system_cpu_usage - this.pre_system_cpu_usage;
+                return ((double) cpu_delta / (double) system_cpu_delta) * (double) this.number_cpus * 100.0;
+            }
+        }
 
         const int HISTORY_BUFFER_SIZE = 30;
         public Gee.ArrayList<double ? > cpu_percentage_history = new Gee.ArrayList<double ? > ();
@@ -61,7 +74,6 @@ namespace Monitor {
             // this.id = id;
             // this.type = DockerContainerType.CONTAINER;
             // this.state = this.get_state (container.state);
-            cpu_percentage = 0;
         }
 
         public string format_name (string name) {
@@ -146,26 +158,24 @@ namespace Monitor {
                 var json_precpu_stats = root_object.get_object_member ("precpu_stats");
 
                 var json_cpu_usage = json_cpu_stats.get_object_member ("cpu_usage");
-                int64 total_usage = json_cpu_usage.get_int_member ("total_usage");
+                this.total_usage = json_cpu_usage.get_int_member ("total_usage");
 
                 var json_precpu_usage = json_precpu_stats.get_object_member ("cpu_usage");
-                int64 pretotal_usage = json_precpu_usage.get_int_member ("total_usage");
+                this.pre_total_usage = json_precpu_usage.get_int_member ("total_usage");
 
-                int64 cpu_delta = total_usage - pretotal_usage;
 
                 if (json_cpu_stats.has_member ("system_cpu_usage")) {
-                int64 system_cpu_usage = json_cpu_stats.get_int_member ("system_cpu_usage");
-                int64 presystem_cpu_usage = json_precpu_stats.get_int_member ("system_cpu_usage");
+                    this.system_cpu_usage = json_cpu_stats.get_int_member ("system_cpu_usage");
+                    this.pre_system_cpu_usage = json_precpu_stats.get_int_member ("system_cpu_usage");
 
-                int64 system_cpu_delta = system_cpu_usage - presystem_cpu_usage;
-                int64 number_cpus = json_cpu_stats.get_int_member ("online_cpus");
-
-                //  debug("%lld, %lld", total_usage, pretotal_usage);
-
-                cpu_percentage = ((double)cpu_delta / (double)system_cpu_delta) * (double)number_cpus * 1000.0;
+                    this.number_cpus = json_cpu_stats.get_int_member ("online_cpus");
                 } else {
-                    cpu_percentage = 1;
+                    this.system_cpu_usage = 0;
+                    this.pre_system_cpu_usage = 0;
+                    this.number_cpus = 0;
                 }
+
+                    // debug("%lld, %lld", total_usage, pretotal_usage);
 
                 // Making RAM history
                 if (mem_percentage_history.size == HISTORY_BUFFER_SIZE) {

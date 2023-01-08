@@ -31,14 +31,22 @@ namespace Monitor {
         public string api_version;
     }
 
-    class ContainerManager : Object {
+    public class ContainerManager : Object {
         public HttpClient http_client;
+
+        private Gee.TreeMap<string, DockerContainer> container_list = new Gee.TreeMap<string, DockerContainer> ();
+
+        public signal void container_added (DockerContainer container);
+        public signal void container_removed (string id);
+        public signal void updated ();
 
         public ContainerManager () {
             this.http_client = new HttpClient ();
             this.http_client.verbose = false;
             this.http_client.base_url = "http://localhost/v1.41";
             this.http_client.unix_socket_path = "/run/docker.sock";
+
+            this.update_containers.begin ();
         }
 
         private static Json.Node parse_json (string data) throws ApiClientError {
@@ -58,10 +66,17 @@ namespace Monitor {
             }
         }
 
-        public async Gee.ArrayList<DockerContainer> list_containers () throws ApiClientError {
-            try {
-                Gee.ArrayList<DockerContainer> containers = new Gee.ArrayList<DockerContainer> ();
+        public DockerContainer ? get_container (string id) {
+            //  if (!container_list.has_key (id)) return;
+            return container_list[id];
+        }
 
+        public Gee.Map<string, DockerContainer> get_container_list () {
+            return container_list.read_only_view;
+        }
+
+        public async void update_containers () throws ApiClientError {
+            try {
                 var resp = yield this.http_client.r_get ("/containers/json?all=true");
 
                 //
@@ -122,10 +137,11 @@ namespace Monitor {
                     // }
 
                     //
-                    containers.add (container);
+                    container_list.set (container.id, container);
                 }
+                /* emit the updated signal so that subscribers can update */
+                updated ();
 
-                return containers;
             } catch (HttpClientError error) {
                 if (error is HttpClientError.ERROR_NO_ENTRY) {
                     throw new ApiClientError.ERROR_NO_ENTRY (error.message);
@@ -139,137 +155,135 @@ namespace Monitor {
             }
         }
 
+        //  public async ContainerInspectInfo inspect_container (DockerContainer container) throws ApiClientError {
+        //      try {
+        //          var container_info = ContainerInspectInfo ();
+        //          var resp = yield this.http_client.r_get (@"/containers/$(container.id)/json");
 
+        //          if (resp.code == 404) {
+        //              throw new ApiClientError.ERROR ("No such container");
+        //          }
+        //          if (resp.code == 500) {
+        //              throw new ApiClientError.ERROR ("Server error");
+        //          }
 
-        public async ContainerInspectInfo inspect_container (DockerContainer container) throws ApiClientError {
-            try {
-                var container_info = ContainerInspectInfo ();
-                var resp = yield this.http_client.r_get (@"/containers/$(container.id)/json");
+        //          //
+        //          if (resp.code == 404) {
+        //              throw new ApiClientError.ERROR ("No such container");
+        //          }
+        //          if (resp.code == 500) {
+        //              throw new ApiClientError.ERROR ("Server error");
+        //          }
 
-                if (resp.code == 404) {
-                    throw new ApiClientError.ERROR ("No such container");
-                }
-                if (resp.code == 500) {
-                    throw new ApiClientError.ERROR ("Server error");
-                }
+        //          //
+        //          var json = yield resp.body_data_stream.read_line_utf8_async ();
 
-                //
-                if (resp.code == 404) {
-                    throw new ApiClientError.ERROR ("No such container");
-                }
-                if (resp.code == 500) {
-                    throw new ApiClientError.ERROR ("Server error");
-                }
+        //          assert_nonnull (json);
 
-                //
-                var json = yield resp.body_data_stream.read_line_utf8_async ();
+        //          var root_node = parse_json (json);
+        //          var root_object = root_node.get_object ();
+        //          assert_nonnull (root_object);
 
-                assert_nonnull (json);
+        //          //
+        //          container_info.name = root_object.get_string_member ("Name");
 
-                var root_node = parse_json (json);
-                var root_object = root_node.get_object ();
-                assert_nonnull (root_object);
+        //          //
+        //          var state_object = root_object.get_object_member ("State");
+        //          assert_nonnull (state_object);
 
-                //
-                container_info.name = root_object.get_string_member ("Name");
+        //          container_info.status = state_object.get_string_member ("Status");
 
-                //
-                var state_object = root_object.get_object_member ("State");
-                assert_nonnull (state_object);
+        //          //
+        //          var config_object = root_object.get_object_member ("Config");
+        //          assert_nonnull (config_object);
 
-                container_info.status = state_object.get_string_member ("Status");
+        //          container_info.image = config_object.get_string_member ("Image");
 
-                //
-                var config_object = root_object.get_object_member ("Config");
-                assert_nonnull (config_object);
+        //          //
+        //          var env_array = config_object.get_array_member ("Env");
 
-                container_info.image = config_object.get_string_member ("Image");
+        //          if (env_array != null && env_array.get_length () > 0) {
+        //              container_info.envs = new string[0];
 
-                //
-                var env_array = config_object.get_array_member ("Env");
+        //              foreach (var env_node in env_array.get_elements ()) {
+        //                  container_info.envs += env_node.get_string () ?? _("Unknown");
+        //              }
+        //          }
 
-                if (env_array != null && env_array.get_length () > 0) {
-                    container_info.envs = new string[0];
+        //          //
+        //          var host_config_object = root_object.get_object_member ("HostConfig");
 
-                    foreach (var env_node in env_array.get_elements ()) {
-                        container_info.envs += env_node.get_string () ?? _("Unknown");
-                    }
-                }
+        //          if (host_config_object != null) {
+        //              var binds_array = host_config_object.get_array_member ("Binds");
 
-                //
-                var host_config_object = root_object.get_object_member ("HostConfig");
+        //              if (binds_array != null && binds_array.get_length () > 0) {
+        //                  container_info.binds = new string[0];
 
-                if (host_config_object != null) {
-                    var binds_array = host_config_object.get_array_member ("Binds");
+        //                  foreach (var bind_node in binds_array.get_elements ()) {
+        //                      container_info.binds += bind_node.get_string () ?? _("Unknown");
+        //                  }
+        //              }
+        //          }
 
-                    if (binds_array != null && binds_array.get_length () > 0) {
-                        container_info.binds = new string[0];
+        //          //
+        //          var port_bindings_object = host_config_object.get_object_member ("PortBindings");
 
-                        foreach (var bind_node in binds_array.get_elements ()) {
-                            container_info.binds += bind_node.get_string () ?? _("Unknown");
-                        }
-                    }
-                }
+        //          if (port_bindings_object != null) {
+        //              port_bindings_object.foreach_member ((obj, key, port_binding_node) => {
+        //                  var port_binding_array = port_binding_node.get_array ();
 
-                //
-                var port_bindings_object = host_config_object.get_object_member ("PortBindings");
+        //                  if (port_binding_array != null && port_binding_array.get_length () > 0) {
+        //                      container_info.ports = new string[0];
 
-                if (port_bindings_object != null) {
-                    port_bindings_object.foreach_member ((obj, key, port_binding_node) => {
-                        var port_binding_array = port_binding_node.get_array ();
+        //                      foreach (var port_node in port_binding_array.get_elements ()) {
+        //                          var port_object = port_node.get_object ();
+        //                          assert_nonnull (port_object);
 
-                        if (port_binding_array != null && port_binding_array.get_length () > 0) {
-                            container_info.ports = new string[0];
+        //                          // *with_default () works only with > 1.6.0 of json-glib
+        //                          // var ip = port_object.get_string_member_with_default ("HostIp", "");
+        //                          // var port = port_object.get_string_member_with_default ("HostPort", "-");
+        //                          var ip = port_object.get_string_member ("HostIp");
+        //                          var port = port_object.get_string_member ("HostPort");
+        //                          container_info.ports += key + (ip.length > 0 ? @"$ip:" : ":") + port;
+        //                      }
+        //                  }
+        //              });
+        //          }
 
-                            foreach (var port_node in port_binding_array.get_elements ()) {
-                                var port_object = port_node.get_object ();
-                                assert_nonnull (port_object);
+        //          return container_info;
+        //      } catch (HttpClientError error) {
+        //          throw new ApiClientError.ERROR (error.message);
+        //      } catch (IOError error) {
+        //          throw new ApiClientError.ERROR (error.message);
+        //      }
+        //  }
 
-                                // *with_default () works only with > 1.6.0 of json-glib
-                                // var ip = port_object.get_string_member_with_default ("HostIp", "");
-                                // var port = port_object.get_string_member_with_default ("HostPort", "-");
-                                var ip = port_object.get_string_member ("HostIp");
-                                var port = port_object.get_string_member ("HostPort");
-                                container_info.ports += key + (ip.length > 0 ? @"$ip:" : ":") + port;
-                            }
-                        }
-                    });
-                }
+        //  public async DockerVersionInfo version () throws ApiClientError {
+        //      try {
+        //          var version = DockerVersionInfo ();
+        //          var resp = yield this.http_client.r_get ("/version");
 
-                return container_info;
-            } catch (HttpClientError error) {
-                throw new ApiClientError.ERROR (error.message);
-            } catch (IOError error) {
-                throw new ApiClientError.ERROR (error.message);
-            }
-        }
+        //          //
+        //          var json = yield resp.body_data_stream.read_line_utf8_async ();
 
-        public async DockerVersionInfo version () throws ApiClientError {
-            try {
-                var version = DockerVersionInfo ();
-                var resp = yield this.http_client.r_get ("/version");
+        //          assert_nonnull (json);
 
-                //
-                var json = yield resp.body_data_stream.read_line_utf8_async ();
+        //          var root_node = parse_json (json);
+        //          var root_object = root_node.get_object ();
+        //          assert_nonnull (root_object);
 
-                assert_nonnull (json);
-
-                var root_node = parse_json (json);
-                var root_object = root_node.get_object ();
-                assert_nonnull (root_object);
-
-                // *with_default () works only with > 1.6.0 of json-glib
-                // version.version = root_object.get_string_member_with_default ("Version", "-");
-                // version.api_version = root_object.get_string_member_with_default ("ApiVersion", "-");
-                version.version = root_object.get_string_member ("Version");
-                version.api_version = root_object.get_string_member ("ApiVersion");
-                return version;
-            } catch (HttpClientError error) {
-                throw new ApiClientError.ERROR (error.message);
-            } catch (IOError error) {
-                throw new ApiClientError.ERROR (error.message);
-            }
-        }
+        //          // *with_default () works only with > 1.6.0 of json-glib
+        //          // version.version = root_object.get_string_member_with_default ("Version", "-");
+        //          // version.api_version = root_object.get_string_member_with_default ("ApiVersion", "-");
+        //          version.version = root_object.get_string_member ("Version");
+        //          version.api_version = root_object.get_string_member ("ApiVersion");
+        //          return version;
+        //      } catch (HttpClientError error) {
+        //          throw new ApiClientError.ERROR (error.message);
+        //      } catch (IOError error) {
+        //          throw new ApiClientError.ERROR (error.message);
+        //      }
+        //  }
 
         public async void ping () throws ApiClientError {
             try {
