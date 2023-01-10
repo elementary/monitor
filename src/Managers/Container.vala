@@ -146,7 +146,7 @@ namespace Monitor {
                 // Newer version of json library has default values option
                 if (json_memory_stats.has_member ("stats")) {
                     var json_memory_stats_stats = json_memory_stats.get_object_member ("stats");
-                    this.mem_used = json_memory_stats.get_int_member ("usage") - json_memory_stats_stats.get_int_member ("cache");
+                    this.mem_used = json_memory_stats.get_int_member ("usage") - json_memory_stats_stats.get_int_member ("inactive_file");
                     this.mem_available = json_memory_stats.get_int_member ("limit");
                 } else {
                     this.mem_used = 0;

@@ -104,24 +104,31 @@ namespace Monitor {
                     var container_object = container_node.get_object ();
                     assert_nonnull (container_object);
 
+                    if (!container_list.has_key (container_object.get_string_member ("Id"))) {
+
                     var container = new DockerContainer (container_object.get_string_member ("Id"), ref this.http_client) {
                         image = container_object.get_string_member ("Image"),
                         // state = container.get_state (container_object.get_string_member ("State"));
                     };
 
-
-                    //
                     var name_array = container_object.get_array_member ("Names");
-
                     foreach (var name_node in name_array.get_elements ()) {
                         container.name = container.format_name (name_node.get_string ());
                         assert_nonnull (container.name);
                         break;
                     }
 
+                    container_list.set (container.id, container);
+                }
+
+
                     //
-                    var labels_object = container_object.get_object_member ("Labels");
-                    assert_nonnull (labels_object);
+
+
+
+                    //
+                    //  var labels_object = container_object.get_object_member ("Labels");
+                    //  assert_nonnull (labels_object);
 
                     // if (labels_object.has_member ("com.docker.compose.project")) {
                     // container.label_project = container.labels_object.get_string_member ("com.docker.compose.project");
@@ -137,7 +144,12 @@ namespace Monitor {
                     // }
 
                     //
-                    container_list.set (container.id, container);
+
+                }
+
+                foreach (var container in this.container_list.values) {
+                    container.stats.begin ();
+                    
                 }
                 /* emit the updated signal so that subscribers can update */
                 updated ();

@@ -116,18 +116,18 @@ public class Monitor.ContainerTreeView : Gtk.TreeView {
         model.get_value (iter, ContainerColumn.MEMORY, out memory_usage_value);
         int64 memory_usage = memory_usage_value.get_int64 ();
         double memory_usage_double = (double) memory_usage;
-        string units = _("KiB");
+        string units = _("B");
 
         // convert to MiB if needed
         if (memory_usage_double > 1024.0) {
             memory_usage_double /= 1024.0;
-            units = _("MiB");
+            units = _("KiB");
         }
 
         // convert to GiB if needed
         if (memory_usage_double > 1024.0) {
             memory_usage_double /= 1024.0;
-            units = _("GiB");
+            units = _("MiB");
         }
 
         // format the double into a string
