@@ -67,7 +67,7 @@ public class Monitor.ContainersTreeViewModel : Gtk.TreeStore {
     private void update_model () {
         foreach (string id in container_rows.keys) {
             DockerContainer container = container_manager.get_container (id);
-            debug(container.name);
+            debug("%s, %lld", container.name, container.mem_used);
             Gtk.TreeIter iter = container_rows[id];
             set (iter,
                  Column.CPU, container.cpu_percentage,
