@@ -25,6 +25,7 @@ public class Monitor.ContainersTreeViewModel : Gtk.TreeStore {
         // process_manager.process_added.connect ((process) => add_process (process));
         // process_manager.process_removed.connect ((pid) => remove_process (pid));
         container_manager.updated.connect (update_model);
+        container_manager.container_added.connect ((container) => add_container (container));
 
         Idle.add (() => { add_running_containers (); return false; });
     }
