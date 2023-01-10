@@ -197,6 +197,16 @@ namespace Monitor {
             }
         }
 
+        public bool update () {
+            try {
+                this.stats.begin ();
+                return true;
+            } catch (ApiClientError error) {
+                warning ("Couldn't update container: %s. Cause: %s", this.name, error.message);
+                return false;
+            }
+        }
+
         // private uint64 get_mem_stat_total_inactive_file () {
         // var file = File.new_for_path ("/sys/fs/cgroup/memory/docker/%s/memory.stat".printf (id));
 
