@@ -9,7 +9,7 @@ public enum Monitor.ContainerColumn {
 
 public class Monitor.ContainersTreeViewModel : Gtk.TreeStore {
     public ContainerManager container_manager = new ContainerManager ();
-    private Gee.Map<string, Gtk.TreeIter ? > container_rows = new Gee.HashMap<string, Gtk.TreeIter ? > ();
+    private Gee.HashMap<string, Gtk.TreeIter ? > container_rows = new Gee.HashMap<string, Gtk.TreeIter ? > ();
     public signal void added_first_row ();
 
     construct {
@@ -21,11 +21,9 @@ public class Monitor.ContainersTreeViewModel : Gtk.TreeStore {
             typeof (string),
         });
 
-        // process_manager = ProcessManager.get_default ();
-        // process_manager.process_added.connect ((process) => add_process (process));
-        // process_manager.process_removed.connect ((pid) => remove_process (pid));
         container_manager.updated.connect (update_model);
         container_manager.container_added.connect ((container) => add_container (container));
+        container_manager.container_removed.connect ((id) => remove_container (id));
 
         Idle.add (() => { add_running_containers (); return false; });
     }
@@ -68,7 +66,7 @@ public class Monitor.ContainersTreeViewModel : Gtk.TreeStore {
     private void update_model () {
         foreach (string id in container_rows.keys) {
             DockerContainer container = container_manager.get_container (id);
-            debug("%s, %lld", container.name, container.mem_used);
+            //  debug("%s, %lld", container.name, container.mem_used);
             Gtk.TreeIter iter = container_rows[id];
             set (iter,
                  Column.CPU, container.cpu_percentage,
@@ -77,12 +75,12 @@ public class Monitor.ContainersTreeViewModel : Gtk.TreeStore {
         }
     }
 
-    private void remove_process (string id) {
-        debug ("remove container %s from model".printf (id));
+    private void remove_container (string id) {
         // if process rows has pid
         if (container_rows.has_key (id)) {
-            var cached_iter = container_rows.get (id);
-            remove (ref cached_iter);
+            debug ("remove container %s from model".printf (id));
+            //  var cached_iter = container_rows.get (id);
+            //  remove (ref cached_iter);
             container_rows.unset (id);
         }
     }

@@ -13,6 +13,8 @@ namespace Monitor {
 
     public class DockerContainer : Object {
 
+        public bool exists { get; private set; }
+
         public int64 mem_used { get; private set; }
         public int64 mem_available { get; private set; }
 
@@ -71,6 +73,7 @@ namespace Monitor {
             this.id = id;
             this.cgroup = new Cgroup (this.id);
             this.http_client = http_client;
+            this.exists = true;
             // this.id = id;
             // this.type = DockerContainerType.CONTAINER;
             // this.state = this.get_state (container.state);
@@ -121,7 +124,7 @@ namespace Monitor {
             }
         }
 
-        public async void stats () throws ApiClientError {
+        public async bool stats () throws ApiClientError {
             try {
                 var resp = yield this.http_client.r_get (@"/containers/$(this.id)/stats?stream=false");
 
@@ -134,6 +137,10 @@ namespace Monitor {
 
                 var json = yield resp.body_data_stream.read_line_utf8_async ();
 
+                if ("No such container" in json) {
+                    this.exists = false;
+                }
+
                 // assert_nonnull (json);
 
                 var root_node = parse_json (json);
@@ -141,7 +148,7 @@ namespace Monitor {
                 // assert_nonnull (root_object);
 
                 var json_memory_stats = root_object.get_object_member ("memory_stats");
-                assert_nonnull (json_memory_stats);
+                if (json_memory_stats == null) throw new ApiClientError.ERROR ("json_memory_stats is null");
 
                 // Newer version of json library has default values option
                 if (json_memory_stats.has_member ("stats")) {
@@ -175,7 +182,7 @@ namespace Monitor {
                     this.number_cpus = 0;
                 }
 
-                    // debug("%lld, %lld", total_usage, pretotal_usage);
+                // debug("%lld, %lld", total_usage, pretotal_usage);
 
                 // Making RAM history
                 if (mem_percentage_history.size == HISTORY_BUFFER_SIZE) {
@@ -189,7 +196,7 @@ namespace Monitor {
                 }
                 cpu_percentage_history.add (cpu_percentage);
 
-
+                return true;
             } catch (HttpClientError error) {
                 throw new ApiClientError.ERROR (error.message);
             } catch (IOError error) {
@@ -197,14 +204,10 @@ namespace Monitor {
             }
         }
 
-        public bool update () {
-            try {
-                this.stats.begin ();
-                return true;
-            } catch (ApiClientError error) {
-                warning ("Couldn't update container: %s. Cause: %s", this.name, error.message);
-                return false;
-            }
+        public void update () {
+
+            this.stats.begin ();
+
         }
 
         // private uint64 get_mem_stat_total_inactive_file () {

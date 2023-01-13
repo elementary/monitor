@@ -98,6 +98,14 @@ namespace Monitor {
             }
         }
 
+        private void remove_container (DockerContainer container) {
+            var id = container.id;
+            if (container_list.has_key (id)) {
+                container_list.unset (id);
+                this.container_removed (id);
+            }
+        }
+
         public async void update_containers () throws ApiClientError {
             try {
                 var resp = yield this.http_client.r_get ("/containers/json?all=true");
@@ -156,7 +164,12 @@ namespace Monitor {
                 }
 
                 foreach (var container in this.container_list.values) {
-                    container.update ();
+                    if (container.exists) {
+                        container.update ();
+                    } else {
+                        this.remove_container (container);
+                    }
+
                 }
                 /* emit the updated signal so that subscribers can update */
                 updated ();
