@@ -86,7 +86,7 @@ namespace Monitor {
 
                 var container = new DockerContainer (json_container.get_string_member ("Id"), ref this.http_client) {
                     image = json_container.get_string_member ("Image"),
-                    // state = container.get_state (container_object.get_string_member ("State"));
+                    state = json_container.get_string_member ("State"),
                 };
 
                 var name_array = json_container.get_array_member ("Names");

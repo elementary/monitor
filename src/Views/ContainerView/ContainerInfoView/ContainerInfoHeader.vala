@@ -1,7 +1,8 @@
 public class Monitor.ContainerInfoHeader : Gtk.Grid {
     private Gtk.Image icon;
     public Gtk.Label state;
-    public Gtk.Label application_name;
+    public Gtk.Label container_name;
+    public Gtk.Label container_image;
     public LabelRoundy pid;
 
     public LabelRoundy ppid;
@@ -32,12 +33,12 @@ public class Monitor.ContainerInfoHeader : Gtk.Grid {
         icon_container.put (icon, 0, 0);
         icon_container.put (state, -5, 48);
 
-        application_name = new Gtk.Label (_("N/A"));
-        application_name.get_style_context ().add_class ("h2");
-        application_name.ellipsize = Pango.EllipsizeMode.END;
-        application_name.tooltip_text = _("N/A");
-        application_name.halign = Gtk.Align.START;
-        application_name.valign = Gtk.Align.START;
+        container_name = new Gtk.Label (_("N/A"));
+        container_name.get_style_context ().add_class ("h2");
+        container_name.ellipsize = Pango.EllipsizeMode.END;
+        container_name.tooltip_text = _("N/A");
+        container_name.halign = Gtk.Align.START;
+        container_name.valign = Gtk.Align.START;
 
         pid = new LabelRoundy (_("PID"));
         nice = new LabelRoundy (_("NI"));
@@ -49,21 +50,30 @@ public class Monitor.ContainerInfoHeader : Gtk.Grid {
         // TODO: tooltip_text UID
         username = new LabelRoundy ("");
 
-        var wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        wrapper.add (pid);
-        wrapper.add (priority);
-        wrapper.add (nice);
-        wrapper.add (num_threads);
-        wrapper.add (username);
+        //  var wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        //  wrapper.add (pid);
+        //  wrapper.add (priority);
+        //  wrapper.add (nice);
+        //  wrapper.add (num_threads);
+        //  wrapper.add (username);
+
+        container_image = new Gtk.Label (Utils.NO_DATA);
+
+        container_image.get_style_context ().add_class ("dim-label");
+        container_image.get_style_context ().add_class ("image");
+        container_image.max_width_chars = 48;
+        container_image.ellipsize = Pango.EllipsizeMode.END;
+        container_image.halign = Gtk.Align.START;
 
         attach (icon_container, 0, 0, 1, 2);
-        attach (application_name, 1, 0, 3, 1);
-        attach (wrapper, 1, 1, 1, 1);
+        attach (container_name, 1, 0, 3, 1);
+        attach (container_image, 1, 1, 1, 1);
     }
 
     public void update (DockerContainer container) {
-        application_name.set_text (container.name);
-        application_name.tooltip_text = container.id;
+        container_name.set_text (container.name);
+        container_name.tooltip_text = container.id;
+        container_image.set_text (container.image);
         //  pid.set_text (process.stat.pid.to_string ());
         //  nice.set_text (process.stat.nice.to_string ());
         //  priority.set_text (process.stat.priority.to_string ());

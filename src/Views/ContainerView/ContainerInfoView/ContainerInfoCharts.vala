@@ -14,6 +14,7 @@ public class Monitor.ContainerInfoCharts : Gtk.Grid {
 
         cpu_chart = new Chart (1);
         cpu_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_300));
+
         ram_chart = new Chart (1);
         ram_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_300));
 
@@ -47,16 +48,20 @@ public class Monitor.ContainerInfoCharts : Gtk.Grid {
     }
 
     public void update (DockerContainer container) {
-        cpu_label.set_text ((_("CPU: %.1f%%")).printf (container.cpu_percentage));
+        // If containers uses more then one core, graph skyrockets over top border
+        cpu_chart.config.y_axis.fixed_max = 100.0 * container.number_cpus;
+
+        cpu_label.set_text ((_("CPU: %.1f%%")).printf (container.cpu_percentage > 0 ? container.cpu_percentage : 0));
         ram_label.set_text ((_("RAM: %.1f%%")).printf (container.mem_percentage));
 
-        cpu_chart.update (0, container.cpu_percentage);
+        cpu_chart.update (0, container.cpu_percentage > 0 ? container.cpu_percentage : 0.0);
         ram_chart.update (0, container.mem_percentage);
     }
 
     public void clear_graphs () {
         cpu_chart.clear ();
         ram_chart.clear ();
+
     }
 
 }
