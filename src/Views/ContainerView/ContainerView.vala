@@ -33,12 +33,9 @@ public class Monitor.ContainerView : Gtk.Box {
 
     public void update () {
         new Thread<bool> ("update-containers", () => {
-            Idle.add (() => {
-                container_treeview_model.container_manager.update_containers.begin ();
+                container_treeview_model.container_manager.update_containers ();
                 container_info_view.update();
 
-                return false;
-            });
             return true;
         });
 

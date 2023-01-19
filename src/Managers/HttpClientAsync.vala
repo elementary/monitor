@@ -16,19 +16,19 @@ namespace Monitor {
         public string? unix_socket_path {get; set;}
         public string? base_url;
 
-        public HttpClientResponse r_get (string url) throws HttpClientError {
-            return this.request (HttpClientMethod.GET, url, new HttpClientResponse ());
+        public async HttpClientResponse r_get (string url) throws HttpClientError {
+            return yield this.request (HttpClientMethod.GET, url, new HttpClientResponse ());
         }
 
         public async HttpClientResponse r_post (string url) throws HttpClientError {
-            return this.request (HttpClientMethod.POST, url, new HttpClientResponse ());
+            return yield this.request (HttpClientMethod.POST, url, new HttpClientResponse ());
         }
 
         public async HttpClientResponse r_delete (string url) throws HttpClientError {
-            return this.request (HttpClientMethod.DELETE, url, new HttpClientResponse ());
+            return yield this.request (HttpClientMethod.DELETE, url, new HttpClientResponse ());
         }
 
-        public HttpClientResponse request (HttpClientMethod method, string url, HttpClientResponse response) throws HttpClientError {
+        public async HttpClientResponse request (HttpClientMethod method, string url, HttpClientResponse response) throws HttpClientError {
             var curl = new Curl.EasyHandle ();
 
             Curl.Code r;
@@ -48,8 +48,7 @@ namespace Monitor {
 
             //  debug ("call api method: %s - %s", this.get_request_method (method), url);
 
-            //  this.perform (curl);
-            curl.perform ();
+            yield this.perform (curl);
 
             long curl_errno = -1;
 

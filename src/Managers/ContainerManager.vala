@@ -32,9 +32,14 @@ namespace Monitor {
     }
 
     public class ContainerManager : Object {
+        private static GLib.Once<ContainerManager> instance;
+        public static unowned ContainerManager get_default () {
+            return instance.once (() => { return new ContainerManager (); });
+        }
+
         public HttpClient http_client;
 
-        private Gee.TreeMap<string, DockerContainer> container_list = new Gee.TreeMap<string, DockerContainer> ();
+        private Gee.Map<string, DockerContainer> container_list = new Gee.HashMap<string, DockerContainer> ();
 
         public signal void container_added (DockerContainer container);
         public signal void container_removed (string id);
@@ -47,6 +52,7 @@ namespace Monitor {
             this.http_client.unix_socket_path = "/run/docker.sock";
 
             this.update_containers.begin ();
+
         }
 
         private static Json.Node parse_json (string data) throws ApiClientError {
@@ -99,8 +105,10 @@ namespace Monitor {
         }
 
         private void remove_container (DockerContainer container) {
+            debug ("removing container: %s", container.name);
             var id = container.id;
             if (container_list.has_key (id)) {
+                debug ("yep");
                 container_list.unset (id);
                 this.container_removed (id);
             }
@@ -122,7 +130,7 @@ namespace Monitor {
                 var json = "";
                 string ? line = null;
 
-                while ((line = yield resp.body_data_stream.read_line_utf8_async ()) != null) {
+                while ((line = resp.body_data_stream.read_line_utf8 ()) != null) {
                     json += line;
                 }
 
@@ -162,16 +170,22 @@ namespace Monitor {
                     //
 
                 }
-
+                var remove_me = new Gee.HashSet<DockerContainer> ();
                 foreach (var container in this.container_list.values) {
-                    if (container.exists) {
-                        container.update ();
-                    } else {
-                        this.remove_container (container);
+                    debug ("CM updating %s", container.name);
+                    if (!container.exists) {
+                        remove_me.add (container);
+                        continue;
                     }
+                    container.update ();
+                }
 
+                foreach (var container in remove_me) {
+                    debug (container.name);
+                    remove_container (container);
                 }
                 /* emit the updated signal so that subscribers can update */
+
                 updated ();
 
             } catch (HttpClientError error) {
@@ -319,7 +333,7 @@ namespace Monitor {
 
         public async void ping () throws ApiClientError {
             try {
-                yield this.http_client.r_get ("/_ping");
+                this.http_client.r_get ("/_ping");
 
             } catch (HttpClientError error) {
                 if (error is HttpClientError.ERROR_NO_ENTRY) {
