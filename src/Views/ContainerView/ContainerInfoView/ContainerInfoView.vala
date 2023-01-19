@@ -19,9 +19,6 @@ public class Monitor.ContainerInfoView : Gtk.Grid  {
     private Gtk.Label cpu_label;
     private Gtk.Label ram_label;
 
-    private Chart cpu_chart;
-    private Chart ram_chart;
-
     construct {
         this.expand = false;
         this.width_request = 200;
@@ -33,20 +30,6 @@ public class Monitor.ContainerInfoView : Gtk.Grid  {
         column_homogeneous = true;
         row_homogeneous = false;
 
-        cpu_chart = new Chart (1);
-        cpu_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_300));
-        ram_chart = new Chart (1);
-        ram_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_300));
-
-        cpu_chart.height_request = 60;
-        ram_chart.height_request = 60;
-
-        var cpu_graph_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        cpu_graph_box.add (cpu_chart);
-
-        var mem_graph_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        mem_graph_box.add (ram_chart);
-
         cpu_label = new Gtk.Label ("CPU: " + Utils.NO_DATA);
         cpu_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
         cpu_label.halign = Gtk.Align.START;
@@ -57,12 +40,6 @@ public class Monitor.ContainerInfoView : Gtk.Grid  {
 
         attach (container_header, 0, 0, 1, 1);
         attach (container_charts, 0, 1, 1, 1);
-
-        //  attach (cpu_label, 0, 0, 1, 1);
-        //  attach (ram_label, 1, 0, 1, 1);
-
-        //  attach (cpu_graph_box, 0, 1, 1, 1);
-        //  attach (mem_graph_box, 1, 1, 1, 1);
     }
 
     //  private Gtk.Widget build_container_name () {

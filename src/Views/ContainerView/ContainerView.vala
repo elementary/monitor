@@ -22,6 +22,8 @@ public class Monitor.ContainerView : Gtk.Box {
         var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
         paned.pack1 (container_tree_view_scrolled, true, false);
         paned.pack2 (container_info_view, true, false);
+        paned.set_position (paned.max_position);
+
 
         add (paned);
     }
@@ -33,7 +35,7 @@ public class Monitor.ContainerView : Gtk.Box {
 
     public void update () {
         new Thread<bool> ("update-containers", () => {
-                container_treeview_model.container_manager.update_containers ();
+                container_treeview_model.container_manager.update_containers.begin ();
                 container_info_view.update();
 
             return true;

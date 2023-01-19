@@ -29,11 +29,11 @@ namespace Monitor {
         int64 pre_total_usage;
         int64 system_cpu_usage;
         int64 pre_system_cpu_usage;
-        int64 number_cpus;
+        public int64 number_cpus;
 
         public double cpu_percentage {
             get {
-                if (this.total_usage == 0) return 0;
+                if (this.total_usage == 0) return -1;
                 int64 cpu_delta = total_usage - this.pre_total_usage;
                 int64 system_cpu_delta = system_cpu_usage - this.pre_system_cpu_usage;
                 return ((double) cpu_delta / (double) system_cpu_delta) * (double) this.number_cpus * 100.0;
@@ -60,7 +60,7 @@ namespace Monitor {
         }
         public string image;
         // public DockerContainerType type;
-        // public DockerContainerState state;
+        public string state;
 
         public string ? config_path;
         public Gee.ArrayList<DockerContainer> ? services;
@@ -74,9 +74,9 @@ namespace Monitor {
             this.cgroup = new Cgroup (this.id);
             this.http_client = http_client;
             this.exists = true;
+            this.number_cpus = 1;
             // this.id = id;
             // this.type = DockerContainerType.CONTAINER;
-            // this.state = this.get_state (container.state);
         }
 
         public string format_name (string name) {

@@ -57,7 +57,7 @@ public class Monitor.ContainerTreeView : Gtk.TreeView {
         memory_column.set_sort_column_id (ContainerColumn.MEMORY);
         insert_column (memory_column, -1);
 
-        // setup PID column
+        // setup ID column
         var id_cell = new Gtk.CellRendererText ();
         id_cell.xalign = 0.5f;
         id_column = new Gtk.TreeViewColumn.with_attributes (_("ID"), id_cell);
@@ -66,7 +66,7 @@ public class Monitor.ContainerTreeView : Gtk.TreeView {
         id_column.alignment = 0.5f;
         id_column.set_sort_column_id (ContainerColumn.ID);
         id_column.add_attribute (id_cell, "text", ContainerColumn.ID);
-        insert_column (id_column, -1);
+        //  insert_column (id_column, -1);
 
         // resize all of the columns
         columns_autosize ();
