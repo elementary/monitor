@@ -3,12 +3,12 @@ public enum Monitor.ContainerColumn {
     NAME,
     CPU,
     MEMORY,
-    //  STATE,
+    // STATE,
     ID
 }
 
 public class Monitor.ContainersTreeViewModel : Gtk.TreeStore {
-    public ContainerManager container_manager = new ContainerManager ();
+    public ContainerManager container_manager;
     private Gee.HashMap<string, Gtk.TreeIter ? > container_rows = new Gee.HashMap<string, Gtk.TreeIter ? > ();
     public signal void added_first_row ();
 
@@ -20,6 +20,8 @@ public class Monitor.ContainersTreeViewModel : Gtk.TreeStore {
             typeof (int64),
             typeof (string),
         });
+
+        container_manager = ContainerManager.get_default ();
 
         container_manager.updated.connect (update_model);
         container_manager.container_added.connect ((container) => add_container (container));
@@ -48,10 +50,10 @@ public class Monitor.ContainersTreeViewModel : Gtk.TreeStore {
             // string icon_name = process.icon.to_string ();
 
             set (iter,
-                ContainerColumn.ICON, "",
+                 ContainerColumn.ICON, "",
                  ContainerColumn.NAME, container.name,
                  ContainerColumn.ID, container.id,
-                //   ContainerColumn.STATE, 0,
+                 // ContainerColumn.STATE, 0,
                  -1);
             if (container_rows.size < 1) {
                 added_first_row ();
@@ -66,12 +68,12 @@ public class Monitor.ContainersTreeViewModel : Gtk.TreeStore {
     private void update_model () {
         foreach (string id in container_rows.keys) {
             DockerContainer container = container_manager.get_container (id);
-            //  debug("%s, %lld", container.name, container.mem_used);
-            Gtk.TreeIter iter = container_rows[id];
-            set (iter,
-                 Column.CPU, container.cpu_percentage,
-                 Column.MEMORY, container.mem_used,
-                 -1);
+            // debug("%s, %lld", container.name, container.mem_used);
+                Gtk.TreeIter iter = container_rows[id];
+                set (iter,
+                     Column.CPU, container.cpu_percentage,
+                     Column.MEMORY, container.mem_used,
+                     -1);
         }
     }
 
@@ -79,8 +81,8 @@ public class Monitor.ContainersTreeViewModel : Gtk.TreeStore {
         // if process rows has pid
         if (container_rows.has_key (id)) {
             debug ("remove container %s from model".printf (id));
-            //  var cached_iter = container_rows.get (id);
-            //  remove (ref cached_iter);
+            var cached_iter = container_rows.get (id);
+            remove (ref cached_iter);
             container_rows.unset (id);
         }
     }

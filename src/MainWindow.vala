@@ -32,7 +32,7 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
         process_view = new ProcessView ();
         system_view = new SystemView (resources);
-        container_view = new ContainerView();
+        container_view = new ContainerView ();
 
         stack = new Gtk.Stack ();
         stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
@@ -75,7 +75,10 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
         new Thread<void> ("upd", () => {
             Timeout.add_seconds (MonitorApp.settings.get_int ("update-time"), () => {
                 process_view.update ();
+
+
                 container_view.update ();
+
 
                 Idle.add (() => {
                     system_view.update ();

@@ -137,8 +137,10 @@ namespace Monitor {
 
                 var json = yield resp.body_data_stream.read_line_utf8_async ();
 
-                if ("No such container" in json) {
+                if (json == null || "No such container" in json) {
+                    debug ("Container cease to exist: %s", this.name);
                     this.exists = false;
+                    return false;
                 }
 
                 // assert_nonnull (json);
