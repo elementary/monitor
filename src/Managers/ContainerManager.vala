@@ -96,6 +96,22 @@ namespace Monitor {
                     break;
                 }
 
+                var labels_object = json_container.get_object_member ("Labels");
+                assert_nonnull (labels_object);
+
+                if (labels_object.has_member ("com.docker.compose.project")) {
+                container.compose_project = labels_object.get_string_member ("com.docker.compose.project");
+                }
+                if (labels_object.has_member ("com.docker.compose.service")) {
+                container.compose_service = labels_object.get_string_member ("com.docker.compose.service");
+                }
+                // if (labels_object.has_member ("com.docker.compose.project.config_files")) {
+                // container.label_config = labels_object.get_string_member ("com.docker.compose.project.config_files");
+                // }
+                // if (labels_object.has_member ("com.docker.compose.project.working_dir")) {
+                // container.label_workdir = labels_object.get_string_member ("com.docker.compose.project.working_dir");
+                // }
+
                 container_list.set (container.id, container);
                 this.container_added (container);
                 return true;
@@ -151,21 +167,7 @@ namespace Monitor {
 
 
                     //
-                    // var labels_object = container_object.get_object_member ("Labels");
-                    // assert_nonnull (labels_object);
 
-                    // if (labels_object.has_member ("com.docker.compose.project")) {
-                    // container.label_project = container.labels_object.get_string_member ("com.docker.compose.project");
-                    // }
-                    // if (labels_object.has_member ("com.docker.compose.service")) {
-                    // container.label_service = labels_object.get_string_member ("com.docker.compose.service");
-                    // }
-                    // if (labels_object.has_member ("com.docker.compose.project.config_files")) {
-                    // container.label_config = labels_object.get_string_member ("com.docker.compose.project.config_files");
-                    // }
-                    // if (labels_object.has_member ("com.docker.compose.project.working_dir")) {
-                    // container.label_workdir = labels_object.get_string_member ("com.docker.compose.project.working_dir");
-                    // }
 
                     //
 

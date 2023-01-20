@@ -62,6 +62,9 @@ namespace Monitor {
         // public DockerContainerType type;
         public string state;
 
+        public string compose_project;
+        public string compose_service;
+
         public string ? config_path;
         public Gee.ArrayList<DockerContainer> ? services;
 
