@@ -3,7 +3,6 @@ public class Monitor.ContainerView : Gtk.Box {
     public ContainerTreeView container_treeview;
     private ContainerInfoView container_info_view = new ContainerInfoView ();
 
-    private Gee.ArrayList<DockerContainer> containers;
 
     construct {
         orientation = Gtk.Orientation.VERTICAL;
@@ -21,7 +20,7 @@ public class Monitor.ContainerView : Gtk.Box {
 
         var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
         paned.pack1 (container_tree_view_scrolled, true, false);
-        paned.pack2 (container_info_view, true, false);
+        //  paned.pack2 (container_info_view, true, false);
         paned.set_position (paned.max_position);
 
 

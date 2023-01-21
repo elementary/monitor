@@ -49,12 +49,12 @@ public class Monitor.ContainerInfoCharts : Gtk.Grid {
 
     public void update (DockerContainer container) {
         // If containers uses more then one core, graph skyrockets over top border
-        cpu_chart.config.y_axis.fixed_max = 100.0 * container.number_cpus;
+        //  cpu_chart.config.y_axis.fixed_max = 100.0 * container.number_cpus;
 
         cpu_label.set_text ((_("CPU: %.1f%%")).printf (container.cpu_percentage > 0 ? container.cpu_percentage : 0));
         ram_label.set_text ((_("RAM: %.1f%%")).printf (container.mem_percentage));
 
-        cpu_chart.update (0, container.cpu_percentage > 0 ? container.cpu_percentage : 0.0);
+        cpu_chart.update (0, container.cpu_percentage > 0 ? container.cpu_percentage / container.number_cpus : 0.0);
         ram_chart.update (0, container.mem_percentage);
     }
 
