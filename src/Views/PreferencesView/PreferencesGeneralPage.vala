@@ -7,6 +7,7 @@
  public class Monitor.PreferencesGeneralPage : Granite.SettingsPage {
     public Gtk.Switch background_switch;
     public Gtk.Switch enable_smooth_lines_switch;
+    public Gtk.Switch enable_containers_view_switch;
 
     private Gtk.Adjustment update_time_adjustment;
 
@@ -40,7 +41,7 @@
         enable_smooth_lines_switch.halign = Gtk.Align.END;
         enable_smooth_lines_switch.hexpand = true;
 
-        var update_time_label = new Gtk.Label (_("Update every:"));
+        var update_time_label = new Gtk.Label (_("Update every (requires restart):"));
         update_time_label.halign = Gtk.Align.START;
         update_time_adjustment = new Gtk.Adjustment (MonitorApp.settings.get_int ("update-time"), 1, 5, 1.0, 1, 0);
         Gtk.Scale update_time_scale = new Gtk.Scale (Gtk.Orientation.HORIZONTAL, update_time_adjustment) {
@@ -56,7 +57,14 @@
         update_time_scale.add_mark (4.0, Gtk.PositionType.BOTTOM, _("4s"));
         update_time_scale.add_mark (5.0, Gtk.PositionType.BOTTOM, _("5s"));
 
+        var enable_containers_view_label = new Gtk.Label (_("Show containers tab (requires restart):"));
+        enable_containers_view_label.halign = Gtk.Align.START;
 
+        enable_containers_view_switch = new Gtk.Switch () {
+            state = MonitorApp.settings.get_boolean ("containers-view-state"),
+            halign = Gtk.Align.END,
+            hexpand = true
+        };
 
         var content_area = new Gtk.Grid ();
         content_area.column_spacing = 12;
@@ -68,6 +76,8 @@
         content_area.attach (enable_smooth_lines_switch, 1, 2, 1, 1);
         content_area.attach (update_time_label, 0, 3, 1, 1);
         content_area.attach (update_time_scale, 0, 4, 1, 1);
+        content_area.attach (enable_containers_view_label, 0, 5, 1, 1);
+        content_area.attach (enable_containers_view_switch, 1, 5, 1, 1);
 
         add (content_area);
 
@@ -81,6 +91,10 @@
 
         update_time_adjustment.value_changed.connect (() => {
             MonitorApp.settings.set_int ("update-time", (int) update_time_adjustment.get_value ());
+        });
+
+        enable_containers_view_switch.notify["active"].connect (() => {
+            MonitorApp.settings.set_boolean ("containers-view-state", enable_containers_view_switch.state);
         });
 
     }

@@ -38,7 +38,10 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
         stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
         stack.add_titled (process_view, "process_view", _("Processes"));
         stack.add_titled (system_view, "system_view", _("System"));
-        stack.add_titled (container_view, "container_view", _("Containers"));
+
+        if (MonitorApp.settings.get_boolean ("containers-view-state")) {
+            stack.add_titled (container_view, "container_view", _("Containers"));
+        }
 
 
         Gtk.StackSwitcher stack_switcher = new Gtk.StackSwitcher ();
