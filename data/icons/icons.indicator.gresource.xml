@@ -3,6 +3,7 @@
   <gresource prefix="/com/github/stsdc/monitor/icons">
     <file compressed="true" preprocess="xml-stripblanks">cpu-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks">ram-symbolic.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks">gpu-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks">swap-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks">file-deleted-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks">temperature-sensor-symbolic.svg</file>
