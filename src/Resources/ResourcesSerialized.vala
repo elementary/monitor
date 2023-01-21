@@ -10,4 +10,5 @@ public struct ResourcesSerialized {
     public double swap_total;
     public int network_up;
     public int network_down;
+    public int gpu_percentage;
 }
