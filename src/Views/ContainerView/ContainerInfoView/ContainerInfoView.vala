@@ -1,4 +1,4 @@
-public class Monitor.ContainerInfoView : Gtk.Grid  {
+public class Monitor.ContainerInfoView : Gtk.Grid {
 
     private DockerContainer _container;
     public DockerContainer ? container {
@@ -9,7 +9,7 @@ public class Monitor.ContainerInfoView : Gtk.Grid  {
             _container = value;
             this.container_charts.clear_graphs ();
             this.container_charts.set_charts_data (_container);
-            this.container_header.update(container);
+            this.container_header.update (container);
         }
     }
 
@@ -42,18 +42,11 @@ public class Monitor.ContainerInfoView : Gtk.Grid  {
         attach (container_charts, 0, 1, 1, 1);
     }
 
-    //  private Gtk.Widget build_container_name () {
-    //      var container_name = new Gtk.Label (this.container.name);
-    //      container_name.get_style_context ().add_class ("primary");
-    //      container_name.halign = Gtk.Align.START;
-
-    //      return container_name;
-    //  }
-
     public void update () {
         if (container != null) {
-            this.container_header.update(container);
+            this.container_header.update (container);
             this.container_charts.update (container);
         }
     }
+
 }
