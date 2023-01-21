@@ -124,7 +124,6 @@ namespace Monitor {
             debug ("removing container: %s", container.name);
             var id = container.id;
             if (container_list.has_key (id)) {
-                debug ("yep");
                 container_list.unset (id);
                 this.container_removed (id);
             }
@@ -174,7 +173,7 @@ namespace Monitor {
                 }
                 var remove_me = new Gee.HashSet<DockerContainer> ();
                 foreach (var container in this.container_list.values) {
-                    debug ("CM updating %s", container.name);
+                    //  debug ("CM updating %s", container.name);
                     if (!container.exists) {
                         remove_me.add (container);
                         continue;

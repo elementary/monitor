@@ -121,8 +121,18 @@ public class Monitor.ContainersTreeViewModel : Gtk.TreeStore {
                  Column.MEMORY, container.mem_used,
                  -1);
         }
+        var remove_me = new Gee.HashSet<string> ();
+        foreach (var project in project_rows) {
+            Gtk.TreeIter child_iter;
+            var project_iter = project.value;
 
-        foreach (var project_iter in project_rows.values) {
+            if (!iter_children (out child_iter, project_iter)) {
+                debug ("Project %s has no services! Will be removed.", project.key);
+                remove (ref project_iter);
+                remove_me.add (project.key);
+                continue;
+            }
+
             int64 total_mem = 0;
             double total_cpu = 0;
             this.get_children_total (project_iter, ref total_mem, ref total_cpu);
@@ -130,6 +140,10 @@ public class Monitor.ContainersTreeViewModel : Gtk.TreeStore {
                 Column.CPU, total_cpu,
                 Column.MEMORY, total_mem,
                 -1);
+        }
+
+        foreach (string project_name in remove_me) {
+            project_rows.unset (project_name);
         }
     }
 
