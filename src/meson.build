@@ -22,8 +22,6 @@ source_app_files = [
 
     'Views/ContainerView/ContainerView.vala',
     'Views/ContainerView/ContainerTreeView.vala',
-    'Views/ContainerView/ContainerSidebarView.vala',
-    'Views/ContainerView/ContainerSidebarItem.vala',
     'Views/ContainerView/ContainerInfoView/ContainerInfoView.vala',
     'Views/ContainerView/ContainerInfoView/ContainerInfoHeader.vala',
     'Views/ContainerView/ContainerInfoView/ContainerInfoCharts.vala',
