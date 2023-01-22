@@ -1,7 +1,16 @@
 com.github.stsdc.monitor (0.15.0) focal; urgency=low
 
-  * Show containers stats
+  * Show containers stats (inspired by Whaler)
+  * Add GPU usage in Indicator
   * Remove transparency from CPU stacked chart
+  * Add docker icon
+  * Update Ukrainian translation
+  * Update Portuguese translation
+  * Update Japanese translation
+  * Update Russian translation
+  * Fix segfaults caused by issue in assigning colors in charts
+  * Add an option to choose refresh rate
+  * Use harmonic mean to calculate frequency values
 
  -- Stanisław Dac <stadac@pm.me>  Sun, 22 Jan 2023 15:38:27 
 
