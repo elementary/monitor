@@ -13,7 +13,7 @@
     <a href="https://github.com/stsdc/monitor/releases">
         <img src="https://img.shields.io/github/release/stsdc/monitor.svg" alt="Release">
     </a>
-    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/stsdc/monitor/CI">
+    <img alt="GitHub Workflow Status" src="https://github.com/stsdc/monitor/actions/workflows/main.yml/badge.svg">
     <a href="https://copr.fedorainfracloud.org/coprs/stsdc/monitor/package/com.github.stsdc.monitor/"><img src="https://copr.fedorainfracloud.org/coprs/stsdc/monitor/package/com.github.stsdc.monitor/status_image/last_build.png" /></a>
     <a href="https://github.com/stsdc/monitor/blob/master/LICENSE">
         <img src="https://img.shields.io/github/license/stsdc/monitor.svg">
