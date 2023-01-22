@@ -1,4 +1,4 @@
-com.github.stsdc.monitor (0.15.0) focal; urgency=low
+com.github.stsdc.monitor (0.15.0-ci5) focal; urgency=low
 
   * Show containers stats (inspired by Whaler)
   * Add GPU usage in Indicator
