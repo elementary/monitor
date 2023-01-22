@@ -61,7 +61,7 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
 
         set_popover_more_info (new SystemCPUInfoPopover (cpu));
 
-        cpu_utilization_chart = new Chart (cpu.core_list.size, MonitorApp.settings.get_boolean ("smooth-lines-state"));
+        cpu_utilization_chart = new Chart (cpu.core_list.size, MonitorApp.settings.get_boolean ("smooth-lines-state"), 1.0);
         cpu_utilization_chart.config.y_axis.tick_interval = 100;
         cpu_utilization_chart.config.y_axis.fixed_max = 100.0 * cpu.core_list.size;
         set_main_chart (cpu_utilization_chart);
