@@ -16,7 +16,7 @@ Build-Depends: meson,
                libudisks2-dev,
                libxnvctrl0,
                libxnvctrl-dev,
-               libcurl3-gnutls-dev
+               libcurl4-gnutls-dev,
                sassc
 Standards-Version: 4.1.1
 
