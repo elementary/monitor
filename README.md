@@ -20,9 +20,9 @@
     </a>
 </p>
 
-![Monitor Screenshot](https://github.com/stsdc/monitor/raw/master/data/screenshots/monitor-processes.png)
-![Monitor Screenshot](https://github.com/stsdc/monitor/raw/master/data/screenshots/monitor-system.png)
-![Monitor Screenshot](https://github.com/stsdc/monitor/raw/master/data/screenshots/monitor-containers.png)
+![Monitor Screenshot](https://github.com/stsdc/monitor/raw/dev/data/screenshots/monitor-processes.png)
+![Monitor Screenshot](https://github.com/stsdc/monitor/raw/dev/data/screenshots/monitor-system.png)
+![Monitor Screenshot](https://github.com/stsdc/monitor/raw/dev/data/screenshots/monitor-containers.png)
 
 ## Install
 
