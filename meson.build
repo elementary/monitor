@@ -1,4 +1,4 @@
-project('com.github.stsdc.monitor', 'vala', 'c', version: '0.14.0')
+project('com.github.stsdc.monitor', 'vala', 'c', version: '0.15.0')
 
 # these are Meson modules
 gnome = import('gnome')
@@ -36,6 +36,7 @@ app_dependencies = [
     dependency('gdk-x11-3.0'),
     dependency('x11'),
     dependency('udisks2'),
+    dependency('json-glib-1.0'),
 
     livechart_proj.get_variable('livechart_dep'),
 
@@ -44,6 +45,8 @@ app_dependencies = [
     meson.get_compiler('c').find_library('XNVCtrl'),
     meson.get_compiler('c').find_library('X11'),
     meson.get_compiler('vala').find_library('libxnvctrl', dirs: vapidir),
+    meson.get_compiler('vala').find_library('libcurl', dirs: vapidir),
+    meson.get_compiler('c').find_library('libcurl', dirs: vapidir),
 ]
 
 
@@ -70,3 +73,4 @@ subdir('src')
 meson.add_install_script('meson/post_install.py')
 
 subdir('po')
+# subdir('tests')

@@ -62,4 +62,8 @@ public class Monitor.ProcessUtils {
     public static Icon ? get_bash_icon () {
         return new ThemedIcon ("bash");
     }
+
+    public static Icon ? get_docker_icon () {
+        return new ThemedIcon ("docker");
+    }
 }

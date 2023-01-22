@@ -100,8 +100,6 @@ public class Monitor.Utils.HumanUnitFormatter {
 
 public class Monitor.Utils.Colors : Object {
 
-
-
     public const string STRAWBERRY_100 = "#ff8c82";
     public const string STRAWBERRY_300 = "#ed5353";
     public const string STRAWBERRY_500 = "#c6262e";
@@ -244,11 +242,7 @@ public class Monitor.Utils.Colors : Object {
 
 
     public Gdk.RGBA get_color_by_index (int index) {
-        int int_index = index;
-        if (index > 60) {
-            int_index = index % 60;
-        }
-        return _rgba_colors.get (int_index);
+        return _rgba_colors.get (index % _rgba_colors.size);
     }
 
     public static Gdk.RGBA get_rgba_color (string hex_code) {

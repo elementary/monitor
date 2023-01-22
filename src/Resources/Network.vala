@@ -56,10 +56,9 @@ public class Monitor.Network : GLib.Object {
             }
         }
 
-        // bc 2 sec updates
         if (!dumb_flag) {
-            bytes_out = (bytes_out_new - bytes_out_old) / 2;
-            bytes_in = (bytes_in_new - bytes_in_old) / 2;
+            bytes_out = (bytes_out_new - bytes_out_old) / MonitorApp.settings.get_int ("update-time");
+            bytes_in = (bytes_in_new - bytes_in_old) / MonitorApp.settings.get_int ("update-time");
         }
 
         bytes_out_old = bytes_out_new;

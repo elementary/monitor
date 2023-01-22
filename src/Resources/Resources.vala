@@ -35,7 +35,7 @@ public class Monitor.Resources : Object {
             gpu.session_manager = session_manager;
             gpu.hwmon_temperatures = hwmon_path_parser.gpu_paths_parser.temperatures;
         } else {
-            warning ("GPU: Unknown");
+            warning ("GPU: Unknown: %s", gpu_name);
         }
 
         cpu.temperatures = hwmon_path_parser.cpu_paths_parser.temperatures;
@@ -44,7 +44,7 @@ public class Monitor.Resources : Object {
     }
 
     public void update () {
-        Timeout.add_seconds (2, () => {
+        Timeout.add_seconds (MonitorApp.settings.get_int ("update-time"), () => {
             new Thread<void> ("update-resources", () => {
                     cpu.update ();
                     memory.update ();
@@ -85,7 +85,8 @@ public class Monitor.Resources : Object {
                    swap_used = swap.used,
                    swap_total = swap.total,
                    network_up = network.bytes_out,
-                   network_down = network.bytes_in
+                   network_down = network.bytes_in,
+                   gpu_percentage = gpu.percentage
         };
     }
 }
