@@ -19,6 +19,7 @@
         <img src="https://img.shields.io/github/license/stsdc/monitor.svg">
     </a>
 </p>
+
 ![Monitor Screenshot](https://github.com/stsdc/monitor/raw/master/data/screenshots/monitor-processes.png)
 ![Monitor Screenshot](https://github.com/stsdc/monitor/raw/master/data/screenshots/monitor-system.png)
 
