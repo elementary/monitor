@@ -100,8 +100,6 @@ public class Monitor.Utils.HumanUnitFormatter {
 
 public class Monitor.Utils.Colors : Object {
 
-
-
     public const string STRAWBERRY_100 = "#ff8c82";
     public const string STRAWBERRY_300 = "#ed5353";
     public const string STRAWBERRY_500 = "#c6262e";
