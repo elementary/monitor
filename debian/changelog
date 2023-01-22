@@ -1,3 +1,10 @@
+com.github.stsdc.monitor (0.15.0) focal; urgency=low
+
+  * Show containers stats
+  * Remove transparency from CPU stacked chart
+
+ -- Stanisław Dac <stadac@pm.me>  Sun, 22 Jan 2023 15:38:27 
+
 com.github.stsdc.monitor (0.14.0) focal; urgency=low
 
   * Sort list of opened files by process for easier reading
@@ -5,7 +12,7 @@ com.github.stsdc.monitor (0.14.0) focal; urgency=low
   * Display bash icon for bash processes
   * improve wording for disabling smooth lines option
   * Fix incorrect spacing when confirming to kill process
-  * Hide search bar when avtive view is not a ProcessView
+  * Hide search bar when active view is not a ProcessView
   * Render charts for more than 36 cores
 
  -- Stanisław Dac <stadac@pm.me>  Thu, 16 Jun 2022 13:53:33 +0000
