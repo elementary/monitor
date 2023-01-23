@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-06 03:07+0400\n"
+"POT-Creation-Date: 2023-01-23 21:33+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,16 +17,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/MainWindow.vala:26 src/Widgets/Headerbar/Headerbar.vala:14
+#: src/MainWindow.vala:27 src/Widgets/Headerbar/Headerbar.vala:14
 msgid "Monitor"
 msgstr ""
 
-#: src/MainWindow.vala:37
+#: src/MainWindow.vala:39
 msgid "Processes"
 msgstr ""
 
-#: src/MainWindow.vala:38
+#: src/MainWindow.vala:40
 msgid "System"
+msgstr ""
+
+#: src/MainWindow.vala:43
+msgid "Containers"
 msgstr ""
 
 #: src/Utils.vala:2
@@ -41,17 +45,19 @@ msgstr ""
 msgid "N/A"
 msgstr ""
 
-#: src/Utils.vala:76
+#: src/Utils.vala:76 src/Views/ContainerView/ContainerTreeView.vala:119
 msgid "B"
 msgstr ""
 
 #: src/Utils.vala:81
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:117
+#: src/Views/ContainerView/ContainerTreeView.vala:124
 msgid "KiB"
 msgstr ""
 
 #: src/Utils.vala:87
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:122
+#: src/Views/ContainerView/ContainerTreeView.vala:130
 msgid "MiB"
 msgstr ""
 
@@ -147,27 +153,27 @@ msgstr ""
 msgid "Cancelled write"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:78
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:79
 msgid "End Process"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:80
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:81
 msgid "End selected process"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:84
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:85
 msgid "Kill Process"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:85
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:86
 msgid "Kill selected process"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:95
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:96
 msgid "Confirm kill of the process?"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:102
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:103
 msgid "Confirm end of the process?"
 msgstr ""
 
@@ -180,12 +186,14 @@ msgid "Process Name"
 msgstr ""
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:40
+#: src/Views/ContainerView/ContainerTreeView.vala:42
 #: src/Widgets/Statusbar/Statusbar.vala:8
 msgid "CPU"
 msgstr ""
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:51
 #: src/Views/SystemView/SystemMemoryView.vala:13
+#: src/Views/ContainerView/ContainerTreeView.vala:53
 #: src/Widgets/Statusbar/Statusbar.vala:11
 msgid "Memory"
 msgstr ""
@@ -202,41 +210,45 @@ msgstr ""
 
 #. status: "Spinning",
 #. header: "General Preferences",
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:21
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:22
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:21
 msgid "General"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:26
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:27
 msgid "Start in background:"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:35
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:36
 msgid "Draw smooth lines on CPU chart (requires restart):"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:43
-msgid "Update every:"
-msgstr ""
-
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:53
-msgid "1s"
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:44
+msgid "Update every (requires restart):"
 msgstr ""
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:54
-msgid "2s"
+msgid "1s"
 msgstr ""
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:55
-msgid "3s"
+msgid "2s"
 msgstr ""
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:56
-msgid "4s"
+msgid "3s"
 msgstr ""
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:57
+msgid "4s"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:58
 msgid "5s"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:60
+msgid "Show containers tab (requires restart):"
 msgstr ""
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
@@ -268,11 +280,15 @@ msgstr ""
 msgid "Display network download"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:103
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:85
+msgid "Display GPU percentage"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:123
 msgid "Enabled"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:108
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:128
 msgid "Disabled"
 msgstr ""
 
@@ -418,6 +434,15 @@ msgstr ""
 
 #: src/Views/SystemView/SystemGPUView.vala:16
 msgid "TEMPERATURE"
+msgstr ""
+
+#. setup name column
+#: src/Views/ContainerView/ContainerTreeView.vala:21
+msgid "Container Name"
+msgstr ""
+
+#: src/Views/ContainerView/ContainerTreeView.vala:63
+msgid "ID"
 msgstr ""
 
 #: src/Widgets/Headerbar/Headerbar.vala:22
