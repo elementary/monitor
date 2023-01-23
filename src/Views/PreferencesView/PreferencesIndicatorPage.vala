@@ -82,16 +82,36 @@
             dbusserver.indicator_network_down_state (network_download_switch.state);
         });
 
+        var gpu_label = new Gtk.Label (_("Display GPU percentage"));
+        gpu_label.halign = Gtk.Align.START;
+        gpu_label.xalign = 1;
+
+        var gpu_percentage_switch = new Gtk.Switch ();
+        gpu_percentage_switch.halign = Gtk.Align.END;
+        gpu_percentage_switch.state = MonitorApp.settings.get_boolean ("indicator-gpu-state");
+        gpu_percentage_switch.notify["active"].connect (() => {
+            MonitorApp.settings.set_boolean ("indicator-gpu-state", gpu_percentage_switch.state);
+            dbusserver.indicator_gpu_state (gpu_percentage_switch.state);
+        });
+
         content_area.attach (cpu_label, 0, 0, 1, 1);
         content_area.attach (cpu_percentage_switch, 1, 0, 1, 1);
+
         content_area.attach (memory_label, 0, 1, 1, 1);
         content_area.attach (memory_percentage_switch, 1, 1, 1, 1);
-        content_area.attach (temperature_label, 0, 2, 1, 1);
-        content_area.attach (temperature_switch, 1, 2, 1, 1);
-        content_area.attach (network_upload_label, 0, 3, 1, 1);
-        content_area.attach (network_upload_switch, 1, 3, 1, 1);
-        content_area.attach (network_download_label, 0, 4, 1, 1);
-        content_area.attach (network_download_switch, 1, 4, 1, 1);
+
+        content_area.attach (gpu_label, 0, 2, 1, 1);
+        content_area.attach (gpu_percentage_switch, 1, 2, 1, 1);
+
+        content_area.attach (temperature_label, 0, 3, 1, 1);
+        content_area.attach (temperature_switch, 1, 3, 1, 1);
+
+        content_area.attach (network_upload_label, 0, 4, 1, 1);
+        content_area.attach (network_upload_switch, 1, 4, 1, 1);
+
+        content_area.attach (network_download_label, 0, 5, 1, 1);
+        content_area.attach (network_download_switch, 1, 5, 1, 1);
+
         update_status ();
 
         status_switch.notify["active"].connect (update_status);

@@ -20,6 +20,12 @@ source_app_files = [
     'Views/SystemView/SystemStorageView.vala',
     'Views/SystemView/SystemGPUView.vala',
 
+    'Views/ContainerView/ContainerView.vala',
+    'Views/ContainerView/ContainerTreeView.vala',
+    'Views/ContainerView/ContainerInfoView/ContainerInfoView.vala',
+    'Views/ContainerView/ContainerInfoView/ContainerInfoHeader.vala',
+    'Views/ContainerView/ContainerInfoView/ContainerInfoCharts.vala',
+
     # Widgets related only to ProcessInfoView
     'Views/ProcessView/ProcessInfoView/Preventor.vala',
     'Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala',
@@ -40,6 +46,7 @@ source_app_files = [
     # Models
     'Models/TreeViewModel.vala',
     'Models/OpenFilesTreeViewModel.vala',
+    'Models/ContainersTreeViewModel.vala',
 
     # Other
     # 'Managers/AppManager.vala',
@@ -47,6 +54,9 @@ source_app_files = [
     'Managers/Process.vala',
     'Managers/ProcessStructs.vala',
     'Managers/ProcessUtils.vala',
+    'Managers/HttpClientAsync.vala',
+    'Managers/ContainerManager.vala',
+    'Managers/Container.vala',
 
     # Services
     'Services/Shortcuts.vala',
@@ -62,6 +72,8 @@ source_app_files = [
     'Resources/Memory.vala',
     'Resources/Swap.vala',
     'Resources/Network.vala',
+    'Resources/Cgroup/Cgroup.vala',
+    'Resources/Cgroup/CgroupStructs.vala',
 
     'Resources/Storage/Storage.vala',
     'Resources/Storage/StorageParser.vala',
@@ -84,6 +96,7 @@ source_app_files = [
     'Resources/Hwmon/HwmonFan.vala',
     'Resources/Hwmon/HwmonPWM.vala',
     'Resources/Hwmon/HwmonPower.vala',
+
 ]
 
 source_indicator_files = [

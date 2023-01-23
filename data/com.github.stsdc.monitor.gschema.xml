@@ -65,6 +65,11 @@
       <summary>To show network down bandwith in Monitor Indicator or not</summary>
       <description>To show network down bandwith in Monitor Indicator or not</description>
     </key>
+    <key type='b' name="indicator-gpu-state">
+      <default>false</default>
+      <summary>To show GPU used percentage in Monitor Indicator or not</summary>
+      <description>To show GPU used percentage in Monitor Indicator or not</description>
+    </key>
     <key type='b' name="smooth-lines-state">
       <default>true</default>
       <summary>To enable smooth lines in charts</summary>
@@ -79,6 +84,11 @@
       <default>2</default>
       <summary>Update time</summary>
       <description>This value sets update time for updating data and charts.</description>
+    </key>
+        <key type='b' name="containers-view-state">
+      <default>false</default>
+      <summary>To show Containers view or not</summary>
+      <description>To show Containers view or not</description>
     </key>
   </schema>
 </schemalist>

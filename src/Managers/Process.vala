@@ -262,6 +262,10 @@ public class Monitor.Process : GLib.Object {
     private bool read_cmdline () {
         string ? cmdline = ProcessUtils.read_file ("/proc/%d/cmdline".printf (stat.pid));
 
+        if (cmdline == null) {
+            return false;
+        }
+
         if (cmdline.length <= 0) {
             // was empty, not an error
             return true;
