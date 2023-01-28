@@ -1,3 +1,9 @@
+com.github.stsdc.monitor (0.15.1) focal; urgency=low
+
+  * Fix error when trying to get percentage from non-detected GPU
+
+ -- Stanisław Dac <stadac@pm.me>  Sat, 28 Jan 2023 18:55:11 +0000
+
 com.github.stsdc.monitor (0.15.0-ci5) focal; urgency=low
 
   * Show containers stats (inspired by Whaler)
