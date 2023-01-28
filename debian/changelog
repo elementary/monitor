@@ -1,4 +1,4 @@
-com.github.stsdc.monitor (0.15.0) focal; urgency=low
+com.github.stsdc.monitor (0.15.0-ci5) focal; urgency=low
 
   * Show containers stats (inspired by Whaler)
   * Add GPU usage in Indicator
@@ -12,7 +12,7 @@ com.github.stsdc.monitor (0.15.0) focal; urgency=low
   * Add an option to choose refresh rate
   * Use harmonic mean to calculate frequency values
 
- -- Stanisław Dac <stadac@pm.me>  Sun, 22 Jan 2023 15:38:27 
+ -- Stanisław Dac <stadac@pm.me>  Sun, 22 Jan 2023 15:38:27 +0000
 
 com.github.stsdc.monitor (0.14.0) focal; urgency=low
 
