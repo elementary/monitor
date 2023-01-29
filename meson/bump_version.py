@@ -44,7 +44,7 @@ def bump_deb_changelog():
     DEB_CHANGELOG_FILENAME = "../debian/changelog"
     now = datetime.datetime.now()
     deb_changelog_content = f"""com.github.stsdc.monitor ({sys.argv[1]}) focal; urgency=low\n
-  * <NEW FEATURE>\n -- Stanisław Dac <stadac@pm.me>  {now.strftime("%a, %d %b %Y %H:%M:%S %z")}\n\n"""
+  * <NEW FEATURE>\n -- Stanisław Dac <stadac@pm.me>  {now.strftime("%a, %d %b %Y %H:%M:%S %z")} +0000\n\n"""
 
     with open(DEB_CHANGELOG_FILENAME, 'r+') as f_deb_changelog:
         content = f_deb_changelog.read()
