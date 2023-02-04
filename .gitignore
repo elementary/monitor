@@ -12,3 +12,5 @@ obj-*-linux-gnu
 debian/com.github.stsdc.monitor
 debian/files
 # subprojects/*/
+.tar.gz
+.rpm
