@@ -24,6 +24,8 @@ BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(granite)
 BuildRequires: pkgconfig(gio-2.0)
 BuildRequires: pkgconfig(gobject-2.0)
+BuildRequires: json-glib-devel
+BuildRequires: libcurl-devel
 
 # libgtop2-devel
 BuildRequires: pkgconfig(libgtop-2.0)
