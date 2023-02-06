@@ -9,7 +9,7 @@ public class Monitor.Volume : Object {
     public uint64 free;
     public uint64 offset;
 
-    // means the volume is only on one phisical disk
+    // means the volume is only on one physical disk
     public bool strict_affiliation { public get; private set; }
 
     public Gee.ArrayList<string?> slaves = new Gee.ArrayList <string?> ();
