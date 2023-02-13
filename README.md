@@ -43,7 +43,7 @@ sudo apt install com.github.stsdc.monitor
 
 Monitor will then be available from the Applications menu.
 
-### Fedora (34, 35)
+### Fedora (36)
 
 ```bash
 sudo dnf copr enable stsdc/monitor 
@@ -93,10 +93,12 @@ sudo dnf install com.github.stsdc.monitor
 
     flatpak-builder build  com.github.stsdc.monitor.yml --user --install --force-clean
 
-### Debug
-`G_MESSAGES_DEBUG=all ./com.github.stsdc.monitor`
 ### Debug logging
 
 ```bash
 G_MESSAGES_DEBUG=all GTK_DEBUG=interactive com.github.stsdc.monitor
 ```
+
+#### Debug Flatpak
+
+    flatpak run --command=sh  --devel  com.github.stsdc.monitor
