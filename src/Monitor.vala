@@ -18,7 +18,7 @@ namespace Monitor {
             Object (
                 application_id: "com.github.stsdc.monitor",
                 flags : ApplicationFlags.FLAGS_NONE
-                );
+            );
             status_background = status_indicator;
         }
 
@@ -41,21 +41,21 @@ namespace Monitor {
                 if (!MonitorApp.settings.get_boolean ("indicator-state")) {
                     MonitorApp.settings.set_boolean ("indicator-state", true);
                 }
-                if (!MonitorApp.settings.get_boolean ("indicator-cpu-state")) {
-                    MonitorApp.settings.set_boolean ("indicator-cpu-state", true);
-                }
-                if (!MonitorApp.settings.get_boolean ("indicator-memory-state")) {
-                    MonitorApp.settings.set_boolean ("indicator-memory-state", true);
-                }
-                if (!MonitorApp.settings.get_boolean ("indicator-temperature-state")) {
-                    MonitorApp.settings.set_boolean ("indicator-temperature-state", true);
-                }
-                if (!MonitorApp.settings.get_boolean ("indicator-network-up-state")) {
-                    MonitorApp.settings.set_boolean ("indicator-network-up-state", false);
-                }
-                if (!MonitorApp.settings.get_boolean ("indicator-network-down-state")) {
-                    MonitorApp.settings.set_boolean ("indicator-network-down-state", false);
-                }
+                //  if (!MonitorApp.settings.get_boolean ("indicator-cpu-state")) {
+                //      MonitorApp.settings.set_boolean ("indicator-cpu-state", true);
+                //  }
+                //  if (!MonitorApp.settings.get_boolean ("indicator-memory-state")) {
+                //      MonitorApp.settings.set_boolean ("indicator-memory-state", true);
+                //  }
+                //  if (!MonitorApp.settings.get_boolean ("indicator-temperature-state")) {
+                //      MonitorApp.settings.set_boolean ("indicator-temperature-state", true);
+                //  }
+                //  if (!MonitorApp.settings.get_boolean ("indicator-network-upload-state")) {
+                //      MonitorApp.settings.set_boolean ("indicator-network-upload-state", false);
+                //  }
+                //  if (!MonitorApp.settings.get_boolean ("indicator-network-download-state")) {
+                //      MonitorApp.settings.set_boolean ("indicator-network-download-state", false);
+                //  }
 
                 window.hide ();
                 MonitorApp.settings.set_boolean ("background-state", true);
@@ -74,15 +74,20 @@ namespace Monitor {
                 }
             });
 
-            var provider = new Gtk.CssProvider ();
-            provider.load_from_resource ("/com/github/stsdc/monitor/Application.css");
-            Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+            Appearance.set_prefered_style ();
+            Appearance.retrofit ();
+
 
             // Controls the direction of the sort indicators
             Gtk.Settings.get_default ().set ("gtk-alternative-sort-arrows", true, null);
         }
 
         public static int main (string[] args) {
+            Intl.setlocale ();
+            print ("\n");
+            print (" Monitor %s \n", VCS_TAG);
+            print ("\n");
+
             // add command line options
             try {
                 var opt_context = new OptionContext ("");

@@ -55,20 +55,40 @@
       <summary>To show temperature value in Monitor Indicator or not</summary>
       <description>To show temperature value in Monitor Indicator or not</description>
     </key>
-    <key type='b' name="indicator-network-up-state">
+    <key type='b' name="indicator-network-upload-state">
       <default>false</default>
       <summary>To show network up bandwith data in Monitor Indicator or not</summary>
       <description>To show network up bandwith in Monitor Indicator or not</description>
     </key>    
-    <key type='b' name="indicator-network-down-state">
+    <key type='b' name="indicator-network-download-state">
       <default>false</default>
       <summary>To show network down bandwith in Monitor Indicator or not</summary>
       <description>To show network down bandwith in Monitor Indicator or not</description>
-    </key>    
+    </key>
+    <key type='b' name="indicator-gpu-state">
+      <default>false</default>
+      <summary>To show GPU used percentage in Monitor Indicator or not</summary>
+      <description>To show GPU used percentage in Monitor Indicator or not</description>
+    </key>
+    <key type='b' name="smooth-lines-state">
+      <default>true</default>
+      <summary>To enable smooth lines in charts</summary>
+      <description>To enable smooth lines in charts or not</description>
+    </key>
     <key type="s" name="opened-view">
       <default>'process_view'</default>
       <summary>Opened view</summary>
       <description>The last opened view</description>
+    </key>
+    <key type="i" name="update-time">
+      <default>2</default>
+      <summary>Update time</summary>
+      <description>This value sets update time for updating data and charts.</description>
+    </key>
+        <key type='b' name="containers-view-state">
+      <default>false</default>
+      <summary>To show Containers view or not</summary>
+      <description>To show Containers view or not</description>
     </key>
   </schema>
 </schemalist>

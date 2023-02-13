@@ -1,0 +1,54 @@
+---
+name: Publish on Launchpad
+
+on:
+  release:
+    types: [published]
+
+env:
+  LANG: "pl_PL.UTF-8"
+
+jobs:
+  build:
+    name: Submit a build for Launchpad
+    runs-on: ubuntu-latest
+    container:
+      image: elementary/docker:stable
+
+    steps:
+
+      - name: Install GPG Agent
+        run: apt update && apt install -y gpg-agent
+        
+      - name: Import GPG key
+        uses: crazy-max/ghaction-import-gpg@v5
+        with:
+           gpg_private_key: ${{ secrets.GPG_SIGNING_KEY }}
+           passphrase: ${{ secrets.GPG_PASSPHRASE }}
+        
+      - name: Check out source code
+        uses: actions/checkout@v1
+        with:
+          submodules: true
+
+      # - name: Check changelog for bumped version
+      #   run: |
+      #     grep -q ${{ github.event.release.tag_name }} debian/changelog || { echo "Version not bumped!" && exit 1; }
+
+      - name: Install build dependencies
+        run: |
+          apt update
+          apt install -y devscripts dput locales
+          apt install -y libgala-dev libgee-0.8-dev libglib2.0-dev libgranite-dev libgtk-3-dev libhandy-1-dev libxnvctrl0 libxnvctrl-dev
+          apt install -y libdbus-glib-1-dev libwnck-3-dev libgtop2-dev libwingpanel-3.0-dev appstream debhelper libudisks2-dev libcurl4-gnutls-dev
+          apt install -y meson valac sassc git
+          
+      - name: Set locale
+        run: locale-gen ${{ env.LANG }} && update-locale LANG=${{ env.LANG }}
+ 
+      - name: Build the package
+        run: LC_ALL=${{ env.LANG }} debuild --no-lintian -S
+
+      - name: Send to Launchpad
+        run: |
+          dput ppa:stsdc/monitor ../*_source.changes

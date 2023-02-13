@@ -1,11 +1,11 @@
 public class Monitor.ProcessUtils {
     // checks if it is run by shell
     private static bool is_shell (string chunk) {
-        if ("sh" == chunk || "bash" == chunk || "zsh" == chunk) {
-            debug (chunk);
-            return true;
-        }
-        return false;
+        return "sh" == chunk || "bash" == chunk || "zsh" == chunk;
+    }
+
+    private static bool is_python (string chunk) {
+        return chunk.contains ("python");
     }
 
     public static string sanitize_commandline (string ? commandline) {
@@ -15,7 +15,7 @@ public class Monitor.ProcessUtils {
         var splitted_commandline = commandline.split (" ");
 
         // check if started by any shell
-        if (is_shell (splitted_commandline[0])) {
+        if (is_shell (splitted_commandline[0]) || is_python (splitted_commandline[0]) ) {
             return Path.get_basename (splitted_commandline[1]);
         }
 
@@ -57,5 +57,13 @@ public class Monitor.ProcessUtils {
             warning (e.message);
             return null;
         }
+    }
+
+    public static Icon ? get_bash_icon () {
+        return new ThemedIcon ("bash");
+    }
+
+    public static Icon ? get_docker_icon () {
+        return new ThemedIcon ("docker");
     }
 }

@@ -12,4 +12,8 @@
 %:
 	dh $@
 
+override_dh_auto_configure:
+	dh_auto_configure -- -Dindicator-wingpanel=enabled
+
 override_dh_auto_test:
+	#disabled; build servers usually don't have X server running

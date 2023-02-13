@@ -13,7 +13,9 @@ public class Monitor.ProcessInfoCPURAM : Gtk.Grid {
         row_homogeneous = false;
 
         cpu_chart = new Chart (1);
+        cpu_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_300));
         ram_chart = new Chart (1);
+        ram_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_300));
 
         cpu_chart.height_request = 60;
         ram_chart.height_request = 60;
@@ -56,5 +58,4 @@ public class Monitor.ProcessInfoCPURAM : Gtk.Grid {
         cpu_chart.clear ();
         ram_chart.clear ();
     }
-
 }

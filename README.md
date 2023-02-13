@@ -9,18 +9,46 @@
     <a href="https://paypal.me/stsdc/10">
         <img src="https://img.shields.io/badge/Donate-PayPal-green.svg">
     </a>
+    <a href="https://ko-fi.com/stsdc" title="Donate to this project using Buy Me A Coffee"><img src="https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg" alt="Buy Me A Coffee" /></a>
     <a href="https://github.com/stsdc/monitor/releases">
         <img src="https://img.shields.io/github/release/stsdc/monitor.svg" alt="Release">
     </a>
-    <a href="https://travis-ci.org/stsdc/monitor">
-        <img src="https://travis-ci.org/stsdc/monitor.svg?branch=master" alt="Build Status">
-    </a>
+    <img alt="GitHub Workflow Status" src="https://github.com/stsdc/monitor/actions/workflows/main.yml/badge.svg">
+    <a href="https://copr.fedorainfracloud.org/coprs/stsdc/monitor/package/com.github.stsdc.monitor/"><img src="https://copr.fedorainfracloud.org/coprs/stsdc/monitor/package/com.github.stsdc.monitor/status_image/last_build.png" /></a>
     <a href="https://github.com/stsdc/monitor/blob/master/LICENSE">
         <img src="https://img.shields.io/github/license/stsdc/monitor.svg">
     </a>
 </p>
 
-![Monitor Screenshot](https://github.com/stsdc/monitor/raw/master/data/screenshots/monitor-processes.png)
+![Monitor Screenshot](https://github.com/stsdc/monitor/raw/dev/data/screenshots/monitor-processes.png)
+![Monitor Screenshot](https://github.com/stsdc/monitor/raw/dev/data/screenshots/monitor-system.png)
+![Monitor Screenshot](https://github.com/stsdc/monitor/raw/dev/data/screenshots/monitor-containers.png)
+
+## Install
+
+### elementary os 6 and 6.1
+
+If you have never added a PPA on your system before, you might need to run this command first:
+
+```bash
+sudo apt install -y software-properties-common
+```
+
+Add the PPA of Monitor and then install it:
+
+```bash
+sudo add-apt-repository ppa:stsdc/monitor
+sudo apt install com.github.stsdc.monitor
+```
+
+Monitor will then be available from the Applications menu.
+
+### Fedora (34, 35)
+
+```bash
+sudo dnf copr enable stsdc/monitor 
+sudo dnf install com.github.stsdc.monitor
+```
 
 ## Development
 
@@ -29,20 +57,37 @@
 * valac
 * libgtk-3-dev
 * libgranite-dev (>= 5.2.0)
-* libbamf3-dev
 * libwnck-3-dev
 * libgtop2-dev
-* libwingpanel-2.0-dev
-* libxml2-utils
+* libwingpanel-3.0-dev
+* libhandy-1-dev
+* libudisks2-dev
+* libxnvctrl-dev
 * meson
+* sassc
 
 ### Clone, Build & Install
 
-    git clone https://github.com/stsdc/monitor
-    cd monitor
-    meson build --prefix=/usr
-    cd build
-    sudo ninja install
+1. Clone:
+   ```bash
+   git clone --recursive https://github.com/stsdc/monitor
+   cd monitor
+   ```
+
+2. To build with the wingpanel indicator:
+   ```bash
+   meson builddir --prefix=/usr -Dindicator-wingpanel=enabled
+   ```
+   Alternatively, to build without the wingpanel indicator:
+   ```bash
+   meson builddir --prefix=/usr
+   ```
+
+3. Install:
+   ```bash
+   cd builddir
+   sudo ninja install
+   ```
 
 #### Build Flatpak
 
@@ -50,16 +95,8 @@
 
 ### Debug
 `G_MESSAGES_DEBUG=all ./com.github.stsdc.monitor`
+### Debug logging
 
-#### Debug Flatpak
-
-    flatpak run --command=sh  --devel  com.github.stsdc.monitor
-    
-
-## Other distributions (unofficial)
-
-### Arch Linux
-
-Arch Linux users can find Monitor under the name [pantheon-system-monitor-git](https://aur.archlinux.org/packages/pantheon-system-monitor-git/) in the **AUR**:
-
-`$ aurman -S pantheon-system-monitor-git`
+```bash
+G_MESSAGES_DEBUG=all GTK_DEBUG=interactive com.github.stsdc.monitor
+```

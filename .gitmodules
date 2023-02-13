@@ -1,3 +1,7 @@
 [submodule "subprojects/live-chart"]
-    path = subprojects/live-chart
-    url = https://github.com/lcallarec/live-chart.git
+	path = subprojects/live-chart
+	url = https://github.com/lcallarec/live-chart.git
+
+[submodule "subprojects/stylesheet"]
+	path = subprojects/stylesheet
+	url = https://github.com/elementary/stylesheet.git

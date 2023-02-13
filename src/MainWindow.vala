@@ -1,4 +1,4 @@
-public class Monitor.MainWindow : Gtk.Window {
+public class Monitor.MainWindow : Hdy.ApplicationWindow {
     // application reference
     private Shortcuts shortcuts;
 
@@ -9,6 +9,7 @@ public class Monitor.MainWindow : Gtk.Window {
 
     public ProcessView process_view;
     public SystemView system_view;
+    public ContainerView container_view;
     private Gtk.Stack stack;
 
     private Statusbar statusbar;
@@ -18,9 +19,12 @@ public class Monitor.MainWindow : Gtk.Window {
 
     // Constructs a main window
     public MainWindow (MonitorApp app) {
+        Hdy.init ();
         this.set_application (app);
 
         setup_window_state ();
+
+        title = _("Monitor");
 
         get_style_context ().add_class ("rounded");
 
@@ -28,50 +32,67 @@ public class Monitor.MainWindow : Gtk.Window {
 
         process_view = new ProcessView ();
         system_view = new SystemView (resources);
+        container_view = new ContainerView ();
 
         stack = new Gtk.Stack ();
         stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
         stack.add_titled (process_view, "process_view", _("Processes"));
         stack.add_titled (system_view, "system_view", _("System"));
 
+        if (MonitorApp.settings.get_boolean ("containers-view-state")) {
+            stack.add_titled (container_view, "container_view", _("Containers"));
+        }
+
+
         Gtk.StackSwitcher stack_switcher = new Gtk.StackSwitcher ();
+        stack_switcher.valign = Gtk.Align.CENTER;
         stack_switcher.set_stack (stack);
 
         headerbar = new Headerbar (this);
         headerbar.set_custom_title (stack_switcher);
-        set_titlebar (headerbar);
+        var sv = new PreferencesView ();
+        headerbar.preferences_grid.add (sv);
+        sv.show_all ();
 
         statusbar = new Statusbar ();
 
-        var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        main_box.pack_start (stack, true, true, 0);
-        main_box.pack_start (statusbar, false, true, 0);
-        this.add (main_box);
+        var grid = new Gtk.Grid () {
+            orientation = Gtk.Orientation.VERTICAL
+        };
+
+        grid.add (headerbar);
+        grid.add (stack);
+        grid.add (statusbar);
+
+        add (grid);
 
         show_all ();
 
         dbusserver = DBusServer.get_default ();
 
+        headerbar.search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
         stack.notify["visible-child-name"].connect (() => {
-            headerbar.search.sensitive = stack.visible_child_name == "process_view";
+            headerbar.search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
         });
 
-        Timeout.add_seconds (2, () => {
-            //  new Thread<bool> ("resource-updates", () => {
-                resources.update ();
-                var res = resources.serialize ();
-                statusbar.update (res);
-                dbusserver.update (res);
+        new Thread<void> ("upd", () => {
+            Timeout.add_seconds (MonitorApp.settings.get_int ("update-time"), () => {
+                process_view.update ();
+
+
+                container_view.update ();
+
 
                 Idle.add (() => {
-                    process_view.update ();
                     system_view.update ();
                     dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
+                    var res = resources.serialize ();
+                    statusbar.update (res);
+                    dbusserver.update (res);
                     return false;
                 });
                 return true;
-            //  });
-            //  return true;
+            });
         });
 
 

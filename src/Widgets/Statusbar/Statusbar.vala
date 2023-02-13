@@ -32,14 +32,41 @@ public class Monitor.Statusbar : Gtk.ActionBar {
         swap_icon.margin_start = 6;
         pack_start (swap_icon);
         pack_start (swap_usage_label);
+
+        var peace_label = new Gtk.Label ("🕊️");
+        peace_label.tooltip_text = (_("Peace"));
+
+        var github_label = new Gtk.LinkButton.with_label ("https://github.com/stsdc/monitor", _("Check on Github"));
+        var donate_label = new Gtk.LinkButton.with_label ("https://ko-fi.com/stsdc", _("Donate 💸"));
+
+
+        var version_label = new Gtk.Label ("%s".printf (VCS_TAG)) {
+            selectable = true
+        };
+        version_label.get_style_context ().add_class ("dim-label");
+
+        pack_end (donate_label);
+        pack_end (build_separator_middot ());
+        pack_end (github_label);
+        pack_end (build_separator_middot ());
+        pack_end (version_label);
+        pack_end (build_separator_middot ());
+        pack_end (peace_label);
+
     }
 
-    public Statusbar () {
+    private Gtk.Label build_separator_middot () {
+        var label = new Gtk.Label ("𐄁") {
+            margin_end = 6,
+            margin_start = 6,
+        };
+        label.get_style_context ().add_class ("dim-label");
+        return label;
     }
 
     public bool update (ResourcesSerialized sysres) {
         cpu_usage_label.set_text (("%d%%").printf (sysres.cpu_percentage));
-        memory_usage_label.set_text (("%d%%").printf (sysres.memory_percentage));
+        memory_usage_label.set_text (("%u%%").printf (sysres.memory_percentage));
 
         string cpu_tooltip_text = ("%.2f %s").printf (sysres.cpu_frequency, _("GHz"));
         cpu_usage_label.tooltip_text = cpu_tooltip_text;

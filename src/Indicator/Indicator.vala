@@ -12,6 +12,12 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         display_widget = new Widgets.DisplayWidget ();
         popover_widget = new Widgets.PopoverWidget ();
 
+        try {
+            apply_custom_styles ();
+        } catch (GLib.Error e) {
+            error ("Failed to load Monitor Indicator CSS styles: %s", e.message);
+        }
+
         dbusclient = DBusClient.get_default ();
 
         dbusclient.monitor_vanished.connect (() => this.visible = false);
@@ -20,8 +26,9 @@ public class Monitor.Indicator : Wingpanel.Indicator {
             display_widget.cpu_widget.visible = settings.get_boolean ("indicator-cpu-state");
             display_widget.memory_widget.visible = settings.get_boolean ("indicator-memory-state");
             display_widget.temperature_widget.visible = settings.get_boolean ("indicator-temperature-state");
-            display_widget.network_up_widget.visible = settings.get_boolean ("indicator-network-up-state");
-            display_widget.network_down_widget.visible = settings.get_boolean ("indicator-network-down-state");
+            display_widget.network_up_widget.visible = settings.get_boolean ("indicator-network-upload-state");
+            display_widget.network_down_widget.visible = settings.get_boolean ("indicator-network-download-state");
+            display_widget.gpu_widget.visible = settings.get_boolean ("indicator-gpu-state");
 
         });
 
@@ -31,13 +38,15 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         dbusclient.interface.indicator_temperature_state.connect ((state) => display_widget.temperature_widget.visible = state);
         dbusclient.interface.indicator_network_up_state.connect ((state) => display_widget.network_up_widget.visible = state);
         dbusclient.interface.indicator_network_down_state.connect ((state) => display_widget.network_down_widget.visible = state);
-    
+        dbusclient.interface.indicator_gpu_state.connect ((state) => display_widget.gpu_widget.visible = state);
+
         dbusclient.interface.update.connect ((sysres) => {
-            display_widget.cpu_widget.percentage = sysres.cpu_percentage;
-            display_widget.temperature_widget.degree = sysres.cpu_temperature;
-            display_widget.memory_widget.percentage = sysres.memory_percentage;
-            display_widget.network_up_widget.bandwith = sysres.network_up;
-            display_widget.network_down_widget.bandwith = sysres.network_down;
+            display_widget.cpu_widget.state_percentage = sysres.cpu_percentage;
+            display_widget.temperature_widget.state_temperature = (int) Math.round (sysres.cpu_temperature);
+            display_widget.memory_widget.state_percentage = sysres.memory_percentage;
+            display_widget.network_up_widget.state_bandwith = sysres.network_up;
+            display_widget.network_down_widget.state_bandwith = sysres.network_down;
+            display_widget.gpu_widget.state_percentage = sysres.gpu_percentage;
         });
 
         popover_widget.quit_monitor.connect (() => {
@@ -60,7 +69,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
     }
 
     public Indicator () {
-        Object (code_name: "monitor");
+        Object (code_name: "Monitor Indicator");
     }
 
     public override Gtk.Widget get_display_widget () {
@@ -75,6 +84,25 @@ public class Monitor.Indicator : Wingpanel.Indicator {
     }
 
     public override void closed () {
+    }
+
+    public void apply_custom_styles () throws GLib.Error {
+        var provider = new Gtk.CssProvider ();
+        string css = """
+        .composited-indicator > revealer label.monitor-indicator-label-warning {
+            color: @warning_color;
+        }
+        .composited-indicator > revealer label.monitor-indicator-label-critical {
+            color: @error_color;
+        }
+        """;
+        provider.load_from_data (css, -1);
+
+        Gtk.StyleContext.add_provider_for_screen (
+            Gdk.Screen.get_default (),
+            provider,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        );
     }
 
 }

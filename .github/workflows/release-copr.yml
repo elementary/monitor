@@ -1,0 +1,54 @@
+---
+name: Release on Copr
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    name: Submit a build for Copr
+    container: fedora:latest
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out proper version of sources
+        uses: actions/checkout@v1
+        with:
+          submodules: true
+
+      - name: Install API token for copr-cli
+        env:
+          API_TOKEN_CONTENT: ${{ secrets.COPR_API_TOKEN }}
+        run: |
+          mkdir -p "$HOME/.config"
+          echo "$API_TOKEN_CONTENT" > "$HOME/.config/copr"
+
+      # - name: Check spec for bumped version
+      #   run: |
+      #     grep -q ${{ github.event.release.tag_name }} spc.spec || { echo "Version not bumped!" && exit 1; }
+
+      - name: Install tooling for source RPM build
+        run: |
+          dnf -y install @development-tools @rpm-development-tools
+          dnf -y install copr-cli
+
+      - name: Archive the source
+        run: |
+          git archive --prefix "monitor/" -o "monitor.tar" HEAD
+          git submodule foreach --recursive "git archive --prefix=monitor/\$path/ --output=\$sha1.tar HEAD && tar --concatenate --file=$(pwd)/monitor.tar \$sha1.tar && rm \$sha1.tar"
+          gzip "monitor.tar"
+
+      - name: Build the source RPM
+        run: |
+          rm -f *.src.rpm ;          \
+          rpmbuild                   \
+             --define "_sourcedir `pwd`" \
+             --define "_rpmdir    `pwd`" \
+             --define "_builddir  `pwd`" \
+             --define "_specdir   `pwd`" \
+             --define "_srcrpmdir `pwd`" \
+               -bs *.spec
+
+      - name: Submit the build by uploading the source RPM
+        run: copr build stsdc/monitor *.src.rpm
