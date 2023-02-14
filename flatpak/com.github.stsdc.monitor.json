@@ -39,6 +39,57 @@
       ],
       "modules": [
         {
+          "name" : "pam",
+          "config-opts" : [
+              "--includedir=/app/include/security",
+              "--disable-doc"
+          ],
+          "sources" : [
+              {
+                  "type" : "archive",
+                  "url" : "https://github.com/linux-pam/linux-pam/releases/download/v1.4.0/Linux-PAM-1.4.0.tar.xz",
+                  "sha256" : "cd6d928c51e64139be3bdb38692c68183a509b83d4f2c221024ccd4bcddfd034"
+              }
+          ]
+      },
+        {
+          "name": "polkit",
+          "buildsystem": "meson",
+          "config-opts": [
+            "-Dlibs-only=true"
+            ],
+          "sources": [
+            {
+              "type": "git",
+              "url": "https://gitlab.freedesktop.org/polkit/polkit.git",
+              "tag": "122"
+            }
+          ]
+        },
+        {
+          "name": "udisks2",
+          "buildsystem": "autotools",
+          "config-opts": [
+            "--enable-available-modules=no",
+            "--enable-bcache=no",
+            "--enable-btrfs=no",
+            "--enable-introspection=yes",
+            "--enable-lvm2=no",
+            "--enable-modules=no",
+            "--enable-vdo=no",
+            "--enable-zram=no",
+            "--with-systemdsystemunitdir=no",
+            "--with-tmpfilesdir=no"
+          ],
+          "sources": [
+            {
+              "type": "git",
+              "url": "https://github.com/storaged-project/udisks.git",
+              "tag": "udisks-2.9.4"
+            }
+          ]
+        },
+        {
           "name": "libsass",
           "cleanup": [
             "*"
