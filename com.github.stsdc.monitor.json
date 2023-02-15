@@ -39,30 +39,31 @@
       ],
       "modules": [
         {
-          "name" : "pam",
-          "config-opts" : [
-              "--includedir=/app/include/security",
-              "--disable-doc"
+          "name": "pam",
+          "config-opts": [
+            "--includedir=/app/include/security",
+            "--disable-doc"
           ],
-          "sources" : [
-              {
-                  "type" : "archive",
-                  "url" : "https://github.com/linux-pam/linux-pam/releases/download/v1.4.0/Linux-PAM-1.4.0.tar.xz",
-                  "sha256" : "cd6d928c51e64139be3bdb38692c68183a509b83d4f2c221024ccd4bcddfd034"
-              }
+          "sources": [
+            {
+              "type": "archive",
+              "url": "https://github.com/linux-pam/linux-pam/releases/download/v1.4.0/Linux-PAM-1.4.0.tar.xz",
+              "sha256": "cd6d928c51e64139be3bdb38692c68183a509b83d4f2c221024ccd4bcddfd034"
+            }
           ]
-      },
+        },
         {
           "name": "polkit",
           "buildsystem": "meson",
           "config-opts": [
-            "-Dlibs-only=true"
-            ],
+            "-Dlibs-only=true",
+            "-Dauthfw=pam"
+          ],
           "sources": [
             {
               "type": "git",
-              "url": "https://gitlab.freedesktop.org/polkit/polkit.git",
-              "tag": "122"
+              "url": "https://gitlab.freedesktop.org/stsdc/polkit.git",
+              "branch": "polkit-agent-building-option"
             }
           ]
         },
@@ -79,7 +80,8 @@
             "--enable-vdo=no",
             "--enable-zram=no",
             "--with-systemdsystemunitdir=no",
-            "--with-tmpfilesdir=no"
+            "--with-tmpfilesdir=no",
+            "--disable-daemon"
           ],
           "sources": [
             {
@@ -147,6 +149,36 @@
           "type": "archive",
           "url": "https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz",
           "sha256": "78f3274c0c79c434c03655c1b35edf7b95ec0421430897fb1345a98a265ed2d4"
+        }
+      ]
+    },
+    {
+      "name": "libNVCtrl",
+      "build-options": {
+        "env": {
+          "LIB": "lib/x86_64-linux-gnu"
+        }
+      },
+      "no-autogen": true,
+      "no-make-install": true,
+
+      "subdir": "src/libXNVCtrl",
+      "sources": [
+        {
+          "type": "archive",
+          "archive-type": "tar",
+          "url": "https://api.github.com/repos/NVIDIA/nvidia-settings/tarball/refs/tags/470.63.01",
+          "sha256": "0ede63515851d85ac0d1ed5f00e355f539968e6d1fd226120a27b2c66c3575de"
+        },
+        {
+          "type": "patch",
+          "path": "flatpak/patches/libxnvctrl_so_0.patch",
+          "x-checker-data": {
+            "type": "json",
+            "url": "https://api.github.com/repos/NVIDIA/nvidia-settings/tags",
+            "url-query": ".[0].tarball_url",
+            "version-query": ".[0].name"
+          }
         }
       ]
     },
