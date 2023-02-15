@@ -5,17 +5,16 @@
   "sdk": "io.elementary.Sdk",
   "command": "com.github.stsdc.monitor",
   "finish-args": [
-    "--allow=devel",
     "--share=ipc",
     "--socket=fallback-x11",
-    "--device=dri",
     "--socket=wayland",
     "--socket=system-bus",
     "--device=all",
     "--share=network",
     "--talk-name=org.freedesktop.Flatpak",
     "--system-talk-name=org.freedesktop.Accounts",
-    "--system-talk-name=org.freedesktop.UDisks2"
+    "--system-talk-name=org.freedesktop.UDisks2",
+    "--filesystem=host:ro"
   ],
   "modules": [
     {
