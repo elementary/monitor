@@ -1,5 +1,5 @@
 ---
-name: Release on Copr
+name: Publish on Copr
 
 on:
   release:

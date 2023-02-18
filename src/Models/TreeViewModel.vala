@@ -45,7 +45,7 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
             Gtk.TreeIter iter;
             append (out iter, null); // null means top-level
 
-            // donno what is going on, but maybe just use a string insteead of Icon ??
+            // donno what is going on, but maybe just use a string instead of Icon ??
             // coz it lagz
             // string icon_name = process.icon.to_string ();
 
