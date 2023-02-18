@@ -22,17 +22,15 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 process_info_io_stats.hide ();
                 preventor.hide ();
             } else {
-                //  process_info_cpu_ram.visible = true;
-                //  process_info_io_stats.visible = true;
                 _process.fd_permission_error.connect (show_permission_error_infobar);
 
                 process_info_io_stats.update (_process);
 
                 process_info_cpu_ram.clear_graphs ();
                 process_info_cpu_ram.set_charts_data (_process);
-    
+
                 permission_error_infobar.revealed = false;
-    
+
                 process_info_io_stats.open_files_tree_view.model.process = _process;
                 process_info_io_stats.open_files_tree_view.show_all ();
             }
@@ -78,7 +76,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         grid.attach (separator, 0, 1, 1, 1);
 
         process_info_cpu_ram = new ProcessInfoCPURAM ();
-        process_info_cpu_ram.hide();
+        process_info_cpu_ram.hide ();
         grid.attach (process_info_cpu_ram, 0, 2, 1, 1);
 
         grid.attach (process_info_io_stats, 0, 4, 1, 1);
