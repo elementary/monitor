@@ -1,5 +1,5 @@
 public class Monitor.ProcessInfoView : Gtk.Box {
-
+    private Preventor preventor;
     private ProcessInfoIOStats process_info_io_stats = new ProcessInfoIOStats ();
 
     private Process _process;
@@ -15,17 +15,27 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             _process = value;
 
             process_info_header.update (_process);
-            process_info_io_stats.update (_process);
 
-            process_info_cpu_ram.clear_graphs ();
-            process_info_cpu_ram.set_charts_data (_process);
+            this.show_all ();
+            if (_process.uid != Posix.getuid ()) {
+                process_info_cpu_ram.hide ();
+                process_info_io_stats.hide ();
+                preventor.hide ();
+            } else {
+                //  process_info_cpu_ram.visible = true;
+                //  process_info_io_stats.visible = true;
+                _process.fd_permission_error.connect (show_permission_error_infobar);
 
-            permission_error_infobar.revealed = false;
-            _process.fd_permission_error.connect (show_permission_error_infobar);
+                process_info_io_stats.update (_process);
 
-            process_info_io_stats.open_files_tree_view.model.process = _process;
-            process_info_io_stats.open_files_tree_view.show_all ();
-
+                process_info_cpu_ram.clear_graphs ();
+                process_info_cpu_ram.set_charts_data (_process);
+    
+                permission_error_infobar.revealed = false;
+    
+                process_info_io_stats.open_files_tree_view.model.process = _process;
+                process_info_io_stats.open_files_tree_view.show_all ();
+            }
         }
     }
     public string ? icon_name;
@@ -61,11 +71,14 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         process_info_header = new ProcessInfoHeader ();
         grid.attach (process_info_header, 0, 0, 1, 1);
 
-        var sep = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
-        sep.margin = 12;
-        grid.attach (sep, 0, 1, 1, 1);
+        var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
+            margin = 12,
+            hexpand = true
+        };
+        grid.attach (separator, 0, 1, 1, 1);
 
         process_info_cpu_ram = new ProcessInfoCPURAM ();
+        process_info_cpu_ram.hide();
         grid.attach (process_info_cpu_ram, 0, 2, 1, 1);
 
         grid.attach (process_info_io_stats, 0, 4, 1, 1);
@@ -90,7 +103,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         process_action_bar.add (end_process_button);
         process_action_bar.add (kill_process_button);
 
-        Preventor preventor = new Preventor (process_action_bar, "process_action_bar");
+        preventor = new Preventor (process_action_bar, "process_action_bar");
 
         kill_process_button.clicked.connect (() => {
             preventor.set_prevention (_("Confirm kill of the process?"));
@@ -107,6 +120,11 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         });
 
         grid.attach (preventor, 0, 5, 1, 1);
+
+        show_all ();
+        process_info_cpu_ram.hide ();
+        process_info_io_stats.hide ();
+        preventor.hide ();
     }
 
     private void show_permission_error_infobar (string error) {

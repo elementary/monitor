@@ -83,6 +83,7 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         }
 
         username.set_text (process.username);
+        username.tooltip_text = process.uid.to_string ();
         num_threads.set_text (process.stat.num_threads.to_string ());
         state.set_text (process.stat.state);
         state.tooltip_text = set_state_tooltip ();

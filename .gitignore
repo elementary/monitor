@@ -12,3 +12,4 @@ obj-*-linux-gnu
 debian/com.github.stsdc.monitor
 debian/files
 # subprojects/*/
+.flatpak-builder
