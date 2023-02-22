@@ -99,7 +99,7 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
             icon.set_from_icon_name (icon_name, Gtk.IconSize.DIALOG);
         } else {
             try {
-                var pixbuf = new Gdk.Pixbuf.from_file_at_size (icon_name, 64, -1);
+                var pixbuf = new Gdk.Pixbuf.from_file_at_size (icon_name, 48, -1);
                 icon.set_from_pixbuf (pixbuf);
             } catch (Error e) {
                 warning (e.message);
