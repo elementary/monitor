@@ -35,6 +35,7 @@ jobs:
 
       - name: Archive the source
         run: |
+          git config --global --add safe.directory /__w/monitor/monitor
           git archive --prefix "monitor/" -o "monitor.tar" HEAD
           git submodule foreach --recursive "git archive --prefix=monitor/\$path/ --output=\$sha1.tar HEAD && tar --concatenate --file=$(pwd)/monitor.tar \$sha1.tar && rm \$sha1.tar"
           gzip "monitor.tar"
