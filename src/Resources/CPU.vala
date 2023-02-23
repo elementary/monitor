@@ -23,6 +23,7 @@ public class Monitor.CPU : Object {
 
     public int percentage {
         get {
+            debug ("%f, %d", load, ((int) (Math.round (load * 100))));
             return (int) (Math.round (load * 100));
         }
     }
