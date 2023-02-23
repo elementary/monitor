@@ -117,8 +117,12 @@ public class Monitor.CPU : Object {
         var idle = (float) (cpu.idle + cpu.iowait);
         var total = used + idle;
 
+        debug ("us %lld, sy %d, ni %d, id %d", cpu.user, cpu.sys, cpu.nice, cpu.idle);
+
         var diff_used = used - last_used;
         var diff_total = total - last_total;
+
+        debug ("diff_used: %f, diff_total: %f", diff_used, diff_total);
 
         load = diff_used.abs () / diff_total.abs ();
 
