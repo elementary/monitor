@@ -46,7 +46,7 @@ public class Monitor.Search : Gtk.SearchEntry {
         bool found = false;
         var needle = this.text;
 
-        // should help with assertation errors, donno
+        // should help with assertion errors, donno
         // if (needle == null) return true;
 
         if (needle.length == 0) {

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    height="24"
    id="svg11300"
    style="display:inline;enable-background:new"
    version="1.0"
    viewBox="0 0 24 24"
    width="24"
-   inkscape:version="0.92.3 (unknown)"
-   sodipodi:docname="com.github.stsdc.monitor.svg">
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="com.github.stsdc.monitor.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -26,21 +26,24 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1017"
+     inkscape:window-height="1049"
      id="namedview44"
-     showgrid="true"
+     showgrid="false"
      showguides="false"
      inkscape:guide-bbox="true"
      inkscape:snap-bbox="true"
      inkscape:bbox-paths="true"
      inkscape:bbox-nodes="true"
      inkscape:zoom="32"
-     inkscape:cx="11.843038"
-     inkscape:cy="12.030618"
-     inkscape:window-x="0"
-     inkscape:window-y="30"
+     inkscape:cx="9.875"
+     inkscape:cy="6.625"
+     inkscape:window-x="2560"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g7192">
+     inkscape:current-layer="g7192"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1">
     <sodipodi:guide
        position="2,12.20339"
        orientation="1,0"
@@ -504,11 +507,11 @@
          style="stop-color:#ffffff;stop-opacity:1"
          id="stop3926-3-6" />
       <stop
-         offset="0"
+         offset="0.01887679"
          style="stop-color:#ffffff;stop-opacity:0.23529412"
          id="stop3928-0" />
       <stop
-         offset="1"
+         offset="0.9641462"
          style="stop-color:#ffffff;stop-opacity:0.15686275"
          id="stop3930-3-59" />
       <stop
@@ -554,8 +557,8 @@
     <rect
        width="19"
        height="19"
-       rx="1.1168569"
-       ry="1.1168569"
+       rx="2"
+       ry="2"
        x="42.629772"
        y="12.998934"
        id="rect5505-21-3"
@@ -601,8 +604,8 @@
     <rect
        width="19.000002"
        height="19.000002"
-       rx="1"
-       ry="1"
+       rx="2"
+       ry="2"
        x="42.629772"
        y="12.998965"
        id="rect5505-21-8-1"
@@ -613,6 +616,8 @@
        x="43.631023"
        y="13.997713"
        id="rect6741-9-5"
-       style="opacity:0.3;fill:none;stroke:url(#linearGradient3101);stroke-width:0.99999988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+       style="opacity:0.3;fill:none;stroke:url(#linearGradient3101);stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       rx="1"
+       ry="1" />
   </g>
 </svg>

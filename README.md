@@ -43,7 +43,7 @@ sudo apt install com.github.stsdc.monitor
 
 Monitor will then be available from the Applications menu.
 
-### Fedora (34, 35)
+### Fedora (36)
 
 ```bash
 sudo dnf copr enable stsdc/monitor 
@@ -54,16 +54,22 @@ sudo dnf install com.github.stsdc.monitor
 
 ### Install dependencies
 
-* valac
+* meson
+* appstream
+* debhelper (>= 9)
 * libgtk-3-dev
+* libglib2.0-dev
+* valac (>= 0.26)
 * libgranite-dev (>= 5.2.0)
 * libwnck-3-dev
 * libgtop2-dev
 * libwingpanel-3.0-dev
 * libhandy-1-dev
 * libudisks2-dev
+* libxnvctrl0
 * libxnvctrl-dev
-* meson
+* libcurl4-gnutls-dev
+* libjson-glib-dev
 * sassc
 
 ### Clone, Build & Install

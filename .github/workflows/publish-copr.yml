@@ -1,5 +1,5 @@
 ---
-name: Release on Copr
+name: Publish on Copr
 
 on:
   release:
@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: Submit a build for Copr
-    container: fedora:latest
+    container: fedora:36
     runs-on: ubuntu-latest
 
     steps:

@@ -13,7 +13,7 @@ namespace Monitor {
             { null }
         };
 
-        // contructor replacement, flags added
+        // constructor replacement, flags added
         public MonitorApp (bool status_indicator) {
             Object (
                 application_id: "com.github.stsdc.monitor",
