@@ -1,3 +1,11 @@
+com.github.stsdc.monitor (0.16.0) jammy; urgency=low
+
+  * Show processes from all users
+  * Refresh icons
+  * Fix some typos
+
+ -- Stanisław Dac <stadac@pm.me>  Fri, 24 Feb 2023 20:02:55 +0000
+
 com.github.stsdc.monitor (0.15.1) focal; urgency=low
 
   * Fix error when trying to get percentage from non-detected GPU

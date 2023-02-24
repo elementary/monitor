@@ -2,7 +2,7 @@
 %global appname com.github.stsdc.monitor
 
 Name: com.github.stsdc.monitor
-Version: 0.15.1
+Version: 0.16.0
 Release: %autorelease
 Summary: Manage processes and monitor system resources
 License: GPLv3
