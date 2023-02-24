@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: Submit a build for Copr
-    container: fedora:latest
+    container: fedora:36
     runs-on: ubuntu-latest
 
     steps:
