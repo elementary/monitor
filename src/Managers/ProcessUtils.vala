@@ -34,7 +34,7 @@ public class Monitor.ProcessUtils {
             var dis = new DataInputStream (file.read ());
 
             // Doing this because of cmdline file.
-            // cmdline is a single line file with each arg seperated by a null character ('\0')
+            // cmdline is a single line file with each arg separated by a null character ('\0')
             string line = dis.read_upto ("\0", 1, null);
             while (line != null) {
                 text.append (line);

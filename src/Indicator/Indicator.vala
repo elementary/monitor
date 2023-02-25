@@ -44,8 +44,8 @@ public class Monitor.Indicator : Wingpanel.Indicator {
             display_widget.cpu_widget.state_percentage = sysres.cpu_percentage;
             display_widget.temperature_widget.state_temperature = (int) Math.round (sysres.cpu_temperature);
             display_widget.memory_widget.state_percentage = sysres.memory_percentage;
-            display_widget.network_up_widget.state_bandwith = sysres.network_up;
-            display_widget.network_down_widget.state_bandwith = sysres.network_down;
+            display_widget.network_up_widget.state_bandwidth = sysres.network_up;
+            display_widget.network_down_widget.state_bandwidth = sysres.network_down;
             display_widget.gpu_widget.state_percentage = sysres.gpu_percentage;
         });
 

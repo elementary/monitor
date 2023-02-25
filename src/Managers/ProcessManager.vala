@@ -174,8 +174,8 @@ namespace Monitor {
 
             var uid = Posix.getuid ();
             GTop.ProcList proclist;
-            var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_UID, uid);
-            // var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_ALLfla, uid);
+            //  var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_UID, uid);
+            var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_ALL, uid);
 
             for (int i = 0; i < proclist.number; i++) {
                 int pid = pids[i];
@@ -219,7 +219,7 @@ namespace Monitor {
                 debug ("app name is [bash] " + process.application_name);
                 process.icon = ProcessUtils.get_bash_icon ();
             }
-            if (process.application_name == "docker") {
+            if (process.application_name == "docker" || process.application_name == "dockerd") {
                 process.icon = ProcessUtils.get_docker_icon ();
             }
             if (process.exists) {
