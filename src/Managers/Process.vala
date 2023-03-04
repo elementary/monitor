@@ -18,7 +18,7 @@ public class Monitor.Process : GLib.Object {
     // User id
     public int uid;
 
-    public string username;
+    public string username = Utils.NO_DATA;
 
     Icon _icon;
     public Icon icon {
@@ -83,9 +83,14 @@ public class Monitor.Process : GLib.Object {
         GTop.get_proc_uid (out proc_uid, stat.pid);
         uid = proc_uid.uid;
 
-        // getting username
-        unowned Posix.Passwd passwd = Posix.getpwuid (uid);
-        username = passwd.pw_name;
+
+            // getting username
+            // @TOFIX: Can't get username for postgres when started from docker (?)
+            unowned Posix.Passwd passwd = Posix.getpwuid (uid);
+            if (passwd != null){
+                username = passwd.pw_name;
+            }
+
 
         exists = parse_stat () && read_cmdline ();
         get_usage (0, 1);
