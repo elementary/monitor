@@ -92,6 +92,7 @@ public class Monitor.Process : GLib.Object {
         }
 
 
+
         exists = parse_stat () && read_cmdline ();
         get_usage (0, 1);
     }
