@@ -1,4 +1,4 @@
-com.github.stsdc.monitor (0.16.1) focal; urgency=low
+com.github.stsdc.monitor (0.16.1-0) jammy; urgency=low
 
   * Fix segfault when user can't be retrieved for process
 

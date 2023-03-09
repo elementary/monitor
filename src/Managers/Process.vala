@@ -84,12 +84,13 @@ public class Monitor.Process : GLib.Object {
         uid = proc_uid.uid;
 
 
-            // getting username
-            // @TOFIX: Can't get username for postgres when started from docker (?)
-            unowned Posix.Passwd passwd = Posix.getpwuid (uid);
-            if (passwd != null){
-                username = passwd.pw_name;
-            }
+        // getting username
+        // @TOFIX: Can't get username for postgres when started from docker (?)
+        unowned Posix.Passwd passwd = Posix.getpwuid (uid);
+        if (passwd != null) {
+            username = passwd.pw_name;
+        }
+
 
 
         exists = parse_stat () && read_cmdline ();
