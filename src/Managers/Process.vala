@@ -91,8 +91,6 @@ public class Monitor.Process : GLib.Object {
             username = passwd.pw_name;
         }
 
-
-
         exists = parse_stat () && read_cmdline ();
         get_usage (0, 1);
     }
@@ -273,7 +271,10 @@ public class Monitor.Process : GLib.Object {
         }
 
         if (cmdline.length <= 0) {
-            // was empty, not an error
+            // if cmdline has 0 length we look into stat file
+            // useful for kworker processes
+            command = stat.comm;
+
             return true;
         }
 
