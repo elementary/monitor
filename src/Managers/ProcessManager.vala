@@ -215,7 +215,6 @@ namespace Monitor {
                             return true;
                         }
                     }
-
                     // Steam case
                     // Must match a proper executable and not game executable e.g. steam steam://rungameid/210770
                     if ((Path.get_basename (key.split (" ")[0]) == command_sanitized_basename) && !key.split (" ")[1].contains ("steam")) {
@@ -223,13 +222,21 @@ namespace Monitor {
                         process.icon = apps_info_list.get (key).get_icon ();
                         return true;
                     }
+
+                    // workaround for some flatpak apps
+                    if (process.command.contains (apps_info_list.get (key).get_id ().replace (".desktop", ""))) {
+                        process.application_name = apps_info_list.get (key).get_name ();
+                        process.icon = apps_info_list.get (key).get_icon ();
+                        return true;
+                    }
                 } else if (apps_info_list.get (key).get_commandline () == process.command) {
                     process.application_name = apps_info_list.get (key).get_name ();
                     process.icon = apps_info_list.get (key).get_icon ();
+                    return true;
                 }
             }
 
-            if (ProcessUtils.is_shell (process.command.split (" ")[0])) {
+            if (ProcessUtils.is_shell (command_sanitized_basename)) {
                 process.icon = ProcessUtils.get_bash_icon ();
                 debug ("app name is " + process.application_name);
             }
@@ -238,6 +245,8 @@ namespace Monitor {
                 process.application_name = command_sanitized_basename;
                 debug ("app name is " + process.application_name);
             }
+
+            //  process.application_name = process.command;
 
             return true;
         }
@@ -256,53 +265,6 @@ namespace Monitor {
             }
 
             this.match_process_app (process);
-
-            // placeholding shortened commandline
-            // var command_sanitized = ProcessUtils.sanitize_commandline (process.command);
-            // var command_sanitized_basename = Path.get_basename (command_sanitized);
-
-            // process.application_name = process.command;
-
-            // checking maybe it's an application
-            // foreach (var key in apps_info_list.keys) {
-            // var splitted_key = key.split (" ");
-            // var kkey = "";
-
-
-            // if (splitted_key[1] != null) {
-            // if (splitted_key[1].contains ("%") || splitted_key[1].contains("--")) {
-            // kkey = splitted_key[0];
-            // }
-            // }
-
-            //// strict check for exact command without args
-            // if (kkey == command_sanitized) {
-            // debug("           For %s", command_sanitized);
-            // debug("             | Found app1 %s", apps_info_list.get (key).get_commandline ());
-            // process.application_name = apps_info_list.get (key).get_name ();
-            ////  debug (apps_info_list.get (key).get_icon ().to_string ());
-            // process.icon = apps_info_list.get (key).get_icon ();
-
-            //// check only for executable name
-            // } else if (ProcessUtils.sanitize_commandline (kkey) == command_sanitized_basename){
-            // debug("           For %s", command_sanitized_basename);
-            // debug("             | Found app2 %s", apps_info_list.get (key).get_commandline ());
-            // process.application_name = apps_info_list.get (key).get_name ();
-            // process.icon = apps_info_list.get (key).get_icon ();
-            // } else {
-            ////  var splitted_commandline = process.command.split (" ");
-            ////  if (!splitted_commandline[0].contains ("/")){
-            ////      process.application_name = apps_info_list.get (key).get_name ();
-            ////      process.icon = apps_info_list.get (key).get_icon ();
-            ////  }
-
-            ////  process.application_name = process.command;
-            // }
-            // }
-
-
-
-
 
             if (process.exists) {
                 if (process.stat.pgrp != 0) {
