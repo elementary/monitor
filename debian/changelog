@@ -1,3 +1,9 @@
+com.github.stsdc.monitor (0.16.1-0) jammy; urgency=low
+
+  * Fix segfault when user can't be retrieved for process
+
+ -- Stanisław Dac <stadac@pm.me>  Sat, 04 Mar 2023 14:02:55  +0000
+
 com.github.stsdc.monitor (0.16.0) jammy; urgency=low
 
   * Show processes from all users
