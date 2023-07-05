@@ -44,6 +44,8 @@ public class Monitor.Process : GLib.Object {
 
     public Gee.HashSet<string> open_files_paths;
 
+    public Gee.HashSet<int> children = new Gee.HashSet<int> ();
+
     /**
      * CPU usage of this process from the last time that it was updated, measured in percent
      *
@@ -92,6 +94,7 @@ public class Monitor.Process : GLib.Object {
         }
 
         exists = parse_stat () && read_cmdline ();
+        get_children_pids ();
         get_usage (0, 1);
     }
 
@@ -110,7 +113,6 @@ public class Monitor.Process : GLib.Object {
     }
 
     // Kills the process
-    // Returns if kill was successful
     public bool kill () {
         // Sends a kill signal that cannot be ignored
         if (Posix.kill (stat.pid, Posix.Signal.KILL) == 0) {
@@ -120,13 +122,27 @@ public class Monitor.Process : GLib.Object {
     }
 
     // Ends the process
-    // Returns if end was successful
     public bool end () {
         // Sends a terminate signal
         if (Posix.kill (stat.pid, Posix.Signal.TERM) == 0) {
             return true;
         }
         return false;
+    }
+
+    private bool get_children_pids () {
+        string ? children_content = ProcessUtils.read_file ("/proc/%d/task/%d/children".printf (stat.pid, stat.pid));
+        if (children_content == "") {
+            return false;
+        }
+
+        var splitted_children_pids = children_content.split (" ");
+        foreach (var child in splitted_children_pids) {
+            this.children.add (int.parse (child));
+        }
+
+        debug (children_content);
+        return true;
     }
 
     private bool parse_io () {
