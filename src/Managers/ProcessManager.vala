@@ -218,6 +218,18 @@ namespace Monitor {
 
         }
 
+        private void set_fp_name (Process process, GLib.Icon icon, string name) {
+            process.application_name = name;
+            process.icon = icon;
+            if (process.children.size > 0) {
+                foreach (int pid in process.children) {
+                    Process _process = this.get_process (pid);
+                    if (process == null) return;
+                    set_fp_name (_process, icon, name);
+                }
+            }
+        }
+
         private bool match_process_app (Process process) {
             var command_sanitized = ProcessUtils.sanitize_commandline (process.command);
             var command_sanitized_basename = Path.get_basename (command_sanitized);
@@ -225,16 +237,16 @@ namespace Monitor {
             process.application_name = command_sanitized_basename;
 
             foreach (var flatpak_app in flatpak_apps) {
-
-                if (flatpak_app.get_pid () == process.stat.pid) {
+                if (flatpak_app.get_pid () == process.stat.pid || flatpak_app.get_child_pid () == process.stat.pid) {
                     debug ("###### ##Found Flatpak app: %s ", flatpak_app.get_app ());
                     // @TODO need to find a appinfo for this app
                     // @TODO probably need to change the way in which appinfos are stored
                     foreach (var key in apps_info_list.keys) {
                         if (apps_info_list.get (key).get_id ().replace (".desktop", "") == flatpak_app.get_app ()) {
                             debug ("%s %s", apps_info_list.get (key).get_id (), flatpak_app.get_app ());
-                            process.application_name = "Bubblewrap: " + apps_info_list.get (key).get_name ();
-                            process.icon = apps_info_list.get (key).get_icon ();
+                            //  process.application_name = "Bubblewrap: " + apps_info_list.get (key).get_name ();
+                            //  process.icon = apps_info_list.get (key).get_icon ();
+                            set_fp_name (process, apps_info_list.get (key).get_icon (), apps_info_list.get (key).get_name ());
                         }
                     }
                 }

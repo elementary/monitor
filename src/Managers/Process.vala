@@ -132,7 +132,7 @@ public class Monitor.Process : GLib.Object {
 
     private bool get_children_pids () {
         string ? children_content = ProcessUtils.read_file ("/proc/%d/task/%d/children".printf (stat.pid, stat.pid));
-        if (children_content == "") {
+        if (children_content == "" || children_content == null) {
             return false;
         }
 
@@ -140,8 +140,6 @@ public class Monitor.Process : GLib.Object {
         foreach (var child in splitted_children_pids) {
             this.children.add (int.parse (child));
         }
-
-        debug (children_content);
         return true;
     }
 
