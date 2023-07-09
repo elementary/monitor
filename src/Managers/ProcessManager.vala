@@ -43,7 +43,7 @@ namespace Monitor {
 
             foreach (AppInfo app_info in _apps_info) {
                 string commandline = (app_info.get_commandline ());
-                //  debug ("%s     *     ", app_info.get_commandline ());
+                // debug ("%s     *     ", app_info.get_commandline ());
 
 
 
@@ -66,11 +66,11 @@ namespace Monitor {
             var running_flatpaks = Flatpak.Instance.get_all ();
 
             running_flatpaks.foreach ((fp) => {
-                debug ("----------<><> %s bwrap: %d app: %d", fp.get_app (), fp.get_pid(), fp.get_child_pid ());
-                //  debug ("%s ", fp.get_info().to_data());
+                debug ("----------<><> %s bwrap: %d app: %d", fp.get_app (), fp.get_pid (), fp.get_child_pid ());
+                // debug ("%s ", fp.get_info().to_data());
             });
 
-            //  debug ("----------<><> %s", running_flatpaks[0]);
+            // debug ("----------<><> %s", running_flatpaks[0]);
 
 
         }
@@ -218,14 +218,13 @@ namespace Monitor {
 
         }
 
-        private void set_fp_name (Process process, GLib.Icon icon, string name) {
+        private void set_flatpak_name_icon (Process process, GLib.Icon icon, string name) {
             process.application_name = name;
             process.icon = icon;
-            if (process.children.size > 0) {
-                foreach (int pid in process.children) {
-                    Process _process = this.get_process (pid);
-                    if (process == null) return;
-                    set_fp_name (_process, icon, name);
+            foreach (int pid in process.children) {
+                var _process = this.get_process (pid);
+                if (_process != null) {
+                    set_flatpak_name_icon (_process, icon, name);
                 }
             }
         }
@@ -244,9 +243,9 @@ namespace Monitor {
                     foreach (var key in apps_info_list.keys) {
                         if (apps_info_list.get (key).get_id ().replace (".desktop", "") == flatpak_app.get_app ()) {
                             debug ("%s %s", apps_info_list.get (key).get_id (), flatpak_app.get_app ());
-                            //  process.application_name = "Bubblewrap: " + apps_info_list.get (key).get_name ();
-                            //  process.icon = apps_info_list.get (key).get_icon ();
-                            set_fp_name (process, apps_info_list.get (key).get_icon (), apps_info_list.get (key).get_name ());
+                            // process.application_name = "Bubblewrap: " + apps_info_list.get (key).get_name ();
+                            // process.icon = apps_info_list.get (key).get_icon ();
+                            set_flatpak_name_icon (process, apps_info_list.get (key).get_icon (), apps_info_list.get (key).get_name ());
                         }
                     }
                 }
@@ -298,7 +297,7 @@ namespace Monitor {
                 debug ("app name is " + process.application_name);
             }
 
-            //  process.application_name = process.command;
+            // process.application_name = process.command;
 
             return true;
         }
@@ -346,7 +345,7 @@ namespace Monitor {
         private void remove_process (int pid) {
             if (process_list.has_key (pid)) {
                 process_list.unset (pid);
-                //  flatpak_apps.remove (pid);
+                // flatpak_apps.remove (pid);
                 foreach (var fp in flatpak_apps) {
                     if (fp.get_pid () == pid) {
                         flatpak_apps.remove (fp);
