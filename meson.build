@@ -37,6 +37,7 @@ app_dependencies = [
     dependency('x11'),
     dependency('udisks2'),
     dependency('json-glib-1.0'),
+    dependency('flatpak'),
 
     livechart_proj.get_variable('livechart_dep'),
 
