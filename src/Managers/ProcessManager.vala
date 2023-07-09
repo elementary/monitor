@@ -43,10 +43,6 @@ namespace Monitor {
 
             foreach (AppInfo app_info in _apps_info) {
                 string commandline = (app_info.get_commandline ());
-                // debug ("%s     *     ", app_info.get_commandline ());
-
-
-
                 // GLib.DesktopAppInfo? dai = info as GLib.DesktopAppInfo;
 
                 // if (dai != null) {
@@ -54,60 +50,12 @@ namespace Monitor {
                 // if (id != null)
                 // appid_map.insert (id, info);
                 // }
-
-
                 if (commandline == null)
                     continue;
 
-                // sanitize_cmd (ref cmd);
                 apps_info_list.set (commandline, app_info);
             }
-
-            var running_flatpaks = Flatpak.Instance.get_all ();
-
-            running_flatpaks.foreach ((fp) => {
-                debug ("----------<><> %s bwrap: %d app: %d", fp.get_app (), fp.get_pid (), fp.get_child_pid ());
-                // debug ("%s ", fp.get_info().to_data());
-            });
-
-            // debug ("----------<><> %s", running_flatpaks[0]);
-
-
         }
-
-        // private static void sanitize_cmd(ref string? commandline) {
-        // if (commandline == null)
-        // return;
-
-        //// flatpak: parse the command line of the containerized program
-        // if (commandline.contains("flatpak run")) {
-        // var index = commandline.index_of ("--command=") + 10;
-        // commandline = commandline.substring (index);
-        // }
-
-        //// TODO: unify this with the logic in get_full_process_cmd
-        ////  commandline = Process.first_component (commandline);
-        ////  commandline = Path.get_basename (commandline);
-        ////  commandline = Process.sanitize_name (commandline);
-
-        //// Workaround for google-chrome
-        // if (commandline.contains ("google-chrome-stable"))
-        // commandline = "chrome";
-        // }
-
-        // public static AppInfo? app_info_for_process (Process p) {
-        // AppInfo? info = null;
-
-        // if (p.command != null)
-        // info = apps_info[p.command];
-
-        // if (info == null && p.app_id != null)
-        // info = appid_map[p.app_id];
-
-        // return info;
-        // }
-
-
 
 
         /**
@@ -218,6 +166,7 @@ namespace Monitor {
 
         }
 
+        /** Sets name and icon for a process that is a Flatpak app and its children. */
         private void set_flatpak_name_icon (Process process, GLib.Icon icon, string name) {
             process.application_name = name;
             process.icon = icon;
@@ -237,14 +186,9 @@ namespace Monitor {
 
             foreach (var flatpak_app in flatpak_apps) {
                 if (flatpak_app.get_pid () == process.stat.pid || flatpak_app.get_child_pid () == process.stat.pid) {
-                    debug ("###### ##Found Flatpak app: %s ", flatpak_app.get_app ());
-                    // @TODO need to find a appinfo for this app
-                    // @TODO probably need to change the way in which appinfos are stored
+                    debug ("Found Flatpak app: %s ", flatpak_app.get_app ());
                     foreach (var key in apps_info_list.keys) {
                         if (apps_info_list.get (key).get_id ().replace (".desktop", "") == flatpak_app.get_app ()) {
-                            debug ("%s %s", apps_info_list.get (key).get_id (), flatpak_app.get_app ());
-                            // process.application_name = "Bubblewrap: " + apps_info_list.get (key).get_name ();
-                            // process.icon = apps_info_list.get (key).get_icon ();
                             set_flatpak_name_icon (process, apps_info_list.get (key).get_icon (), apps_info_list.get (key).get_name ());
                         }
                     }
