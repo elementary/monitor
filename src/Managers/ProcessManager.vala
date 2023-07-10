@@ -16,9 +16,6 @@ namespace Monitor {
         private Gee.TreeMap<int, Process> process_list;
         private Gee.HashSet<int> kernel_process_blacklist;
         private Gee.HashMap<string, AppInfo> apps_info_list;
-        private Gee.HashSet<Flatpak.Instance> flatpak_apps = new Gee.HashSet<Flatpak.Instance> ();
-
-
 
         public signal void process_added (Process process);
         public signal void process_removed (int pid);
@@ -31,10 +28,6 @@ namespace Monitor {
             apps_info_list = new Gee.HashMap<string, AppInfo> ();
 
             populate_apps_info ();
-            Flatpak.Instance.get_all ().foreach ((fp) => {
-                flatpak_apps.add (fp);
-            });
-
             update_processes.begin ();
         }
 
@@ -157,9 +150,7 @@ namespace Monitor {
             cpu_last_totals = cpu_data.xcpu_total;
 
 
-            Flatpak.Instance.get_all ().foreach ((fp) => {
-                flatpak_apps.add (fp);
-            });
+
 
             /* emit the updated signal so that subscribers can update */
             updated ();
@@ -184,7 +175,7 @@ namespace Monitor {
 
             process.application_name = command_sanitized_basename;
 
-            foreach (var flatpak_app in flatpak_apps) {
+            foreach (var flatpak_app in Flatpak.Instance.get_all ()) {
                 if (flatpak_app.get_pid () == process.stat.pid || flatpak_app.get_child_pid () == process.stat.pid) {
                     debug ("Found Flatpak app: %s ", flatpak_app.get_app ());
                     foreach (var key in apps_info_list.keys) {
@@ -289,13 +280,6 @@ namespace Monitor {
         private void remove_process (int pid) {
             if (process_list.has_key (pid)) {
                 process_list.unset (pid);
-                // flatpak_apps.remove (pid);
-                foreach (var fp in flatpak_apps) {
-                    if (fp.get_pid () == pid) {
-                        flatpak_apps.remove (fp);
-                        break;
-                    }
-                }
                 process_removed (pid);
             } else if (kernel_process_blacklist.contains (pid)) {
                 kernel_process_blacklist.remove (pid);
