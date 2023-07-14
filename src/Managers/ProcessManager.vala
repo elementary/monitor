@@ -50,7 +50,6 @@ namespace Monitor {
             }
         }
 
-
         /**
          * Gets a process by its pid, making sure that it's updated.
          */
@@ -149,9 +148,6 @@ namespace Monitor {
             cpu_last_useds = useds;
             cpu_last_totals = cpu_data.xcpu_total;
 
-
-
-
             /* emit the updated signal so that subscribers can update */
             updated ();
 
@@ -201,6 +197,7 @@ namespace Monitor {
                             return true;
                         }
                     }
+
                     // Steam case
                     // Must match a proper executable and not game executable e.g. steam steam://rungameid/210770
                     if ((Path.get_basename (key.split (" ")[0]) == command_sanitized_basename) && !key.split (" ")[1].contains ("steam")) {
@@ -209,7 +206,7 @@ namespace Monitor {
                         return true;
                     }
 
-                    // workaround for some flatpak apps
+                    //// workaround for some flatpak apps
                     if (process.command.contains (apps_info_list.get (key).get_id ().replace (".desktop", ""))) {
                         process.application_name = apps_info_list.get (key).get_name ();
                         process.icon = apps_info_list.get (key).get_icon ();
@@ -219,15 +216,21 @@ namespace Monitor {
                     process.application_name = apps_info_list.get (key).get_name ();
                     process.icon = apps_info_list.get (key).get_icon ();
                     return true;
+
+                // some processes have semicolon in command
+                // do not sanitizeng to improve readability
+                } else if (process.command.split (" ")[0].contains (":")) {
+                    process.application_name = process.command;
+                    return true;
                 }
             }
 
             if (ProcessUtils.is_shell (command_sanitized_basename)) {
-                process.icon = ProcessUtils.get_bash_icon ();
+                process.icon = new ThemedIcon ("bash");
                 debug ("app name is " + process.application_name);
             }
             if (command_sanitized_basename == "docker" || command_sanitized_basename == "dockerd" || command_sanitized_basename == "docker-proxy") {
-                process.icon = ProcessUtils.get_docker_icon ();
+                process.icon = new ThemedIcon ("docker");
                 process.application_name = command_sanitized_basename;
                 debug ("app name is " + process.application_name);
             }

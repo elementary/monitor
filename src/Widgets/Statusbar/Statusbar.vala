@@ -4,14 +4,17 @@ public class Monitor.Statusbar : Gtk.ActionBar {
     Gtk.Label swap_usage_label;
 
     construct {
-        var cpu_icon = new Gtk.Image.from_icon_name ("cpu-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-        cpu_icon.tooltip_text = _("CPU");
+        var cpu_icon = new Gtk.Image.from_icon_name ("cpu-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
+            tooltip_text = _("CPU")
+        };
 
-        var ram_icon = new Gtk.Image.from_icon_name ("ram-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-        ram_icon.tooltip_text = _("Memory");
+        var ram_icon = new Gtk.Image.from_icon_name ("ram-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
+            tooltip_text = _("Memory")
+        };
 
-        var swap_icon = new Gtk.Image.from_icon_name ("swap-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-        swap_icon.tooltip_text = _("Swap");
+        var swap_icon = new Gtk.Image.from_icon_name ("swap-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
+            tooltip_text = _("Swap")
+        };
 
         cpu_usage_label = new Gtk.Label (_("Calculating…"));
         cpu_usage_label.set_width_chars (4);
@@ -34,7 +37,6 @@ public class Monitor.Statusbar : Gtk.ActionBar {
         pack_start (swap_usage_label);
 
         var support_ua_label = new Gtk.LinkButton.with_label ("https://u24.gov.ua/", _("🇺🇦"));
-
         var github_label = new Gtk.LinkButton.with_label ("https://github.com/stsdc/monitor", _("Check on Github"));
 
         var version_label = new Gtk.Label ("%s".printf (VCS_TAG)) {
@@ -42,7 +44,7 @@ public class Monitor.Statusbar : Gtk.ActionBar {
         };
         version_label.get_style_context ().add_class ("dim-label");
 
-        //  pack_end (build_separator_middot ());
+        // pack_end (build_separator_middot ());
         pack_end (github_label);
         pack_end (build_separator_middot ());
         pack_end (version_label);
