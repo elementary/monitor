@@ -206,7 +206,7 @@ namespace Monitor {
                         return true;
                     }
 
-                    //// workaround for some flatpak apps
+                    // workaround for some flatpak apps
                     if (process.command.contains (apps_info_list.get (key).get_id ().replace (".desktop", ""))) {
                         process.application_name = apps_info_list.get (key).get_name ();
                         process.icon = apps_info_list.get (key).get_icon ();
@@ -217,9 +217,16 @@ namespace Monitor {
                     process.icon = apps_info_list.get (key).get_icon ();
                     return true;
 
+
+                } else if (process.command.split (" ")[0].contains (".exe")) {
+                    var splitted = process.command.split (" ")[0].split ("\\");
+                    process.application_name = splitted[splitted.length - 1].chomp();
+                    process.icon = new ThemedIcon ("application-x-ms-dos-executable");
+                    return true;
+                }
                 // some processes have semicolon in command
-                // do not sanitizeng to improve readability
-                } else if (process.command.split (" ")[0].contains (":")) {
+                // do not sanitizing to improve readability
+                else if (process.command.split (" ")[0].contains (":")) {
                     process.application_name = process.command;
                     return true;
                 }
