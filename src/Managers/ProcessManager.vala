@@ -220,7 +220,7 @@ namespace Monitor {
 
                 } else if (process.command.split (" ")[0].contains (".exe")) {
                     var splitted = process.command.split (" ")[0].split ("\\");
-                    process.application_name = splitted[splitted.length - 1].chomp();
+                    process.application_name = splitted[splitted.length - 1].chomp ();
                     process.icon = new ThemedIcon ("application-x-ms-dos-executable");
                     return true;
                 }
