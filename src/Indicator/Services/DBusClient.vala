@@ -10,6 +10,7 @@ public interface Monitor.DBusClientInterface : Object {
     public signal void indicator_network_up_state (bool state);
     public signal void indicator_network_down_state (bool state);
     public signal void indicator_gpu_state (bool state);
+    public signal void indicator_gpu_temperature_state (bool state);
 
 }
 

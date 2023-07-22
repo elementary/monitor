@@ -1,4 +1,4 @@
-project('com.github.stsdc.monitor', 'vala', 'c', version: '0.16.1')
+project('com.github.stsdc.monitor', 'vala', 'c', version: '0.17.0')
 
 # these are Meson modules
 gnome = import('gnome')
@@ -37,6 +37,7 @@ app_dependencies = [
     dependency('x11'),
     dependency('udisks2'),
     dependency('json-glib-1.0'),
+    dependency('flatpak'),
 
     livechart_proj.get_variable('livechart_dep'),
 

@@ -94,6 +94,18 @@
             dbusserver.indicator_gpu_state (gpu_percentage_switch.state);
         });
 
+        var gpu_temperature_label = new Gtk.Label (_("Display GPU temperature"));
+        gpu_label.halign = Gtk.Align.START;
+        gpu_label.xalign = 1;
+
+        var gpu_temperature_switch = new Gtk.Switch ();
+        gpu_temperature_switch.halign = Gtk.Align.END;
+        gpu_temperature_switch.state = MonitorApp.settings.get_boolean ("indicator-gpu-temperature-state");
+        gpu_temperature_switch.notify["active"].connect (() => {
+            MonitorApp.settings.set_boolean ("indicator-gpu-temperature-state", gpu_temperature_switch.state);
+            dbusserver.indicator_gpu_temperature_state (gpu_temperature_switch.state);
+        });
+
         content_area.attach (cpu_label, 0, 0, 1, 1);
         content_area.attach (cpu_percentage_switch, 1, 0, 1, 1);
 
@@ -103,14 +115,17 @@
         content_area.attach (gpu_label, 0, 2, 1, 1);
         content_area.attach (gpu_percentage_switch, 1, 2, 1, 1);
 
-        content_area.attach (temperature_label, 0, 3, 1, 1);
-        content_area.attach (temperature_switch, 1, 3, 1, 1);
+        content_area.attach (gpu_temperature_label, 0, 3, 1, 1);
+        content_area.attach (gpu_temperature_switch, 1, 3, 1, 1);
 
-        content_area.attach (network_upload_label, 0, 4, 1, 1);
-        content_area.attach (network_upload_switch, 1, 4, 1, 1);
+        content_area.attach (temperature_label, 0, 4, 1, 1);
+        content_area.attach (temperature_switch, 1, 4, 1, 1);
 
-        content_area.attach (network_download_label, 0, 5, 1, 1);
-        content_area.attach (network_download_switch, 1, 5, 1, 1);
+        content_area.attach (network_upload_label, 0, 5, 1, 1);
+        content_area.attach (network_upload_switch, 1, 5, 1, 1);
+
+        content_area.attach (network_download_label, 0, 6, 1, 1);
+        content_area.attach (network_download_switch, 1, 6, 1, 1);
 
         update_status ();
 

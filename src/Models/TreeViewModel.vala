@@ -4,6 +4,7 @@ public enum Monitor.Column {
     CPU,
     MEMORY,
     PID,
+    CMD
 }
 
 public class Monitor.TreeViewModel : Gtk.TreeStore {
@@ -20,6 +21,7 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
             typeof (double),
             typeof (int64),
             typeof (int),
+            typeof (string),
         });
 
         process_manager = ProcessManager.get_default ();
@@ -53,6 +55,7 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
                  Column.NAME, process.application_name,
                  Column.ICON, process.icon.to_string (),
                  Column.PID, process.stat.pid,
+                 Column.CMD, process.command,
                  -1);
             if (process_rows.size < 1) {
                 added_first_row ();

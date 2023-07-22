@@ -86,7 +86,8 @@ public class Monitor.Resources : Object {
                    swap_total = swap.total,
                    network_up = network.bytes_out,
                    network_down = network.bytes_in,
-                   gpu_percentage = gpu != null ? gpu.percentage : 0
+                   gpu_percentage = gpu != null ? gpu.percentage : 0,
+                   gpu_temperature = gpu.temperature
         };
     }
 }
