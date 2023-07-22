@@ -6,30 +6,30 @@ namespace Monitor {
         ERROR_NO_ENTRY,
     }
 
-    struct Container {
-        public string id;
-        public string name;
-        public string image;
-        public string state;
-        public string ? label_project;
-        public string ? label_service;
-        public string ? label_config;
-        public string ? label_workdir;
-    }
+    //  struct Container {
+    //      public string id;
+    //      public string name;
+    //      public string image;
+    //      public string state;
+    //      public string ? label_project;
+    //      public string ? label_service;
+    //      public string ? label_config;
+    //      public string ? label_workdir;
+    //  }
 
-    struct ContainerInspectInfo {
-        public string name;
-        public string image;
-        public string status;
-        public string[] ? binds;
-        public string[] ? envs;
-        public string[] ? ports;
-    }
+    //  struct ContainerInspectInfo {
+    //      public string name;
+    //      public string image;
+    //      public string status;
+    //      public string[] ? binds;
+    //      public string[] ? envs;
+    //      public string[] ? ports;
+    //  }
 
-    struct DockerVersionInfo {
-        public string version;
-        public string api_version;
-    }
+    //  struct DockerVersionInfo {
+    //      public string version;
+    //      public string api_version;
+    //  }
 
     public class ContainerManager : Object {
         private static GLib.Once<ContainerManager> instance;
@@ -141,7 +141,6 @@ namespace Monitor {
                     throw new ApiClientError.ERROR ("Server error");
                 }
 
-                //
                 var json = "";
                 string ? line = null;
 
@@ -149,7 +148,6 @@ namespace Monitor {
                     json += line;
                 }
 
-                //
                 var root_node = parse_json (json);
                 var root_array = root_node.get_array ();
                 assert_nonnull (root_array);
@@ -160,15 +158,6 @@ namespace Monitor {
 
                     this.add_container (container_object);
 
-
-                    //
-
-
-
-                    //
-
-
-                    //
 
                 }
                 var remove_me = new Gee.HashSet<DockerContainer> ();

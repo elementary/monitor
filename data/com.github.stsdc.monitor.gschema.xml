@@ -70,6 +70,11 @@
       <summary>To show GPU used percentage in Monitor Indicator or not</summary>
       <description>To show GPU used percentage in Monitor Indicator or not</description>
     </key>
+    <key type='b' name="indicator-gpu-temperature-state">
+      <default>false</default>
+      <summary>To show GPU temperature in Monitor Indicator or not</summary>
+      <description>To show GPU temperature in Monitor Indicator or not</description>
+    </key>
     <key type='b' name="smooth-lines-state">
       <default>true</default>
       <summary>To enable smooth lines in charts</summary>

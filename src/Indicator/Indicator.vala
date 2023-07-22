@@ -29,6 +29,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
             display_widget.network_up_widget.visible = settings.get_boolean ("indicator-network-upload-state");
             display_widget.network_down_widget.visible = settings.get_boolean ("indicator-network-download-state");
             display_widget.gpu_widget.visible = settings.get_boolean ("indicator-gpu-state");
+            display_widget.gpu_temperature_widget.visible = settings.get_boolean ("indicator-gpu-temperature-state");
 
         });
 
@@ -39,6 +40,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         dbusclient.interface.indicator_network_up_state.connect ((state) => display_widget.network_up_widget.visible = state);
         dbusclient.interface.indicator_network_down_state.connect ((state) => display_widget.network_down_widget.visible = state);
         dbusclient.interface.indicator_gpu_state.connect ((state) => display_widget.gpu_widget.visible = state);
+        dbusclient.interface.indicator_gpu_temperature_state.connect ((state) => display_widget.gpu_temperature_widget.visible = state);
 
         dbusclient.interface.update.connect ((sysres) => {
             display_widget.cpu_widget.state_percentage = sysres.cpu_percentage;
@@ -47,6 +49,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
             display_widget.network_up_widget.state_bandwidth = sysres.network_up;
             display_widget.network_down_widget.state_bandwidth = sysres.network_down;
             display_widget.gpu_widget.state_percentage = sysres.gpu_percentage;
+            display_widget.gpu_temperature_widget.state_temperature = (int) Math.round (sysres.gpu_temperature);
         });
 
         popover_widget.quit_monitor.connect (() => {

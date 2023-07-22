@@ -36,7 +36,7 @@ public class Monitor.Statusbar : Gtk.ActionBar {
         pack_start (swap_icon);
         pack_start (swap_usage_label);
 
-        var support_ua_label = new Gtk.LinkButton.with_label ("https://u24.gov.ua/", _("🇺🇦"));
+        var support_ua_label = new Gtk.LinkButton.with_label ("http://stand-with-ukraine.pp.ua/", _("🇺🇦"));
         var github_label = new Gtk.LinkButton.with_label ("https://github.com/stsdc/monitor", _("Check on Github"));
 
         var version_label = new Gtk.Label ("%s".printf (VCS_TAG)) {
