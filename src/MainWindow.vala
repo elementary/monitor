@@ -7,8 +7,8 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
     // Widgets
     public Headerbar headerbar;
 
-    public ProcessView process_view;
-    public SystemView system_view;
+    //  public ProcessView process_view;
+    //  public SystemView system_view;
     public ContainerView container_view;
     private Gtk.Stack stack;
 
@@ -30,14 +30,14 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
         resources = new Resources ();
 
-        process_view = new ProcessView ();
-        system_view = new SystemView (resources);
+        //  process_view = new ProcessView ();
+        //  system_view = new SystemView (resources);
         container_view = new ContainerView ();
 
         stack = new Gtk.Stack ();
         stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
-        stack.add_titled (process_view, "process_view", _("Processes"));
-        stack.add_titled (system_view, "system_view", _("System"));
+        //  stack.add_titled (process_view, "process_view", _("Processes"));
+        //  stack.add_titled (system_view, "system_view", _("System"));
 
         if (MonitorApp.settings.get_boolean ("containers-view-state")) {
             stack.add_titled (container_view, "container_view", _("Containers"));
@@ -77,14 +77,14 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
         new Thread<void> ("upd", () => {
             Timeout.add_seconds (MonitorApp.settings.get_int ("update-time"), () => {
-                process_view.update ();
+                //  process_view.update ();
 
 
                 container_view.update ();
 
 
                 Idle.add (() => {
-                    system_view.update ();
+                    //  system_view.update ();
                     dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
                     var res = resources.serialize ();
                     statusbar.update (res);
