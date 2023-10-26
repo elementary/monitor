@@ -158,11 +158,8 @@ namespace Monitor {
                 // Newer version of json library has default values option
                 if (json_memory_stats.has_member ("stats")) {
                     var json_memory_stats_stats = json_memory_stats.get_object_member ("stats");
-                    this.mem_used = json_memory_stats.get_int_member ("usage") - json_memory_stats_stats.get_int_member ("inactive_file");
-                    this.mem_available = json_memory_stats.get_int_member ("limit");
-                } else {
-                    this.mem_used = 0;
-                    this.mem_available = 0;
+                    this.mem_used = json_memory_stats.get_int_member_with_default ("usage", 0) - json_memory_stats_stats.get_int_member ("inactive_file");
+                    this.mem_available = json_memory_stats.get_int_member_with_default ("limit", 0);
                 }
 
                 var json_cpu_stats = root_object.get_object_member ("cpu_stats");
@@ -177,14 +174,10 @@ namespace Monitor {
 
 
                 if (json_cpu_stats.has_member ("system_cpu_usage")) {
-                    this.system_cpu_usage = json_cpu_stats.get_int_member ("system_cpu_usage");
-                    this.pre_system_cpu_usage = json_precpu_stats.get_int_member ("system_cpu_usage");
+                    this.system_cpu_usage = json_cpu_stats.get_int_member_with_default ("system_cpu_usage", 0);
+                    this.pre_system_cpu_usage = json_precpu_stats.get_int_member_with_default ("system_cpu_usage", 0);
 
-                    this.number_cpus = json_cpu_stats.get_int_member ("online_cpus");
-                } else {
-                    this.system_cpu_usage = 0;
-                    this.pre_system_cpu_usage = 0;
-                    this.number_cpus = 0;
+                    this.number_cpus = json_cpu_stats.get_int_member_with_default ("online_cpus", 0);
                 }
 
                 // debug("%lld, %lld", total_usage, pretotal_usage);
