@@ -1,4 +1,4 @@
-public class Monitor.LabelVertical : Gtk.EventBox {
+public class Monitor.LabelVertical : Gtk.Box {
     private Gtk.Grid grid;
 
     public signal void clicked ();
@@ -25,14 +25,14 @@ public class Monitor.LabelVertical : Gtk.EventBox {
         grid.attach (desc, 0, 0, 1, 1);
         grid.attach (val, 0, 1, 1, 1);
 
-        add (grid);
+        append (grid);
 
-        events |= Gdk.EventMask.BUTTON_RELEASE_MASK;
+        //  events |= Gdk.EventMask.BUTTON_RELEASE_MASK;
 
-        button_release_event.connect ((event) => {
-            clicked ();
-            return false;
-        });
+        //  button_release_event.connect ((event) => {
+        //      clicked ();
+        //      return false;
+        //  });
     }
 
     public void set_text (string text) {

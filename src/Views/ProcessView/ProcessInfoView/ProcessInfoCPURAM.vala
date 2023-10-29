@@ -21,10 +21,10 @@ public class Monitor.ProcessInfoCPURAM : Gtk.Grid {
         ram_chart.height_request = 60;
 
         var cpu_graph_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        cpu_graph_box.add (cpu_chart);
+        cpu_graph_box.append (cpu_chart);
 
         var mem_graph_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        mem_graph_box.add (ram_chart);
+        mem_graph_box.append (ram_chart);
 
         cpu_label = new Gtk.Label ("CPU: " + Utils.NO_DATA);
         cpu_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);

@@ -20,23 +20,26 @@ public class Monitor.SystemView : Gtk.Box {
         network_view = new SystemNetworkView (resources.network);
         storage_view = new SystemStorageView (resources.storage);
 
-        var scrolled_window = new Gtk.ScrolledWindow (null, null);
-        var wrapper = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        wrapper.expand = true;
-        scrolled_window.add (wrapper);
+        var wrapper = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
+            hexpand = true,
+            vexpand = true
+        };
 
+        var scrolled_window = new Gtk.ScrolledWindow () {
+            child = wrapper
+        };
 
-        wrapper.add (cpu_view);
-        wrapper.add (memory_view);
-        wrapper.add (network_view);
-        wrapper.add (storage_view);
+        wrapper.append (cpu_view);
+        wrapper.append (memory_view);
+        wrapper.append (network_view);
+        wrapper.append (storage_view);
 
         if (resources.gpu != null) {
             gpu_view = new SystemGPUView (resources.gpu);
-            wrapper.add (gpu_view);
+            wrapper.append (gpu_view);
         }
 
-        add (scrolled_window);
+        append (scrolled_window);
     }
 
     public void update () {

@@ -15,7 +15,8 @@ public class Monitor.Appearance : Object {
             provider.load_from_resource ("/com/github/stsdc/monitor/monitor-light.css");
         }
 
-        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        // @TODO: Fix styles
+        //  Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         // We listen to changes in Granite.Settings and update our app if the user changes their preference
         granite_settings.notify["prefers-color-scheme"].connect (() => {
@@ -37,7 +38,8 @@ public class Monitor.Appearance : Object {
             debug ("Retrofitting styles to make Monitor usable with a current theme.");
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("/com/github/stsdc/monitor/monitor-retrofit.css");
-            Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+            // @TODO: Fix retrofitting styles
+            //  Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
         }
     }
 }

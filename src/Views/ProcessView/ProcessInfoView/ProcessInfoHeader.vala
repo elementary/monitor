@@ -20,7 +20,7 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         regex = /(?i:^.*\.(xpm|png)$)/; // vala-lint=space-before-paren,
         /* *INDENT-ON* */
 
-        icon = new Gtk.Image.from_icon_name ("application-x-executable", Gtk.IconSize.DIALOG);
+        icon = new Gtk.Image.from_icon_name ("application-x-executable");
         icon.set_pixel_size (64);
         icon.valign = Gtk.Align.END;
 
@@ -50,11 +50,11 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         username = new LabelRoundy ("");
 
         var wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        wrapper.add (pid);
-        wrapper.add (priority);
-        wrapper.add (nice);
-        wrapper.add (num_threads);
-        wrapper.add (username);
+        wrapper.append (pid);
+        wrapper.append (priority);
+        wrapper.append (nice);
+        wrapper.append (num_threads);
+        wrapper.append (username);
 
         attach (icon_container, 0, 0, 1, 2);
         attach (application_name, 1, 0, 3, 1);
@@ -96,7 +96,7 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         var icon_name = process.icon.to_string ();
 
         if (!regex.match (icon_name)) {
-            icon.set_from_icon_name (icon_name, Gtk.IconSize.DIALOG);
+            icon.set_from_icon_name (icon_name);
         } else {
             try {
                 var pixbuf = new Gdk.Pixbuf.from_file_at_size (icon_name, 48, -1);

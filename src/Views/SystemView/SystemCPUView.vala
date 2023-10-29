@@ -14,13 +14,20 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
     construct {
         core_label_list = new Gee.ArrayList<Gtk.Label> ();
 
-        cpu_frequency_label = new LabelRoundy (_("Frequency"));
-        cpu_frequency_label.margin = 6;
-        cpu_frequency_label.margin_top = 2;
+        cpu_frequency_label = new LabelRoundy (_("Frequency")) {
+            margin_start = 6,
+            margin_end = 6,
+            margin_top = 2,
+            margin_bottom = 6,
+        };
 
-        cpu_temperature_label = new LabelRoundy (_("Temperature"));
-        cpu_temperature_label.margin = 6;
-        cpu_temperature_label.margin_top = 2;
+        cpu_temperature_label = new LabelRoundy (_("Temperature")) {
+            margin_start = 6,
+            margin_end = 6,
+            margin_top = 2,
+            margin_bottom = 6,
+        };
+
 
         cpu_frequency_chart = new Chart (1);
         cpu_frequency_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
@@ -130,7 +137,10 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         Gtk.Grid grid = new Gtk.Grid () {
             column_spacing = 8,
             row_spacing = 4,
-            margin = 6
+            margin_start = 6,
+            margin_end = 6,
+            margin_top = 6,
+            margin_bottom = 6,
         };
 
         int column = 0;

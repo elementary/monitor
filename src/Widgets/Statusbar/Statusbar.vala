@@ -4,15 +4,15 @@ public class Monitor.Statusbar : Gtk.ActionBar {
     Gtk.Label swap_usage_label;
 
     construct {
-        var cpu_icon = new Gtk.Image.from_icon_name ("cpu-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
+        var cpu_icon = new Gtk.Image.from_icon_name ("cpu-symbolic") {
             tooltip_text = _("CPU")
         };
 
-        var ram_icon = new Gtk.Image.from_icon_name ("ram-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
+        var ram_icon = new Gtk.Image.from_icon_name ("ram-symbolic") {
             tooltip_text = _("Memory")
         };
 
-        var swap_icon = new Gtk.Image.from_icon_name ("swap-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
+        var swap_icon = new Gtk.Image.from_icon_name ("swap-symbolic") {
             tooltip_text = _("Swap")
         };
 

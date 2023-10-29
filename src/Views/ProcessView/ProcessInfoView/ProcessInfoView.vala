@@ -16,7 +16,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
             process_info_header.update (_process);
 
-            this.show_all ();
+            // this.show_all ();
             if (_process.uid != Posix.getuid ()) {
                 process_info_cpu_ram.hide ();
                 process_info_io_stats.hide ();
@@ -32,7 +32,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 permission_error_infobar.revealed = false;
 
                 process_info_io_stats.open_files_tree_view.model.process = _process;
-                process_info_io_stats.open_files_tree_view.show_all ();
+                // process_info_io_stats.open_files_tree_view.show_all ();
             }
         }
     }
@@ -55,22 +55,28 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         permission_error_infobar.message_type = Gtk.MessageType.ERROR;
         permission_error_infobar.revealed = false;
         permission_error_label = new Gtk.Label (Utils.NO_DATA);
-        permission_error_infobar.get_content_area ().add (permission_error_label);
-        add (permission_error_infobar);
+        permission_error_infobar.add_child (permission_error_label);
+        append (permission_error_infobar);
 
         var grid = new Gtk.Grid () {
-            margin = 12,
+            margin_start = 12,
+            margin_end = 12,
+            margin_top = 12,
+            margin_bottom = 12,
             hexpand = true,
             column_spacing = 12
         };
-        add (grid);
+        append (grid);
 
 
         process_info_header = new ProcessInfoHeader ();
         grid.attach (process_info_header, 0, 0, 1, 1);
 
         var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
-            margin = 12,
+            margin_start = 12,
+            margin_end = 12,
+            margin_top = 12,
+            margin_bottom = 12,
             hexpand = true
         };
         grid.attach (separator, 0, 1, 1, 1);
@@ -91,15 +97,15 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         end_process_button.margin_end = 10;
         end_process_button.tooltip_markup = Granite.markup_accel_tooltip ({ "<Ctrl>E" }, _("End selected process"));
         var end_process_button_context = end_process_button.get_style_context ();
-        end_process_button_context.add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+        //  end_process_button_context.add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
         kill_process_button = new Gtk.Button.with_label (_("Kill Process"));
         kill_process_button.tooltip_markup = Granite.markup_accel_tooltip ({ "<Ctrl>K" }, _("Kill selected process"));
         var kill_process_button_context = kill_process_button.get_style_context ();
-        kill_process_button_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+        //  kill_process_button_context.add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
-        process_action_bar.add (end_process_button);
-        process_action_bar.add (kill_process_button);
+        process_action_bar.append (end_process_button);
+        process_action_bar.append (kill_process_button);
 
         preventor = new Preventor (process_action_bar, "process_action_bar");
 
@@ -119,7 +125,6 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
         grid.attach (preventor, 0, 5, 1, 1);
 
-        show_all ();
         process_info_cpu_ram.hide ();
         process_info_io_stats.hide ();
         preventor.hide ();
@@ -139,7 +144,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             process_info_io_stats.update (process);
 
             process_info_io_stats.open_files_tree_view.model.process = _process;
-            process_info_io_stats.open_files_tree_view.show_all ();
+            //  process_info_io_stats.open_files_tree_view.show_all ();
         }
     }
 
