@@ -1,25 +1,25 @@
-public class Monitor.MainWindow : Adw.ApplicationWindow {
+public class Monitor.MainWindow : Gtk.ApplicationWindow {
     // application reference
     private Shortcuts shortcuts;
 
     private Resources resources;
 
     // Widgets
-    public Headerbar headerbar;
+    //  public HeaderbarContent headerbar_content;
 
     //  public ProcessView process_view;
     //  public SystemView system_view;
     public ContainerView container_view;
     private Gtk.Stack stack;
 
-    private Statusbar statusbar;
+    //  private Statusbar statusbar;
 
     public DBusServer dbusserver;
 
 
     // Constructs a main window
     public MainWindow (MonitorApp app) {
-        Adw.init ();
+        //  Adw.init ();
         this.set_application (app);
 
         setup_window_state ();
@@ -48,12 +48,22 @@ public class Monitor.MainWindow : Adw.ApplicationWindow {
         stack_switcher.valign = Gtk.Align.CENTER;
         stack_switcher.set_stack (stack);
 
-        headerbar = new Headerbar (this);
-        headerbar.set_title_widget (stack_switcher);
-        headerbar.preferences_grid.attach (new PreferencesView (), 0, 0, 1, 1);
+        var headerbar = new Gtk.HeaderBar () {
+            title_widget = stack_switcher,
+            hexpand = true
+        };
+
+        //  headerbar.search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
+        //  stack.notify["visible-child-name"].connect (() => {
+        //      headerbar.search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
+        //  });
+
+        //  headerbar_content = new HeaderbarContent (this);
+        //  headerbar.set_title_widget (stack_switcher);
+        //  headerbar.preferences_grid.attach (new PreferencesView (), 0, 0, 1, 1);
         //  sv.show_all ();
 
-        statusbar = new Statusbar ();
+        //  statusbar = new Statusbar ();
 
         var grid = new Gtk.Grid () {
             orientation = Gtk.Orientation.VERTICAL
@@ -61,18 +71,15 @@ public class Monitor.MainWindow : Adw.ApplicationWindow {
 
         grid.attach (headerbar, 0, 0, 1, 1);
         grid.attach (stack, 0, 1, 1, 1);
-        grid.attach (statusbar, 0, 2, 1, 1);
+        //  grid.attach (statusbar, 0, 2, 1, 1);
 
-        set_content (grid);
+        //  set_content (grid);
+        set_child (grid);
 
         present ();
 
         dbusserver = DBusServer.get_default ();
 
-        headerbar.search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
-        stack.notify["visible-child-name"].connect (() => {
-            headerbar.search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
-        });
 
         new Thread<void> ("upd", () => {
             Timeout.add_seconds (MonitorApp.settings.get_int ("update-time"), () => {
@@ -86,7 +93,7 @@ public class Monitor.MainWindow : Adw.ApplicationWindow {
                     //  system_view.update ();
                     dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
                     var res = resources.serialize ();
-                    statusbar.update (res);
+                    //  statusbar.update (res);
                     dbusserver.update (res);
                     return false;
                 });
@@ -104,7 +111,7 @@ public class Monitor.MainWindow : Adw.ApplicationWindow {
         });
 
         shortcuts = new Shortcuts (this);
-        key_press_event.connect ((e) => shortcuts.handle (e));
+        //  key_press_event.connect ((e) => shortcuts.handle (e));
 
         app.window_removed.connect (() => {
             int position_x, position_y;
@@ -113,8 +120,8 @@ public class Monitor.MainWindow : Adw.ApplicationWindow {
             //  get_position (out position_x, out position_y);
             MonitorApp.settings.set_int ("window-width", window_width);
             MonitorApp.settings.set_int ("window-height", window_height);
-            MonitorApp.settings.set_int ("position-x", position_x);
-            MonitorApp.settings.set_int ("position-y", position_y);
+            //  MonitorApp.settings.set_int ("position-x", position_x);
+            //  MonitorApp.settings.set_int ("position-y", position_y);
             //  MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized);
 
             MonitorApp.settings.set_string ("opened-view", stack.visible_child_name);

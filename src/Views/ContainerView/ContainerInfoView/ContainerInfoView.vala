@@ -20,13 +20,16 @@ public class Monitor.ContainerInfoView : Gtk.Grid {
     private Gtk.Label ram_label;
 
     construct {
-        this.expand = false;
+        //  this.expand = false;
         this.width_request = 200;
 
         column_spacing = 6;
         row_spacing = 6;
         vexpand = false;
-        margin = 12;
+        margin_start = 12;
+        margin_end = 12;
+        margin_top = 12;
+        margin_bottom = 12;
         column_homogeneous = true;
         row_homogeneous = false;
 

@@ -21,7 +21,7 @@ public class Monitor.ContainerInfoHeader : Gtk.Grid {
         regex = /(?i:^.*\.(xpm|png)$)/; // vala-lint=space-before-paren,
         /* *INDENT-ON* */
 
-        icon = new Gtk.Image.from_icon_name ("application-x-executable", Gtk.IconSize.DIALOG);
+        icon = new Gtk.Image.from_icon_name ("application-x-executable");
         icon.set_pixel_size (64);
         icon.valign = Gtk.Align.END;
 

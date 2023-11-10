@@ -15,16 +15,16 @@ public class Monitor.ContainerView : Gtk.Box {
 
     public ContainerView () {
 
-        var container_tree_view_scrolled = new Gtk.ScrolledWindow (null, null);
-        container_tree_view_scrolled.add (container_treeview);
+        var container_tree_view_scrolled = new Gtk.ScrolledWindow ();
+        container_tree_view_scrolled.set_child (container_treeview);
 
         var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-        paned.pack1 (container_tree_view_scrolled, true, false);
+        paned.set_start_child (container_tree_view_scrolled);
         // paned.pack2 (container_info_view, true, false);
         paned.set_position (paned.max_position);
 
 
-        add (paned);
+        append (paned);
     }
 
     private void set_container_container_info_view (DockerContainer container) {

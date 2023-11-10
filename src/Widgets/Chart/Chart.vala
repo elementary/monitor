@@ -27,7 +27,7 @@ public class Monitor.Chart : Gtk.Box {
         };
 
         live_chart = new LiveChart.Chart (config);
-        live_chart.expand = true;
+        //  live_chart.expand = true;
         live_chart.legend.visible = false;
         live_chart.grid.visible = true;
         live_chart.background.visible = false;
@@ -60,7 +60,7 @@ public class Monitor.Chart : Gtk.Box {
 
             live_chart.add_serie (serie);
         }
-        add (live_chart);
+        append (live_chart);
         return this;
     }
 
@@ -73,7 +73,7 @@ public class Monitor.Chart : Gtk.Box {
             serie.line.color = colors.get_color_by_index (i);
             live_chart.add_serie (serie);
         }
-        add (live_chart);
+        append (live_chart);
         return this;
     }
 

@@ -4,8 +4,8 @@ source_app_files = [
     'Utils.vala',
 
     # Views
-    'Views/ProcessView/ProcessView.vala',
-    'Views/ProcessView/ProcessInfoView/ProcessInfoView.vala',
+    # 'Views/ProcessView/ProcessView.vala',
+    # 'Views/ProcessView/ProcessInfoView/ProcessInfoView.vala',
     'Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala',
 
     'Views/PreferencesView/PreferencesView.vala',
@@ -27,19 +27,19 @@ source_app_files = [
     'Views/ContainerView/ContainerInfoView/ContainerInfoCharts.vala',
 
     # Widgets related only to ProcessInfoView
-    'Views/ProcessView/ProcessInfoView/Preventor.vala',
+    # 'Views/ProcessView/ProcessInfoView/Preventor.vala',
     'Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala',
     'Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala',
     'Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala',
     'Views/ProcessView/ProcessInfoView/OpenFilesTreeView.vala',
 
     # Widgets
-    'Widgets/Headerbar/Headerbar.vala',
-    'Widgets/Headerbar/Search.vala',
-    'Widgets/Statusbar/Statusbar.vala',
+    # 'Widgets/Headerbar/HeaderbarContent.vala',
+    # 'Widgets/Headerbar/Search.vala',
+    # 'Widgets/Statusbar/Statusbar.vala',
     'Widgets/Labels/LabelVertical.vala',
     'Widgets/Labels/LabelRoundy.vala',
-    'Widgets/Labels/LabelH4.vala',
+    # 'Widgets/Labels/LabelH4.vala',
     'Widgets/Chart/Chart.vala',
     'Widgets/WidgetResource/WidgetResource.vala',
 

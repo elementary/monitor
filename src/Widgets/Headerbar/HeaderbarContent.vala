@@ -1,4 +1,4 @@
-public class Monitor.Headerbar : Gtk.HeaderBar {
+public class Monitor.HeaderbarContent {
     private MainWindow window;
 
     public Search search;
@@ -14,7 +14,7 @@ public class Monitor.Headerbar : Gtk.HeaderBar {
         //  title_widget = new Gtk.Label(_("Monitor"));
     }
 
-    public Headerbar (MainWindow window) {
+    public HeaderbarContent (MainWindow window) {
         this.window = window;
 
         var preferences_button = new Gtk.MenuButton ();

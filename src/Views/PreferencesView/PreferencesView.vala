@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: LGPL-3.0-or-later
  */
 
- public class Monitor.PreferencesView : Gtk.Paned {
+ public class Monitor.PreferencesView : Gtk.Box {
     private PreferencesGeneralPage general_page = new PreferencesGeneralPage ();
     private PreferencesIndicatorPage indicator_page = new PreferencesIndicatorPage ();
 
@@ -12,9 +12,11 @@
         general_page.background_switch.notify["active"].connect (() => set_background_switch_state ());
         indicator_page.status_switch.notify["active"].connect (() => set_background_switch_state ());
 
+        var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
+
         height_request = 300;
         width_request = 500;
-        set_position (135);
+        paned.set_position (135);
 
         var stack = new Gtk.Stack ();
         stack.add_named (indicator_page, "indicator_page");
@@ -24,8 +26,9 @@
             width_request = 135
         };
 
-        pack1 (settings_sidebar, true, false);
-        pack2 (stack, true, false);
+        paned.set_start_child (settings_sidebar);
+        paned.set_end_child (stack);
+        append (paned);
     }
 
     private void set_background_switch_state () {

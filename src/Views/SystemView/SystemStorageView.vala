@@ -2,7 +2,7 @@ public class Monitor.SystemStorageView : Gtk.Grid {
     private Chart storage_chart;
     private Storage storage;
 
-    private LabelH4 storage_name_label;
+    private Gtk.Label storage_name_label;
     private LabelRoundy storage_read_label;
     private LabelRoundy storage_write_label;
 
@@ -20,7 +20,7 @@ public class Monitor.SystemStorageView : Gtk.Grid {
     public SystemStorageView (Storage _storage) {
         storage = _storage;
 
-        storage_name_label = new LabelH4 (_("Storage"));
+        storage_name_label = new Gtk.Label (_("Storage"));
 
         storage_write_label = new LabelRoundy (_("WRITE"));
         storage_write_label.val.set_width_chars (7);

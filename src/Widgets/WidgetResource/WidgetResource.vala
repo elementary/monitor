@@ -1,5 +1,5 @@
 public class Monitor.WidgetResource : Gtk.Box {
-    private LabelH4 _title = new LabelH4 (Utils.NO_DATA);
+    private Gtk.Label _title = new Gtk.Label (Utils.NO_DATA);
 
     public string title {
         set {

@@ -13,7 +13,7 @@
 
     public PreferencesGeneralPage () {
 
-        var icon = new Gtk.Image.from_icon_name ("preferences-system", Gtk.IconSize.DND);
+        var icon = new Gtk.Image.from_icon_name ("preferences-system");
 
         Object (
             display_widget: icon,
@@ -66,10 +66,14 @@
             hexpand = true
         };
 
-        var content_area = new Gtk.Grid ();
-        content_area.column_spacing = 12;
-        content_area.row_spacing = 12;
-        content_area.margin = 12;
+        var content_area = new Gtk.Grid () {
+            column_spacing = 12,
+            row_spacing = 12,
+            margin_start = 12,
+            margin_end = 12,
+            margin_top = 12,
+            margin_bottom = 12,
+        };
         content_area.attach (background_label, 0, 1, 1, 1);
         content_area.attach (background_switch, 1, 1, 1, 1);
         content_area.attach (enable_smooth_lines_label, 0, 2, 1, 1);
@@ -79,7 +83,7 @@
         content_area.attach (enable_containers_view_label, 0, 5, 1, 1);
         content_area.attach (enable_containers_view_switch, 1, 5, 1, 1);
 
-        add (content_area);
+        append (content_area);
 
         background_switch.notify["active"].connect (() => {
             MonitorApp.settings.set_boolean ("background-state", background_switch.state);
