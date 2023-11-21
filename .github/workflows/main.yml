@@ -27,7 +27,7 @@ jobs:
       env:
         DESTDIR: out
       run: |
-        meson --prefix=/usr -Dindicator-wingpanel=enabled build
+        meson --prefix=/usr -Dindicator-wingpanel=disabled build
         cd build
         ninja
 
