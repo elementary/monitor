@@ -48,10 +48,10 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
         stack_switcher.valign = Gtk.Align.CENTER;
         stack_switcher.set_stack (stack);
 
-        var headerbar = new Gtk.HeaderBar () {
-            title_widget = stack_switcher,
-            hexpand = true
-        };
+        //  var headerbar = new Gtk.HeaderBar () {
+        //      title_widget = stack_switcher,
+        //      hexpand = true
+        //  };
 
         //  headerbar.search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
         //  stack.notify["visible-child-name"].connect (() => {
@@ -69,7 +69,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
             orientation = Gtk.Orientation.VERTICAL
         };
 
-        grid.attach (headerbar, 0, 0, 1, 1);
+        //  grid.attach (headerbar, 0, 0, 1, 1);
         grid.attach (stack, 0, 1, 1, 1);
         grid.attach (statusbar, 0, 2, 1, 1);
 
