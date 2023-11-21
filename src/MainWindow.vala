@@ -5,7 +5,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
     private Resources resources;
 
     // Widgets
-    //  public HeaderbarContent headerbar_content;
+    public Headerbar headerbar;
 
     //  public ProcessView process_view;
     //  public SystemView system_view;
@@ -36,8 +36,8 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
         stack = new Gtk.Stack ();
         stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
-        //  stack.add_titled (process_view, "process_view", _("Processes"));
-        //  stack.add_titled (system_view, "system_view", _("System"));
+        stack.add_titled (new Gtk.Label ("string? str"), "process_view", _("Processes"));
+        stack.add_titled (new Gtk.Label ("string? str"), "system_view", _("System"));
 
         if (MonitorApp.settings.get_boolean ("containers-view-state")) {
             stack.add_titled (container_view, "container_view", _("Containers"));
@@ -47,6 +47,9 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
         Gtk.StackSwitcher stack_switcher = new Gtk.StackSwitcher ();
         stack_switcher.valign = Gtk.Align.CENTER;
         stack_switcher.set_stack (stack);
+
+        headerbar = new Headerbar (stack_switcher);
+        set_titlebar (headerbar);
 
         //  var headerbar = new Gtk.HeaderBar () {
         //      title_widget = stack_switcher,

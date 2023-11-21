@@ -1,5 +1,4 @@
-public class Monitor.HeaderbarContent {
-    private MainWindow window;
+public class Monitor.Headerbar : Gtk.Box {
 
     public Search search;
     public Gtk.Grid preferences_grid;
@@ -9,19 +8,23 @@ public class Monitor.HeaderbarContent {
     };
 
     construct {
-        show_title_buttons = true;
+        //  show_title_buttons = true;
         //  has_subtitle = false;
         //  title_widget = new Gtk.Label(_("Monitor"));
     }
 
-    public HeaderbarContent (MainWindow window) {
-        this.window = window;
+    public Headerbar (Gtk.Widget widget) {
+
+        var headerbar = new Gtk.HeaderBar () {
+            hexpand = true,
+        };
+        headerbar.set_title_widget (widget);
 
         var preferences_button = new Gtk.MenuButton ();
         preferences_button.has_tooltip = true;
         preferences_button.tooltip_text = (_("Settings"));
         preferences_button.set_icon_name ("open-menu");
-        pack_end (preferences_button);
+        headerbar.pack_end (preferences_button);
 
         preferences_grid = new Gtk.Grid () {
             orientation = Gtk.Orientation.VERTICAL
@@ -33,13 +36,17 @@ public class Monitor.HeaderbarContent {
 
         //  preferences_grid.show_all ();
 
-        search = new Search (window) {
+        search = new Search () {
             valign = Gtk.Align.CENTER
         };
 
         search_revealer.set_child (search);
 
-        pack_start (search_revealer);
+        headerbar.pack_start (search_revealer);
+        append (headerbar);
+    }
+
+    public void set_title_widget (Gtk.Widget widget) {
 
     }
 }

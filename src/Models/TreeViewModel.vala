@@ -8,6 +8,10 @@ public enum Monitor.Column {
 }
 
 public class Monitor.TreeViewModel : Gtk.TreeStore {
+    private static GLib.Once<TreeViewModel> instance;
+    public static unowned TreeViewModel get_default () {
+        return instance.once (() => { return new TreeViewModel (); });
+    }
     public ProcessManager process_manager;
     private Gee.Map<int, Gtk.TreeIter ? > process_rows;
     public signal void added_first_row ();
