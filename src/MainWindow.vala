@@ -12,7 +12,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
     public ContainerView container_view;
     private Gtk.Stack stack;
 
-    //  private Statusbar statusbar;
+    private Statusbar statusbar;
 
     public DBusServer dbusserver;
 
@@ -63,7 +63,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
         //  headerbar.preferences_grid.attach (new PreferencesView (), 0, 0, 1, 1);
         //  sv.show_all ();
 
-        //  statusbar = new Statusbar ();
+        statusbar = new Statusbar ();
 
         var grid = new Gtk.Grid () {
             orientation = Gtk.Orientation.VERTICAL
@@ -71,7 +71,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
         grid.attach (headerbar, 0, 0, 1, 1);
         grid.attach (stack, 0, 1, 1, 1);
-        //  grid.attach (statusbar, 0, 2, 1, 1);
+        grid.attach (statusbar, 0, 2, 1, 1);
 
         //  set_content (grid);
         set_child (grid);
@@ -93,7 +93,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
                     //  system_view.update ();
                     dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
                     var res = resources.serialize ();
-                    //  statusbar.update (res);
+                    statusbar.update (res);
                     dbusserver.update (res);
                     return false;
                 });

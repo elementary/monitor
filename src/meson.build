@@ -36,7 +36,7 @@ source_app_files = [
     # Widgets
     # 'Widgets/Headerbar/HeaderbarContent.vala',
     # 'Widgets/Headerbar/Search.vala',
-    # 'Widgets/Statusbar/Statusbar.vala',
+    'Widgets/Statusbar/Statusbar.vala',
     'Widgets/Labels/LabelVertical.vala',
     'Widgets/Labels/LabelRoundy.vala',
     # 'Widgets/Labels/LabelH4.vala',
