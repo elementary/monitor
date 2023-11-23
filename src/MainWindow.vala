@@ -72,7 +72,6 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
             orientation = Gtk.Orientation.VERTICAL
         };
 
-        //  grid.attach (headerbar, 0, 0, 1, 1);
         grid.attach (stack, 0, 1, 1, 1);
         grid.attach (statusbar, 0, 2, 1, 1);
 
