@@ -4,8 +4,8 @@ source_app_files = [
     'Utils.vala',
 
     # Views
-    # 'Views/ProcessView/ProcessView.vala',
-    # 'Views/ProcessView/ProcessInfoView/ProcessInfoView.vala',
+    'Views/ProcessView/ProcessView.vala',
+    'Views/ProcessView/ProcessInfoView/ProcessInfoView.vala',
     'Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala',
 
     'Views/PreferencesView/PreferencesView.vala',

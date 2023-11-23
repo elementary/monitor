@@ -1,5 +1,5 @@
 public class Monitor.ProcessInfoView : Gtk.Box {
-    private Preventor preventor;
+    //  private Preventor preventor;
     private ProcessInfoIOStats process_info_io_stats = new ProcessInfoIOStats ();
 
     private Process _process;
@@ -20,7 +20,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             if (_process.uid != Posix.getuid ()) {
                 process_info_cpu_ram.hide ();
                 process_info_io_stats.hide ();
-                preventor.hide ();
+                //  preventor.hide ();
             } else {
                 _process.fd_permission_error.connect (show_permission_error_infobar);
 
@@ -107,27 +107,27 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         process_action_bar.append (end_process_button);
         process_action_bar.append (kill_process_button);
 
-        preventor = new Preventor (process_action_bar, "process_action_bar");
+        //  preventor = new Preventor (process_action_bar, "process_action_bar");
 
         kill_process_button.clicked.connect (() => {
-            preventor.set_prevention (_("Confirm kill of the process?"));
-            preventor.confirmed.connect ((is_confirmed) => {
-                if (is_confirmed) process.kill (); // maybe add a toast that process killed
-            });
+            //  preventor.set_prevention (_("Confirm kill of the process?"));
+            //  preventor.confirmed.connect ((is_confirmed) => {
+            //      if (is_confirmed) process.kill (); // maybe add a toast that process killed
+            //  });
         });
 
         end_process_button.clicked.connect (() => {
-            preventor.set_prevention (_("Confirm end of the process?"));
-            preventor.confirmed.connect ((is_confirmed) => {
-                if (is_confirmed) process.end (); // maybe add a toast that process ended
-            });
+            //  preventor.set_prevention (_("Confirm end of the process?"));
+            //  preventor.confirmed.connect ((is_confirmed) => {
+            //      if (is_confirmed) process.end (); // maybe add a toast that process ended
+            //  });
         });
 
-        grid.attach (preventor, 0, 5, 1, 1);
+        //  grid.attach (preventor, 0, 5, 1, 1);
 
         process_info_cpu_ram.hide ();
         process_info_io_stats.hide ();
-        preventor.hide ();
+        //  preventor.hide ();
     }
 
     private void show_permission_error_infobar (string error) {

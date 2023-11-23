@@ -7,7 +7,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
     // Widgets
     public Headerbar headerbar;
 
-    //  public ProcessView process_view;
+    public ProcessView process_view;
     //  public SystemView system_view;
     public ContainerView container_view;
     private Gtk.Stack stack;
@@ -30,13 +30,13 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
         resources = new Resources ();
 
-        //  process_view = new ProcessView ();
+        process_view = new ProcessView ();
         //  system_view = new SystemView (resources);
         container_view = new ContainerView ();
 
         stack = new Gtk.Stack ();
         stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
-        stack.add_titled (new Gtk.Label ("string? str"), "process_view", _("Processes"));
+        stack.add_titled (process_view, "process_view", _("Processes"));
         stack.add_titled (new Gtk.Label ("string? str"), "system_view", _("System"));
 
         if (MonitorApp.settings.get_boolean ("containers-view-state")) {
@@ -86,9 +86,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
         new Thread<void> ("upd", () => {
             Timeout.add_seconds (MonitorApp.settings.get_int ("update-time"), () => {
-                //  process_view.update ();
-
-
+                process_view.update ();
                 container_view.update ();
 
 
