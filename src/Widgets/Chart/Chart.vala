@@ -6,7 +6,7 @@ public class Monitor.Chart : Gtk.Box {
 
 
     construct {
-        get_style_context ().add_class ("graph");
+        this.add_css_class ("graph");
 
         vexpand = true;
         height_request = 120;
@@ -27,12 +27,12 @@ public class Monitor.Chart : Gtk.Box {
         };
 
         live_chart = new LiveChart.Chart (config);
-        //  live_chart.expand = true;
+        live_chart.hexpand = true;
         live_chart.legend.visible = false;
         live_chart.grid.visible = true;
         live_chart.background.visible = false;
         // live_chart.background.color = Gdk.RGBA () {
-        // red = 1, green = 1, blue = 1, alpha = 1
+        // red = 1f, green = 1f, blue = 1f, alpha = 1f
         // }; // White background
     }
 
