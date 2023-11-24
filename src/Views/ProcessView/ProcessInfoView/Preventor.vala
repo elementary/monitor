@@ -1,4 +1,4 @@
-public class Monitor.Preventor : Gtk.Stack {
+public class Monitor.Preventor : Gtk.Box {
     private Gtk.Box preventive_action_bar;
     private Gtk.Label confirmation_label;
     private Gtk.Button confirm_button;
@@ -33,26 +33,27 @@ public class Monitor.Preventor : Gtk.Stack {
 
     public Preventor (Gtk.Widget _child, string name) {
         child_widget = _child;
-        add_named (child_widget, name);
-        add_named (preventive_action_bar, "preventive_action_bar");
+        append (child_widget);
+        append (preventive_action_bar);
 
         deny_button.clicked.connect (() => {
-            set_transition_type (Gtk.StackTransitionType.SLIDE_UP);
-            set_visible_child (child_widget);
+            //  set_transition_type (Gtk.StackTransitionType.SLIDE_UP);
+            //  set_visible_child (child_widget);
             confirmed (false);
         });
 
         confirm_button.clicked.connect (() => {
-            set_transition_type (Gtk.StackTransitionType.SLIDE_UP);
-            set_visible_child (child_widget);
+            //  set_transition_type (Gtk.StackTransitionType.SLIDE_UP);
+            //  set_visible_child (child_widget);
             confirmed (true);
         });
     }
 
     public void set_prevention (string confirmation_text) {
-        set_transition_type (Gtk.StackTransitionType.SLIDE_DOWN);
+        //  set_transition_type (Gtk.StackTransitionType.SLIDE_DOWN);
         confirmation_label.set_text (_(confirmation_text));
-        set_visible_child (preventive_action_bar);
+        //  set_visible_child (preventive_action_bar);
+        preventive_action_bar.visible = true;
     }
 
 }

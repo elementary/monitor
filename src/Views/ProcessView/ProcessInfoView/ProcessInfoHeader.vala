@@ -15,6 +15,7 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
 
     construct {
         column_spacing = 12;
+        width_request = 270;
 
         /* *INDENT-OFF* */
         regex = /(?i:^.*\.(xpm|png)$)/; // vala-lint=space-before-paren,

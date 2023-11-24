@@ -15,7 +15,7 @@ public class Monitor.Search : Gtk.Box {
         // process_tree_view.set_model (filter_model);
 
         var sort_model = new Gtk.TreeModelSort.with_model (filter_model);
-        process_tree_view.set_model (sort_model);
+        //  process_tree_view.set_model (sort_model);
         append (search_entry);
     }
 
