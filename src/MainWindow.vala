@@ -3,9 +3,10 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
     private Shortcuts shortcuts;
 
     private Resources resources;
+    //  private Adw.HeaderBar headerbar;
 
     // Widgets
-    public Headerbar headerbar;
+    //  public Headerbar headerbar;
 
     public ProcessView process_view;
     //  public SystemView system_view;
@@ -43,28 +44,12 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
             stack.add_titled (container_view, "container_view", _("Containers"));
         }
 
-
         Gtk.StackSwitcher stack_switcher = new Gtk.StackSwitcher ();
         stack_switcher.valign = Gtk.Align.CENTER;
         stack_switcher.set_stack (stack);
 
-        headerbar = new Headerbar (stack_switcher);
+        var headerbar = this.build_headerbar (stack_switcher);
         set_titlebar (headerbar);
-
-        //  var headerbar = new Gtk.HeaderBar () {
-        //      title_widget = stack_switcher,
-        //      hexpand = true
-        //  };
-
-        //  headerbar.search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
-        //  stack.notify["visible-child-name"].connect (() => {
-        //      headerbar.search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
-        //  });
-
-        //  headerbar_content = new HeaderbarContent (this);
-        //  headerbar.set_title_widget (stack_switcher);
-        //  headerbar.preferences_grid.attach (new PreferencesView (), 0, 0, 1, 1);
-        //  sv.show_all ();
 
         statusbar = new Statusbar ();
 
@@ -75,7 +60,6 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
         grid.attach (stack, 0, 1, 1, 1);
         grid.attach (statusbar, 0, 2, 1, 1);
 
-        //  set_content (grid);
         set_child (grid);
 
         present ();
@@ -140,6 +124,47 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
         dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
         stack.visible_child_name = MonitorApp.settings.get_string ("opened-view");
+    }
+
+    private Adw.HeaderBar build_headerbar (Gtk.Widget widget) {
+        // The headerbar
+        var headerbar = new Adw.HeaderBar ();
+        headerbar.set_title_widget (widget);
+
+        // Preferences button
+        var preferences_button = new Gtk.MenuButton ();
+        preferences_button.has_tooltip = true;
+        preferences_button.tooltip_text = (_("Settings"));
+        preferences_button.set_icon_name ("open-menu");
+        headerbar.pack_end (preferences_button);
+
+        var preferences_grid = new Gtk.Grid () {
+            orientation = Gtk.Orientation.VERTICAL
+        };
+
+        var preferences_popover = new Gtk.Popover ();
+        preferences_popover.set_child (preferences_grid);
+        preferences_button.popover = preferences_popover;
+
+        preferences_grid.attach (new PreferencesView (), 0, 0, 1, 1);
+
+        // Search entry
+        var search = new Search () {
+            valign = Gtk.Align.CENTER
+        };
+
+        Gtk.Revealer search_revealer = new Gtk.Revealer () {
+            transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT,
+        };
+        search_revealer.set_child (search);
+        headerbar.pack_start (search_revealer);
+
+        search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
+        stack.notify["visible-child-name"].connect (() => {
+            search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
+        });
+
+        return headerbar;
     }
 
     private void setup_window_state () {
