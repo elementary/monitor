@@ -12,13 +12,13 @@ public class Monitor.Preventor : Gtk.Box {
         valign = Gtk.Align.END;
         halign = Gtk.Align.END;
 
-        preventive_action_bar = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0){
+        preventive_action_bar = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
             valign = Gtk.Align.START,
             halign = Gtk.Align.END,
             margin_top = 10
         };
 
-        confirmation_label = new Gtk.Label (_("Are you sure you want to do this?")){
+        confirmation_label = new Gtk.Label (_("Are you sure you want to do this?")) {
             margin_end = 10
         };
 
@@ -35,7 +35,7 @@ public class Monitor.Preventor : Gtk.Box {
     }
 
     public Preventor (Gtk.Widget child_widget, string name) {
-        stack  = new Gtk.Stack ();
+        stack = new Gtk.Stack ();
         append (stack);
         stack.add_named (child_widget, name);
         stack.add_named (preventive_action_bar, "preventive_action_bar");

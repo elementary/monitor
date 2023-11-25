@@ -1,9 +1,11 @@
 public class Monitor.Search : Gtk.Box {
     private Gtk.TreeModelFilter filter_model;
-    private CPUProcessTreeView process_tree_view;
+    public CPUProcessTreeView process_tree_view;
     private Gtk.SearchEntry search_entry;
 
-    construct {
+    public Search (CPUProcessTreeView _process_tree_view) {
+        this.process_tree_view = _process_tree_view;
+
         search_entry = new Gtk.SearchEntry () {
             tooltip_markup = Granite.markup_accel_tooltip ({ "<Ctrl>F" }, _("Type process name or PID to search")),
         };
@@ -15,16 +17,16 @@ public class Monitor.Search : Gtk.Box {
         // process_tree_view.set_model (filter_model);
 
         var sort_model = new Gtk.TreeModelSort.with_model (filter_model);
-        //  process_tree_view.set_model (sort_model);
+        process_tree_view.set_model (sort_model);
         append (search_entry);
     }
 
     private void connect_signal () {
         search_entry.search_changed.connect (() => {
             // collapse tree only when search is focused and changed
-            //  if (this.is_focus) {
-            //      process_tree_view.collapse_all ();
-            //  }
+            if (search_entry.is_focus()) {
+                process_tree_view.collapse_all ();
+            }
 
             filter_model.refilter ();
 
@@ -32,8 +34,8 @@ public class Monitor.Search : Gtk.Box {
             process_tree_view.focus_on_child_row ();
             search_entry.grab_focus ();
 
-            //  if (this.text != "") {
-            //      this.insert_at_cursor ("");
+            //  if (search_entry.text != "") {
+            //      search_entry.insert_at_cursor ("");
             //  }
         });
     }

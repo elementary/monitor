@@ -149,8 +149,8 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
         preferences_grid.attach (new PreferencesView (), 0, 0, 1, 1);
 
         // Search entry
-        var search = new Search () {
-            valign = Gtk.Align.CENTER
+        var search = new Search (process_view.process_tree_view) {
+            valign = Gtk.Align.CENTER,
         };
 
         Gtk.Revealer search_revealer = new Gtk.Revealer () {
