@@ -39,7 +39,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 process_info_io_stats.set_visible (true);
                 end_process_button.show ();
                 kill_process_button.show ();
-                preventor.show();
+                preventor.show ();
             }
         }
     }
@@ -63,7 +63,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         permission_error_infobar.revealed = false;
         permission_error_label = new Gtk.Label (Utils.NO_DATA);
         permission_error_infobar.add_child (permission_error_label);
-        //  append (permission_error_infobar);
+        // append (permission_error_infobar);
 
         var grid = new Gtk.Grid () {
             margin_start = 12,
@@ -73,8 +73,6 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             hexpand = true,
             column_spacing = 12
         };
-        append (grid);
-
 
         process_info_header = new ProcessInfoHeader ();
         grid.attach (process_info_header, 0, 0, 1, 1);

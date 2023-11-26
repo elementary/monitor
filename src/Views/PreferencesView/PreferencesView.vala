@@ -16,7 +16,7 @@
 
         height_request = 300;
         width_request = 500;
-        paned.set_position (135);
+        paned.set_position (245);
 
         var stack = new Gtk.Stack ();
         stack.add_named (indicator_page, "indicator_page");

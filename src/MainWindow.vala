@@ -16,8 +16,9 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
     // Constructs a main window
     public MainWindow (MonitorApp app) {
-        //  Adw.init ();
         Granite.init ();
+
+        //  Adw.init ();
 
         this.set_application (app);
 
@@ -67,7 +68,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
         new Thread<void> ("upd", () => {
             Timeout.add_seconds (MonitorApp.settings.get_int ("update-time"), () => {
-                process_view.update ();
+                //  process_view.update ();
                 container_view.update ();
 
 
@@ -109,7 +110,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
             if (MonitorApp.settings.get_boolean ("indicator-state")) {
                 // Read: https://discourse.gnome.org/t/how-to-hide-widget-instead-removing-them-in-gtk-4/8176
-                //  this.hide_on_delete ();
+                this.hide ();
 
             } else {
                 dbusserver.indicator_state (false);

@@ -14,6 +14,7 @@
     public PreferencesGeneralPage () {
 
         var icon = new Gtk.Image.from_icon_name ("preferences-system");
+        icon.icon_size = Gtk.IconSize.LARGE;
 
         Object (
             display_widget: icon,
