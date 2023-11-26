@@ -14,14 +14,14 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
     construct {
         core_label_list = new Gee.ArrayList<Gtk.Label> ();
 
-        cpu_frequency_label = new LabelRoundy (_("Frequency")) {
+        cpu_frequency_label = new LabelRoundy (_("FREQUENCY")) {
             margin_start = 6,
             margin_end = 6,
             margin_top = 2,
             margin_bottom = 6,
         };
 
-        cpu_temperature_label = new LabelRoundy (_("Temperature")) {
+        cpu_temperature_label = new LabelRoundy (_("TEMPERATURE")) {
             margin_start = 6,
             margin_end = 6,
             margin_top = 2,
@@ -77,12 +77,12 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
     public void update () {
         cpu_frequency_chart.update (0, cpu.frequency);
 
-        //  int temperature_index = 0;
-        //  foreach (var temperature in cpu.paths_temperatures.values) {
-        //      debug (temperature.input);
-        //      cpu_temperature_chart.update (temperature_index, int.parse (temperature.input) / 1000);
-        //      temperature_index++;
-        //  }]
+        // int temperature_index = 0;
+        // foreach (var temperature in cpu.paths_temperatures.values) {
+        // debug (temperature.input);
+        // cpu_temperature_chart.update (temperature_index, int.parse (temperature.input) / 1000);
+        // temperature_index++;
+        // }]
         cpu_temperature_chart.update (0, cpu.temperature_mean);
         cpu_temperature_label.set_text (("%.2f %s").printf (cpu.temperature_mean, _("℃")));
 
@@ -166,4 +166,5 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
 
         return grid;
     }
+
 }

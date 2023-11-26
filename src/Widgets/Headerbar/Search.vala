@@ -24,7 +24,7 @@ public class Monitor.Search : Gtk.Box {
     private void connect_signal () {
         search_entry.search_changed.connect (() => {
             // collapse tree only when search is focused and changed
-            if (search_entry.is_focus()) {
+            if (search_entry.is_focus ()) {
                 process_tree_view.collapse_all ();
             }
 
@@ -34,9 +34,9 @@ public class Monitor.Search : Gtk.Box {
             process_tree_view.focus_on_child_row ();
             search_entry.grab_focus ();
 
-            //  if (search_entry.text != "") {
-            //      search_entry.insert_at_cursor ("");
-            //  }
+            // if (search_entry.text != "") {
+            // search_entry.insert_at_cursor ("");
+            // }
         });
     }
 
@@ -87,7 +87,7 @@ public class Monitor.Search : Gtk.Box {
     public void activate_entry (string search_text = "") {
         search_entry.text = "";
         search_entry.search_changed ();
-        //  this.insert_at_cursor (search_text);
+        // this.insert_at_cursor (search_text);
     }
 
 }

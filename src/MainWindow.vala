@@ -3,13 +3,9 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
     private Shortcuts shortcuts;
 
     private Resources resources;
-    //  private Adw.HeaderBar headerbar;
-
-    // Widgets
-    //  public Headerbar headerbar;
 
     public ProcessView process_view;
-    //  public SystemView system_view;
+    public SystemView system_view;
     public ContainerView container_view;
     private Gtk.Stack stack;
 
@@ -21,6 +17,8 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
     // Constructs a main window
     public MainWindow (MonitorApp app) {
         //  Adw.init ();
+        Granite.init ();
+
         this.set_application (app);
 
         setup_window_state ();
@@ -32,13 +30,13 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
         resources = new Resources ();
 
         process_view = new ProcessView ();
-        //  system_view = new SystemView (resources);
+        system_view = new SystemView (resources);
         container_view = new ContainerView ();
 
         stack = new Gtk.Stack ();
         stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
         stack.add_titled (process_view, "process_view", _("Processes"));
-        stack.add_titled (new Gtk.Label ("string? str"), "system_view", _("System"));
+        stack.add_titled (system_view, "system_view", _("System"));
 
         if (MonitorApp.settings.get_boolean ("containers-view-state")) {
             stack.add_titled (container_view, "container_view", _("Containers"));
@@ -74,7 +72,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
 
                 Idle.add (() => {
-                    //  system_view.update ();
+                    system_view.update ();
                     dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
                     var res = resources.serialize ();
                     statusbar.update (res);
@@ -88,7 +86,6 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
         dbusserver.quit.connect (() => app.quit ());
         dbusserver.show.connect (() => {
-            //  this.deiconify ();
             this.present ();
             setup_window_state ();
             this.present ();

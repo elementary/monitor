@@ -20,7 +20,13 @@ public class Monitor.SystemStorageView : Gtk.Grid {
     public SystemStorageView (Storage _storage) {
         storage = _storage;
 
-        storage_name_label = new Gtk.Label (_("Storage"));
+        storage_name_label = new Gtk.Label (_("Storage")) {
+            valign = Gtk.Align.START,
+            halign = Gtk.Align.START,
+            margin_start = 6,
+            ellipsize = Pango.EllipsizeMode.END,
+        };
+        storage_name_label.add_css_class ("h4");
 
         storage_write_label = new LabelRoundy (_("WRITE"));
         storage_write_label.val.set_width_chars (7);

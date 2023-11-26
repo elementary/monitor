@@ -18,7 +18,13 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
     public SystemNetworkView (Network _network) {
         network = _network;
 
-        network_name_label = new Gtk.Label (_("Network"));
+        network_name_label = new Gtk.Label (_("Network")) {
+            valign = Gtk.Align.START,
+            halign = Gtk.Align.START,
+            margin_start = 6,
+            ellipsize = Pango.EllipsizeMode.END,
+        };
+        network_name_label.add_css_class ("h4");
 
         network_download_label = new LabelRoundy (_("DOWN"));
         network_download_label.val.set_width_chars (7);

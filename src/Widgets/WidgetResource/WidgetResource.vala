@@ -1,5 +1,10 @@
 public class Monitor.WidgetResource : Gtk.Box {
-    private Gtk.Label _title = new Gtk.Label (Utils.NO_DATA);
+    private Gtk.Label _title = new Gtk.Label (Utils.NO_DATA) {
+        valign = Gtk.Align.START,
+        halign = Gtk.Align.START,
+        margin_start = 6,
+        ellipsize = Pango.EllipsizeMode.END,
+    };
 
     public string title {
         set {
@@ -31,7 +36,7 @@ public class Monitor.WidgetResource : Gtk.Box {
         set_vexpand (false);
         orientation = Gtk.Orientation.VERTICAL;
 
-
+        _title.add_css_class ("h4");
 
         grid_header = new Gtk.Grid () {
             column_spacing = 6,
@@ -75,7 +80,7 @@ public class Monitor.WidgetResource : Gtk.Box {
     }
 
     public void add_charts_container (Gtk.Widget widget) {
-        charts_container.prepend (widget);
+        charts_container.append (widget);
     }
 
     public void set_popover_more_info (Gtk.Widget widget) {
@@ -84,9 +89,9 @@ public class Monitor.WidgetResource : Gtk.Box {
             valign = Gtk.Align.START,
             halign = Gtk.Align.START
         };
-        //  button_more_info.set_focusable (false)
+        // button_more_info.set_focusable (false)
         button_more_info.get_style_context ().add_class ("circular");
-        //  button_more_info.get_style_context ().add_class ("popup");
+        // button_more_info.get_style_context ().add_class ("popup");
 
         button_more_info.set_icon_name ("dialog-information");
 
@@ -98,12 +103,13 @@ public class Monitor.WidgetResource : Gtk.Box {
 
         button_more_info.set_popover (popover_more_info);
 
-        //  Note: `Gtk.MenuButton.set_active' is not available in gtk4 4.6.9. Use gtk4 >= 4.10
-        //  popover_more_info.closed.connect (() => { button_more_info.set_active (false); });
-        //  button_more_info.clicked.connect (() => { popover_more_info.present (); });
+        // Note: `Gtk.MenuButton.set_active' is not available in gtk4 4.6.9. Use gtk4 >= 4.10
+        // popover_more_info.closed.connect (() => { button_more_info.set_active (false); });
+        // button_more_info.clicked.connect (() => { popover_more_info.present (); });
 
         popover_more_info.set_child (widget);
 
         grid_header.attach (button_more_info, 1, 0, 1, 1);
     }
+
 }
