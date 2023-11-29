@@ -34,7 +34,7 @@ public class Monitor.ProcessView : Gtk.Box {
     public void on_process_selected (Process process) {
         process_info_view.process = process;
         process_info_view.no_show_all = false;
-        process_info_view.show_all ();
+        //  process_info_view.show_all ();
     }
 
     public void update () {

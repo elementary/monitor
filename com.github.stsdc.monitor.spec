@@ -2,7 +2,7 @@
 %global appname com.github.stsdc.monitor
 
 Name: com.github.stsdc.monitor
-Version: 0.15.1
+Version: 0.17.0
 Release: %autorelease
 Summary: Manage processes and monitor system resources
 License: GPLv3
@@ -24,6 +24,8 @@ BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(granite)
 BuildRequires: pkgconfig(gio-2.0)
 BuildRequires: pkgconfig(gobject-2.0)
+BuildRequires: json-glib-devel
+BuildRequires: libcurl-devel
 
 # libgtop2-devel
 BuildRequires: pkgconfig(libgtop-2.0)

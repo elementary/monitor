@@ -351,7 +351,7 @@ namespace Curl {
         SINGLECWD,
         LAST
     }
-    [CCode (cheader_filename = "curl/curl.h", cname = "httpversion", cprefix = "CURL_HTTP_VERION_", has_type_id = false)]
+    [CCode (cheader_filename = "curl/curl.h", cname = "httpversion", cprefix = "CURL_HTTP_VERSION_", has_type_id = false)]
     public enum HttpVersion {
         @1_0,
         @1_1,

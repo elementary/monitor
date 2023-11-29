@@ -99,42 +99,4 @@ public class Monitor.ContainerInfoHeader : Gtk.Grid {
         //  num_threads.set_text (process.stat.num_threads.to_string ());
         //  set_icon (process);
     }
-
-    private void set_icon (Process process) {
-        // this construction should be somewhere else
-        var icon_name = process.icon.to_string ();
-
-        if (!regex.match (icon_name)) {
-            icon.set_from_icon_name (icon_name, Gtk.IconSize.DIALOG);
-        } else {
-            try {
-                var pixbuf = new Gdk.Pixbuf.from_file_at_size (icon_name, 64, -1);
-                icon.set_from_pixbuf (pixbuf);
-            } catch (Error e) {
-                warning (e.message);
-            }
-        }
-    }
-
-    private string set_state_tooltip () {
-        switch (state.label) {
-        case "D":
-            return _("The app is waiting in an uninterruptible disk sleep");
-        case "I":
-            return _("Idle kernel thread");
-        case "R":
-            return _("The process is running or runnable (on run queue)");
-        case "S":
-            return _("The process is in an interruptible sleep; waiting for an event to complete");
-        case "T":
-            return _("The process is stopped by a job control signal");
-        case "t":
-            return _("The process is stopped stopped by a debugger during the tracing");
-        case "Z":
-            return _("The app is terminated but not reaped by its parent");
-        default:
-            return "";
-        }
-    }
-
 }

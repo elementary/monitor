@@ -1,3 +1,26 @@
+com.github.stsdc.monitor (0.17.0) jammy; urgency=low
+
+  * Add GPU temperature to the Indicator
+  * Fix assigning right icon and name to a process (special thanks to @ppvan and @Nahu)
+  * Allow to filter processes by command
+  * Fix for icons appear slightly smaller in detailed process view
+
+ -- Stanisław Dac <stadac@pm.me>  Sun, 23 Jul 2023 00:35:37  +0000
+
+com.github.stsdc.monitor (0.16.1-0) jammy; urgency=low
+
+  * Fix segfault when user can't be retrieved for process
+
+ -- Stanisław Dac <stadac@pm.me>  Sat, 04 Mar 2023 14:02:55  +0000
+
+com.github.stsdc.monitor (0.16.0) jammy; urgency=low
+
+  * Show processes from all users
+  * Refresh icons
+  * Fix some typos
+
+ -- Stanisław Dac <stadac@pm.me>  Fri, 24 Feb 2023 20:02:55 +0000
+
 com.github.stsdc.monitor (0.15.1) focal; urgency=low
 
   * Fix error when trying to get percentage from non-detected GPU

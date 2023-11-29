@@ -1,6 +1,6 @@
 public class Monitor.Cgroup : GLib.Object {
     /**
-     * This class only parses necessery values from cgroup files.
+     * This class only parses necessary values from cgroup files.
      * @TODO: Properly parse all values in files.
      */
     public string id;

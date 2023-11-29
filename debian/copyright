@@ -3,5 +3,5 @@ Upstream-Name: com.github.stsdc.monitor
 Source: https://github.com/stsdc/monitor
 
 Files: *
-Copyright: 2021 Stanisław Dac
+Copyright: 2023 Stanisław Dac
 License: GPL-3.0

@@ -1,25 +1,29 @@
 public class Monitor.ProcessUtils {
     // checks if it is run by shell
-    private static bool is_shell (string chunk) {
+    public static bool is_shell (string chunk) {
         return "sh" == chunk || "bash" == chunk || "zsh" == chunk;
     }
 
-    private static bool is_python (string chunk) {
+    public static bool is_python (string chunk) {
         return chunk.contains ("python");
     }
 
     public static string sanitize_commandline (string ? commandline) {
-        if (commandline == null) return Path.get_basename ("");
+        if (commandline == null) return "";
 
         // splitting command; might include many options
         var splitted_commandline = commandline.split (" ");
 
         // check if started by any shell
         if (is_shell (splitted_commandline[0]) || is_python (splitted_commandline[0]) ) {
-            return Path.get_basename (splitted_commandline[1]);
+            return commandline;
         }
 
-        return Path.get_basename (splitted_commandline[0]);
+        //  if (!splitted_commandline[0].contains ("/")) {
+        //      return commandline;
+        //  }
+
+        return splitted_commandline[0];
     }
 
     public static string ? read_file (string path) {
@@ -34,7 +38,7 @@ public class Monitor.ProcessUtils {
             var dis = new DataInputStream (file.read ());
 
             // Doing this because of cmdline file.
-            // cmdline is a single line file with each arg seperated by a null character ('\0')
+            // cmdline is a single line file with each arg separated by a null character ('\0')
             string line = dis.read_upto ("\0", 1, null);
             while (line != null) {
                 text.append (line);
@@ -57,13 +61,5 @@ public class Monitor.ProcessUtils {
             warning (e.message);
             return null;
         }
-    }
-
-    public static Icon ? get_bash_icon () {
-        return new ThemedIcon ("bash");
-    }
-
-    public static Icon ? get_docker_icon () {
-        return new ThemedIcon ("docker");
     }
 }

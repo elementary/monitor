@@ -18,10 +18,11 @@ Build-Depends: meson,
                libxnvctrl-dev,
                libcurl4-gnutls-dev,
                libjson-glib-dev,
+               libflatpak-dev,
                sassc
 Standards-Version: 4.1.1
 
 Package: com.github.stsdc.monitor
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: Manage processes and monitor system resources.
+Description: Manage processes and monitor system resources. And containers

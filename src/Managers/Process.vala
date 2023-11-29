@@ -18,7 +18,7 @@ public class Monitor.Process : GLib.Object {
     // User id
     public int uid;
 
-    public string username;
+    public string username = Utils.NO_DATA;
 
     Icon _icon;
     public Icon icon {
@@ -43,6 +43,8 @@ public class Monitor.Process : GLib.Object {
     public ProcessStatusMemory statm;
 
     public Gee.HashSet<string> open_files_paths;
+
+    public Gee.HashSet<int> children = new Gee.HashSet<int> ();
 
     /**
      * CPU usage of this process from the last time that it was updated, measured in percent
@@ -83,11 +85,16 @@ public class Monitor.Process : GLib.Object {
         GTop.get_proc_uid (out proc_uid, stat.pid);
         uid = proc_uid.uid;
 
+
         // getting username
+        // @TOFIX: Can't get username for postgres when started from docker (?)
         unowned Posix.Passwd passwd = Posix.getpwuid (uid);
-        username = passwd.pw_name;
+        if (passwd != null) {
+            username = passwd.pw_name;
+        }
 
         exists = parse_stat () && read_cmdline ();
+        get_children_pids ();
         get_usage (0, 1);
     }
 
@@ -106,7 +113,6 @@ public class Monitor.Process : GLib.Object {
     }
 
     // Kills the process
-    // Returns if kill was successful
     public bool kill () {
         // Sends a kill signal that cannot be ignored
         if (Posix.kill (stat.pid, Posix.Signal.KILL) == 0) {
@@ -116,13 +122,25 @@ public class Monitor.Process : GLib.Object {
     }
 
     // Ends the process
-    // Returns if end was successful
     public bool end () {
         // Sends a terminate signal
         if (Posix.kill (stat.pid, Posix.Signal.TERM) == 0) {
             return true;
         }
         return false;
+    }
+
+    private bool get_children_pids () {
+        string ? children_content = ProcessUtils.read_file ("/proc/%d/task/%d/children".printf (stat.pid, stat.pid));
+        if (children_content == "" || children_content == null) {
+            return false;
+        }
+
+        var splitted_children_pids = children_content.split (" ");
+        foreach (var child in splitted_children_pids) {
+            this.children.add (int.parse (child));
+        }
+        return true;
     }
 
     private bool parse_io () {
@@ -267,7 +285,10 @@ public class Monitor.Process : GLib.Object {
         }
 
         if (cmdline.length <= 0) {
-            // was empty, not an error
+            // if cmdline has 0 length we look into stat file
+            // useful for kworker processes
+            command = stat.comm;
+
             return true;
         }
 

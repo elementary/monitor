@@ -17,7 +17,6 @@ namespace Monitor {
         private Gee.HashSet<int> kernel_process_blacklist;
         private Gee.HashMap<string, AppInfo> apps_info_list;
 
-
         public signal void process_added (Process process);
         public signal void process_removed (int pid);
         public signal void updated ();
@@ -29,7 +28,6 @@ namespace Monitor {
             apps_info_list = new Gee.HashMap<string, AppInfo> ();
 
             populate_apps_info ();
-
             update_processes.begin ();
         }
 
@@ -38,8 +36,6 @@ namespace Monitor {
 
             foreach (AppInfo app_info in _apps_info) {
                 string commandline = (app_info.get_commandline ());
-                // debug ("%s\n", commandline);
-
                 // GLib.DesktopAppInfo? dai = info as GLib.DesktopAppInfo;
 
                 // if (dai != null) {
@@ -47,50 +43,12 @@ namespace Monitor {
                 // if (id != null)
                 // appid_map.insert (id, info);
                 // }
-
-
                 if (commandline == null)
                     continue;
 
-                // sanitize_cmd (ref cmd);
                 apps_info_list.set (commandline, app_info);
             }
         }
-
-        // private static void sanitize_cmd(ref string? commandline) {
-        // if (commandline == null)
-        // return;
-
-        //// flatpak: parse the command line of the containerized program
-        // if (commandline.contains("flatpak run")) {
-        // var index = commandline.index_of ("--command=") + 10;
-        // commandline = commandline.substring (index);
-        // }
-
-        //// TODO: unify this with the logic in get_full_process_cmd
-        ////  commandline = Process.first_component (commandline);
-        ////  commandline = Path.get_basename (commandline);
-        ////  commandline = Process.sanitize_name (commandline);
-
-        //// Workaround for google-chrome
-        // if (commandline.contains ("google-chrome-stable"))
-        // commandline = "chrome";
-        // }
-
-        // public static AppInfo? app_info_for_process (Process p) {
-        // AppInfo? info = null;
-
-        // if (p.command != null)
-        // info = apps_info[p.command];
-
-        // if (info == null && p.app_id != null)
-        // info = appid_map[p.app_id];
-
-        // return info;
-        // }
-
-
-
 
         /**
          * Gets a process by its pid, making sure that it's updated.
@@ -174,8 +132,8 @@ namespace Monitor {
 
             var uid = Posix.getuid ();
             GTop.ProcList proclist;
-            var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_UID, uid);
-            // var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_ALLfla, uid);
+            // var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_UID, uid);
+            var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_ALL, uid);
 
             for (int i = 0; i < proclist.number; i++) {
                 int pid = pids[i];
@@ -192,10 +150,105 @@ namespace Monitor {
 
             /* emit the updated signal so that subscribers can update */
             updated ();
+
+        }
+
+        /** Sets name and icon for a process that is a Flatpak app and its children. */
+        private void set_flatpak_name_icon (Process process, GLib.Icon icon, string name) {
+            process.application_name = name;
+            process.icon = icon;
+            foreach (int pid in process.children) {
+                var _process = this.get_process (pid);
+                if (_process != null) {
+                    set_flatpak_name_icon (_process, icon, name);
+                }
+            }
+        }
+
+        private bool match_process_app (Process process) {
+            var command_sanitized = ProcessUtils.sanitize_commandline (process.command);
+            var command_sanitized_basename = Path.get_basename (command_sanitized);
+
+            process.application_name = command_sanitized_basename;
+
+            foreach (var flatpak_app in Flatpak.Instance.get_all ()) {
+                if (flatpak_app.get_pid () == process.stat.pid || flatpak_app.get_child_pid () == process.stat.pid) {
+                    debug ("Found Flatpak app: %s ", flatpak_app.get_app ());
+                    foreach (var key in apps_info_list.keys) {
+                        if (apps_info_list.get (key).get_id ().replace (".desktop", "") == flatpak_app.get_app ()) {
+                            set_flatpak_name_icon (process, apps_info_list.get (key).get_icon (), apps_info_list.get (key).get_name ());
+                        }
+                    }
+                }
+            }
+
+            foreach (var key in apps_info_list.keys) {
+                if (apps_info_list.get (key).get_executable () == command_sanitized) {
+                    process.application_name = apps_info_list.get (key).get_name ();
+                    process.icon = apps_info_list.get (key).get_icon ();
+                } else if (apps_info_list.get (key).get_executable () == process.command.split (" ")[1]) {
+                    process.application_name = apps_info_list.get (key).get_name ();
+                    process.icon = apps_info_list.get (key).get_icon ();
+                } else if (key.split (" ")[1] != null) {
+                    if (key.split (" ")[1].contains ("%") || key.split (" ")[1].contains ("--")) {
+                        if (apps_info_list.get (key).get_executable () == command_sanitized_basename) {
+                            process.application_name = apps_info_list.get (key).get_name ();
+                            process.icon = apps_info_list.get (key).get_icon ();
+                            return true;
+                        }
+                    }
+
+                    // Steam case
+                    // Must match a proper executable and not game executable e.g. steam steam://rungameid/210770
+                    if ((Path.get_basename (key.split (" ")[0]) == command_sanitized_basename) && !key.split (" ")[1].contains ("steam")) {
+                        process.application_name = apps_info_list.get (key).get_name ();
+                        process.icon = apps_info_list.get (key).get_icon ();
+                        return true;
+                    }
+
+                    // workaround for some flatpak apps
+                    if (process.command.contains (apps_info_list.get (key).get_id ().replace (".desktop", ""))) {
+                        process.application_name = apps_info_list.get (key).get_name ();
+                        process.icon = apps_info_list.get (key).get_icon ();
+                        return true;
+                    }
+                } else if (apps_info_list.get (key).get_commandline () == process.command) {
+                    process.application_name = apps_info_list.get (key).get_name ();
+                    process.icon = apps_info_list.get (key).get_icon ();
+                    return true;
+
+
+                } else if (process.command.split (" ")[0].contains (".exe")) {
+                    var splitted = process.command.split (" ")[0].split ("\\");
+                    process.application_name = splitted[splitted.length - 1].chomp ();
+                    process.icon = new ThemedIcon ("application-x-ms-dos-executable");
+                    return true;
+                }
+                // some processes have semicolon in command
+                // do not sanitizing to improve readability
+                else if (process.command.split (" ")[0].contains (":")) {
+                    process.application_name = process.command;
+                    return true;
+                }
+            }
+
+            if (ProcessUtils.is_shell (command_sanitized_basename)) {
+                process.icon = new ThemedIcon ("bash");
+                debug ("app name is " + process.application_name);
+            }
+            if (command_sanitized_basename == "docker" || command_sanitized_basename == "dockerd" || command_sanitized_basename == "docker-proxy") {
+                process.icon = new ThemedIcon ("docker");
+                process.application_name = command_sanitized_basename;
+                debug ("app name is " + process.application_name);
+            }
+
+            // process.application_name = process.command;
+
+            return true;
         }
 
         /**
-         * Parses a pid and adds a Process to our process_list or to the kernel_blacklist
+         * Parses a pid and adds a Process to our `process_list` or to the `kernel_blacklist`
          *
          * returns the created process
          */
@@ -203,25 +256,12 @@ namespace Monitor {
             // create the process
             var process = new Process (pid);
 
-            // placeholding shortened commandline
-            process.application_name = ProcessUtils.sanitize_commandline (process.command);
-
-            // checking maybe it's an application
-            foreach (var key in apps_info_list.keys) {
-                if (key.contains (process.application_name)) {
-                    process.application_name = apps_info_list.get (key).get_name ();
-                    // debug (apps_info_list.get (key).get_icon ().to_string ());
-                    process.icon = apps_info_list.get (key).get_icon ();
-                }
+            if (!process.exists) {
+                return null;
             }
 
-            if (process.application_name == "bash") {
-                debug ("app name is [bash] " + process.application_name);
-                process.icon = ProcessUtils.get_bash_icon ();
-            }
-            if (process.application_name == "docker") {
-                process.icon = ProcessUtils.get_docker_icon ();
-            }
+            this.match_process_app (process);
+
             if (process.exists) {
                 if (process.stat.pgrp != 0) {
                     // regular process, add it to our cache
