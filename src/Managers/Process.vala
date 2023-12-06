@@ -81,13 +81,11 @@ public class Monitor.Process : GLib.Object {
         stat.pid = _pid;
 
         // getting uid
-        GTop.ProcUid proc_uid;
-        GTop.get_proc_uid (out proc_uid, stat.pid);
-        uid = proc_uid.uid;
-
+        get_uid ();
 
         // getting username
-        // @TOFIX: Can't get username for postgres when started from docker (?)
+        // @TOFIX: Can't get username for postgres which
+        // is started from docker (?)
         unowned Posix.Passwd passwd = Posix.getpwuid (uid);
         if (passwd != null) {
             username = passwd.pw_name;
@@ -98,6 +96,12 @@ public class Monitor.Process : GLib.Object {
         get_usage (0, 1);
     }
 
+    private void get_uid () {
+        GTop.ProcUid proc_uid;
+        GTop.get_proc_uid (out proc_uid, stat.pid);
+        uid = proc_uid.uid;
+    }
+
 
     // Updates the process to get latest information
     // Returns if the update was successful
@@ -105,9 +109,9 @@ public class Monitor.Process : GLib.Object {
         exists = parse_stat ();
         if (exists) {
             get_usage (cpu_total, cpu_last_total);
-            parse_io ();
-            parse_statm ();
-            get_open_files ();
+            //  parse_io ();
+            //  parse_statm ();
+            //  get_open_files ();
         }
         return exists;
     }
@@ -251,26 +255,26 @@ public class Monitor.Process : GLib.Object {
     }
 
     private bool get_open_files () {
-        try {
-            string directory = "/proc/%d/fd".printf (stat.pid);
-            Dir dir = Dir.open (directory, 0);
-            string ? name = null;
-            while ((name = dir.read_name ()) != null) {
-                string path = Path.build_filename (directory, name);
+        //  try {
+        //      string directory = "/proc/%d/fd".printf (stat.pid);
+        //      Dir dir = Dir.open (directory, 0);
+        //      string ? name = null;
+        //      while ((name = dir.read_name ()) != null) {
+        //          string path = Path.build_filename (directory, name);
 
-                if (FileUtils.test (path, FileTest.IS_SYMLINK)) {
-                    string real_path = FileUtils.read_link (path);
-                    // debug(content);
-                    open_files_paths.add (real_path);
-                }
-            }
-        } catch (FileError err) {
-            if (err is FileError.ACCES) {
-                fd_permission_error (err.message);
-            } else {
-                warning (err.message);
-            }
-        }
+        //          if (FileUtils.test (path, FileTest.IS_SYMLINK)) {
+        //              string real_path = FileUtils.read_link (path);
+        //              // debug(content);
+        //              open_files_paths.add (real_path);
+        //          }
+        //      }
+        //  } catch (FileError err) {
+        //      if (err is FileError.ACCES) {
+        //          fd_permission_error (err.message);
+        //      } else {
+        //          warning (err.message);
+        //      }
+        //  }
         return true;
     }
 

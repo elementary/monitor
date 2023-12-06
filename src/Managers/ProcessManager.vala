@@ -135,13 +135,33 @@ namespace Monitor {
             // var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_UID, uid);
             var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_ALL, uid);
 
-            for (int i = 0; i < proclist.number; i++) {
-                int pid = pids[i];
+            if (ProcessUtils.is_flatpak_env ()) {
+                var pp = ProcessProvider.get_default ();
+                var pp_pids = pp.get_pids ();
 
-                if (!process_list.has_key (pid) && !kernel_process_blacklist.contains (pid)) {
-                    add_process (pid);
+                //  foreach (var pid in pp_pids) {
+                //      debug ("yeah %d", pid);
+                //  }
+
+                debug ("Size %u", pp_pids.length ());
+
+                foreach (int pid in pp_pids) {
+                    if (!process_list.has_key (pid) && !kernel_process_blacklist.contains (pid)) {
+                        add_process (pid);
+                    }
                 }
+                debug ("process_list size %u", process_list.size);
+            } else {
+                //  for (int i = 0; i < proclist.number; i++) {
+                //      int pid = pids[i];
+
+                //      if (!process_list.has_key (pid) && !kernel_process_blacklist.contains (pid)) {
+                //          add_process (pid);
+                //      }
+                //  }
             }
+
+
 
             cpu_last_used = used;
             cpu_last_total = cpu_data.total;
@@ -225,7 +245,7 @@ namespace Monitor {
                     return true;
                 }
                 // some processes have semicolon in command
-                // do not sanitizing to improve readability
+                // do not sanitize to improve readability
                 else if (process.command.split (" ")[0].contains (":")) {
                     process.application_name = process.command;
                     return true;
