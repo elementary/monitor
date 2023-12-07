@@ -27,9 +27,9 @@ public class Monitor.ProcessUtils {
     }
 
     public static string ? read_file (string path) {
-        if (ProcessUtils.is_flatpak_env ()) {
-            return ProcessUtils.read_file_on_host (path);
-        }
+        //  if (ProcessUtils.is_flatpak_env ()) {
+        //      return ProcessUtils.read_file_on_host (path);
+        //  }
 
         return ProcessUtils.read_file_native (path);
     }

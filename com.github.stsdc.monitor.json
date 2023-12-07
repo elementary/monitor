@@ -8,18 +8,26 @@
     "--share=ipc",
     "--socket=fallback-x11",
     "--socket=wayland",
+    "--socket=session-bus",
     "--socket=system-bus",
+    "--device=shm",
     "--device=all",
     "--share=network",
     "--env=XDG_DATA_DIRS=/app/share:/usr/share:/usr/share/runtime/share:/run/host/user-share:/run/host/usr/share:/run/host/share:/var/lib/flatpak/exports/share:~/.local/share/flatpak/exports/share",
     "--talk-name=org.freedesktop.Flatpak",
+    "--talk-name=com.github.stsdc.monitor",
     "--system-talk-name=org.freedesktop.Accounts",
     "--system-talk-name=org.freedesktop.UDisks2",
     "--filesystem=host:ro",
     "--filesystem=/var/lib/flatpak/app:ro",
     "--filesystem=/var/lib/flatpak/exports/share:ro",
     "--filesystem=xdg-data/flatpak/app:ro",
-    "--filesystem=xdg-data/flatpak/exports/share:ro"
+    "--filesystem=xdg-data/flatpak/exports/share:ro",
+    "--filesystem=/run/docker.sock",
+    "--filesystem=xdg-run/docker.sock",
+    "--filesystem=/run/podman/podman.sock",
+    "--filesystem=xdg-run/podman/podman.sock",
+    "--filesystem=/tmp"
   ],
   "modules": [
     {

@@ -16,14 +16,39 @@ def get_pids():
     # Filter out directories that contain only numbers in their names
     return [d for d in directories if d.isnumeric()]
 
+def get_processes_stats():
+    processes = []
+    for pid in get_pids():
+        process = [pid]
+        with open(f'/proc/{pid}/stat', 'r') as file:
+            process.append(file.read())
+        processes.append(process)
+    return processes
+
 
 class HelloWorld(dbus.service.Object):
     def __init__(self, conn=None, object_path=None, bus_name=None):
         dbus.service.Object.__init__(self, conn, object_path, bus_name)
 
-    @dbus.service.method(dbus_interface="com.github.stsdc.monitor.workaround.GetProcesses", in_signature="s", out_signature="as", sender_keyword="sender", connection_keyword="conn")
+    @dbus.service.method(dbus_interface="com.github.stsdc.monitor.workaround.GetProcesses", in_signature="s", out_signature="aas", sender_keyword="sender", connection_keyword="conn")
     def get_processes(self, name, sender=None, conn=None):
-        return get_pids()
+        processes = []
+        for pid in get_pids():
+            process = [pid]
+            with open(f'/proc/{pid}/cmdline', 'rb') as file:
+                process.append(file.read().decode('utf-8', 'ignore').replace('\0', ''))
+            with open(f'/proc/{pid}/stat', 'rb') as file:
+                process.append(file.read().decode('utf-8', 'ignore').replace('\0', ''))
+            with open(f'/proc/{pid}/statm', 'rb') as file:
+                process.append(file.read().decode('utf-8', 'ignore').replace('\0', ''))
+                try:
+                    with open(f'/proc/{pid}/io', 'r') as file:
+                        process.append(file.read())
+                except PermissionError as err:
+                    # print(err)
+                    pass
+            processes.append(process)
+        return processes
 
 if __name__ == "__main__":
     dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)

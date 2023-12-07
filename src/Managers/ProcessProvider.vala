@@ -41,7 +41,7 @@ namespace Monitor {
                 // );
 
                 GLib.Process.spawn_command_line_sync (
-                    "flatpak-spawn --host ls /proc/",
+                    "ls /tmp/fakeproc/proc/",
                     out ls_stdout,
                     out ls_stderr,
                     out ls_status);
