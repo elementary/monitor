@@ -69,6 +69,7 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
         show_all ();
 
         dbusserver = DBusServer.get_default ();
+        var dbus_workaround_client = DBusWorkaroundClient.get_default();
 
         headerbar.search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
         stack.notify["visible-child-name"].connect (() => {
@@ -89,6 +90,12 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
                     var res = resources.serialize ();
                     statusbar.update (res);
                     dbusserver.update (res);
+                    try {
+                        HashTable<string, string>[] p = dbus_workaround_client.interface.get_processes ("");
+                        debug("%s", p[400]["cmdline"] );
+                    } catch (Error e) {
+                        warning (e.message);
+                    }
                     return false;
                 });
                 return true;

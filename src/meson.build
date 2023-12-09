@@ -63,6 +63,7 @@ source_app_files = [
     # Services
     'Services/Shortcuts.vala',
     'Services/DBusServer.vala',
+    'Services/DBusWorkaroundClient.vala',
     'Services/Appearance.vala',
 
     # Resources
