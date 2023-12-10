@@ -97,7 +97,7 @@ namespace Monitor {
         /**
          * Gets all new process and adds them
          */
-        public async void update_processes () {
+         public async void update_processes () {
             /* CPU */
             GTop.Cpu cpu_data;
             GTop.get_cpu (out cpu_data);
@@ -135,33 +135,13 @@ namespace Monitor {
             // var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_UID, uid);
             var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_ALL, uid);
 
-            if (ProcessUtils.is_flatpak_env ()) {
-                var pp = ProcessProvider.get_default ();
-                var pp_pids = pp.get_pids ();
+            for (int i = 0; i < proclist.number; i++) {
+                int pid = pids[i];
 
-                //  foreach (var pid in pp_pids) {
-                //      debug ("yeah %d", pid);
-                //  }
-
-                debug ("Size %u", pp_pids.length ());
-
-                foreach (int pid in pp_pids) {
-                    if (!process_list.has_key (pid) && !kernel_process_blacklist.contains (pid)) {
-                        add_process (pid);
-                    }
+                if (!process_list.has_key (pid) && !kernel_process_blacklist.contains (pid)) {
+                    add_process (pid);
                 }
-                debug ("process_list size %u", process_list.size);
-            } else {
-                //  for (int i = 0; i < proclist.number; i++) {
-                //      int pid = pids[i];
-
-                //      if (!process_list.has_key (pid) && !kernel_process_blacklist.contains (pid)) {
-                //          add_process (pid);
-                //      }
-                //  }
             }
-
-
 
             cpu_last_used = used;
             cpu_last_total = cpu_data.total;

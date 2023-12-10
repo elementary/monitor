@@ -157,8 +157,6 @@ namespace Monitor {
                     assert_nonnull (container_object);
 
                     this.add_container (container_object);
-
-
                 }
                 var remove_me = new Gee.HashSet<DockerContainer> ();
                 foreach (var container in this.container_list.values) {

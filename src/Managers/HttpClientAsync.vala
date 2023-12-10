@@ -49,7 +49,7 @@ namespace Monitor {
             r = curl.setopt (Curl.Option.WRITEFUNCTION, HttpClientResponse.read_body_data);
             assert_true (r == Curl.Code.OK);
 
-            // debug ("call api method: %s - %s", this.get_request_method (method), url);
+            debug ("call api method: %s - %s", this.get_request_method (method), url);
 
             yield this.perform (curl);
 
