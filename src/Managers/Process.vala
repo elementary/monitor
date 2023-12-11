@@ -135,7 +135,7 @@ public class Monitor.Process : GLib.Object {
     }
 
     private bool get_children_pids () {
-        string ? children_content = ProcessUtils.read_file ("/tmp/fakeproc/proc/%d/task/%d/children".printf (stat.pid, stat.pid));
+        string ? children_content = ProcessUtils.read_file ("/proc/%d/task/%d/children".printf (stat.pid, stat.pid));
         if (children_content == "" || children_content == null) {
             return false;
         }
@@ -201,7 +201,7 @@ public class Monitor.Process : GLib.Object {
 
     // Reads the /proc/%pid%/stat file and updates the process with the information therein.
     private bool parse_stat () {
-        string ? stat_contents = ProcessUtils.read_file ("/tmp/fakeproc/proc/%d/stat".printf (stat.pid));
+        string ? stat_contents = ProcessUtils.read_file ("/proc/%d/stat".printf (stat.pid));
 
         if (stat_contents == null) {
             return false;
@@ -282,7 +282,7 @@ public class Monitor.Process : GLib.Object {
      * Reads the /proc/%pid%/cmdline file and updates from the information contained therein.
      */
     private bool read_cmdline () {
-        string ? cmdline = ProcessUtils.read_file ("/tmp/fakeproc/proc/%d/cmdline".printf (stat.pid));
+        string ? cmdline = ProcessUtils.read_file ("/proc/%d/cmdline".printf (stat.pid));
 
         if (cmdline == null) {
             return false;

@@ -130,14 +130,10 @@ namespace Monitor {
                 remove_process (pid);
             }
 
-            var uid = Posix.getuid ();
-            GTop.ProcList proclist;
-            // var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_UID, uid);
-            var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_ALL, uid);
+            var process_provider = ProcessProvider.get_default ();
+            var pids = process_provider.get_pids ();
 
-            for (int i = 0; i < proclist.number; i++) {
-                int pid = pids[i];
-
+            foreach (int pid in pids) {
                 if (!process_list.has_key (pid) && !kernel_process_blacklist.contains (pid)) {
                     add_process (pid);
                 }

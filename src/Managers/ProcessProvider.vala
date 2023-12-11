@@ -24,8 +24,9 @@ namespace Monitor {
             // }
             GTop.ProcList proclist;
             // var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_UID, uid);
-            int[] pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_ALL, Posix.getuid ());
-            debug("%d", pids.length);
+            var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_ALL, Posix.getuid ());
+            pids.length = (int) proclist.number;
+
             return pids;
         }
 

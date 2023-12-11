@@ -52,7 +52,6 @@ source_app_files = [
     # 'Managers/AppManager.vala',
     'Managers/ProcessManager.vala',
     'Managers/Process.vala',
-    'Managers/ProcessFlatpak.vala',
     'Managers/ProcessStructs.vala',
     'Managers/ProcessUtils.vala',
     'Managers/HttpClientAsync.vala',
