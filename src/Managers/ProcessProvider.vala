@@ -16,12 +16,22 @@ namespace Monitor {
         }
 
         public int[] get_pids () {
-            // try {
-            // HashTable<string, string>[] p = dbus_workaround_client.interface.get_processes ("");
-            // debug ("%s", p[400]["cmdline"] );
-            // } catch (Error e) {
-            // warning (e.message);
-            // }
+            if (ProcessUtils.is_flatpak_env ()) {
+                int[] pids;
+                try {
+                    HashTable<string, string>[] procs = dbus_workaround_client.interface.get_processes ("");
+                    pids = new int[procs.length];
+                    debug ("Workaround: pids: %d", procs.length);
+                    for (int i = 0; i < procs.length; i++) {
+                        debug (procs[i]["pid"]);
+                        pids[i] = int.parse (procs[i]["pid"]);
+                    }
+                } catch (Error e) {
+                    warning (e.message);
+                }
+                return pids;
+            }
+            debug ("normal");
             GTop.ProcList proclist;
             // var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_UID, uid);
             var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_ALL, Posix.getuid ());
