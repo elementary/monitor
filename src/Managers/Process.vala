@@ -56,7 +56,6 @@ public class Monitor.Process : GLib.Object {
     private uint64 cpu_last_used;
 
     // Memory usage of the process, measured in KiB.
-
     public uint64 mem_usage { get; private set; }
     public double mem_percentage { get; private set; }
 
@@ -81,7 +80,7 @@ public class Monitor.Process : GLib.Object {
         stat.pid = _pid;
 
         // getting uid
-        get_uid ();
+        uid = get_uid ();
 
         // getting username
         // @TOFIX: Can't get username for postgres which
@@ -96,12 +95,18 @@ public class Monitor.Process : GLib.Object {
         get_usage (0, 1);
     }
 
-    private void get_uid () {
+    private int get_uid () {
+        if (ProcessUtils.is_flatpak_env ()) {
+            var process_provider = ProcessProvider.get_default ();
+            string ? status = process_provider.pids_status.get (this.stat.pid);
+            var status_line = status.split ("\n");
+            return int.parse(status_line[8].split("\t")[1]);
+            
+        }
         GTop.ProcUid proc_uid;
         GTop.get_proc_uid (out proc_uid, stat.pid);
-        uid = proc_uid.uid;
+        return proc_uid.uid;
     }
-
 
     // Updates the process to get latest information
     // Returns if the update was successful
@@ -147,7 +152,52 @@ public class Monitor.Process : GLib.Object {
         return true;
     }
 
+    private bool parse_io_workaround () {
+        var process_provider = ProcessProvider.get_default ();
+        string ? io_stats = process_provider.pids_io.get (this.stat.pid);
+
+        if (io_stats == "") return false;
+
+        foreach (string line in io_stats.split ("\n")) {
+            if (line == "") continue;
+            var splitted_line = line.split (":");
+            switch (splitted_line[0]) {
+            case "wchar":
+                io.wchar = uint64.parse (splitted_line[1]);
+                break;
+            case "rchar":
+                io.rchar = uint64.parse (splitted_line[1]);
+                break;
+            case "syscr":
+                io.syscr = uint64.parse (splitted_line[1]);
+                break;
+            case "syscw":
+                io.syscw = uint64.parse (splitted_line[1]);
+                break;
+            case "read_bytes":
+                io.read_bytes = uint64.parse (splitted_line[1]);
+                break;
+            case "write_bytes":
+                io.write_bytes = uint64.parse (splitted_line[1]);
+                break;
+            case "cancelled_write_bytes":
+                io.cancelled_write_bytes = uint64.parse (splitted_line[1]);
+                break;
+            default:
+                warning ("Unknown value in /proc/%d/io", stat.pid);
+                break;
+            }
+        }
+
+        return true;
+    }
+
     private bool parse_io () {
+
+        if (ProcessUtils.is_flatpak_env ()) {
+            return parse_io_workaround ();
+        }
+
         var io_file = File.new_for_path ("/proc/%d/io".printf (stat.pid));
 
         if (!io_file.query_exists ()) {
@@ -211,7 +261,7 @@ public class Monitor.Process : GLib.Object {
 
         if (stat_contents == null) return false;
 
-        //  debug (stat_contents);
+        // debug (stat_contents);
 
         // Split the contents into an array and parse each value that we care about
 
@@ -267,26 +317,26 @@ public class Monitor.Process : GLib.Object {
     }
 
     private bool get_open_files () {
-        //  try {
-        //      string directory = "/proc/%d/fd".printf (stat.pid);
-        //      Dir dir = Dir.open (directory, 0);
-        //      string ? name = null;
-        //      while ((name = dir.read_name ()) != null) {
-        //          string path = Path.build_filename (directory, name);
+        // try {
+        // string directory = "/proc/%d/fd".printf (stat.pid);
+        // Dir dir = Dir.open (directory, 0);
+        // string ? name = null;
+        // while ((name = dir.read_name ()) != null) {
+        // string path = Path.build_filename (directory, name);
 
-        //          if (FileUtils.test (path, FileTest.IS_SYMLINK)) {
-        //              string real_path = FileUtils.read_link (path);
-        //              // debug(content);
-        //              open_files_paths.add (real_path);
-        //          }
-        //      }
-        //  } catch (FileError err) {
-        //      if (err is FileError.ACCES) {
-        //          fd_permission_error (err.message);
-        //      } else {
-        //          warning (err.message);
-        //      }
-        //  }
+        // if (FileUtils.test (path, FileTest.IS_SYMLINK)) {
+        // string real_path = FileUtils.read_link (path);
+        //// debug(content);
+        // open_files_paths.add (real_path);
+        // }
+        // }
+        // } catch (FileError err) {
+        // if (err is FileError.ACCES) {
+        // fd_permission_error (err.message);
+        // } else {
+        // warning (err.message);
+        // }
+        // }
         return true;
     }
 

@@ -8,6 +8,8 @@ namespace Monitor {
         public Gee.HashSet<int> pids = new Gee.HashSet<int> ();
         public Gee.HashMap<int, string> pids_cmdline = new Gee.HashMap<int, string> ();
         public Gee.HashMap<int, string> pids_stat = new Gee.HashMap<int, string> ();
+        public Gee.HashMap<int, string> pids_io = new Gee.HashMap<int, string> ();
+        public Gee.HashMap<int, string> pids_status = new Gee.HashMap<int, string> ();
 
         DBusWorkaroundClient dbus_workaround_client;
 
@@ -29,13 +31,14 @@ namespace Monitor {
                         pids[i] = int.parse (procs[i]["pid"]);
                         pids_cmdline.set (pids[i], procs[i]["cmdline"]);
                         pids_stat.set (pids[i], procs[i]["stat"]);
+                        pids_status.set (pids[i], procs[i]["status"]);
+                        pids_io.set (pids[i], procs[i]["io"]);
                     }
                 } catch (Error e) {
                     warning (e.message);
                 }
                 return pids;
             }
-            debug ("normal");
             GTop.ProcList proclist;
             // var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_UID, uid);
             var pids = GTop.get_proclist (out proclist, GTop.GLIBTOP_KERN_PROC_ALL, Posix.getuid ());

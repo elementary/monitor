@@ -40,6 +40,7 @@ class HelloWorld(dbus.service.Object):
                 "cmdline": "",
                 "stat": "",
                 "statm": "",
+                "status": "",
                 "io": ""
             }
             with open(f'/proc/{pid}/cmdline', 'rb') as file:
@@ -47,12 +48,16 @@ class HelloWorld(dbus.service.Object):
             
             with open(f'/proc/{pid}/stat', 'rb') as file:
                 process["stat"] = (file.read().decode('utf-8', 'ignore').replace('\0', ' '))
+
+            with open(f'/proc/{pid}/status', 'rb') as file:
+                process["status"] = (file.read().decode('utf-8', 'ignore').replace('\0', ' '))
             
             with open(f'/proc/{pid}/statm', 'rb') as file:
                 process["statm"] = (file.read().decode('utf-8', 'ignore').replace('\0', ' '))
                 try:
                     with open(f'/proc/{pid}/io', 'rb') as file:
                         process["io"] = (file.read().decode('utf-8', 'ignore').replace('\0', ' '))
+                        # print(process["io"])
 
                 except PermissionError as err:
                     # print(err)
