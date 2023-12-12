@@ -43,17 +43,20 @@ class HelloWorld(dbus.service.Object):
                 "io": ""
             }
             with open(f'/proc/{pid}/cmdline', 'rb') as file:
-                process["cmdline"] = (file.read().decode('utf-8', 'ignore').replace('\0', ''))
-            # with open(f'/proc/{pid}/stat', 'rb') as file:
-            #     process.append(file.read().decode('utf-8', 'ignore').replace('\0', ''))
-            # with open(f'/proc/{pid}/statm', 'rb') as file:
-            #     process.append(file.read().decode('utf-8', 'ignore').replace('\0', ''))
-            #     try:
-            #         with open(f'/proc/{pid}/io', 'r') as file:
-            #             process.append(file.read())
-            #     except PermissionError as err:
-            #         # print(err)
-            #         pass
+                process["cmdline"] = (file.read().decode('utf-8', 'ignore').replace('\0', ' '))
+            
+            with open(f'/proc/{pid}/stat', 'rb') as file:
+                process["stat"] = (file.read().decode('utf-8', 'ignore').replace('\0', ' '))
+            
+            with open(f'/proc/{pid}/statm', 'rb') as file:
+                process["statm"] = (file.read().decode('utf-8', 'ignore').replace('\0', ' '))
+                try:
+                    with open(f'/proc/{pid}/io', 'rb') as file:
+                        process["io"] = (file.read().decode('utf-8', 'ignore').replace('\0', ' '))
+
+                except PermissionError as err:
+                    # print(err)
+                    pass
             processes.append(process)
         return processes
 

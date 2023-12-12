@@ -109,9 +109,9 @@ public class Monitor.Process : GLib.Object {
         exists = parse_stat ();
         if (exists) {
             get_usage (cpu_total, cpu_last_total);
-            //  parse_io ();
-            //  parse_statm ();
-            //  get_open_files ();
+            parse_io ();
+            parse_statm ();
+            get_open_files ();
         }
         return exists;
     }
@@ -201,11 +201,17 @@ public class Monitor.Process : GLib.Object {
 
     // Reads the /proc/%pid%/stat file and updates the process with the information therein.
     private bool parse_stat () {
-        string ? stat_contents = ProcessUtils.read_file ("/proc/%d/stat".printf (stat.pid));
-
-        if (stat_contents == null) {
-            return false;
+        string ? stat_contents;
+        if (ProcessUtils.is_flatpak_env ()) {
+            var process_provider = ProcessProvider.get_default ();
+            stat_contents = process_provider.pids_stat.get (this.stat.pid);
+        } else {
+            stat_contents = ProcessUtils.read_file ("/proc/%d/stat".printf (stat.pid));
         }
+
+        if (stat_contents == null) return false;
+
+        //  debug (stat_contents);
 
         // Split the contents into an array and parse each value that we care about
 
@@ -238,7 +244,13 @@ public class Monitor.Process : GLib.Object {
     }
 
     private bool parse_statm () {
-        string ? statm_contents = ProcessUtils.read_file ("/proc/%d/statm".printf (stat.pid));
+        string ? statm_contents;
+        if (ProcessUtils.is_flatpak_env ()) {
+            var process_provider = ProcessProvider.get_default ();
+            statm_contents = process_provider.pids_stat.get (this.stat.pid);
+        } else {
+            statm_contents = ProcessUtils.read_file ("/proc/%d/statm".printf (stat.pid));
+        }
 
         if (statm_contents == null) return false;
 
@@ -282,7 +294,13 @@ public class Monitor.Process : GLib.Object {
      * Reads the /proc/%pid%/cmdline file and updates from the information contained therein.
      */
     private bool read_cmdline () {
-        string ? cmdline = ProcessUtils.read_file ("/proc/%d/cmdline".printf (stat.pid));
+        string ? cmdline;
+        if (ProcessUtils.is_flatpak_env ()) {
+            var process_provider = ProcessProvider.get_default ();
+            cmdline = process_provider.pids_cmdline.get (this.stat.pid);
+        } else {
+            cmdline = ProcessUtils.read_file ("/proc/%d/cmdline".printf (stat.pid));
+        }
 
         if (cmdline == null) {
             return false;
@@ -292,11 +310,11 @@ public class Monitor.Process : GLib.Object {
             // if cmdline has 0 length we look into stat file
             // useful for kworker processes
             command = stat.comm;
-
             return true;
         }
 
         command = cmdline;
+
         return true;
     }
 

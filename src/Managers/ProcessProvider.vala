@@ -6,6 +6,8 @@ namespace Monitor {
         }
 
         public Gee.HashSet<int> pids = new Gee.HashSet<int> ();
+        public Gee.HashMap<int, string> pids_cmdline = new Gee.HashMap<int, string> ();
+        public Gee.HashMap<int, string> pids_stat = new Gee.HashMap<int, string> ();
 
         DBusWorkaroundClient dbus_workaround_client;
 
@@ -23,8 +25,10 @@ namespace Monitor {
                     pids = new int[procs.length];
                     debug ("Workaround: pids: %d", procs.length);
                     for (int i = 0; i < procs.length; i++) {
-                        debug (procs[i]["pid"]);
+                        //  debug (procs[i]["pid"]);
                         pids[i] = int.parse (procs[i]["pid"]);
+                        pids_cmdline.set (pids[i], procs[i]["cmdline"]);
+                        pids_stat.set (pids[i], procs[i]["stat"]);
                     }
                 } catch (Error e) {
                     warning (e.message);
