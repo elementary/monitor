@@ -100,8 +100,8 @@ public class Monitor.Process : GLib.Object {
             var process_provider = ProcessProvider.get_default ();
             string ? status = process_provider.pids_status.get (this.stat.pid);
             var status_line = status.split ("\n");
-            return int.parse(status_line[8].split("\t")[1]);
-            
+            return int.parse (status_line[8].split ("\t")[1]);
+
         }
         GTop.ProcUid proc_uid;
         GTop.get_proc_uid (out proc_uid, stat.pid);

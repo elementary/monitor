@@ -41,7 +41,8 @@ class HelloWorld(dbus.service.Object):
                 "stat": "",
                 "statm": "",
                 "status": "",
-                "io": ""
+                "io": "",
+                "children": ""
             }
             with open(f'/proc/{pid}/cmdline', 'rb') as file:
                 process["cmdline"] = (file.read().decode('utf-8', 'ignore').replace('\0', ' '))
@@ -51,6 +52,9 @@ class HelloWorld(dbus.service.Object):
 
             with open(f'/proc/{pid}/status', 'rb') as file:
                 process["status"] = (file.read().decode('utf-8', 'ignore').replace('\0', ' '))
+
+            with open(f'/proc/{pid}/task/{pid}/children', 'rb') as file:
+                process["children"] = (file.read().decode('utf-8', 'ignore').replace('\0', ' '))
             
             with open(f'/proc/{pid}/statm', 'rb') as file:
                 process["statm"] = (file.read().decode('utf-8', 'ignore').replace('\0', ' '))

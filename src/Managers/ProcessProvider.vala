@@ -5,11 +5,11 @@ namespace Monitor {
             return instance.once (() => { return new ProcessProvider (); });
         }
 
-        public Gee.HashSet<int> pids = new Gee.HashSet<int> ();
         public Gee.HashMap<int, string> pids_cmdline = new Gee.HashMap<int, string> ();
         public Gee.HashMap<int, string> pids_stat = new Gee.HashMap<int, string> ();
         public Gee.HashMap<int, string> pids_io = new Gee.HashMap<int, string> ();
         public Gee.HashMap<int, string> pids_status = new Gee.HashMap<int, string> ();
+        public Gee.HashMap<int, string> pids_children = new Gee.HashMap<int, string> ();
 
         DBusWorkaroundClient dbus_workaround_client;
 
@@ -22,17 +22,23 @@ namespace Monitor {
         public int[] get_pids () {
             if (ProcessUtils.is_flatpak_env ()) {
                 int[] pids;
+                pids_cmdline.clear ();
+                pids_stat.clear ();
+                pids_io.clear ();
+                pids_status.clear ();
+                pids_children.clear ();
                 try {
                     HashTable<string, string>[] procs = dbus_workaround_client.interface.get_processes ("");
                     pids = new int[procs.length];
-                    debug ("Workaround: pids: %d", procs.length);
+                    debug ("Workaround: retrieved pids: %d", procs.length);
                     for (int i = 0; i < procs.length; i++) {
-                        //  debug (procs[i]["pid"]);
+                        // debug (procs[i]["pid"]);
                         pids[i] = int.parse (procs[i]["pid"]);
                         pids_cmdline.set (pids[i], procs[i]["cmdline"]);
                         pids_stat.set (pids[i], procs[i]["stat"]);
-                        pids_status.set (pids[i], procs[i]["status"]);
                         pids_io.set (pids[i], procs[i]["io"]);
+                        pids_children.set (pids[i], procs[i]["children"]);
+                        pids_status.set (pids[i], procs[i]["status"]);
                     }
                 } catch (Error e) {
                     warning (e.message);
