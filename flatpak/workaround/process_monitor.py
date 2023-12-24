@@ -44,9 +44,13 @@ class HelloWorld(dbus.service.Object):
                 "io": "",
                 "children": ""
             }
-            with open(f'/proc/{pid}/cmdline', 'rb') as file:
-                process["cmdline"] = (file.read().decode('utf-8', 'ignore').replace('\0', ' '))
-            
+            try:
+                with open(f'/proc/{pid}/cmdline', 'rb') as file:
+                    process["cmdline"] = (file.read().decode('utf-8', 'ignore').replace('\0', ' '))
+            except FileNotFoundError as err:
+                process["cmdline"] = None
+                continue
+        
             with open(f'/proc/{pid}/stat', 'rb') as file:
                 process["stat"] = (file.read().decode('utf-8', 'ignore').replace('\0', ' '))
 

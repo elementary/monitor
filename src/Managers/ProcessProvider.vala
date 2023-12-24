@@ -53,6 +53,13 @@ namespace Monitor {
             return pids;
         }
 
+        public Process create_process (int pid) {
+            if (ProcessUtils.is_flatpak_env ()) {
+                return new ProcessWorkaround (pid);
+            }
+            return new Process (pid);
+        }
+
         private bool process_line (IOChannel channel, IOCondition condition, GLib.List<int> _pids) {
             if (condition == IOCondition.HUP) {
                 // debug ("%s: The fd has been closed.\n", stream_name);

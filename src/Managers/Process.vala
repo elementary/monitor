@@ -6,10 +6,10 @@ public class Monitor.Process : GLib.Object {
 
 
     // Whether or not the PID leads to something
-    public bool exists { get; private set; }
+    public bool exists { get; protected set; }
 
     // Full command from cmdline file
-    public string command { get; private set; }
+    public string command { get; protected set; }
 
     // If process is an installed app, this will contain its name,
     // otherwise it is just a trimmed command
@@ -51,17 +51,17 @@ public class Monitor.Process : GLib.Object {
      *
      * Will be 0 on first update.
      */
-    public double cpu_percentage { get; private set; }
+    public double cpu_percentage { get; protected set; }
 
-    private uint64 cpu_last_used;
+    protected uint64 cpu_last_used;
 
     // Memory usage of the process, measured in KiB.
-    public uint64 mem_usage { get; private set; }
-    public double mem_percentage { get; private set; }
+    public uint64 mem_usage { get; protected set; }
+    public double mem_percentage { get; protected set; }
 
-    private uint64 last_total;
+    protected uint64 last_total;
 
-    const int HISTORY_BUFFER_SIZE = 30;
+    protected const int HISTORY_BUFFER_SIZE = 30;
     public Gee.ArrayList<double ? > cpu_percentage_history = new Gee.ArrayList<double ? > ();
     public Gee.ArrayList<double ? > mem_percentage_history = new Gee.ArrayList<double ? > ();
 
@@ -95,7 +95,7 @@ public class Monitor.Process : GLib.Object {
         get_usage (0, 1);
     }
 
-    private int get_uid () {
+    protected int get_uid () {
         if (ProcessUtils.is_flatpak_env ()) {
             var process_provider = ProcessProvider.get_default ();
             string ? status = process_provider.pids_status.get (this.stat.pid);
@@ -139,7 +139,7 @@ public class Monitor.Process : GLib.Object {
         return false;
     }
 
-    private bool get_children_pids () {
+    protected bool get_children_pids () {
         string ? children_content = ProcessUtils.read_file ("/proc/%d/task/%d/children".printf (stat.pid, stat.pid));
         if (children_content == "" || children_content == null) {
             return false;
@@ -152,52 +152,7 @@ public class Monitor.Process : GLib.Object {
         return true;
     }
 
-    private bool parse_io_workaround () {
-        var process_provider = ProcessProvider.get_default ();
-        string ? io_stats = process_provider.pids_io.get (this.stat.pid);
-
-        if (io_stats == "") return false;
-
-        foreach (string line in io_stats.split ("\n")) {
-            if (line == "") continue;
-            var splitted_line = line.split (":");
-            switch (splitted_line[0]) {
-            case "wchar":
-                io.wchar = uint64.parse (splitted_line[1]);
-                break;
-            case "rchar":
-                io.rchar = uint64.parse (splitted_line[1]);
-                break;
-            case "syscr":
-                io.syscr = uint64.parse (splitted_line[1]);
-                break;
-            case "syscw":
-                io.syscw = uint64.parse (splitted_line[1]);
-                break;
-            case "read_bytes":
-                io.read_bytes = uint64.parse (splitted_line[1]);
-                break;
-            case "write_bytes":
-                io.write_bytes = uint64.parse (splitted_line[1]);
-                break;
-            case "cancelled_write_bytes":
-                io.cancelled_write_bytes = uint64.parse (splitted_line[1]);
-                break;
-            default:
-                warning ("Unknown value in /proc/%d/io", stat.pid);
-                break;
-            }
-        }
-
-        return true;
-    }
-
-    private bool parse_io () {
-
-        if (ProcessUtils.is_flatpak_env ()) {
-            return parse_io_workaround ();
-        }
-
+    protected bool parse_io () {
         var io_file = File.new_for_path ("/proc/%d/io".printf (stat.pid));
 
         if (!io_file.query_exists ()) {
@@ -250,7 +205,7 @@ public class Monitor.Process : GLib.Object {
     }
 
     // Reads the /proc/%pid%/stat file and updates the process with the information therein.
-    private bool parse_stat () {
+    protected bool parse_stat () {
         string ? stat_contents;
         if (ProcessUtils.is_flatpak_env ()) {
             var process_provider = ProcessProvider.get_default ();
@@ -293,7 +248,7 @@ public class Monitor.Process : GLib.Object {
         return true;
     }
 
-    private bool parse_statm () {
+    protected bool parse_statm () {
         string ? statm_contents;
         if (ProcessUtils.is_flatpak_env ()) {
             var process_provider = ProcessProvider.get_default ();
@@ -316,7 +271,7 @@ public class Monitor.Process : GLib.Object {
         return true;
     }
 
-    private bool get_open_files () {
+    protected bool get_open_files () {
         // try {
         // string directory = "/proc/%d/fd".printf (stat.pid);
         // Dir dir = Dir.open (directory, 0);
@@ -343,7 +298,7 @@ public class Monitor.Process : GLib.Object {
     /**
      * Reads the /proc/%pid%/cmdline file and updates from the information contained therein.
      */
-    private bool read_cmdline () {
+    protected bool read_cmdline () {
         string ? cmdline;
         if (ProcessUtils.is_flatpak_env ()) {
             var process_provider = ProcessProvider.get_default ();
@@ -368,7 +323,7 @@ public class Monitor.Process : GLib.Object {
         return true;
     }
 
-    private void get_usage (uint64 cpu_total, uint64 cpu_last_total) {
+    protected void get_usage (uint64 cpu_total, uint64 cpu_last_total) {
         // Get CPU usage by process
         GTop.ProcTime proc_time;
         GTop.get_proc_time (out proc_time, stat.pid);
