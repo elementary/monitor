@@ -206,13 +206,7 @@ public class Monitor.Process : GLib.Object {
 
     // Reads the /proc/%pid%/stat file and updates the process with the information therein.
     protected bool parse_stat () {
-        string ? stat_contents;
-        if (ProcessUtils.is_flatpak_env ()) {
-            var process_provider = ProcessProvider.get_default ();
-            stat_contents = process_provider.pids_stat.get (this.stat.pid);
-        } else {
-            stat_contents = ProcessUtils.read_file ("/proc/%d/stat".printf (stat.pid));
-        }
+        string ? stat_contents = ProcessUtils.read_file ("/proc/%d/stat".printf (stat.pid));
 
         if (stat_contents == null) return false;
 
@@ -249,13 +243,7 @@ public class Monitor.Process : GLib.Object {
     }
 
     protected bool parse_statm () {
-        string ? statm_contents;
-        if (ProcessUtils.is_flatpak_env ()) {
-            var process_provider = ProcessProvider.get_default ();
-            statm_contents = process_provider.pids_stat.get (this.stat.pid);
-        } else {
-            statm_contents = ProcessUtils.read_file ("/proc/%d/statm".printf (stat.pid));
-        }
+        string ? statm_contents = ProcessUtils.read_file ("/proc/%d/statm".printf (stat.pid));
 
         if (statm_contents == null) return false;
 
@@ -299,13 +287,7 @@ public class Monitor.Process : GLib.Object {
      * Reads the /proc/%pid%/cmdline file and updates from the information contained therein.
      */
     protected bool read_cmdline () {
-        string ? cmdline;
-        if (ProcessUtils.is_flatpak_env ()) {
-            var process_provider = ProcessProvider.get_default ();
-            cmdline = process_provider.pids_cmdline.get (this.stat.pid);
-        } else {
-            cmdline = ProcessUtils.read_file ("/proc/%d/cmdline".printf (stat.pid));
-        }
+        string ? cmdline = process_provider.pids_cmdline.get (this.stat.pid);
 
         if (cmdline == null) {
             return false;
