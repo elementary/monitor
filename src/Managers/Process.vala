@@ -396,11 +396,6 @@ public class Monitor.Process : GLib.Object {
 
         if (ProcessUtils.is_flatpak_env ()) {
             mem_usage = (stat.rss * 4096 - statm.shared) / 1024;
-
-            if (stat.pid == 552677) {
-                debug ("%lld %lld", stat.rss, statm.shared);
-            }
-
         } else {
             GTop.ProcMem proc_mem;
             GTop.get_proc_mem (out proc_mem, stat.pid);
