@@ -291,6 +291,7 @@ public class Monitor.Process : GLib.Object {
         stat.num_threads = int.parse (splitted_stat[19]);
         stat.utime = ulong.parse (splitted_stat[13]);
         stat.stime = ulong.parse (splitted_stat[14]);
+        stat.rss = long.parse (splitted_stat[23]);
 
         return true;
     }
@@ -299,7 +300,7 @@ public class Monitor.Process : GLib.Object {
         string ? statm_contents;
         if (ProcessUtils.is_flatpak_env ()) {
             var process_provider = ProcessProvider.get_default ();
-            statm_contents = process_provider.pids_stat.get (this.stat.pid);
+            statm_contents = process_provider.pids_statm.get (this.stat.pid);
         } else {
             statm_contents = ProcessUtils.read_file ("/proc/%d/statm".printf (stat.pid));
         }
@@ -393,9 +394,19 @@ public class Monitor.Process : GLib.Object {
         GTop.Memory mem;
         GTop.get_mem (out mem);
 
-        GTop.ProcMem proc_mem;
-        GTop.get_proc_mem (out proc_mem, stat.pid);
-        mem_usage = (proc_mem.resident - proc_mem.share) / 1024; // in KiB
+        if (ProcessUtils.is_flatpak_env ()) {
+            mem_usage = (stat.rss * 4096 - statm.shared) / 1024;
+
+            if (stat.pid == 552677) {
+                debug ("%lld %lld", stat.rss, statm.shared);
+            }
+
+        } else {
+            GTop.ProcMem proc_mem;
+            GTop.get_proc_mem (out proc_mem, stat.pid);
+            mem_usage = (proc_mem.resident - proc_mem.share) / 1024; // in KiB
+        }
+
 
         // also if it is using X Window Server
         if (Gdk.Display.get_default () is Gdk.X11.Display) {

@@ -7,6 +7,7 @@ namespace Monitor {
 
         public Gee.HashMap<int, string> pids_cmdline = new Gee.HashMap<int, string> ();
         public Gee.HashMap<int, string> pids_stat = new Gee.HashMap<int, string> ();
+        public Gee.HashMap<int, string> pids_statm = new Gee.HashMap<int, string> ();
         public Gee.HashMap<int, string> pids_io = new Gee.HashMap<int, string> ();
         public Gee.HashMap<int, string> pids_status = new Gee.HashMap<int, string> ();
         public Gee.HashMap<int, string> pids_children = new Gee.HashMap<int, string> ();
@@ -36,6 +37,7 @@ namespace Monitor {
                         pids[i] = int.parse (procs[i]["pid"]);
                         pids_cmdline.set (pids[i], procs[i]["cmdline"]);
                         pids_stat.set (pids[i], procs[i]["stat"]);
+                        pids_statm.set (pids[i], procs[i]["statm"]);
                         pids_io.set (pids[i], procs[i]["io"]);
                         pids_children.set (pids[i], procs[i]["children"]);
                         pids_status.set (pids[i], procs[i]["status"]);

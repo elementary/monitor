@@ -104,4 +104,7 @@ public struct Monitor.ProcessStatus {
 
     public ulong utime;
     public ulong stime;
+
+    /** Resident Set Size: number of pages the process has in real memory. */
+    public long rss;
 }
