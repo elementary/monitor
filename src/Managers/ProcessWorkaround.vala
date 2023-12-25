@@ -1,11 +1,96 @@
-public class Monitor.ProcessWorkaround : Monitor.Process {
+public class Monitor.ProcessWorkaround : IProcess, GLib.Object {
+
+    // Whether or not the PID leads to something
+    public bool exists { get; private set; }
+
+    // Full command from cmdline file
+    public string command { get; private set; }
+
+    // If process is an installed app, this will contain its name,
+    // otherwise it is just a trimmed command
+    public string application_name { get; private set; }
+
+    // User id
+    public int uid { get; private set; }
+
+    public string username { get; private set; default = Utils.NO_DATA; }
+
+    Icon _icon;
+    public Icon icon {
+        get {
+            return _icon;
+        }
+        set {
+            if (value == null) {
+                _icon = ProcessUtils.get_default_icon ();
+            } else {
+                _icon = value;
+            }
+        }
+    }
+
+    // Contains info about io
+    public ProcessIO io { get; private set; }
+
+    // Contains status info
+    public ProcessStatus stat { get; private set; }
+
+    public ProcessStatusMemory statm { get; private set; }
+
+    public Gee.HashSet<string> open_files_paths { get; private set; }
+
+    public Gee.HashSet<int> children { get; private set; default = new Gee.HashSet<int> (); }
+
+    /**
+     * CPU usage of this process from the last time that it was updated, measured in percent
+     *
+     * Will be 0 on first update.
+     */
+    public double cpu_percentage { get; private set; }
+
+    private uint64 cpu_last_used { get; private set; }
+
+    // Memory usage of the process, measured in KiB.
+    public uint64 mem_usage { get; private set; }
+    public double mem_percentage { get; private set; }
+
+    private uint64 last_total { get; private set; }
+
+    private const int HISTORY_BUFFER_SIZE = 30;
+    public Gee.ArrayList<double ? > cpu_percentage_history { get; private set; default = new Gee.ArrayList<double ? > (); }
+    public Gee.ArrayList<double ? > mem_percentage_history { get; private set; default = new Gee.ArrayList<double ? > (); }
+
+
 
     // Construct a new process
     public ProcessWorkaround (int _pid) {
-        base (_pid);
+        _icon = ProcessUtils.get_default_icon ();
+
+        open_files_paths = new Gee.HashSet<string> ();
+
+        last_total = 0;
+
+        io = {};
+        stat = {};
+        stat.pid = _pid;
+
+        // getting uid
+        uid = get_uid ();
+
+        // getting username
+        // @TOFIX: Can't get username for postgres which
+        // is started from docker (?)
+        unowned Posix.Passwd passwd = Posix.getpwuid (uid);
+        if (passwd != null) {
+            username = passwd.pw_name;
+        }
+
+        exists = parse_stat () && read_cmdline ();
+        get_children_pids ();
+        get_usage (0, 1);
     }
 
-    private new int get_uid () {
+    private int get_uid () {
         var process_provider = ProcessProvider.get_default ();
         string ? status = process_provider.pids_status.get (this.stat.pid);
         var status_line = status.split ("\n");
@@ -13,7 +98,7 @@ public class Monitor.ProcessWorkaround : Monitor.Process {
     }
 
     // Kills the process
-    public new bool kill () {
+    public bool kill () {
         // Sends a kill signal that cannot be ignored
         if (Posix.kill (stat.pid, Posix.Signal.KILL) == 0) {
             return true;
@@ -22,7 +107,7 @@ public class Monitor.ProcessWorkaround : Monitor.Process {
     }
 
     // Ends the process
-    public new bool end () {
+    public bool end () {
         // Sends a terminate signal
         if (Posix.kill (stat.pid, Posix.Signal.TERM) == 0) {
             return true;
@@ -30,7 +115,7 @@ public class Monitor.ProcessWorkaround : Monitor.Process {
         return false;
     }
 
-    private new bool get_children_pids () {
+    private bool get_children_pids () {
         var process_provider = ProcessProvider.get_default ();
         string ? children_content = process_provider.pids_children.get (this.stat.pid);
 
@@ -41,7 +126,7 @@ public class Monitor.ProcessWorkaround : Monitor.Process {
         return true;
     }
 
-    private new bool parse_io () {
+    private bool parse_io () {
         var process_provider = ProcessProvider.get_default ();
         string ? io_stats = process_provider.pids_io.get (this.stat.pid);
 
@@ -82,7 +167,7 @@ public class Monitor.ProcessWorkaround : Monitor.Process {
     }
 
     // Reads the /proc/%pid%/stat file and updates the process with the information therein.
-    private new bool parse_stat () {
+    private bool parse_stat () {
         var process_provider = ProcessProvider.get_default ();
         string ? stat_contents = process_provider.pids_stat.get (this.stat.pid);
 
@@ -120,7 +205,7 @@ public class Monitor.ProcessWorkaround : Monitor.Process {
         return true;
     }
 
-    private new bool parse_statm () {
+    private bool parse_statm () {
         var process_provider = ProcessProvider.get_default ();
         string ? statm_contents = process_provider.pids_stat.get (this.stat.pid);
 
@@ -138,7 +223,7 @@ public class Monitor.ProcessWorkaround : Monitor.Process {
         return true;
     }
 
-    private new bool get_open_files () {
+    private bool get_open_files () {
         // try {
         // string directory = "/proc/%d/fd".printf (stat.pid);
         // Dir dir = Dir.open (directory, 0);
@@ -165,7 +250,7 @@ public class Monitor.ProcessWorkaround : Monitor.Process {
     /**
      * Reads the /proc/%pid%/cmdline file and updates from the information contained therein.
      */
-    private new bool read_cmdline () {
+    private bool read_cmdline () {
         var process_provider = ProcessProvider.get_default ();
         string ? cmdline = process_provider.pids_cmdline.get (this.stat.pid);
 
@@ -186,7 +271,7 @@ public class Monitor.ProcessWorkaround : Monitor.Process {
         return true;
     }
 
-    private new void get_usage (uint64 cpu_total, uint64 cpu_last_total) {
+    private void get_usage (uint64 cpu_total, uint64 cpu_last_total) {
         // Get CPU usage by process
         GTop.ProcTime proc_time;
         GTop.get_proc_time (out proc_time, stat.pid);
@@ -221,6 +306,19 @@ public class Monitor.ProcessWorkaround : Monitor.Process {
             mem_percentage_history.remove_at (0);
         }
         mem_percentage_history.add (mem_percentage);
+    }
+
+    // Updates the process to get latest information
+    // Returns if the update was successful
+    public bool update (uint64 cpu_total, uint64 cpu_last_total) {
+        exists = parse_stat ();
+        if (exists) {
+            get_usage (cpu_total, cpu_last_total);
+            parse_io ();
+            parse_statm ();
+            get_open_files ();
+        }
+        return exists;
     }
 
 }

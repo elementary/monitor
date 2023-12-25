@@ -6,7 +6,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
     private Gtk.TreeViewColumn memory_column;
     private Regex ? regex;
 
-    public signal void process_selected (Process process);
+    public signal void process_selected (IProcess process);
 
     public CPUProcessTreeView (TreeViewModel model) {
         this.model = model;
@@ -201,7 +201,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
         if (selection != null) {
             tree_model.get_iter (out iter, selection);
             tree_model.get (iter, Column.PID, out pid);
-            Process process = model.process_manager.get_process (pid);
+            IProcess process = model.process_manager.get_process (pid);
             process_selected (process);
             // debug ("cursor changed");
         }

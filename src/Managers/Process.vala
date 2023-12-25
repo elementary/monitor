@@ -1,24 +1,22 @@
-public class Monitor.Process : GLib.Object {
+public class Monitor.Process : IProcess, GLib.Object {
     // The size of each RSS page, in bytes
     // private static long PAGESIZE = Posix.sysconf (Posix._SC_PAGESIZE);
 
-    public signal void fd_permission_error (string error);
-
 
     // Whether or not the PID leads to something
-    public bool exists { get; protected set; }
+    public bool exists { get; private set; }
 
     // Full command from cmdline file
-    public string command { get; protected set; }
+    public string command { get; private set; }
 
     // If process is an installed app, this will contain its name,
     // otherwise it is just a trimmed command
-    public string application_name;
+    public string application_name { get; set; }
 
     // User id
-    public int uid;
+    public int uid { get; private set; }
 
-    public string username = Utils.NO_DATA;
+    public string username { get; private set; default = Utils.NO_DATA; }
 
     Icon _icon;
     public Icon icon {
@@ -35,35 +33,35 @@ public class Monitor.Process : GLib.Object {
     }
 
     // Contains info about io
-    public ProcessIO io;
+    public ProcessIO io { get; private set; }
 
     // Contains status info
-    public ProcessStatus stat;
+    public ProcessStatus stat { get; private set; }
 
-    public ProcessStatusMemory statm;
+    public ProcessStatusMemory statm { get; private set; }
 
-    public Gee.HashSet<string> open_files_paths;
+    public Gee.HashSet<string> open_files_paths { get; private set; }
 
-    public Gee.HashSet<int> children = new Gee.HashSet<int> ();
+    public Gee.HashSet<int> children { get; private set; default = new Gee.HashSet<int> (); }
 
     /**
      * CPU usage of this process from the last time that it was updated, measured in percent
      *
      * Will be 0 on first update.
      */
-    public double cpu_percentage { get; protected set; }
+    public double cpu_percentage { get; private set; }
 
-    protected uint64 cpu_last_used;
+    private uint64 cpu_last_used { get; private set; }
 
     // Memory usage of the process, measured in KiB.
-    public uint64 mem_usage { get; protected set; }
-    public double mem_percentage { get; protected set; }
+    public uint64 mem_usage { get; private set; }
+    public double mem_percentage { get; private set; }
 
-    protected uint64 last_total;
+    private uint64 last_total { get; private set; }
 
-    protected const int HISTORY_BUFFER_SIZE = 30;
-    public Gee.ArrayList<double ? > cpu_percentage_history = new Gee.ArrayList<double ? > ();
-    public Gee.ArrayList<double ? > mem_percentage_history = new Gee.ArrayList<double ? > ();
+    private const int HISTORY_BUFFER_SIZE = 30;
+    public Gee.ArrayList<double ? > cpu_percentage_history { get; private set; default = new Gee.ArrayList<double ? > (); }
+    public Gee.ArrayList<double ? > mem_percentage_history { get; private set; default = new Gee.ArrayList<double ? > (); }
 
 
 
@@ -95,14 +93,7 @@ public class Monitor.Process : GLib.Object {
         get_usage (0, 1);
     }
 
-    protected int get_uid () {
-        if (ProcessUtils.is_flatpak_env ()) {
-            var process_provider = ProcessProvider.get_default ();
-            string ? status = process_provider.pids_status.get (this.stat.pid);
-            var status_line = status.split ("\n");
-            return int.parse (status_line[8].split ("\t")[1]);
-
-        }
+    private int get_uid () {
         GTop.ProcUid proc_uid;
         GTop.get_proc_uid (out proc_uid, stat.pid);
         return proc_uid.uid;
@@ -139,7 +130,7 @@ public class Monitor.Process : GLib.Object {
         return false;
     }
 
-    protected bool get_children_pids () {
+    private bool get_children_pids () {
         string ? children_content = ProcessUtils.read_file ("/proc/%d/task/%d/children".printf (stat.pid, stat.pid));
         if (children_content == "" || children_content == null) {
             return false;
@@ -152,7 +143,7 @@ public class Monitor.Process : GLib.Object {
         return true;
     }
 
-    protected bool parse_io () {
+    private bool parse_io () {
         var io_file = File.new_for_path ("/proc/%d/io".printf (stat.pid));
 
         if (!io_file.query_exists ()) {
@@ -205,7 +196,7 @@ public class Monitor.Process : GLib.Object {
     }
 
     // Reads the /proc/%pid%/stat file and updates the process with the information therein.
-    protected bool parse_stat () {
+    private bool parse_stat () {
         string ? stat_contents;
         if (ProcessUtils.is_flatpak_env ()) {
             var process_provider = ProcessProvider.get_default ();
@@ -248,14 +239,8 @@ public class Monitor.Process : GLib.Object {
         return true;
     }
 
-    protected bool parse_statm () {
-        string ? statm_contents;
-        if (ProcessUtils.is_flatpak_env ()) {
-            var process_provider = ProcessProvider.get_default ();
-            statm_contents = process_provider.pids_stat.get (this.stat.pid);
-        } else {
-            statm_contents = ProcessUtils.read_file ("/proc/%d/statm".printf (stat.pid));
-        }
+    private bool parse_statm () {
+        string ? statm_contents = ProcessUtils.read_file ("/proc/%d/statm".printf (stat.pid));
 
         if (statm_contents == null) return false;
 
@@ -271,7 +256,7 @@ public class Monitor.Process : GLib.Object {
         return true;
     }
 
-    protected bool get_open_files () {
+    private bool get_open_files () {
         // try {
         // string directory = "/proc/%d/fd".printf (stat.pid);
         // Dir dir = Dir.open (directory, 0);
@@ -298,14 +283,8 @@ public class Monitor.Process : GLib.Object {
     /**
      * Reads the /proc/%pid%/cmdline file and updates from the information contained therein.
      */
-    protected bool read_cmdline () {
-        string ? cmdline;
-        if (ProcessUtils.is_flatpak_env ()) {
-            var process_provider = ProcessProvider.get_default ();
-            cmdline = process_provider.pids_cmdline.get (this.stat.pid);
-        } else {
-            cmdline = ProcessUtils.read_file ("/proc/%d/cmdline".printf (stat.pid));
-        }
+    private bool read_cmdline () {
+        string ? cmdline = ProcessUtils.read_file ("/proc/%d/cmdline".printf (stat.pid));
 
         if (cmdline == null) {
             return false;
@@ -323,7 +302,7 @@ public class Monitor.Process : GLib.Object {
         return true;
     }
 
-    protected void get_usage (uint64 cpu_total, uint64 cpu_last_total) {
+    private void get_usage (uint64 cpu_total, uint64 cpu_last_total) {
         // Get CPU usage by process
         GTop.ProcTime proc_time;
         GTop.get_proc_time (out proc_time, stat.pid);

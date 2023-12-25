@@ -40,7 +40,7 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
         }
     }
 
-    private bool add_process (Process process) {
+    private bool add_process (IProcess process) {
         if (process != null && !process_rows.has_key (process.stat.pid)) {
             debug ("Add process %d Parent PID: %d", process.stat.pid, process.stat.ppid);
             // add the process to the model
@@ -69,7 +69,7 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
 
     private void update_model () {
         foreach (int pid in process_rows.keys) {
-            Process process = process_manager.get_process (pid);
+            IProcess process = process_manager.get_process (pid);
             Gtk.TreeIter iter = process_rows[pid];
             set (iter,
                  Column.CPU, process.cpu_percentage,

@@ -53,7 +53,7 @@ namespace Monitor {
             return pids;
         }
 
-        public Process create_process (int pid) {
+        public IProcess create_process (int pid) {
             if (ProcessUtils.is_flatpak_env ()) {
                 return new ProcessWorkaround (pid);
             }

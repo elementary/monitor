@@ -2,9 +2,9 @@
 public class Monitor.OpenFilesTreeViewModel : Gtk.TreeStore {
     private Gee.Map<string, Gtk.TreeIter ? > open_files_paths = new Gee.HashMap<string, Gtk.TreeIter ? > ();
 
-    private Process _process;
+    private IProcess _process;
 
-    public Process ? process {
+    public IProcess ? process {
         get {
             return _process;
         }

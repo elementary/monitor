@@ -61,7 +61,7 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         attach (wrapper, 1, 1, 1, 1);
     }
 
-    public void update (Process process) {
+    public void update (IProcess process) {
         application_name.set_text (process.application_name);
         application_name.tooltip_text = process.command;
         pid.set_text (process.stat.pid.to_string ());
@@ -91,7 +91,7 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         set_icon (process);
     }
 
-    private void set_icon (Process process) {
+    private void set_icon (IProcess process) {
         // this construction should be somewhere else
         var icon_name = process.icon.to_string ();
 

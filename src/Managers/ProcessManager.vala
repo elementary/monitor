@@ -13,17 +13,17 @@ namespace Monitor {
         uint64[] cpu_last_useds = new uint64[32];
         uint64[] cpu_last_totals = new uint64[32];
 
-        private Gee.TreeMap<int, Process> process_list;
+        private Gee.TreeMap<int, IProcess> process_list;
         private Gee.HashSet<int> kernel_process_blacklist;
         private Gee.HashMap<string, AppInfo> apps_info_list;
 
-        public signal void process_added (Process process);
+        public signal void process_added (IProcess process);
         public signal void process_removed (int pid);
         public signal void updated ();
 
         // Construct a new ProcessManager
         public ProcessManager () {
-            process_list = new Gee.TreeMap<int, Process> ();
+            process_list = new Gee.TreeMap<int, IProcess> ();
             kernel_process_blacklist = new Gee.HashSet<int> ();
             apps_info_list = new Gee.HashMap<string, AppInfo> ();
 
@@ -53,7 +53,7 @@ namespace Monitor {
         /**
          * Gets a process by its pid, making sure that it's updated.
          */
-        public Process ? get_process (int pid) {
+        public IProcess ? get_process (int pid) {
             // if the process is in the kernel blacklist, we don't want to deal with it.
             if (kernel_process_blacklist.contains (pid)) {
                 return null;
@@ -90,7 +90,7 @@ namespace Monitor {
         /**
          * Gets a read only map of the processes currently cached
          */
-        public Gee.Map<int, Process> get_process_list () {
+        public Gee.Map<int, IProcess> get_process_list () {
             return process_list.read_only_view;
         }
 
@@ -150,7 +150,7 @@ namespace Monitor {
         }
 
         /** Sets name and icon for a process that is a Flatpak app and its children. */
-        private void set_flatpak_name_icon (Process process, GLib.Icon icon, string name) {
+        private void set_flatpak_name_icon (IProcess process, GLib.Icon icon, string name) {
             process.application_name = name;
             process.icon = icon;
             foreach (int pid in process.children) {
@@ -161,7 +161,7 @@ namespace Monitor {
             }
         }
 
-        private bool match_process_app (Process process) {
+        private bool match_process_app (IProcess process) {
             var command_sanitized = ProcessUtils.sanitize_commandline (process.command);
             var command_sanitized_basename = Path.get_basename (command_sanitized);
 
@@ -248,7 +248,7 @@ namespace Monitor {
          *
          * returns the created process
          */
-        private Process ? add_process (int pid, bool lazy_signal = false) {
+        private IProcess ? add_process (int pid, bool lazy_signal = false) {
             // create the process
             var process = ProcessProvider.get_default ().create_process (pid);
 

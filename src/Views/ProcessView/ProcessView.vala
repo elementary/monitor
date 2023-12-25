@@ -31,7 +31,7 @@ public class Monitor.ProcessView : Gtk.Box {
         add (paned);
     }
 
-    public void on_process_selected (Process process) {
+    public void on_process_selected (IProcess process) {
         process_info_view.process = process;
         process_info_view.no_show_all = false;
         //  process_info_view.show_all ();

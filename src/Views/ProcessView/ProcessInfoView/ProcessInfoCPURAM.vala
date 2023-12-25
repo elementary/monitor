@@ -41,12 +41,12 @@ public class Monitor.ProcessInfoCPURAM : Gtk.Grid {
         attach (mem_graph_box, 1, 1, 1, 1);
     }
 
-    public void set_charts_data (Process process) {
+    public void set_charts_data (IProcess process) {
         cpu_chart.preset_data (0, process.cpu_percentage_history);
         ram_chart.preset_data (0, process.mem_percentage_history);
     }
 
-    public void update (Process process) {
+    public void update (IProcess process) {
         cpu_label.set_text ((_("CPU: %.1f%%")).printf (process.cpu_percentage));
         ram_label.set_text ((_("RAM: %.1f%%")).printf (process.mem_percentage));
 

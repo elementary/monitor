@@ -55,7 +55,7 @@ public class Monitor.ProcessInfoIOStats : Gtk.Grid {
         attach (open_files_tree_view_scrolled, 0, 4, 3, 1);
     }
 
-    public void update (Process process) {
+    public void update (IProcess process) {
         write_bytes_label.set_text (Utils.HumanUnitFormatter.double_bytes_to_human (process.io.write_bytes));
         read_bytes_label.set_text (Utils.HumanUnitFormatter.double_bytes_to_human (process.io.read_bytes));
         cancelled_write_bytes_label.set_text (Utils.HumanUnitFormatter.double_bytes_to_human (process.io.cancelled_write_bytes));

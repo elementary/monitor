@@ -2,8 +2,8 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     private Preventor preventor;
     private ProcessInfoIOStats process_info_io_stats = new ProcessInfoIOStats ();
 
-    private Process _process;
-    public Process ? process {
+    private IProcess _process;
+    public IProcess ? process {
         get {
             return _process;
         }
