@@ -101,4 +101,7 @@ public struct Monitor.ProcessStatus {
 
     // The time the process started after system boot.
     public uint64 starttime;
+
+    public ulong utime;
+    public ulong stime;
 }

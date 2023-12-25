@@ -250,7 +250,7 @@ namespace Monitor {
          */
         private Process ? add_process (int pid, bool lazy_signal = false) {
             // create the process
-            var process = ProcessProvider.get_default ().create_process (pid);
+            var process = new Process (pid);
 
             if (!process.exists) {
                 return null;

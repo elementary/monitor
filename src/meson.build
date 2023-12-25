@@ -58,7 +58,7 @@ source_app_files = [
     'Managers/ContainerManager.vala',
     'Managers/Container.vala',
     'Managers/ProcessProvider.vala',
-    'Managers/ProcessWorkaround.vala',
+    # 'Managers/ProcessWorkaround.vala',
     # 'Managers/IProcess.vala',
 
     # Services
