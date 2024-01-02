@@ -332,6 +332,9 @@
     {
       "name": "com.github.stsdc.monitor",
       "buildsystem": "meson",
+      "config-opts": [
+        "-Dflatpak-workaround=enabled"
+      ],
       "sources": [
         {
           "type": "dir",

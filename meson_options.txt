@@ -1,1 +1,2 @@
 option('indicator-wingpanel', type : 'feature', value : 'disabled', description : 'Enables the Indicator for Wingpanel.')
+option('flatpak-workaround', type : 'feature', value : 'disabled', description : 'Enables the Flatpak workaround.')

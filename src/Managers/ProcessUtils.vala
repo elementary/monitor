@@ -88,48 +88,9 @@ public class Monitor.ProcessUtils {
                 out status
             );
 
-
-            // GLib.Process.spawn_async_with_pipes
-            // ("/",
-            // spawn_args,
-            // Environ.get (),
-            // SpawnFlags.SEARCH_PATH | SpawnFlags.DO_NOT_REAP_CHILD,
-            // null,
-            // out child_pid,
-            // out standard_input,
-            // out standard_output,
-            // out standard_error
-            // );
-            // debug ("Status: %d", status);
         } catch (SpawnError e) {
             error (e.message);
         }
-        // IOChannel output = new IOChannel.unix_new (standard_output);
-        // output.add_watch (IOCondition.IN | IOCondition.HUP, (channel, condition) => {
-        // if (condition == IOCondition.HUP) {
-        // print ("%s: The fd has been closed.\n", "stream_name");
-        // return false;
-        // }
-
-        // try {
-        // string line;
-        // channel.read_line (out line, null, null);
-        // print ("%s: %s", "stream_name", line);
-        // } catch (IOChannelError e) {
-        // print ("%s: IOChannelError: %s\n", "stream_name", e.message);
-        // return false;
-        // } catch (ConvertError e) {
-        // print ("%s: ConvertError: %s\n", "stream_name", e.message);
-        // return false;
-        // }
-
-        // return true;
-        // });
-
-        // ChildWatch.add (child_pid, (pid, status) => {
-        //// Triggered when the child indicated by child_pid exits
-        // GLib.Process.close_pid (pid);
-        // });
 
 
         string ? stdout_no_debug = "";
@@ -165,6 +126,16 @@ public class Monitor.ProcessUtils {
             return true;
         }
         return false;
+    }
+
+    public static string get_flatpak_app_path () {
+        string ? flatpak_info_content = ProcessUtils.read_file ("/.flatpak-info");
+        foreach (var line in flatpak_info_content.split ("\n")) {
+            if (line.contains ("app-path")) {
+                return line.replace ("app-path=", "");
+            }
+        }
+        return "";
     }
 
 }

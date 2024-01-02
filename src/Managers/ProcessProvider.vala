@@ -1,9 +1,11 @@
 namespace Monitor {
-    public class ProcessProvider {
+    public class ProcessProvider : GLib.Object{
         private static GLib.Once<ProcessProvider> instance;
         public static unowned ProcessProvider get_default () {
             return instance.once (() => { return new ProcessProvider (); });
         }
+
+        private bool is_flatpak;
 
         public Gee.HashMap<int, string> pids_cmdline = new Gee.HashMap<int, string> ();
         public Gee.HashMap<int, string> pids_stat = new Gee.HashMap<int, string> ();
@@ -14,14 +16,28 @@ namespace Monitor {
 
         DBusWorkaroundClient dbus_workaround_client;
 
-        public ProcessProvider () {
-            if (ProcessUtils.is_flatpak_env ()) {
+        construct {
+            this.is_flatpak = ProcessUtils.is_flatpak_env ();
+            if (this.is_flatpak) {
+                this.spawn_workaround ();
                 dbus_workaround_client = DBusWorkaroundClient.get_default ();
             }
         }
 
+        private bool spawn_workaround () {
+            try {
+                debug ("Spawning workaround...");
+                string app_path = ProcessUtils.get_flatpak_app_path ();
+                string command = @"flatpak-spawn --host env LANG=C $app_path/share/workaround/com.github.stsdc.monitor-workaround.py";
+                return GLib.Process.spawn_command_line_async (command);
+            } catch (SpawnError e) {
+                warning ("Spawning workaround error: %s\n", e.message);
+                return false;
+            }
+        }
+
         public int[] get_pids () {
-            if (ProcessUtils.is_flatpak_env ()) {
+            if (this.is_flatpak) {
                 int[] pids;
                 pids_cmdline.clear ();
                 pids_stat.clear ();
@@ -54,31 +70,5 @@ namespace Monitor {
 
             return pids;
         }
-
-        private bool process_line (IOChannel channel, IOCondition condition, GLib.List<int> _pids) {
-            if (condition == IOCondition.HUP) {
-                // debug ("%s: The fd has been closed.\n", stream_name);
-                return false;
-            }
-
-            try {
-                string line;
-                channel.read_line (out line, null, null);
-                if (line[0].isdigit ()) {
-                    print ("%d\n", int.parse (line));
-                    // pids.add (line.strip ());
-
-                }
-            } catch (IOChannelError e) {
-                warning ("IOChannelError: %s\n", e.message);
-                return false;
-            } catch (ConvertError e) {
-                warning ("ConvertError: %s\n", e.message);
-                return false;
-            }
-
-            return true;
-        }
-
     }
 }

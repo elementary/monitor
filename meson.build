@@ -74,4 +74,10 @@ subdir('src')
 meson.add_install_script('meson/post_install.py')
 
 subdir('po')
+
+
+if get_option('flatpak-workaround').enabled()
+  subdir('flatpak/workaround')
+endif
+
 # subdir('tests')

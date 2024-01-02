@@ -1,3 +1,7 @@
+#!/usr/bin/python
+
+"""The workaround script should run only in Flatpak environment."""
+
 import os
 
 import dbus
