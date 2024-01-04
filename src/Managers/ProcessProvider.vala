@@ -1,5 +1,5 @@
 namespace Monitor {
-    public class ProcessProvider : GLib.Object{
+    public class ProcessProvider : GLib.Object {
         private static GLib.Once<ProcessProvider> instance;
         public static unowned ProcessProvider get_default () {
             return instance.once (() => { return new ProcessProvider (); });
@@ -26,7 +26,7 @@ namespace Monitor {
 
         private bool spawn_workaround () {
             try {
-                debug ("Spawning workaround...");
+                debug ("Spawning workaround. . .");
                 string app_path = ProcessUtils.get_flatpak_app_path ();
                 string command = @"flatpak-spawn --host env LANG=C $app_path/share/workaround/com.github.stsdc.monitor-workaround.py";
                 return GLib.Process.spawn_command_line_async (command);
@@ -74,5 +74,6 @@ namespace Monitor {
         public void end_process (int pid) {
             DBusWorkaroundClient.get_default ();
         }
+
     }
 }
