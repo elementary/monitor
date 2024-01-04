@@ -132,6 +132,14 @@ public class Monitor.Process : GLib.Object {
 
     // Ends the process
     public bool end () {
+        if (ProcessUtils.is_flatpak_env ()) {
+            try {
+                DBusWorkaroundClient.get_default ().interface.end_process (this.stat.pid);
+            } catch (Error e) {
+                warning (e.message);
+            }
+        }
+
         // Sends a terminate signal
         if (Posix.kill (stat.pid, Posix.Signal.TERM) == 0) {
             return true;

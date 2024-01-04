@@ -19,7 +19,7 @@ namespace Monitor {
         construct {
             this.is_flatpak = ProcessUtils.is_flatpak_env ();
             if (this.is_flatpak) {
-                this.spawn_workaround ();
+                //  this.spawn_workaround ();
                 dbus_workaround_client = DBusWorkaroundClient.get_default ();
             }
         }
@@ -47,7 +47,7 @@ namespace Monitor {
                 try {
                     HashTable<string, string>[] procs = dbus_workaround_client.interface.get_processes ("");
                     pids = new int[procs.length];
-                    debug ("Workaround: retrieved pids: %d", procs.length);
+                    debug ("Workaround client: retrieved pids: %d", procs.length);
                     for (int i = 0; i < procs.length; i++) {
                         // debug (procs[i]["pid"]);
                         pids[i] = int.parse (procs[i]["pid"]);
@@ -69,6 +69,10 @@ namespace Monitor {
             pids.length = (int) proclist.number;
 
             return pids;
+        }
+
+        public void end_process (int pid) {
+            DBusWorkaroundClient.get_default ();
         }
     }
 }

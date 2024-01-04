@@ -3,7 +3,7 @@
 """The workaround script should run only in Flatpak environment."""
 
 import os
-
+import subprocess
 import dbus
 import dbus.service
 import dbus.mainloop.glib
@@ -36,7 +36,7 @@ class HelloWorld(dbus.service.Object):
 
     @dbus.service.method(dbus_interface="com.github.stsdc.monitor.workaround.GetProcesses", in_signature="s", out_signature="aa{ss}", sender_keyword="sender", connection_keyword="conn")
     def GetProcesses(self, name, sender=None, conn=None):
-        print("GetProcesses")
+        print("WorkaroundServer: GetProcesses")
         processes = []
         for pid in get_pids():
             process = {
@@ -76,6 +76,22 @@ class HelloWorld(dbus.service.Object):
                     pass
             processes.append(process)
         return processes
+
+    @dbus.service.method(dbus_interface="com.github.stsdc.monitor.workaround.GetProcesses", in_signature="i", sender_keyword="sender", connection_keyword="conn")
+    def EndProcess(self, pid, sender=None, conn=None):
+        print(f"WorkaroundServer: EndProcess: kill -15 {pid}")
+        try:
+            (subprocess.check_output(["kill", "-15", str(pid)], stderr=subprocess.STDOUT, shell=False)).decode()
+        except subprocess.CalledProcessError as err:
+            print(err)
+
+    @dbus.service.method(dbus_interface="com.github.stsdc.monitor.workaround.GetProcesses", in_signature="i", sender_keyword="sender", connection_keyword="conn")
+    def KillProcess(self, pid, sender=None, conn=None):
+        print(f"WorkaroundServer: KillProcess: kill -9 {pid}")
+        try:
+            (subprocess.check_output(["kill", "-9", str(pid)], stderr=subprocess.STDOUT, shell=False)).decode()
+        except subprocess.CalledProcessError as err:
+            print(err)
 
 if __name__ == "__main__":
     dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)

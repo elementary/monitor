@@ -1,6 +1,7 @@
 [DBus (name = "com.github.stsdc.monitor.workaround.GetProcesses")]
 public interface Monitor.DBusWorkaroundClientInterface : Object {
     public abstract HashTable<string, string>[] get_processes (string empty) throws Error;
+    public abstract void end_process (int pid) throws Error;
 
 }
 
