@@ -6,10 +6,6 @@
 <h4 align="left">Manage processes and monitor system resources</h4>
 
 <p align="left">
-    <a href="https://paypal.me/stsdc/10">
-        <img src="https://img.shields.io/badge/Donate-PayPal-green.svg">
-    </a>
-    <a href="https://ko-fi.com/stsdc" title="Donate to this project using Buy Me A Coffee"><img src="https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg" alt="Buy Me A Coffee" /></a>
     <a href="https://github.com/stsdc/monitor/releases">
         <img src="https://img.shields.io/github/release/stsdc/monitor.svg" alt="Release">
     </a>
@@ -26,7 +22,7 @@
 
 ## Install
 
-### elementary os 6 and 6.1
+### elementary OS 7 Horus
 
 If you have never added a PPA on your system before, you might need to run this command first:
 
@@ -41,9 +37,12 @@ sudo add-apt-repository ppa:stsdc/monitor
 sudo apt install com.github.stsdc.monitor
 ```
 
-Monitor will then be available from the Applications menu.
+Monitor will be available from the Applications menu.
 
-### Fedora (36)
+### ~~Fedora (36)~~
+
+> [!WARNING]
+> Dropped support due to lack of Pantheon dependencies on COPR.
 
 ```bash
 sudo dnf copr enable stsdc/monitor 
@@ -54,23 +53,7 @@ sudo dnf install com.github.stsdc.monitor
 
 ### Install dependencies
 
-* meson
-* appstream
-* debhelper (>= 9)
-* libgtk-3-dev
-* libglib2.0-dev
-* valac (>= 0.26)
-* libgranite-dev (>= 5.2.0)
-* libwnck-3-dev
-* libgtop2-dev
-* libwingpanel-3.0-dev
-* libhandy-1-dev
-* libudisks2-dev
-* libxnvctrl0
-* libxnvctrl-dev
-* libcurl4-gnutls-dev
-* libjson-glib-dev
-* sassc
+Check dependencies in [the deb control file](debian/control).
 
 ### Clone, Build & Install
 

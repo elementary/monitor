@@ -7,6 +7,7 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Grid {
     public IndicatorWidget network_down_widget = new IndicatorWidget ("go-down-symbolic");
 
     public IndicatorWidget gpu_widget = new IndicatorWidget ("gpu-symbolic");
+    public IndicatorWidget gpu_temperature_widget = new IndicatorWidget ("temperature-gpu-symbolic");
 
     construct {
         valign = Gtk.Align.CENTER;
@@ -14,6 +15,7 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Grid {
         add (cpu_widget);
         add (memory_widget);
         add (gpu_widget);
+        add (gpu_temperature_widget);
         add (temperature_widget);
         add (network_up_widget);
         add (network_down_widget);

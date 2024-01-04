@@ -4,7 +4,6 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
     private Chart cpu_temperature_chart;
     private CPU cpu;
 
-    private LabelVertical cpu_percentage_label;
     private LabelRoundy cpu_frequency_label;
     private LabelRoundy cpu_temperature_label;
 
@@ -14,10 +13,6 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
 
     construct {
         core_label_list = new Gee.ArrayList<Gtk.Label> ();
-
-        cpu_percentage_label = new LabelVertical (_("Utilization"));
-        cpu_percentage_label.has_tooltip = true;
-        cpu_percentage_label.tooltip_text = (_("Show detailed info"));
 
         cpu_frequency_label = new LabelRoundy (_("Frequency"));
         cpu_frequency_label.margin = 6;
@@ -31,9 +26,6 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         cpu_frequency_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
         cpu_frequency_chart.height_request = -1;
         cpu_frequency_chart.config.y_axis.fixed_max = 5.0;
-
-
-
 
         var grid_frequency_info = new Gtk.Grid ();
         grid_frequency_info.attach (cpu_frequency_label, 0, 0, 1, 1);
