@@ -19,7 +19,7 @@ namespace Monitor {
         construct {
             this.is_flatpak = ProcessUtils.is_flatpak_env ();
             if (this.is_flatpak) {
-                //  this.spawn_workaround ();
+                this.spawn_workaround ();
                 dbus_workaround_client = DBusWorkaroundClient.get_default ();
             }
         }
