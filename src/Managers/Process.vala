@@ -100,7 +100,12 @@ public class Monitor.Process : GLib.Object {
             var process_provider = ProcessProvider.get_default ();
             string ? status = process_provider.pids_status.get (this.stat.pid);
             var status_line = status.split ("\n");
-            return int.parse (status_line[8].split ("\t")[1]);
+            
+            int uid = int.parse (status_line[8].split ("\t")[1]);
+
+            //  @TODO parse users file instead
+            if (uid == 0) username = "root";
+            return uid;
 
         }
         GTop.ProcUid proc_uid;
@@ -123,6 +128,15 @@ public class Monitor.Process : GLib.Object {
 
     // Kills the process
     public bool kill () {
+        if (ProcessUtils.is_flatpak_env ()) {
+            try {
+                DBusWorkaroundClient.get_default ().interface.kill_process (this.stat.pid);
+                return true;
+            } catch (Error e) {
+                warning (e.message);
+            }
+        }
+
         // Sends a kill signal that cannot be ignored
         if (Posix.kill (stat.pid, Posix.Signal.KILL) == 0) {
             return true;
@@ -135,6 +149,7 @@ public class Monitor.Process : GLib.Object {
         if (ProcessUtils.is_flatpak_env ()) {
             try {
                 DBusWorkaroundClient.get_default ().interface.end_process (this.stat.pid);
+                return true;
             } catch (Error e) {
                 warning (e.message);
             }

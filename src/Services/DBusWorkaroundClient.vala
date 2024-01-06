@@ -2,6 +2,7 @@
 public interface Monitor.DBusWorkaroundClientInterface : Object {
     public abstract HashTable<string, string>[] get_processes (string empty) throws Error;
     public abstract void end_process (int pid) throws Error;
+    public abstract void kill_process (int pid) throws Error;
 
 }
 
@@ -12,9 +13,6 @@ public class Monitor.DBusWorkaroundClient : Object {
     public static unowned DBusWorkaroundClient get_default () {
         return instance.once (() => { return new DBusWorkaroundClient (); });
     }
-
-    public signal void monitor_vanished ();
-    public signal void monitor_appeared ();
 
     construct {
         try {
@@ -27,9 +25,7 @@ public class Monitor.DBusWorkaroundClient : Object {
             Bus.watch_name (
                 BusType.SESSION,
                 "com.github.stsdc.monitor.workaround",
-                BusNameWatcherFlags.NONE,
-                () => monitor_appeared (),
-                () => monitor_vanished ()
+                BusNameWatcherFlags.NONE
                 );
         } catch (IOError e) {
             error ("Monitor Indicator DBus: %s\n", e.message);
