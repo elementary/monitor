@@ -90,10 +90,15 @@
       <summary>Update time</summary>
       <description>This value sets update time for updating data and charts.</description>
     </key>
-        <key type='b' name="containers-view-state">
+    <key type='b' name="containers-view-state">
       <default>false</default>
       <summary>To show Containers view or not</summary>
       <description>To show Containers view or not</description>
+    </key>
+    <key type='b' name="flatpak-infobar-state">
+      <default>true</default>
+      <summary>To show Flatpak infobar or not</summary>
+      <description>To show Flatpak infobar or not</description>
     </key>
   </schema>
 </schemalist>

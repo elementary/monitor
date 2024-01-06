@@ -100,10 +100,10 @@ public class Monitor.Process : GLib.Object {
             var process_provider = ProcessProvider.get_default ();
             string ? status = process_provider.pids_status.get (this.stat.pid);
             var status_line = status.split ("\n");
-            
+
             int uid = int.parse (status_line[8].split ("\t")[1]);
 
-            //  @TODO parse users file instead
+            // @TODO parse users file instead
             if (uid == 0) username = "root";
             return uid;
 
