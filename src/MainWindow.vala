@@ -63,14 +63,14 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
         var flatpak_infobar = new Gtk.InfoBar ();
         flatpak_infobar.message_type = Gtk.MessageType.WARNING;
         flatpak_infobar.revealed = MonitorApp.settings.get_boolean ("flatpak-infobar-state");
-        var button = new Gtk.Button.with_label("Hide");
+        var button = new Gtk.Button.with_label ("Hide");
         button.margin_start = 20;
         button.hexpand = true;
         button.halign = Gtk.Align.END;
         flatpak_infobar.get_content_area ().add (new Gtk.Label (_("Some of Monitor features are limited by Flatpak environment.")));
         flatpak_infobar.get_content_area ().add (new Gtk.LinkButton.with_label ("https://github.com/stsdc/monitor", _("Try native.")));
         flatpak_infobar.get_content_area ().add (button);
-        button.clicked.connect(() => {
+        button.clicked.connect (() => {
             flatpak_infobar.revealed = false;
             MonitorApp.settings.set_boolean ("flatpak-infobar-state", false);
         });
