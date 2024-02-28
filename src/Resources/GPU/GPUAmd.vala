@@ -1,5 +1,5 @@
 public class Monitor.GPUAmd : IGPU, Object {
-    public SessionManager? session_manager { get; protected set; }
+    public SessionManager ? session_manager { get; protected set; }
 
     public Gee.HashMap<string, HwmonTemperature> hwmon_temperatures { get; set; }
 
@@ -16,7 +16,7 @@ public class Monitor.GPUAmd : IGPU, Object {
     public double temperature { get; protected set; }
 
     construct {
-        //  session_manager = get_sessman ();
+        // session_manager = get_sessman ();
     }
 
     private void update_temperature () {
@@ -46,4 +46,5 @@ public class Monitor.GPUAmd : IGPU, Object {
         update_memory_percentage ();
         update_percentage ();
     }
+
 }

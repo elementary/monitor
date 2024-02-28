@@ -1,5 +1,5 @@
 public interface Monitor.IGPU : Object {
-    public abstract SessionManager? session_manager { get; public set; }
+    public abstract SessionManager ? session_manager { get; public set; }
 
     public abstract Gee.HashMap<string, HwmonTemperature> hwmon_temperatures { get; set; }
 
@@ -44,4 +44,5 @@ public interface Monitor.IGPU : Object {
         }
         return content;
     }
+
 }
