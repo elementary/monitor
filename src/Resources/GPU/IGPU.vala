@@ -15,13 +15,17 @@ public interface Monitor.IGPU : Object {
 
     public abstract int memory_percentage { get; protected set; }
 
-    public abstract int memory_vram_used { get; protected set; }
+    public abstract double memory_vram_used { get; protected set; }
+
+    public abstract double memory_vram_total { get; protected set; }
 
     public abstract double temperature { get; protected set; }
 
     public abstract void update_temperature ();
 
     public abstract void update_memory_vram_used ();
+
+    public abstract void update_memory_vram_total ();
 
     public abstract void update_memory_percentage ();
 

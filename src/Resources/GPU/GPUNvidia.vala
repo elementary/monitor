@@ -9,7 +9,9 @@ public class Monitor.GPUNvidia : IGPU, Object {
 
     public int memory_percentage { get; protected set; }
 
-    public int memory_vram_used { get; protected set; }
+    public double memory_vram_used { get; protected set; }
+
+    public double memory_vram_total { get; set; }
 
     public double temperature { get; protected set; }
 
@@ -88,7 +90,9 @@ public class Monitor.GPUNvidia : IGPU, Object {
 
     private void update_temperature () { temperature = nvidia_temperature; }
 
-    private void update_memory_vram_used () { memory_vram_used = nvidia_memory_vram_used; }
+    private void update_memory_vram_used () { memory_vram_used = (double) nvidia_memory_vram_used; }
+
+    private void update_memory_vram_total () { }
 
     private void update_memory_percentage () { memory_percentage = nvidia_memory_percentage; }
 
