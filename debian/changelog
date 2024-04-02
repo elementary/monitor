@@ -1,3 +1,9 @@
+com.github.stsdc.monitor (0.17.1) jammy; urgency=low
+
+  * Fix VRAM percentage
+
+ -- Stanisław Dac <stadac@pm.me>  Tue, 02 Apr 2024 18:16:26  +0000
+
 com.github.stsdc.monitor (0.17.0) jammy; urgency=low
 
   * Add GPU temperature to the Indicator

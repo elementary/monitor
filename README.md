@@ -6,10 +6,6 @@
 <h4 align="left">Manage processes and monitor system resources</h4>
 
 <p align="left">
-    <a href="https://paypal.me/stsdc/10">
-        <img src="https://img.shields.io/badge/Donate-PayPal-green.svg">
-    </a>
-    <a href="https://ko-fi.com/stsdc" title="Donate to this project using Buy Me A Coffee"><img src="https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg" alt="Buy Me A Coffee" /></a>
     <a href="https://github.com/stsdc/monitor/releases">
         <img src="https://img.shields.io/github/release/stsdc/monitor.svg" alt="Release">
     </a>
