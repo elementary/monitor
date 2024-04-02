@@ -28,7 +28,7 @@ public class Monitor.GPUAmd : IGPU, Object {
     }
 
     private void update_memory_vram_total () {
-        memory_vram_total = double.parse (get_sysfs_value ("/sys/class/drm/card0/device/mem_info_vram_total"));;
+        memory_vram_total = double.parse (get_sysfs_value ("/sys/class/drm/card0/device/mem_info_vram_total"));
     }
 
     private void update_memory_percentage () {
