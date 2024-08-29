@@ -2,6 +2,8 @@ public class Monitor.Statusbar : Gtk.ActionBar {
     Gtk.Label cpu_usage_label;
     Gtk.Label memory_usage_label;
     Gtk.Label swap_usage_label;
+    Gtk.Label gpu_usage_label;
+    Gtk.Label gpu_memory_usage_label;
 
     construct {
         var cpu_icon = new Gtk.Image.from_icon_name ("cpu-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
@@ -14,6 +16,14 @@ public class Monitor.Statusbar : Gtk.ActionBar {
 
         var swap_icon = new Gtk.Image.from_icon_name ("swap-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
             tooltip_text = _("Swap")
+        };
+
+        var gpu_icon = new Gtk.Image.from_icon_name ("gpu-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
+            tooltip_text = _("GPU")
+        };
+
+        var gpu_memory_icon = new Gtk.Image.from_icon_name ("memory-gpu-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
+            tooltip_text = _("VRAM")
         };
 
         cpu_usage_label = new Gtk.Label (_("Calculating…"));
@@ -35,6 +45,19 @@ public class Monitor.Statusbar : Gtk.ActionBar {
         swap_icon.margin_start = 6;
         pack_start (swap_icon);
         pack_start (swap_usage_label);
+
+        gpu_usage_label = new Gtk.Label (_("Calculating…"));
+        gpu_usage_label.set_width_chars (4);
+        gpu_usage_label.xalign = 0;
+        pack_start (gpu_icon);
+        pack_start (gpu_usage_label);
+
+        gpu_memory_usage_label = new Gtk.Label (_("Calculating…"));
+        gpu_memory_usage_label.set_width_chars (4);
+        gpu_memory_usage_label.xalign = 0;
+        gpu_memory_icon.margin_start = 6;
+        pack_start (gpu_memory_icon);
+        pack_start (gpu_memory_usage_label);
 
         var support_ua_label = new Gtk.LinkButton.with_label ("http://stand-with-ukraine.pp.ua/", _("🇺🇦"));
         var github_label = new Gtk.LinkButton.with_label ("https://github.com/stsdc/monitor", _("Check on Github"));
@@ -65,12 +88,17 @@ public class Monitor.Statusbar : Gtk.ActionBar {
     public bool update (ResourcesSerialized sysres) {
         cpu_usage_label.set_text (("%d%%").printf (sysres.cpu_percentage));
         memory_usage_label.set_text (("%u%%").printf (sysres.memory_percentage));
+        gpu_usage_label.set_text (("%d%%").printf (sysres.gpu_percentage));
+        gpu_memory_usage_label.set_text (("%u%%").printf (sysres.gpu_memory_percentage));
 
         string cpu_tooltip_text = ("%.2f %s").printf (sysres.cpu_frequency, _("GHz"));
         cpu_usage_label.tooltip_text = cpu_tooltip_text;
 
         string memory_tooltip_text = ("%s / %s").printf (Utils.HumanUnitFormatter.double_bytes_to_human (sysres.memory_used), Utils.HumanUnitFormatter.double_bytes_to_human (sysres.memory_total));
         memory_usage_label.tooltip_text = memory_tooltip_text;
+
+        string gpu_memory_tooltip_text = ("%s / %s").printf (Utils.HumanUnitFormatter.double_bytes_to_human (sysres.gpu_memory_used), Utils.HumanUnitFormatter.double_bytes_to_human (sysres.gpu_memory_total));
+        gpu_memory_usage_label.tooltip_text = gpu_memory_tooltip_text;
 
         // The total amount of the swap is 0 when it is unavailable
         if (sysres.swap_total == 0) {
