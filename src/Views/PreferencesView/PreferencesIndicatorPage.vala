@@ -69,7 +69,7 @@
         memory_percentage_switch.notify["active"].connect (() => {
             MonitorApp.settings.set_boolean ("indicator-memory-state", memory_percentage_switch.state);
             dbusserver.indicator_memory_state (memory_percentage_switch.state);
-        });    
+        });
 
         var network_upload_label = new Gtk.Label (_("Display network upload"));
         network_upload_label.halign = Gtk.Align.START;
@@ -145,14 +145,14 @@
         content_area.attach (cpu_temperature_switch, 1, row, 1, 1);
         row++;
 
-        content_area.attach(new Gtk.Separator (Gtk.Orientation.HORIZONTAL), 0, row, 2, 1);
+        content_area.attach (new Gtk.Separator (Gtk.Orientation.HORIZONTAL), 0, row, 2, 1);
         row++;
 
         content_area.attach (memory_label, 0, row, 1, 1);
         content_area.attach (memory_percentage_switch, 1, row, 1, 1);
         row++;
 
-        content_area.attach(new Gtk.Separator (Gtk.Orientation.HORIZONTAL), 0, row, 2, 1);
+        content_area.attach (new Gtk.Separator (Gtk.Orientation.HORIZONTAL), 0, row, 2, 1);
         row++;
 
         content_area.attach (gpu_label, 0, row, 1, 1);
@@ -167,7 +167,7 @@
         content_area.attach (gpu_temperature_switch, 1, row, 1, 1);
         row++;
 
-        content_area.attach(new Gtk.Separator (Gtk.Orientation.HORIZONTAL), 0, row, 2, 1);
+        content_area.attach (new Gtk.Separator (Gtk.Orientation.HORIZONTAL), 0, row, 2, 1);
         row++;
 
         content_area.attach (network_upload_label, 0, row, 1, 1);
