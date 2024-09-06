@@ -22,10 +22,6 @@ public class Monitor.Statusbar : Gtk.ActionBar {
             tooltip_text = _("GPU")
         };
 
-        var gpu_memory_icon = new Gtk.Image.from_icon_name ("gpu-vram-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
-            tooltip_text = _("VRAM")
-        };
-
         cpu_usage_label = new Gtk.Label (_("Calculating…"));
         cpu_usage_label.set_width_chars (4);
         cpu_usage_label.xalign = 0;
@@ -49,15 +45,9 @@ public class Monitor.Statusbar : Gtk.ActionBar {
         gpu_usage_label = new Gtk.Label (_("Calculating…"));
         gpu_usage_label.set_width_chars (4);
         gpu_usage_label.xalign = 0;
+        gpu_icon.margin_start = 6;
         pack_start (gpu_icon);
         pack_start (gpu_usage_label);
-
-        gpu_memory_usage_label = new Gtk.Label (_("Calculating…"));
-        gpu_memory_usage_label.set_width_chars (4);
-        gpu_memory_usage_label.xalign = 0;
-        gpu_memory_icon.margin_start = 6;
-        pack_start (gpu_memory_icon);
-        pack_start (gpu_memory_usage_label);
 
         var support_ua_label = new Gtk.LinkButton.with_label ("http://stand-with-ukraine.pp.ua/", _("🇺🇦"));
         var github_label = new Gtk.LinkButton.with_label ("https://github.com/stsdc/monitor", _("Check on Github"));
