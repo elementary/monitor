@@ -22,7 +22,7 @@ public class Monitor.Statusbar : Gtk.ActionBar {
             tooltip_text = _("GPU")
         };
 
-        var gpu_memory_icon = new Gtk.Image.from_icon_name ("memory-gpu-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
+        var gpu_memory_icon = new Gtk.Image.from_icon_name ("gpu-vram-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
             tooltip_text = _("VRAM")
         };
 

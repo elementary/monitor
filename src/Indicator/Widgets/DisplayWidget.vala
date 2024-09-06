@@ -9,7 +9,7 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Grid {
     public IndicatorWidget network_down_widget = new IndicatorWidget ("go-down-symbolic");
 
     public IndicatorWidget gpu_widget = new IndicatorWidget ("gpu-symbolic");
-    public IndicatorWidget gpu_memory_widget = new IndicatorWidget ("memory-gpu-symbolic");
+    public IndicatorWidget gpu_memory_widget = new IndicatorWidget ("gpu-vram-symbolic");
     public IndicatorWidget gpu_temperature_widget = new IndicatorWidget ("temperature-gpu-symbolic");
 
     construct {
