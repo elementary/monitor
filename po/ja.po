@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-22 19:13+0900\n"
+"POT-Creation-Date: 2024-09-07 10:42+0200\n"
 "PO-Revision-Date: 2022-10-22 19:33+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
@@ -17,17 +17,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: src/MainWindow.vala:26 src/Widgets/Headerbar/Headerbar.vala:14
+#: src/MainWindow.vala:27 src/Widgets/Headerbar/Headerbar.vala:14
 msgid "Monitor"
 msgstr "モニター"
 
-#: src/MainWindow.vala:37
+#: src/MainWindow.vala:39
 msgid "Processes"
 msgstr "プロセス"
 
-#: src/MainWindow.vala:38
+#: src/MainWindow.vala:40
 msgid "System"
 msgstr "システム"
+
+#: src/MainWindow.vala:43
+msgid "Containers"
+msgstr ""
 
 #: src/Utils.vala:2
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:35
@@ -57,7 +61,7 @@ msgstr "MiB"
 
 #: src/Utils.vala:92
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:128
-#: src/Widgets/Statusbar/Statusbar.vala:82
+#: src/Widgets/Statusbar/Statusbar.vala:98
 msgid "GiB"
 msgstr "GiB"
 
@@ -98,31 +102,32 @@ msgstr "優先度"
 msgid "THR"
 msgstr "スレッド数"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:112
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:113
 msgid "The app is waiting in an uninterruptible disk sleep"
 msgstr "ディスクの入出力待ち"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:114
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:115
 msgid "Idle kernel thread"
 msgstr "アイドル中のカーネルスレッド"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:116
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:117
 msgid "The process is running or runnable (on run queue)"
 msgstr "実行中、あるいは実行可能のプロセス"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:118
-msgid "The process is in an interruptible sleep; waiting for an event to complete"
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:119
+msgid ""
+"The process is in an interruptible sleep; waiting for an event to complete"
 msgstr "スリープ中、あるいはイベントの完了待ちのプロセス"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:120
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:121
 msgid "The process is stopped by a job control signal"
 msgstr "ジョブコントロールシグナルによって停止されたプロセス"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:122
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:123
 msgid "The process is stopped stopped by a debugger during the tracing"
 msgstr "トレース中にデバッガーによって停止されたプロセス"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:124
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:125
 msgid "The app is terminated but not reaped by its parent"
 msgstr "終了したが、親プロセスによって回収されなかった子プロセス"
 
@@ -146,27 +151,27 @@ msgstr "読み出し／書き込み"
 msgid "Cancelled write"
 msgstr "キャンセルされた書き込み"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:78
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:90
 msgid "End Process"
 msgstr "プロセスを終了"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:80
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:92
 msgid "End selected process"
 msgstr "選択したプロセスを終了します"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:84
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:96
 msgid "Kill Process"
 msgstr "プロセスを強制終了"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:85
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:97
 msgid "Kill selected process"
 msgstr "選択したプロセスを強制終了します"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:95
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:107
 msgid "Confirm kill of the process?"
 msgstr "プロセスを強制終了してもよろしいですか？"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:102
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:114
 msgid "Confirm end of the process?"
 msgstr "プロセスを終了してもよろしいですか？"
 
@@ -179,13 +184,13 @@ msgid "Process Name"
 msgstr "プロセス名"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:40
-#: src/Widgets/Statusbar/Statusbar.vala:8
+#: src/Widgets/Statusbar/Statusbar.vala:10
 msgid "CPU"
 msgstr "CPU"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:51
 #: src/Views/SystemView/SystemMemoryView.vala:13
-#: src/Widgets/Statusbar/Statusbar.vala:11
+#: src/Widgets/Statusbar/Statusbar.vala:14
 msgid "Memory"
 msgstr "メモリー"
 
@@ -201,17 +206,47 @@ msgstr "RAM: %.1f%%"
 
 #. status: "Spinning",
 #. header: "General Preferences",
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:18
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:22
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:21
 msgid "General"
 msgstr "一般"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:23
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:27
 msgid "Start in background:"
 msgstr "バックグラウンドで起動:"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:32
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:36
 msgid "Draw smooth lines on CPU chart (requires restart):"
+msgstr "CPU グラフの線をなめらかに描画 (再起動が必要):"
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:44
+#, fuzzy
+msgid "Update every (requires restart):"
+msgstr "CPU グラフの線をなめらかに描画 (再起動が必要):"
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:54
+msgid "1s"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:55
+msgid "2s"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:56
+msgid "3s"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:57
+msgid "4s"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:58
+msgid "5s"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:60
+#, fuzzy
+msgid "Show containers tab (requires restart):"
 msgstr "CPU グラフの線をなめらかに描画 (再起動が必要):"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
@@ -228,42 +263,55 @@ msgid "Display CPU percentage"
 msgstr "CPU 使用率を表示"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:37
+#, fuzzy
+msgid "Display CPU frequency"
+msgstr "CPU 使用率を表示"
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:50
+#, fuzzy
+msgid "Display CPU temperature"
+msgstr "温度を表示"
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:62
 msgid "Display RAM percentage"
 msgstr "RAM 使用率を表示"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:49
-msgid "Display temperature"
-msgstr "温度を表示"
-
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:61
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:74
 msgid "Display network upload"
 msgstr "ネットワーク送信量を表示"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:73
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:86
 msgid "Display network download"
 msgstr "ネットワーク受信量を表示"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:103
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:98
+#, fuzzy
+msgid "Display GPU percentage"
+msgstr "CPU 使用率を表示"
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:110
+#, fuzzy
+msgid "Display VRAM percentage"
+msgstr "RAM 使用率を表示"
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:122
+#, fuzzy
+msgid "Display GPU temperature"
+msgstr "温度を表示"
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:188
 msgid "Enabled"
 msgstr "有効"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:108
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:193
 msgid "Disabled"
 msgstr "無効"
 
-#: src/Views/SystemView/SystemCPUView.vala:18
-msgid "Utilization"
-msgstr "使用率"
-
-#: src/Views/SystemView/SystemCPUView.vala:20
-msgid "Show detailed info"
-msgstr "詳細情報を表示します"
-
-#: src/Views/SystemView/SystemCPUView.vala:22
+#: src/Views/SystemView/SystemCPUView.vala:17
 msgid "Frequency"
 msgstr "周波数"
 
-#: src/Views/SystemView/SystemCPUView.vala:26
+#: src/Views/SystemView/SystemCPUView.vala:21
 msgid "Temperature"
 msgstr "温度"
 
@@ -273,19 +321,20 @@ msgstr "温度"
 #. cpu_temperature_chart.update (temperature_index, int.parse (temperature.input) / 1000);
 #. temperature_index++;
 #. }]
-#: src/Views/SystemView/SystemCPUView.vala:88
+#: src/Views/SystemView/SystemCPUView.vala:80
 #: src/Views/SystemView/SystemGPUView.vala:79
 msgid "℃"
 msgstr "℃"
 
-#: src/Views/SystemView/SystemCPUView.vala:134
-#: src/Widgets/Statusbar/Statusbar.vala:71
+#: src/Views/SystemView/SystemCPUView.vala:126
+#: src/Widgets/Statusbar/Statusbar.vala:84
 msgid "GHz"
 msgstr "GHz"
 
-#: src/Views/SystemView/SystemCPUView.vala:161
-msgid "Threads"
-msgstr "スレッド"
+#: src/Views/SystemView/SystemCPUView.vala:153
+#, fuzzy
+msgid "THREADS"
+msgstr "読み込み"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:22
 msgid "Features"
@@ -407,28 +456,45 @@ msgstr "プロセスを検索"
 msgid "Type process name or PID to search"
 msgstr "プロセス名か PID を入力して検索"
 
-#: src/Widgets/Statusbar/Statusbar.vala:14
+#: src/Widgets/Statusbar/Statusbar.vala:18
 msgid "Swap"
 msgstr "スワップ"
 
-#: src/Widgets/Statusbar/Statusbar.vala:16
 #: src/Widgets/Statusbar/Statusbar.vala:22
-#: src/Widgets/Statusbar/Statusbar.vala:29
+#, fuzzy
+msgid "GPU"
+msgstr "CPU"
+
+#: src/Widgets/Statusbar/Statusbar.vala:25
+#: src/Widgets/Statusbar/Statusbar.vala:31
+#: src/Widgets/Statusbar/Statusbar.vala:38
+#: src/Widgets/Statusbar/Statusbar.vala:45
 msgid "Calculating…"
 msgstr "計算しています…"
 
-#: src/Widgets/Statusbar/Statusbar.vala:37
-msgid "Peace"
-msgstr "平和の象徴"
+#: src/Widgets/Statusbar/Statusbar.vala:52
+msgid "🇺🇦"
+msgstr ""
 
-#: src/Widgets/Statusbar/Statusbar.vala:39
+#: src/Widgets/Statusbar/Statusbar.vala:53
 msgid "Check on Github"
 msgstr "GitHub で確認"
-
-#: src/Widgets/Statusbar/Statusbar.vala:40
-msgid "Donate 💸"
-msgstr "寄付 💸"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:11
 msgid "UTILIZATION"
 msgstr "使用率"
+
+#~ msgid "Utilization"
+#~ msgstr "使用率"
+
+#~ msgid "Show detailed info"
+#~ msgstr "詳細情報を表示します"
+
+#~ msgid "Threads"
+#~ msgstr "スレッド"
+
+#~ msgid "Peace"
+#~ msgstr "平和の象徴"
+
+#~ msgid "Donate 💸"
+#~ msgstr "寄付 💸"

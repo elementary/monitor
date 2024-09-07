@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-25 00:35+0400\n"
+"POT-Creation-Date: 2024-09-07 10:42+0200\n"
 "PO-Revision-Date: 2022-01-11 14:25+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -12,17 +12,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.0\n"
 
-#: src/MainWindow.vala:26 src/Widgets/Headerbar/Headerbar.vala:10
+#: src/MainWindow.vala:27 src/Widgets/Headerbar/Headerbar.vala:14
 msgid "Monitor"
 msgstr "Monitor"
 
-#: src/MainWindow.vala:37
+#: src/MainWindow.vala:39
 msgid "Processes"
 msgstr "Processen"
 
-#: src/MainWindow.vala:38
+#: src/MainWindow.vala:40
 msgid "System"
 msgstr "Systeem"
+
+#: src/MainWindow.vala:43
+msgid "Containers"
+msgstr ""
 
 #: src/Utils.vala:2
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:35
@@ -52,7 +56,7 @@ msgstr "MiB"
 
 #: src/Utils.vala:92
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:128
-#: src/Widgets/Statusbar/Statusbar.vala:58
+#: src/Widgets/Statusbar/Statusbar.vala:98
 msgid "GiB"
 msgstr "GiB"
 
@@ -64,19 +68,15 @@ msgstr "Monitor tonen"
 msgid "Quit Monitor"
 msgstr "Monitor afsluiten"
 
-#: src/Views/ProcessView/ProcessInfoView/OpenFilesListBox.vala:55
-msgid "Deleted"
-msgstr "Verwijderd"
-
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:19
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:20
 msgid "Are you sure you want to do this?"
 msgstr "Weet je zeker dat je dit wilt doen?"
 
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:22
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:23
 msgid "Yes"
 msgstr "Ja"
 
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:26
+#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:27
 msgid "No"
 msgstr "Nee"
 
@@ -97,34 +97,34 @@ msgstr "PRI"
 msgid "THR"
 msgstr "THR"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:112
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:113
 msgid "The app is waiting in an uninterruptible disk sleep"
 msgstr "De toepassing wacht op een ononderbreekbare slaapstand"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:114
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:115
 msgid "Idle kernel thread"
 msgstr "Inactieve kernel-thread"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:116
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:117
 msgid "The process is running or runnable (on run queue)"
 msgstr "Het proces is actief of activeerbaar (in de wachtrij)"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:118
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:119
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
 msgstr ""
 "Het proces bevindt zich in een ononderbreekbare slaapstand, wachtend op "
 "afronding van een handeling"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:120
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:121
 msgid "The process is stopped by a job control signal"
 msgstr "Het proces is afgebroken door een taaksignaal"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:122
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:123
 msgid "The process is stopped stopped by a debugger during the tracing"
 msgstr "Het proces is afgebroken door een foutopsporingstoepassing"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:124
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:125
 msgid "The app is terminated but not reaped by its parent"
 msgstr ""
 "De toepassing is gedwongen afgesloten, maar niet door het bovenliggende "
@@ -150,27 +150,27 @@ msgstr "Uitgelezen/Weggeschreven"
 msgid "Cancelled write"
 msgstr "Wegschrijven afgebroken"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:73
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:90
 msgid "End Process"
 msgstr "Proces beëindigen"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:75
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:92
 msgid "End selected process"
 msgstr "Geselecteerd proces beëindigen"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:79
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:96
 msgid "Kill Process"
 msgstr "Proces vernietigen"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:80
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:97
 msgid "Kill selected process"
 msgstr "Geselecteerd proces vernietigen"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:90
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:107
 msgid "Confirm kill of the process?"
 msgstr "Weet je het zeker?"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:97
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:114
 msgid "Confirm end of the process?"
 msgstr "Weet je het zeker?"
 
@@ -183,39 +183,72 @@ msgid "Process Name"
 msgstr "Procesnaam"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:40
-#: src/Widgets/Statusbar/Statusbar.vala:8
+#: src/Widgets/Statusbar/Statusbar.vala:10
 msgid "CPU"
 msgstr "CPU"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:51
 #: src/Views/SystemView/SystemMemoryView.vala:13
-#: src/Widgets/Statusbar/Statusbar.vala:11
+#: src/Widgets/Statusbar/Statusbar.vala:14
 msgid "Memory"
 msgstr "Geheugen"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:48
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:50
 #, c-format
 msgid "CPU: %.1f%%"
 msgstr "CPU: %.1f%%"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:49
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:51
 #, c-format
 msgid "RAM: %.1f%%"
 msgstr "RAM: %.1f%%"
 
 #. status: "Spinning",
 #. header: "General Preferences",
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:17
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:22
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:21
 msgid "General"
 msgstr "Algemeen"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:22
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:27
 msgid "Start in background:"
 msgstr "Geminimaliseerd opstarten:"
 
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:36
+msgid "Draw smooth lines on CPU chart (requires restart):"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:44
+msgid "Update every (requires restart):"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:54
+msgid "1s"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:55
+msgid "2s"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:56
+msgid "3s"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:57
+msgid "4s"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:58
+msgid "5s"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:60
+msgid "Show containers tab (requires restart):"
+msgstr ""
+
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
-msgid "Show Indicator in Wingpanel"
+#, fuzzy
+msgid "Show indicator in Wingpanel"
 msgstr "Indicator tonen op Wingpanel"
 
 #. header: "Simple Pages",
@@ -228,45 +261,59 @@ msgid "Display CPU percentage"
 msgstr "CPU-percentage tonen"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:37
-msgid "Display Memory percentage"
-msgstr "Geheugenpercentage tonen"
+#, fuzzy
+msgid "Display CPU frequency"
+msgstr "CPU-percentage tonen"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:49
-msgid "Display temperature"
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:50
+#, fuzzy
+msgid "Display CPU temperature"
 msgstr "Temperatuur tonen"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:61
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:62
+#, fuzzy
+msgid "Display RAM percentage"
+msgstr "CPU-percentage tonen"
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:74
 msgid "Display network upload"
 msgstr "Uploadsnelheid tonen"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:73
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:86
 msgid "Display network download"
 msgstr "Downloadsnelheid tonen"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:103
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:98
+#, fuzzy
+msgid "Display GPU percentage"
+msgstr "CPU-percentage tonen"
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:110
+#, fuzzy
+msgid "Display VRAM percentage"
+msgstr "CPU-percentage tonen"
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:122
+#, fuzzy
+msgid "Display GPU temperature"
+msgstr "Temperatuur tonen"
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:188
 msgid "Enabled"
 msgstr "Ingeschakeld"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:108
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:193
 msgid "Disabled"
 msgstr "Uitgeschakeld"
 
-#: src/Views/SystemView/SystemCPUView.vala:18
-msgid "UTILIZATION"
-msgstr "GEBRUIK"
+#: src/Views/SystemView/SystemCPUView.vala:17
+msgid "Frequency"
+msgstr ""
 
-#: src/Views/SystemView/SystemCPUView.vala:20
-msgid "Show detailed info"
-msgstr "Uitgebreide informatie tonen"
-
-#: src/Views/SystemView/SystemCPUView.vala:22
-msgid "FREQUENCY"
-msgstr "FREQUENTIE"
-
-#: src/Views/SystemView/SystemCPUView.vala:26
-#: src/Views/SystemView/SystemGPUView.vala:16
-msgid "TEMPERATURE"
-msgstr "TEMPERATUUR"
+#: src/Views/SystemView/SystemCPUView.vala:21
+#, fuzzy
+msgid "Temperature"
+msgstr "Temperatuur tonen"
 
 #. int temperature_index = 0;
 #. foreach (var temperature in cpu.paths_temperatures.values) {
@@ -274,17 +321,17 @@ msgstr "TEMPERATUUR"
 #. cpu_temperature_chart.update (temperature_index, int.parse (temperature.input) / 1000);
 #. temperature_index++;
 #. }]
-#: src/Views/SystemView/SystemCPUView.vala:84
-#: src/Views/SystemView/SystemGPUView.vala:76
+#: src/Views/SystemView/SystemCPUView.vala:80
+#: src/Views/SystemView/SystemGPUView.vala:79
 msgid "℃"
 msgstr "℃"
 
-#: src/Views/SystemView/SystemCPUView.vala:115
-#: src/Widgets/Statusbar/Statusbar.vala:47
+#: src/Views/SystemView/SystemCPUView.vala:126
+#: src/Widgets/Statusbar/Statusbar.vala:84
 msgid "GHz"
 msgstr "GHz"
 
-#: src/Views/SystemView/SystemCPUView.vala:142
+#: src/Views/SystemView/SystemCPUView.vala:153
 msgid "THREADS"
 msgstr "AANTAL KERNEN"
 
@@ -312,83 +359,65 @@ msgstr "Microcode-versie:"
 msgid "Bogomips:"
 msgstr "Bogomips:"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:57
-msgid "L1 Instruction cache:"
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:58
+#, fuzzy
+msgid "L1 Instruction cache: "
 msgstr "L1-instructiecache:"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:60
-msgid "L1 Data cache:"
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:62
+#, fuzzy
+msgid "L1 Data cache: "
 msgstr "L1-gegevenscache:"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:63
-msgid "L1 cache:"
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:66
+#, fuzzy
+msgid "L1 cache: "
 msgstr "L1-cache:"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:66
-msgid "L2 Cache size:"
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:69
+#, fuzzy
+msgid "L2 Cache size: "
 msgstr "L2-cache-omvang:"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:67
-msgid "L3 Cache size:"
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:72
+#, fuzzy
+msgid "L3 Cache size: "
 msgstr "L3-cache-omvang:"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:68
-msgid "Address sizes:"
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:75
+#, fuzzy
+msgid "Address sizes: "
 msgstr "Adresgroottes:"
 
-#: src/Views/SystemView/SystemMemoryView.vala:19
-msgid "Total: "
-msgstr "Totaal: "
-
-#: src/Views/SystemView/SystemMemoryView.vala:22
-msgid "Used: "
-msgstr "Gebruikt: "
-
-#: src/Views/SystemView/SystemMemoryView.vala:25
-msgid "Shared: "
-msgstr "Gedeeld: "
-
-#: src/Views/SystemView/SystemMemoryView.vala:28
-msgid "Buffered: "
+#: src/Views/SystemView/SystemMemoryView.vala:5
+#, fuzzy
+msgid "Buffered"
 msgstr "Gebufferd: "
 
-#: src/Views/SystemView/SystemMemoryView.vala:31
-msgid "Cached: "
+#: src/Views/SystemView/SystemMemoryView.vala:6
+#, fuzzy
+msgid "Cached"
 msgstr "Gecachet: "
 
-#: src/Views/SystemView/SystemMemoryView.vala:34
-msgid "Locked: "
+#: src/Views/SystemView/SystemMemoryView.vala:7
+#, fuzzy
+msgid "Locked"
 msgstr "Vergrendeld: "
 
-#: src/Views/SystemView/SystemMemoryView.vala:64
-#, c-format
-msgid "Total: %s"
-msgstr "Totaal: %s"
+#: src/Views/SystemView/SystemMemoryView.vala:8
+#, fuzzy
+msgid "Total"
+msgstr "Totaal: "
 
-#: src/Views/SystemView/SystemMemoryView.vala:65
-#, c-format
-msgid "Used: %s"
-msgstr "Gebruikt: %s"
+#: src/Views/SystemView/SystemMemoryView.vala:9
+#, fuzzy
+msgid "Used"
+msgstr "Gebruikt: "
 
-#: src/Views/SystemView/SystemMemoryView.vala:66
-#, c-format
-msgid "Shared: %s"
-msgstr "Gedeeld: %s"
-
-#: src/Views/SystemView/SystemMemoryView.vala:67
-#, c-format
-msgid "Buffered: %s"
-msgstr "Gebufferd: %s"
-
-#: src/Views/SystemView/SystemMemoryView.vala:68
-#, c-format
-msgid "Cached: %s"
-msgstr "Gecachet: %s"
-
-#: src/Views/SystemView/SystemMemoryView.vala:69
-#, c-format
-msgid "Locked: %s"
-msgstr "Vergrendeld: %s"
+#: src/Views/SystemView/SystemMemoryView.vala:10
+#, fuzzy
+msgid "Shared"
+msgstr "Gedeeld: "
 
 #: src/Views/SystemView/SystemNetworkView.vala:18
 msgid "Network"
@@ -422,7 +451,11 @@ msgstr "Niet aangekoppeld"
 msgid "VRAM"
 msgstr "VRAM"
 
-#: src/Widgets/Headerbar/Headerbar.vala:18
+#: src/Views/SystemView/SystemGPUView.vala:16
+msgid "TEMPERATURE"
+msgstr "TEMPERATUUR"
+
+#: src/Widgets/Headerbar/Headerbar.vala:22
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -434,19 +467,69 @@ msgstr "Zoeken naar proces"
 msgid "Type process name or PID to search"
 msgstr "Voer de procesnaam of pid in"
 
-#: src/Widgets/Statusbar/Statusbar.vala:14
+#: src/Widgets/Statusbar/Statusbar.vala:18
 msgid "Swap"
 msgstr "Wisselgeheugen"
 
-#: src/Widgets/Statusbar/Statusbar.vala:16
 #: src/Widgets/Statusbar/Statusbar.vala:22
-#: src/Widgets/Statusbar/Statusbar.vala:29
+#, fuzzy
+msgid "GPU"
+msgstr "CPU"
+
+#: src/Widgets/Statusbar/Statusbar.vala:25
+#: src/Widgets/Statusbar/Statusbar.vala:31
+#: src/Widgets/Statusbar/Statusbar.vala:38
+#: src/Widgets/Statusbar/Statusbar.vala:45
 msgid "Calculating…"
 msgstr "Bezig met berekenen…"
 
-#: src/Widgets/Statusbar/Statusbar.vala:36
+#: src/Widgets/Statusbar/Statusbar.vala:52
+msgid "🇺🇦"
+msgstr ""
+
+#: src/Widgets/Statusbar/Statusbar.vala:53
 msgid "Check on Github"
 msgstr "Controleren op GitHub"
+
+#: src/Widgets/WidgetResource/WidgetResource.vala:11
+msgid "UTILIZATION"
+msgstr "GEBRUIK"
+
+#~ msgid "Deleted"
+#~ msgstr "Verwijderd"
+
+#~ msgid "Display Memory percentage"
+#~ msgstr "Geheugenpercentage tonen"
+
+#~ msgid "Show detailed info"
+#~ msgstr "Uitgebreide informatie tonen"
+
+#~ msgid "FREQUENCY"
+#~ msgstr "FREQUENTIE"
+
+#, c-format
+#~ msgid "Total: %s"
+#~ msgstr "Totaal: %s"
+
+#, c-format
+#~ msgid "Used: %s"
+#~ msgstr "Gebruikt: %s"
+
+#, c-format
+#~ msgid "Shared: %s"
+#~ msgstr "Gedeeld: %s"
+
+#, c-format
+#~ msgid "Buffered: %s"
+#~ msgstr "Gebufferd: %s"
+
+#, c-format
+#~ msgid "Cached: %s"
+#~ msgstr "Gecachet: %s"
+
+#, c-format
+#~ msgid "Locked: %s"
+#~ msgstr "Vergrendeld: %s"
 
 #~ msgid "Hide detailed info"
 #~ msgstr "Uitgebreide informatie verbergen"
