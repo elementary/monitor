@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-07 10:42+0200\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Andrey Kultyapov <camellan@yandex.ru>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2024-09-07 14:43+0300\n"
+"Last-Translator: Leo <lenemter@gmail.com>\n"
+"Language-Team: none\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,7 @@ msgstr "Система"
 
 #: src/MainWindow.vala:43
 msgid "Containers"
-msgstr ""
+msgstr "Контейнеры"
 
 #: src/Utils.vala:2
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:35
@@ -152,7 +152,7 @@ msgstr "Завершить процесс"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:92
 msgid "End selected process"
-msgstr "Завершает выбранные процессы"
+msgstr "Завершить выбранный процесс"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:96
 msgid "Kill Process"
@@ -160,7 +160,7 @@ msgstr "Убить процесс"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:97
 msgid "Kill selected process"
-msgstr "Убивает выбранные процессы"
+msgstr "Убить выбранный процесс"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:107
 msgid "Confirm kill of the process?"
@@ -208,45 +208,43 @@ msgstr "Общие"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:27
 msgid "Start in background:"
-msgstr "Запустить в фоновом режиме:"
+msgstr "Запускать в фоновом режиме:"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:36
 msgid "Draw smooth lines on CPU chart (requires restart):"
-msgstr "Включить плавные линии для графика ЦП (требуется перезапуск):"
+msgstr "Плавные линии для графика ЦП (требуется перезапуск):"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:44
-#, fuzzy
 msgid "Update every (requires restart):"
-msgstr "Включить плавные линии для графика ЦП (требуется перезапуск):"
+msgstr "Обновлять каждые (требуется перезапуск):"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:54
 msgid "1s"
-msgstr ""
+msgstr "1с"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:55
 msgid "2s"
-msgstr ""
+msgstr "2с"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:56
 msgid "3s"
-msgstr ""
+msgstr "3с"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:57
 msgid "4s"
-msgstr ""
+msgstr "4с"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:58
 msgid "5s"
-msgstr ""
+msgstr "5с"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:60
-#, fuzzy
 msgid "Show containers tab (requires restart):"
-msgstr "Включить плавные линии для графика ЦП (требуется перезапуск):"
+msgstr "Показывать вкладку контейнеров (требуется перезапуск):"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
 msgid "Show indicator in Wingpanel"
-msgstr "Показывать индикаторы в Wingpanel"
+msgstr "Показывать индикатор в панели"
 
 #. header: "Simple Pages",
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:15
@@ -258,12 +256,10 @@ msgid "Display CPU percentage"
 msgstr "Использование процессора"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:37
-#, fuzzy
 msgid "Display CPU frequency"
-msgstr "Использование процессора"
+msgstr "Частота процессора"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:50
-#, fuzzy
 msgid "Display CPU temperature"
 msgstr "Температура процессора"
 
@@ -280,27 +276,24 @@ msgid "Display network download"
 msgstr "Скорость загрузки сети"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:98
-#, fuzzy
 msgid "Display GPU percentage"
-msgstr "Использование процессора"
+msgstr "Использование ГПУ"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:110
-#, fuzzy
 msgid "Display VRAM percentage"
-msgstr "Использование памяти"
+msgstr "Использование VRAM памяти"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:122
-#, fuzzy
 msgid "Display GPU temperature"
-msgstr "Температура процессора"
+msgstr "Температура ГПУ"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:188
 msgid "Enabled"
-msgstr "Включен"
+msgstr "Включён"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:193
 msgid "Disabled"
-msgstr "Отключен"
+msgstr "Отключён"
 
 #: src/Views/SystemView/SystemCPUView.vala:17
 msgid "Frequency"
@@ -332,7 +325,7 @@ msgstr "ПОТОКИ"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:22
 msgid "Features"
-msgstr "Характеристики"
+msgstr "Возможности"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:23
 msgid "Bugs"
@@ -448,16 +441,15 @@ msgstr "Найти процесс"
 
 #: src/Widgets/Headerbar/Search.vala:13
 msgid "Type process name or PID to search"
-msgstr "Для поиска введите имя или ИД процесса"
+msgstr "Для поиска введите имя или PID процесса"
 
 #: src/Widgets/Statusbar/Statusbar.vala:18
 msgid "Swap"
 msgstr "Подкачка"
 
 #: src/Widgets/Statusbar/Statusbar.vala:22
-#, fuzzy
 msgid "GPU"
-msgstr "ЦПУ"
+msgstr "ГПУ"
 
 #: src/Widgets/Statusbar/Statusbar.vala:25
 #: src/Widgets/Statusbar/Statusbar.vala:31
@@ -468,7 +460,7 @@ msgstr "Вычисление…"
 
 #: src/Widgets/Statusbar/Statusbar.vala:52
 msgid "🇺🇦"
-msgstr ""
+msgstr "🇺🇦"
 
 #: src/Widgets/Statusbar/Statusbar.vala:53
 msgid "Check on Github"
@@ -477,78 +469,3 @@ msgstr "Проект на Github"
 #: src/Widgets/WidgetResource/WidgetResource.vala:11
 msgid "UTILIZATION"
 msgstr "ИСПОЛЬЗОВАНИЕ"
-
-#~ msgid "Utilization"
-#~ msgstr "Использование"
-
-#~ msgid "Show detailed info"
-#~ msgstr "Показать подробную информацию"
-
-#~ msgid "Threads"
-#~ msgstr "Потоки"
-
-#~ msgid "Peace"
-#~ msgstr "Мир"
-
-#~ msgid "Donate 💸"
-#~ msgstr "Пожертвовать 💸"
-
-#~ msgid "Deleted"
-#~ msgstr "Удалено"
-
-#~ msgid "Display Memory percentage"
-#~ msgstr "Использование памяти"
-
-#~ msgid "FREQUENCY"
-#~ msgstr "ЧАСТОТА"
-
-#~ msgid "Total: %s"
-#~ msgstr "Всего: %s"
-
-#~ msgid "Used: %s"
-#~ msgstr "Использовано: %s"
-
-#~ msgid "Shared: %s"
-#~ msgstr "Общий: %s"
-
-#~ msgid "Buffered: %s"
-#~ msgstr "Буферизовано: %s"
-
-#~ msgid "Cached: %s"
-#~ msgstr "Кешировано: %s"
-
-#~ msgid "Locked: %s"
-#~ msgstr "Заблокировано: %s"
-
-#~ msgid "Flags"
-#~ msgstr "Флаги"
-
-#~ msgid "Show an indicator:"
-#~ msgstr "Показывать индикатор:"
-
-#~ msgid "Items in indicator:"
-#~ msgstr "Элементы в индикаторе:"
-
-#~ msgid "Network up"
-#~ msgstr "Отправка"
-
-#~ msgid "Hide detailed info"
-#~ msgstr "Скрыть подробную информацию"
-
-#~ msgid "%d%%"
-#~ msgstr "%d%%"
-
-#~ msgid "Show system resources"
-#~ msgstr "Показывать системные ресурсы"
-
-#~ msgid "Background Applications"
-#~ msgstr "Фоновые приложения"
-
-#~ msgid "Ctrl+E"
-#~ msgstr "Ctrl+E"
-
-#~ msgid "CPU:"
-#~ msgstr "ЦПУ:"
-
-#~ msgid "Memory:"
-#~ msgstr "Память:"
