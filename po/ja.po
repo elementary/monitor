@@ -1,14 +1,14 @@
 # Japanese translations for com.github.stsdc.monitor package.
 # Copyright (C) 2019 THE com.github.stsdc.monitor'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.stsdc.monitor package.
-# Ryo Nakano <ryonakaknock3@gmail.com>, 2019-2022.
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2019-2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-07 10:42+0200\n"
-"PO-Revision-Date: 2022-10-22 19:33+0900\n"
+"PO-Revision-Date: 2024-09-07 20:23+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -31,7 +31,7 @@ msgstr "システム"
 
 #: src/MainWindow.vala:43
 msgid "Containers"
-msgstr ""
+msgstr "コンテナ"
 
 #: src/Utils.vala:2
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:35
@@ -75,7 +75,7 @@ msgstr "モニターを終了"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:20
 msgid "Are you sure you want to do this?"
-msgstr "この操作を実行してもよろしいですか？"
+msgstr "この操作を実行してもよろしいですか?"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:23
 msgid "Yes"
@@ -104,24 +104,23 @@ msgstr "スレッド数"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:113
 msgid "The app is waiting in an uninterruptible disk sleep"
-msgstr "ディスクの入出力待ち"
+msgstr "割り込み不能なディスクの入出力待ち"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:115
 msgid "Idle kernel thread"
-msgstr "アイドル中のカーネルスレッド"
+msgstr "アイドル状態のカーネルスレッド"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:117
 msgid "The process is running or runnable (on run queue)"
-msgstr "実行中、あるいは実行可能のプロセス"
+msgstr "実行状態または実行可能状態のプロセス (実行キューに存在)"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:119
-msgid ""
-"The process is in an interruptible sleep; waiting for an event to complete"
-msgstr "スリープ中、あるいはイベントの完了待ちのプロセス"
+msgid "The process is in an interruptible sleep; waiting for an event to complete"
+msgstr "割り込み不能な待ち状態 (イベント完了待ち) のプロセス"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:121
 msgid "The process is stopped by a job control signal"
-msgstr "ジョブコントロールシグナルによって停止されたプロセス"
+msgstr "ジョブ管理シグナルによって停止されたプロセス"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:123
 msgid "The process is stopped stopped by a debugger during the tracing"
@@ -145,7 +144,7 @@ msgstr "システムコール"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
 msgid "Read/Written"
-msgstr "読み出し／書き込み"
+msgstr "読み込み/書き込み"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
 msgid "Cancelled write"
@@ -169,11 +168,11 @@ msgstr "選択したプロセスを強制終了します"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:107
 msgid "Confirm kill of the process?"
-msgstr "プロセスを強制終了してもよろしいですか？"
+msgstr "プロセスを強制終了してもよろしいですか?"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:114
 msgid "Confirm end of the process?"
-msgstr "プロセスを終了してもよろしいですか？"
+msgstr "プロセスを終了してもよろしいですか?"
 
 #. *INDENT-OFF*
 #. vala-lint=space-before-paren,
@@ -220,34 +219,32 @@ msgid "Draw smooth lines on CPU chart (requires restart):"
 msgstr "CPU グラフの線をなめらかに描画 (再起動が必要):"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:44
-#, fuzzy
 msgid "Update every (requires restart):"
-msgstr "CPU グラフの線をなめらかに描画 (再起動が必要):"
+msgstr "更新間隔 (再起動が必要):"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:54
 msgid "1s"
-msgstr ""
+msgstr "1 秒"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:55
 msgid "2s"
-msgstr ""
+msgstr "2 秒"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:56
 msgid "3s"
-msgstr ""
+msgstr "3 秒"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:57
 msgid "4s"
-msgstr ""
+msgstr "4 秒"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:58
 msgid "5s"
-msgstr ""
+msgstr "5 秒"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:60
-#, fuzzy
 msgid "Show containers tab (requires restart):"
-msgstr "CPU グラフの線をなめらかに描画 (再起動が必要):"
+msgstr "コンテナタブを表示 (再起動が必要):"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
 msgid "Show indicator in Wingpanel"
@@ -263,14 +260,12 @@ msgid "Display CPU percentage"
 msgstr "CPU 使用率を表示"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:37
-#, fuzzy
 msgid "Display CPU frequency"
-msgstr "CPU 使用率を表示"
+msgstr "CPU 周波数を表示"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:50
-#, fuzzy
 msgid "Display CPU temperature"
-msgstr "温度を表示"
+msgstr "CPU 温度を表示"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:62
 msgid "Display RAM percentage"
@@ -285,19 +280,16 @@ msgid "Display network download"
 msgstr "ネットワーク受信量を表示"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:98
-#, fuzzy
 msgid "Display GPU percentage"
-msgstr "CPU 使用率を表示"
+msgstr "GPU 使用率を表示"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:110
-#, fuzzy
 msgid "Display VRAM percentage"
-msgstr "RAM 使用率を表示"
+msgstr "VRAM 使用率を表示"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:122
-#, fuzzy
 msgid "Display GPU temperature"
-msgstr "温度を表示"
+msgstr "GPU 温度を表示"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:188
 msgid "Enabled"
@@ -332,9 +324,8 @@ msgid "GHz"
 msgstr "GHz"
 
 #: src/Views/SystemView/SystemCPUView.vala:153
-#, fuzzy
 msgid "THREADS"
-msgstr "読み込み"
+msgstr "スレッド"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:22
 msgid "Features"
@@ -386,11 +377,11 @@ msgstr "アドレスサイズ: "
 
 #: src/Views/SystemView/SystemMemoryView.vala:5
 msgid "Buffered"
-msgstr "バッファ済み"
+msgstr "バッファ"
 
 #: src/Views/SystemView/SystemMemoryView.vala:6
 msgid "Cached"
-msgstr "キャッシュ済み"
+msgstr "キャッシュ"
 
 #: src/Views/SystemView/SystemMemoryView.vala:7
 msgid "Locked"
@@ -461,9 +452,8 @@ msgid "Swap"
 msgstr "スワップ"
 
 #: src/Widgets/Statusbar/Statusbar.vala:22
-#, fuzzy
 msgid "GPU"
-msgstr "CPU"
+msgstr "GPU"
 
 #: src/Widgets/Statusbar/Statusbar.vala:25
 #: src/Widgets/Statusbar/Statusbar.vala:31
@@ -474,7 +464,7 @@ msgstr "計算しています…"
 
 #: src/Widgets/Statusbar/Statusbar.vala:52
 msgid "🇺🇦"
-msgstr ""
+msgstr "🇺🇦"
 
 #: src/Widgets/Statusbar/Statusbar.vala:53
 msgid "Check on Github"
@@ -483,18 +473,3 @@ msgstr "GitHub で確認"
 #: src/Widgets/WidgetResource/WidgetResource.vala:11
 msgid "UTILIZATION"
 msgstr "使用率"
-
-#~ msgid "Utilization"
-#~ msgstr "使用率"
-
-#~ msgid "Show detailed info"
-#~ msgstr "詳細情報を表示します"
-
-#~ msgid "Threads"
-#~ msgstr "スレッド"
-
-#~ msgid "Peace"
-#~ msgstr "平和の象徴"
-
-#~ msgid "Donate 💸"
-#~ msgstr "寄付 💸"
