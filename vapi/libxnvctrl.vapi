@@ -35,6 +35,7 @@ public const uint NV_CTRL_GPU_CURRENT_CLOCK_FREQS;
 public const uint NV_CTRL_TOTAL_GPU_MEMORY;
 public const uint NV_CTRL_STRING_GPU_UTILIZATION;
 public const uint NV_CTRL_USED_DEDICATED_GPU_MEMORY;
+public const uint NV_CTRL_TOTAL_DEDICATED_GPU_MEMORY;
 public const uint NV_CTRL_GPU_CURRENT_PROCESSOR_CLOCK_FREQS;
 public const uint NV_CTRL_STRING_PRODUCT_NAME;
 public const uint NV_CTRL_PCI_ID;
