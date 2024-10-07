@@ -1,0 +1,14 @@
+name: Release
+on:
+  pull_request:
+    branches: [ $default-branch ]
+    types: closed
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true && true == contains(join(github.event.pull_request.labels.*.name), 'Release')
+    steps:
+    - uses: actions/checkout@v4
+    - uses: elementary/actions/release@main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
