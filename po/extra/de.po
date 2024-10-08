@@ -28,7 +28,9 @@ msgstr "Prozessverwaltung und Überwachung der Systemressourcen"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:10
 msgid "Display usage of system resources, filter and manage processes."
-msgstr "Lassen Sie sich die Auslastung der Systemressourcen anzeigen, filtern und verwalten Sie Prozesse."
+msgstr ""
+"Lassen Sie sich die Auslastung der Systemressourcen anzeigen, filtern und "
+"verwalten Sie Prozesse."
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:22
 msgid "Stanisław Dac"
@@ -40,7 +42,8 @@ msgstr "System Monitor"
 
 #: data/com.github.stsdc.monitor.desktop.in:6
 msgid "Manage processes and monitor resource usage of the system"
-msgstr "Verwalten von Prozessen und Überwachen der Ressourcenauslastung des Systems"
+msgstr ""
+"Verwalten von Prozessen und Überwachen der Ressourcenauslastung des Systems"
 
 #: data/com.github.stsdc.monitor.desktop.in:10
 msgid "com.github.stsdc.monitor"
