@@ -25,4 +25,4 @@ Standards-Version: 4.1.1
 Package: com.github.stsdc.monitor
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: Manage processes and monitor system resources. And containers
+Description: Manage processes and monitor system resources
