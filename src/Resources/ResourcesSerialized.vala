@@ -11,5 +11,8 @@ public struct ResourcesSerialized {
     public int network_up;
     public int network_down;
     public int gpu_percentage;
+    public uint gpu_memory_percentage;
+    public double gpu_memory_used;
+    public double gpu_memory_total;
     public double gpu_temperature;
 }

@@ -34,6 +34,31 @@
             dbusserver.indicator_cpu_state (cpu_percentage_switch.state);
         });
 
+        var cpu_frequency_label = new Gtk.Label (_("Display CPU frequency"));
+        cpu_frequency_label.halign = Gtk.Align.START;
+        cpu_frequency_label.xalign = 1;
+
+        var cpu_frequency_switch = new Gtk.Switch ();
+        cpu_frequency_switch.halign = Gtk.Align.END;
+        cpu_frequency_switch.hexpand = true;
+        cpu_frequency_switch.state = MonitorApp.settings.get_boolean ("indicator-cpu-frequency-state");
+        cpu_frequency_switch.notify["active"].connect (() => {
+            MonitorApp.settings.set_boolean ("indicator-cpu-frequency-state", cpu_frequency_switch.state);
+            dbusserver.indicator_cpu_frequency_state (cpu_frequency_switch.state);
+        });
+
+        var cpu_temperature_label = new Gtk.Label (_("Display CPU temperature"));
+        cpu_temperature_label.halign = Gtk.Align.START;
+        cpu_temperature_label.xalign = 1;
+
+        var cpu_temperature_switch = new Gtk.Switch ();
+        cpu_temperature_switch.halign = Gtk.Align.END;
+        cpu_temperature_switch.state = MonitorApp.settings.get_boolean ("indicator-cpu-temperature-state");
+        cpu_temperature_switch.notify["active"].connect (() => {
+            MonitorApp.settings.set_boolean ("indicator-cpu-temperature-state", cpu_temperature_switch.state);
+            dbusserver.indicator_cpu_temperature_state (cpu_temperature_switch.state);
+        });
+
         var memory_label = new Gtk.Label (_("Display RAM percentage"));
         memory_label.halign = Gtk.Align.START;
         memory_label.xalign = 1;
@@ -44,18 +69,6 @@
         memory_percentage_switch.notify["active"].connect (() => {
             MonitorApp.settings.set_boolean ("indicator-memory-state", memory_percentage_switch.state);
             dbusserver.indicator_memory_state (memory_percentage_switch.state);
-        });
-
-        var temperature_label = new Gtk.Label (_("Display temperature"));
-        temperature_label.halign = Gtk.Align.START;
-        temperature_label.xalign = 1;
-
-        var temperature_switch = new Gtk.Switch ();
-        temperature_switch.halign = Gtk.Align.END;
-        temperature_switch.state = MonitorApp.settings.get_boolean ("indicator-temperature-state");
-        temperature_switch.notify["active"].connect (() => {
-            MonitorApp.settings.set_boolean ("indicator-temperature-state", temperature_switch.state);
-            dbusserver.indicator_temperature_state (temperature_switch.state);
         });
 
         var network_upload_label = new Gtk.Label (_("Display network upload"));
@@ -94,9 +107,21 @@
             dbusserver.indicator_gpu_state (gpu_percentage_switch.state);
         });
 
+        var gpu_memory_label = new Gtk.Label (_("Display VRAM percentage"));
+        gpu_memory_label.halign = Gtk.Align.START;
+        gpu_memory_label.xalign = 1;
+
+        var gpu_memory_switch = new Gtk.Switch ();
+        gpu_memory_switch.halign = Gtk.Align.END;
+        gpu_memory_switch.state = MonitorApp.settings.get_boolean ("indicator-gpu-memory-state");
+        gpu_memory_switch.notify["active"].connect (() => {
+            MonitorApp.settings.set_boolean ("indicator-gpu-temperature-state", gpu_memory_switch.state);
+            dbusserver.indicator_gpu_memory_state (gpu_memory_switch.state);
+        });
+
         var gpu_temperature_label = new Gtk.Label (_("Display GPU temperature"));
-        gpu_label.halign = Gtk.Align.START;
-        gpu_label.xalign = 1;
+        gpu_temperature_label.halign = Gtk.Align.START;
+        gpu_temperature_label.xalign = 1;
 
         var gpu_temperature_switch = new Gtk.Switch ();
         gpu_temperature_switch.halign = Gtk.Align.END;
@@ -106,26 +131,51 @@
             dbusserver.indicator_gpu_temperature_state (gpu_temperature_switch.state);
         });
 
-        content_area.attach (cpu_label, 0, 0, 1, 1);
-        content_area.attach (cpu_percentage_switch, 1, 0, 1, 1);
+        var row = 0;
 
-        content_area.attach (memory_label, 0, 1, 1, 1);
-        content_area.attach (memory_percentage_switch, 1, 1, 1, 1);
+        content_area.attach (cpu_label, 0, row, 1, 1);
+        content_area.attach (cpu_percentage_switch, 1, row, 1, 1);
+        row++;
 
-        content_area.attach (gpu_label, 0, 2, 1, 1);
-        content_area.attach (gpu_percentage_switch, 1, 2, 1, 1);
+        content_area.attach (cpu_frequency_label, 0, row, 1, 1);
+        content_area.attach (cpu_frequency_switch, 1, row, 1, 1);
+        row++;
 
-        content_area.attach (gpu_temperature_label, 0, 3, 1, 1);
-        content_area.attach (gpu_temperature_switch, 1, 3, 1, 1);
+        content_area.attach (cpu_temperature_label, 0, row, 1, 1);
+        content_area.attach (cpu_temperature_switch, 1, row, 1, 1);
+        row++;
 
-        content_area.attach (temperature_label, 0, 4, 1, 1);
-        content_area.attach (temperature_switch, 1, 4, 1, 1);
+        content_area.attach (new Gtk.Separator (Gtk.Orientation.HORIZONTAL), 0, row, 2, 1);
+        row++;
 
-        content_area.attach (network_upload_label, 0, 5, 1, 1);
-        content_area.attach (network_upload_switch, 1, 5, 1, 1);
+        content_area.attach (memory_label, 0, row, 1, 1);
+        content_area.attach (memory_percentage_switch, 1, row, 1, 1);
+        row++;
 
-        content_area.attach (network_download_label, 0, 6, 1, 1);
-        content_area.attach (network_download_switch, 1, 6, 1, 1);
+        content_area.attach (new Gtk.Separator (Gtk.Orientation.HORIZONTAL), 0, row, 2, 1);
+        row++;
+
+        content_area.attach (gpu_label, 0, row, 1, 1);
+        content_area.attach (gpu_percentage_switch, 1, row, 1, 1);
+        row++;
+
+        content_area.attach (gpu_memory_label, 0, row, 1, 1);
+        content_area.attach (gpu_memory_switch, 1, row, 1, 1);
+        row++;
+
+        content_area.attach (gpu_temperature_label, 0, row, 1, 1);
+        content_area.attach (gpu_temperature_switch, 1, row, 1, 1);
+        row++;
+
+        content_area.attach (new Gtk.Separator (Gtk.Orientation.HORIZONTAL), 0, row, 2, 1);
+        row++;
+
+        content_area.attach (network_upload_label, 0, row, 1, 1);
+        content_area.attach (network_upload_switch, 1, row, 1, 1);
+        row++;
+
+        content_area.attach (network_download_label, 0, row, 1, 1);
+        content_area.attach (network_download_switch, 1, row, 1, 1);
 
         update_status ();
 

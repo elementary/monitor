@@ -23,6 +23,12 @@ public class Monitor.IndicatorWidget : Gtk.Box {
         }
     }
 
+    public double state_frequency {
+        set {
+            label.label = ("%.2f %s").printf (value, _("GHz"));
+        }
+    }
+
     public int state_bandwidth {
         set {
             label.label = ("%s").printf (Utils.HumanUnitFormatter.string_bytes_to_human (value.to_string (), true));
