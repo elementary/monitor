@@ -97,7 +97,6 @@ msgid "NI"
 msgstr ""
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:44
-#, fuzzy
 msgid "PRI"
 msgstr ""
 
@@ -107,7 +106,9 @@ msgstr ""
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:113
 msgid "The app is waiting in an uninterruptible disk sleep"
-msgstr "Le process est en attente d'une opération de disque qui ne peut être interrompue"
+msgstr ""
+"Le process est en attente d'une opération de disque qui ne peut être "
+"interrompue"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:115
 msgid "Idle kernel thread"
@@ -115,7 +116,9 @@ msgstr "Thread noyau inactif"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:117
 msgid "The process is running or runnable (on run queue)"
-msgstr "Le process est en cours d'exécution ou peut être exécuté (dans la file d'attente d'exécution)"
+msgstr ""
+"Le process est en cours d'exécution ou peut être exécuté (dans la file "
+"d'attente d'exécution)"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:119
 msgid ""
@@ -220,7 +223,8 @@ msgstr "Démarrer en arrière-plan :"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:36
 msgid "Draw smooth lines on CPU chart (requires restart):"
-msgstr "Adoucir les lignes du graphique CPU (nécessite de redémarrer l'application)"
+msgstr ""
+"Adoucir les lignes du graphique CPU (nécessite de redémarrer l'application)"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:44
 msgid "Update every (requires restart):"
@@ -248,7 +252,8 @@ msgstr ""
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:60
 msgid "Show containers tab (requires restart):"
-msgstr "Afficher l'onglet des conteneurs (nécessite de redémarrer l'application)"
+msgstr ""
+"Afficher l'onglet des conteneurs (nécessite de redémarrer l'application)"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
 #, fuzzy

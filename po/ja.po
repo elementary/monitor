@@ -115,7 +115,8 @@ msgid "The process is running or runnable (on run queue)"
 msgstr "実行状態または実行可能状態のプロセス (実行キューに存在)"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:119
-msgid "The process is in an interruptible sleep; waiting for an event to complete"
+msgid ""
+"The process is in an interruptible sleep; waiting for an event to complete"
 msgstr "割り込み不能な待ち状態 (イベント完了待ち) のプロセス"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:121

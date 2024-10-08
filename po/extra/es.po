@@ -28,7 +28,8 @@ msgstr "Gestionar procesos y monitorizar los recursos del sistema"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:10
 msgid "Display usage of system resources, filter and manage processes."
-msgstr "Mostrar el uso de los recursos del sistema, filtrar y gestionar procesos."
+msgstr ""
+"Mostrar el uso de los recursos del sistema, filtrar y gestionar procesos."
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:22
 msgid "Stanisław Dac"
