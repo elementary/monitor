@@ -9,8 +9,7 @@
     <a href="https://github.com/stsdc/monitor/releases">
         <img src="https://img.shields.io/github/release/stsdc/monitor.svg" alt="Release">
     </a>
-    <img alt="GitHub Workflow Status" src="https://github.com/stsdc/monitor/actions/workflows/main.yml/badge.svg">
-    <a href="https://copr.fedorainfracloud.org/coprs/stsdc/monitor/package/com.github.stsdc.monitor/"><img src="https://copr.fedorainfracloud.org/coprs/stsdc/monitor/package/com.github.stsdc.monitor/status_image/last_build.png" /></a>
+    <img alt="GitHub Workflow Status" src="https://github.com/stsdc/monitor/actions/workflows/ci/badge.svg">
     <a href="https://github.com/stsdc/monitor/blob/master/LICENSE">
         <img src="https://img.shields.io/github/license/stsdc/monitor.svg">
     </a>
@@ -40,16 +39,6 @@ sudo apt install com.github.stsdc.monitor
 ```
 
 Monitor will be available from the Applications menu.
-
-### ~~Fedora (36)~~
-
-> [!WARNING]
-> Dropped support due to lack of Pantheon dependencies on COPR.
-
-```bash
-sudo dnf copr enable stsdc/monitor 
-sudo dnf install com.github.stsdc.monitor
-```
 
 ## Development
 
