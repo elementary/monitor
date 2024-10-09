@@ -15,7 +15,8 @@ jobs:
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.GIT_USER_TOKEN }}
-
+      with:
+        submodules: true
     - name: Update Translation Files
       uses: elementary/actions/gettext-template@main
       env:
