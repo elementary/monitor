@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-07 10:42+0200\n"
+"POT-Creation-Date: 2024-10-09 20:00+0000\n"
 "PO-Revision-Date: 2024-10-09 14:45+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/desktop/"
@@ -20,21 +20,17 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 5.6.2\n"
 
-#: src/MainWindow.vala:27 src/Widgets/Headerbar/Headerbar.vala:14
+#: src/MainWindow.vala:26 src/Widgets/Headerbar/Headerbar.vala:14
 msgid "Monitor"
 msgstr "Монітор"
 
-#: src/MainWindow.vala:39
+#: src/MainWindow.vala:37
 msgid "Processes"
 msgstr "Процеси"
 
-#: src/MainWindow.vala:40
+#: src/MainWindow.vala:38
 msgid "System"
 msgstr "Система"
-
-#: src/MainWindow.vala:43
-msgid "Containers"
-msgstr "Контейнери"
 
 #: src/Utils.vala:2
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:35
@@ -64,7 +60,7 @@ msgstr "МіБ"
 
 #: src/Utils.vala:92
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:128
-#: src/Widgets/Statusbar/Statusbar.vala:98
+#: src/Widgets/Statusbar/Statusbar.vala:94
 msgid "GiB"
 msgstr "ГіБ"
 
@@ -209,46 +205,42 @@ msgstr "RAM: %.1f%%"
 
 #. status: "Spinning",
 #. header: "General Preferences",
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:22
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:21
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:21
 msgid "General"
 msgstr "Загальнi"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:27
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:26
 msgid "Start in background:"
 msgstr "Запустити у фоні:"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:36
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:35
 msgid "Draw smooth lines on CPU chart (requires restart):"
 msgstr "Малювати плавні лінії на діаграмі ЦП (потрібнe перезавантаження):"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:44
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:43
 msgid "Update every (requires restart):"
 msgstr "Частота оновлення (потрібен перезапуск):"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:54
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:53
 msgid "1s"
 msgstr "1с"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:55
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:54
 msgid "2s"
 msgstr "2с"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:56
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:55
 msgid "3s"
 msgstr "3с"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:57
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:56
 msgid "4s"
 msgstr "4с"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:58
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:57
 msgid "5s"
 msgstr "5с"
-
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:60
-msgid "Show containers tab (requires restart):"
-msgstr "Показувати вкладку контейнерів (потрібен перезапуск):"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
 msgid "Show indicator in Wingpanel"
@@ -323,7 +315,7 @@ msgid "℃"
 msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:126
-#: src/Widgets/Statusbar/Statusbar.vala:84
+#: src/Widgets/Statusbar/Statusbar.vala:83
 msgid "GHz"
 msgstr "ГГц"
 
@@ -477,6 +469,12 @@ msgstr "Погляньте на Github"
 #: src/Widgets/WidgetResource/WidgetResource.vala:11
 msgid "UTILIZATION"
 msgstr "ВИКОРИСТАННЯ"
+
+#~ msgid "Containers"
+#~ msgstr "Контейнери"
+
+#~ msgid "Show containers tab (requires restart):"
+#~ msgstr "Показувати вкладку контейнерів (потрібен перезапуск):"
 
 #~ msgid "Utilization"
 #~ msgstr "Утилізація"

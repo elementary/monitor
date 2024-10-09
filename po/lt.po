@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-07 10:42+0200\n"
+"POT-Creation-Date: 2024-10-09 20:00+0000\n"
 "PO-Revision-Date: 2017-09-07 11:24+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -19,21 +19,17 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "(n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: src/MainWindow.vala:27 src/Widgets/Headerbar/Headerbar.vala:14
+#: src/MainWindow.vala:26 src/Widgets/Headerbar/Headerbar.vala:14
 msgid "Monitor"
 msgstr "Monitor"
 
-#: src/MainWindow.vala:39
+#: src/MainWindow.vala:37
 #, fuzzy
 msgid "Processes"
 msgstr "Proceso pavadinimas"
 
-#: src/MainWindow.vala:40
+#: src/MainWindow.vala:38
 msgid "System"
-msgstr ""
-
-#: src/MainWindow.vala:43
-msgid "Containers"
 msgstr ""
 
 #: src/Utils.vala:2
@@ -64,7 +60,7 @@ msgstr "MiB"
 
 #: src/Utils.vala:92
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:128
-#: src/Widgets/Statusbar/Statusbar.vala:98
+#: src/Widgets/Statusbar/Statusbar.vala:94
 msgid "GiB"
 msgstr "GiB"
 
@@ -215,45 +211,41 @@ msgstr ""
 
 #. status: "Spinning",
 #. header: "General Preferences",
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:22
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:21
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:21
 msgid "General"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:27
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:26
 msgid "Start in background:"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:36
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:35
 msgid "Draw smooth lines on CPU chart (requires restart):"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:44
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:43
 msgid "Update every (requires restart):"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:54
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:53
 msgid "1s"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:55
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:54
 msgid "2s"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:56
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:55
 msgid "3s"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:57
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:56
 msgid "4s"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:58
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:57
 msgid "5s"
-msgstr ""
-
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:60
-msgid "Show containers tab (requires restart):"
 msgstr ""
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
@@ -330,7 +322,7 @@ msgid "℃"
 msgstr ""
 
 #: src/Views/SystemView/SystemCPUView.vala:126
-#: src/Widgets/Statusbar/Statusbar.vala:84
+#: src/Widgets/Statusbar/Statusbar.vala:83
 msgid "GHz"
 msgstr ""
 
