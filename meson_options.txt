@@ -1,1 +1,0 @@
-option('indicator-wingpanel', type : 'feature', value : 'disabled', description : 'Enables the Indicator for Wingpanel.')
