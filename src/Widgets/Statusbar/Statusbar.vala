@@ -79,16 +79,12 @@ public class Monitor.Statusbar : Gtk.ActionBar {
         cpu_usage_label.set_text (("%d%%").printf (sysres.cpu_percentage));
         memory_usage_label.set_text (("%u%%").printf (sysres.memory_percentage));
         gpu_usage_label.set_text (("%d%%").printf (sysres.gpu_percentage));
-        gpu_memory_usage_label.set_text (("%u%%").printf (sysres.gpu_memory_percentage));
 
         string cpu_tooltip_text = ("%.2f %s").printf (sysres.cpu_frequency, _("GHz"));
         cpu_usage_label.tooltip_text = cpu_tooltip_text;
 
         string memory_tooltip_text = ("%s / %s").printf (Utils.HumanUnitFormatter.double_bytes_to_human (sysres.memory_used), Utils.HumanUnitFormatter.double_bytes_to_human (sysres.memory_total));
         memory_usage_label.tooltip_text = memory_tooltip_text;
-
-        string gpu_memory_tooltip_text = ("%s / %s").printf (Utils.HumanUnitFormatter.double_bytes_to_human (sysres.gpu_memory_used), Utils.HumanUnitFormatter.double_bytes_to_human (sysres.gpu_memory_total));
-        gpu_memory_usage_label.tooltip_text = gpu_memory_tooltip_text;
 
         // The total amount of the swap is 0 when it is unavailable
         if (sysres.swap_total == 0) {

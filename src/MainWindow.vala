@@ -9,7 +9,6 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
     public ProcessView process_view;
     public SystemView system_view;
-    public ContainerView container_view;
     private Gtk.Stack stack;
 
     private Statusbar statusbar;
@@ -32,16 +31,11 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
         process_view = new ProcessView ();
         system_view = new SystemView (resources);
-        container_view = new ContainerView ();
 
         stack = new Gtk.Stack ();
         stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
         stack.add_titled (process_view, "process_view", _("Processes"));
         stack.add_titled (system_view, "system_view", _("System"));
-
-        if (MonitorApp.settings.get_boolean ("containers-view-state")) {
-            stack.add_titled (container_view, "container_view", _("Containers"));
-        }
 
 
         Gtk.StackSwitcher stack_switcher = new Gtk.StackSwitcher ();
@@ -78,10 +72,6 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
         new Thread<void> ("upd", () => {
             Timeout.add_seconds (MonitorApp.settings.get_int ("update-time"), () => {
                 process_view.update ();
-
-
-                container_view.update ();
-
 
                 Idle.add (() => {
                     system_view.update ();
