@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-20 22:25+0900\n"
-"PO-Revision-Date: 2024-10-09 14:45+0000\n"
+"PO-Revision-Date: 2024-10-09 20:00+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/desktop/"
 "monitor-extra/de/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: data/com.github.stsdc.monitor.appdata.xml.in:7
 #: data/com.github.stsdc.monitor.desktop.in:3
 msgid "Monitor"
-msgstr "Überwachung"
+msgstr "Systemaufsicht"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:8
 msgid "Manage processes and monitor system resources"
