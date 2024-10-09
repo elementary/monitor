@@ -8,13 +8,17 @@ msgstr ""
 "Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-07 10:42+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-10-09 20:00+0000\n"
+"Last-Translator: anonymous <noreply@weblate.org>\n"
+"Language-Team: Bosnian <https://l10n.elementary.io/projects/desktop/monitor/"
+"bs/>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: src/MainWindow.vala:27 src/Widgets/Headerbar/Headerbar.vala:14
 msgid "Monitor"
@@ -26,7 +30,7 @@ msgstr ""
 
 #: src/MainWindow.vala:40
 msgid "System"
-msgstr ""
+msgstr "Sistem"
 
 #: src/MainWindow.vala:43
 msgid "Containers"
@@ -297,7 +301,7 @@ msgstr ""
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:193
 msgid "Disabled"
-msgstr ""
+msgstr "Deaktivirano"
 
 #: src/Views/SystemView/SystemCPUView.vala:17
 msgid "Frequency"
