@@ -9,6 +9,8 @@ jobs:
     if: github.event.pull_request.merged == true && true == contains(join(github.event.pull_request.labels.*.name), 'Release')
     steps:
     - uses: actions/checkout@v4
+      with:
+        submodules: true
     - uses: elementary/actions/release@main
       env:
         GIT_USER_TOKEN: "${{ secrets.GIT_USER_TOKEN }}"
