@@ -1,7 +1,7 @@
 name: Release
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ dev ]
     types: closed
 jobs:
   release:
