@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-07 10:42+0200\n"
-"PO-Revision-Date: 2024-10-09 14:45+0000\n"
+"PO-Revision-Date: 2024-10-09 20:00+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/desktop/monitor/"
 "de/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 
 #: src/MainWindow.vala:27 src/Widgets/Headerbar/Headerbar.vala:14
 msgid "Monitor"
-msgstr "Überwachung"
+msgstr "Systemaufsicht"
 
 #: src/MainWindow.vala:39
 msgid "Processes"
@@ -39,7 +39,7 @@ msgstr "Container"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:34
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:35
 msgid "N/A"
-msgstr "nicht vorhanden"
+msgstr "­"
 
 #: src/Utils.vala:76
 msgid "B"
@@ -63,11 +63,11 @@ msgstr "GiB"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:13
 msgid "Show Monitor"
-msgstr "Monitor anzeigen"
+msgstr "Systemaufsicht anzeigen"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:16
 msgid "Quit Monitor"
-msgstr "Monitor beenden"
+msgstr "Systemaufsicht beenden"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:20
 msgid "Are you sure you want to do this?"
@@ -100,32 +100,38 @@ msgstr "THR"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:113
 msgid "The app is waiting in an uninterruptible disk sleep"
-msgstr ""
+msgstr "Die Anwendung wartet in einem nicht unterbrechungsfähigen Ruhezustand"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:115
 msgid "Idle kernel thread"
-msgstr ""
+msgstr "Inaktiver Kernel-Thread"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:117
 msgid "The process is running or runnable (on run queue)"
 msgstr ""
+"Der Prozess wird ausgeführt oder kann ausgeführt werden (in "
+"Ausführungswarteschlange)"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:119
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
 msgstr ""
+"Der Prozess befindet sichin einem unterbrechbaren Bereitschaftsmodus und "
+"wartet auf ein Ereignis, um fortzufahren"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:121
 msgid "The process is stopped by a job control signal"
-msgstr ""
+msgstr "Der Prozess wurde vom einem Job-Control-Signal angehalten"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:123
 msgid "The process is stopped stopped by a debugger during the tracing"
-msgstr ""
+msgstr "Der Prozess wurde während des Tracings durch einen Debugger angehalten"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:125
 msgid "The app is terminated but not reaped by its parent"
 msgstr ""
+"Die Anwendung wurde beendet, aber nicht durch ihren Elternprozess aus der "
+"Prozesstabelle gelöscht"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:18
 msgid "Opened files"
@@ -217,7 +223,7 @@ msgstr "Feine Linien auf CPU-Diagramm darstellen (erneuter Start erforderlich):"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:44
 msgid "Update every (requires restart):"
-msgstr "Aktualisieren alle  (erneuter Start erforderlich):"
+msgstr "Aktualisieren alle (erneuter Start erforderlich):"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:54
 msgid "1s"
