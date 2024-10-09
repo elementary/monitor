@@ -3,14 +3,17 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-07 10:42+0200\n"
-"PO-Revision-Date: 2024-09-07 14:43+0300\n"
-"Last-Translator: Leo <lenemter@gmail.com>\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-10-09 20:00+0000\n"
+"Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
+"Language-Team: Russian <https://l10n.elementary.io/projects/desktop/monitor/"
+"ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: src/MainWindow.vala:27 src/Widgets/Headerbar/Headerbar.vala:14
 msgid "Monitor"
@@ -112,7 +115,7 @@ msgstr "Процесс запущен или готов к выполнению 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:119
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
-msgstr "Процесс находится в прерывистом сне; ожидая завершения события"
+msgstr "Процесс находится в прерывистом сне; ожидает завершения события"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:121
 msgid "The process is stopped by a job control signal"
@@ -181,7 +184,7 @@ msgstr "Имя процесса"
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:40
 #: src/Widgets/Statusbar/Statusbar.vala:10
 msgid "CPU"
-msgstr "ЦПУ"
+msgstr "ЦП"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:51
 #: src/Views/SystemView/SystemMemoryView.vala:13
@@ -192,7 +195,7 @@ msgstr "Память"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:50
 #, c-format
 msgid "CPU: %.1f%%"
-msgstr "ЦПУ: %.1f%%"
+msgstr "ЦП: %.1f%%"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:51
 #, c-format
@@ -220,23 +223,23 @@ msgstr "Обновлять каждые (требуется перезапуск
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:54
 msgid "1s"
-msgstr "1с"
+msgstr "1 с"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:55
 msgid "2s"
-msgstr "2с"
+msgstr "2 с"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:56
 msgid "3s"
-msgstr "3с"
+msgstr "3 с"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:57
 msgid "4s"
-msgstr "4с"
+msgstr "4 с"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:58
 msgid "5s"
-msgstr "5с"
+msgstr "5 с"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:60
 msgid "Show containers tab (requires restart):"
@@ -244,7 +247,7 @@ msgstr "Показывать вкладку контейнеров (требуе
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
 msgid "Show indicator in Wingpanel"
-msgstr "Показывать индикатор в панели"
+msgstr "Показывать индикатор на панели"
 
 #. header: "Simple Pages",
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:15
@@ -277,23 +280,23 @@ msgstr "Скорость загрузки сети"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:98
 msgid "Display GPU percentage"
-msgstr "Использование ГПУ"
+msgstr "Использование граф. процессора"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:110
 msgid "Display VRAM percentage"
-msgstr "Использование VRAM памяти"
+msgstr "Использование видеопамяти"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:122
 msgid "Display GPU temperature"
-msgstr "Температура ГПУ"
+msgstr "Температура граф. процессора"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:188
 msgid "Enabled"
-msgstr "Включён"
+msgstr "Включены"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:193
 msgid "Disabled"
-msgstr "Отключён"
+msgstr "Отключены"
 
 #: src/Views/SystemView/SystemCPUView.vala:17
 msgid "Frequency"
@@ -393,7 +396,7 @@ msgstr "Использовано"
 
 #: src/Views/SystemView/SystemMemoryView.vala:10
 msgid "Shared"
-msgstr "Общий"
+msgstr "Общая память"
 
 #: src/Views/SystemView/SystemNetworkView.vala:18
 msgid "Network"
@@ -425,7 +428,7 @@ msgstr "Не подключено"
 
 #: src/Views/SystemView/SystemGPUView.vala:12
 msgid "VRAM"
-msgstr "ПАМЯТЬ"
+msgstr "ВИДЕОПАМЯТЬ"
 
 #: src/Views/SystemView/SystemGPUView.vala:16
 msgid "TEMPERATURE"
@@ -449,7 +452,7 @@ msgstr "Подкачка"
 
 #: src/Widgets/Statusbar/Statusbar.vala:22
 msgid "GPU"
-msgstr "ГПУ"
+msgstr "Графический процессор"
 
 #: src/Widgets/Statusbar/Statusbar.vala:25
 #: src/Widgets/Statusbar/Statusbar.vala:31
