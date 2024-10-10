@@ -75,19 +75,11 @@ stylesheet_dark = custom_target(
     build_by_default: true
 )
 
-stylesheet_retrofit = custom_target(
-    'theme-monitor-retrofit',
-    input : './stylesheet/monitor-retrofit.scss',
-    output : 'monitor-retrofit.css',
-    command : sass_command,
-    build_by_default: true
-)
-
 css_gresource = gnome.compile_resources(
     'gresource_css',
     'css.gresource.xml',
     source_dir: 'stylesheet',
     c_name: 'as2',
-    dependencies: [stylesheet_dark, stylesheet_light, stylesheet_retrofit],
+    dependencies: [stylesheet_dark, stylesheet_light],
 
 )
