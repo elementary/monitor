@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-09 20:00+0000\n"
-"PO-Revision-Date: 2024-10-09 14:45+0000\n"
+"PO-Revision-Date: 2024-10-11 11:16+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
-"Language-Team: Russian <https://l10n.elementary.io/projects/desktop/monitor-"
-"extra/ru/>\n"
+"Language-Team: Russian <https://l10n.elementary.io/projects/desktop/"
+"monitor-extra/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,97 +41,102 @@ msgstr "Stanisław Dac"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:33
 msgid "Add info about drives (based on Dirli's code)"
-msgstr ""
+msgstr "Добавлена информация о накопителях (на основе кода Dirli)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:38
 msgid "Adds dark theme 🌚"
-msgstr ""
+msgstr "Добавлена тёмная тема 🌚"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:43
 msgid "Uses Wingpanel v3; New *.deb package maintainer: Kristopher Ives"
 msgstr ""
+"Теперь использует Wingpanel v3; Новый разработчик *.deb-пакетов: Kristopher "
+"Ives"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:48
 msgid "🐛 Should fix empty Indicator. Please reboot after installation ⚡️"
-msgstr ""
+msgstr "🐛 Должно исправить пустой индикатор. Перезагрузитесь после установки ⚡️"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:54
 msgid "🐛 Try to fix frequent GUI hangs 🥶"
-msgstr ""
+msgstr "🐛 Попытка исправить зависания интерфейса 🥶"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:55
 msgid "🇳🇱 Update Dutch translation (@Vistaus)"
-msgstr ""
+msgstr "🇳🇱 Обновлён нидерландский перевод (@Vistaus)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:56
 msgid "🇵🇹 Update Portuguese translation (@hugok79)"
-msgstr ""
+msgstr "🇵🇹 Обновлён португальский перевод (@hugok79)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:57
 msgid "🇷🇴 Add Romanian translation (@tiberiufrat)"
-msgstr ""
+msgstr "🇷🇴 Добавлен румынский перевод (@tiberiufrat)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:64
 msgid "Display Storage usage"
-msgstr ""
+msgstr "Отображение использования хранилища"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:65
 msgid "Update Russian translation (@camellan)"
-msgstr ""
+msgstr "Обновлён русский перевод (@camellan)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:66
 msgid "Update Portuguese translation (@hugok79)"
-msgstr ""
+msgstr "Обновлён португальский перевод (@hugok79)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:67
 msgid "Different colours for Upload and Download"
-msgstr ""
+msgstr "Разные цвета для отдачи и загрузки"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:74
 #: data/com.github.stsdc.monitor.appdata.xml.in:86
 msgid "Update Portuguese translation (@rottenpants466)"
-msgstr ""
+msgstr "Обновлён португальский перевод (@rottenpants466)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:75
 msgid "Update Dutch translation (@Vistaus)"
-msgstr ""
+msgstr "Обновлён нидерландский перевод (@Vistaus)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:76
 msgid "Smoother animations (@DevAlien)"
-msgstr ""
+msgstr "Более плавные анимации (@DevAlien)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:77
 msgid "Preselect first entry so that the info panel is always open (@DevAlien)"
 msgstr ""
+"Автоматическое выделение первого элемента, чтобы информационная панель "
+"всегда была открыта (@DevAlien)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:78
 msgid "Show CPU temperature in the Indicator"
-msgstr ""
+msgstr "Отображение температуры процессора в индикаторе"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:85
 msgid "Better System Tab"
-msgstr ""
+msgstr "Улучшена вкладка «Система»"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:87
 msgid "Save last opened view (@ryonakano)"
-msgstr ""
+msgstr "Запоминать последнее открытое представление (@ryonakano)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:94
 #: data/com.github.stsdc.monitor.appdata.xml.in:157
 msgid "Update Japanese translation (Ryo Nakano)"
-msgstr ""
+msgstr "Обновлён японский перевод (Ryo Nakano)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:95
 msgid "Disable search entry, when System tab is active"
-msgstr ""
+msgstr "Отключение поля поиска, когда вкладка «Система» активна"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:96
+#, fuzzy
 msgid "Add screenshots"
-msgstr ""
+msgstr "Добавлены скриншоты"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:103
 msgid "Add System resources tab"
-msgstr ""
+msgstr "Добавлена вкладка системных ресурсов"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:110
 msgid "Added tooltips to process state label (Ryo Nakano)"
