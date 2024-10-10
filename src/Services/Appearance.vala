@@ -29,15 +29,4 @@ public class Monitor.Appearance : Object {
             }
         });
     }
-
-    public static void retrofit () {
-        if (Gtk.Settings.get_default ().gtk_theme_name.has_prefix ("io.elementary") ) {
-            debug ("Chewie, We are home.");
-        } else {
-            debug ("Retrofitting styles to make Monitor usable with a current theme.");
-            var provider = new Gtk.CssProvider ();
-            provider.load_from_resource ("/com/github/stsdc/monitor/monitor-retrofit.css");
-            Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-        }
-    }
 }

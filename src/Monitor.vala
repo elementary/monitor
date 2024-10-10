@@ -75,7 +75,6 @@ namespace Monitor {
             });
 
             Appearance.set_prefered_style ();
-            Appearance.retrofit ();
 
 
             // Controls the direction of the sort indicators
