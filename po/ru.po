@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-09 20:00+0000\n"
-"PO-Revision-Date: 2024-10-09 20:00+0000\n"
+"PO-Revision-Date: 2024-10-11 11:16+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/desktop/monitor/"
 "ru/>\n"
@@ -284,11 +284,11 @@ msgstr "Температура граф. процессора"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:188
 msgid "Enabled"
-msgstr "Включены"
+msgstr "Включено"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:193
 msgid "Disabled"
-msgstr "Отключены"
+msgstr "Выключено"
 
 #: src/Views/SystemView/SystemCPUView.vala:17
 msgid "Frequency"
