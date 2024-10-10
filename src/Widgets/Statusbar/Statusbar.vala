@@ -3,7 +3,6 @@ public class Monitor.Statusbar : Gtk.ActionBar {
     Gtk.Label memory_usage_label;
     Gtk.Label swap_usage_label;
     Gtk.Label gpu_usage_label;
-    Gtk.Label gpu_memory_usage_label;
 
     construct {
         var cpu_icon = new Gtk.Image.from_icon_name ("cpu-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
