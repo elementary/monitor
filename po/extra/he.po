@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-09 20:00+0000\n"
-"PO-Revision-Date: 2024-10-10 10:29+0000\n"
+"PO-Revision-Date: 2024-10-11 19:06+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/desktop/"
 "monitor-extra/he/>\n"
@@ -27,11 +27,11 @@ msgstr "צג"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:8
 msgid "Manage processes and monitor system resources"
-msgstr ""
+msgstr "ניהול תהליכים ומעקב אחר משאבי מערכת"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:10
 msgid "Display usage of system resources, filter and manage processes."
-msgstr ""
+msgstr "הצגת ניצולת משאבי המערכת, סינון וניהול תהליכים."
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:25
 msgid "Stanisław Dac"
@@ -39,11 +39,11 @@ msgstr ""
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:33
 msgid "Add info about drives (based on Dirli's code)"
-msgstr ""
+msgstr "הוספת מידע על כוניים (לפי הקוד של Dirli)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:38
 msgid "Adds dark theme 🌚"
-msgstr ""
+msgstr "נוספה ערכת עיצוב כהה 🌚"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:43
 msgid "Uses Wingpanel v3; New *.deb package maintainer: Kristopher Ives"
@@ -59,44 +59,44 @@ msgstr ""
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:55
 msgid "🇳🇱 Update Dutch translation (@Vistaus)"
-msgstr ""
+msgstr "🇳🇱 עדכון התרגום להולנדית (‎@Vistaus)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:56
 msgid "🇵🇹 Update Portuguese translation (@hugok79)"
-msgstr ""
+msgstr "🇵🇹 עדכון התרגום לפורטוגלית (‎@hugok79)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:57
 msgid "🇷🇴 Add Romanian translation (@tiberiufrat)"
-msgstr ""
+msgstr "🇷🇴 הוספת תרגום לרומנית (‎@tiberiufrat)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:64
 msgid "Display Storage usage"
-msgstr ""
+msgstr "הצגת ניצולת האחסון"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:65
 msgid "Update Russian translation (@camellan)"
-msgstr ""
+msgstr "עדכון התרגום לרוסית (‎@camellan)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:66
 msgid "Update Portuguese translation (@hugok79)"
-msgstr ""
+msgstr "עדכון התרגום לפורטוגלית (‎@hugok79)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:67
 msgid "Different colours for Upload and Download"
-msgstr ""
+msgstr "צבעים שונים להעלאה ולהורדה"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:74
 #: data/com.github.stsdc.monitor.appdata.xml.in:86
 msgid "Update Portuguese translation (@rottenpants466)"
-msgstr ""
+msgstr "עדכון התרגום לפורטוגלית (‎@rottenpants466)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:75
 msgid "Update Dutch translation (@Vistaus)"
-msgstr ""
+msgstr "עדכון התרגום להולנדית (‎@Vistaus)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:76
 msgid "Smoother animations (@DevAlien)"
-msgstr ""
+msgstr "הנפשות חלקות יותר (‎@DevAlien)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:77
 msgid "Preselect first entry so that the info panel is always open (@DevAlien)"
@@ -108,7 +108,7 @@ msgstr ""
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:85
 msgid "Better System Tab"
-msgstr ""
+msgstr "לשונית מערכת משופרת"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:87
 msgid "Save last opened view (@ryonakano)"
@@ -129,7 +129,7 @@ msgstr ""
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:103
 msgid "Add System resources tab"
-msgstr ""
+msgstr "הוספת לשונית משאבי מערכת"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:110
 msgid "Added tooltips to process state label (Ryo Nakano)"
@@ -137,21 +137,21 @@ msgstr ""
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:111
 msgid "Small bugfix"
-msgstr ""
+msgstr "תיקוני תקלות קטנות"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:118
 msgid "Fix sorting arrows"
-msgstr ""
+msgstr "חיצי המיון תוקנו"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:119
 #: data/com.github.stsdc.monitor.appdata.xml.in:155
 #: data/com.github.stsdc.monitor.appdata.xml.in:169
 msgid "Update Russian translation (camellan)"
-msgstr ""
+msgstr "עדכון התרגום לרוסית (camellan)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:120
 msgid "Add Turkish translation (Harun Yasar)"
-msgstr ""
+msgstr "הוספת התרגום לטורקית (Harun Yasar)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:121
 msgid ""
@@ -173,15 +173,15 @@ msgstr ""
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:137
 msgid "Update German translation (Carsten Dietrich)"
-msgstr ""
+msgstr "עדכון התרגום לגרמנית (Carsten Dietrich)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:144
 msgid "Update Portuguese translation (Hugo Carvalho)"
-msgstr ""
+msgstr "עדכון התרגום לפורטוגלית (Hugo Carvalho)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:145
 msgid "Update French translation (Nathan Bonnemains and Skeudwenn)"
-msgstr ""
+msgstr "עדכון התרגום לצרפתית (Nathan Bonnemains ו־Skeudwenn)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:146
 msgid "Fix: Don't show swap percentage when it's not available (Ryo Nakano)"
@@ -189,11 +189,11 @@ msgstr ""
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:153
 msgid "Update Italian translation (Mirko Brombin)"
-msgstr ""
+msgstr "עדכון התרגום לאיטלקית (Mirko Brombin)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:154
 msgid "Show swap usage (Ryo Nakano)"
-msgstr ""
+msgstr "הצגת ניצולת שטח החלפה (Ryo Nakano)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:156
 msgid "Code refactoring (Ryo Nakano)"
@@ -248,11 +248,11 @@ msgstr ""
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:188
 msgid "Fix Japanese translation"
-msgstr ""
+msgstr "תיקון התרגום ליפנית"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:195
 msgid "Minor bug fix"
-msgstr ""
+msgstr "תיקון תקלה קטנה"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:196
 msgid "Make End process button red"
@@ -260,11 +260,11 @@ msgstr ""
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:197
 msgid "Add Japanese translation"
-msgstr ""
+msgstr "הוספת תרגום ליפנית"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:204
 msgid "Add CPU and RAM icons"
-msgstr ""
+msgstr "הוספת סמלי מעבד וזיכרון"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:205
 msgid "Fix bug, that caused hanging"
@@ -297,7 +297,7 @@ msgstr ""
 
 #: data/com.github.stsdc.monitor.desktop.in:4
 msgid "System Monitor"
-msgstr ""
+msgstr "צג מערכת"
 
 #: data/com.github.stsdc.monitor.desktop.in:5
 msgid "Manage processes and monitor resource usage of the system"
