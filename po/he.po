@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-09 20:00+0000\n"
-"PO-Revision-Date: 2024-10-10 10:29+0000\n"
+"PO-Revision-Date: 2024-10-11 19:06+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/desktop/monitor/"
 "he/>\n"
@@ -144,35 +144,35 @@ msgstr ""
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
 msgid "Read/Written"
-msgstr ""
+msgstr "נקרא/נכתב"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
 msgid "Cancelled write"
-msgstr ""
+msgstr "כתיבה בוטלה"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:90
 msgid "End Process"
-msgstr ""
+msgstr "סגירת תהליך"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:92
 msgid "End selected process"
-msgstr ""
+msgstr "סגירת התהליך הנבחר"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:96
 msgid "Kill Process"
-msgstr ""
+msgstr "חיסול תהליך"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:97
 msgid "Kill selected process"
-msgstr ""
+msgstr "חיסול התהליך הנבחר"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:107
 msgid "Confirm kill of the process?"
-msgstr ""
+msgstr "לחסל את התהליך?"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:114
 msgid "Confirm end of the process?"
-msgstr ""
+msgstr "לאשר את סגירת התהליך?"
 
 #. *INDENT-OFF*
 #. vala-lint=space-before-paren,
@@ -180,39 +180,39 @@ msgstr ""
 #. setup name column
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:19
 msgid "Process Name"
-msgstr ""
+msgstr "שם התהליך"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:40
 #: src/Widgets/Statusbar/Statusbar.vala:10
 msgid "CPU"
-msgstr ""
+msgstr "מעבד"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:51
 #: src/Views/SystemView/SystemMemoryView.vala:13
 #: src/Widgets/Statusbar/Statusbar.vala:14
 msgid "Memory"
-msgstr ""
+msgstr "זיכרון"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:50
 #, c-format
 msgid "CPU: %.1f%%"
-msgstr ""
+msgstr "מעבד: %.1f%%"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:51
 #, c-format
 msgid "RAM: %.1f%%"
-msgstr ""
+msgstr "זיכרון: %.1f%%"
 
 #. status: "Spinning",
 #. header: "General Preferences",
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:21
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:21
 msgid "General"
-msgstr ""
+msgstr "כללי"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:26
 msgid "Start in background:"
-msgstr ""
+msgstr "התחלה ברקע:"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:35
 msgid "Draw smooth lines on CPU chart (requires restart):"
@@ -224,84 +224,84 @@ msgstr ""
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:53
 msgid "1s"
-msgstr ""
+msgstr "שנ׳"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:54
 msgid "2s"
-msgstr ""
+msgstr "2 שנ׳"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:55
 msgid "3s"
-msgstr ""
+msgstr "3 שנ׳"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:56
 msgid "4s"
-msgstr ""
+msgstr "4 שנ׳"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:57
 msgid "5s"
-msgstr ""
+msgstr "5 שנ׳"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
 msgid "Show indicator in Wingpanel"
-msgstr ""
+msgstr "הצגת מחוון ב־"
 
 #. header: "Simple Pages",
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:15
 msgid "Indicator"
-msgstr ""
+msgstr "מחוון"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:23
 msgid "Display CPU percentage"
-msgstr ""
+msgstr "הצגת אחוזי מעבד"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:37
 msgid "Display CPU frequency"
-msgstr ""
+msgstr "הצגת תדירות מעבד"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:50
 msgid "Display CPU temperature"
-msgstr ""
+msgstr "הצגת טמפרטורת מעבד"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:62
 msgid "Display RAM percentage"
-msgstr ""
+msgstr "הצגת אחוזי זיכרון"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:74
 msgid "Display network upload"
-msgstr ""
+msgstr "הצגת העלאה דרך הרשת"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:86
 msgid "Display network download"
-msgstr ""
+msgstr "הצגת הורדה דרך הרשת"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:98
 msgid "Display GPU percentage"
-msgstr ""
+msgstr "הצגת אחוזי מעבד גרפי"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:110
 msgid "Display VRAM percentage"
-msgstr ""
+msgstr "הצגת אחוזי זיכרון וירטואלי"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:122
 msgid "Display GPU temperature"
-msgstr ""
+msgstr "הצגת טמפרטורת מעבד גרפי"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:188
 msgid "Enabled"
-msgstr ""
+msgstr "מופעל"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:193
 msgid "Disabled"
-msgstr ""
+msgstr "כבוי"
 
 #: src/Views/SystemView/SystemCPUView.vala:17
 msgid "Frequency"
-msgstr ""
+msgstr "תדירות"
 
 #: src/Views/SystemView/SystemCPUView.vala:21
 msgid "Temperature"
-msgstr ""
+msgstr "טמפרטורה"
 
 #. int temperature_index = 0;
 #. foreach (var temperature in cpu.paths_temperatures.values) {
@@ -325,23 +325,23 @@ msgstr ""
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:22
 msgid "Features"
-msgstr ""
+msgstr "יכולות"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:23
 msgid "Bugs"
-msgstr ""
+msgstr "תקלות"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:51
 msgid "Model:"
-msgstr ""
+msgstr "דגם:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:52
 msgid "Family:"
-msgstr ""
+msgstr "משפחה:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:53
 msgid "Microcode ver.:"
-msgstr ""
+msgstr "גרסת מיקרוקוד:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:54
 msgid "Bogomips:"
