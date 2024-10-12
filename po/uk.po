@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-09 20:00+0000\n"
+"POT-Creation-Date: 2024-10-12 14:36+0000\n"
 "PO-Revision-Date: 2024-10-09 14:45+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/desktop/"
@@ -60,7 +60,7 @@ msgstr "МіБ"
 
 #: src/Utils.vala:92
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:128
-#: src/Widgets/Statusbar/Statusbar.vala:94
+#: src/Widgets/Statusbar/Statusbar.vala:93
 msgid "GiB"
 msgstr "ГіБ"
 
@@ -183,13 +183,13 @@ msgid "Process Name"
 msgstr "Назва процесу"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:40
-#: src/Widgets/Statusbar/Statusbar.vala:10
+#: src/Widgets/Statusbar/Statusbar.vala:9
 msgid "CPU"
 msgstr "Процесор"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:51
 #: src/Views/SystemView/SystemMemoryView.vala:13
-#: src/Widgets/Statusbar/Statusbar.vala:14
+#: src/Widgets/Statusbar/Statusbar.vala:13
 msgid "Memory"
 msgstr "Пам'ять"
 
@@ -203,42 +203,40 @@ msgstr "Процесор: %.1f%%"
 msgid "RAM: %.1f%%"
 msgstr "RAM: %.1f%%"
 
-#. status: "Spinning",
-#. header: "General Preferences",
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:21
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:13
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:21
 msgid "General"
 msgstr "Загальнi"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:26
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:18
 msgid "Start in background:"
 msgstr "Запустити у фоні:"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:35
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:27
 msgid "Draw smooth lines on CPU chart (requires restart):"
 msgstr "Малювати плавні лінії на діаграмі ЦП (потрібнe перезавантаження):"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:43
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:36
 msgid "Update every (requires restart):"
 msgstr "Частота оновлення (потрібен перезапуск):"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:53
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:48
 msgid "1s"
 msgstr "1с"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:54
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:49
 msgid "2s"
 msgstr "2с"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:55
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:50
 msgid "3s"
 msgstr "3с"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:56
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:51
 msgid "4s"
 msgstr "4с"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:57
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:52
 msgid "5s"
 msgstr "5с"
 
@@ -315,7 +313,7 @@ msgid "℃"
 msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:126
-#: src/Widgets/Statusbar/Statusbar.vala:83
+#: src/Widgets/Statusbar/Statusbar.vala:82
 msgid "GHz"
 msgstr "ГГц"
 
@@ -443,26 +441,26 @@ msgstr "Пошук процесу"
 msgid "Type process name or PID to search"
 msgstr "Введіть назву процесу або PID для пошуку"
 
-#: src/Widgets/Statusbar/Statusbar.vala:18
+#: src/Widgets/Statusbar/Statusbar.vala:17
 msgid "Swap"
 msgstr "Swap"
 
-#: src/Widgets/Statusbar/Statusbar.vala:22
+#: src/Widgets/Statusbar/Statusbar.vala:21
 msgid "GPU"
 msgstr "Графічний процесор (GPU)"
 
-#: src/Widgets/Statusbar/Statusbar.vala:25
-#: src/Widgets/Statusbar/Statusbar.vala:31
-#: src/Widgets/Statusbar/Statusbar.vala:38
-#: src/Widgets/Statusbar/Statusbar.vala:45
+#: src/Widgets/Statusbar/Statusbar.vala:24
+#: src/Widgets/Statusbar/Statusbar.vala:30
+#: src/Widgets/Statusbar/Statusbar.vala:37
+#: src/Widgets/Statusbar/Statusbar.vala:44
 msgid "Calculating…"
 msgstr "Обчислення…"
 
-#: src/Widgets/Statusbar/Statusbar.vala:52
+#: src/Widgets/Statusbar/Statusbar.vala:51
 msgid "🇺🇦"
 msgstr "🇺🇦"
 
-#: src/Widgets/Statusbar/Statusbar.vala:53
+#: src/Widgets/Statusbar/Statusbar.vala:52
 msgid "Check on Github"
 msgstr "Погляньте на Github"
 
