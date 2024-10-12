@@ -5,9 +5,6 @@
  */
 
  public class Monitor.PreferencesGeneralPage : Granite.SettingsPage {
-    public Gtk.Switch background_switch;
-    public Gtk.Switch enable_smooth_lines_switch;
-
     private Gtk.Adjustment update_time_adjustment;
 
     public PreferencesGeneralPage () {
@@ -26,8 +23,7 @@
         var background_label = new Gtk.Label (_("Start in background:"));
         background_label.halign = Gtk.Align.START;
 
-        background_switch = new Gtk.Switch ();
-        background_switch.state = MonitorApp.settings.get_boolean ("background-state");
+        var background_switch = new Gtk.Switch ();
         background_switch.halign = Gtk.Align.END;
         background_switch.hexpand = true;
 
@@ -35,8 +31,7 @@
         var enable_smooth_lines_label = new Gtk.Label (_("Draw smooth lines on CPU chart (requires restart):"));
         enable_smooth_lines_label.halign = Gtk.Align.START;
 
-        enable_smooth_lines_switch = new Gtk.Switch ();
-        enable_smooth_lines_switch.state = MonitorApp.settings.get_boolean ("smooth-lines-state");
+        var enable_smooth_lines_switch = new Gtk.Switch ();
         enable_smooth_lines_switch.halign = Gtk.Align.END;
         enable_smooth_lines_switch.hexpand = true;
 
@@ -69,13 +64,26 @@
 
         add (content_area);
 
-        background_switch.notify["active"].connect (() => {
-            MonitorApp.settings.set_boolean ("background-state", background_switch.state);
-        });
+        MonitorApp.settings.bind ("background-state", background_switch, "state", DEFAULT);
 
-        enable_smooth_lines_switch.notify["active"].connect (() => {
-            MonitorApp.settings.set_boolean ("smooth-lines-state", enable_smooth_lines_switch.state);
-        });
+        // Allow changing the background preference only when the indicator is enabled
+        MonitorApp.settings.bind ("indicator-state", background_switch, "sensitive", GET);
+
+        // Disable the background preference when the indicator is enabled
+        MonitorApp.settings.bind_with_mapping (
+            "indicator-state", background_switch, "state", GET,
+            (switch_state, settings_state, user_data) => {
+                bool state = settings_state.get_boolean ();
+                if (!state) {
+                    switch_state.set_boolean (false);
+                }
+
+                return true;
+            },
+            (SettingsBindSetMappingShared) null, null, null
+        );
+
+        MonitorApp.settings.bind ("smooth-lines-state", enable_smooth_lines_switch, "state", DEFAULT);
 
         update_time_adjustment.value_changed.connect (() => {
             MonitorApp.settings.set_int ("update-time", (int) update_time_adjustment.get_value ());
