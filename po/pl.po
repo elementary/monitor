@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: Monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-12 14:36+0000\n"
-"PO-Revision-Date: 2024-10-08 17:21+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2024-10-13 07:05+0000\n"
+"Last-Translator: Marcin Serwin <marcin@serwin.dev>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/desktop/monitor/"
 "pl/>\n"
 "Language: pl\n"
@@ -20,9 +20,8 @@ msgid "Monitor"
 msgstr "Monitor"
 
 #: src/MainWindow.vala:37
-#, fuzzy
 msgid "Processes"
-msgstr "Nazwa procesu"
+msgstr "Procesy"
 
 #: src/MainWindow.vala:38
 msgid "System"
@@ -99,32 +98,34 @@ msgstr "THR"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:113
 msgid "The app is waiting in an uninterruptible disk sleep"
-msgstr ""
+msgstr "Aplikacja czeka w nieprzerywalnym uśpieniu dysku"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:115
 msgid "Idle kernel thread"
-msgstr ""
+msgstr "Bezczynny wątek jądra"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:117
 msgid "The process is running or runnable (on run queue)"
-msgstr ""
+msgstr "Proces jest wykonywany lub gotowy do wykonywania (w kolejce)"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:119
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
 msgstr ""
+"Proces jest w stanie przerywalnego uśpienia; oczekuje na pewne wydarzenie"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:121
 msgid "The process is stopped by a job control signal"
-msgstr ""
+msgstr "Proces jest zatrzymany przez sygnał kontrolny"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:123
 msgid "The process is stopped stopped by a debugger during the tracing"
-msgstr ""
+msgstr "Proces jest zatrzymany przez debugger podczas śledzenia"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:125
 msgid "The app is terminated but not reaped by its parent"
 msgstr ""
+"Aplikacja jest zakończona jednak nie została zniszczona przez swojego rodzica"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:18
 msgid "Opened files"
@@ -132,11 +133,11 @@ msgstr "Otwarte pliki"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:22
 msgid "Characters"
-msgstr ""
+msgstr "Znaki"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
 msgid "System calls"
-msgstr ""
+msgstr "Wywołania systemowe"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
 msgid "Read/Written"
@@ -144,7 +145,7 @@ msgstr "Przeczytano/Zapisano"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
 msgid "Cancelled write"
-msgstr ""
+msgstr "Anulowane pisanie"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:90
 msgid "End Process"
@@ -202,7 +203,7 @@ msgstr "RAM: %.1f%%"
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:13
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:21
 msgid "General"
-msgstr ""
+msgstr "Ogólne"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:18
 msgid "Start in background:"
@@ -210,81 +211,80 @@ msgstr "Uruchamiaj w tle"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:27
 msgid "Draw smooth lines on CPU chart (requires restart):"
-msgstr ""
+msgstr "Rysuj gładkie linie na wykresie CPU (wymaga restartu):"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:36
 msgid "Update every (requires restart):"
-msgstr ""
+msgstr "Aktualizuj co (wymaga restartu):"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:48
 msgid "1s"
-msgstr ""
+msgstr "1s"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:49
 msgid "2s"
-msgstr ""
+msgstr "2s"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:50
 msgid "3s"
-msgstr ""
+msgstr "3s"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:51
 msgid "4s"
-msgstr ""
+msgstr "4s"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:52
 msgid "5s"
-msgstr ""
+msgstr "5s"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
-#, fuzzy
 msgid "Show indicator in Wingpanel"
-msgstr "Pokaż indykator"
+msgstr "Pokaż indykator w panelu skrzydłowym"
 
 #. header: "Simple Pages",
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:15
 msgid "Indicator"
-msgstr ""
+msgstr "Indykator"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:23
 msgid "Display CPU percentage"
-msgstr ""
+msgstr "Pokaż procent użycia CPU"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:37
 msgid "Display CPU frequency"
-msgstr ""
+msgstr "Pokaż częstotliwość CPU"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:50
 msgid "Display CPU temperature"
-msgstr ""
+msgstr "Pokaż temperaturę CPU"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:62
 msgid "Display RAM percentage"
-msgstr ""
+msgstr "Pokaż procent użycia RAMu"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:74
 msgid "Display network upload"
-msgstr ""
+msgstr "Pokaż ilość wysyłanych danych"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:86
 msgid "Display network download"
-msgstr ""
+msgstr "Pokaż ilość pobieranych danych"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:98
 msgid "Display GPU percentage"
-msgstr ""
+msgstr "Pokaż procent zużycia GPU"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:110
 msgid "Display VRAM percentage"
-msgstr ""
+msgstr "Pokaż procent zużycia VRAMu"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:122
 msgid "Display GPU temperature"
-msgstr ""
+msgstr "Pokaż temperaturę GPU"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:188
 msgid "Enabled"
-msgstr ""
+msgstr "Włączono"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:193
 msgid "Disabled"
@@ -292,11 +292,11 @@ msgstr "Wyłączone"
 
 #: src/Views/SystemView/SystemCPUView.vala:17
 msgid "Frequency"
-msgstr ""
+msgstr "Częstotliwość"
 
 #: src/Views/SystemView/SystemCPUView.vala:21
 msgid "Temperature"
-msgstr ""
+msgstr "Temperatura"
 
 #. int temperature_index = 0;
 #. foreach (var temperature in cpu.paths_temperatures.values) {
@@ -316,31 +316,31 @@ msgstr "GHz"
 
 #: src/Views/SystemView/SystemCPUView.vala:153
 msgid "THREADS"
-msgstr ""
+msgstr "WĄTKI"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:22
 msgid "Features"
-msgstr ""
+msgstr "Funkcje"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:23
 msgid "Bugs"
-msgstr ""
+msgstr "Bugi"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:51
 msgid "Model:"
-msgstr ""
+msgstr "Model:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:52
 msgid "Family:"
-msgstr ""
+msgstr "Rodzina:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:53
 msgid "Microcode ver.:"
-msgstr ""
+msgstr "Wersja mikrokodu:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:54
 msgid "Bogomips:"
-msgstr ""
+msgstr "BogoMips:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:58
 msgid "L1 Instruction cache: "
