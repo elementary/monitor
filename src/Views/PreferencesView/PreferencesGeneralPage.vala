@@ -4,41 +4,41 @@
  * SPDX-License-Identifier: LGPL-3.0-or-later
  */
 
- public class Monitor.PreferencesGeneralPage : Granite.SettingsPage {
+public class Monitor.PreferencesGeneralPage : Granite.SettingsPage {
     private Gtk.Adjustment update_time_adjustment;
 
     public PreferencesGeneralPage () {
-
-        var icon = new Gtk.Image.from_icon_name ("preferences-system", Gtk.IconSize.DND);
-
         Object (
-            display_widget: icon,
-            //  status: "Spinning",
-            //  header: "General Preferences",
+            display_widget: new Gtk.Image.from_icon_name ("preferences-system", Gtk.IconSize.DND),
             title: _("General")
         );
     }
 
     construct {
-        var background_label = new Gtk.Label (_("Start in background:"));
-        background_label.halign = Gtk.Align.START;
+        var background_label = new Gtk.Label (_("Start in background:")) {
+            halign = Gtk.Align.START
+        };
 
-        var background_switch = new Gtk.Switch ();
-        background_switch.halign = Gtk.Align.END;
-        background_switch.hexpand = true;
+        var background_switch = new Gtk.Switch () {
+            halign = Gtk.Align.END,
+            hexpand = true
+        };
 
+        var enable_smooth_lines_label = new Gtk.Label (_("Draw smooth lines on CPU chart (requires restart):")) {
+            halign = Gtk.Align.START
+        };
 
-        var enable_smooth_lines_label = new Gtk.Label (_("Draw smooth lines on CPU chart (requires restart):"));
-        enable_smooth_lines_label.halign = Gtk.Align.START;
+        var enable_smooth_lines_switch = new Gtk.Switch () {
+            halign = Gtk.Align.END,
+            hexpand = true
+        };
 
-        var enable_smooth_lines_switch = new Gtk.Switch ();
-        enable_smooth_lines_switch.halign = Gtk.Align.END;
-        enable_smooth_lines_switch.hexpand = true;
+        var update_time_label = new Gtk.Label (_("Update every (requires restart):")) {
+            halign = Gtk.Align.START
+        };
 
-        var update_time_label = new Gtk.Label (_("Update every (requires restart):"));
-        update_time_label.halign = Gtk.Align.START;
         update_time_adjustment = new Gtk.Adjustment (MonitorApp.settings.get_int ("update-time"), 1, 5, 1.0, 1, 0);
-        Gtk.Scale update_time_scale = new Gtk.Scale (Gtk.Orientation.HORIZONTAL, update_time_adjustment) {
+        var update_time_scale = new Gtk.Scale (Gtk.Orientation.HORIZONTAL, update_time_adjustment) {
             halign = Gtk.Align.FILL,
             hexpand = true,
             draw_value = false,
@@ -51,10 +51,14 @@
         update_time_scale.add_mark (4.0, Gtk.PositionType.BOTTOM, _("4s"));
         update_time_scale.add_mark (5.0, Gtk.PositionType.BOTTOM, _("5s"));
 
-        var content_area = new Gtk.Grid ();
-        content_area.column_spacing = 12;
-        content_area.row_spacing = 12;
-        content_area.margin = 12;
+        var content_area = new Gtk.Grid () {
+            column_spacing = 12,
+            row_spacing = 12,
+            margin_start = 12,
+            margin_end = 12,
+            margin_top = 12,
+            margin_bottom = 12
+        };
         content_area.attach (background_label, 0, 1, 1, 1);
         content_area.attach (background_switch, 1, 1, 1, 1);
         content_area.attach (enable_smooth_lines_label, 0, 2, 1, 1);
@@ -88,6 +92,5 @@
         update_time_adjustment.value_changed.connect (() => {
             MonitorApp.settings.set_int ("update-time", (int) update_time_adjustment.get_value ());
         });
-
     }
 }
