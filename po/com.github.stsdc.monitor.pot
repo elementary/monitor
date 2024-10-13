@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.stsdc.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-19 14:24+0400\n"
+"POT-Creation-Date: 2024-10-12 14:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,7 +57,7 @@ msgstr ""
 
 #: src/Utils.vala:92
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:128
-#: src/Widgets/Statusbar/Statusbar.vala:82
+#: src/Widgets/Statusbar/Statusbar.vala:93
 msgid "GiB"
 msgstr ""
 
@@ -98,32 +98,32 @@ msgstr ""
 msgid "THR"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:112
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:113
 msgid "The app is waiting in an uninterruptible disk sleep"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:114
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:115
 msgid "Idle kernel thread"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:116
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:117
 msgid "The process is running or runnable (on run queue)"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:118
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:119
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:120
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:121
 msgid "The process is stopped by a job control signal"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:122
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:123
 msgid "The process is stopped stopped by a debugger during the tracing"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:124
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:125
 msgid "The app is terminated but not reaped by its parent"
 msgstr ""
 
@@ -147,27 +147,27 @@ msgstr ""
 msgid "Cancelled write"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:78
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:90
 msgid "End Process"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:80
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:92
 msgid "End selected process"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:84
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:96
 msgid "Kill Process"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:85
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:97
 msgid "Kill selected process"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:95
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:107
 msgid "Confirm kill of the process?"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:102
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:114
 msgid "Confirm end of the process?"
 msgstr ""
 
@@ -180,13 +180,13 @@ msgid "Process Name"
 msgstr ""
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:40
-#: src/Widgets/Statusbar/Statusbar.vala:8
+#: src/Widgets/Statusbar/Statusbar.vala:9
 msgid "CPU"
 msgstr ""
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:51
 #: src/Views/SystemView/SystemMemoryView.vala:13
-#: src/Widgets/Statusbar/Statusbar.vala:11
+#: src/Widgets/Statusbar/Statusbar.vala:13
 msgid "Memory"
 msgstr ""
 
@@ -200,19 +200,41 @@ msgstr ""
 msgid "RAM: %.1f%%"
 msgstr ""
 
-#. status: "Spinning",
-#. header: "General Preferences",
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:18
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:13
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:21
 msgid "General"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:23
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:18
 msgid "Start in background:"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:32
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:27
 msgid "Draw smooth lines on CPU chart (requires restart):"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:36
+msgid "Update every (requires restart):"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:48
+msgid "1s"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:49
+msgid "2s"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:50
+msgid "3s"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:51
+msgid "4s"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesGeneralPage.vala:52
+msgid "5s"
 msgstr ""
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
@@ -229,42 +251,50 @@ msgid "Display CPU percentage"
 msgstr ""
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:37
+msgid "Display CPU frequency"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:50
+msgid "Display CPU temperature"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:62
 msgid "Display RAM percentage"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:49
-msgid "Display temperature"
-msgstr ""
-
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:61
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:74
 msgid "Display network upload"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:73
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:86
 msgid "Display network download"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:103
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:98
+msgid "Display GPU percentage"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:110
+msgid "Display VRAM percentage"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:122
+msgid "Display GPU temperature"
+msgstr ""
+
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:188
 msgid "Enabled"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:108
+#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:193
 msgid "Disabled"
 msgstr ""
 
-#: src/Views/SystemView/SystemCPUView.vala:18
-msgid "Utilization"
-msgstr ""
-
-#: src/Views/SystemView/SystemCPUView.vala:20
-msgid "Show detailed info"
-msgstr ""
-
-#: src/Views/SystemView/SystemCPUView.vala:22
+#: src/Views/SystemView/SystemCPUView.vala:17
 msgid "Frequency"
 msgstr ""
 
-#: src/Views/SystemView/SystemCPUView.vala:26
+#: src/Views/SystemView/SystemCPUView.vala:21
 msgid "Temperature"
 msgstr ""
 
@@ -274,18 +304,18 @@ msgstr ""
 #. cpu_temperature_chart.update (temperature_index, int.parse (temperature.input) / 1000);
 #. temperature_index++;
 #. }]
-#: src/Views/SystemView/SystemCPUView.vala:88
+#: src/Views/SystemView/SystemCPUView.vala:80
 #: src/Views/SystemView/SystemGPUView.vala:79
 msgid "℃"
 msgstr ""
 
-#: src/Views/SystemView/SystemCPUView.vala:134
-#: src/Widgets/Statusbar/Statusbar.vala:71
+#: src/Views/SystemView/SystemCPUView.vala:126
+#: src/Widgets/Statusbar/Statusbar.vala:82
 msgid "GHz"
 msgstr ""
 
-#: src/Views/SystemView/SystemCPUView.vala:161
-msgid "Threads"
+#: src/Views/SystemView/SystemCPUView.vala:153
+msgid "THREADS"
 msgstr ""
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:22
@@ -408,26 +438,27 @@ msgstr ""
 msgid "Type process name or PID to search"
 msgstr ""
 
-#: src/Widgets/Statusbar/Statusbar.vala:14
+#: src/Widgets/Statusbar/Statusbar.vala:17
 msgid "Swap"
 msgstr ""
 
-#: src/Widgets/Statusbar/Statusbar.vala:16
-#: src/Widgets/Statusbar/Statusbar.vala:22
-#: src/Widgets/Statusbar/Statusbar.vala:29
+#: src/Widgets/Statusbar/Statusbar.vala:21
+msgid "GPU"
+msgstr ""
+
+#: src/Widgets/Statusbar/Statusbar.vala:24
+#: src/Widgets/Statusbar/Statusbar.vala:30
+#: src/Widgets/Statusbar/Statusbar.vala:37
+#: src/Widgets/Statusbar/Statusbar.vala:44
 msgid "Calculating…"
 msgstr ""
 
-#: src/Widgets/Statusbar/Statusbar.vala:37
-msgid "Peace"
+#: src/Widgets/Statusbar/Statusbar.vala:51
+msgid "🇺🇦"
 msgstr ""
 
-#: src/Widgets/Statusbar/Statusbar.vala:39
+#: src/Widgets/Statusbar/Statusbar.vala:52
 msgid "Check on Github"
-msgstr ""
-
-#: src/Widgets/Statusbar/Statusbar.vala:40
-msgid "Donate 💸"
 msgstr ""
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:11

@@ -1,4 +1,4 @@
-project('com.github.stsdc.monitor', 'vala', 'c', version: '0.17.0')
+project('com.github.stsdc.monitor', 'vala', 'c', version: '0.17.2')
 
 # these are Meson modules
 gnome = import('gnome')
@@ -46,8 +46,6 @@ app_dependencies = [
     meson.get_compiler('c').find_library('XNVCtrl'),
     meson.get_compiler('c').find_library('X11'),
     meson.get_compiler('vala').find_library('libxnvctrl', dirs: vapidir),
-    meson.get_compiler('vala').find_library('libcurl', dirs: vapidir),
-    meson.get_compiler('c').find_library('libcurl', dirs: vapidir),
 ]
 
 

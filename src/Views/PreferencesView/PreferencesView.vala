@@ -8,10 +8,6 @@
     private PreferencesIndicatorPage indicator_page = new PreferencesIndicatorPage ();
 
     construct {
-        set_background_switch_state ();
-        general_page.background_switch.notify["active"].connect (() => set_background_switch_state ());
-        indicator_page.status_switch.notify["active"].connect (() => set_background_switch_state ());
-
         height_request = 300;
         width_request = 500;
         set_position (135);
@@ -26,13 +22,5 @@
 
         pack1 (settings_sidebar, true, false);
         pack2 (stack, true, false);
-    }
-
-    private void set_background_switch_state () {
-        general_page.background_switch.sensitive = indicator_page.status_switch.active;
-
-        if (!indicator_page.status_switch.active) {
-            general_page.background_switch.state = false;
-        }
     }
 }

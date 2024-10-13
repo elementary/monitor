@@ -45,15 +45,20 @@
       <summary>To show CPU usage in Monitor Indicator or not</summary>
       <description>To show CPU usage in Monitor Indicator or not</description>
     </key>
+    <key type='b' name="indicator-cpu-frequency-state">
+      <default>false</default>
+      <summary>To show CPU frequency in Monitor Indicator or not</summary>
+      <description>To show CPU frequency in Monitor Indicator or not</description>
+    </key>
+    <key type='b' name="indicator-cpu-temperature-state">
+      <default>true</default>
+      <summary>To show CPU temperature value in Monitor Indicator or not</summary>
+      <description>To show CPU temperature value in Monitor Indicator or not</description>
+    </key>
     <key type='b' name="indicator-memory-state">
       <default>true</default>
       <summary>To show memory usage in Monitor Indicator or not</summary>
       <description>To show memory usage in Monitor Indicator or not</description>
-    </key>
-    <key type='b' name="indicator-temperature-state">
-      <default>true</default>
-      <summary>To show temperature value in Monitor Indicator or not</summary>
-      <description>To show temperature value in Monitor Indicator or not</description>
     </key>
     <key type='b' name="indicator-network-upload-state">
       <default>false</default>
@@ -69,6 +74,11 @@
       <default>false</default>
       <summary>To show GPU used percentage in Monitor Indicator or not</summary>
       <description>To show GPU used percentage in Monitor Indicator or not</description>
+    </key>
+    <key type='b' name="indicator-gpu-memory-state">
+      <default>false</default>
+      <summary>To show GPU memory usage in Monitor Indicator or not</summary>
+      <description>To show GPU memory usage in Monitor Indicator or not</description>
     </key>
     <key type='b' name="indicator-gpu-temperature-state">
       <default>false</default>
@@ -89,11 +99,6 @@
       <default>2</default>
       <summary>Update time</summary>
       <description>This value sets update time for updating data and charts.</description>
-    </key>
-        <key type='b' name="containers-view-state">
-      <default>false</default>
-      <summary>To show Containers view or not</summary>
-      <description>To show Containers view or not</description>
     </key>
   </schema>
 </schemalist>

@@ -3,7 +3,5 @@
   <gresource prefix="/com/github/stsdc/monitor">
     <file alias="monitor-light.css" compressed="true">monitor-light.css</file>
     <file alias="monitor-dark.css" compressed="true">monitor-dark.css</file>
-    <file alias="monitor-retrofit.css" compressed="true">monitor-retrofit.css</file>
-
   </gresource>
 </gresources>

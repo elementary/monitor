@@ -1,3 +1,19 @@
+com.github.stsdc.monitor (0.17.2) jammy; urgency=low
+
+  * Add CPU frequency and VRAM to the indicator
+  * Fix: If card0 is not available try card1
+  * Update Japanese translation
+  * Update French translation
+  * Update Russian translation
+
+ -- Stanisław Dac <stadac@pm.me>  Mon, 09 Sep 2024 16:06:06  +0000
+
+com.github.stsdc.monitor (0.17.1) jammy; urgency=low
+
+  * Fix VRAM percentage
+
+ -- Stanisław Dac <stadac@pm.me>  Tue, 02 Apr 2024 18:16:26  +0000
+
 com.github.stsdc.monitor (0.17.0) jammy; urgency=low
 
   * Add GPU temperature to the Indicator

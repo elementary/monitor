@@ -5,20 +5,12 @@
 
 <h4 align="left">Manage processes and monitor system resources</h4>
 
-<p align="left">
-    <a href="https://github.com/stsdc/monitor/releases">
-        <img src="https://img.shields.io/github/release/stsdc/monitor.svg" alt="Release">
-    </a>
-    <img alt="GitHub Workflow Status" src="https://github.com/stsdc/monitor/actions/workflows/main.yml/badge.svg">
-    <a href="https://copr.fedorainfracloud.org/coprs/stsdc/monitor/package/com.github.stsdc.monitor/"><img src="https://copr.fedorainfracloud.org/coprs/stsdc/monitor/package/com.github.stsdc.monitor/status_image/last_build.png" /></a>
-    <a href="https://github.com/stsdc/monitor/blob/master/LICENSE">
-        <img src="https://img.shields.io/github/license/stsdc/monitor.svg">
-    </a>
-</p>
+[![](https://img.shields.io/github/release/stsdc/monitor.svg)]()
+[![Github Workflow Status](https://github.com/stsdc/monitor/actions/workflows/ci.yml/badge.svg)]()
+[![Translation status](https://l10n.elementary.io/widget/desktop/monitor/svg-badge.svg)](https://l10n.elementary.io/engage/desktop/)
 
 ![Monitor Screenshot](https://github.com/stsdc/monitor/raw/dev/data/screenshots/monitor-processes.png)
 ![Monitor Screenshot](https://github.com/stsdc/monitor/raw/dev/data/screenshots/monitor-system.png)
-![Monitor Screenshot](https://github.com/stsdc/monitor/raw/dev/data/screenshots/monitor-containers.png)
 
 ## Install
 
@@ -38,16 +30,6 @@ sudo apt install com.github.stsdc.monitor
 ```
 
 Monitor will be available from the Applications menu.
-
-### ~~Fedora (36)~~
-
-> [!WARNING]
-> Dropped support due to lack of Pantheon dependencies on COPR.
-
-```bash
-sudo dnf copr enable stsdc/monitor 
-sudo dnf install com.github.stsdc.monitor
-```
 
 ## Development
 
