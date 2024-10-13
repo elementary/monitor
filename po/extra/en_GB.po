@@ -8,297 +8,306 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-12 14:36+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-10-13 07:05+0000\n"
+"Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
+"Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
+"desktop/monitor-extra/en_GB/>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:7
 #: data/com.github.stsdc.monitor.desktop.in:3
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:8
 msgid "Manage processes and monitor system resources"
-msgstr ""
+msgstr "Manage processes and monitor system resources"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:10
 msgid "Display usage of system resources, filter and manage processes."
-msgstr ""
+msgstr "Display usage of system resources, filter and manage processes."
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:25
 msgid "Stanisław Dac"
-msgstr ""
+msgstr "Stanisław Dac"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:33
 msgid "Add info about drives (based on Dirli's code)"
-msgstr ""
+msgstr "Add info about drives (based on Dirli's code)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:38
 msgid "Adds dark theme 🌚"
-msgstr ""
+msgstr "Adds dark theme 🌚"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:43
 msgid "Uses Wingpanel v3; New *.deb package maintainer: Kristopher Ives"
-msgstr ""
+msgstr "Uses Wingpanel v3; New *.deb package maintainer: Kristopher Ives"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:48
 msgid "🐛 Should fix empty Indicator. Please reboot after installation ⚡️"
-msgstr ""
+msgstr "🐛 Should fix empty Indicator. Please reboot after installation ⚡️"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:54
 msgid "🐛 Try to fix frequent GUI hangs 🥶"
-msgstr ""
+msgstr "🐛 Try to fix frequent GUI hangs 🥶"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:55
 msgid "🇳🇱 Update Dutch translation (@Vistaus)"
-msgstr ""
+msgstr "🇳🇱 Update Dutch translation (@Vistaus)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:56
 msgid "🇵🇹 Update Portuguese translation (@hugok79)"
-msgstr ""
+msgstr "🇵🇹 Update Portuguese translation (@hugok79)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:57
 msgid "🇷🇴 Add Romanian translation (@tiberiufrat)"
-msgstr ""
+msgstr "🇷🇴 Add Romanian translation (@tiberiufrat)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:64
 msgid "Display Storage usage"
-msgstr ""
+msgstr "Display Storage usage"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:65
 msgid "Update Russian translation (@camellan)"
-msgstr ""
+msgstr "Update Russian translation (@camellan)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:66
 msgid "Update Portuguese translation (@hugok79)"
-msgstr ""
+msgstr "Update Portuguese translation (@hugok79)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:67
 msgid "Different colours for Upload and Download"
-msgstr ""
+msgstr "Different colours for Upload and Download"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:74
 #: data/com.github.stsdc.monitor.appdata.xml.in:86
 msgid "Update Portuguese translation (@rottenpants466)"
-msgstr ""
+msgstr "Update Portuguese translation (@rottenpants466)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:75
 msgid "Update Dutch translation (@Vistaus)"
-msgstr ""
+msgstr "Update Dutch translation (@Vistaus)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:76
 msgid "Smoother animations (@DevAlien)"
-msgstr ""
+msgstr "Smoother animations (@DevAlien)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:77
 msgid "Preselect first entry so that the info panel is always open (@DevAlien)"
-msgstr ""
+msgstr "Preselect first entry so that the info panel is always open (@DevAlien)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:78
 msgid "Show CPU temperature in the Indicator"
-msgstr ""
+msgstr "Show CPU temperature in the Indicator"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:85
 msgid "Better System Tab"
-msgstr ""
+msgstr "Better System Tab"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:87
 msgid "Save last opened view (@ryonakano)"
-msgstr ""
+msgstr "Save last opened view (@ryonakano)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:94
 #: data/com.github.stsdc.monitor.appdata.xml.in:157
 msgid "Update Japanese translation (Ryo Nakano)"
-msgstr ""
+msgstr "Update Japanese translation (Ryo Nakano)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:95
 msgid "Disable search entry, when System tab is active"
-msgstr ""
+msgstr "Disable search entry, when System tab is active"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:96
 msgid "Add screenshots"
-msgstr ""
+msgstr "Add screenshots"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:103
 msgid "Add System resources tab"
-msgstr ""
+msgstr "Add System resources tab"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:110
 msgid "Added tooltips to process state label (Ryo Nakano)"
-msgstr ""
+msgstr "Added tooltips to process state label (Ryo Nakano)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:111
 msgid "Small bugfix"
-msgstr ""
+msgstr "Small bugfix"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:118
 msgid "Fix sorting arrows"
-msgstr ""
+msgstr "Fix sorting arrows"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:119
 #: data/com.github.stsdc.monitor.appdata.xml.in:155
 #: data/com.github.stsdc.monitor.appdata.xml.in:169
 msgid "Update Russian translation (camellan)"
-msgstr ""
+msgstr "Update Russian translation (camellan)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:120
 msgid "Add Turkish translation (Harun Yasar)"
-msgstr ""
+msgstr "Add Turkish translation (Harun Yasar)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:121
 msgid ""
 "Use newest version of live-chart (Laurent Callarec) ← Check his lib for "
 "creating charts, it's amazing!"
 msgstr ""
+"Use newest version of live-chart (Laurent Callarec) ← Check his lib for "
+"creating charts, it's amazing!"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:128
 msgid "Detailed process info in sidebar"
-msgstr ""
+msgstr "Detailed process info in sidebar"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:129
 msgid "CPU frequency in tooltip (Ryo Nakano)"
-msgstr ""
+msgstr "CPU frequency in tooltip (Ryo Nakano)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:136
 msgid "Bugfix (potential) of crushes and high CPU usage"
-msgstr ""
+msgstr "Bugfix (potential) of crashes and high CPU usage"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:137
 msgid "Update German translation (Carsten Dietrich)"
-msgstr ""
+msgstr "Update German translation (Carsten Dietrich)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:144
 msgid "Update Portuguese translation (Hugo Carvalho)"
-msgstr ""
+msgstr "Update Portuguese translation (Hugo Carvalho)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:145
 msgid "Update French translation (Nathan Bonnemains and Skeudwenn)"
-msgstr ""
+msgstr "Update French translation (Nathan Bonnemains and Skeudwenn)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:146
 msgid "Fix: Don't show swap percentage when it's not available (Ryo Nakano)"
-msgstr ""
+msgstr "Fix: Don't show swap percentage when it's not available (Ryo Nakano)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:153
 msgid "Update Italian translation (Mirko Brombin)"
-msgstr ""
+msgstr "Update Italian translation (Mirko Brombin)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:154
 msgid "Show swap usage (Ryo Nakano)"
-msgstr ""
+msgstr "Show swap usage (Ryo Nakano)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:156
 msgid "Code refactoring (Ryo Nakano)"
-msgstr ""
+msgstr "Code refactoring (Ryo Nakano)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:164
 msgid "Fix contents of the window are not shown (Ryo Nakano)"
-msgstr ""
+msgstr "Fix contents of the window are not shown (Ryo Nakano)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:165
 msgid ""
 "ix no row is still selected when indicator options are enabled (Ryo Nakano)"
 msgstr ""
+"Fix no row is still selected when indicator options are enabled (Ryo Nakano)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:166
 msgid ""
 "Fix the app crashes by clicking the \"End/Kill Process\" buttons when no "
 "process is selected (Ryo Nakano)"
 msgstr ""
+"Fix the app crashes by clicking the \"End/Kill Process\" buttons when no "
+"process is selected (Ryo Nakano)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:167
 msgid "Added buttons to either \"kill\" or \"end\" a process. (Evan Buss)"
-msgstr ""
+msgstr "Added buttons to either \"kill\" or \"end\" a process. (Evan Buss)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:168
 msgid "Change screenshot to English (Christopher Crouse)"
-msgstr ""
+msgstr "Change screenshot to English (Christopher Crouse)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:170
 msgid "Check if the default display is a X11 display (Hannes Schulze)"
-msgstr ""
+msgstr "Check if the default display is a X11 display (Hannes Schulze)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:171
 msgid "Update Spanish translation (Mario Rodrigo)"
-msgstr ""
+msgstr "Update Spanish translation (Mario Rodrigo)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:178
 msgid "Add start-in-background option to UI"
-msgstr ""
+msgstr "Add start-in-background option to UI"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:185
 msgid "Add start-in-background command line option"
-msgstr ""
+msgstr "Add start-in-background command line option"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:186
 msgid "Add Italian and Portuguese translations"
-msgstr ""
+msgstr "Add Italian and Portuguese translations"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:187
 msgid "Update Dutch, French and Spanish translations"
-msgstr ""
+msgstr "Update Dutch, French and Spanish translations"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:188
 msgid "Fix Japanese translation"
-msgstr ""
+msgstr "Fix Japanese translation"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:195
 msgid "Minor bug fix"
-msgstr ""
+msgstr "Minor bug fix"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:196
 msgid "Make End process button red"
-msgstr ""
+msgstr "Make End process button red"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:197
 msgid "Add Japanese translation"
-msgstr ""
+msgstr "Add Japanese translation"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:204
 msgid "Add CPU and RAM icons"
-msgstr ""
+msgstr "Add CPU and RAM icons"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:205
 msgid "Fix bug, that caused hanging"
-msgstr ""
+msgstr "Fix bug, that caused hanging"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:206
 msgid "Update Polish and Russian translation"
-msgstr ""
+msgstr "Update Polish and Russian translation"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:213
 msgid "Add Monitor indicator"
-msgstr ""
+msgstr "Add Monitor indicator"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:214
 msgid "Add missing extra French translations"
-msgstr ""
+msgstr "Add missing extra French translations"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:215
 msgid ""
 "Fix: if icon missing for the process, icon is taken from previous process"
 msgstr ""
+"Fix: if icon missing for the process, icon is taken from previous process"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:216
 msgid "Fix: search erases my input while I'm typing"
-msgstr ""
+msgstr "Fix: search erases my input while I'm typing"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:217
 msgid "Fix POTFILES"
-msgstr ""
+msgstr "Fix POTFILES"
 
 #: data/com.github.stsdc.monitor.desktop.in:4
 msgid "System Monitor"
-msgstr ""
+msgstr "System Monitor"
 
 #: data/com.github.stsdc.monitor.desktop.in:5
 msgid "Manage processes and monitor resource usage of the system"
-msgstr ""
+msgstr "Manage processes and monitor resource usage of the system"
 
 #: data/com.github.stsdc.monitor.desktop.in:12
 msgid "System monitor;System usage;Task manager;"
-msgstr ""
+msgstr "System monitor;System usage;Task manager;"

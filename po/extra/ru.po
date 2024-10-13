@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-12 14:36+0000\n"
-"PO-Revision-Date: 2024-10-11 11:16+0000\n"
+"PO-Revision-Date: 2024-10-13 07:05+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
-"Language-Team: Russian <https://l10n.elementary.io/projects/desktop/monitor-"
-"extra/ru/>\n"
+"Language-Team: Russian <https://l10n.elementary.io/projects/desktop/"
+"monitor-extra/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -142,70 +142,74 @@ msgstr "Добавлена вкладка системных ресурсов"
 #: data/com.github.stsdc.monitor.appdata.xml.in:110
 msgid "Added tooltips to process state label (Ryo Nakano)"
 msgstr ""
+"Добавлены всплывающие подсказки к меткам состояния процессов (Ryo Nakano)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:111
 msgid "Small bugfix"
-msgstr ""
+msgstr "Мелкие исправления"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:118
 msgid "Fix sorting arrows"
-msgstr ""
+msgstr "Исправлены стрелки сортировки"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:119
 #: data/com.github.stsdc.monitor.appdata.xml.in:155
 #: data/com.github.stsdc.monitor.appdata.xml.in:169
 msgid "Update Russian translation (camellan)"
-msgstr ""
+msgstr "Обновлён русский перевод (camellan)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:120
 msgid "Add Turkish translation (Harun Yasar)"
-msgstr ""
+msgstr "Добавлен турецкий перевод (Harun Yasar)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:121
 msgid ""
 "Use newest version of live-chart (Laurent Callarec) ← Check his lib for "
 "creating charts, it's amazing!"
 msgstr ""
+"Используется новейшая библиотека графиков (Laurent Callarec) ← Зацените его "
+"библиотеку для создания графиков, она прекрасна!"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:128
 msgid "Detailed process info in sidebar"
-msgstr ""
+msgstr "Детальная информация о процессах в боковой панели"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:129
 msgid "CPU frequency in tooltip (Ryo Nakano)"
-msgstr ""
+msgstr "Частота ЦП во всплывающей подсказке (Ryo Nakano)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:136
 msgid "Bugfix (potential) of crushes and high CPU usage"
-msgstr ""
+msgstr "Исправление (потенциальных) сбоев и повышенного использования ЦП"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:137
 msgid "Update German translation (Carsten Dietrich)"
-msgstr ""
+msgstr "Обновлён немецкиц перевод (Carsten Dietrich)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:144
 msgid "Update Portuguese translation (Hugo Carvalho)"
-msgstr ""
+msgstr "Обновлён португальский перевод (Hugo Carvalho)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:145
 msgid "Update French translation (Nathan Bonnemains and Skeudwenn)"
-msgstr ""
+msgstr "Обновлён французский перевод (Nathan Bonnemains и Skeudwenn)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:146
 msgid "Fix: Don't show swap percentage when it's not available (Ryo Nakano)"
 msgstr ""
+"Исправление: не отображать процент подкачки, когда он недоступен (Ryo Nakano)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:153
 msgid "Update Italian translation (Mirko Brombin)"
-msgstr ""
+msgstr "Обновлён итальянский перевод (Mirko Brombin)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:154
 msgid "Show swap usage (Ryo Nakano)"
-msgstr ""
+msgstr "Отображение использования подкачки (Ryo Nakano)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:156
 msgid "Code refactoring (Ryo Nakano)"
-msgstr ""
+msgstr "Рефакторинг кода (Ryo Nakano)"
 
 #: data/com.github.stsdc.monitor.appdata.xml.in:164
 msgid "Fix contents of the window are not shown (Ryo Nakano)"
