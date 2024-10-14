@@ -156,8 +156,9 @@ msgstr "新增土耳其語翻譯 (Harun Yasar)"
 msgid ""
 "Use newest version of live-chart (Laurent Callarec) ← Check his lib for "
 "creating charts, it's amazing!"
-msgstr "使用最新版本的 live-chart (Laurent Callarec) ← "
-"請也去看看他的這個函式庫，它非常好用！"
+msgstr ""
+"使用最新版本的 live-chart (Laurent Callarec) ← 請也去看看他的這個函式庫，它非"
+"常好用！"
 
 #: data/io.elementary.monitor.appdata.xml.in:128
 msgid "Detailed process info in sidebar"
@@ -212,7 +213,8 @@ msgstr "修正啟用指示器選項啟用時程序不會被選取的問題 (Ryo 
 msgid ""
 "Fix the app crashes by clicking the \"End/Kill Process\" buttons when no "
 "process is selected (Ryo Nakano)"
-msgstr "修正未選取程序時按下「強制終止程序」或「結束程序」按鈕後應用程式會崩潰的問題 "
+msgstr ""
+"修正未選取程序時按下「強制終止程序」或「結束程序」按鈕後應用程式會崩潰的問題 "
 "(Ryo Nakano)"
 
 #: data/io.elementary.monitor.appdata.xml.in:167
@@ -306,5 +308,6 @@ msgstr "管理程序並監控系統的資源使用量"
 
 #: data/io.elementary.monitor.desktop.in:12
 msgid "System monitor;System usage;Task manager;"
-msgstr "System monitor;System usage;Task "
-"manager;系統監控;程式管理員;工作管理員;系統使用量;"
+msgstr ""
+"System monitor;System usage;Task manager;系統監控;程式管理員;工作管理員;系統"
+"使用量;"

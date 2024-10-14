@@ -99,7 +99,8 @@ msgstr "Smoother animations (@DevAlien)"
 
 #: data/io.elementary.monitor.appdata.xml.in:77
 msgid "Preselect first entry so that the info panel is always open (@DevAlien)"
-msgstr "Preselect first entry so that the info panel is always open (@DevAlien)"
+msgstr ""
+"Preselect first entry so that the info panel is always open (@DevAlien)"
 
 #: data/io.elementary.monitor.appdata.xml.in:78
 msgid "Show CPU temperature in the Indicator"
