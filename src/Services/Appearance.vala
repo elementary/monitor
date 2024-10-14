@@ -10,9 +10,9 @@ public class Monitor.Appearance : Object {
         var provider = new Gtk.CssProvider ();
 
         if (is_dark) {
-            provider.load_from_resource ("/com/github/stsdc/monitor/monitor-dark.css");
+            provider.load_from_resource ("/io/elementary/monitor/monitor-dark.css");
         } else {
-            provider.load_from_resource ("/com/github/stsdc/monitor/monitor-light.css");
+            provider.load_from_resource ("/io/elementary/monitor/monitor-light.css");
         }
 
         Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
@@ -23,9 +23,9 @@ public class Monitor.Appearance : Object {
             gtk_settings.gtk_application_prefer_dark_theme = is_dark;
 
             if (is_dark) {
-                provider.load_from_resource ("/com/github/stsdc/monitor/monitor-dark.css");
+                provider.load_from_resource ("/io/elementary/monitor/monitor-dark.css");
             } else {
-                provider.load_from_resource ("/com/github/stsdc/monitor/monitor-light.css");
+                provider.load_from_resource ("/io/elementary/monitor/monitor-light.css");
             }
         });
     }

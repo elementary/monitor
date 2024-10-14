@@ -10,7 +10,7 @@ import datetime
 print ('Bumping everything to: ' + sys.argv[1])
 
 def bump_spec():
-    SPEC_FILENAME = "../com.github.stsdc.monitor.spec"
+    SPEC_FILENAME = "../io.elementary.monitor.spec"
     spec_content = ''
     with open(SPEC_FILENAME, 'r') as f_spec:
         print('Reading spec file: ' + SPEC_FILENAME)
@@ -43,7 +43,7 @@ def bump_meson():
 def bump_deb_changelog():
     DEB_CHANGELOG_FILENAME = "../debian/changelog"
     now = datetime.datetime.now()
-    deb_changelog_content = f"""com.github.stsdc.monitor ({sys.argv[1]}) jammy; urgency=low\n
+    deb_changelog_content = f"""io.elementary.monitor ({sys.argv[1]}) jammy; urgency=low\n
   * <NEW FEATURE>\n -- Stanisław Dac <stadac@pm.me>  {now.strftime("%a, %d %b %Y %H:%M:%S %z")} +0000\n\n"""
 
     with open(DEB_CHANGELOG_FILENAME, 'r+') as f_deb_changelog:

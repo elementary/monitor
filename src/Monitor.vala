@@ -16,14 +16,14 @@ namespace Monitor {
         // constructor replacement, flags added
         public MonitorApp (bool status_indicator) {
             Object (
-                application_id: "com.github.stsdc.monitor",
+                application_id: "io.elementary.monitor",
                 flags : ApplicationFlags.FLAGS_NONE
             );
             status_background = status_indicator;
         }
 
         static construct {
-            settings = new Settings ("com.github.stsdc.monitor.settings");
+            settings = new Settings ("io.elementary.monitor.settings");
         }
 
         public override void activate () {

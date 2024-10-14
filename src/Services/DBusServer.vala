@@ -1,7 +1,7 @@
-[DBus (name = "com.github.stsdc.monitor")]
+[DBus (name = "io.elementary.monitor")]
 public class Monitor.DBusServer : Object {
-    private const string DBUS_NAME = "com.github.stsdc.monitor";
-    private const string DBUS_PATH = "/com/github/stsdc/monitor";
+    private const string DBUS_NAME = "io.elementary.monitor";
+    private const string DBUS_PATH = "/io/elementary/monitor";
 
     private static GLib.Once<DBusServer> instance;
 
@@ -45,7 +45,7 @@ public class Monitor.DBusServer : Object {
     private void on_bus_aquired (DBusConnection conn) {
         try {
             debug ("DBus registered!");
-            conn.register_object ("/com/github/stsdc/monitor", get_default ());
+            conn.register_object ("/io/elementary/monitor", get_default ());
         } catch (Error e) {
             error (e.message);
         }
@@ -53,7 +53,7 @@ public class Monitor.DBusServer : Object {
 
 }
 
-[DBus (name = "com.github.stsdc.monitor")]
+[DBus (name = "io.elementary.monitor")]
 public errordomain DBusServerError {
     SOME_ERROR
 }

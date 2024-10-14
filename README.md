@@ -1,5 +1,5 @@
 <p align="center">
-    <img align="left" width="64" height="64" src="data/icons/64/com.github.stsdc.monitor.svg">
+    <img align="left" width="64" height="64" src="data/icons/64/io.elementary.monitor.svg">
     <h1 class="rich-diff-level-zero">Monitor</h1>
 </p>
 
@@ -26,7 +26,7 @@ Add the PPA of Monitor and then install it:
 
 ```bash
 sudo add-apt-repository ppa:stsdc/monitor
-sudo apt install com.github.stsdc.monitor
+sudo apt install io.elementary.monitor
 ```
 
 Monitor will be available from the Applications menu.
@@ -63,5 +63,5 @@ Check dependencies in [the deb control file](debian/control).
 ### Debug logging
 
 ```bash
-G_MESSAGES_DEBUG=all GTK_DEBUG=interactive com.github.stsdc.monitor
+G_MESSAGES_DEBUG=all GTK_DEBUG=interactive io.elementary.monitor
 ```

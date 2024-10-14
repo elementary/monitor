@@ -1,4 +1,4 @@
-Source: com.github.stsdc.monitor
+Source: io.elementary.monitor
 Section: utils
 Priority: extra
 Maintainer: Stanisław Dac <stadac@pm.me>
@@ -21,7 +21,7 @@ Build-Depends: meson,
                sassc
 Standards-Version: 4.1.1
 
-Package: com.github.stsdc.monitor
+Package: io.elementary.monitor
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: Manage processes and monitor system resources
