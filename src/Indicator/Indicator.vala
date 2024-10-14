@@ -7,7 +7,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
 
     construct {
         Gtk.IconTheme.get_default ().add_resource_path ("/com/github/stsdc/monitor/icons");
-        settings = new Settings ("com.github.stsdc.monitor.settings");
+        settings = new Settings ("io.elementary.monitor.settings");
         this.visible = false;
         display_widget = new Widgets.DisplayWidget ();
         popover_widget = new Widgets.PopoverWidget ();

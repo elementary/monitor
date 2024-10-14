@@ -9,7 +9,7 @@ obj-*-linux-gnu
 *.debhelper.log
 *.substvars
 *.debhelper
-debian/com.github.stsdc.monitor
+debian/io.elementary.monitor
 debian/files
 # subprojects/*/
 .flatpak-builder

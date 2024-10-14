@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <enum id="com.github.stsdc.monitor.windowstate">
+  <enum id="io.elementary.monitor.windowstate">
     <value value="0" nick="normal"/>
     <value value="1" nick="maximized"/>
   </enum>
-  <schema path="/com/github/stsdc/monitor/settings/" id="com.github.stsdc.monitor.settings">
+  <schema path="/com/github/stsdc/monitor/settings/" id="io.elementary.monitor.settings">
     <key type='b' name="is-maximized">
       <default>false</default>
       <summary>Is window maximized or not</summary>

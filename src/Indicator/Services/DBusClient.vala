@@ -1,4 +1,4 @@
-[DBus (name = "com.github.stsdc.monitor")]
+[DBus (name = "io.elementary.monitor")]
 public interface Monitor.DBusClientInterface : Object {
     public abstract void quit_monitor () throws Error;
     public abstract void show_monitor () throws Error;
@@ -31,13 +31,13 @@ public class Monitor.DBusClient : Object {
         try {
             interface = Bus.get_proxy_sync (
                 BusType.SESSION,
-                "com.github.stsdc.monitor",
+                "io.elementary.monitor",
                 "/com/github/stsdc/monitor"
                 );
 
             Bus.watch_name (
                 BusType.SESSION,
-                "com.github.stsdc.monitor",
+                "io.elementary.monitor",
                 BusNameWatcherFlags.NONE,
                 () => monitor_appeared (),
                 () => monitor_vanished ()

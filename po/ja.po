@@ -1,11 +1,11 @@
-# Japanese translations for com.github.stsdc.monitor package.
-# Copyright (C) 2019 THE com.github.stsdc.monitor'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the com.github.stsdc.monitor package.
+# Japanese translations for io.elementary.monitor package.
+# Copyright (C) 2019 THE io.elementary.monitor'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the io.elementary.monitor package.
 # Ryo Nakano <ryonakaknock3@gmail.com>, 2019-2024.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: com.github.stsdc.monitor\n"
+"Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-12 14:36+0000\n"
 "PO-Revision-Date: 2024-09-07 20:23+0900\n"
