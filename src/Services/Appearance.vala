@@ -23,9 +23,9 @@ public class Monitor.Appearance : Object {
             gtk_settings.gtk_application_prefer_dark_theme = is_dark;
 
             if (is_dark) {
-                provider.load_from_resource ("/com/github/elementary/monitor/monitor-dark.css");
+                provider.load_from_resource ("/io/elementary/monitor/monitor-dark.css");
             } else {
-                provider.load_from_resource ("/com/github/elementary/monitor/monitor-light.css");
+                provider.load_from_resource ("/io/elementary/monitor/monitor-light.css");
             }
         });
     }
