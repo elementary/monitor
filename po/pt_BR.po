@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-12 14:36+0000\n"
-"PO-Revision-Date: 2024-10-14 23:53+0000\n"
+"PO-Revision-Date: 2024-10-15 00:58+0000\n"
 "Last-Translator: Gustavo Silva <g.costasalles@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "desktop/monitor/pt_BR/>\n"
@@ -378,59 +378,59 @@ msgstr "Buffered"
 
 #: src/Views/SystemView/SystemMemoryView.vala:6
 msgid "Cached"
-msgstr ""
+msgstr "Em cache"
 
 #: src/Views/SystemView/SystemMemoryView.vala:7
 msgid "Locked"
-msgstr ""
+msgstr "Bloqueado"
 
 #: src/Views/SystemView/SystemMemoryView.vala:8
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 #: src/Views/SystemView/SystemMemoryView.vala:9
 msgid "Used"
-msgstr ""
+msgstr "Utilizado"
 
 #: src/Views/SystemView/SystemMemoryView.vala:10
 msgid "Shared"
-msgstr ""
+msgstr "Compartilhado"
 
 #: src/Views/SystemView/SystemNetworkView.vala:18
 msgid "Network"
-msgstr ""
+msgstr "Rede"
 
 #: src/Views/SystemView/SystemNetworkView.vala:20
 msgid "DOWN"
-msgstr ""
+msgstr "RECEBIDO"
 
 #: src/Views/SystemView/SystemNetworkView.vala:24
 msgid "UP"
-msgstr ""
+msgstr "ENVIADO"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
 msgid "Storage"
-msgstr ""
+msgstr "Armazenamento"
 
 #: src/Views/SystemView/SystemStorageView.vala:22
 msgid "WRITE"
-msgstr ""
+msgstr "GRAVAR"
 
 #: src/Views/SystemView/SystemStorageView.vala:26
 msgid "READ"
-msgstr ""
+msgstr "LER"
 
 #: src/Views/SystemView/SystemStorageView.vala:92
 msgid "Not mounted"
-msgstr ""
+msgstr "Não montado"
 
 #: src/Views/SystemView/SystemGPUView.vala:12
 msgid "VRAM"
-msgstr ""
+msgstr "VRAM"
 
 #: src/Views/SystemView/SystemGPUView.vala:16
 msgid "TEMPERATURE"
-msgstr ""
+msgstr "TEMPERATURA"
 
 #: src/Widgets/Headerbar/Headerbar.vala:22
 msgid "Settings"
@@ -438,35 +438,35 @@ msgstr ""
 
 #: src/Widgets/Headerbar/Search.vala:12
 msgid "Search Process"
-msgstr ""
+msgstr "Procurar processo"
 
 #: src/Widgets/Headerbar/Search.vala:13
 msgid "Type process name or PID to search"
-msgstr ""
+msgstr "Escreva o nome do processo ou PID para pesquisar"
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
 msgid "Swap"
-msgstr ""
+msgstr "Swap"
 
 #: src/Widgets/Statusbar/Statusbar.vala:21
 msgid "GPU"
-msgstr ""
+msgstr "GPU"
 
 #: src/Widgets/Statusbar/Statusbar.vala:24
 #: src/Widgets/Statusbar/Statusbar.vala:30
 #: src/Widgets/Statusbar/Statusbar.vala:37
 #: src/Widgets/Statusbar/Statusbar.vala:44
 msgid "Calculating…"
-msgstr ""
+msgstr "Calculando…"
 
 #: src/Widgets/Statusbar/Statusbar.vala:51
 msgid "🇺🇦"
-msgstr ""
+msgstr "🇺🇦"
 
 #: src/Widgets/Statusbar/Statusbar.vala:52
 msgid "Check on Github"
-msgstr ""
+msgstr "Confira no Github"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:11
 msgid "UTILIZATION"
-msgstr ""
+msgstr "UTILIZAÇÃO"
