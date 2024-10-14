@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-12 14:36+0000\n"
 "PO-Revision-Date: 2024-10-14 23:51+0000\n"
-"Last-Translator: Gustavo Silva <g.costasalles@gmail.com>\n"
+"Last-Translator: Matheus Torres Carvalho <matheustcarvalho@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "desktop/monitor/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -162,15 +162,15 @@ msgstr "Terminar processo selecionado"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:96
 msgid "Kill Process"
-msgstr ""
+msgstr "Encerrar Processo"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:97
 msgid "Kill selected process"
-msgstr ""
+msgstr "Encerrar processo selecionado"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:107
 msgid "Confirm kill of the process?"
-msgstr ""
+msgstr "Confirma o encerramento do processo?"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:114
 msgid "Confirm end of the process?"
@@ -216,11 +216,11 @@ msgstr "Inicia em segundo plano:"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:27
 msgid "Draw smooth lines on CPU chart (requires restart):"
-msgstr ""
+msgstr "Desenhar linhas suaves no gráfico da CPU (requer reinício):"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:36
 msgid "Update every (requires restart):"
-msgstr ""
+msgstr "Atualizar cada (requer reinício):"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:48
 msgid "1s"
