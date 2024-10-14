@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/com/github/stsdc/monitor/icons">
+  <gresource prefix="/io/elementary/monitor/icons">
     <file compressed="true" preprocess="xml-stripblanks">cpu-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks">gpu-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks">ram-symbolic.svg</file>

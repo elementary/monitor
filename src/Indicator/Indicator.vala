@@ -6,7 +6,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
     private DBusClient dbusclient;
 
     construct {
-        Gtk.IconTheme.get_default ().add_resource_path ("/com/github/stsdc/monitor/icons");
+        Gtk.IconTheme.get_default ().add_resource_path ("/io/elementary/monitor/icons");
         settings = new Settings ("io.elementary.monitor.settings");
         this.visible = false;
         display_widget = new Widgets.DisplayWidget ();

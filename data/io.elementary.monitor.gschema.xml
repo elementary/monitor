@@ -4,7 +4,7 @@
     <value value="0" nick="normal"/>
     <value value="1" nick="maximized"/>
   </enum>
-  <schema path="/com/github/stsdc/monitor/settings/" id="io.elementary.monitor.settings">
+  <schema path="/io/elementary/monitor/settings/" id="io.elementary.monitor.settings">
     <key type='b' name="is-maximized">
       <default>false</default>
       <summary>Is window maximized or not</summary>

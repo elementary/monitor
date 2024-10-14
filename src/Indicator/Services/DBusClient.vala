@@ -32,7 +32,7 @@ public class Monitor.DBusClient : Object {
             interface = Bus.get_proxy_sync (
                 BusType.SESSION,
                 "io.elementary.monitor",
-                "/com/github/stsdc/monitor"
+                "/io/elementary/monitor"
                 );
 
             Bus.watch_name (
