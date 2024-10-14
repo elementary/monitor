@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-12 14:36+0000\n"
-"PO-Revision-Date: 2024-10-14 23:51+0000\n"
+"PO-Revision-Date: 2024-10-14 23:53+0000\n"
 "Last-Translator: Matheus Torres Carvalho <matheustcarvalho@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "desktop/monitor/pt_BR/>\n"
@@ -289,7 +289,7 @@ msgstr "Mostrar temperatura da GPU"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:188
 msgid "Enabled"
-msgstr "Ativado"
+msgstr "Habilitado"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:193
 msgid "Disabled"
@@ -369,11 +369,12 @@ msgstr ""
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:75
 msgid "Address sizes: "
-msgstr ""
+msgstr "Tamanhos dos endereços: "
 
 #: src/Views/SystemView/SystemMemoryView.vala:5
+#, fuzzy
 msgid "Buffered"
-msgstr ""
+msgstr "Buffered"
 
 #: src/Views/SystemView/SystemMemoryView.vala:6
 msgid "Cached"
