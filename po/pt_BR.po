@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-12 14:36+0000\n"
-"PO-Revision-Date: 2024-10-14 23:43+0000\n"
+"PO-Revision-Date: 2024-10-14 23:51+0000\n"
 "Last-Translator: Gustavo Silva <g.costasalles@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "desktop/monitor/pt_BR/>\n"
@@ -134,31 +134,31 @@ msgstr ""
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:18
 msgid "Opened files"
-msgstr ""
+msgstr "Arquivos abertos"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:22
 msgid "Characters"
-msgstr ""
+msgstr "Caracteres"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
 msgid "System calls"
-msgstr ""
+msgstr "Chamadas de sistema"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
 msgid "Read/Written"
-msgstr ""
+msgstr "Leitura/Escrita"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
 msgid "Cancelled write"
-msgstr ""
+msgstr "Escrita cancelada"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:90
 msgid "End Process"
-msgstr ""
+msgstr "Terminar processo"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:92
 msgid "End selected process"
-msgstr ""
+msgstr "Terminar processo selecionado"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:96
 msgid "Kill Process"
@@ -174,7 +174,7 @@ msgstr ""
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:114
 msgid "Confirm end of the process?"
-msgstr ""
+msgstr "Confirmar o fim do processo?"
 
 #. *INDENT-OFF*
 #. vala-lint=space-before-paren,
@@ -182,37 +182,37 @@ msgstr ""
 #. setup name column
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:19
 msgid "Process Name"
-msgstr ""
+msgstr "Nome do processo"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:40
 #: src/Widgets/Statusbar/Statusbar.vala:9
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:51
 #: src/Views/SystemView/SystemMemoryView.vala:13
 #: src/Widgets/Statusbar/Statusbar.vala:13
 msgid "Memory"
-msgstr ""
+msgstr "Memória"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:50
 #, c-format
 msgid "CPU: %.1f%%"
-msgstr ""
+msgstr "CPU: %.1f%%"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:51
 #, c-format
 msgid "RAM: %.1f%%"
-msgstr ""
+msgstr "RAM: %.1f%%"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:13
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:21
 msgid "General"
-msgstr ""
+msgstr "Geral"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:18
 msgid "Start in background:"
-msgstr ""
+msgstr "Inicia em segundo plano:"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:27
 msgid "Draw smooth lines on CPU chart (requires restart):"
@@ -224,72 +224,72 @@ msgstr ""
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:48
 msgid "1s"
-msgstr ""
+msgstr "1s"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:49
 msgid "2s"
-msgstr ""
+msgstr "2s"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:50
 msgid "3s"
-msgstr ""
+msgstr "3s"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:51
 msgid "4s"
-msgstr ""
+msgstr "4s"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:52
 msgid "5s"
-msgstr ""
+msgstr "5s"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
 msgid "Show indicator in Wingpanel"
-msgstr ""
+msgstr "Mostrar indicador no Wingpanel"
 
 #. header: "Simple Pages",
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:15
 msgid "Indicator"
-msgstr ""
+msgstr "Indicador"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:23
 msgid "Display CPU percentage"
-msgstr ""
+msgstr "Mostrar porcentagem do CPU"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:37
 msgid "Display CPU frequency"
-msgstr ""
+msgstr "Mostrar frequência do CPU"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:50
 msgid "Display CPU temperature"
-msgstr ""
+msgstr "Mostrar temperatura do CPU"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:62
 msgid "Display RAM percentage"
-msgstr ""
+msgstr "Mostrar porcentagem da RAM"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:74
 msgid "Display network upload"
-msgstr ""
+msgstr "Mostrar upload de rede"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:86
 msgid "Display network download"
-msgstr ""
+msgstr "Mostrar download de rede"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:98
 msgid "Display GPU percentage"
-msgstr ""
+msgstr "Mostrar porcentagem da GPU"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:110
 msgid "Display VRAM percentage"
-msgstr ""
+msgstr "Mostrar porcentagem da VRAM"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:122
 msgid "Display GPU temperature"
-msgstr ""
+msgstr "Mostrar temperatura da GPU"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:188
 msgid "Enabled"
-msgstr ""
+msgstr "Ativado"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:193
 msgid "Disabled"
