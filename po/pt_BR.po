@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-12 14:36+0000\n"
 "PO-Revision-Date: 2024-10-14 23:53+0000\n"
-"Last-Translator: Matheus Torres Carvalho <matheustcarvalho@hotmail.com>\n"
+"Last-Translator: Gustavo Silva <g.costasalles@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "desktop/monitor/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -297,11 +297,11 @@ msgstr "Desabilitado"
 
 #: src/Views/SystemView/SystemCPUView.vala:17
 msgid "Frequency"
-msgstr ""
+msgstr "Frequência"
 
 #: src/Views/SystemView/SystemCPUView.vala:21
 msgid "Temperature"
-msgstr ""
+msgstr "Temperatura"
 
 #. int temperature_index = 0;
 #. foreach (var temperature in cpu.paths_temperatures.values) {
@@ -312,60 +312,60 @@ msgstr ""
 #: src/Views/SystemView/SystemCPUView.vala:80
 #: src/Views/SystemView/SystemGPUView.vala:79
 msgid "℃"
-msgstr ""
+msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:126
 #: src/Widgets/Statusbar/Statusbar.vala:82
 msgid "GHz"
-msgstr ""
+msgstr "GHz"
 
 #: src/Views/SystemView/SystemCPUView.vala:153
 msgid "THREADS"
-msgstr ""
+msgstr "THREADS"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:22
 msgid "Features"
-msgstr ""
+msgstr "Funcionalidades"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:23
 msgid "Bugs"
-msgstr ""
+msgstr "Bugs"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:51
 msgid "Model:"
-msgstr ""
+msgstr "Modelo:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:52
 msgid "Family:"
-msgstr ""
+msgstr "Família:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:53
 msgid "Microcode ver.:"
-msgstr ""
+msgstr "Microcode ver.:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:54
 msgid "Bogomips:"
-msgstr ""
+msgstr "Bogomips:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:58
 msgid "L1 Instruction cache: "
-msgstr ""
+msgstr "Cache de instruções L1: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:62
 msgid "L1 Data cache: "
-msgstr ""
+msgstr "Cache de dados L1: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:66
 msgid "L1 cache: "
-msgstr ""
+msgstr "Cache L1: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:69
 msgid "L2 Cache size: "
-msgstr ""
+msgstr "Tamanho do cache L2: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:72
 msgid "L3 Cache size: "
-msgstr ""
+msgstr "Tamanho do cache L3: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:75
 msgid "Address sizes: "
