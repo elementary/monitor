@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-12 14:36+0000\n"
-"PO-Revision-Date: 2024-10-09 20:00+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2024-10-15 00:58+0000\n"
+"Last-Translator: Matheus Torres Carvalho <matheustcarvalho@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "desktop/monitor/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -21,11 +21,11 @@ msgstr ""
 
 #: src/MainWindow.vala:26 src/Widgets/Headerbar/Headerbar.vala:14
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 #: src/MainWindow.vala:37
 msgid "Processes"
-msgstr ""
+msgstr "Processos"
 
 #: src/MainWindow.vala:38
 msgid "System"
@@ -41,81 +41,84 @@ msgstr "Sistema"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:34
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:35
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: src/Utils.vala:76
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #: src/Utils.vala:81
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:117
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 #: src/Utils.vala:87
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:122
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 #: src/Utils.vala:92
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:128
 #: src/Widgets/Statusbar/Statusbar.vala:93
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:13
 msgid "Show Monitor"
-msgstr ""
+msgstr "Mostrar Monitor"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:16
 msgid "Quit Monitor"
-msgstr ""
+msgstr "Fechar Monitor"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:20
 msgid "Are you sure you want to do this?"
-msgstr ""
+msgstr "Tem certeza que deseja fazer isso?"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:23
 msgid "Yes"
-msgstr ""
+msgstr "Sim"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:27
 msgid "No"
-msgstr ""
+msgstr "Não"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:42
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:61
 msgid "PID"
-msgstr ""
+msgstr "PID"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:43
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:44
 msgid "PRI"
-msgstr ""
+msgstr "PRI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
 msgid "THR"
-msgstr ""
+msgstr "THR"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:113
 msgid "The app is waiting in an uninterruptible disk sleep"
 msgstr ""
+"O aplicativo está aguardando em um modo de suspensão de disco ininterrupto"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:115
 msgid "Idle kernel thread"
-msgstr ""
+msgstr "Thread de kernel ociosa"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:117
 msgid "The process is running or runnable (on run queue)"
-msgstr ""
+msgstr "O processo está em execução ou pode ser executado (na fila de execução)"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:119
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
 msgstr ""
+"O processo está em uma suspensão interrompível; aguardando a conclusão de um "
+"evento"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:121
 msgid "The process is stopped by a job control signal"
@@ -131,47 +134,47 @@ msgstr ""
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:18
 msgid "Opened files"
-msgstr ""
+msgstr "Arquivos abertos"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:22
 msgid "Characters"
-msgstr ""
+msgstr "Caracteres"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
 msgid "System calls"
-msgstr ""
+msgstr "Chamadas de sistema"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
 msgid "Read/Written"
-msgstr ""
+msgstr "Leitura/Escrita"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
 msgid "Cancelled write"
-msgstr ""
+msgstr "Escrita cancelada"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:90
 msgid "End Process"
-msgstr ""
+msgstr "Terminar processo"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:92
 msgid "End selected process"
-msgstr ""
+msgstr "Terminar processo selecionado"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:96
 msgid "Kill Process"
-msgstr ""
+msgstr "Encerrar Processo"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:97
 msgid "Kill selected process"
-msgstr ""
+msgstr "Encerrar processo selecionado"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:107
 msgid "Confirm kill of the process?"
-msgstr ""
+msgstr "Confirma o encerramento do processo?"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:114
 msgid "Confirm end of the process?"
-msgstr ""
+msgstr "Confirmar o fim do processo?"
 
 #. *INDENT-OFF*
 #. vala-lint=space-before-paren,
@@ -179,114 +182,114 @@ msgstr ""
 #. setup name column
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:19
 msgid "Process Name"
-msgstr ""
+msgstr "Nome do processo"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:40
 #: src/Widgets/Statusbar/Statusbar.vala:9
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:51
 #: src/Views/SystemView/SystemMemoryView.vala:13
 #: src/Widgets/Statusbar/Statusbar.vala:13
 msgid "Memory"
-msgstr ""
+msgstr "Memória"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:50
 #, c-format
 msgid "CPU: %.1f%%"
-msgstr ""
+msgstr "CPU: %.1f%%"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:51
 #, c-format
 msgid "RAM: %.1f%%"
-msgstr ""
+msgstr "RAM: %.1f%%"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:13
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:21
 msgid "General"
-msgstr ""
+msgstr "Geral"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:18
 msgid "Start in background:"
-msgstr ""
+msgstr "Inicia em segundo plano:"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:27
 msgid "Draw smooth lines on CPU chart (requires restart):"
-msgstr ""
+msgstr "Desenhar linhas suaves no gráfico da CPU (requer reinício):"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:36
 msgid "Update every (requires restart):"
-msgstr ""
+msgstr "Atualizar cada (requer reinício):"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:48
 msgid "1s"
-msgstr ""
+msgstr "1s"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:49
 msgid "2s"
-msgstr ""
+msgstr "2s"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:50
 msgid "3s"
-msgstr ""
+msgstr "3s"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:51
 msgid "4s"
-msgstr ""
+msgstr "4s"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:52
 msgid "5s"
-msgstr ""
+msgstr "5s"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
 msgid "Show indicator in Wingpanel"
-msgstr ""
+msgstr "Mostrar indicador no Wingpanel"
 
 #. header: "Simple Pages",
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:15
 msgid "Indicator"
-msgstr ""
+msgstr "Indicador"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:23
 msgid "Display CPU percentage"
-msgstr ""
+msgstr "Mostrar porcentagem do CPU"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:37
 msgid "Display CPU frequency"
-msgstr ""
+msgstr "Mostrar frequência do CPU"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:50
 msgid "Display CPU temperature"
-msgstr ""
+msgstr "Mostrar temperatura do CPU"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:62
 msgid "Display RAM percentage"
-msgstr ""
+msgstr "Mostrar porcentagem da RAM"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:74
 msgid "Display network upload"
-msgstr ""
+msgstr "Mostrar upload de rede"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:86
 msgid "Display network download"
-msgstr ""
+msgstr "Mostrar download de rede"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:98
 msgid "Display GPU percentage"
-msgstr ""
+msgstr "Mostrar porcentagem da GPU"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:110
 msgid "Display VRAM percentage"
-msgstr ""
+msgstr "Mostrar porcentagem da VRAM"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:122
 msgid "Display GPU temperature"
-msgstr ""
+msgstr "Mostrar temperatura da GPU"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:188
 msgid "Enabled"
-msgstr ""
+msgstr "Habilitado"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:193
 msgid "Disabled"
@@ -294,11 +297,11 @@ msgstr "Desabilitado"
 
 #: src/Views/SystemView/SystemCPUView.vala:17
 msgid "Frequency"
-msgstr ""
+msgstr "Frequência"
 
 #: src/Views/SystemView/SystemCPUView.vala:21
 msgid "Temperature"
-msgstr ""
+msgstr "Temperatura"
 
 #. int temperature_index = 0;
 #. foreach (var temperature in cpu.paths_temperatures.values) {
@@ -309,160 +312,161 @@ msgstr ""
 #: src/Views/SystemView/SystemCPUView.vala:80
 #: src/Views/SystemView/SystemGPUView.vala:79
 msgid "℃"
-msgstr ""
+msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:126
 #: src/Widgets/Statusbar/Statusbar.vala:82
 msgid "GHz"
-msgstr ""
+msgstr "GHz"
 
 #: src/Views/SystemView/SystemCPUView.vala:153
 msgid "THREADS"
-msgstr ""
+msgstr "THREADS"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:22
 msgid "Features"
-msgstr ""
+msgstr "Funcionalidades"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:23
 msgid "Bugs"
-msgstr ""
+msgstr "Bugs"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:51
 msgid "Model:"
-msgstr ""
+msgstr "Modelo:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:52
 msgid "Family:"
-msgstr ""
+msgstr "Família:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:53
 msgid "Microcode ver.:"
-msgstr ""
+msgstr "Microcode ver.:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:54
 msgid "Bogomips:"
-msgstr ""
+msgstr "Bogomips:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:58
 msgid "L1 Instruction cache: "
-msgstr ""
+msgstr "Cache de instruções L1: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:62
 msgid "L1 Data cache: "
-msgstr ""
+msgstr "Cache de dados L1: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:66
 msgid "L1 cache: "
-msgstr ""
+msgstr "Cache L1: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:69
 msgid "L2 Cache size: "
-msgstr ""
+msgstr "Tamanho do cache L2: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:72
 msgid "L3 Cache size: "
-msgstr ""
+msgstr "Tamanho do cache L3: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:75
 msgid "Address sizes: "
-msgstr ""
+msgstr "Tamanhos dos endereços: "
 
 #: src/Views/SystemView/SystemMemoryView.vala:5
+#, fuzzy
 msgid "Buffered"
-msgstr ""
+msgstr "Buffered"
 
 #: src/Views/SystemView/SystemMemoryView.vala:6
 msgid "Cached"
-msgstr ""
+msgstr "Em cache"
 
 #: src/Views/SystemView/SystemMemoryView.vala:7
 msgid "Locked"
-msgstr ""
+msgstr "Bloqueado"
 
 #: src/Views/SystemView/SystemMemoryView.vala:8
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 #: src/Views/SystemView/SystemMemoryView.vala:9
 msgid "Used"
-msgstr ""
+msgstr "Utilizado"
 
 #: src/Views/SystemView/SystemMemoryView.vala:10
 msgid "Shared"
-msgstr ""
+msgstr "Compartilhado"
 
 #: src/Views/SystemView/SystemNetworkView.vala:18
 msgid "Network"
-msgstr ""
+msgstr "Rede"
 
 #: src/Views/SystemView/SystemNetworkView.vala:20
 msgid "DOWN"
-msgstr ""
+msgstr "RECEBIDO"
 
 #: src/Views/SystemView/SystemNetworkView.vala:24
 msgid "UP"
-msgstr ""
+msgstr "ENVIADO"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
 msgid "Storage"
-msgstr ""
+msgstr "Armazenamento"
 
 #: src/Views/SystemView/SystemStorageView.vala:22
 msgid "WRITE"
-msgstr ""
+msgstr "GRAVAR"
 
 #: src/Views/SystemView/SystemStorageView.vala:26
 msgid "READ"
-msgstr ""
+msgstr "LER"
 
 #: src/Views/SystemView/SystemStorageView.vala:92
 msgid "Not mounted"
-msgstr ""
+msgstr "Não montado"
 
 #: src/Views/SystemView/SystemGPUView.vala:12
 msgid "VRAM"
-msgstr ""
+msgstr "VRAM"
 
 #: src/Views/SystemView/SystemGPUView.vala:16
 msgid "TEMPERATURE"
-msgstr ""
+msgstr "TEMPERATURA"
 
 #: src/Widgets/Headerbar/Headerbar.vala:22
 msgid "Settings"
-msgstr ""
+msgstr "Definições"
 
 #: src/Widgets/Headerbar/Search.vala:12
 msgid "Search Process"
-msgstr ""
+msgstr "Procurar processo"
 
 #: src/Widgets/Headerbar/Search.vala:13
 msgid "Type process name or PID to search"
-msgstr ""
+msgstr "Escreva o nome do processo ou PID para pesquisar"
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
 msgid "Swap"
-msgstr ""
+msgstr "Swap"
 
 #: src/Widgets/Statusbar/Statusbar.vala:21
 msgid "GPU"
-msgstr ""
+msgstr "GPU"
 
 #: src/Widgets/Statusbar/Statusbar.vala:24
 #: src/Widgets/Statusbar/Statusbar.vala:30
 #: src/Widgets/Statusbar/Statusbar.vala:37
 #: src/Widgets/Statusbar/Statusbar.vala:44
 msgid "Calculating…"
-msgstr ""
+msgstr "Calculando…"
 
 #: src/Widgets/Statusbar/Statusbar.vala:51
 msgid "🇺🇦"
-msgstr ""
+msgstr "🇺🇦"
 
 #: src/Widgets/Statusbar/Statusbar.vala:52
 msgid "Check on Github"
-msgstr ""
+msgstr "Confira no Github"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:11
 msgid "UTILIZATION"
-msgstr ""
+msgstr "UTILIZAÇÃO"
