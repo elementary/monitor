@@ -111,7 +111,8 @@ msgstr "Thread de kernel ociosa"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:117
 msgid "The process is running or runnable (on run queue)"
-msgstr "O processo está em execução ou pode ser executado (na fila de execução)"
+msgstr ""
+"O processo está em execução ou pode ser executado (na fila de execução)"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:119
 msgid ""
