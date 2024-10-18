@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-12 14:36+0000\n"
-"PO-Revision-Date: 2024-10-09 20:00+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2024-10-19 08:35+0000\n"
+"Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/desktop/"
 "monitor/hu/>\n"
 "Language: hu\n"
@@ -21,11 +21,11 @@ msgstr ""
 
 #: src/MainWindow.vala:26 src/Widgets/Headerbar/Headerbar.vala:14
 msgid "Monitor"
-msgstr ""
+msgstr "Rendszerfigyelő"
 
 #: src/MainWindow.vala:37
 msgid "Processes"
-msgstr ""
+msgstr "Folyamatok"
 
 #: src/MainWindow.vala:38
 msgid "System"
@@ -41,27 +41,27 @@ msgstr "Rendszer"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:34
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:35
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: src/Utils.vala:76
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #: src/Utils.vala:81
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:117
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 #: src/Utils.vala:87
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:122
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 #: src/Utils.vala:92
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:128
 #: src/Widgets/Statusbar/Statusbar.vala:93
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:13
 msgid "Show Monitor"
@@ -77,28 +77,28 @@ msgstr ""
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:23
 msgid "Yes"
-msgstr ""
+msgstr "Igen"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:27
 msgid "No"
-msgstr ""
+msgstr "Nem"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:42
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:61
 msgid "PID"
-msgstr ""
+msgstr "PID"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:43
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:44
 msgid "PRI"
-msgstr ""
+msgstr "PRI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
 msgid "THR"
-msgstr ""
+msgstr "THR"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:113
 msgid "The app is waiting in an uninterruptible disk sleep"
