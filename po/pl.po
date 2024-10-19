@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-12 14:36+0000\n"
-"PO-Revision-Date: 2024-10-13 07:05+0000\n"
+"PO-Revision-Date: 2024-10-19 08:35+0000\n"
 "Last-Translator: Marcin Serwin <marcin@serwin.dev>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/desktop/monitor/"
 "pl/>\n"
@@ -344,83 +344,83 @@ msgstr "BogoMips:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:58
 msgid "L1 Instruction cache: "
-msgstr ""
+msgstr "Cache instrukcji L1: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:62
 msgid "L1 Data cache: "
-msgstr ""
+msgstr "Cache danych L1: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:66
 msgid "L1 cache: "
-msgstr ""
+msgstr "Cache L1: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:69
 msgid "L2 Cache size: "
-msgstr ""
+msgstr "Rozmiar Cache L2: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:72
 msgid "L3 Cache size: "
-msgstr ""
+msgstr "Rozmiar Cache L3: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:75
 msgid "Address sizes: "
-msgstr ""
+msgstr "Rozmiary adresów: "
 
 #: src/Views/SystemView/SystemMemoryView.vala:5
 msgid "Buffered"
-msgstr ""
+msgstr "Buforowane"
 
 #: src/Views/SystemView/SystemMemoryView.vala:6
 msgid "Cached"
-msgstr ""
+msgstr "Zcachowane"
 
 #: src/Views/SystemView/SystemMemoryView.vala:7
 msgid "Locked"
-msgstr ""
+msgstr "Zablokowane"
 
 #: src/Views/SystemView/SystemMemoryView.vala:8
 msgid "Total"
-msgstr ""
+msgstr "W sumie"
 
 #: src/Views/SystemView/SystemMemoryView.vala:9
 msgid "Used"
-msgstr ""
+msgstr "Użyte"
 
 #: src/Views/SystemView/SystemMemoryView.vala:10
 msgid "Shared"
-msgstr ""
+msgstr "Współdzielone"
 
 #: src/Views/SystemView/SystemNetworkView.vala:18
 msgid "Network"
-msgstr ""
+msgstr "Sieć"
 
 #: src/Views/SystemView/SystemNetworkView.vala:20
 msgid "DOWN"
-msgstr ""
+msgstr "POBIERANIE"
 
 #: src/Views/SystemView/SystemNetworkView.vala:24
 msgid "UP"
-msgstr ""
+msgstr "WYSYŁANIE"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
 msgid "Storage"
-msgstr ""
+msgstr "Pamięć dyskowa"
 
 #: src/Views/SystemView/SystemStorageView.vala:22
 msgid "WRITE"
-msgstr ""
+msgstr "ZAPISYWANIE"
 
 #: src/Views/SystemView/SystemStorageView.vala:26
 msgid "READ"
-msgstr ""
+msgstr "CZYTANIE"
 
 #: src/Views/SystemView/SystemStorageView.vala:92
 msgid "Not mounted"
-msgstr ""
+msgstr "Niezamontowane"
 
 #: src/Views/SystemView/SystemGPUView.vala:12
 msgid "VRAM"
-msgstr ""
+msgstr "VRAM"
 
 #: src/Views/SystemView/SystemGPUView.vala:16
 msgid "TEMPERATURE"
@@ -440,12 +440,11 @@ msgstr "Wpisz nazwę procesu lub PID"
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
 msgid "Swap"
-msgstr ""
+msgstr "Swap"
 
 #: src/Widgets/Statusbar/Statusbar.vala:21
-#, fuzzy
 msgid "GPU"
-msgstr "CPU"
+msgstr "GPU"
 
 #: src/Widgets/Statusbar/Statusbar.vala:24
 #: src/Widgets/Statusbar/Statusbar.vala:30
@@ -456,15 +455,15 @@ msgstr "Obliczam…"
 
 #: src/Widgets/Statusbar/Statusbar.vala:51
 msgid "🇺🇦"
-msgstr ""
+msgstr "🇺🇦"
 
 #: src/Widgets/Statusbar/Statusbar.vala:52
 msgid "Check on Github"
-msgstr ""
+msgstr "Sprawdź na Githubie"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:11
 msgid "UTILIZATION"
-msgstr ""
+msgstr "WYKORZYSTANIE"
 
 #~ msgid "Deleted"
 #~ msgstr "Usunięto"
