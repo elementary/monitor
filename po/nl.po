@@ -3,14 +3,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-12 14:36+0000\n"
-"PO-Revision-Date: 2022-01-11 14:25+0100\n"
-"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2024-10-22 11:16+0000\n"
+"Last-Translator: DutchVipperloid <svenroelof@e.email>\n"
+"Language-Team: Dutch <https://l10n.elementary.io/projects/desktop/monitor/nl/"
+">\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: src/MainWindow.vala:26 src/Widgets/Headerbar/Headerbar.vala:14
 msgid "Monitor"
@@ -210,36 +212,35 @@ msgstr "Geminimaliseerd opstarten:"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:27
 msgid "Draw smooth lines on CPU chart (requires restart):"
-msgstr ""
+msgstr "Teken vloeiende lijnen op de CPU-grafiek (opnieuw opstarten vereist):"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:36
 msgid "Update every (requires restart):"
-msgstr ""
+msgstr "Update elke (opnieuw opstarten vereist):"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:48
 msgid "1s"
-msgstr ""
+msgstr "1s"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:49
 msgid "2s"
-msgstr ""
+msgstr "2s"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:50
 msgid "3s"
-msgstr ""
+msgstr "3s"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:51
 msgid "4s"
-msgstr ""
+msgstr "4s"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:52
 msgid "5s"
-msgstr ""
+msgstr "5s"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
-#, fuzzy
 msgid "Show indicator in Wingpanel"
-msgstr "Indicator tonen op Wingpanel"
+msgstr "Indicator tonen in Wingpanel"
 
 #. header: "Simple Pages",
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:15
@@ -251,42 +252,36 @@ msgid "Display CPU percentage"
 msgstr "CPU-percentage tonen"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:37
-#, fuzzy
 msgid "Display CPU frequency"
-msgstr "CPU-percentage tonen"
+msgstr "CPU-frequentie tonen"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:50
-#, fuzzy
 msgid "Display CPU temperature"
-msgstr "Temperatuur tonen"
+msgstr "CPU-Temperatuur tonen"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:62
-#, fuzzy
 msgid "Display RAM percentage"
-msgstr "CPU-percentage tonen"
+msgstr "RAM-percentage tonen"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:74
 msgid "Display network upload"
-msgstr "Uploadsnelheid tonen"
+msgstr "Netwerkbelasting tonen"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:86
 msgid "Display network download"
 msgstr "Downloadsnelheid tonen"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:98
-#, fuzzy
 msgid "Display GPU percentage"
-msgstr "CPU-percentage tonen"
+msgstr "GPU-percentage tonen"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:110
-#, fuzzy
 msgid "Display VRAM percentage"
-msgstr "CPU-percentage tonen"
+msgstr "VRAM-percentage tonen"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:122
-#, fuzzy
 msgid "Display GPU temperature"
-msgstr "Temperatuur tonen"
+msgstr "GPU-Temperatuur tonen"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:188
 msgid "Enabled"
@@ -298,12 +293,11 @@ msgstr "Uitgeschakeld"
 
 #: src/Views/SystemView/SystemCPUView.vala:17
 msgid "Frequency"
-msgstr ""
+msgstr "Frequentie"
 
 #: src/Views/SystemView/SystemCPUView.vala:21
-#, fuzzy
 msgid "Temperature"
-msgstr "Temperatuur tonen"
+msgstr "Temperatuur"
 
 #. int temperature_index = 0;
 #. foreach (var temperature in cpu.paths_temperatures.values) {
@@ -380,34 +374,28 @@ msgid "Address sizes: "
 msgstr "Adresgroottes:"
 
 #: src/Views/SystemView/SystemMemoryView.vala:5
-#, fuzzy
 msgid "Buffered"
-msgstr "Gebufferd: "
+msgstr "Gebufferd"
 
 #: src/Views/SystemView/SystemMemoryView.vala:6
-#, fuzzy
 msgid "Cached"
-msgstr "Gecachet: "
+msgstr "Gecachet"
 
 #: src/Views/SystemView/SystemMemoryView.vala:7
-#, fuzzy
 msgid "Locked"
-msgstr "Vergrendeld: "
+msgstr "Vergrendeld"
 
 #: src/Views/SystemView/SystemMemoryView.vala:8
-#, fuzzy
 msgid "Total"
-msgstr "Totaal: "
+msgstr "Totaal"
 
 #: src/Views/SystemView/SystemMemoryView.vala:9
-#, fuzzy
 msgid "Used"
-msgstr "Gebruikt: "
+msgstr "Gebruikt"
 
 #: src/Views/SystemView/SystemMemoryView.vala:10
-#, fuzzy
 msgid "Shared"
-msgstr "Gedeeld: "
+msgstr "Gedeeld"
 
 #: src/Views/SystemView/SystemNetworkView.vala:18
 msgid "Network"
@@ -462,9 +450,8 @@ msgid "Swap"
 msgstr "Wisselgeheugen"
 
 #: src/Widgets/Statusbar/Statusbar.vala:21
-#, fuzzy
 msgid "GPU"
-msgstr "CPU"
+msgstr "GPU"
 
 #: src/Widgets/Statusbar/Statusbar.vala:24
 #: src/Widgets/Statusbar/Statusbar.vala:30
@@ -475,7 +462,7 @@ msgstr "Bezig met berekenen…"
 
 #: src/Widgets/Statusbar/Statusbar.vala:51
 msgid "🇺🇦"
-msgstr ""
+msgstr "🇺🇦"
 
 #: src/Widgets/Statusbar/Statusbar.vala:52
 msgid "Check on Github"
