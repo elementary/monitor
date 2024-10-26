@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-12 14:36+0000\n"
 "PO-Revision-Date: 2024-10-26 17:52+0000\n"
-"Last-Translator: Gustavo Silva <g.costasalles@gmail.com>\n"
+"Last-Translator: Diogo Pessoa <diogopessoabr@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "desktop/monitor-extra/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -114,7 +114,7 @@ msgstr "Melhor sistema de abas"
 
 #: data/io.elementary.monitor.appdata.xml.in:87
 msgid "Save last opened view (@ryonakano)"
-msgstr ""
+msgstr "Salvar última visualização aberta (@ryonakano)"
 
 #: data/io.elementary.monitor.appdata.xml.in:94
 #: data/io.elementary.monitor.appdata.xml.in:157
