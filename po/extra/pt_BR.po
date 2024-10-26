@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-12 14:36+0000\n"
-"PO-Revision-Date: 2024-10-14 23:43+0000\n"
-"Last-Translator: Matheus Torres Carvalho <matheustcarvalho@hotmail.com>\n"
+"PO-Revision-Date: 2024-10-26 17:52+0000\n"
+"Last-Translator: Gustavo Silva <g.costasalles@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "desktop/monitor-extra/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -26,39 +26,40 @@ msgstr "Monitor"
 
 #: data/io.elementary.monitor.appdata.xml.in:8
 msgid "Manage processes and monitor system resources"
-msgstr ""
+msgstr "Gerenciar processos e monitorar recursos do sistema"
 
 #: data/io.elementary.monitor.appdata.xml.in:10
 msgid "Display usage of system resources, filter and manage processes."
-msgstr ""
+msgstr "Mostrar o uso de recursos do sistema, filtrar e gerenciar processos."
 
 #: data/io.elementary.monitor.appdata.xml.in:25
 msgid "Stanisław Dac"
-msgstr ""
+msgstr "Stanisław Dac"
 
 #: data/io.elementary.monitor.appdata.xml.in:33
 msgid "Add info about drives (based on Dirli's code)"
-msgstr ""
+msgstr "Adicionar informação sobre discos (baseado no código de Dirli)"
 
 #: data/io.elementary.monitor.appdata.xml.in:38
 msgid "Adds dark theme 🌚"
-msgstr ""
+msgstr "Adiciona tema escuro 🌚"
 
 #: data/io.elementary.monitor.appdata.xml.in:43
 msgid "Uses Wingpanel v3; New *.deb package maintainer: Kristopher Ives"
-msgstr ""
+msgstr "Usa Wingpanel v3; Novo mantenedor *.deb: Kristopher Ives"
 
 #: data/io.elementary.monitor.appdata.xml.in:48
 msgid "🐛 Should fix empty Indicator. Please reboot after installation ⚡️"
 msgstr ""
+"🐛 Deve consertar indicador vazio. Por favor, reinicie após a instalação ⚡️"
 
 #: data/io.elementary.monitor.appdata.xml.in:54
 msgid "🐛 Try to fix frequent GUI hangs 🥶"
-msgstr ""
+msgstr "🐛 Tenta consertar travamentos de interface frequentes 🥶"
 
 #: data/io.elementary.monitor.appdata.xml.in:55
 msgid "🇳🇱 Update Dutch translation (@Vistaus)"
-msgstr ""
+msgstr "🇳🇱 Tradução neerlandesa atualizada (@Vistaus)"
 
 #: data/io.elementary.monitor.appdata.xml.in:56
 msgid "🇵🇹 Update Portuguese translation (@hugok79)"
@@ -66,15 +67,15 @@ msgstr ""
 
 #: data/io.elementary.monitor.appdata.xml.in:57
 msgid "🇷🇴 Add Romanian translation (@tiberiufrat)"
-msgstr ""
+msgstr "🇷🇴 Adicionada tradução em Romeno (@tiberiufrat)"
 
 #: data/io.elementary.monitor.appdata.xml.in:64
 msgid "Display Storage usage"
-msgstr ""
+msgstr "Mostra uso de armazenamento"
 
 #: data/io.elementary.monitor.appdata.xml.in:65
 msgid "Update Russian translation (@camellan)"
-msgstr ""
+msgstr "Atualiza tradução Russa (@camellan)"
 
 #: data/io.elementary.monitor.appdata.xml.in:66
 msgid "Update Portuguese translation (@hugok79)"
@@ -82,7 +83,7 @@ msgstr ""
 
 #: data/io.elementary.monitor.appdata.xml.in:67
 msgid "Different colours for Upload and Download"
-msgstr ""
+msgstr "Cores diferentes para Upload e Download"
 
 #: data/io.elementary.monitor.appdata.xml.in:74
 #: data/io.elementary.monitor.appdata.xml.in:86
@@ -91,23 +92,25 @@ msgstr ""
 
 #: data/io.elementary.monitor.appdata.xml.in:75
 msgid "Update Dutch translation (@Vistaus)"
-msgstr ""
+msgstr "Atualiza tradução neerlandesa (@Vistaus)"
 
 #: data/io.elementary.monitor.appdata.xml.in:76
 msgid "Smoother animations (@DevAlien)"
-msgstr ""
+msgstr "Animações mais suaves (@DevAlien)"
 
 #: data/io.elementary.monitor.appdata.xml.in:77
 msgid "Preselect first entry so that the info panel is always open (@DevAlien)"
 msgstr ""
+"Pré-seleciona a primeira entrada para que o painel de informações esteja "
+"sempre aberto (@DevAlien)"
 
 #: data/io.elementary.monitor.appdata.xml.in:78
 msgid "Show CPU temperature in the Indicator"
-msgstr ""
+msgstr "Mostra a temperatura de CPU no indicador"
 
 #: data/io.elementary.monitor.appdata.xml.in:85
 msgid "Better System Tab"
-msgstr ""
+msgstr "Melhor sistema de abas"
 
 #: data/io.elementary.monitor.appdata.xml.in:87
 msgid "Save last opened view (@ryonakano)"
@@ -116,19 +119,19 @@ msgstr ""
 #: data/io.elementary.monitor.appdata.xml.in:94
 #: data/io.elementary.monitor.appdata.xml.in:157
 msgid "Update Japanese translation (Ryo Nakano)"
-msgstr ""
+msgstr "Atualiza tradução japonesa (Ryo Nakano)"
 
 #: data/io.elementary.monitor.appdata.xml.in:95
 msgid "Disable search entry, when System tab is active"
-msgstr ""
+msgstr "Desabilita entrada de pesquisa, quando a aba Sistema está ativa."
 
 #: data/io.elementary.monitor.appdata.xml.in:96
 msgid "Add screenshots"
-msgstr ""
+msgstr "Adiciona capturas de tela"
 
 #: data/io.elementary.monitor.appdata.xml.in:103
 msgid "Add System resources tab"
-msgstr ""
+msgstr "Adiciona aba de recursos de Sistema"
 
 #: data/io.elementary.monitor.appdata.xml.in:110
 msgid "Added tooltips to process state label (Ryo Nakano)"
@@ -136,31 +139,33 @@ msgstr ""
 
 #: data/io.elementary.monitor.appdata.xml.in:111
 msgid "Small bugfix"
-msgstr ""
+msgstr "Pequenas correções de bugs"
 
 #: data/io.elementary.monitor.appdata.xml.in:118
 msgid "Fix sorting arrows"
-msgstr ""
+msgstr "Conserta setas de ordenação"
 
 #: data/io.elementary.monitor.appdata.xml.in:119
 #: data/io.elementary.monitor.appdata.xml.in:155
 #: data/io.elementary.monitor.appdata.xml.in:169
 msgid "Update Russian translation (camellan)"
-msgstr ""
+msgstr "Atualiza tradução russa (camellan)"
 
 #: data/io.elementary.monitor.appdata.xml.in:120
 msgid "Add Turkish translation (Harun Yasar)"
-msgstr ""
+msgstr "Adiciona tradução turca (Harun Yasar)"
 
 #: data/io.elementary.monitor.appdata.xml.in:121
 msgid ""
 "Use newest version of live-chart (Laurent Callarec) ← Check his lib for "
 "creating charts, it's amazing!"
 msgstr ""
+"Usa a versão mais recente do live-chart (Laurent Callarec) ← Dê uma olhada "
+"na biblioteca de criação de gráficos dele, é incrível!"
 
 #: data/io.elementary.monitor.appdata.xml.in:128
 msgid "Detailed process info in sidebar"
-msgstr ""
+msgstr "Informações de processo detalhadas na barra lateral"
 
 #: data/io.elementary.monitor.appdata.xml.in:129
 msgid "CPU frequency in tooltip (Ryo Nakano)"
@@ -168,11 +173,11 @@ msgstr ""
 
 #: data/io.elementary.monitor.appdata.xml.in:136
 msgid "Bugfix (potential) of crushes and high CPU usage"
-msgstr ""
+msgstr "Correção (potencial) de falhas e alto uso de CPU"
 
 #: data/io.elementary.monitor.appdata.xml.in:137
 msgid "Update German translation (Carsten Dietrich)"
-msgstr ""
+msgstr "Atualiza tradução alemã (Carsten Dietrich)"
 
 #: data/io.elementary.monitor.appdata.xml.in:144
 msgid "Update Portuguese translation (Hugo Carvalho)"
@@ -180,27 +185,29 @@ msgstr ""
 
 #: data/io.elementary.monitor.appdata.xml.in:145
 msgid "Update French translation (Nathan Bonnemains and Skeudwenn)"
-msgstr ""
+msgstr "Atualiza tradução francesa (Nathan Bonnemains and Skeudwenn)"
 
 #: data/io.elementary.monitor.appdata.xml.in:146
 msgid "Fix: Don't show swap percentage when it's not available (Ryo Nakano)"
 msgstr ""
+"Correção: Não mostra a porcentagem de swap quando não está disponível (Ryo "
+"Nakano)"
 
 #: data/io.elementary.monitor.appdata.xml.in:153
 msgid "Update Italian translation (Mirko Brombin)"
-msgstr ""
+msgstr "Atualiza tradução italiana (Mirko Brombin)"
 
 #: data/io.elementary.monitor.appdata.xml.in:154
 msgid "Show swap usage (Ryo Nakano)"
-msgstr ""
+msgstr "Mostra uso de swap (Ryo Nakano)"
 
 #: data/io.elementary.monitor.appdata.xml.in:156
 msgid "Code refactoring (Ryo Nakano)"
-msgstr ""
+msgstr "Refatoração do código (Ryo Nakano)"
 
 #: data/io.elementary.monitor.appdata.xml.in:164
 msgid "Fix contents of the window are not shown (Ryo Nakano)"
-msgstr ""
+msgstr "Corrige conteúdos da janela que não são mostrados (Ryo Nakano)"
 
 #: data/io.elementary.monitor.appdata.xml.in:165
 msgid ""
@@ -212,6 +219,8 @@ msgid ""
 "Fix the app crashes by clicking the \"End/Kill Process\" buttons when no "
 "process is selected (Ryo Nakano)"
 msgstr ""
+"Corrige falhas no aplicativo quando clicava no botão \"Finalizar/Matar "
+"processo\" quando nenhum processo está selecionado (Ryo Nakano)"
 
 #: data/io.elementary.monitor.appdata.xml.in:167
 msgid "Added buttons to either \"kill\" or \"end\" a process. (Evan Buss)"
@@ -219,11 +228,11 @@ msgstr ""
 
 #: data/io.elementary.monitor.appdata.xml.in:168
 msgid "Change screenshot to English (Christopher Crouse)"
-msgstr ""
+msgstr "Muda captura de tela para inglês (Christopher Crouse)"
 
 #: data/io.elementary.monitor.appdata.xml.in:170
 msgid "Check if the default display is a X11 display (Hannes Schulze)"
-msgstr ""
+msgstr "Checa se o monitor padrão é um monitor X11 (Hannes Schulze)"
 
 #: data/io.elementary.monitor.appdata.xml.in:171
 msgid "Update Spanish translation (Mario Rodrigo)"
