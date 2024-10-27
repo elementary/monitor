@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-12 14:36+0000\n"
-"PO-Revision-Date: 2024-10-27 18:34+0000\n"
+"PO-Revision-Date: 2024-10-27 22:54+0000\n"
 "Last-Translator: Diogo Pessoa <diogopessoabr@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "desktop/monitor-extra/pt_BR/>\n"
@@ -240,51 +240,51 @@ msgstr "Tradução em Espanhol atualizada (Mario Rodrigo)"
 
 #: data/io.elementary.monitor.appdata.xml.in:178
 msgid "Add start-in-background option to UI"
-msgstr ""
+msgstr "Adiciona opção de iniciar em segundo plano à interface do usuário"
 
 #: data/io.elementary.monitor.appdata.xml.in:185
 msgid "Add start-in-background command line option"
-msgstr ""
+msgstr "Adiciona a opção de linha de comando para iniciar em segundo plano"
 
 #: data/io.elementary.monitor.appdata.xml.in:186
 msgid "Add Italian and Portuguese translations"
-msgstr ""
+msgstr "Adiciona traduções em Italiano e Português"
 
 #: data/io.elementary.monitor.appdata.xml.in:187
 msgid "Update Dutch, French and Spanish translations"
-msgstr ""
+msgstr "Atualiza traduções em Holandês, Francês e Espanhol"
 
 #: data/io.elementary.monitor.appdata.xml.in:188
 msgid "Fix Japanese translation"
-msgstr ""
+msgstr "Corrige a tradução Japonesa"
 
 #: data/io.elementary.monitor.appdata.xml.in:195
 msgid "Minor bug fix"
-msgstr ""
+msgstr "Pequena correção de bug"
 
 #: data/io.elementary.monitor.appdata.xml.in:196
 msgid "Make End process button red"
-msgstr ""
+msgstr "Tornar o botão Encerrar processo vermelho"
 
 #: data/io.elementary.monitor.appdata.xml.in:197
 msgid "Add Japanese translation"
-msgstr ""
+msgstr "Adiciona tradução Japonesa"
 
 #: data/io.elementary.monitor.appdata.xml.in:204
 msgid "Add CPU and RAM icons"
-msgstr ""
+msgstr "Adiciona ícones de CPU e memória RAM"
 
 #: data/io.elementary.monitor.appdata.xml.in:205
 msgid "Fix bug, that caused hanging"
-msgstr ""
+msgstr "Corrige bug que causava travamento"
 
 #: data/io.elementary.monitor.appdata.xml.in:206
 msgid "Update Polish and Russian translation"
-msgstr ""
+msgstr "Tradução de Polonês e Russo atualizado"
 
 #: data/io.elementary.monitor.appdata.xml.in:213
 msgid "Add Monitor indicator"
-msgstr ""
+msgstr "Adiciona indicador do Monitor"
 
 #: data/io.elementary.monitor.appdata.xml.in:214
 msgid "Add missing extra French translations"
