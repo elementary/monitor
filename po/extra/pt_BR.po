@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-12 14:36+0000\n"
-"PO-Revision-Date: 2024-10-26 17:52+0000\n"
-"Last-Translator: Diogo Pessoa <diogopessoabr@gmail.com>\n"
+"PO-Revision-Date: 2024-10-27 14:18+0000\n"
+"Last-Translator: Gustavo Silva <g.costasalles@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "desktop/monitor-extra/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -63,7 +63,7 @@ msgstr "🇳🇱 Tradução neerlandesa atualizada (@Vistaus)"
 
 #: data/io.elementary.monitor.appdata.xml.in:56
 msgid "🇵🇹 Update Portuguese translation (@hugok79)"
-msgstr ""
+msgstr "🇵🇹 Tradução portuguesa de Portugal atualizada (@hugok79)"
 
 #: data/io.elementary.monitor.appdata.xml.in:57
 msgid "🇷🇴 Add Romanian translation (@tiberiufrat)"
@@ -79,7 +79,7 @@ msgstr "Atualiza tradução Russa (@camellan)"
 
 #: data/io.elementary.monitor.appdata.xml.in:66
 msgid "Update Portuguese translation (@hugok79)"
-msgstr ""
+msgstr "Atualiza tradução portuguesa de Portugal (@hugok79)"
 
 #: data/io.elementary.monitor.appdata.xml.in:67
 msgid "Different colours for Upload and Download"
