@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-12 14:36+0000\n"
 "PO-Revision-Date: 2024-10-27 14:19+0000\n"
-"Last-Translator: Diogo Pessoa <diogopessoabr@gmail.com>\n"
+"Last-Translator: Gustavo Silva <g.costasalles@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "desktop/monitor-extra/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -88,7 +88,7 @@ msgstr "Cores diferentes para Upload e Download"
 #: data/io.elementary.monitor.appdata.xml.in:74
 #: data/io.elementary.monitor.appdata.xml.in:86
 msgid "Update Portuguese translation (@rottenpants466)"
-msgstr ""
+msgstr "Atualiza tradução portuguesa de Portugal (@rottenpants466)"
 
 #: data/io.elementary.monitor.appdata.xml.in:75
 msgid "Update Dutch translation (@Vistaus)"
