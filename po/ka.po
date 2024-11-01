@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-12 14:36+0000\n"
-"PO-Revision-Date: 2024-10-09 20:00+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2024-11-01 03:29+0000\n"
+"Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/desktop/monitor/"
 "ka/>\n"
 "Language: ka\n"
@@ -21,11 +21,11 @@ msgstr ""
 
 #: src/MainWindow.vala:26 src/Widgets/Headerbar/Headerbar.vala:14
 msgid "Monitor"
-msgstr ""
+msgstr "ეკრანი"
 
 #: src/MainWindow.vala:37
 msgid "Processes"
-msgstr ""
+msgstr "პროცესები"
 
 #: src/MainWindow.vala:38
 msgid "System"
@@ -41,27 +41,27 @@ msgstr "სისტემა"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:34
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:35
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: src/Utils.vala:76
 msgid "B"
-msgstr ""
+msgstr "ბ"
 
 #: src/Utils.vala:81
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:117
 msgid "KiB"
-msgstr ""
+msgstr "კიბ"
 
 #: src/Utils.vala:87
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:122
 msgid "MiB"
-msgstr ""
+msgstr "მიბ"
 
 #: src/Utils.vala:92
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:128
 #: src/Widgets/Statusbar/Statusbar.vala:93
 msgid "GiB"
-msgstr ""
+msgstr "გიბ"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:13
 msgid "Show Monitor"
@@ -77,28 +77,28 @@ msgstr ""
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:23
 msgid "Yes"
-msgstr ""
+msgstr "დიახ"
 
 #: src/Views/ProcessView/ProcessInfoView/Preventor.vala:27
 msgid "No"
-msgstr ""
+msgstr "არა"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:42
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:61
 msgid "PID"
-msgstr ""
+msgstr "PID"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:43
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:44
 msgid "PRI"
-msgstr ""
+msgstr "PRI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
 msgid "THR"
-msgstr ""
+msgstr "THR"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:113
 msgid "The app is waiting in an uninterruptible disk sleep"
@@ -135,7 +135,7 @@ msgstr ""
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:22
 msgid "Characters"
-msgstr ""
+msgstr "სიმბოლო"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
 msgid "System calls"
@@ -143,7 +143,7 @@ msgstr ""
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
 msgid "Read/Written"
-msgstr ""
+msgstr "წაკითხული/ჩაწერილი"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
 msgid "Cancelled write"
@@ -184,13 +184,13 @@ msgstr ""
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:40
 #: src/Widgets/Statusbar/Statusbar.vala:9
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:51
 #: src/Views/SystemView/SystemMemoryView.vala:13
 #: src/Widgets/Statusbar/Statusbar.vala:13
 msgid "Memory"
-msgstr ""
+msgstr "მეხსიერება"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:50
 #, c-format
@@ -205,7 +205,7 @@ msgstr ""
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:13
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:21
 msgid "General"
-msgstr ""
+msgstr "საერთო"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:18
 msgid "Start in background:"
@@ -221,23 +221,23 @@ msgstr ""
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:48
 msgid "1s"
-msgstr ""
+msgstr "1წმ"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:49
 msgid "2s"
-msgstr ""
+msgstr "2წმ"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:50
 msgid "3s"
-msgstr ""
+msgstr "3წმ"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:51
 msgid "4s"
-msgstr ""
+msgstr "4წმ"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:52
 msgid "5s"
-msgstr ""
+msgstr "5წმ"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
 msgid "Show indicator in Wingpanel"
@@ -246,7 +246,7 @@ msgstr ""
 #. header: "Simple Pages",
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:15
 msgid "Indicator"
-msgstr ""
+msgstr "მაჩვენებელი"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:23
 msgid "Display CPU percentage"
@@ -286,7 +286,7 @@ msgstr ""
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:188
 msgid "Enabled"
-msgstr ""
+msgstr "ჩართულია"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:193
 msgid "Disabled"
@@ -294,11 +294,11 @@ msgstr "გამორთულია"
 
 #: src/Views/SystemView/SystemCPUView.vala:17
 msgid "Frequency"
-msgstr ""
+msgstr "სიხშირე"
 
 #: src/Views/SystemView/SystemCPUView.vala:21
 msgid "Temperature"
-msgstr ""
+msgstr "ტემპერატურა"
 
 #. int temperature_index = 0;
 #. foreach (var temperature in cpu.paths_temperatures.values) {
@@ -309,32 +309,32 @@ msgstr ""
 #: src/Views/SystemView/SystemCPUView.vala:80
 #: src/Views/SystemView/SystemGPUView.vala:79
 msgid "℃"
-msgstr ""
+msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:126
 #: src/Widgets/Statusbar/Statusbar.vala:82
 msgid "GHz"
-msgstr ""
+msgstr "გჰც"
 
 #: src/Views/SystemView/SystemCPUView.vala:153
 msgid "THREADS"
-msgstr ""
+msgstr "ნაკადები"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:22
 msgid "Features"
-msgstr ""
+msgstr "ფუნქციები"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:23
 msgid "Bugs"
-msgstr ""
+msgstr "შეცდომები"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:51
 msgid "Model:"
-msgstr ""
+msgstr "მოდელი:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:52
 msgid "Family:"
-msgstr ""
+msgstr "ოჯახი:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:53
 msgid "Microcode ver.:"
@@ -342,7 +342,7 @@ msgstr ""
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:54
 msgid "Bogomips:"
-msgstr ""
+msgstr "მილ. ოპერაცია წამში:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:58
 msgid "L1 Instruction cache: "
@@ -370,51 +370,51 @@ msgstr ""
 
 #: src/Views/SystemView/SystemMemoryView.vala:5
 msgid "Buffered"
-msgstr ""
+msgstr "ბუფერიდან"
 
 #: src/Views/SystemView/SystemMemoryView.vala:6
 msgid "Cached"
-msgstr ""
+msgstr "კეშიდან"
 
 #: src/Views/SystemView/SystemMemoryView.vala:7
 msgid "Locked"
-msgstr ""
+msgstr "დაბლოკილი"
 
 #: src/Views/SystemView/SystemMemoryView.vala:8
 msgid "Total"
-msgstr ""
+msgstr "ჯამში"
 
 #: src/Views/SystemView/SystemMemoryView.vala:9
 msgid "Used"
-msgstr ""
+msgstr "გამოყენებული"
 
 #: src/Views/SystemView/SystemMemoryView.vala:10
 msgid "Shared"
-msgstr ""
+msgstr "გაზიარებული"
 
 #: src/Views/SystemView/SystemNetworkView.vala:18
 msgid "Network"
-msgstr ""
+msgstr "ქსელი"
 
 #: src/Views/SystemView/SystemNetworkView.vala:20
 msgid "DOWN"
-msgstr ""
+msgstr "გათიშ"
 
 #: src/Views/SystemView/SystemNetworkView.vala:24
 msgid "UP"
-msgstr ""
+msgstr "ჩართ"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
 msgid "Storage"
-msgstr ""
+msgstr "საცავი"
 
 #: src/Views/SystemView/SystemStorageView.vala:22
 msgid "WRITE"
-msgstr ""
+msgstr "ჩაწერა"
 
 #: src/Views/SystemView/SystemStorageView.vala:26
 msgid "READ"
-msgstr ""
+msgstr "წაკითხვა"
 
 #: src/Views/SystemView/SystemStorageView.vala:92
 msgid "Not mounted"
@@ -422,15 +422,15 @@ msgstr ""
 
 #: src/Views/SystemView/SystemGPUView.vala:12
 msgid "VRAM"
-msgstr ""
+msgstr "VRAM"
 
 #: src/Views/SystemView/SystemGPUView.vala:16
 msgid "TEMPERATURE"
-msgstr ""
+msgstr "ტემპერატურა"
 
 #: src/Widgets/Headerbar/Headerbar.vala:22
 msgid "Settings"
-msgstr ""
+msgstr "მორგება"
 
 #: src/Widgets/Headerbar/Search.vala:12
 msgid "Search Process"
@@ -442,22 +442,22 @@ msgstr ""
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
 msgid "Swap"
-msgstr ""
+msgstr "სვოპი"
 
 #: src/Widgets/Statusbar/Statusbar.vala:21
 msgid "GPU"
-msgstr ""
+msgstr "GPU"
 
 #: src/Widgets/Statusbar/Statusbar.vala:24
 #: src/Widgets/Statusbar/Statusbar.vala:30
 #: src/Widgets/Statusbar/Statusbar.vala:37
 #: src/Widgets/Statusbar/Statusbar.vala:44
 msgid "Calculating…"
-msgstr ""
+msgstr "გამოთვლა…"
 
 #: src/Widgets/Statusbar/Statusbar.vala:51
 msgid "🇺🇦"
-msgstr ""
+msgstr "🇺🇦"
 
 #: src/Widgets/Statusbar/Statusbar.vala:52
 msgid "Check on Github"
@@ -465,4 +465,4 @@ msgstr ""
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:11
 msgid "UTILIZATION"
-msgstr ""
+msgstr "გამოიყენება"
