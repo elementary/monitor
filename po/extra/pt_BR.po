@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-04 19:51+0000\n"
-"PO-Revision-Date: 2024-10-27 22:54+0000\n"
-"Last-Translator: Diogo Pessoa <diogopessoabr@gmail.com>\n"
+"PO-Revision-Date: 2024-11-04 22:22+0000\n"
+"Last-Translator: Guilherme Faura <guilhermefaura@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "desktop/monitor-extra/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -288,28 +288,30 @@ msgstr "Adiciona indicador do Monitor"
 
 #: data/io.elementary.monitor.appdata.xml.in:214
 msgid "Add missing extra French translations"
-msgstr ""
+msgstr "Adicionar traduções extras em francês que faltam"
 
 #: data/io.elementary.monitor.appdata.xml.in:215
 msgid ""
 "Fix: if icon missing for the process, icon is taken from previous process"
 msgstr ""
+"Correção: se o ícone estiver faltando no processo, o ícone será retirado do "
+"processo anterior"
 
 #: data/io.elementary.monitor.appdata.xml.in:216
 msgid "Fix: search erases my input while I'm typing"
-msgstr ""
+msgstr "Correção: a pesquisa apaga minha entrada enquanto estou digitando"
 
 #: data/io.elementary.monitor.appdata.xml.in:217
 msgid "Fix POTFILES"
-msgstr ""
+msgstr "Corrigir POTFILES"
 
 #: data/io.elementary.monitor.desktop.in:4
 msgid "System Monitor"
-msgstr ""
+msgstr "Monitor do sistema"
 
 #: data/io.elementary.monitor.desktop.in:5
 msgid "Manage processes and monitor resource usage of the system"
-msgstr ""
+msgstr "Gerencie processos e monitore o uso de recursos do sistema"
 
 #: data/io.elementary.monitor.desktop.in:12
 msgid "System monitor;System usage;Task manager;"
