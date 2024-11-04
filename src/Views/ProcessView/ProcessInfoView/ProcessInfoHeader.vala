@@ -120,7 +120,7 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         case "T":
             return _("The process is stopped by a job control signal");
         case "t":
-            return _("The process is stopped stopped by a debugger during the tracing");
+            return _("The process is stopped by a debugger during the tracing");
         case "Z":
             return _("The app is terminated but not reaped by its parent");
         default:
