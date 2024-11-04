@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-12 14:36+0000\n"
+"POT-Creation-Date: 2024-11-04 19:51+0000\n"
 "PO-Revision-Date: 2024-10-22 11:16+0000\n"
 "Last-Translator: DutchVipperloid <svenroelof@e.email>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/desktop/monitor/nl/"
@@ -119,7 +119,9 @@ msgid "The process is stopped by a job control signal"
 msgstr "Het proces is afgebroken door een taaksignaal"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:123
-msgid "The process is stopped stopped by a debugger during the tracing"
+#, fuzzy
+#| msgid "The process is stopped stopped by a debugger during the tracing"
+msgid "The process is stopped by a debugger during the tracing"
 msgstr "Het proces is afgebroken door een foutopsporingstoepassing"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:125

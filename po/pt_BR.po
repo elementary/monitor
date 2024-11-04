@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-12 14:36+0000\n"
+"POT-Creation-Date: 2024-11-04 19:51+0000\n"
 "PO-Revision-Date: 2024-10-27 18:34+0000\n"
 "Last-Translator: Gustavo Silva <g.costasalles@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
@@ -126,7 +126,9 @@ msgid "The process is stopped by a job control signal"
 msgstr "O processo está parado por um sinal de controle de trabalho"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:123
-msgid "The process is stopped stopped by a debugger during the tracing"
+#, fuzzy
+#| msgid "The process is stopped stopped by a debugger during the tracing"
+msgid "The process is stopped by a debugger during the tracing"
 msgstr "O processo é interrompido por um depurador durante o rastreio"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:125

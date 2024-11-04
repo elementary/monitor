@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-12 14:36+0000\n"
+"POT-Creation-Date: 2024-11-04 19:51+0000\n"
 "PO-Revision-Date: 2024-10-22 11:16+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/desktop/"
@@ -124,7 +124,9 @@ msgid "The process is stopped by a job control signal"
 msgstr "A folyamat le lett állítva egy feladatvezérlő jel által"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:123
-msgid "The process is stopped stopped by a debugger during the tracing"
+#, fuzzy
+#| msgid "The process is stopped stopped by a debugger during the tracing"
+msgid "The process is stopped by a debugger during the tracing"
 msgstr "A folyamat le lett állítva egy hibakereső által"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:125
