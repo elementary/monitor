@@ -8,14 +8,16 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-04 19:51+0000\n"
-"PO-Revision-Date: 2024-09-07 20:23+0900\n"
+"PO-Revision-Date: 2024-11-05 01:11+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: none\n"
+"Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/monitor/"
+"ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: src/MainWindow.vala:26 src/Widgets/Headerbar/Headerbar.vala:14
 msgid "Monitor"
@@ -120,8 +122,6 @@ msgid "The process is stopped by a job control signal"
 msgstr "ジョブ管理シグナルによって停止されたプロセス"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:123
-#, fuzzy
-#| msgid "The process is stopped stopped by a debugger during the tracing"
 msgid "The process is stopped by a debugger during the tracing"
 msgstr "トレース中にデバッガーによって停止されたプロセス"
 
