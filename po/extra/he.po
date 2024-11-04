@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-12 14:36+0000\n"
-"PO-Revision-Date: 2024-10-31 13:42+0000\n"
+"PO-Revision-Date: 2024-11-04 10:48+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/desktop/"
 "monitor-extra/he/>\n"
@@ -47,8 +47,7 @@ msgstr "נוספה ערכת עיצוב כהה 🌚"
 
 #: data/io.elementary.monitor.appdata.xml.in:43
 msgid "Uses Wingpanel v3; New *.deb package maintainer: Kristopher Ives"
-msgstr ""
-"שימוש בגרסה 3 של Wingpanel v3; New *.deb package maintainer: Kristopher Ives"
+msgstr "שימוש בגרסה 3 של Wingpanel, מתחזק חדש לחבילות ‎*.deb: קריסטופר איבס"
 
 #: data/io.elementary.monitor.appdata.xml.in:48
 msgid "🐛 Should fix empty Indicator. Please reboot after installation ⚡️"
@@ -102,6 +101,7 @@ msgstr "הנפשות חלקות יותר (‎@DevAlien)"
 #: data/io.elementary.monitor.appdata.xml.in:77
 msgid "Preselect first entry so that the info panel is always open (@DevAlien)"
 msgstr ""
+"בחירת הרשומה הראשונה אוטומטית כדי שלוח המידע תמיד יישאר פתוח (‎@DevAlien)"
 
 #: data/io.elementary.monitor.appdata.xml.in:78
 msgid "Show CPU temperature in the Indicator"
@@ -209,13 +209,15 @@ msgstr "תוקן מצב שתוכן החלון לא מופיע (ריו נקאנו
 #: data/io.elementary.monitor.appdata.xml.in:165
 msgid ""
 "ix no row is still selected when indicator options are enabled (Ryo Nakano)"
-msgstr ""
+msgstr "תוקנה בעיה שאף שורה עדיין נבחרת כאשר אפשרויות החיווי פעילות (ריו נקאנו)"
 
 #: data/io.elementary.monitor.appdata.xml.in:166
 msgid ""
 "Fix the app crashes by clicking the \"End/Kill Process\" buttons when no "
 "process is selected (Ryo Nakano)"
 msgstr ""
+"תוקנו קריסות של היישום בלחיצה על כפתורי „סיום/חיסול תהליך” כשלא נבחר אף "
+"תהליך (ריו נקאנו)"
 
 #: data/io.elementary.monitor.appdata.xml.in:167
 msgid "Added buttons to either \"kill\" or \"end\" a process. (Evan Buss)"
@@ -292,7 +294,7 @@ msgstr "תיקון: אם סמל חסר בתהליך, נלקח סמל מתהלי�
 
 #: data/io.elementary.monitor.appdata.xml.in:216
 msgid "Fix: search erases my input while I'm typing"
-msgstr ""
+msgstr "תיקון: החיפוש מוחק את הקלט שלי תוך כדי הקלדה"
 
 #: data/io.elementary.monitor.appdata.xml.in:217
 msgid "Fix POTFILES"
@@ -304,8 +306,10 @@ msgstr "צג מערכת"
 
 #: data/io.elementary.monitor.desktop.in:5
 msgid "Manage processes and monitor resource usage of the system"
-msgstr ""
+msgstr "ניהול תהליכים ומעקב אחרי ניצולת משאבי המערכת"
 
 #: data/io.elementary.monitor.desktop.in:12
 msgid "System monitor;System usage;Task manager;"
 msgstr ""
+"צג מערכת;ניצולת מערכת;תפוסת מערכת;שימוש במערכת;מנהל משימות;הנהלת משימות;"
+"ניהול משימות;"
