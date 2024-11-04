@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-12 14:36+0000\n"
-"PO-Revision-Date: 2024-10-31 13:42+0000\n"
+"PO-Revision-Date: 2024-11-04 09:25+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/desktop/"
 "monitor-extra/he/>\n"
@@ -47,8 +47,7 @@ msgstr "נוספה ערכת עיצוב כהה 🌚"
 
 #: data/io.elementary.monitor.appdata.xml.in:43
 msgid "Uses Wingpanel v3; New *.deb package maintainer: Kristopher Ives"
-msgstr ""
-"שימוש בגרסה 3 של Wingpanel v3; New *.deb package maintainer: Kristopher Ives"
+msgstr "שימוש בגרסה 3 של Wingpanel, מתחזק חדש לחבילות ‎*.deb: קריסטופר איבס"
 
 #: data/io.elementary.monitor.appdata.xml.in:48
 msgid "🐛 Should fix empty Indicator. Please reboot after installation ⚡️"
@@ -102,6 +101,7 @@ msgstr "הנפשות חלקות יותר (‎@DevAlien)"
 #: data/io.elementary.monitor.appdata.xml.in:77
 msgid "Preselect first entry so that the info panel is always open (@DevAlien)"
 msgstr ""
+"בחירת הרשומה הראשונה אוטומטית כדי שלוח המידע תמיד יישאר פתוח (‎@DevAlien)"
 
 #: data/io.elementary.monitor.appdata.xml.in:78
 msgid "Show CPU temperature in the Indicator"
