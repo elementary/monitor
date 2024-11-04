@@ -216,6 +216,8 @@ msgid ""
 "Fix the app crashes by clicking the \"End/Kill Process\" buttons when no "
 "process is selected (Ryo Nakano)"
 msgstr ""
+"תוקנו קריסות של היישום בלחיצה על כפתורי „סיום/חיסול תהליך” כשלא נבחר אף "
+"תהליך (ריו נקאנו)"
 
 #: data/io.elementary.monitor.appdata.xml.in:167
 msgid "Added buttons to either \"kill\" or \"end\" a process. (Evan Buss)"
