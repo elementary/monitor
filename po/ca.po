@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-04 19:51+0000\n"
-"PO-Revision-Date: 2024-10-11 11:16+0000\n"
+"PO-Revision-Date: 2024-11-05 11:08+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/desktop/monitor/"
 "ca/>\n"
@@ -123,10 +123,8 @@ msgid "The process is stopped by a job control signal"
 msgstr "El procés s'atura amb un senyal de control de la tasca"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:123
-#, fuzzy
-#| msgid "The process is stopped stopped by a debugger during the tracing"
 msgid "The process is stopped by a debugger during the tracing"
-msgstr "Un depurador atura el procés durant el seguiment"
+msgstr "El procés és aturat per un depurador durant el seguiment"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:125
 msgid "The app is terminated but not reaped by its parent"
