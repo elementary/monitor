@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-04 19:51+0000\n"
-"PO-Revision-Date: 2024-10-11 11:16+0000\n"
+"PO-Revision-Date: 2024-11-05 04:32+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/desktop/monitor/"
 "ru/>\n"
@@ -118,8 +118,6 @@ msgid "The process is stopped by a job control signal"
 msgstr "Процесс останавливается сигналом управления заданием"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:123
-#, fuzzy
-#| msgid "The process is stopped stopped by a debugger during the tracing"
 msgid "The process is stopped by a debugger during the tracing"
 msgstr "Процесс остановлен отладчиком во время трассировки"
 
