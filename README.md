@@ -26,7 +26,7 @@ Add the PPA of Monitor and then install it:
 
 ```bash
 sudo add-apt-repository ppa:stsdc/monitor
-sudo apt install io.elementary.monitor
+sudo apt install com.github.stsdc.monitor
 ```
 
 Monitor will be available from the Applications menu.
