@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-04 19:51+0000\n"
-"PO-Revision-Date: 2024-10-14 07:54+0000\n"
+"PO-Revision-Date: 2024-11-06 11:20+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
 "desktop/monitor/zh_Hant/>\n"
@@ -122,10 +122,8 @@ msgid "The process is stopped by a job control signal"
 msgstr "程序已被工作控制訊號停止"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:123
-#, fuzzy
-#| msgid "The process is stopped stopped by a debugger during the tracing"
 msgid "The process is stopped by a debugger during the tracing"
-msgstr "程序已被除錯器在偵錯時停止"
+msgstr "程序已在偵錯時被除錯器停止"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:125
 msgid "The app is terminated but not reaped by its parent"
