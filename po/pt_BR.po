@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-04 19:51+0000\n"
 "PO-Revision-Date: 2024-12-01 09:46+0000\n"
-"Last-Translator: Diogo Pessoa <diogopessoabr@gmail.com>\n"
+"Last-Translator: Gustavo Silva <g.costasalles@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "desktop/monitor/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -170,7 +170,7 @@ msgstr "Matar Processo"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:97
 msgid "Kill selected process"
-msgstr "Encerrar processo selecionado"
+msgstr "Matar processo selecionado"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:107
 msgid "Confirm kill of the process?"
@@ -220,11 +220,11 @@ msgstr "Inicia em segundo plano:"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:27
 msgid "Draw smooth lines on CPU chart (requires restart):"
-msgstr "Desenhar linhas suaves no gráfico da CPU (requer reinício):"
+msgstr "Desenhar linhas suaves no gráfico do CPU (requer reinício):"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:36
 msgid "Update every (requires restart):"
-msgstr "Atualizar cada (requer reinício):"
+msgstr "Atualizar a cada (requer reinício):"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:48
 msgid "1s"
@@ -373,7 +373,7 @@ msgstr "Tamanho do cache L3: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:75
 msgid "Address sizes: "
-msgstr "Tamanhos dos endereços: "
+msgstr "Tamanhos de endereços: "
 
 #: src/Views/SystemView/SystemMemoryView.vala:5
 msgid "Buffered"
@@ -437,7 +437,7 @@ msgstr "TEMPERATURA"
 
 #: src/Widgets/Headerbar/Headerbar.vala:22
 msgid "Settings"
-msgstr "Definições"
+msgstr "Preferências"
 
 #: src/Widgets/Headerbar/Search.vala:12
 msgid "Search Process"
