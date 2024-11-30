@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-04 19:51+0000\n"
-"PO-Revision-Date: 2024-10-27 18:34+0000\n"
+"PO-Revision-Date: 2024-11-30 20:07+0000\n"
 "Last-Translator: Gustavo Silva <g.costasalles@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "desktop/monitor/pt_BR/>\n"
@@ -166,7 +166,7 @@ msgstr "Terminar processo selecionado"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:96
 msgid "Kill Process"
-msgstr "Encerrar Processo"
+msgstr "Matar processo"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:97
 msgid "Kill selected process"
