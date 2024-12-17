@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-04 19:51+0000\n"
-"PO-Revision-Date: 2024-10-09 20:00+0000\n"
+"PO-Revision-Date: 2024-12-18 23:16+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/desktop/monitor/"
 "de/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.8.4\n"
 
 #: src/MainWindow.vala:26 src/Widgets/Headerbar/Headerbar.vala:14
 msgid "Monitor"
@@ -120,8 +120,6 @@ msgid "The process is stopped by a job control signal"
 msgstr "Der Prozess wurde vom einem Job-Control-Signal angehalten"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:123
-#, fuzzy
-#| msgid "The process is stopped stopped by a debugger during the tracing"
 msgid "The process is stopped by a debugger during the tracing"
 msgstr "Der Prozess wurde während des Tracings durch einen Debugger angehalten"
 
