@@ -35,7 +35,18 @@ Monitor will be available from the Applications menu.
 
 ### Install dependencies
 
-Check dependencies in [the deb control file](debian/control).
+If you plan to install WITH a wingpanel-indicator
+
+```bash
+sudo apt install build-essential cmake sassc valac libgtk-3-dev libgee-0.8-dev libgranite-dev libgtop2-dev libwnck-3-dev libhandy-1-dev libudisks2-dev libjson-glib-dev libflatpak-dev libxnvctrl-dev libwingpanel-dev
+```
+
+Alternatively, if you plan to install WITHOUT a wingpanel-indicator
+
+```bash
+sudo apt install build-essential cmake sassc valac libgtk-3-dev libgee-0.8-dev libgranite-dev libgtop2-dev libwnck-3-dev libhandy-1-dev libudisks2-dev libjson-glib-dev libflatpak-dev libxnvctrl-dev 
+```
+
 
 ### Clone, Build & Install
 
