@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-04 19:51+0000\n"
-"PO-Revision-Date: 2025-02-06 15:23+0000\n"
+"PO-Revision-Date: 2025-02-07 16:16+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/desktop/monitor/"
 "fr/>\n"
@@ -91,15 +91,15 @@ msgstr "PID"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:43
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:44
 msgid "PRI"
-msgstr ""
+msgstr "PRI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
 msgid "THR"
-msgstr ""
+msgstr "FIL"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:113
 msgid "The app is waiting in an uninterruptible disk sleep"
@@ -219,11 +219,11 @@ msgstr "Démarrer en arrière-plan :"
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:27
 msgid "Draw smooth lines on CPU chart (requires restart):"
 msgstr ""
-"Adoucir les lignes du graphique CPU (nécessite de redémarrer l'application)"
+"Adoucir les lignes du graphique CPU (nécessite de redémarrer l'application) :"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:36
 msgid "Update every (requires restart):"
-msgstr "Fréquence de rafraîchissement (nécessite de redémarrer l'application)"
+msgstr "Fréquence de rafraîchissement (nécessite de redémarrer l'application) :"
 
 #: src/Views/PreferencesView/PreferencesGeneralPage.vala:48
 msgid "1s"
@@ -247,7 +247,7 @@ msgstr "5s"
 
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
 msgid "Show indicator in Wingpanel"
-msgstr "Afficher un indicateur dans le panneau :"
+msgstr "Afficher un indicateur dans le panneau"
 
 #. header: "Simple Pages",
 #: src/Views/PreferencesView/PreferencesIndicatorPage.vala:15
@@ -324,7 +324,7 @@ msgstr "GHz"
 
 #: src/Views/SystemView/SystemCPUView.vala:153
 msgid "THREADS"
-msgstr ""
+msgstr "FILS"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:22
 msgid "Features"
@@ -448,7 +448,7 @@ msgstr "Tapez le nom d'un processus ou un PID à rechercher"
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
 msgid "Swap"
-msgstr ""
+msgstr "Fichier d'échange"
 
 #: src/Widgets/Statusbar/Statusbar.vala:21
 msgid "GPU"
