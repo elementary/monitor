@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-04 19:51+0000\n"
 "PO-Revision-Date: 2025-02-06 15:23+0000\n"
-"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
+"Last-Translator: LinkfandosVF <gael.fandos@icloud.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/desktop/"
 "monitor-extra/fr/>\n"
 "Language: fr\n"
@@ -76,7 +76,7 @@ msgstr "🇷🇴 Ajout de la traduction en roumain (@tiberiufrat)"
 
 #: data/io.elementary.monitor.appdata.xml.in:64
 msgid "Display Storage usage"
-msgstr ""
+msgstr "Afficher l'état du stockage"
 
 #: data/io.elementary.monitor.appdata.xml.in:65
 msgid "Update Russian translation (@camellan)"
