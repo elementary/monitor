@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-04 19:51+0000\n"
 "PO-Revision-Date: 2025-02-06 15:26+0000\n"
-"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
+"Last-Translator: LinkfandosVF <gael.fandos@icloud.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/desktop/"
 "monitor-extra/fr/>\n"
 "Language: fr\n"
@@ -88,7 +88,7 @@ msgstr "Mise à jour de la traduction en portugais (@hugok79)"
 
 #: data/io.elementary.monitor.appdata.xml.in:67
 msgid "Different colours for Upload and Download"
-msgstr ""
+msgstr "Couleurs différentes pour l'importation et l’exportation de contenu."
 
 #: data/io.elementary.monitor.appdata.xml.in:74
 #: data/io.elementary.monitor.appdata.xml.in:86
