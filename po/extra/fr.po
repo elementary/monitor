@@ -8,14 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-04 19:51+0000\n"
-"PO-Revision-Date: 2019-01-25 16:00+0100\n"
-"Last-Translator: NathanBnm\n"
-"Language-Team: Français\n"
+"PO-Revision-Date: 2025-02-06 15:23+0000\n"
+"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
+"Language-Team: French <https://l10n.elementary.io/projects/desktop/"
+"monitor-extra/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.9.2\n"
 
 #: data/io.elementary.monitor.appdata.xml.in:7
 #: data/io.elementary.monitor.desktop.in:3
@@ -38,35 +40,39 @@ msgstr "Stanisław Dac"
 
 #: data/io.elementary.monitor.appdata.xml.in:33
 msgid "Add info about drives (based on Dirli's code)"
-msgstr ""
+msgstr "Ajout d'informations sur les lecteurs (basé sur le code de Dirli)"
 
 #: data/io.elementary.monitor.appdata.xml.in:38
 msgid "Adds dark theme 🌚"
-msgstr ""
+msgstr "Ajout du thème sombre 🌚"
 
 #: data/io.elementary.monitor.appdata.xml.in:43
 msgid "Uses Wingpanel v3; New *.deb package maintainer: Kristopher Ives"
 msgstr ""
+"Utilisation de Wingpanel v3 ; Nouveau responsable du paquet *.deb : "
+"Kristopher Ives"
 
 #: data/io.elementary.monitor.appdata.xml.in:48
 msgid "🐛 Should fix empty Indicator. Please reboot after installation ⚡️"
 msgstr ""
+"🐛 Cela devrait régler le problème d'indicateur vide. Veuillez redémarrer "
+"après l'installation ⚡️"
 
 #: data/io.elementary.monitor.appdata.xml.in:54
 msgid "🐛 Try to fix frequent GUI hangs 🥶"
-msgstr ""
+msgstr "🐛 Tentative de correction des blocages fréquents de l'interface 🥶"
 
 #: data/io.elementary.monitor.appdata.xml.in:55
 msgid "🇳🇱 Update Dutch translation (@Vistaus)"
-msgstr ""
+msgstr "🇳🇱 Mise à jour de la traduction en néerlandais (@Vistaus)"
 
 #: data/io.elementary.monitor.appdata.xml.in:56
 msgid "🇵🇹 Update Portuguese translation (@hugok79)"
-msgstr ""
+msgstr "🇵🇹 Mise à jour de la traduction en portugais (@hugok79)"
 
 #: data/io.elementary.monitor.appdata.xml.in:57
 msgid "🇷🇴 Add Romanian translation (@tiberiufrat)"
-msgstr ""
+msgstr "🇷🇴 Ajout de la traduction en roumain (@tiberiufrat)"
 
 #: data/io.elementary.monitor.appdata.xml.in:64
 msgid "Display Storage usage"
