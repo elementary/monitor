@@ -1,6 +1,8 @@
 public class Monitor.GPUAmd : IGPU, Object {
     public SessionManager ? session_manager { get; protected set; }
 
+    public SwitcherooControl? switcheroo_control { get; set; }
+
     public Gee.HashMap<string, HwmonTemperature> hwmon_temperatures { get; set; }
 
     public string hwmon_module_name { get; set; }

@@ -4,6 +4,30 @@ public interface SessionManager : Object {
     public abstract string renderer { owned get;}
 }
 
+[DBus (name = "net.hadess.SwitcherooControl")]
+public interface SwitcherooControl : Object {
+    [DBus (name = "HasDualGpu")]
+    public abstract bool has_dual_gpu { owned get; }
+
+    [DBus (name = "GPUs")]
+    public abstract HashTable<string, Variant>[] gpus { owned get; }
+
+    public string default_gpu_name {
+        owned get {
+            string gpu_name = "";
+
+            foreach (unowned HashTable<string, Variant> gpu in gpus) {
+                bool is_default = gpu.get ("Default").get_boolean ();
+                if (!is_default) continue;
+
+                gpu_name = gpu.get ("Name").get_string ();
+            }
+
+            return gpu_name;
+        }
+    }
+}
+
 public class Monitor.Resources : Object {
     public CPU cpu;
     public Memory memory;
@@ -22,17 +46,26 @@ public class Monitor.Resources : Object {
         network = new Network ();
         storage = new Storage ();
 
+        string gpu_name;
+
         SessionManager session_manager = get_sessman ();
-        string gpu_name = session_manager.renderer.down ();
+        SwitcherooControl switcheroo_control = get_switcherooctl ();
+        if (session_manager != null) {
+            gpu_name = session_manager.renderer.down ();
+        } else {
+            gpu_name = switcheroo_control.default_gpu_name.down ();
+        }
 
         if (gpu_name.contains ("intel")) {
 
         } else if (gpu_name.contains ("nvidia") || gpu_name.contains ("geforce")) {
             gpu = new GPUNvidia ();
             gpu.session_manager = session_manager;
+            gpu.switcheroo_control = switcheroo_control;
         } else if (gpu_name.contains ("amd")) {
             gpu = new GPUAmd ();
             gpu.session_manager = session_manager;
+            gpu.switcheroo_control = switcheroo_control;
             gpu.hwmon_temperatures = hwmon_path_parser.gpu_paths_parser.temperatures;
         } else {
             warning ("GPU: Unknown: %s", gpu_name);
@@ -65,7 +98,23 @@ public class Monitor.Resources : Object {
                 "/org/gnome/SessionManager"
             );
             debug ("GPU: %s", session_manager.renderer);
-            return session_manager;
+            return session_manager.renderer != "" ? session_manager : null;
+
+        } catch (IOError e) {
+            warning (e.message);
+            return null;
+        }
+    }
+
+    public SwitcherooControl? get_switcherooctl () {
+        try {
+            SwitcherooControl switcheroo_control = Bus.get_proxy_sync (
+                BusType.SYSTEM,
+                "net.hadess.SwitcherooControl",
+                "/net/hadess/SwitcherooControl"
+            );
+            debug ("GPU: %s", switcheroo_control.default_gpu_name);
+            return switcheroo_control;
 
         } catch (IOError e) {
             warning (e.message);
