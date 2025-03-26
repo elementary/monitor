@@ -18,6 +18,7 @@ Build-Depends: meson,
                libxnvctrl-dev,
                libjson-glib-dev,
                libflatpak-dev,
+               liblivechart-1-dev,
                sassc
 Standards-Version: 4.1.1
 
