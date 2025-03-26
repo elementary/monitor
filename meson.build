@@ -17,8 +17,6 @@ add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()), lan
 add_project_arguments(['--vapidir', vapidir], language: 'vala')
 add_project_arguments(['-DWNCK_I_KNOW_THIS_IS_UNSTABLE', '-w'], language: 'c')
 
-livechart_proj = subproject('live-chart')
-
 # subprojects should be skipped: https://mesonbuild.com/Release-notes-for-0-58-0.html#skip-subprojects-installation
 # needs meson 0.58.0
 # elementary_stylesheet = subproject('stylesheet')
@@ -39,7 +37,8 @@ app_dependencies = [
     dependency('json-glib-1.0'),
     dependency('flatpak'),
 
-    livechart_proj.get_variable('livechart_dep'),
+    # FIXME Bump required version to >= 1.10.0 when GTK 4 porting
+    dependency('livechart', version: '< 1.10.0', fallback: ['live-chart', 'livechart_dep']),
 
     meson.get_compiler('c').find_library('m', required : false),
     meson.get_compiler('vala').find_library('posix'),
