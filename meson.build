@@ -38,7 +38,7 @@ app_dependencies = [
     dependency('flatpak'),
 
     # FIXME Bump required version to >= 1.10.0 when GTK 4 porting
-    dependency('livechart', version: '< 1.10.0'),
+    dependency('livechart', version: '< 1.10.0' fallback: ['live-chart', 'livechart_dep'])),
 
     meson.get_compiler('c').find_library('m', required : false),
     meson.get_compiler('vala').find_library('posix'),
