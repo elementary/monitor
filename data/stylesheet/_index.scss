@@ -1,5 +1,7 @@
-@import "../../subprojects/stylesheet/src/gtk-3.0/palette";
-@import "../../subprojects/stylesheet/src/gtk-3.0/index";
+@import "_palette";
+
+// Text, images, and other foreground elements
+$fg-color: $BLACK_500;
 
 $text_color: $fg_color;
 
