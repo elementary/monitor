@@ -1,3 +1,8 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
+ */
+
 // For more info look at: http://man7.org/linux/man-pages/man5/proc.5.html
 
 public struct Monitor.ProcessIO {
