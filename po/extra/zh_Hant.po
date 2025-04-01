@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 19:51+0000\n"
+"POT-Creation-Date: 2025-04-01 21:58+0000\n"
 "PO-Revision-Date: 2024-10-14 07:54+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -19,8 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.6.2\n"
 
-#: data/io.elementary.monitor.appdata.xml.in:7
-#: data/io.elementary.monitor.desktop.in:3
+#: data/io.elementary.monitor.appdata.xml.in:7 data/monitor.desktop.in:6
 msgid "Monitor"
 msgstr "監控"
 
@@ -298,16 +297,15 @@ msgstr "修正：搜尋會在正在輸入時清空打到一半的內容"
 msgid "Fix POTFILES"
 msgstr "修正 POTFILES"
 
-#: data/io.elementary.monitor.desktop.in:4
-msgid "System Monitor"
-msgstr "系統監控"
-
-#: data/io.elementary.monitor.desktop.in:5
+#: data/monitor.desktop.in:7
 msgid "Manage processes and monitor resource usage of the system"
 msgstr "管理程序並監控系統的資源使用量"
 
-#: data/io.elementary.monitor.desktop.in:12
+#: data/monitor.desktop.in:9
 msgid "System monitor;System usage;Task manager;"
 msgstr ""
 "System monitor;System usage;Task manager;系統監控;程式管理員;工作管理員;系統"
 "使用量;"
+
+#~ msgid "System Monitor"
+#~ msgstr "系統監控"

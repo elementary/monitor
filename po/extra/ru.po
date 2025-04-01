@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 19:51+0000\n"
+"POT-Creation-Date: 2025-04-01 21:58+0000\n"
 "PO-Revision-Date: 2024-10-22 11:16+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/desktop/monitor-"
@@ -20,8 +20,7 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 5.6.2\n"
 
-#: data/io.elementary.monitor.appdata.xml.in:7
-#: data/io.elementary.monitor.desktop.in:3
+#: data/io.elementary.monitor.appdata.xml.in:7 data/monitor.desktop.in:6
 msgid "Monitor"
 msgstr "Монитор"
 
@@ -314,19 +313,18 @@ msgstr "Исправлено: поиск стирает введённый мн�
 msgid "Fix POTFILES"
 msgstr "Исправлены ПОТФАЙЛЫ"
 
-#: data/io.elementary.monitor.desktop.in:4
-msgid "System Monitor"
-msgstr "Системный монитор"
-
-#: data/io.elementary.monitor.desktop.in:5
+#: data/monitor.desktop.in:7
 msgid "Manage processes and monitor resource usage of the system"
 msgstr "Управление процессами и мониторинг использования ресурсов системы"
 
-#: data/io.elementary.monitor.desktop.in:12
+#: data/monitor.desktop.in:9
 msgid "System monitor;System usage;Task manager;"
 msgstr ""
 "System monitor;System usage;Task manager;Системный монитор;Использование "
 "системных ресурсов;Диспетчер задач;"
+
+#~ msgid "System Monitor"
+#~ msgstr "Системный монитор"
 
 #~ msgid "io.elementary.monitor"
 #~ msgstr "io.elementary.monitor"
