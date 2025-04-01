@@ -16,7 +16,6 @@ src/Views/SystemView/SystemMemoryView.vala
 src/Views/SystemView/SystemNetworkView.vala
 src/Views/SystemView/SystemStorageView.vala
 src/Views/SystemView/SystemGPUView.vala
-src/Widgets/Headerbar/Headerbar.vala
 src/Widgets/Headerbar/Search.vala
 src/Widgets/Statusbar/Statusbar.vala
 src/Widgets/WidgetResource/WidgetResource.vala

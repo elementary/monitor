@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 19:51+0000\n"
+"POT-Creation-Date: 2025-04-01 22:14+0000\n"
 "PO-Revision-Date: 2020-12-16 09:58+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -19,8 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
 "2:1));\n"
 
-#: data/io.elementary.monitor.appdata.xml.in:7
-#: data/io.elementary.monitor.desktop.in:3
+#: data/io.elementary.monitor.appdata.xml.in:7 data/monitor.desktop.in:6
 msgid "Monitor"
 msgstr "Monitor"
 
@@ -296,19 +295,18 @@ msgstr ""
 msgid "Fix POTFILES"
 msgstr ""
 
-#: data/io.elementary.monitor.desktop.in:4
-msgid "System Monitor"
-msgstr "Monitor de sistem"
-
-#: data/io.elementary.monitor.desktop.in:5
+#: data/monitor.desktop.in:7
 msgid "Manage processes and monitor resource usage of the system"
 msgstr "Gestionează procesele și monitorizează resursele de sistem"
 
-#: data/io.elementary.monitor.desktop.in:12
+#: data/monitor.desktop.in:9
 msgid "System monitor;System usage;Task manager;"
 msgstr ""
 "System monitor;System usage;Task manager;Monitor de sistem;Manager de "
 "activități;Procese;Utilizarea sistemului;"
+
+#~ msgid "System Monitor"
+#~ msgstr "Monitor de sistem"
 
 #~ msgid "io.elementary.monitor"
 #~ msgstr "io.elementary.monitor"
