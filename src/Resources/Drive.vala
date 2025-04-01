@@ -1,7 +1,7 @@
 /*
- * Copyright 2020 Dirli <litandrej85@gmail.com>
- *           2021 stsdc
  * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2020 Dirli <litandrej85@gmail.com>
+ *                         2021 stsdc
  */
 
 public struct Monitor.DriveSmart {

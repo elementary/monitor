@@ -1,7 +1,7 @@
 /*
- * Copyright 2020 Tudor Plugaru,
- *                @stsdc
  * SPDX-License-Identifier: LGPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2020 Tudor Plugaru
+ *                         2020 stsdc
  *
  * Authored by: Tudor Plugaru <plugaru.tudor@gmail.com>
  */
