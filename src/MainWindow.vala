@@ -10,7 +10,6 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
     private Resources resources;
 
     // Widgets
-    public Hdy.HeaderBar headerbar { get; private set; }
     public Search search { get; private set; }
 
     public ProcessView process_view;
@@ -69,7 +68,7 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
             transition_type = SLIDE_LEFT
         };
 
-        headerbar = new Hdy.HeaderBar () {
+        var headerbar = new Hdy.HeaderBar () {
             has_subtitle = false,
             show_close_button = true,
             title = _("Monitor")
