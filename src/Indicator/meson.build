@@ -5,8 +5,8 @@ source_indicator_files = [
     'Widgets/IndicatorWidget.vala',
     'Widgets/PopoverWidget.vala',
 
-    '../Resources/ResourcesSerialized.vala',
-    '../Utils.vala',
+    meson.project_source_root() / 'src' / 'Resources/ResourcesSerialized.vala',
+    meson.project_source_root() / 'src' / 'Utils.vala',
 ]
 
 indicator_dependencies = [
