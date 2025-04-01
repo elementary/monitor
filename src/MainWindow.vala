@@ -1,3 +1,8 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
+ */
+
 public class Monitor.MainWindow : Hdy.ApplicationWindow {
     // application reference
     private Shortcuts shortcuts;
@@ -19,7 +24,6 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
     // Constructs a main window
     public MainWindow (MonitorApp app) {
-        Hdy.init ();
         this.set_application (app);
 
         setup_window_state ();

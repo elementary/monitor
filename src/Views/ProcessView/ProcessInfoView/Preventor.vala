@@ -1,3 +1,8 @@
+/*
+ * Copyright 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 public class Monitor.Preventor : Gtk.Stack {
     private Gtk.Box preventive_action_bar;
     private Gtk.Label confirmation_label;

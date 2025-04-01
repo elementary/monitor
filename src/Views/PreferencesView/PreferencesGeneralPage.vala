@@ -1,7 +1,7 @@
 /*
- * Copyright 2017 elementary, Inc. (https://elementary.io)
- * Copyright 2022 @stsdc
  * SPDX-License-Identifier: LGPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2017 elementary, Inc. (https://elementary.io)
+ *                         2022 @stsdc
  */
 
 public class Monitor.PreferencesGeneralPage : Granite.SettingsPage {

@@ -1,3 +1,8 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
+ */
+
 public class Monitor.Process : GLib.Object {
     // The size of each RSS page, in bytes
     // private static long PAGESIZE = Posix.sysconf (Posix._SC_PAGESIZE);

@@ -1,3 +1,8 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
+ */
+
 public class Monitor.Widgets.PopoverWidget : Gtk.Grid {
     /* Button to hide the indicator */
     private Gtk.ModelButton show_monitor_button;
