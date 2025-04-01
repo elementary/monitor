@@ -1,5 +1,10 @@
+/*
+ * Copyright 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 public class Monitor.WidgetResource : Gtk.Box {
-    private LabelH4 _title = new LabelH4 (Utils.NO_DATA);
+    private Granite.HeaderLabel _title = new Granite.HeaderLabel (Utils.NO_DATA);
 
     public string title {
         set {

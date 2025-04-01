@@ -1,3 +1,8 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
+ */
+
 namespace Monitor.Utils {
     const string NOT_AVAILABLE = (_("N/A"));
     const string NO_DATA = "\u2014";

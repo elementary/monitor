@@ -1,3 +1,8 @@
+/*
+ * Copyright 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 public class Monitor.ProcessView : Gtk.Box {
     public TreeViewModel treeview_model;
     public CPUProcessTreeView process_tree_view;

@@ -1,3 +1,8 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
+ */
+
 class Monitor.StorageParser : Object {
     private const string BLOCKS_PATH = "/sys/block";
 
