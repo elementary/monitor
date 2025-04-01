@@ -1,3 +1,8 @@
+/*
+ * Copyright 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 public class Monitor.OpenFilesTreeView : Gtk.TreeView {
     public new OpenFilesTreeViewModel model;
     private Gtk.TreeViewColumn path_column;

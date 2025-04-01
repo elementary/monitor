@@ -1,8 +1,13 @@
+/*
+ * Copyright 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 public class Monitor.SystemNetworkView : Gtk.Grid {
     private Chart network_chart;
     private Network network;
 
-    private LabelH4 network_name_label;
+    private Granite.HeaderLabel network_name_label;
     private LabelRoundy network_upload_label;
     private LabelRoundy network_download_label;
 
@@ -15,7 +20,7 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
     public SystemNetworkView (Network _network) {
         network = _network;
 
-        network_name_label = new LabelH4 (_("Network"));
+        network_name_label = new Granite.HeaderLabel (_("Network"));
 
         network_download_label = new LabelRoundy (_("DOWN"));
         network_download_label.val.set_width_chars (7);

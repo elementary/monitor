@@ -1,3 +1,7 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
+ */
 
 public class Monitor.OpenFilesTreeViewModel : Gtk.TreeStore {
     private Gee.Map<string, Gtk.TreeIter ? > open_files_paths = new Gee.HashMap<string, Gtk.TreeIter ? > ();
