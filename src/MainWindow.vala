@@ -18,7 +18,6 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
     // Constructs a main window
     public MainWindow (MonitorApp app) {
-        Hdy.init ();
         this.set_application (app);
 
         setup_window_state ();

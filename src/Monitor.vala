@@ -29,6 +29,8 @@ namespace Monitor {
         public override void startup () {
             base.startup ();
 
+            Hdy.init ();
+
             Appearance.set_prefered_style ();
 
             // Controls the direction of the sort indicators
