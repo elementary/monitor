@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 19:51+0000\n"
+"POT-Creation-Date: 2025-04-01 21:58+0000\n"
 "PO-Revision-Date: 2024-10-26 15:48+0000\n"
 "Last-Translator: Marcin Serwin <marcin@serwin.dev>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/desktop/monitor-"
@@ -20,8 +20,7 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 5.6.2\n"
 
-#: data/io.elementary.monitor.appdata.xml.in:7
-#: data/io.elementary.monitor.desktop.in:3
+#: data/io.elementary.monitor.appdata.xml.in:7 data/monitor.desktop.in:6
 msgid "Monitor"
 msgstr "Monitor"
 
@@ -313,14 +312,13 @@ msgstr "Poprawka: wyszukiwanie usuwa napisany tekst podczas pisania"
 msgid "Fix POTFILES"
 msgstr "Naprawiono POTFILES"
 
-#: data/io.elementary.monitor.desktop.in:4
-msgid "System Monitor"
-msgstr "Monitor systemu"
-
-#: data/io.elementary.monitor.desktop.in:5
+#: data/monitor.desktop.in:7
 msgid "Manage processes and monitor resource usage of the system"
 msgstr "Zarządzaj procesami oraz monitoruj zużycie zasobów systemu"
 
-#: data/io.elementary.monitor.desktop.in:12
+#: data/monitor.desktop.in:9
 msgid "System monitor;System usage;Task manager;"
 msgstr "Monitor systemu;Zużycie systemu;Menadżer zadań;"
+
+#~ msgid "System Monitor"
+#~ msgstr "Monitor systemu"
