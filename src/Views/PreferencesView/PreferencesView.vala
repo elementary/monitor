@@ -5,7 +5,6 @@
 
 public class Monitor.PreferencesView : Gtk.Box {
     private Gtk.Adjustment update_time_adjustment;
-    private DBusServer dbusserver;
 
     construct {
         var background_label = new Gtk.Label (_("Start in background:")) {
@@ -63,7 +62,7 @@ public class Monitor.PreferencesView : Gtk.Box {
             MonitorApp.settings.set_int ("update-time", (int) update_time_adjustment.get_value ());
         });
 
-        dbusserver = DBusServer.get_default ();
+        var dbusserver = DBusServer.get_default ();
 
         var indicator_switch = new Gtk.Switch () {
             halign = END
@@ -84,47 +83,47 @@ public class Monitor.PreferencesView : Gtk.Box {
         indicator_header_box.add (indicator_switch);
 
         var cpu_check = new Gtk.CheckButton.with_label (_("CPU percentage"));
-        cpu_check.activate.connect (() => {
+        cpu_check.toggled.connect (() => {
             dbusserver.indicator_cpu_state (cpu_check.active);
         });
 
         var cpu_freq_check = new Gtk.CheckButton.with_label (_("CPU frequency"));
-        cpu_freq_check.activate.connect (() => {
+        cpu_freq_check.toggled.connect (() => {
             dbusserver.indicator_cpu_frequency_state (cpu_freq_check.active);
         });
 
         var cpu_temp_check = new Gtk.CheckButton.with_label (_("CPU temperature"));
-        cpu_temp_check.activate.connect (() => {
+        cpu_temp_check.toggled.connect (() => {
             dbusserver.indicator_cpu_temperature_state (cpu_temp_check.active);
         });
 
         var memory_check = new Gtk.CheckButton.with_label (_("RAM percentage"));
-        memory_check.activate.connect (() => {
+        memory_check.toggled.connect (() => {
             dbusserver.indicator_memory_state (memory_check.active);
         });
 
         var network_upload_check = new Gtk.CheckButton.with_label (_("Network upload"));
-        network_upload_check.activate.connect (() => {
+        network_upload_check.toggled.connect (() => {
             dbusserver.indicator_network_up_state (network_upload_check.active);
         });
 
         var network_download_check = new Gtk.CheckButton.with_label (_("Network download"));
-        network_download_check.activate.connect (() => {
+        network_download_check.toggled.connect (() => {
             dbusserver.indicator_network_down_state (network_download_check.active);
         });
 
         var gpu_check = new Gtk.CheckButton.with_label (_("GPU percentage"));
-        gpu_check.activate.connect (() => {
+        gpu_check.toggled.connect (() => {
             dbusserver.indicator_gpu_state (gpu_check.active);
         });
 
         var gpu_memory_check = new Gtk.CheckButton.with_label (_("VRAM percentage"));
-        gpu_memory_check.activate.connect (() => {
+        gpu_memory_check.toggled.connect (() => {
             dbusserver.indicator_gpu_memory_state (gpu_memory_check.active);
         });
 
         var gpu_temp_check = new Gtk.CheckButton.with_label (_("GPU temperature"));
-        gpu_temp_check.activate.connect (() => {
+        gpu_temp_check.toggled.connect (() => {
             dbusserver.indicator_gpu_temperature_state (gpu_temp_check.active);
         });
 
