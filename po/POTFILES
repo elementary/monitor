@@ -8,8 +8,7 @@ src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala
 src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala
 src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala
 src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala
-src/Views/PreferencesView/PreferencesGeneralPage.vala
-src/Views/PreferencesView/PreferencesIndicatorPage.vala
+src/Views/PreferencesView/PreferencesView.vala
 src/Views/SystemView/SystemCPUView.vala
 src/Views/SystemView/SystemCPUInfoPopover.vala
 src/Views/SystemView/SystemMemoryView.vala

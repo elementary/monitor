@@ -9,8 +9,6 @@ source_app_files = [
     'Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala',
 
     'Views/PreferencesView/PreferencesView.vala',
-    'Views/PreferencesView/PreferencesIndicatorPage.vala',
-    'Views/PreferencesView/PreferencesGeneralPage.vala',
 
     'Views/SystemView/SystemView.vala',
     'Views/SystemView/SystemCPUView.vala',
