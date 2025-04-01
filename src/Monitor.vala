@@ -31,6 +31,26 @@ namespace Monitor {
             settings = new Settings ("io.elementary.monitor.settings");
         }
 
+        public override void startup () {
+            base.startup ();
+
+            Hdy.init ();
+
+            Appearance.set_prefered_style ();
+
+            // Controls the direction of the sort indicators
+            Gtk.Settings.get_default ().set ("gtk-alternative-sort-arrows", true, null);
+
+            var quit_action = new SimpleAction ("quit", null);
+            add_action (quit_action);
+            set_accels_for_action ("app.quit", { "<Ctrl>q" });
+            quit_action.activate.connect (() => {
+                if (window != null) {
+                    window.destroy ();
+                }
+            });
+        }
+
         public override void activate () {
             // only have one window
             if (get_windows () != null) {
@@ -69,21 +89,6 @@ namespace Monitor {
             }
 
             window.process_view.process_tree_view.focus_on_first_row ();
-
-            var quit_action = new SimpleAction ("quit", null);
-            add_action (quit_action);
-            set_accels_for_action ("app.quit", { "<Ctrl>q" });
-            quit_action.activate.connect (() => {
-                if (window != null) {
-                    window.destroy ();
-                }
-            });
-
-            Appearance.set_prefered_style ();
-
-
-            // Controls the direction of the sort indicators
-            Gtk.Settings.get_default ().set ("gtk-alternative-sort-arrows", true, null);
         }
 
         public static int main (string[] args) {
