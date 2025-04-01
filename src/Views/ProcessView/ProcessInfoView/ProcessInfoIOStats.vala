@@ -61,9 +61,9 @@ public class Monitor.ProcessInfoIOStats : Gtk.Grid {
     }
 
     public void update (Process process) {
-        write_bytes_label.set_text (Utils.HumanUnitFormatter.double_bytes_to_human (process.io.write_bytes));
-        read_bytes_label.set_text (Utils.HumanUnitFormatter.double_bytes_to_human (process.io.read_bytes));
-        cancelled_write_bytes_label.set_text (Utils.HumanUnitFormatter.double_bytes_to_human (process.io.cancelled_write_bytes));
+        write_bytes_label.set_text (format_size ((uint64) process.io.write_bytes, IEC_UNITS));
+        read_bytes_label.set_text (format_size ((uint64) process.io.read_bytes, IEC_UNITS));
+        cancelled_write_bytes_label.set_text (format_size ((uint64) process.io.cancelled_write_bytes, IEC_UNITS));
     }
 
     private Gtk.Label create_label (string text) {
