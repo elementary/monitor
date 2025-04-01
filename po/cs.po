@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-01 21:58+0000\n"
+"POT-Creation-Date: 2025-04-01 22:14+0000\n"
 "PO-Revision-Date: 2024-12-06 10:16+0000\n"
 "Last-Translator: Jáchym Řezáč <r3zackacz@users.noreply.l10n.elementary.io>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/desktop/monitor/cs/"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 5.8.4\n"
 
-#: src/MainWindow.vala:30 src/Widgets/Headerbar/Headerbar.vala:19
+#: src/MainWindow.vala:30 src/MainWindow.vala:74
 msgid "Monitor"
 msgstr "Monitor"
 
@@ -30,6 +30,10 @@ msgstr "Procesy"
 #: src/MainWindow.vala:42
 msgid "System"
 msgstr "Systém"
+
+#: src/MainWindow.vala:59
+msgid "Settings"
+msgstr ""
 
 #: src/Utils.vala:7
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:40
@@ -426,10 +430,6 @@ msgstr ""
 
 #: src/Views/SystemView/SystemGPUView.vala:21
 msgid "TEMPERATURE"
-msgstr ""
-
-#: src/Widgets/Headerbar/Headerbar.vala:27
-msgid "Settings"
 msgstr ""
 
 #: src/Widgets/Headerbar/Search.vala:17
