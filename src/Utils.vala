@@ -1,3 +1,8 @@
+/*
+ * Copyright 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
+
 namespace Monitor.Utils {
     const string NOT_AVAILABLE = (_("N/A"));
     const string NO_DATA = "\u2014";

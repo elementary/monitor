@@ -1,3 +1,8 @@
+/*
+ * Copyright 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
+
 // This class holds paths to temperature data
 // returns contents of the file as a string
 // Learn more: https://www.kernel.org/doc/html/v5.11/gpu/amdgpu.html#hwmon-interfaces

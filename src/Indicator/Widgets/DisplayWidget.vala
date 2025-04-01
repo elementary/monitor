@@ -1,3 +1,8 @@
+/*
+ * Copyright 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
+
 public class Monitor.Widgets.DisplayWidget : Gtk.Grid {
     public IndicatorWidget cpu_widget = new IndicatorWidget ("cpu-symbolic");
     public IndicatorWidget cpu_frequency_widget = new IndicatorWidget ("cpu-symbolic");

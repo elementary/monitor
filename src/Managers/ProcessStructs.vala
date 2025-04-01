@@ -1,3 +1,8 @@
+/*
+ * Copyright 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
+
 // For more info look at: http://man7.org/linux/man-pages/man5/proc.5.html
 
 public struct Monitor.ProcessIO {

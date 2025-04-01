@@ -1,3 +1,8 @@
+/*
+ * Copyright 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
+
 public class LabelH4 : Gtk.Label {
     construct {
         get_style_context ().add_class ("h4");

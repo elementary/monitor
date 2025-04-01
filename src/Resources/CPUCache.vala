@@ -1,3 +1,8 @@
+/*
+ * Copyright 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
+
 // This struct holds paths to cpu cache data
 // Learn more: https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-devices-system-cpu
 [Compact]

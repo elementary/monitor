@@ -1,3 +1,8 @@
+/*
+ * Copyright 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
+
 public class Monitor.Appearance : Object {
     public static void set_prefered_style () {
         var granite_settings = Granite.Settings.get_default ();

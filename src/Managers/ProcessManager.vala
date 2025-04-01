@@ -1,3 +1,8 @@
+/*
+ * Copyright 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
+
 namespace Monitor {
     public class ProcessManager {
         private static GLib.Once<ProcessManager> instance;

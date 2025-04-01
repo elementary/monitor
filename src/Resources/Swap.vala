@@ -1,3 +1,8 @@
+/*
+ * Copyright 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
+
 public class Monitor.Swap : Object {
     public double total { get; private set; default = 0; }
     public double used { get; private set; default = 0; }

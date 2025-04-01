@@ -1,3 +1,8 @@
+/*
+ * Copyright 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
+
 // Read more: https://docs.docker.com/config/containers/runmetrics/
 
 public struct Monitor.CgroupMemoryStat {

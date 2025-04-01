@@ -1,3 +1,8 @@
+/*
+ * Copyright 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
+
 public class Monitor.SystemCPUView : Monitor.WidgetResource {
     private Chart cpu_utilization_chart;
     private Chart cpu_frequency_chart;

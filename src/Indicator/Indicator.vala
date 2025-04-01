@@ -1,3 +1,8 @@
+/*
+ * Copyright 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
+
 // TODO: Change namespace
 public class Monitor.Indicator : Wingpanel.Indicator {
     private Widgets.DisplayWidget ? display_widget = null;

@@ -1,3 +1,8 @@
+/*
+ * Copyright 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
+
 public class Monitor.GPUNvidia : IGPU, Object {
     public SessionManager ? session_manager { get; protected set; }
 

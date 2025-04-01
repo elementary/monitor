@@ -1,3 +1,7 @@
+/*
+ * Copyright 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-3.0-or-later
+ */
 
 public class Monitor.OpenFilesTreeViewModel : Gtk.TreeStore {
     private Gee.Map<string, Gtk.TreeIter ? > open_files_paths = new Gee.HashMap<string, Gtk.TreeIter ? > ();
