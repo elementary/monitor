@@ -150,6 +150,11 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
         dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
         stack.visible_child_name = MonitorApp.settings.get_string ("opened-view");
+
+        var search_action = new GLib.SimpleAction ("search", null);
+        search_action.activate.connect (() => search.activate_entry ());
+
+        add_action (search_action);
     }
 
     private void setup_window_state () {

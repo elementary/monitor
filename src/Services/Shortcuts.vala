@@ -20,31 +20,6 @@ public class Monitor.Shortcuts : Object {
             handled = true;
         }
 
-        if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
-            switch (e.keyval) {
-            case Gdk.Key.f:
-                window.search.activate_entry ();
-                handled = true;
-                break;
-            case Gdk.Key.e:
-                window.process_view.process_tree_view.end_process ();
-                handled = true;
-                break;
-            case Gdk.Key.k:
-                window.process_view.process_tree_view.kill_process ();
-                handled = true;
-                break;
-            case Gdk.Key.comma:
-                handled = true;
-                break;
-            case Gdk.Key.period:
-                handled = true;
-                break;
-            default:
-                break;
-            }
-        }
-
         switch (e.keyval) {
         case Gdk.Key.Return:
             window.process_view.process_tree_view.focus_on_first_row ();

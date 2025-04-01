@@ -43,12 +43,16 @@ namespace Monitor {
 
             var quit_action = new SimpleAction ("quit", null);
             add_action (quit_action);
-            set_accels_for_action ("app.quit", { "<Ctrl>q" });
             quit_action.activate.connect (() => {
                 if (window != null) {
                     window.destroy ();
                 }
             });
+
+            set_accels_for_action ("app.quit", { "<Ctrl>q" });
+            set_accels_for_action ("win.search", { "<Ctrl>f" });
+            set_accels_for_action ("process.end", { "<Ctrl>e" });
+            set_accels_for_action ("process.kill", { "<Ctrl>k" });
         }
 
         public override void activate () {
