@@ -1,6 +1,6 @@
 /*
  * Copyright 2025 elementary, Inc. (https://elementary.io)
- * SPDX-License-Identifier: LGPL-3.0-or-later
+ * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 public class Monitor.WidgetResource : Gtk.Box {
