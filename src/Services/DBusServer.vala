@@ -1,3 +1,8 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
+ */
+
 [DBus (name = "io.elementary.monitor")]
 public class Monitor.DBusServer : Object {
     private const string DBUS_NAME = "io.elementary.monitor";

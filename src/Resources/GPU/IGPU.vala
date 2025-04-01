@@ -1,3 +1,8 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
+ */
+
 public interface Monitor.IGPU : Object {
     public abstract SessionManager ? session_manager { get; public set; }
 

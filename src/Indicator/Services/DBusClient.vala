@@ -1,3 +1,8 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
+ */
+
 [DBus (name = "io.elementary.monitor")]
 public interface Monitor.DBusClientInterface : Object {
     public abstract void quit_monitor () throws Error;
