@@ -44,9 +44,6 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
         headerbar = new Headerbar (this);
         headerbar.set_custom_title (stack_switcher);
-        var sv = new PreferencesView ();
-        headerbar.preferences_grid.add (sv);
-        sv.show_all ();
 
         statusbar = new Statusbar ();
 
