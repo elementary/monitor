@@ -8,7 +8,7 @@ source_app_files = [
     'Views/ProcessView/ProcessInfoView/ProcessInfoView.vala',
     'Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala',
 
-    'Views/PreferencesView/PreferencesView.vala',
+    'Views/PreferencesView.vala',
 
     'Views/SystemView/SystemView.vala',
     'Views/SystemView/SystemCPUView.vala',
