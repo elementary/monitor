@@ -138,13 +138,7 @@ public class Monitor.PreferencesView : Gtk.Bin {
         box.add (indicator_switch);
         box.add (indicator_options_revealer);
 
-        var scrolled_window = new Gtk.ScrolledWindow (null, null) {
-            child = box,
-            propagate_natural_height = true,
-            hscrollbar_policy = NEVER
-        };
-
-        child = scrolled_window;
+        child = box;
 
         indicator_switch.bind_property ("active", indicator_options_revealer, "reveal-child", SYNC_CREATE);
 
