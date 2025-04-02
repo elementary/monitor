@@ -7,22 +7,10 @@ public class Monitor.PreferencesView : Gtk.Box {
     private Gtk.Adjustment update_time_adjustment;
 
     construct {
-        var background_label = new Gtk.Label (_("Start in background:")) {
-            halign = START
-        };
+        var background_switch = new Granite.SwitchModelButton (_("Start in background"));
 
-        var background_switch = new Gtk.Switch () {
-            halign = END,
-            hexpand = true
-        };
-
-        var enable_smooth_lines_label = new Gtk.Label (_("Draw smooth lines on CPU chart (requires restart):")) {
-            halign = START
-        };
-
-        var enable_smooth_lines_switch = new Gtk.Switch () {
-            halign = END,
-            hexpand = true
+        var enable_smooth_lines_switch = new Granite.SwitchModelButton (_("Draw smooth lines on CPU chart")) {
+            description = _("Requires restart")
         };
 
         var update_time_label = new Gtk.Label (_("Update every (requires restart):")) {
@@ -51,12 +39,8 @@ public class Monitor.PreferencesView : Gtk.Box {
             margin_top = 12,
             margin_bottom = 12
         };
-        content_area.attach (background_label, 0, 1);
-        content_area.attach (background_switch, 1, 1);
-        content_area.attach (enable_smooth_lines_label, 0, 2);
-        content_area.attach (enable_smooth_lines_switch, 1, 2);
-        content_area.attach (update_time_label, 0, 3);
-        content_area.attach (update_time_scale, 0, 4, 2);
+        content_area.attach (update_time_label, 0, 2);
+        content_area.attach (update_time_scale, 0, 3, 2);
 
         update_time_adjustment.value_changed.connect (() => {
             MonitorApp.settings.set_int ("update-time", (int) update_time_adjustment.get_value ());
@@ -64,23 +48,10 @@ public class Monitor.PreferencesView : Gtk.Box {
 
         var dbusserver = DBusServer.get_default ();
 
-        var indicator_switch = new Gtk.Switch () {
-            halign = END
-        };
+        var indicator_switch = new Granite.SwitchModelButton (_("Show in panel"));
         indicator_switch.notify["active"].connect (() => {
             dbusserver.indicator_state (indicator_switch.active);
         });
-
-        var indicator_label = new Granite.HeaderLabel (_("Show in panel")) {
-            hexpand = true,
-            mnemonic_widget = indicator_switch
-        };
-
-        var indicator_header_box = new Gtk.Box (HORIZONTAL, 12) {
-            margin_end = 12
-        };
-        indicator_header_box.add (indicator_label);
-        indicator_header_box.add (indicator_switch);
 
         var cpu_check = new Gtk.CheckButton.with_label (_("CPU percentage"));
         cpu_check.toggled.connect (() => {
@@ -130,8 +101,9 @@ public class Monitor.PreferencesView : Gtk.Box {
         var row = 0;
 
         var indicator_options_box = new Gtk.Box (VERTICAL, 6) {
+            margin_top = 6,
             margin_end = 12,
-            margin_bottom = 12,
+            margin_bottom = 6,
             margin_start = 12
         };
         indicator_options_box.add (cpu_check);
@@ -152,20 +124,22 @@ public class Monitor.PreferencesView : Gtk.Box {
         };
 
         add (content_area);
-        add (indicator_header_box);
+        add (enable_smooth_lines_switch);
+        add (background_switch);
+        add (indicator_switch);
         add (indicator_options_revealer);
 
+        margin_bottom = 6;
         width_request = 500;
         orientation = VERTICAL;
-        spacing = 12;
 
         indicator_switch.bind_property ("active", indicator_options_revealer, "reveal-child", SYNC_CREATE);
 
         var settings = new GLib.Settings ("io.elementary.monitor.settings");
-        settings.bind ("background-state", background_switch, "state", DEFAULT);
+        settings.bind ("background-state", background_switch, "active", DEFAULT);
         // Allow changing the background preference only when the indicator is enabled
         settings.bind ("indicator-state", background_switch, "sensitive", GET);
-        settings.bind ("smooth-lines-state", enable_smooth_lines_switch, "state", DEFAULT);
+        settings.bind ("smooth-lines-state", enable_smooth_lines_switch, "active", DEFAULT);
 
         settings.bind ("indicator-state", indicator_switch, "active", DEFAULT);
         settings.bind ("indicator-cpu-state", cpu_check, "active", DEFAULT);
@@ -180,7 +154,7 @@ public class Monitor.PreferencesView : Gtk.Box {
 
         // Disable the background preference when the indicator is enabled
         settings.bind_with_mapping (
-            "indicator-state", background_switch, "state", GET,
+            "indicator-state", background_switch, "active", GET,
             (switch_state, settings_state, user_data) => {
                 bool state = settings_state.get_boolean ();
                 if (!state) {
