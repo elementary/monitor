@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 19:51+0000\n"
+"POT-Creation-Date: 2025-04-01 22:14+0000\n"
 "PO-Revision-Date: 2021-01-11 21:29+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: \n"
@@ -19,8 +19,7 @@ msgstr ""
 "X-Generator: Poedit 2.0.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: data/io.elementary.monitor.appdata.xml.in:7
-#: data/io.elementary.monitor.desktop.in:3
+#: data/io.elementary.monitor.appdata.xml.in:7 data/monitor.desktop.in:6
 msgid "Monitor"
 msgstr "Monitor"
 
@@ -295,17 +294,16 @@ msgstr ""
 msgid "Fix POTFILES"
 msgstr ""
 
-#: data/io.elementary.monitor.desktop.in:4
-msgid "System Monitor"
-msgstr "Monitor do Sistema"
-
-#: data/io.elementary.monitor.desktop.in:5
+#: data/monitor.desktop.in:7
 msgid "Manage processes and monitor resource usage of the system"
 msgstr "Gerir processos e monitorizar a utilização de recursos do sistema"
 
-#: data/io.elementary.monitor.desktop.in:12
+#: data/monitor.desktop.in:9
 msgid "System monitor;System usage;Task manager;"
 msgstr "Monitor do Sistema;Utilização do Sistema;Gestor de Tarefas;"
+
+#~ msgid "System Monitor"
+#~ msgstr "Monitor do Sistema"
 
 #~ msgid "io.elementary.monitor"
 #~ msgstr "io.elementary.monitor"
