@@ -3,48 +3,54 @@
  * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
  */
 
-public class Monitor.PreferencesView : Gtk.Box {
-    private Gtk.Adjustment update_time_adjustment;
+public class Monitor.PreferencesView : Gtk.Bin {
+    private Gtk.Adjustment update_freq_adjustment;
 
     construct {
-        var background_switch = new Granite.SwitchModelButton (_("Start in background"));
-
-        var enable_smooth_lines_switch = new Granite.SwitchModelButton (_("Draw smooth lines on CPU chart")) {
-            description = _("Requires restart")
-        };
-
-        var update_time_label = new Gtk.Label (_("Update every (requires restart):")) {
-            halign = START
-        };
-
-        update_time_adjustment = new Gtk.Adjustment (MonitorApp.settings.get_int ("update-time"), 1, 5, 1.0, 1, 0);
-        var update_time_scale = new Gtk.Scale (HORIZONTAL, update_time_adjustment) {
-            halign = FILL,
+        update_freq_adjustment = new Gtk.Adjustment (MonitorApp.settings.get_int ("update-time"), 1, 5, 1.0, 1, 0);
+        var update_freq_scale = new Gtk.Scale (HORIZONTAL, update_freq_adjustment) {
             hexpand = true,
             draw_value = false,
             round_digits = 0,
         };
 
-        update_time_scale.add_mark (1.0, Gtk.PositionType.BOTTOM, _("1s"));
-        update_time_scale.add_mark (2.0, Gtk.PositionType.BOTTOM, _("2s"));
-        update_time_scale.add_mark (3.0, Gtk.PositionType.BOTTOM, _("3s"));
-        update_time_scale.add_mark (4.0, Gtk.PositionType.BOTTOM, _("4s"));
-        update_time_scale.add_mark (5.0, Gtk.PositionType.BOTTOM, _("5s"));
+        var update_freq_label = new Gtk.Label (_("Update frequency")) {
+            halign = START,
+            mnemonic_widget = update_freq_scale
+        };
 
-        var content_area = new Gtk.Grid () {
-            column_spacing = 12,
-            row_spacing = 12,
+        var update_freq_description = new Gtk.Label (_("Requires restart")) {
+            halign = START,
+            margin_bottom = 6
+        };
+        update_freq_description.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+        update_freq_description.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
+
+        update_freq_scale.add_mark (1.0, BOTTOM, _("1s"));
+        update_freq_scale.add_mark (2.0, BOTTOM, _("2s"));
+        update_freq_scale.add_mark (3.0, BOTTOM, _("3s"));
+        update_freq_scale.add_mark (4.0, BOTTOM, _("4s"));
+        update_freq_scale.add_mark (5.0, BOTTOM, _("5s"));
+
+        var update_freq_box = new Gtk.Box (VERTICAL, 0) {
             margin_start = 12,
             margin_end = 12,
             margin_top = 12,
             margin_bottom = 12
         };
-        content_area.attach (update_time_label, 0, 2);
-        content_area.attach (update_time_scale, 0, 3, 2);
+        update_freq_box.add (update_freq_label);
+        update_freq_box.add (update_freq_description);
+        update_freq_box.add (update_freq_scale);
 
-        update_time_adjustment.value_changed.connect (() => {
-            MonitorApp.settings.set_int ("update-time", (int) update_time_adjustment.get_value ());
+        update_freq_adjustment.value_changed.connect (() => {
+            MonitorApp.settings.set_int ("update-time", (int) update_freq_adjustment.get_value ());
         });
+
+        var background_switch = new Granite.SwitchModelButton (_("Start in background"));
+
+        var enable_smooth_lines_switch = new Granite.SwitchModelButton (_("Draw smooth lines on CPU chart")) {
+            description = _("Requires restart")
+        };
 
         var dbusserver = DBusServer.get_default ();
 
@@ -123,15 +129,22 @@ public class Monitor.PreferencesView : Gtk.Box {
             child = indicator_options_box
         };
 
-        add (content_area);
-        add (enable_smooth_lines_switch);
-        add (background_switch);
-        add (indicator_switch);
-        add (indicator_options_revealer);
+        var box = new Gtk.Box (VERTICAL, 0) {
+            margin_bottom = 6
+        };
+        box.add (update_freq_box);
+        box.add (enable_smooth_lines_switch);
+        box.add (background_switch);
+        box.add (indicator_switch);
+        box.add (indicator_options_revealer);
 
-        margin_bottom = 6;
-        width_request = 500;
-        orientation = VERTICAL;
+        var scrolled_window = new Gtk.ScrolledWindow (null, null) {
+            child = box,
+            propagate_natural_height = true,
+            hscrollbar_policy = NEVER
+        };
+
+        child = scrolled_window;
 
         indicator_switch.bind_property ("active", indicator_options_revealer, "reveal-child", SYNC_CREATE);
 
