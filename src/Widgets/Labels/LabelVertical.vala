@@ -21,8 +21,7 @@ public class Monitor.LabelVertical : Gtk.EventBox {
 
     public LabelVertical (string description) {
         val = new Gtk.Label (Utils.NO_DATA);
-
-        val.get_style_context ().add_class ("label-vertical-val");
+        val.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
 
         desc = new Gtk.Label (description.up ());
         desc.get_style_context ().add_class ("small-text");
