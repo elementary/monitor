@@ -10,7 +10,7 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
     private Resources resources;
 
     // Widgets
-    public Headerbar headerbar;
+    public Search search { get; private set; }
 
     public ProcessView process_view;
     public SystemView system_view;
@@ -46,11 +46,36 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
         stack_switcher.valign = Gtk.Align.CENTER;
         stack_switcher.set_stack (stack);
 
-        headerbar = new Headerbar (this);
-        headerbar.set_custom_title (stack_switcher);
         var sv = new PreferencesView ();
-        headerbar.preferences_grid.add (sv);
         sv.show_all ();
+
+        var preferences_popover = new Gtk.Popover (null) {
+            child = sv
+        };
+
+        var preferences_button = new Gtk.MenuButton () {
+            image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR),
+            popover = preferences_popover,
+            tooltip_text = (_("Settings"))
+        };
+
+        search = new Search (this) {
+            valign = CENTER
+        };
+
+        var search_revealer = new Gtk.Revealer () {
+            child = search,
+            transition_type = SLIDE_LEFT
+        };
+
+        var headerbar = new Hdy.HeaderBar () {
+            has_subtitle = false,
+            show_close_button = true,
+            title = _("Monitor")
+        };
+        headerbar.pack_start (search_revealer);
+        headerbar.set_custom_title (stack_switcher);
+        headerbar.pack_end (preferences_button);
 
         statusbar = new Statusbar ();
 
@@ -68,9 +93,9 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
         dbusserver = DBusServer.get_default ();
 
-        headerbar.search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
+        search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
         stack.notify["visible-child-name"].connect (() => {
-            headerbar.search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
+            search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
         });
 
         new Thread<void> ("upd", () => {
@@ -102,13 +127,10 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
         key_press_event.connect ((e) => shortcuts.handle (e));
 
         this.delete_event.connect (() => {
-            int window_width, window_height, position_x, position_y;
+            int window_width, window_height;
             get_size (out window_width, out window_height);
-            get_position (out position_x, out position_y);
             MonitorApp.settings.set_int ("window-width", window_width);
             MonitorApp.settings.set_int ("window-height", window_height);
-            MonitorApp.settings.set_int ("position-x", position_x);
-            MonitorApp.settings.set_int ("position-y", position_y);
             MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized);
 
             MonitorApp.settings.set_string ("opened-view", stack.visible_child_name);
@@ -125,6 +147,11 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
         dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
         stack.visible_child_name = MonitorApp.settings.get_string ("opened-view");
+
+        var search_action = new GLib.SimpleAction ("search", null);
+        search_action.activate.connect (() => search.activate_entry ());
+
+        add_action (search_action);
     }
 
     private void setup_window_state () {
@@ -134,15 +161,6 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
         if (MonitorApp.settings.get_boolean ("is-maximized")) {
             this.maximize ();
-        }
-
-        int position_x = MonitorApp.settings.get_int ("position-x");
-        int position_y = MonitorApp.settings.get_int ("position-y");
-        if (position_x == -1 || position_y == -1) {
-            // -1 is default value of these keys, which means this is the first launch
-            this.window_position = Gtk.WindowPosition.CENTER;
-        } else {
-            move (position_x, position_y);
         }
     }
 

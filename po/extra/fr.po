@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 19:51+0000\n"
+"POT-Creation-Date: 2025-04-01 22:14+0000\n"
 "PO-Revision-Date: 2025-02-07 16:16+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://l10n.elementary.io/projects/desktop/"
-"monitor-extra/fr/>\n"
+"Language-Team: French <https://l10n.elementary.io/projects/desktop/monitor-"
+"extra/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,8 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.9.2\n"
 
-#: data/io.elementary.monitor.appdata.xml.in:7
-#: data/io.elementary.monitor.desktop.in:3
+#: data/io.elementary.monitor.appdata.xml.in:7 data/monitor.desktop.in:6
 msgid "Monitor"
 msgstr "Monitor"
 
@@ -229,9 +228,9 @@ msgid ""
 "Fix the app crashes by clicking the \"End/Kill Process\" buttons when no "
 "process is selected (Ryo Nakano)"
 msgstr ""
-"Correction des plantages de l'application lors du clic sur les boutons « "
-"Terminer/Tuer le processus » alors qu'aucun processus n'est sélectionné (Ryo "
-"Nakano)"
+"Correction des plantages de l'application lors du clic sur les boutons "
+"« Terminer/Tuer le processus » alors qu'aucun processus n'est sélectionné "
+"(Ryo Nakano)"
 
 #: data/io.elementary.monitor.appdata.xml.in:167
 msgid "Added buttons to either \"kill\" or \"end\" a process. (Evan Buss)"
@@ -318,18 +317,17 @@ msgstr "Correction : La recherche s'effaçait pendant la saisie"
 msgid "Fix POTFILES"
 msgstr "Correction du fichier POTFILES"
 
-#: data/io.elementary.monitor.desktop.in:4
-msgid "System Monitor"
-msgstr "Moniteur système"
-
-#: data/io.elementary.monitor.desktop.in:5
+#: data/monitor.desktop.in:7
 msgid "Manage processes and monitor resource usage of the system"
 msgstr ""
 "Gérez les processus et surveillez l'utilisation des ressources du système"
 
-#: data/io.elementary.monitor.desktop.in:12
+#: data/monitor.desktop.in:9
 msgid "System monitor;System usage;Task manager;"
 msgstr "Moniteur système; Utilisation du système; Gestionnaire des tâches;"
+
+#~ msgid "System Monitor"
+#~ msgstr "Moniteur système"
 
 #~ msgid "io.elementary.monitor"
 #~ msgstr "io.elementary.monitor"

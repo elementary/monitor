@@ -15,34 +15,9 @@ public class Monitor.Shortcuts : Object {
         handled = false;
         char typed = e.str[0];
 
-        if (typed.isalnum () && !window.headerbar.search.is_focus) {
-            window.headerbar.search.activate_entry (e.str);
+        if (typed.isalnum () && !window.search.is_focus) {
+            window.search.activate_entry (e.str);
             handled = true;
-        }
-
-        if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
-            switch (e.keyval) {
-            case Gdk.Key.f:
-                window.headerbar.search.activate_entry ();
-                handled = true;
-                break;
-            case Gdk.Key.e:
-                window.process_view.process_tree_view.end_process ();
-                handled = true;
-                break;
-            case Gdk.Key.k:
-                window.process_view.process_tree_view.kill_process ();
-                handled = true;
-                break;
-            case Gdk.Key.comma:
-                handled = true;
-                break;
-            case Gdk.Key.period:
-                handled = true;
-                break;
-            default:
-                break;
-            }
         }
 
         switch (e.keyval) {
