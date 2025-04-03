@@ -1,3 +1,8 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
+ */
+
 public class Monitor.Search : Gtk.SearchEntry {
     public MainWindow window { get; construct; }
     private Gtk.TreeModelFilter filter_model;

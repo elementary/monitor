@@ -1,3 +1,8 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
+ */
+
 public class Monitor.MainWindow : Hdy.ApplicationWindow {
     // application reference
     private Shortcuts shortcuts;
@@ -5,7 +10,7 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
     private Resources resources;
 
     // Widgets
-    public Headerbar headerbar;
+    public Search search { get; private set; }
 
     public ProcessView process_view;
     public SystemView system_view;
@@ -18,7 +23,6 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
     // Constructs a main window
     public MainWindow (MonitorApp app) {
-        Hdy.init ();
         this.set_application (app);
 
         setup_window_state ();
@@ -42,11 +46,36 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
         stack_switcher.valign = Gtk.Align.CENTER;
         stack_switcher.set_stack (stack);
 
-        headerbar = new Headerbar (this);
-        headerbar.set_custom_title (stack_switcher);
         var sv = new PreferencesView ();
-        headerbar.preferences_grid.add (sv);
         sv.show_all ();
+
+        var preferences_popover = new Gtk.Popover (null) {
+            child = sv
+        };
+
+        var preferences_button = new Gtk.MenuButton () {
+            image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR),
+            popover = preferences_popover,
+            tooltip_text = (_("Settings"))
+        };
+
+        search = new Search (this) {
+            valign = CENTER
+        };
+
+        var search_revealer = new Gtk.Revealer () {
+            child = search,
+            transition_type = SLIDE_LEFT
+        };
+
+        var headerbar = new Hdy.HeaderBar () {
+            has_subtitle = false,
+            show_close_button = true,
+            title = _("Monitor")
+        };
+        headerbar.pack_start (search_revealer);
+        headerbar.set_custom_title (stack_switcher);
+        headerbar.pack_end (preferences_button);
 
         statusbar = new Statusbar ();
 
@@ -64,9 +93,9 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
         dbusserver = DBusServer.get_default ();
 
-        headerbar.search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
+        search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
         stack.notify["visible-child-name"].connect (() => {
-            headerbar.search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
+            search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
         });
 
         new Thread<void> ("upd", () => {

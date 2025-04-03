@@ -1,12 +1,16 @@
 [Desktop Entry]
+Version=1.5
+Type=Application
+
 Name=Monitor
-GenericName=System Monitor
 Comment=Manage processes and monitor resource usage of the system
 Categories=System;Utility;
-Exec=io.elementary.monitor %U
-Icon=io.elementary.monitor
-Terminal=false
-Type=Application
-X-GNOME-Gettext-Domain=monitor
 Keywords=System monitor;System usage;Task manager;
+
+Icon=io.elementary.monitor
+Exec=io.elementary.monitor %U
+SingleMainWindow=true
+StartupNotify=true
+Terminal=false
+
 X-GNOME-UsesNotifications=false

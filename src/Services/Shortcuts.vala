@@ -1,3 +1,8 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
+ */
+
 public class Monitor.Shortcuts : Object {
     private MainWindow window;
     public bool handled;
@@ -10,15 +15,15 @@ public class Monitor.Shortcuts : Object {
         handled = false;
         char typed = e.str[0];
 
-        if (typed.isalnum () && !window.headerbar.search.is_focus) {
-            window.headerbar.search.activate_entry (e.str);
+        if (typed.isalnum () && !window.search.is_focus) {
+            window.search.activate_entry (e.str);
             handled = true;
         }
 
         if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
             switch (e.keyval) {
             case Gdk.Key.f:
-                window.headerbar.search.activate_entry ();
+                window.search.activate_entry ();
                 handled = true;
                 break;
             case Gdk.Key.e:

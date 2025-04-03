@@ -1,3 +1,8 @@
+/*
+ * Copyright 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 public class Monitor.LabelRoundy : Gtk.Fixed {
     public Gtk.Label val;
     public Gtk.Label desc;

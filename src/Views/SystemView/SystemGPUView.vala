@@ -1,3 +1,8 @@
+/*
+ * Copyright 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 public class Monitor.SystemGPUView : Monitor.WidgetResource {
     private Chart gpu_chart;
     private Chart gpu_vram_percentage_chart;

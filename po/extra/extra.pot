@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 19:51+0000\n"
+"POT-Creation-Date: 2025-04-01 22:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: data/io.elementary.monitor.appdata.xml.in:7
-#: data/io.elementary.monitor.desktop.in:3
+#: data/io.elementary.monitor.appdata.xml.in:7 data/monitor.desktop.in:6
 msgid "Monitor"
 msgstr ""
 
@@ -292,14 +291,10 @@ msgstr ""
 msgid "Fix POTFILES"
 msgstr ""
 
-#: data/io.elementary.monitor.desktop.in:4
-msgid "System Monitor"
-msgstr ""
-
-#: data/io.elementary.monitor.desktop.in:5
+#: data/monitor.desktop.in:7
 msgid "Manage processes and monitor resource usage of the system"
 msgstr ""
 
-#: data/io.elementary.monitor.desktop.in:12
+#: data/monitor.desktop.in:9
 msgid "System monitor;System usage;Task manager;"
 msgstr ""
