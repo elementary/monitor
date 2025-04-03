@@ -20,19 +20,6 @@ public class Monitor.Shortcuts : Object {
             handled = true;
         }
 
-        switch (e.keyval) {
-        case Gdk.Key.Left:
-            window.process_view.process_tree_view.collapse ();
-            handled = true;
-            break;
-        case Gdk.Key.Right:
-            window.process_view.process_tree_view.expanded ();
-            handled = true;
-            break;
-        default:
-            break;
-        }
-
         return handled;
     }
 
