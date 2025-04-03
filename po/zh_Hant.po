@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-03 17:17+0000\n"
+"POT-Creation-Date: 2025-04-03 19:18+0000\n"
 "PO-Revision-Date: 2024-11-06 11:20+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -199,95 +199,109 @@ msgstr "CPU：%.1f%%"
 msgid "RAM: %.1f%%"
 msgstr "記憶體：%.1f%%"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:13
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:26
-msgid "General"
-msgstr "一般"
+#: src/Views/PreferencesView.vala:17
+#, fuzzy
+#| msgid "Display CPU frequency"
+msgid "Update frequency"
+msgstr "顯示 CPU 頻率"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:18
-msgid "Start in background:"
-msgstr "在背景啟動："
-
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:27
-msgid "Draw smooth lines on CPU chart (requires restart):"
-msgstr "用柔順的線來繪製 CPU 圖表（需要重新啟動）："
-
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:36
-msgid "Update every (requires restart):"
+#: src/Views/PreferencesView.vala:22 src/Views/PreferencesView.vala:52
+#, fuzzy
+#| msgid "Update every (requires restart):"
+msgid "Requires restart"
 msgstr "更新間隔（需要重新啟動）："
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:48
+#: src/Views/PreferencesView.vala:29
 msgid "1s"
 msgstr "1 秒"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:49
+#: src/Views/PreferencesView.vala:30
 msgid "2s"
 msgstr "2 秒"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:50
+#: src/Views/PreferencesView.vala:31
 msgid "3s"
 msgstr "3 秒"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:51
+#: src/Views/PreferencesView.vala:32
 msgid "4s"
 msgstr "4 秒"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:52
+#: src/Views/PreferencesView.vala:33
 msgid "5s"
 msgstr "5 秒"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
-msgid "Show indicator in Wingpanel"
+#: src/Views/PreferencesView.vala:49
+#, fuzzy
+#| msgid "Start in background:"
+msgid "Start in background"
+msgstr "在背景啟動："
+
+#: src/Views/PreferencesView.vala:51
+#, fuzzy
+#| msgid "Draw smooth lines on CPU chart (requires restart):"
+msgid "Draw smooth lines on CPU chart"
+msgstr "用柔順的線來繪製 CPU 圖表（需要重新啟動）："
+
+#: src/Views/PreferencesView.vala:57
+#, fuzzy
+#| msgid "Show indicator in Wingpanel"
+msgid "Show in panel"
 msgstr "在 Wingpanel 面板中顯示指示器"
 
-#. header: "Simple Pages",
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:15
-msgid "Indicator"
-msgstr "指示器"
-
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:23
-msgid "Display CPU percentage"
+#: src/Views/PreferencesView.vala:62
+#, fuzzy
+#| msgid "Display CPU percentage"
+msgid "CPU percentage"
 msgstr "顯示 CPU 使用率"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:37
-msgid "Display CPU frequency"
+#: src/Views/PreferencesView.vala:67
+#, fuzzy
+#| msgid "Display CPU frequency"
+msgid "CPU frequency"
 msgstr "顯示 CPU 頻率"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:50
-msgid "Display CPU temperature"
+#: src/Views/PreferencesView.vala:72
+#, fuzzy
+#| msgid "Display CPU temperature"
+msgid "CPU temperature"
 msgstr "顯示 CPU 溫度"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:62
-msgid "Display RAM percentage"
+#: src/Views/PreferencesView.vala:77
+#, fuzzy
+#| msgid "Display RAM percentage"
+msgid "RAM percentage"
 msgstr "顯示記憶體使用率"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:74
-msgid "Display network upload"
+#: src/Views/PreferencesView.vala:82
+#, fuzzy
+#| msgid "Display network upload"
+msgid "Network upload"
 msgstr "顯示網路上傳量"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:86
-msgid "Display network download"
+#: src/Views/PreferencesView.vala:87
+#, fuzzy
+#| msgid "Display network download"
+msgid "Network download"
 msgstr "顯示網路下載量"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:98
-msgid "Display GPU percentage"
+#: src/Views/PreferencesView.vala:92
+#, fuzzy
+#| msgid "Display GPU percentage"
+msgid "GPU percentage"
 msgstr "顯示 GPU 使用率"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:110
-msgid "Display VRAM percentage"
+#: src/Views/PreferencesView.vala:97
+#, fuzzy
+#| msgid "Display VRAM percentage"
+msgid "VRAM percentage"
 msgstr "顯示 VRAM 使用率"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:122
-msgid "Display GPU temperature"
+#: src/Views/PreferencesView.vala:102
+#, fuzzy
+#| msgid "Display GPU temperature"
+msgid "GPU temperature"
 msgstr "顯示 GPU 溫度"
-
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:188
-msgid "Enabled"
-msgstr "已啟用"
-
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:193
-msgid "Disabled"
-msgstr "已停用"
 
 #: src/Views/SystemView/SystemCPUView.vala:22
 msgid "Frequency"
@@ -316,6 +330,10 @@ msgstr "GHz"
 #: src/Views/SystemView/SystemCPUView.vala:158
 msgid "THREADS"
 msgstr "執行緒"
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:26
+msgid "General"
+msgstr "一般"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:27
 msgid "Features"
@@ -459,6 +477,15 @@ msgstr "在 GitHub 上查看"
 #: src/Widgets/WidgetResource/WidgetResource.vala:16
 msgid "UTILIZATION"
 msgstr "使用率"
+
+#~ msgid "Indicator"
+#~ msgstr "指示器"
+
+#~ msgid "Enabled"
+#~ msgstr "已啟用"
+
+#~ msgid "Disabled"
+#~ msgstr "已停用"
 
 #~ msgid "B"
 #~ msgstr "B"

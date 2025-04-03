@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-03 17:17+0000\n"
+"POT-Creation-Date: 2025-04-03 19:18+0000\n"
 "PO-Revision-Date: 2024-11-01 03:29+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/desktop/monitor/"
@@ -199,95 +199,93 @@ msgstr ""
 msgid "RAM: %.1f%%"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:13
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:26
-msgid "General"
-msgstr "საერთო"
+#: src/Views/PreferencesView.vala:17
+#, fuzzy
+#| msgid "Frequency"
+msgid "Update frequency"
+msgstr "სიხშირე"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:18
-msgid "Start in background:"
+#: src/Views/PreferencesView.vala:22 src/Views/PreferencesView.vala:52
+msgid "Requires restart"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:27
-msgid "Draw smooth lines on CPU chart (requires restart):"
-msgstr ""
-
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:36
-msgid "Update every (requires restart):"
-msgstr ""
-
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:48
+#: src/Views/PreferencesView.vala:29
 msgid "1s"
 msgstr "1წმ"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:49
+#: src/Views/PreferencesView.vala:30
 msgid "2s"
 msgstr "2წმ"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:50
+#: src/Views/PreferencesView.vala:31
 msgid "3s"
 msgstr "3წმ"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:51
+#: src/Views/PreferencesView.vala:32
 msgid "4s"
 msgstr "4წმ"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:52
+#: src/Views/PreferencesView.vala:33
 msgid "5s"
 msgstr "5წმ"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
-msgid "Show indicator in Wingpanel"
+#: src/Views/PreferencesView.vala:49
+msgid "Start in background"
 msgstr ""
 
-#. header: "Simple Pages",
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:15
-msgid "Indicator"
-msgstr "მაჩვენებელი"
-
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:23
-msgid "Display CPU percentage"
+#: src/Views/PreferencesView.vala:51
+msgid "Draw smooth lines on CPU chart"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:37
-msgid "Display CPU frequency"
+#: src/Views/PreferencesView.vala:57
+msgid "Show in panel"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:50
-msgid "Display CPU temperature"
+#: src/Views/PreferencesView.vala:62
+msgid "CPU percentage"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:62
-msgid "Display RAM percentage"
+#: src/Views/PreferencesView.vala:67
+#, fuzzy
+#| msgid "Frequency"
+msgid "CPU frequency"
+msgstr "სიხშირე"
+
+#: src/Views/PreferencesView.vala:72
+#, fuzzy
+#| msgid "Temperature"
+msgid "CPU temperature"
+msgstr "ტემპერატურა"
+
+#: src/Views/PreferencesView.vala:77
+msgid "RAM percentage"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:74
-msgid "Display network upload"
+#: src/Views/PreferencesView.vala:82
+#, fuzzy
+#| msgid "Network"
+msgid "Network upload"
+msgstr "ქსელი"
+
+#: src/Views/PreferencesView.vala:87
+#, fuzzy
+#| msgid "Network"
+msgid "Network download"
+msgstr "ქსელი"
+
+#: src/Views/PreferencesView.vala:92
+msgid "GPU percentage"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:86
-msgid "Display network download"
+#: src/Views/PreferencesView.vala:97
+msgid "VRAM percentage"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:98
-msgid "Display GPU percentage"
-msgstr ""
-
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:110
-msgid "Display VRAM percentage"
-msgstr ""
-
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:122
-msgid "Display GPU temperature"
-msgstr ""
-
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:188
-msgid "Enabled"
-msgstr "ჩართულია"
-
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:193
-msgid "Disabled"
-msgstr "გამორთულია"
+#: src/Views/PreferencesView.vala:102
+#, fuzzy
+#| msgid "Temperature"
+msgid "GPU temperature"
+msgstr "ტემპერატურა"
 
 #: src/Views/SystemView/SystemCPUView.vala:22
 msgid "Frequency"
@@ -316,6 +314,10 @@ msgstr "გჰც"
 #: src/Views/SystemView/SystemCPUView.vala:158
 msgid "THREADS"
 msgstr "ნაკადები"
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:26
+msgid "General"
+msgstr "საერთო"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:27
 msgid "Features"
@@ -459,6 +461,15 @@ msgstr ""
 #: src/Widgets/WidgetResource/WidgetResource.vala:16
 msgid "UTILIZATION"
 msgstr "გამოიყენება"
+
+#~ msgid "Indicator"
+#~ msgstr "მაჩვენებელი"
+
+#~ msgid "Enabled"
+#~ msgstr "ჩართულია"
+
+#~ msgid "Disabled"
+#~ msgstr "გამორთულია"
 
 #~ msgid "B"
 #~ msgstr "ბ"

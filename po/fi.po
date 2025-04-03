@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-03 17:17+0000\n"
+"POT-Creation-Date: 2025-04-03 19:18+0000\n"
 "PO-Revision-Date: 2024-12-02 14:16+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/desktop/monitor/"
@@ -199,95 +199,95 @@ msgstr ""
 msgid "RAM: %.1f%%"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:13
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:26
-msgid "General"
-msgstr "Yleiset"
+#: src/Views/PreferencesView.vala:17
+#, fuzzy
+#| msgid "Frequency"
+msgid "Update frequency"
+msgstr "Taajuus"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:18
-msgid "Start in background:"
-msgstr "Käynnistä taustalla:"
-
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:27
-msgid "Draw smooth lines on CPU chart (requires restart):"
+#: src/Views/PreferencesView.vala:22 src/Views/PreferencesView.vala:52
+msgid "Requires restart"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:36
-msgid "Update every (requires restart):"
-msgstr ""
-
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:48
+#: src/Views/PreferencesView.vala:29
 msgid "1s"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:49
+#: src/Views/PreferencesView.vala:30
 msgid "2s"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:50
+#: src/Views/PreferencesView.vala:31
 msgid "3s"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:51
+#: src/Views/PreferencesView.vala:32
 msgid "4s"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:52
+#: src/Views/PreferencesView.vala:33
 msgid "5s"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
-msgid "Show indicator in Wingpanel"
+#: src/Views/PreferencesView.vala:49
+#, fuzzy
+#| msgid "Start in background:"
+msgid "Start in background"
+msgstr "Käynnistä taustalla:"
+
+#: src/Views/PreferencesView.vala:51
+msgid "Draw smooth lines on CPU chart"
 msgstr ""
 
-#. header: "Simple Pages",
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:15
-msgid "Indicator"
-msgstr "Ilmaisin"
-
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:23
-msgid "Display CPU percentage"
+#: src/Views/PreferencesView.vala:57
+msgid "Show in panel"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:37
-msgid "Display CPU frequency"
+#: src/Views/PreferencesView.vala:62
+msgid "CPU percentage"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:50
-msgid "Display CPU temperature"
+#: src/Views/PreferencesView.vala:67
+#, fuzzy
+#| msgid "Frequency"
+msgid "CPU frequency"
+msgstr "Taajuus"
+
+#: src/Views/PreferencesView.vala:72
+#, fuzzy
+#| msgid "Temperature"
+msgid "CPU temperature"
+msgstr "Lämpötila"
+
+#: src/Views/PreferencesView.vala:77
+msgid "RAM percentage"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:62
-msgid "Display RAM percentage"
+#: src/Views/PreferencesView.vala:82
+#, fuzzy
+#| msgid "Network"
+msgid "Network upload"
+msgstr "Verkko"
+
+#: src/Views/PreferencesView.vala:87
+#, fuzzy
+#| msgid "Network"
+msgid "Network download"
+msgstr "Verkko"
+
+#: src/Views/PreferencesView.vala:92
+msgid "GPU percentage"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:74
-msgid "Display network upload"
+#: src/Views/PreferencesView.vala:97
+msgid "VRAM percentage"
 msgstr ""
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:86
-msgid "Display network download"
-msgstr ""
-
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:98
-msgid "Display GPU percentage"
-msgstr ""
-
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:110
-msgid "Display VRAM percentage"
-msgstr ""
-
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:122
-msgid "Display GPU temperature"
-msgstr ""
-
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:188
-msgid "Enabled"
-msgstr "Käytössä"
-
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:193
-msgid "Disabled"
-msgstr "Pois käytöstä"
+#: src/Views/PreferencesView.vala:102
+#, fuzzy
+#| msgid "Temperature"
+msgid "GPU temperature"
+msgstr "Lämpötila"
 
 #: src/Views/SystemView/SystemCPUView.vala:22
 msgid "Frequency"
@@ -316,6 +316,10 @@ msgstr ""
 #: src/Views/SystemView/SystemCPUView.vala:158
 msgid "THREADS"
 msgstr ""
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:26
+msgid "General"
+msgstr "Yleiset"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:27
 msgid "Features"
@@ -459,3 +463,12 @@ msgstr ""
 #: src/Widgets/WidgetResource/WidgetResource.vala:16
 msgid "UTILIZATION"
 msgstr ""
+
+#~ msgid "Indicator"
+#~ msgstr "Ilmaisin"
+
+#~ msgid "Enabled"
+#~ msgstr "Käytössä"
+
+#~ msgid "Disabled"
+#~ msgstr "Pois käytöstä"

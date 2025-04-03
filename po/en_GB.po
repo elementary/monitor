@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-03 17:17+0000\n"
+"POT-Creation-Date: 2025-04-03 19:18+0000\n"
 "PO-Revision-Date: 2024-11-06 05:38+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
@@ -200,95 +200,109 @@ msgstr "CPU: %.1f%%"
 msgid "RAM: %.1f%%"
 msgstr "RAM: %.1f%%"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:13
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:26
-msgid "General"
-msgstr "General"
+#: src/Views/PreferencesView.vala:17
+#, fuzzy
+#| msgid "Display CPU frequency"
+msgid "Update frequency"
+msgstr "Display CPU frequency"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:18
-msgid "Start in background:"
-msgstr "Start in background:"
-
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:27
-msgid "Draw smooth lines on CPU chart (requires restart):"
-msgstr "Draw smooth lines on CPU chart (requires restart):"
-
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:36
-msgid "Update every (requires restart):"
+#: src/Views/PreferencesView.vala:22 src/Views/PreferencesView.vala:52
+#, fuzzy
+#| msgid "Update every (requires restart):"
+msgid "Requires restart"
 msgstr "Update every (requires restart):"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:48
+#: src/Views/PreferencesView.vala:29
 msgid "1s"
 msgstr "1s"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:49
+#: src/Views/PreferencesView.vala:30
 msgid "2s"
 msgstr "2s"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:50
+#: src/Views/PreferencesView.vala:31
 msgid "3s"
 msgstr "3s"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:51
+#: src/Views/PreferencesView.vala:32
 msgid "4s"
 msgstr "4s"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:52
+#: src/Views/PreferencesView.vala:33
 msgid "5s"
 msgstr "5s"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
-msgid "Show indicator in Wingpanel"
+#: src/Views/PreferencesView.vala:49
+#, fuzzy
+#| msgid "Start in background:"
+msgid "Start in background"
+msgstr "Start in background:"
+
+#: src/Views/PreferencesView.vala:51
+#, fuzzy
+#| msgid "Draw smooth lines on CPU chart (requires restart):"
+msgid "Draw smooth lines on CPU chart"
+msgstr "Draw smooth lines on CPU chart (requires restart):"
+
+#: src/Views/PreferencesView.vala:57
+#, fuzzy
+#| msgid "Show indicator in Wingpanel"
+msgid "Show in panel"
 msgstr "Show indicator in Wingpanel"
 
-#. header: "Simple Pages",
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:15
-msgid "Indicator"
-msgstr "Indicator"
-
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:23
-msgid "Display CPU percentage"
+#: src/Views/PreferencesView.vala:62
+#, fuzzy
+#| msgid "Display CPU percentage"
+msgid "CPU percentage"
 msgstr "Display CPU percentage"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:37
-msgid "Display CPU frequency"
+#: src/Views/PreferencesView.vala:67
+#, fuzzy
+#| msgid "Display CPU frequency"
+msgid "CPU frequency"
 msgstr "Display CPU frequency"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:50
-msgid "Display CPU temperature"
+#: src/Views/PreferencesView.vala:72
+#, fuzzy
+#| msgid "Display CPU temperature"
+msgid "CPU temperature"
 msgstr "Display CPU temperature"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:62
-msgid "Display RAM percentage"
+#: src/Views/PreferencesView.vala:77
+#, fuzzy
+#| msgid "Display RAM percentage"
+msgid "RAM percentage"
 msgstr "Display RAM percentage"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:74
-msgid "Display network upload"
+#: src/Views/PreferencesView.vala:82
+#, fuzzy
+#| msgid "Display network upload"
+msgid "Network upload"
 msgstr "Display network upload"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:86
-msgid "Display network download"
+#: src/Views/PreferencesView.vala:87
+#, fuzzy
+#| msgid "Display network download"
+msgid "Network download"
 msgstr "Display network download"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:98
-msgid "Display GPU percentage"
+#: src/Views/PreferencesView.vala:92
+#, fuzzy
+#| msgid "Display GPU percentage"
+msgid "GPU percentage"
 msgstr "Display GPU percentage"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:110
-msgid "Display VRAM percentage"
+#: src/Views/PreferencesView.vala:97
+#, fuzzy
+#| msgid "Display VRAM percentage"
+msgid "VRAM percentage"
 msgstr "Display VRAM percentage"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:122
-msgid "Display GPU temperature"
+#: src/Views/PreferencesView.vala:102
+#, fuzzy
+#| msgid "Display GPU temperature"
+msgid "GPU temperature"
 msgstr "Display GPU temperature"
-
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:188
-msgid "Enabled"
-msgstr "Enabled"
-
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:193
-msgid "Disabled"
-msgstr "Disabled"
 
 #: src/Views/SystemView/SystemCPUView.vala:22
 msgid "Frequency"
@@ -317,6 +331,10 @@ msgstr "GHz"
 #: src/Views/SystemView/SystemCPUView.vala:158
 msgid "THREADS"
 msgstr "THREADS"
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:26
+msgid "General"
+msgstr "General"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:27
 msgid "Features"
@@ -460,6 +478,15 @@ msgstr "Check on Github"
 #: src/Widgets/WidgetResource/WidgetResource.vala:16
 msgid "UTILIZATION"
 msgstr "UTILIZATION"
+
+#~ msgid "Indicator"
+#~ msgstr "Indicator"
+
+#~ msgid "Enabled"
+#~ msgstr "Enabled"
+
+#~ msgid "Disabled"
+#~ msgstr "Disabled"
 
 #~ msgid "B"
 #~ msgstr "B"
