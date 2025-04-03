@@ -52,7 +52,7 @@ sudo apt install build-essential cmake sassc valac libgtk-3-dev libgee-0.8-dev l
 
 1. Clone:
    ```bash
-   git clone --recursive https://github.com/stsdc/monitor
+   git clone https://github.com/stsdc/monitor
    cd monitor
    ```
 
