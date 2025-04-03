@@ -45,7 +45,6 @@ source_app_files = [
     'Managers/ProcessUtils.vala',
 
     # Services
-    'Services/Shortcuts.vala',
     'Services/DBusServer.vala',
     'Services/Appearance.vala',
 
