@@ -21,10 +21,6 @@ public class Monitor.Shortcuts : Object {
         }
 
         switch (e.keyval) {
-        case Gdk.Key.Return:
-            window.process_view.process_tree_view.focus_on_first_row ();
-            handled = true;
-            break;
         case Gdk.Key.Left:
             window.process_view.process_tree_view.collapse ();
             handled = true;

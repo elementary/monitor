@@ -43,6 +43,10 @@ public class Monitor.Search : Gtk.SearchEntry {
                 this.insert_at_cursor ("");
             }
         });
+
+        activate.connect (() => {
+            window.process_view.process_tree_view.focus_on_first_row ();
+        });
     }
 
     private bool filter_func (Gtk.TreeModel model, Gtk.TreeIter iter) {
