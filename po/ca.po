@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-01 21:58+0000\n"
+"POT-Creation-Date: 2025-04-01 22:14+0000\n"
 "PO-Revision-Date: 2024-11-05 11:08+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/desktop/monitor/"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.6.2\n"
 
-#: src/MainWindow.vala:30 src/Widgets/Headerbar/Headerbar.vala:19
+#: src/MainWindow.vala:30 src/MainWindow.vala:74
 msgid "Monitor"
 msgstr "Monitor"
 
@@ -30,6 +30,10 @@ msgstr "Processos"
 #: src/MainWindow.vala:42
 msgid "System"
 msgstr "Sistema"
+
+#: src/MainWindow.vala:59
+msgid "Settings"
+msgstr "Paràmetres"
 
 #: src/Utils.vala:7
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:40
@@ -428,10 +432,6 @@ msgstr "VRAM"
 #: src/Views/SystemView/SystemGPUView.vala:21
 msgid "TEMPERATURE"
 msgstr "TEMPERATURA"
-
-#: src/Widgets/Headerbar/Headerbar.vala:27
-msgid "Settings"
-msgstr "Paràmetres"
 
 #: src/Widgets/Headerbar/Search.vala:17
 msgid "Search Process"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-01 21:58+0000\n"
+"POT-Creation-Date: 2025-04-01 22:14+0000\n"
 "PO-Revision-Date: 2024-11-06 11:20+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.6.2\n"
 
-#: src/MainWindow.vala:30 src/Widgets/Headerbar/Headerbar.vala:19
+#: src/MainWindow.vala:30 src/MainWindow.vala:74
 msgid "Monitor"
 msgstr "監控"
 
@@ -30,6 +30,10 @@ msgstr "程序"
 #: src/MainWindow.vala:42
 msgid "System"
 msgstr "系統"
+
+#: src/MainWindow.vala:59
+msgid "Settings"
+msgstr "設定"
 
 #: src/Utils.vala:7
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:40
@@ -427,10 +431,6 @@ msgstr "VRAM"
 #: src/Views/SystemView/SystemGPUView.vala:21
 msgid "TEMPERATURE"
 msgstr "溫度"
-
-#: src/Widgets/Headerbar/Headerbar.vala:27
-msgid "Settings"
-msgstr "設定"
 
 #: src/Widgets/Headerbar/Search.vala:17
 msgid "Search Process"

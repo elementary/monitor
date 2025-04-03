@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-01 21:58+0000\n"
+"POT-Creation-Date: 2025-04-01 22:14+0000\n"
 "PO-Revision-Date: 2020-12-16 10:30+0200\n"
 "Last-Translator: Tiberiu Frățilă\n"
 "Language-Team: \n"
@@ -19,7 +19,7 @@ msgstr ""
 "2:1));\n"
 "X-Generator: Poedit 2.0.6\n"
 
-#: src/MainWindow.vala:30 src/Widgets/Headerbar/Headerbar.vala:19
+#: src/MainWindow.vala:30 src/MainWindow.vala:74
 msgid "Monitor"
 msgstr "Monitor"
 
@@ -30,6 +30,10 @@ msgstr "Procese"
 #: src/MainWindow.vala:42
 msgid "System"
 msgstr "Sistem"
+
+#: src/MainWindow.vala:59
+msgid "Settings"
+msgstr "Configurări"
 
 #: src/Utils.vala:7
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:40
@@ -438,10 +442,6 @@ msgstr ""
 #: src/Views/SystemView/SystemGPUView.vala:21
 msgid "TEMPERATURE"
 msgstr "TEMPERATURĂ"
-
-#: src/Widgets/Headerbar/Headerbar.vala:27
-msgid "Settings"
-msgstr "Configurări"
 
 #: src/Widgets/Headerbar/Search.vala:17
 msgid "Search Process"

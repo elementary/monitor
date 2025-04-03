@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-01 21:58+0000\n"
+"POT-Creation-Date: 2025-04-01 22:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/MainWindow.vala:30 src/Widgets/Headerbar/Headerbar.vala:19
+#: src/MainWindow.vala:30 src/MainWindow.vala:74
 msgid "Monitor"
 msgstr ""
 
@@ -26,6 +26,10 @@ msgstr ""
 
 #: src/MainWindow.vala:42
 msgid "System"
+msgstr ""
+
+#: src/MainWindow.vala:59
+msgid "Settings"
 msgstr ""
 
 #: src/Utils.vala:7
@@ -423,10 +427,6 @@ msgstr ""
 
 #: src/Views/SystemView/SystemGPUView.vala:21
 msgid "TEMPERATURE"
-msgstr ""
-
-#: src/Widgets/Headerbar/Headerbar.vala:27
-msgid "Settings"
 msgstr ""
 
 #: src/Widgets/Headerbar/Search.vala:17

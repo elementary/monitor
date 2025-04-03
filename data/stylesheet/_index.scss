@@ -42,17 +42,6 @@ $text_color: $fg_color;
     background-color: rgba($BLUEBERRY_100, 0.6);
 }
 
-.label-vertical {
-    &-val {
-        color: $text_color;
-        font-size: 30px;
-        font-weight: 200;
-        border-width: 0;
-    }
-}
-
-
-
 .usage-label-container {
     border-radius: 3px;
     @if $color-scheme == "light" {
