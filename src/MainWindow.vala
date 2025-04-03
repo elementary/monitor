@@ -127,13 +127,10 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
         key_press_event.connect ((e) => shortcuts.handle (e));
 
         this.delete_event.connect (() => {
-            int window_width, window_height, position_x, position_y;
+            int window_width, window_height;
             get_size (out window_width, out window_height);
-            get_position (out position_x, out position_y);
             MonitorApp.settings.set_int ("window-width", window_width);
             MonitorApp.settings.set_int ("window-height", window_height);
-            MonitorApp.settings.set_int ("position-x", position_x);
-            MonitorApp.settings.set_int ("position-y", position_y);
             MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized);
 
             MonitorApp.settings.set_string ("opened-view", stack.visible_child_name);
@@ -159,15 +156,6 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
         if (MonitorApp.settings.get_boolean ("is-maximized")) {
             this.maximize ();
-        }
-
-        int position_x = MonitorApp.settings.get_int ("position-x");
-        int position_y = MonitorApp.settings.get_int ("position-y");
-        if (position_x == -1 || position_y == -1) {
-            // -1 is default value of these keys, which means this is the first launch
-            this.window_position = Gtk.WindowPosition.CENTER;
-        } else {
-            move (position_x, position_y);
         }
     }
 
