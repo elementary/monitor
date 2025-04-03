@@ -34,9 +34,9 @@ public class Monitor.IndicatorWidget : Gtk.Box {
         }
     }
 
-    public int state_bandwidth {
+    public uint64 state_bandwidth {
         set {
-            label.label = ("%s").printf (Utils.HumanUnitFormatter.string_bytes_to_human (value.to_string (), true));
+            label.label = format_size (value);
         }
     }
 

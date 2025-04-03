@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-01 22:14+0000\n"
+"POT-Creation-Date: 2025-04-03 17:17+0000\n"
 "PO-Revision-Date: 2017-09-07 11:24+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -47,26 +47,6 @@ msgstr ""
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:40
 msgid "N/A"
 msgstr ""
-
-#: src/Utils.vala:81
-msgid "B"
-msgstr ""
-
-#: src/Utils.vala:86
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:122
-msgid "KiB"
-msgstr "KiB"
-
-#: src/Utils.vala:92
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:127
-msgid "MiB"
-msgstr "MiB"
-
-#: src/Utils.vala:97
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:133
-#: src/Widgets/Statusbar/Statusbar.vala:98
-msgid "GiB"
-msgstr "GiB"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 #, fuzzy
@@ -202,6 +182,19 @@ msgstr "CPU"
 #: src/Widgets/Statusbar/Statusbar.vala:18
 msgid "Memory"
 msgstr "Atmintis"
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:134
+msgid "KiB"
+msgstr "KiB"
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:139
+msgid "MiB"
+msgstr "MiB"
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:145
+#: src/Widgets/Statusbar/Statusbar.vala:101
+msgid "GiB"
+msgstr "GiB"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:55
 #, c-format

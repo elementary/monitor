@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-01 22:14+0000\n"
+"POT-Creation-Date: 2025-04-03 17:17+0000\n"
 "PO-Revision-Date: 2024-11-05 04:32+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/desktop/monitor/"
@@ -42,26 +42,6 @@ msgstr "Параметры"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:40
 msgid "N/A"
 msgstr "Н/Д"
-
-#: src/Utils.vala:81
-msgid "B"
-msgstr "Б"
-
-#: src/Utils.vala:86
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:122
-msgid "KiB"
-msgstr "КиБ"
-
-#: src/Utils.vala:92
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:127
-msgid "MiB"
-msgstr "МиБ"
-
-#: src/Utils.vala:97
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:133
-#: src/Widgets/Statusbar/Statusbar.vala:98
-msgid "GiB"
-msgstr "ГиБ"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
@@ -191,6 +171,19 @@ msgstr "ЦП"
 #: src/Widgets/Statusbar/Statusbar.vala:18
 msgid "Memory"
 msgstr "Память"
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:134
+msgid "KiB"
+msgstr "КиБ"
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:139
+msgid "MiB"
+msgstr "МиБ"
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:145
+#: src/Widgets/Statusbar/Statusbar.vala:101
+msgid "GiB"
+msgstr "ГиБ"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:55
 #, c-format
@@ -462,6 +455,9 @@ msgstr "Проект на Github"
 #: src/Widgets/WidgetResource/WidgetResource.vala:16
 msgid "UTILIZATION"
 msgstr "ИСПОЛЬЗОВАНИЕ"
+
+#~ msgid "B"
+#~ msgstr "Б"
 
 #~ msgid "Containers"
 #~ msgstr "Контейнеры"
