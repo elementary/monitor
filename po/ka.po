@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-01 22:14+0000\n"
+"POT-Creation-Date: 2025-04-03 17:17+0000\n"
 "PO-Revision-Date: 2024-11-01 03:29+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/desktop/monitor/"
@@ -46,26 +46,6 @@ msgstr "მორგება"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:40
 msgid "N/A"
 msgstr "N/A"
-
-#: src/Utils.vala:81
-msgid "B"
-msgstr "ბ"
-
-#: src/Utils.vala:86
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:122
-msgid "KiB"
-msgstr "კიბ"
-
-#: src/Utils.vala:92
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:127
-msgid "MiB"
-msgstr "მიბ"
-
-#: src/Utils.vala:97
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:133
-#: src/Widgets/Statusbar/Statusbar.vala:98
-msgid "GiB"
-msgstr "გიბ"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
@@ -195,6 +175,19 @@ msgstr "CPU"
 #: src/Widgets/Statusbar/Statusbar.vala:18
 msgid "Memory"
 msgstr "მეხსიერება"
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:134
+msgid "KiB"
+msgstr "კიბ"
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:139
+msgid "MiB"
+msgstr "მიბ"
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:145
+#: src/Widgets/Statusbar/Statusbar.vala:101
+msgid "GiB"
+msgstr "გიბ"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:55
 #, c-format
@@ -466,3 +459,6 @@ msgstr ""
 #: src/Widgets/WidgetResource/WidgetResource.vala:16
 msgid "UTILIZATION"
 msgstr "გამოიყენება"
+
+#~ msgid "B"
+#~ msgstr "ბ"

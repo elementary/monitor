@@ -87,7 +87,10 @@ public class Monitor.Statusbar : Gtk.ActionBar {
         string cpu_tooltip_text = ("%.2f %s").printf (sysres.cpu_frequency, _("GHz"));
         cpu_usage_label.tooltip_text = cpu_tooltip_text;
 
-        string memory_tooltip_text = ("%s / %s").printf (Utils.HumanUnitFormatter.double_bytes_to_human (sysres.memory_used), Utils.HumanUnitFormatter.double_bytes_to_human (sysres.memory_total));
+        string memory_tooltip_text = ("%s / %s").printf (
+            format_size ((uint64) sysres.memory_used, IEC_UNITS),
+            format_size ((uint64) sysres.memory_total, IEC_UNITS)
+        );
         memory_usage_label.tooltip_text = memory_tooltip_text;
 
         // The total amount of the swap is 0 when it is unavailable
