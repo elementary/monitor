@@ -85,18 +85,6 @@ source_app_files = [
 
 ]
 
-source_indicator_files = [
-    'Indicator/Indicator.vala',
-    'Utils.vala',
-    'Resources/ResourcesSerialized.vala',
-
-    'Indicator/Widgets/DisplayWidget.vala',
-    'Indicator/Widgets/PopoverWidget.vala',
-    'Indicator/Widgets/IndicatorWidget.vala',
-
-    'Indicator/Services/DBusClient.vala',
-]
-
 executable(
     meson.project_name(),
     icons_gresource,
@@ -108,15 +96,6 @@ executable(
 )
 
 if get_option('indicator-wingpanel').enabled()
-    message ('Indicator Wingpanel will be built') 
-    wingpanel_dep = dependency('wingpanel', version: '>=2.1.0')
-    app_dependencies += [wingpanel_dep]
-    shared_module(
-        'monitor',
-        source_indicator_files,
-        icons_gresource,
-        dependencies: app_dependencies,
-        install: true,
-        install_dir : wingpanel_dep.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir]),
-    )
+    message ('Indicator Wingpanel will be built')
+    subdir('Indicator')
 endif
