@@ -21,8 +21,6 @@ add_project_arguments(['-DWNCK_I_KNOW_THIS_IS_UNSTABLE', '-w'], language: 'c')
 # needs meson 0.58.0
 # elementary_stylesheet = subproject('stylesheet')
 
-wingpanel_dep = dependency('wingpanel', version: '>=2.1.0')
-
 app_dependencies = [
     dependency('granite', version: '>= 5.2.0'),
     dependency('glib-2.0'),

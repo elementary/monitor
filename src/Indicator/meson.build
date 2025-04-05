@@ -9,6 +9,8 @@ source_indicator_files = [
     meson.project_source_root() / 'src' / 'Utils.vala',
 ]
 
+wingpanel_dep = dependency('wingpanel', version: '>=2.1.0')
+
 indicator_dependencies = [
     wingpanel_dep
 ]
