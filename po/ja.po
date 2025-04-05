@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-03 19:18+0000\n"
-"PO-Revision-Date: 2024-11-05 01:11+0000\n"
+"PO-Revision-Date: 2025-04-05 07:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/monitor/"
-"ja/>\n"
+"Language-Team: Japanese <https://l10n.elementaryos.org/projects/desktop/"
+"monitor/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #: src/MainWindow.vala:30 src/MainWindow.vala:74
 msgid "Monitor"
@@ -200,16 +200,12 @@ msgid "RAM: %.1f%%"
 msgstr "RAM: %.1f%%"
 
 #: src/Views/PreferencesView.vala:17
-#, fuzzy
-#| msgid "Display CPU frequency"
 msgid "Update frequency"
-msgstr "CPU 周波数を表示"
+msgstr "更新頻度"
 
 #: src/Views/PreferencesView.vala:22 src/Views/PreferencesView.vala:52
-#, fuzzy
-#| msgid "Update every (requires restart):"
 msgid "Requires restart"
-msgstr "更新間隔 (再起動が必要):"
+msgstr "再起動が必要になります"
 
 #: src/Views/PreferencesView.vala:29
 msgid "1s"
@@ -232,76 +228,52 @@ msgid "5s"
 msgstr "5 秒"
 
 #: src/Views/PreferencesView.vala:49
-#, fuzzy
-#| msgid "Start in background:"
 msgid "Start in background"
-msgstr "バックグラウンドで起動:"
+msgstr "バックグラウンドで起動"
 
 #: src/Views/PreferencesView.vala:51
-#, fuzzy
-#| msgid "Draw smooth lines on CPU chart (requires restart):"
 msgid "Draw smooth lines on CPU chart"
-msgstr "CPU グラフの線をなめらかに描画 (再起動が必要):"
+msgstr "CPU グラフの線をなめらかに描画"
 
 #: src/Views/PreferencesView.vala:57
-#, fuzzy
-#| msgid "Show indicator in Wingpanel"
 msgid "Show in panel"
-msgstr "Wingpanel にインジケーターを表示"
+msgstr "パネルに表示"
 
 #: src/Views/PreferencesView.vala:62
-#, fuzzy
-#| msgid "Display CPU percentage"
 msgid "CPU percentage"
-msgstr "CPU 使用率を表示"
+msgstr "CPU 使用率"
 
 #: src/Views/PreferencesView.vala:67
-#, fuzzy
-#| msgid "Display CPU frequency"
 msgid "CPU frequency"
-msgstr "CPU 周波数を表示"
+msgstr "CPU 周波数"
 
 #: src/Views/PreferencesView.vala:72
-#, fuzzy
-#| msgid "Display CPU temperature"
 msgid "CPU temperature"
-msgstr "CPU 温度を表示"
+msgstr "CPU 温度"
 
 #: src/Views/PreferencesView.vala:77
-#, fuzzy
-#| msgid "Display RAM percentage"
 msgid "RAM percentage"
-msgstr "RAM 使用率を表示"
+msgstr "RAM 使用率"
 
 #: src/Views/PreferencesView.vala:82
-#, fuzzy
-#| msgid "Display network upload"
 msgid "Network upload"
-msgstr "ネットワーク送信量を表示"
+msgstr "ネットワーク送信量"
 
 #: src/Views/PreferencesView.vala:87
-#, fuzzy
-#| msgid "Display network download"
 msgid "Network download"
-msgstr "ネットワーク受信量を表示"
+msgstr "ネットワーク受信量"
 
 #: src/Views/PreferencesView.vala:92
-#, fuzzy
-#| msgid "Display GPU percentage"
 msgid "GPU percentage"
-msgstr "GPU 使用率を表示"
+msgstr "GPU 使用率"
 
 #: src/Views/PreferencesView.vala:97
-#, fuzzy
-#| msgid "Display VRAM percentage"
 msgid "VRAM percentage"
-msgstr "VRAM 使用率を表示"
+msgstr "VRAM 使用率"
 
 #: src/Views/PreferencesView.vala:102
-#, fuzzy
-#| msgid "Display GPU temperature"
 msgid "GPU temperature"
-msgstr "GPU 温度を表示"
+msgstr "GPU 温度"
 
 #: src/Views/SystemView/SystemCPUView.vala:22
 msgid "Frequency"
