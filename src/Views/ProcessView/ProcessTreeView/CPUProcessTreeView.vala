@@ -94,6 +94,18 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
         action_group.add_action (kill_process_action);
 
         insert_action_group ("process", action_group);
+
+        var key_controller = new Gtk.EventControllerKey (this);
+        key_controller.key_released.connect ((keyval, keycode, state) => {
+            switch (keyval) {
+                case Gdk.Key.Left:
+                    collapse ();
+                    break;
+                case Gdk.Key.Right:
+                    expanded ();
+                    break;
+            }
+        });
     }
     public void icon_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer icon_cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
         Value icon_name;

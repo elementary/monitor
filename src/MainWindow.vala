@@ -4,9 +4,6 @@
  */
 
 public class Monitor.MainWindow : Hdy.ApplicationWindow {
-    // application reference
-    private Shortcuts shortcuts;
-
     private Resources resources;
 
     // Widgets
@@ -123,8 +120,7 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
             this.show_all ();
         });
 
-        shortcuts = new Shortcuts (this);
-        key_press_event.connect ((e) => shortcuts.handle (e));
+        key_press_event.connect (search.handle_event);
 
         this.delete_event.connect (() => {
             int window_width, window_height;
