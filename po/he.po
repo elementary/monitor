@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-03 19:18+0000\n"
-"PO-Revision-Date: 2024-11-05 20:40+0000\n"
+"PO-Revision-Date: 2025-04-05 07:55+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: Hebrew <https://l10n.elementary.io/projects/desktop/monitor/"
-"he/>\n"
+"Language-Team: Hebrew <https://l10n.elementaryos.org/projects/desktop/"
+"monitor/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #: src/MainWindow.vala:30 src/MainWindow.vala:74
 msgid "Monitor"
@@ -201,16 +201,12 @@ msgid "RAM: %.1f%%"
 msgstr "זיכרון: %.1f%%"
 
 #: src/Views/PreferencesView.vala:17
-#, fuzzy
-#| msgid "Display CPU frequency"
 msgid "Update frequency"
-msgstr "הצגת תדירות מעבד"
+msgstr "תדירות עדכון"
 
 #: src/Views/PreferencesView.vala:22 src/Views/PreferencesView.vala:52
-#, fuzzy
-#| msgid "Update every (requires restart):"
 msgid "Requires restart"
-msgstr "לעדכן כל (דורש הפעלה מחדש):"
+msgstr "דורש הפעלה מחדש"
 
 #: src/Views/PreferencesView.vala:29
 msgid "1s"
@@ -233,76 +229,52 @@ msgid "5s"
 msgstr "5 שנ׳"
 
 #: src/Views/PreferencesView.vala:49
-#, fuzzy
-#| msgid "Start in background:"
 msgid "Start in background"
-msgstr "התחלה ברקע:"
+msgstr "התחלה ברקע"
 
 #: src/Views/PreferencesView.vala:51
-#, fuzzy
-#| msgid "Draw smooth lines on CPU chart (requires restart):"
 msgid "Draw smooth lines on CPU chart"
-msgstr "ציור קווים חלקים בתרשים המעבד (דורש הפעלה מחדש):"
+msgstr "ציור קווים חלקים בתרשים המעבד"
 
 #: src/Views/PreferencesView.vala:57
-#, fuzzy
-#| msgid "Show indicator in Wingpanel"
 msgid "Show in panel"
-msgstr "הצגת מחוון ב־"
+msgstr "הצגה בלוח"
 
 #: src/Views/PreferencesView.vala:62
-#, fuzzy
-#| msgid "Display CPU percentage"
 msgid "CPU percentage"
-msgstr "הצגת אחוזי מעבד"
+msgstr "אחוזי מעבד"
 
 #: src/Views/PreferencesView.vala:67
-#, fuzzy
-#| msgid "Display CPU frequency"
 msgid "CPU frequency"
-msgstr "הצגת תדירות מעבד"
+msgstr "תדירות מעבד"
 
 #: src/Views/PreferencesView.vala:72
-#, fuzzy
-#| msgid "Display CPU temperature"
 msgid "CPU temperature"
-msgstr "הצגת טמפרטורת מעבד"
+msgstr "טמפרטורת מעבד"
 
 #: src/Views/PreferencesView.vala:77
-#, fuzzy
-#| msgid "Display RAM percentage"
 msgid "RAM percentage"
-msgstr "הצגת אחוזי זיכרון"
+msgstr "אחוזי זיכרון"
 
 #: src/Views/PreferencesView.vala:82
-#, fuzzy
-#| msgid "Display network upload"
 msgid "Network upload"
-msgstr "הצגת העלאה דרך הרשת"
+msgstr "העלאה דרך הרשת"
 
 #: src/Views/PreferencesView.vala:87
-#, fuzzy
-#| msgid "Display network download"
 msgid "Network download"
-msgstr "הצגת הורדה דרך הרשת"
+msgstr "הורדה דרך הרשת"
 
 #: src/Views/PreferencesView.vala:92
-#, fuzzy
-#| msgid "Display GPU percentage"
 msgid "GPU percentage"
-msgstr "הצגת אחוזי מעבד גרפי"
+msgstr "אחוזי מעבד גרפי"
 
 #: src/Views/PreferencesView.vala:97
-#, fuzzy
-#| msgid "Display VRAM percentage"
 msgid "VRAM percentage"
-msgstr "הצגת אחוזי זיכרון וירטואלי"
+msgstr "אחוזי זיכרון וירטואלי"
 
 #: src/Views/PreferencesView.vala:102
-#, fuzzy
-#| msgid "Display GPU temperature"
 msgid "GPU temperature"
-msgstr "הצגת טמפרטורת מעבד גרפי"
+msgstr "טמפרטורת מעבד גרפי"
 
 #: src/Views/SystemView/SystemCPUView.vala:22
 msgid "Frequency"
