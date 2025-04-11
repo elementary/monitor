@@ -5,12 +5,12 @@
 
 <h4 align="left">Manage processes and monitor system resources</h4>
 
-[![](https://img.shields.io/github/release/stsdc/monitor.svg)]()
-[![Github Workflow Status](https://github.com/stsdc/monitor/actions/workflows/ci.yml/badge.svg)]()
+[![](https://img.shields.io/github/release/elementary/monitor.svg)]()
+[![Github Workflow Status](https://github.com/elementary/monitor/actions/workflows/ci.yml/badge.svg)]()
 [![Translation status](https://l10n.elementary.io/widget/desktop/monitor/svg-badge.svg)](https://l10n.elementary.io/engage/desktop/)
 
-![Monitor Screenshot](https://github.com/stsdc/monitor/raw/main/data/screenshots/monitor-processes.png)
-![Monitor Screenshot](https://github.com/stsdc/monitor/raw/main/data/screenshots/monitor-system.png)
+![Monitor Screenshot](https://github.com/elementary/monitor/raw/main/data/screenshots/monitor-processes.png)
+![Monitor Screenshot](https://github.com/elementary/monitor/raw/main/data/screenshots/monitor-system.png)
 
 ## Install
 
@@ -52,7 +52,7 @@ sudo apt install build-essential cmake sassc valac libgtk-3-dev libgee-0.8-dev l
 
 1. Clone:
    ```bash
-   git clone https://github.com/stsdc/monitor
+   git clone https://github.com/elementary/monitor
    cd monitor
    ```
 
