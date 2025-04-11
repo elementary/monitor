@@ -16,16 +16,16 @@
   </custom>
     <screenshots>
     <screenshot type="default">
-      <image>https://github.com/stsdc/monitor/raw/0.17.2/data/screenshots/monitor-processes.png</image>
+      <image>https://github.com/elementary/monitor/raw/0.17.2/data/screenshots/monitor-processes.png</image>
     </screenshot>
     <screenshot>
-      <image>https://github.com/stsdc/monitor/0.17.2/master/data/screenshots/monitor-system.png</image>
+      <image>https://github.com/elementary/monitor/raw/0.17.2/data/screenshots/monitor-system.png</image>
     </screenshot>
   </screenshots>
   <developer_name>Stanisław Dac</developer_name>
-  <url type="homepage">https://github.com/stsdc/monitor</url>
-  <url type="bugtracker">https://github.com/stsdc/monitor/issues</url>
-<url type="help">https://github.com/stsdc/monitor/issues</url>
+  <url type="homepage">https://github.com/elementary/monitor</url>
+  <url type="bugtracker">https://github.com/elementary/monitor/issues</url>
+  <url type="help">https://github.com/elementary/monitor/issues</url>
 
 <releases>
 <release version="0.11.0" date="2021-10-24">
