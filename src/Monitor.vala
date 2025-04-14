@@ -113,6 +113,8 @@ namespace Monitor {
                 return 0;
             }
 
+            var act = Pci.AccessType.AUTO;
+
             var app = new MonitorApp (start_in_background);
 
             return app.run (args);

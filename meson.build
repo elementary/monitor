@@ -44,6 +44,8 @@ app_dependencies = [
     meson.get_compiler('vala').find_library('posix'),
     meson.get_compiler('c').find_library('XNVCtrl'),
     meson.get_compiler('c').find_library('X11'),
+    meson.get_compiler('c').find_library('pci'),
+    meson.get_compiler('vala').find_library('pci', dirs: vapidir),
     meson.get_compiler('vala').find_library('libxnvctrl', dirs: vapidir),
 ]
 
