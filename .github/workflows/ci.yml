@@ -29,7 +29,7 @@ jobs:
         apt install -y libgala-dev libgee-0.8-dev libglib2.0-dev libgranite-dev libgtk-3-dev libhandy-1-dev \
         libdbus-glib-1-dev libwnck-3-dev libgtop2-dev libwingpanel-3.0-dev libudisks2-dev \
         libxnvctrl0 libxnvctrl-dev libcurl4-gnutls-dev libflatpak-dev libjson-glib-dev \
-        liblivechart-1-dev libpci-dev\
+        liblivechart-1-dev libpci-dev \
         meson valac sassc git
     - name: Build
       run: |
