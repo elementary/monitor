@@ -1,7 +1,9 @@
 [CCode (cheader_filename = "pci/pci.h", cprefix = "pci_", has_type_id = false)]
 namespace Pci {
-    [CCode (cname = "pci_access_type", cprefix = "PCI_ACCESS_", has_type_id = false)]
-    [Flags]
+
+    public const int LIB_VERSION;
+
+    [CCode (cname = "int", cprefix = "PCI_ACCESS_", has_type_id = false)]
     public enum AccessType {
         AUTO,           /* Autodetection */
         SYS_BUS_PCI,    /* Linux /sys/bus/pci */

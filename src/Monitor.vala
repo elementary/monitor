@@ -101,6 +101,9 @@ namespace Monitor {
             print (" Monitor %s \n", VCS_TAG);
             print ("\n");
 
+            print ("libpci ver: %d \n", Pci.LIB_VERSION);
+
+
             // add command line options
             try {
                 var opt_context = new OptionContext ("");
@@ -112,8 +115,6 @@ namespace Monitor {
                 print ("Run '%s --help' to see a full list of available command line options.\n\n", args[0]);
                 return 0;
             }
-
-            var act = Pci.AccessType.AUTO;
 
             var app = new MonitorApp (start_in_background);
 
