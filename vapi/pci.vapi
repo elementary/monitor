@@ -28,4 +28,92 @@ namespace Pci {
         MAX
     }
 
+    [SimpleType]
+    public struct PciAddr_t : uint64 { }
+
+    [CCode (cname = "pci_cap", has_type_id = false)]
+    public struct Cap {
+        Cap *next;
+        uint16 id;        /* PCI_CAP_ID_xxx */
+        uint16 type;      /* PCI_CAP_xxx */
+        uint addr;        /* Position in the config space */
+    }
+
+    [CCode (cname = "pci_access", destroy_function = "pci_cleanup", has_type_id = false)]
+    public struct Access {
+        /* Options you can change: */
+        uint method;            /* Access method */
+        int writeable;          /* Open in read/write mode */
+        int buscentric;         /* Bus-centric view of the world */
+
+        char *id_file_name;     /* Name of ID list file (use pci_set_name_list_path()) */
+        int free_id_name;       /* Set if id_file_name is malloced */
+        int numeric_ids;        /* Enforce PCI_LOOKUP_NUMERIC (>1 => PCI_LOOKUP_MIXED) */
+
+        uint id_lookup_mode;    /* pci_lookup_mode flags which are set automatically */
+                                /* Default: PCI_LOOKUP_CACHE */
+
+        int debugging;          /* Turn on debugging messages */
+
+        /* Functions you can override: */
+        // void (*error)(char *msg, ...) PCI_PRINTF (1,2) PCI_NONRET;	/* Write error message and quit */
+        // void (*warning)(char *msg, ...) PCI_PRINTF (1,2);	/* Write a warning message */
+        // void (*debug)(char *msg, ...) PCI_PRINTF (1,2);	/* Write a debugging message */
+
+        Dev *devices;    /* Devices found on this bus */
+
+        [CCode (cname = "pci_init")]
+        public Access ();
+      }
+
+      [CCode (cname = "pci_dev", has_type_id = false)]
+      public struct Dev {
+          Dev *next;                 /* Next device in the chain */
+          uint16 domain_16;          /* 16-bit version of the PCI domain for backward compatibility */
+                                     /* 0xffff if the real domain doesn't fit in 16 bits */
+
+          /* Bus inside domain, device and function */
+          uint8 bus;
+          uint8 dev;
+          uint8 func;
+
+          /* These fields are set by pci_fill_info() */
+          uint known_fields;          /* Set of info fields already known (see pci_fill_info()) */
+
+          /* Identity of the device */
+          uint16 vendor_id;
+          uint16 device_id;
+
+          uint16 device_class;                /* PCI device class */
+          int irq;                            /* IRQ number */
+          PciAddr_t base_addr[6];             /* Base addresses including flags in lower bits */
+          PciAddr_t size[6];                  /* Region sizes */
+          PciAddr_t rom_base_addr;            /* Expansion ROM base address */
+          PciAddr_t rom_size;                 /* Expansion ROM size */
+          Cap *first_cap;                     /* List of capabilities */
+          char *phy_slot;                     /* Physical slot */
+          char *module_alias;                 /* Linux kernel module alias */
+          char *label;                        /* Device name as exported by BIOS */
+          int numa_node;                      /* NUMA node */
+          PciAddr_t flags[6];                 /* PCI_IORESOURCE_* flags for regions */
+          PciAddr_t rom_flags;                /* PCI_IORESOURCE_* flags for expansion ROM */
+          int domain;                         /* PCI domain (host bridge) */
+          PciAddr_t bridge_base_addr[4];      /* Bridge base addresses (without flags) */
+          PciAddr_t bridge_size[4];           /* Bridge sizes */
+          PciAddr_t bridge_flags[4];          /* PCI_IORESOURCE_* flags for bridge addresses */
+
+          /* Programming interface for device_class and revision id */
+          uint8 prog_if;
+          uint8 rev_id;
+
+          /* Subsystem vendor id and subsystem id */
+          uint16 subsys_vendor_id;
+          uint16 subsys_id;
+          Dev *parent;                /* Parent device, does not have to be always accessible */
+          int no_config_access;       /* No access to config space for this device */
+          uint32 rcd_link_cap;        /* Link Capabilities register for Restricted CXL Devices */
+          uint16 rcd_link_status;     /* Link Status register for RCD */
+          uint16 rcd_link_ctrl;       /* Link Control register for RCD */
+      }
+
 }
