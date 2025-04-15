@@ -28,7 +28,7 @@ namespace Pci {
         MAX
     }
 
-    [SimpleType]
+    [SimpleType, CCode (cname = "pciaddr_t", has_type_id = false)]
     public struct PciAddr_t : uint64 { }
 
     [CCode (cname = "pci_cap", has_type_id = false)]
@@ -65,6 +65,11 @@ namespace Pci {
         [CCode (cname = "pci_init")]
         public Access ();
       }
+
+        /* Initialize PCI access */
+        [CCode (cname = "pci_alloc")]
+        Access *pci_alloc ();
+
 
       [CCode (cname = "pci_dev", has_type_id = false)]
       public struct Dev {

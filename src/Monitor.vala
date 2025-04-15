@@ -102,6 +102,9 @@ namespace Monitor {
             print ("\n");
 
             print ("libpci ver: %d \n", Pci.LIB_VERSION);
+            
+            var pacc = Pci.pci_alloc ();
+            Pci.Dev pci_dev;
 
 
             // add command line options
