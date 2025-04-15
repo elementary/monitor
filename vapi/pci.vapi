@@ -23,13 +23,13 @@ namespace Pci {
         WIN32_SYSDBG,   /* Win32 NT SysDbg */
         MMIO_TYPE1,     /* MMIO ports, type 1 */
         MMIO_TYPE1_EXT, /* MMIO ports, type 1 extended */
-        ECAM,           /* PCIe ECAM via /dev/mem */
+        //  ECAM,           /* PCIe ECAM via /dev/mem */
         AOS_EXPANSION,  /* AmigaOS Expansion library */
         MAX
     }
 
     [SimpleType, CCode (cname = "pciaddr_t", has_type_id = false)]
-    public struct PciAddr_t : uint64 { }
+    public struct PciAddr : uint64 { }
 
     [CCode (cname = "pci_cap", has_type_id = false)]
     public struct Cap {
@@ -39,7 +39,7 @@ namespace Pci {
         uint addr;        /* Position in the config space */
     }
 
-    [CCode (cname = "pci_access", destroy_function = "pci_cleanup", has_type_id = false)]
+    [CCode (cname = "struct pci_access", destroy_function = "pci_cleanup", has_type_id = false)]
     public struct Access {
         /* Options you can change: */
         uint method;            /* Access method */
@@ -71,7 +71,7 @@ namespace Pci {
         Access *pci_alloc ();
 
 
-      [CCode (cname = "pci_dev", has_type_id = false)]
+      [CCode (cname = "struct pci_dev", has_type_id = false)]
       public struct Dev {
           Dev *next;                 /* Next device in the chain */
           uint16 domain_16;          /* 16-bit version of the PCI domain for backward compatibility */
@@ -91,21 +91,21 @@ namespace Pci {
 
           uint16 device_class;                /* PCI device class */
           int irq;                            /* IRQ number */
-          PciAddr_t base_addr[6];             /* Base addresses including flags in lower bits */
-          PciAddr_t size[6];                  /* Region sizes */
-          PciAddr_t rom_base_addr;            /* Expansion ROM base address */
-          PciAddr_t rom_size;                 /* Expansion ROM size */
+          PciAddr base_addr[6];             /* Base addresses including flags in lower bits */
+          PciAddr size[6];                  /* Region sizes */
+          PciAddr rom_base_addr;            /* Expansion ROM base address */
+          PciAddr rom_size;                 /* Expansion ROM size */
           Cap *first_cap;                     /* List of capabilities */
           char *phy_slot;                     /* Physical slot */
           char *module_alias;                 /* Linux kernel module alias */
           char *label;                        /* Device name as exported by BIOS */
           int numa_node;                      /* NUMA node */
-          PciAddr_t flags[6];                 /* PCI_IORESOURCE_* flags for regions */
-          PciAddr_t rom_flags;                /* PCI_IORESOURCE_* flags for expansion ROM */
+          PciAddr flags[6];                 /* PCI_IORESOURCE_* flags for regions */
+          PciAddr rom_flags;                /* PCI_IORESOURCE_* flags for expansion ROM */
           int domain;                         /* PCI domain (host bridge) */
-          PciAddr_t bridge_base_addr[4];      /* Bridge base addresses (without flags) */
-          PciAddr_t bridge_size[4];           /* Bridge sizes */
-          PciAddr_t bridge_flags[4];          /* PCI_IORESOURCE_* flags for bridge addresses */
+          PciAddr bridge_base_addr[4];      /* Bridge base addresses (without flags) */
+          PciAddr bridge_size[4];           /* Bridge sizes */
+          PciAddr bridge_flags[4];          /* PCI_IORESOURCE_* flags for bridge addresses */
 
           /* Programming interface for device_class and revision id */
           uint8 prog_if;
