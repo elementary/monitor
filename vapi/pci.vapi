@@ -63,12 +63,16 @@ namespace Pci {
         Dev *devices;    /* Devices found on this bus */
 
         [CCode (cname = "pci_init")]
-        public Access ();
+        public Access (Access acess);
       }
 
         /* Initialize PCI access */
         [CCode (cname = "pci_alloc")]
         Access *pci_alloc ();
+
+        /* Scanning of devices */
+        [CCode (cname = "pci_scan_bus")]
+        void pci_scan_bus(Access *acc);
 
 
       [CCode (cname = "struct pci_dev", has_type_id = false)]

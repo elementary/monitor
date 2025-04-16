@@ -103,8 +103,15 @@ namespace Monitor {
 
             print ("libpci ver: %d \n", Pci.LIB_VERSION);
             
-            Pci.Dev pci_device;
-            Pci.Access pci_access;
+            Pci.Dev *pci_device;
+            Pci.Access *pci_access;
+
+            pci_access = Pci.pci_alloc ();
+            Pci.pci_scan_bus (pci_access); // segfault
+
+            pci_device = pci_access.devices;
+            print ("%04x", pci_device.domain_16);
+
 
 
 
