@@ -107,11 +107,14 @@ namespace Monitor {
             Pci.Access *pci_access;
 
             pci_access = Pci.pci_alloc ();
+            Pci.pci_init (pci_access);
             Pci.pci_scan_bus (pci_access); // segfault
 
             pci_device = pci_access.devices;
-            print ("%04x", pci_device.domain_16);
-
+            while (pci_device != null) {
+                print (" %04x:%02x:%02x.%d\n", pci_device.domain_16, pci_device.bus, pci_device.dev, pci_device.func);
+                pci_device = pci_device.next;
+            }
 
 
 
