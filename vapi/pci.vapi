@@ -81,14 +81,14 @@ namespace Pci {
         // void (*debug)(char *msg, ...) PCI_PRINTF (1,2);	/* Write a debugging message */
 
         Dev * devices;   /* Devices found on this bus */
-
-        [CCode (cname = "pci_init")]
-        public Access (Access acess);
     }
 
     /* Initialize PCI access */
     [CCode (cname = "pci_alloc")]
     Access * pci_alloc ();
+
+    [CCode (cname = "pci_init")]
+    void pci_init (Access * acc);
 
     /* Scanning of devices */
     [CCode (cname = "pci_scan_bus")]
