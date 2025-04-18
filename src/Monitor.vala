@@ -101,6 +101,23 @@ namespace Monitor {
             print (" Monitor %s \n", VCS_TAG);
             print ("\n");
 
+            print ("libpci ver: %d \n", Pci.LIB_VERSION);
+            
+            Pci.Dev *pci_device;
+            Pci.Access *pci_access;
+
+            pci_access = Pci.pci_alloc ();
+            Pci.pci_init (pci_access);
+            Pci.pci_scan_bus (pci_access); // segfault
+
+            pci_device = pci_access.devices;
+            while (pci_device != null) {
+                print (" %04x:%02x:%02x.%d\n", pci_device.domain_16, pci_device.bus, pci_device.dev, pci_device.func);
+                pci_device = pci_device.next;
+            }
+
+
+
             // add command line options
             try {
                 var opt_context = new OptionContext ("");
