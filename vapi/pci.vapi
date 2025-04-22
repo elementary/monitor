@@ -76,9 +76,9 @@ namespace Pci {
         int debugging;          /* Turn on debugging messages */
 
         /* Functions you can override: */
-        // void (*error)(char *msg, ...) PCI_PRINTF (1,2) PCI_NONRET;	/* Write error message and quit */
-        // void (*warning)(char *msg, ...) PCI_PRINTF (1,2);	/* Write a warning message */
-        // void (*debug)(char *msg, ...) PCI_PRINTF (1,2);	/* Write a debugging message */
+        // void (*error)(char *msg, ...) PCI_PRINTF (1,2) PCI_NONRET; /* Write error message and quit */
+        // void (*warning)(char *msg, ...) PCI_PRINTF (1,2); /* Write a warning message */
+        // void (*debug)(char *msg, ...) PCI_PRINTF (1,2); /* Write a debugging message */
 
         Dev * devices;   /* Devices found on this bus */
     }
@@ -139,5 +139,40 @@ namespace Pci {
         Property * properties; /* A linked list of extra properties */
         Cap * last_cap; /* Last capability in the list */
     }
+
+    [CCode (cname = "pci_lookup_mode", cprefix = "PCI_LOOKUP_", has_type_id = false)]
+    enum LookupMode {
+        VENDOR = 1,                /* Vendor name (args: vendorID) */
+        DEVICE = 2,                /* Device name (args: vendorID, deviceID) */
+        CLASS = 4,                 /* Device class (args: classID) */
+        SUBSYSTEM = 8,
+        PROGIF = 16,               /* Programming interface (args: classID, prog_if) */
+        NUMERIC = 0x10000,         /* Want only formatted numbers; default if access->numeric_ids is set */
+        NO_NUMBERS = 0x20000,      /* Return NULL if not found in the database; default is to print numerically */
+        MIXED = 0x40000,           /* Include both numbers and names */
+        NETWORK = 0x80000,         /* Try to resolve unknown ID's by DNS */
+        SKIP_LOCAL = 0x100000,     /* Do not consult local database */
+        CACHE = 0x200000,          /* Consult the local cache before using DNS */
+        REFRESH_CACHE = 0x400000,  /* Forget all previously cached entries, but still allow updating the cache */
+        NO_HWDB = 0x800000,        /* Do not ask udev's hwdb */
+      }
+
+      /*
+    * Conversion of PCI ID's to names (according to the pci.ids file)
+    *
+    * Call pci_lookup_name() to identify different types of ID's:
+    *
+    * VENDOR    (vendorID) -> vendor
+    * DEVICE    (vendorID, deviceID) -> device
+    * VENDOR | DEVICE   (vendorID, deviceID) -> combined vendor and device
+    * SUBSYSTEM | VENDOR  (subvendorID) -> subsystem vendor
+    * SUBSYSTEM | DEVICE  (vendorID, deviceID, subvendorID, subdevID) -> subsystem device
+    * SUBSYSTEM | VENDOR | DEVICE (vendorID, deviceID, subvendorID, subdevID) -> combined subsystem v+d
+    * SUBSYSTEM | ...   (-1, -1, subvendorID, subdevID) -> generic subsystem
+    * CLASS    (classID) -> class
+    * PROGIF    (classID, progif) -> programming interface
+    */
+    [CCode (cname = "pci_lookup_name")]
+    string pci_lookup_name (Access * a, ref char[] buf, int flags, ...);
 
 }
