@@ -173,6 +173,6 @@ namespace Pci {
     * PROGIF    (classID, progif) -> programming interface
     */
     [CCode (cname = "pci_lookup_name")]
-    string pci_lookup_name (Access * a, ref char[] buf, int flags, ...);
+    string pci_lookup_name (Access * a, char[] buf, int name_size, int flags, ...);
 
 }

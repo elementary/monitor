@@ -114,7 +114,7 @@ namespace Monitor {
             char namebuf[1024];
             while (pci_device != null) {
                 print (" %04x:%02x:%02x.%d\n", pci_device.domain_16, pci_device.bus, pci_device.dev, pci_device.func);
-                //  string name = Pci.pci_lookup_name (pci_access, namebuf, namebuf.length, Pci.LookupMode.DEVICE, pci_device.vendor_id, pci_device.device_id);
+                string name = Pci.pci_lookup_name (pci_access, namebuf, namebuf.length, Pci.LookupMode.DEVICE, pci_device.vendor_id, pci_device.device_id);
                 pci_device = pci_device.next;
             }
 
