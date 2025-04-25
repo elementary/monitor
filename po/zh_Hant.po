@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-03 19:18+0000\n"
-"PO-Revision-Date: 2024-11-06 11:20+0000\n"
+"PO-Revision-Date: 2025-04-26 11:55+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
-"desktop/monitor/zh_Hant/>\n"
+"Language-Team: Chinese (Traditional Han script) <https://"
+"l10n.elementaryos.org/projects/desktop/monitor/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #: src/MainWindow.vala:30 src/MainWindow.vala:74
 msgid "Monitor"
@@ -200,16 +200,12 @@ msgid "RAM: %.1f%%"
 msgstr "記憶體：%.1f%%"
 
 #: src/Views/PreferencesView.vala:17
-#, fuzzy
-#| msgid "Display CPU frequency"
 msgid "Update frequency"
-msgstr "顯示 CPU 頻率"
+msgstr "更新頻率"
 
 #: src/Views/PreferencesView.vala:22 src/Views/PreferencesView.vala:52
-#, fuzzy
-#| msgid "Update every (requires restart):"
 msgid "Requires restart"
-msgstr "更新間隔（需要重新啟動）："
+msgstr "需要重新啟動"
 
 #: src/Views/PreferencesView.vala:29
 msgid "1s"
@@ -232,76 +228,52 @@ msgid "5s"
 msgstr "5 秒"
 
 #: src/Views/PreferencesView.vala:49
-#, fuzzy
-#| msgid "Start in background:"
 msgid "Start in background"
-msgstr "在背景啟動："
+msgstr "在背景啟動"
 
 #: src/Views/PreferencesView.vala:51
-#, fuzzy
-#| msgid "Draw smooth lines on CPU chart (requires restart):"
 msgid "Draw smooth lines on CPU chart"
-msgstr "用柔順的線來繪製 CPU 圖表（需要重新啟動）："
+msgstr "用柔順的線來繪製 CPU 圖表"
 
 #: src/Views/PreferencesView.vala:57
-#, fuzzy
-#| msgid "Show indicator in Wingpanel"
 msgid "Show in panel"
-msgstr "在 Wingpanel 面板中顯示指示器"
+msgstr "在面板中顯示"
 
 #: src/Views/PreferencesView.vala:62
-#, fuzzy
-#| msgid "Display CPU percentage"
 msgid "CPU percentage"
-msgstr "顯示 CPU 使用率"
+msgstr "CPU 使用率"
 
 #: src/Views/PreferencesView.vala:67
-#, fuzzy
-#| msgid "Display CPU frequency"
 msgid "CPU frequency"
-msgstr "顯示 CPU 頻率"
+msgstr "CPU 頻率"
 
 #: src/Views/PreferencesView.vala:72
-#, fuzzy
-#| msgid "Display CPU temperature"
 msgid "CPU temperature"
-msgstr "顯示 CPU 溫度"
+msgstr "CPU 溫度"
 
 #: src/Views/PreferencesView.vala:77
-#, fuzzy
-#| msgid "Display RAM percentage"
 msgid "RAM percentage"
-msgstr "顯示記憶體使用率"
+msgstr "記憶體使用率"
 
 #: src/Views/PreferencesView.vala:82
-#, fuzzy
-#| msgid "Display network upload"
 msgid "Network upload"
-msgstr "顯示網路上傳量"
+msgstr "網路上傳量"
 
 #: src/Views/PreferencesView.vala:87
-#, fuzzy
-#| msgid "Display network download"
 msgid "Network download"
-msgstr "顯示網路下載量"
+msgstr "網路下載量"
 
 #: src/Views/PreferencesView.vala:92
-#, fuzzy
-#| msgid "Display GPU percentage"
 msgid "GPU percentage"
-msgstr "顯示 GPU 使用率"
+msgstr "GPU 使用率"
 
 #: src/Views/PreferencesView.vala:97
-#, fuzzy
-#| msgid "Display VRAM percentage"
 msgid "VRAM percentage"
-msgstr "顯示 VRAM 使用率"
+msgstr "VRAM 使用率"
 
 #: src/Views/PreferencesView.vala:102
-#, fuzzy
-#| msgid "Display GPU temperature"
 msgid "GPU temperature"
-msgstr "顯示 GPU 溫度"
+msgstr "GPU 溫度"
 
 #: src/Views/SystemView/SystemCPUView.vala:22
 msgid "Frequency"
