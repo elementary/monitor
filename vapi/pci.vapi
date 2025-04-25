@@ -59,40 +59,44 @@ namespace Pci {
         uint addr;        /* Position in the config space */
     }
 
-    [CCode (cname = "struct pci_access", destroy_function = "pci_cleanup", has_type_id = false)]
-    public struct Access {
+    [CCode (cname = "struct pci_access", destroy_function = "", has_type_id = false)]
+    [Compact]
+    public class Access {
         /* Options you can change: */
-        uint method;            /* Access method */
-        int writeable;          /* Open in read/write mode */
-        int buscentric;         /* Bus-centric view of the world */
+        public uint method;            /* Access method */
+        public int writeable;          /* Open in read/write mode */
+        public int buscentric;         /* Bus-centric view of the world */
 
-        char * id_file_name;    /* Name of ID list file (use pci_set_name_list_path()) */
-        int free_id_name;       /* Set if id_file_name is malloced */
-        int numeric_ids;        /* Enforce PCI_LOOKUP_NUMERIC (>1 => PCI_LOOKUP_MIXED) */
+        public char * id_file_name;    /* Name of ID list file (use pci_set_name_list_path()) */
+        public int free_id_name;       /* Set if id_file_name is malloced */
+        public int numeric_ids;        /* Enforce PCI_LOOKUP_NUMERIC (>1 => PCI_LOOKUP_MIXED) */
 
-        uint id_lookup_mode;    /* pci_lookup_mode flags which are set automatically */
+        public uint id_lookup_mode;    /* pci_lookup_mode flags which are set automatically */
                                 /* Default: PCI_LOOKUP_CACHE */
 
-        int debugging;          /* Turn on debugging messages */
+        public int debugging;          /* Turn on debugging messages */
 
         /* Functions you can override: */
         // void (*error)(char *msg, ...) PCI_PRINTF (1,2) PCI_NONRET; /* Write error message and quit */
         // void (*warning)(char *msg, ...) PCI_PRINTF (1,2); /* Write a warning message */
         // void (*debug)(char *msg, ...) PCI_PRINTF (1,2); /* Write a debugging message */
 
-        Dev * devices;   /* Devices found on this bus */
+        public Dev * devices;   /* Devices found on this bus */
+
+            /* Initialize PCI access */
+        [CCode (cname = "pci_alloc")]
+        public Access ();
     }
 
-    /* Initialize PCI access */
-    [CCode (cname = "pci_alloc")]
-    Access * pci_alloc ();
+    //  [CCode (cname = "pci_alloc")]
+    //  Access * pci_alloc ();
 
     [CCode (cname = "pci_init")]
-    void pci_init (Access * acc);
+    void pci_init (Access* acc);
 
     /* Scanning of devices */
     [CCode (cname = "pci_scan_bus")]
-    void pci_scan_bus (Access * acc);
+    void pci_scan_bus (Access *acc);
 
     [CCode (cname = "pci_methods")]
     public struct Methods {}
@@ -101,7 +105,8 @@ namespace Pci {
     public struct Property {}
 
 
-    [CCode (cname = "struct pci_dev", has_type_id = false)]
+    [CCode (cname = "struct pci_dev", destroy_function = "pci_free_dev", has_type_id = false)]
+    [Compact]
     public struct Dev {
         Dev * next; /* Next device in the chain */
         uint16 domain_16; /* 16-bit version of the PCI domain for backward compatibility */
@@ -173,6 +178,6 @@ namespace Pci {
     * PROGIF    (classID, progif) -> programming interface
     */
     [CCode (cname = "pci_lookup_name")]
-    string pci_lookup_name (Access * a, char[] buf, int name_size, int flags, ...);
+    string pci_lookup_name (Access *a, char[] buf, int flags, ...);
 
 }
