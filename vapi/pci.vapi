@@ -59,7 +59,7 @@ namespace Pci {
         uint addr;        /* Position in the config space */
     }
 
-    [CCode (cname = "struct pci_access", destroy_function = "", has_type_id = false)]
+    [CCode (cname = "struct pci_access", destroy_function = "pci_cleanup", has_type_id = false)]
     [Compact]
     public class Access {
         /* Options you can change: */
