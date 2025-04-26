@@ -134,19 +134,44 @@ namespace Pci {
         public PciAddr rom_flags; /* PCI_IORESOURCE_* flags for expansion ROM */
         public int domain; /* PCI domain (host bridge) */
 
-        /* Fields used internally */
-        //  Access * access;
-        //  Methods * methods;
-        //  uint8 * cache; /* Cached config registers */
-        //  int cache_len;
-        //  int hdrtype; /* Cached low 7 bits of header type, -1 if unknown */
-        //  void * aux; /* Auxiliary data for use by the back-end */
-        //  Property * properties; /* A linked list of extra properties */
-        //  Cap * last_cap; /* Last capability in the list */
+        [CCode (cname = "pci_fill_info")]
+        public int fill_info (int flags);
 
         private Dev ();
     }
 
+    public const int FILL_IDENT;
+    public const int FILL_IRQ;
+    public const int FILL_BASES;
+    public const int FILL_ROM_BASE;
+    public const int FILL_SIZES;
+    public const int FILL_CLASS;
+    public const int FILL_CAPS;
+    public const int FILL_EXT_CAPS;
+    public const int FILL_PHYS_SLOT;
+    public const int FILL_MODULE_ALIAS;
+    public const int FILL_LABEL;
+    public const int FILL_NUMA_NODE;
+    public const int FILL_IO_FLAGS;
+    public const int FILL_DT_NODE;  /* Device tree node */
+    public const int FILL_IOMMU_GROUP;
+    public const int FILL_RESCAN;
+
+    /*
+    * Conversion of PCI ID's to names (according to the pci.ids file)
+    *
+    * Call pci_lookup_name() to identify different types of ID's:
+    *
+    * VENDOR    (vendorID) -> vendor
+    * DEVICE    (vendorID, deviceID) -> device
+    * VENDOR | DEVICE   (vendorID, deviceID) -> combined vendor and device
+    * SUBSYSTEM | VENDOR  (subvendorID) -> subsystem vendor
+    * SUBSYSTEM | DEVICE  (vendorID, deviceID, subvendorID, subdevID) -> subsystem device
+    * SUBSYSTEM | VENDOR | DEVICE (vendorID, deviceID, subvendorID, subdevID) -> combined subsystem v+d
+    * SUBSYSTEM | ...   (-1, -1, subvendorID, subdevID) -> generic subsystem
+    * CLASS    (classID) -> class
+    * PROGIF    (classID, progif) -> programming interface
+    */
     [CCode (cname = "pci_lookup_mode", cprefix = "PCI_LOOKUP_", has_type_id = false)]
     enum LookupMode {
         VENDOR = 1,                /* Vendor name (args: vendorID) */
@@ -164,21 +189,7 @@ namespace Pci {
         NO_HWDB = 0x800000,        /* Do not ask udev's hwdb */
       }
 
-      /*
-    * Conversion of PCI ID's to names (according to the pci.ids file)
-    *
-    * Call pci_lookup_name() to identify different types of ID's:
-    *
-    * VENDOR    (vendorID) -> vendor
-    * DEVICE    (vendorID, deviceID) -> device
-    * VENDOR | DEVICE   (vendorID, deviceID) -> combined vendor and device
-    * SUBSYSTEM | VENDOR  (subvendorID) -> subsystem vendor
-    * SUBSYSTEM | DEVICE  (vendorID, deviceID, subvendorID, subdevID) -> subsystem device
-    * SUBSYSTEM | VENDOR | DEVICE (vendorID, deviceID, subvendorID, subdevID) -> combined subsystem v+d
-    * SUBSYSTEM | ...   (-1, -1, subvendorID, subdevID) -> generic subsystem
-    * CLASS    (classID) -> class
-    * PROGIF    (classID, progif) -> programming interface
-    */
+
 
 
 }
