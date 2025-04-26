@@ -116,7 +116,8 @@ namespace Monitor {
                 pci_device.fill_info (Pci.FILL_IDENT | Pci.FILL_BASES | Pci.FILL_CLASS);
                 print (" %04x:%02x:%02x.%d\n", pci_device.domain_16, pci_device.bus, pci_device.dev, pci_device.func);
                 string name = pci_access.lookup_name (namebuf, Pci.LookupMode.DEVICE, pci_device.vendor_id, pci_device.device_id);
-                print(name);
+                print (name);
+                print (" -r%02x", pci_device.rev_id);
                 pci_device = pci_device.next;
             }
 

@@ -32,19 +32,32 @@ namespace Pci {
     // version 3.10.0
     [CCode (cname = "int", cprefix = "PCI_ACCESS_", has_type_id = false)]
     public enum AccessType {
-        AUTO,           /* Autodetection */
-        SYS_BUS_PCI,    /* Linux /sys/bus/pci */
-        PROC_BUS_PCI,   /* Linux /proc/bus/pci */
-        I386_TYPE1,     /* i386 ports, type 1 */
-        I386_TYPE2,     /* i386 ports, type 2 */
-        FBSD_DEVICE,    /* FreeBSD /dev/pci */
-        AIX_DEVICE,     /* /dev/pci0, /dev/bus0, etc. */
-        NBSD_LIBPCI,    /* NetBSD libpci */
-        OBSD_DEVICE,    /* OpenBSD /dev/pci */
-        DUMP,           /* Dump file */
-        DARWIN,         /* Darwin */
-        SYLIXOS_DEVICE, /* SylixOS pci */
-        HURD,           /* GNU/Hurd */
+        /** Autodetection */
+        AUTO,
+        /** Linux /sys/bus/pci */
+        SYS_BUS_PCI,
+        /** Linux /proc/bus/pci */
+        PROC_BUS_PCI,
+        /** i386 ports, type 1 */
+        I386_TYPE1,
+        /** i386 ports, type 2 */
+        I386_TYPE2,
+        /** FreeBSD /dev/pci */
+        FBSD_DEVICE,
+        /** /dev/pci0, /dev/bus0, etc. */
+        AIX_DEVICE,
+        /** NetBSD libpci */
+        NBSD_LIBPCI,
+        /** OpenBSD /dev/pci */
+        OBSD_DEVICE,
+        /** Dump file */
+        DUMP,
+        /** Darwin */
+        DARWIN,
+        /** SylixOS pci */
+        SYLIXOS_DEVICE,
+        /** GNU/Hurd */
+        HURD,
         MAX
     }
 
@@ -134,11 +147,38 @@ namespace Pci {
         public PciAddr rom_flags; /* PCI_IORESOURCE_* flags for expansion ROM */
         public int domain; /* PCI domain (host bridge) */
 
+        /** Programming interface for device_class */
+        [Version (since = "3.8.0")]
+        public uint8 prog_if;
+
+        /** Revision ID */
+        [Version (since = "3.8.0")]
+        public uint8 rev_id;
+
         [CCode (cname = "pci_fill_info")]
         public int fill_info (int flags);
 
         private Dev ();
     }
+
+/*
+ * Most device properties take some effort to obtain, so libpci does not
+ * initialize them during default bus scan. Instead, you have to call
+ * pci_fill_info() with the proper PCI_FILL_xxx constants OR'ed together.
+ *
+ * Some properties are stored directly in the pci_dev structure.
+ * The remaining ones can be accessed through pci_get_string_property().
+ *
+ * pci_fill_info() returns the current value of pci_dev->known_fields.
+ * This is a bit mask of all fields, which were already obtained during
+ * the lifetime of the device. This includes fields which are not supported
+ * by the particular device -- in that case, the field is left at its default
+ * value, which is 0 for integer fields and NULL for pointers. On the other
+ * hand, we never consider known fields unsupported by the current back-end;
+ * such fields always contain the default value.
+ *
+ * XXX: flags and the result should be unsigned, but we do not want to break the ABI.
+ */
 
     public const int FILL_IDENT;
     public const int FILL_IRQ;
@@ -188,8 +228,4 @@ namespace Pci {
         REFRESH_CACHE = 0x400000,  /* Forget all previously cached entries, but still allow updating the cache */
         NO_HWDB = 0x800000,        /* Do not ask udev's hwdb */
       }
-
-
-
-
 }
