@@ -59,7 +59,7 @@ namespace Pci {
         uint addr;        /* Position in the config space */
     }
 
-    [CCode (cname = "struct pci_access", destroy_function = "pci_cleanup", has_type_id = false)]
+    [CCode (cname = "struct pci_access", free_function = "pci_cleanup", has_type_id = false)]
     [Compact]
     public class Access {
         /* Options you can change: */
@@ -105,44 +105,46 @@ namespace Pci {
     public struct Property {}
 
 
-    [CCode (cname = "struct pci_dev", destroy_function = "pci_free_dev", has_type_id = false)]
+    [CCode (cname = "struct pci_dev", free_function = "pci_free_dev", has_type_id = false)]
     [Compact]
-    public struct Dev {
-        Dev * next; /* Next device in the chain */
-        uint16 domain_16; /* 16-bit version of the PCI domain for backward compatibility */
+    public class Dev {
+        public Dev * next; /* Next device in the chain */
+        public uint16 domain_16; /* 16-bit version of the PCI domain for backward compatibility */
         /* 0xffff if the real domain doesn't fit in 16 bits */
-        uint8 bus;
-        uint8 dev;
-        uint8 func; /* Bus inside domain, device and function */
+        public uint8 bus;
+        public uint8 dev;
+        public uint8 func; /* Bus inside domain, device and function */
 
         /* These fields are set by pci_fill_info() */
-        uint known_fields; /* Set of info fields already known (see pci_fill_info()) */
-        uint16 vendor_id;
-        uint16 device_id; /* Identity of the device */
-        uint16 device_class; /* PCI device class */
-        int irq; /* IRQ number */
-        PciAddr base_addr[6]; /* Base addresses including flags in lower bits */
-        PciAddr size[6]; /* Region sizes */
-        PciAddr rom_base_addr; /* Expansion ROM base address */
-        PciAddr rom_size; /* Expansion ROM size */
-        Cap * first_cap; /* List of capabilities */
-        char * phy_slot; /* Physical slot */
-        char * module_alias; /* Linux kernel module alias */
-        char * label; /* Device name as exported by BIOS */
-        int numa_node; /* NUMA node */
-        PciAddr flags[6]; /* PCI_IORESOURCE_* flags for regions */
-        PciAddr rom_flags; /* PCI_IORESOURCE_* flags for expansion ROM */
-        int domain; /* PCI domain (host bridge) */
+        public uint known_fields; /* Set of info fields already known (see pci_fill_info()) */
+        public uint16 vendor_id;
+        public uint16 device_id; /* Identity of the device */
+        public uint16 device_class; /* PCI device class */
+        public int irq; /* IRQ number */
+        public PciAddr base_addr[6]; /* Base addresses including flags in lower bits */
+        public PciAddr size[6]; /* Region sizes */
+        public PciAddr rom_base_addr; /* Expansion ROM base address */
+        public PciAddr rom_size; /* Expansion ROM size */
+        public Cap * first_cap; /* List of capabilities */
+        public char * phy_slot; /* Physical slot */
+        public char * module_alias; /* Linux kernel module alias */
+        public char * label; /* Device name as exported by BIOS */
+        public int numa_node; /* NUMA node */
+        public PciAddr flags[6]; /* PCI_IORESOURCE_* flags for regions */
+        public PciAddr rom_flags; /* PCI_IORESOURCE_* flags for expansion ROM */
+        public int domain; /* PCI domain (host bridge) */
 
         /* Fields used internally */
-        Access * access;
-        Methods * methods;
-        uint8 * cache; /* Cached config registers */
-        int cache_len;
-        int hdrtype; /* Cached low 7 bits of header type, -1 if unknown */
-        void * aux; /* Auxiliary data for use by the back-end */
-        Property * properties; /* A linked list of extra properties */
-        Cap * last_cap; /* Last capability in the list */
+        //  Access * access;
+        //  Methods * methods;
+        //  uint8 * cache; /* Cached config registers */
+        //  int cache_len;
+        //  int hdrtype; /* Cached low 7 bits of header type, -1 if unknown */
+        //  void * aux; /* Auxiliary data for use by the back-end */
+        //  Property * properties; /* A linked list of extra properties */
+        //  Cap * last_cap; /* Last capability in the list */
+
+        private Dev ();
     }
 
     [CCode (cname = "pci_lookup_mode", cprefix = "PCI_LOOKUP_", has_type_id = false)]

@@ -103,7 +103,7 @@ namespace Monitor {
 
             print ("libpci ver: %d \n", Pci.LIB_VERSION);
             
-            Pci.Dev *pci_device;
+            unowned Pci.Dev pci_device;
             Pci.Access pci_access;
 
             pci_access = new Pci.Access ();
