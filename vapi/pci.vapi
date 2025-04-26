@@ -81,7 +81,7 @@ namespace Pci {
         // void (*warning)(char *msg, ...) PCI_PRINTF (1,2); /* Write a warning message */
         // void (*debug)(char *msg, ...) PCI_PRINTF (1,2); /* Write a debugging message */
 
-        public Dev * devices;   /* Devices found on this bus */
+        public Dev devices;   /* Devices found on this bus */
 
             /* Initialize PCI access */
         [CCode (cname = "pci_alloc")]
@@ -95,7 +95,7 @@ namespace Pci {
         public void scan_bus ();
 
         [CCode (cname = "pci_lookup_name")]
-        public string lookup_name (char[] buf, int flags, ...);
+        public unowned string? lookup_name (char[] buf, int flags, ...);
     }
 
     [CCode (cname = "pci_methods")]
@@ -108,7 +108,7 @@ namespace Pci {
     [CCode (cname = "struct pci_dev", free_function = "pci_free_dev", has_type_id = false)]
     [Compact]
     public class Dev {
-        public Dev * next; /* Next device in the chain */
+        public Dev next; /* Next device in the chain */
         public uint16 domain_16; /* 16-bit version of the PCI domain for backward compatibility */
         /* 0xffff if the real domain doesn't fit in 16 bits */
         public uint8 bus;

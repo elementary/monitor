@@ -115,6 +115,7 @@ namespace Monitor {
             while (pci_device != null) {
                 print (" %04x:%02x:%02x.%d\n", pci_device.domain_16, pci_device.bus, pci_device.dev, pci_device.func);
                 string name = pci_access.lookup_name (namebuf, Pci.LookupMode.DEVICE, pci_device.vendor_id, pci_device.device_id);
+                print(name);
                 pci_device = pci_device.next;
             }
 
