@@ -86,17 +86,17 @@ namespace Pci {
             /* Initialize PCI access */
         [CCode (cname = "pci_alloc")]
         public Access ();
+
+        [CCode (cname = "pci_init")]
+        public void init ();
+
+        /* Scanning of devices */
+        [CCode (cname = "pci_scan_bus")]
+        public void scan_bus ();
+
+        [CCode (cname = "pci_lookup_name")]
+        public string lookup_name (char[] buf, int flags, ...);
     }
-
-    //  [CCode (cname = "pci_alloc")]
-    //  Access * pci_alloc ();
-
-    [CCode (cname = "pci_init")]
-    void pci_init (Access* acc);
-
-    /* Scanning of devices */
-    [CCode (cname = "pci_scan_bus")]
-    void pci_scan_bus (Access *acc);
 
     [CCode (cname = "pci_methods")]
     public struct Methods {}
@@ -177,7 +177,6 @@ namespace Pci {
     * CLASS    (classID) -> class
     * PROGIF    (classID, progif) -> programming interface
     */
-    [CCode (cname = "pci_lookup_name")]
-    string pci_lookup_name (Access *a, char[] buf, int flags, ...);
+
 
 }
