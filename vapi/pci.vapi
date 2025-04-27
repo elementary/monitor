@@ -155,6 +155,14 @@ namespace Pci {
         [Version (since = "3.8.0")]
         public uint8 rev_id;
 
+        /** Subsystem vendor id */
+        [Version (since = "3.8.0")]
+        public uint16 subsys_vendor_id;
+        
+        /**Subsystem id */
+        [Version (since = "3.8.0")]
+        public uint16 subsys_id;
+
         [CCode (cname = "pci_fill_info")]
         public int fill_info (int flags);
 
@@ -180,22 +188,29 @@ namespace Pci {
  * XXX: flags and the result should be unsigned, but we do not want to break the ABI.
  */
 
-    public const int FILL_IDENT;
-    public const int FILL_IRQ;
-    public const int FILL_BASES;
-    public const int FILL_ROM_BASE;
-    public const int FILL_SIZES;
-    public const int FILL_CLASS;
-    public const int FILL_CAPS;
-    public const int FILL_EXT_CAPS;
-    public const int FILL_PHYS_SLOT;
-    public const int FILL_MODULE_ALIAS;
-    public const int FILL_LABEL;
-    public const int FILL_NUMA_NODE;
-    public const int FILL_IO_FLAGS;
-    public const int FILL_DT_NODE;  /* Device tree node */
-    public const int FILL_IOMMU_GROUP;
-    public const int FILL_RESCAN;
+ public const int FILL_IDENT;
+ public const int FILL_IRQ;
+ public const int FILL_BASES;
+ public const int FILL_ROM_BASE;
+ public const int FILL_SIZES;
+ public const int FILL_CLASS;
+ public const int FILL_CAPS;
+ public const int FILL_EXT_CAPS;
+ public const int FILL_PHYS_SLOT;
+ public const int FILL_MODULE_ALIAS;
+ public const int FILL_LABEL;
+ public const int FILL_NUMA_NODE;
+ public const int FILL_IO_FLAGS;
+ public const int FILL_DT_NODE;		/* Device tree node */
+ public const int FILL_IOMMU_GROUP;
+ public const int FILL_BRIDGE_BASES;
+ public const int FILL_RESCAN;
+ [Version (since = "3.8.0")]
+ public const int FILL_CLASS_EXT;      /* prog_if and rev_id */
+ [Version (since = "3.8.0")]
+ public const int FILL_SUBSYS;      /* subsys_vendor_id and subsys_id */
+ public const int FILL_PARENT;
+ public const int FILL_DRIVER;      /* OS driver currently in use (string property) */
 
     /*
     * Conversion of PCI ID's to names (according to the pci.ids file)
