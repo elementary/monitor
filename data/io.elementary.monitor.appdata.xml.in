@@ -22,7 +22,11 @@
       <image>https://github.com/elementary/monitor/raw/0.17.2/data/screenshots/monitor-system.png</image>
     </screenshot>
   </screenshots>
-  <developer_name>Stanisław Dac</developer_name>
+  <developer id="org.elementaryos">
+    <name>elementary, Inc.</name>
+  </developer>
+  <project_group>elementary</project_group>
+  <update_contact>contact_at_elementary.io</update_contact>
   <url type="homepage">https://github.com/elementary/monitor</url>
   <url type="bugtracker">https://github.com/elementary/monitor/issues</url>
   <url type="help">https://github.com/elementary/monitor/issues</url>
