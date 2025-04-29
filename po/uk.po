@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-03 19:18+0000\n"
+"POT-Creation-Date: 2025-04-29 08:15+0000\n"
 "PO-Revision-Date: 2025-04-05 07:55+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/desktop/"
@@ -20,19 +20,19 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 5.10.4\n"
 
-#: src/MainWindow.vala:30 src/MainWindow.vala:74
+#: src/MainWindow.vala:27 src/MainWindow.vala:71
 msgid "Monitor"
 msgstr "Монітор"
 
-#: src/MainWindow.vala:41
+#: src/MainWindow.vala:38
 msgid "Processes"
 msgstr "Процеси"
 
-#: src/MainWindow.vala:42
+#: src/MainWindow.vala:39
 msgid "System"
 msgstr "Система"
 
-#: src/MainWindow.vala:59
+#: src/MainWindow.vala:56
 msgid "Settings"
 msgstr "Налаштування"
 
@@ -177,15 +177,15 @@ msgstr "Процесор"
 msgid "Memory"
 msgstr "Пам'ять"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:134
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:146
 msgid "KiB"
 msgstr "КіБ"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:139
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:151
 msgid "MiB"
 msgstr "МіБ"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:145
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:157
 #: src/Widgets/Statusbar/Statusbar.vala:101
 msgid "GiB"
 msgstr "ГіБ"

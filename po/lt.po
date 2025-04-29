@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-03 19:18+0000\n"
+"POT-Creation-Date: 2025-04-29 08:15+0000\n"
 "PO-Revision-Date: 2017-09-07 11:24+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -19,20 +19,20 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "(n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: src/MainWindow.vala:30 src/MainWindow.vala:74
+#: src/MainWindow.vala:27 src/MainWindow.vala:71
 msgid "Monitor"
 msgstr "Monitor"
 
-#: src/MainWindow.vala:41
+#: src/MainWindow.vala:38
 #, fuzzy
 msgid "Processes"
 msgstr "Proceso pavadinimas"
 
-#: src/MainWindow.vala:42
+#: src/MainWindow.vala:39
 msgid "System"
 msgstr ""
 
-#: src/MainWindow.vala:59
+#: src/MainWindow.vala:56
 msgid "Settings"
 msgstr ""
 
@@ -183,15 +183,15 @@ msgstr "CPU"
 msgid "Memory"
 msgstr "Atmintis"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:134
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:146
 msgid "KiB"
 msgstr "KiB"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:139
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:151
 msgid "MiB"
 msgstr "MiB"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:145
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:157
 #: src/Widgets/Statusbar/Statusbar.vala:101
 msgid "GiB"
 msgstr "GiB"

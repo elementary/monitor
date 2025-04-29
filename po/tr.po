@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-03 19:18+0000\n"
+"POT-Creation-Date: 2025-04-29 08:15+0000\n"
 "PO-Revision-Date: 2020-04-15 21:51+0100\n"
 "Last-Translator: Harun Yasar <harunyasar@mail.com>\n"
 "Language-Team: none\n"
@@ -17,21 +17,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/MainWindow.vala:30 src/MainWindow.vala:74
+#: src/MainWindow.vala:27 src/MainWindow.vala:71
 msgid "Monitor"
 msgstr "Monitor"
 
-#: src/MainWindow.vala:41
+#: src/MainWindow.vala:38
 #, fuzzy
 msgid "Processes"
 msgstr "Süreç Adı"
 
-#: src/MainWindow.vala:42
+#: src/MainWindow.vala:39
 #, fuzzy
 msgid "System"
 msgstr "Sistem çağrıları"
 
-#: src/MainWindow.vala:59
+#: src/MainWindow.vala:56
 msgid "Settings"
 msgstr "Ayarlar"
 
@@ -176,15 +176,15 @@ msgstr "CPU"
 msgid "Memory"
 msgstr "Bellek"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:134
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:146
 msgid "KiB"
 msgstr "KiB"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:139
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:151
 msgid "MiB"
 msgstr "MiB"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:145
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:157
 #: src/Widgets/Statusbar/Statusbar.vala:101
 msgid "GiB"
 msgstr "GiB"
