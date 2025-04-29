@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-29 08:15+0000\n"
-"PO-Revision-Date: 2024-10-08 17:21+0000\n"
+"PO-Revision-Date: 2025-04-29 09:12+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
-"Language-Team: Lithuanian <https://l10n.elementary.io/projects/desktop/"
+"Language-Team: Lithuanian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor-extra/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
 "19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
 "1 : 2);\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #: data/io.elementary.monitor.appdata.xml.in:9 data/monitor.desktop.in:6
 msgid "Monitor"
@@ -35,7 +35,7 @@ msgstr ""
 
 #: data/io.elementary.monitor.appdata.xml.in:26
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
 
 #: data/io.elementary.monitor.appdata.xml.in:39
 msgid "Add info about drives (based on Dirli's code)"
