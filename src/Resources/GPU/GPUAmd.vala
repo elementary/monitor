@@ -4,11 +4,12 @@
  */
 
 public class Monitor.GPUAmd : IGPU, Object {
-    public SessionManager ? session_manager { get; protected set; }
 
     public Gee.HashMap<string, HwmonTemperature> hwmon_temperatures { get; set; }
 
     public string hwmon_module_name { get; set; }
+
+    public string name { get; set; }
 
     public int percentage { get; protected set; }
 
@@ -23,7 +24,6 @@ public class Monitor.GPUAmd : IGPU, Object {
     private string path { get; set; }
 
     construct {
-        // session_manager = get_sessman ();
         // When path for GPU is created it can be assigned to card0 or card1
         // this a bit random. This should be removed when multiple GPU
         // support will be added.

@@ -27,17 +27,14 @@ public class Monitor.Resources : Object {
         network = new Network ();
         storage = new Storage ();
 
-        SessionManager session_manager = get_sessman ();
-        string gpu_name = session_manager.renderer.down ();
+        string gpu_name = get_gpu_name ();
 
         if (gpu_name.contains ("intel")) {
 
         } else if (gpu_name.contains ("nvidia") || gpu_name.contains ("geforce")) {
             gpu = new GPUNvidia ();
-            gpu.session_manager = session_manager;
         } else if (gpu_name.contains ("amd")) {
             gpu = new GPUAmd ();
-            gpu.session_manager = session_manager;
             gpu.hwmon_temperatures = hwmon_path_parser.gpu_paths_parser.temperatures;
         } else {
             warning ("GPU: Unknown: %s", gpu_name);
@@ -62,21 +59,37 @@ public class Monitor.Resources : Object {
         });
     }
 
-    public SessionManager? get_sessman () {
-        try {
-            SessionManager session_manager = Bus.get_proxy_sync (
-                BusType.SESSION,
-                "org.gnome.SessionManager",
-                "/org/gnome/SessionManager"
-            );
-            debug ("GPU: %s", session_manager.renderer);
-            return session_manager;
+    private string get_gpu_name () {
+        unowned Pci.Dev pci_device;
+        Pci.Access pci_access;
 
-        } catch (IOError e) {
-            warning (e.message);
-            return null;
+        pci_access = new Pci.Access ();
+        pci_access.init ();
+        pci_access.scan_bus ();
+
+        pci_device = pci_access.devices;
+        char namebuf[1024];
+        char classbuf[1024];
+        while (pci_device != null) {
+            pci_device.fill_info (Pci.FILL_IDENT | Pci.FILL_BASES | Pci.FILL_CLASS_EXT | Pci.FILL_LABEL | Pci.FILL_CLASS);
+            //  print (" %04x:%02x:%02x.%d\n", pci_device.domain_16, pci_device.bus, pci_device.dev, pci_device.func);
+
+            //  print (" -r%02x", pci_device.rev_id);
+            //  print ("%s\n", pci_device.label);
+
+            // 0x300 is VGA-compatible controller
+            if (pci_device.device_class==0x300) {
+                string name = pci_access.lookup_name (namebuf, Pci.LookupMode.DEVICE, pci_device.vendor_id, pci_device.device_id);
+                string d_class = pci_access.lookup_name (classbuf, Pci.LookupMode.CLASS, pci_device.device_class);
+                //  print ("%d %s : %s\n", pci_device.device_class, d_class, name);
+                return name;
+            }
+            pci_device = pci_device.next;
         }
+        warning ("LibPCI: GPU not detected.");
+        return "";
     }
+
 
     public ResourcesSerialized serialize () {
         return ResourcesSerialized () {

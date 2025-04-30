@@ -4,17 +4,12 @@
  */
 
 public interface Monitor.IGPU : Object {
-    public abstract SessionManager ? session_manager { get; public set; }
 
     public abstract Gee.HashMap<string, HwmonTemperature> hwmon_temperatures { get; set; }
 
     public abstract string hwmon_module_name { get; protected set; }
 
-    public string name {
-        owned get {
-            return session_manager.renderer.split ("(", 2)[0];
-        }
-    }
+    public abstract string name { get; protected set; }
 
     public abstract int percentage { get; protected set; }
 

@@ -101,28 +101,8 @@ namespace Monitor {
             print (" Monitor %s \n", VCS_TAG);
             print ("\n");
 
-            print ("libpci ver: %d \n", Pci.LIB_VERSION);
+            print ("LibPCI ver: %d \n", Pci.LIB_VERSION);
             
-            unowned Pci.Dev pci_device;
-            Pci.Access pci_access;
-
-            pci_access = new Pci.Access ();
-            pci_access.init ();
-            pci_access.scan_bus ();
-
-            pci_device = pci_access.devices;
-            char namebuf[1024];
-            while (pci_device != null) {
-                pci_device.fill_info (Pci.FILL_IDENT | Pci.FILL_BASES | Pci.FILL_CLASS);
-                print (" %04x:%02x:%02x.%d\n", pci_device.domain_16, pci_device.bus, pci_device.dev, pci_device.func);
-                string name = pci_access.lookup_name (namebuf, Pci.LookupMode.DEVICE, pci_device.vendor_id, pci_device.device_id);
-                print (name);
-                print (" -r%02x", pci_device.rev_id);
-                pci_device = pci_device.next;
-            }
-
-
-
             // add command line options
             try {
                 var opt_context = new OptionContext ("");

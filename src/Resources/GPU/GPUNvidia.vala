@@ -4,11 +4,12 @@
  */
 
 public class Monitor.GPUNvidia : IGPU, Object {
-    public SessionManager ? session_manager { get; protected set; }
 
     public Gee.HashMap<string, HwmonTemperature> hwmon_temperatures { get; set; }
 
     public string hwmon_module_name { get; set; }
+
+    public string name { get; set; }
 
     public int percentage { get; protected set; }
 
@@ -47,7 +48,6 @@ public class Monitor.GPUNvidia : IGPU, Object {
     public X.Display nvidia_display;
 
     construct {
-        // session_manager = get_sessman ();
         nvidia_display = new X.Display ();
     }
 
