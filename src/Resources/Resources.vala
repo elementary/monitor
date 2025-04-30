@@ -78,7 +78,7 @@ public class Monitor.Resources : Object {
             //  print ("%s\n", pci_device.label);
 
             // 0x300 is VGA-compatible controller
-            if (pci_device.device_class==0x300) {
+            if (pci_device.device_class == 0x300) {
                 string name = pci_access.lookup_name (namebuf, Pci.LookupMode.DEVICE, pci_device.vendor_id, pci_device.device_id);
                 string d_class = pci_access.lookup_name (classbuf, Pci.LookupMode.CLASS, pci_device.device_class);
                 //  print ("%d %s : %s\n", pci_device.device_class, d_class, name);

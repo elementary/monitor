@@ -102,7 +102,7 @@ namespace Monitor {
             print ("\n");
 
             print ("LibPCI ver: %d \n", Pci.LIB_VERSION);
-            
+
             // add command line options
             try {
                 var opt_context = new OptionContext ("");
