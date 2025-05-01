@@ -10,7 +10,7 @@ public class Monitor.SystemView : Gtk.Box {
     private SystemMemoryView memory_view;
     private SystemNetworkView network_view;
     private SystemStorageView storage_view;
-    private SystemGPUView gpu_view;
+    private GLib.List<SystemGPUView> gpu_views = new GLib.List<SystemGPUView> ();
 
     construct {
         orientation = Gtk.Orientation.VERTICAL;
@@ -36,8 +36,9 @@ public class Monitor.SystemView : Gtk.Box {
         wrapper.add (network_view);
         wrapper.add (storage_view);
 
-        if (resources.gpu != null) {
-            gpu_view = new SystemGPUView (resources.gpu);
+        foreach (var gpu in resources.gpu_list) {
+            var gpu_view = new SystemGPUView (gpu);
+            gpu_views.append (gpu_view);
             wrapper.add (gpu_view);
         }
 
@@ -49,7 +50,7 @@ public class Monitor.SystemView : Gtk.Box {
         memory_view.update ();
         network_view.update ();
         storage_view.update ();
-        if (resources.gpu != null) gpu_view.update ();
+        gpu_views.foreach ((gpu_view) => gpu_view.update ());
     }
 
 }

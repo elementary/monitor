@@ -23,6 +23,8 @@ public class Monitor.GPUNvidia : IGPU, Object {
 
     public double temperature { get; protected set; }
 
+    private string sysfs_path { get; set; }
+
     public int nvidia_temperature = 0;
 
     public int nvidia_memory_vram_used = 0;
@@ -46,6 +48,10 @@ public class Monitor.GPUNvidia : IGPU, Object {
     public bool nvidia_resources_used;
 
     public X.Display nvidia_display;
+
+    public GPUNvidia (Pci.Access pci_access, Pci.Dev pci_device) {
+        set_pci_properties (pci_access, pci_device);
+    }
 
     construct {
         nvidia_display = new X.Display ();
