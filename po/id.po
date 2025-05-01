@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-03 19:18+0000\n"
+"POT-Creation-Date: 2025-04-29 08:15+0000\n"
 "PO-Revision-Date: 2024-10-09 20:00+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/desktop/"
@@ -19,19 +19,19 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.6.2\n"
 
-#: src/MainWindow.vala:30 src/MainWindow.vala:74
+#: src/MainWindow.vala:27 src/MainWindow.vala:71
 msgid "Monitor"
 msgstr ""
 
-#: src/MainWindow.vala:41
+#: src/MainWindow.vala:38
 msgid "Processes"
 msgstr ""
 
-#: src/MainWindow.vala:42
+#: src/MainWindow.vala:39
 msgid "System"
 msgstr "Sistem"
 
-#: src/MainWindow.vala:59
+#: src/MainWindow.vala:56
 msgid "Settings"
 msgstr ""
 
@@ -176,15 +176,15 @@ msgstr ""
 msgid "Memory"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:134
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:146
 msgid "KiB"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:139
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:151
 msgid "MiB"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:145
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:157
 #: src/Widgets/Statusbar/Statusbar.vala:101
 msgid "GiB"
 msgstr ""
