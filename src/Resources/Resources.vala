@@ -65,10 +65,11 @@ public class Monitor.Resources : Object {
         char namebuf[1024];
         while (pci_device != null) {
             pci_device.fill_info (Pci.FILL_IDENT | Pci.FILL_BASES | Pci.FILL_CLASS_EXT | Pci.FILL_LABEL | Pci.FILL_CLASS);
+            string name = pci_access.lookup_name (namebuf, Pci.LookupMode.DEVICE, pci_device.vendor_id, pci_device.device_id);
+
             // 0x300 is a VGA-compatible controller
             if (pci_device.device_class == 0x300) {
-                string name = pci_access.lookup_name (namebuf, Pci.LookupMode.DEVICE, pci_device.vendor_id, pci_device.device_id);
-                debug ("GPU: 0x%llX : %s", pci_device.vendor_id, name);
+                debug ("PCI device: GPU: 0x%llX : %s", pci_device.vendor_id, name);
                 // print (" %04x:%02x:%02x.%d\n", pci_device.domain_16, pci_device.bus, pci_device.dev, pci_device.func);
 
 
@@ -88,6 +89,8 @@ public class Monitor.Resources : Object {
                 } else {
                     warning ("GPU: Unknown: %s", name);
                 }
+            } else {
+                debug ("PCI device: vendor: 0x%llX class:0x%llX  %s", pci_device.vendor_id, pci_device.device_class, name);
             }
             pci_device = pci_device.next;
         }
