@@ -97,7 +97,7 @@ public class Monitor.Resources : Object {
 
         // quick fix; so no need to comment out GPU
         // code for Indicator and Preferences
-        IGPU gpu = gpu_list.first ();
+        IGPU gpu = gpu_list.size > 0 ? gpu_list.first () : null;
 
         return ResourcesSerialized () {
                    cpu_percentage = cpu.percentage,
