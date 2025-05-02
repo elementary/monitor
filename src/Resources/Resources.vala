@@ -68,8 +68,8 @@ public class Monitor.Resources : Object {
             string name = pci_access.lookup_name (namebuf, Pci.LookupMode.DEVICE, pci_device.vendor_id, pci_device.device_id);
 
             // 0x300 is a VGA-compatible controller
-            // 0x320 is a 3D controller
-            if (pci_device.device_class == 0x300 || pci_device.device_class == 0x320) {
+            // 0x302 is a 3D controller
+            if (pci_device.device_class == 0x300 || pci_device.device_class == 0x302) {
                 debug ("PCI device: GPU: 0x%llX : %s", pci_device.vendor_id, name);
                 // print (" %04x:%02x:%02x.%d\n", pci_device.domain_16, pci_device.bus, pci_device.dev, pci_device.func);
 
