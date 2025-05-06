@@ -38,7 +38,7 @@ public class Monitor.SystemView : Gtk.Box {
 
         foreach (var gpu in resources.gpu_list) {
             if (gpu.name.contains ("Intel") || gpu.name.contains ("nVidia")) {
-                wrapper.add(build_no_support_label (gpu.name));
+                wrapper.add (build_no_support_label (gpu.name));
             } else {
                 var gpu_view = new SystemGPUView (gpu);
                 gpu_views.append (gpu_view);
