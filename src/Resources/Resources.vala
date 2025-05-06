@@ -27,7 +27,6 @@ public class Monitor.Resources : Object {
         network = new Network ();
         storage = new Storage ();
 
-
         detect_gpu_pci_devices ();
 
         cpu.temperatures = hwmon_path_parser.cpu_paths_parser.temperatures;
@@ -46,8 +45,6 @@ public class Monitor.Resources : Object {
                 foreach (var gpu in gpu_list) {
                     gpu.update ();
                 }
-
-
             });
             return true;
         });
@@ -67,6 +64,7 @@ public class Monitor.Resources : Object {
             pci_device.fill_info (Pci.FILL_IDENT | Pci.FILL_BASES | Pci.FILL_CLASS_EXT | Pci.FILL_LABEL | Pci.FILL_CLASS);
             string name = pci_access.lookup_name (namebuf, Pci.LookupMode.DEVICE, pci_device.vendor_id, pci_device.device_id);
 
+            // Looking for a specific PCI device class
             // 0x300 is a VGA-compatible controller
             // 0x302 is a 3D controller
             if (pci_device.device_class == 0x300 || pci_device.device_class == 0x302) {
