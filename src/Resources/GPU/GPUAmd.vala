@@ -25,6 +25,7 @@ public class Monitor.GPUAmd : IGPU, Object {
 
     public GPUAmd (Pci.Access pci_access, Pci.Dev pci_device) {
         set_pci_properties (pci_access, pci_device);
+        name = "AMD® " + name;
     }
 
     private void update_temperature () {

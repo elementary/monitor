@@ -51,6 +51,7 @@ public class Monitor.GPUNvidia : IGPU, Object {
 
     public GPUNvidia (Pci.Access pci_access, Pci.Dev pci_device) {
         set_pci_properties (pci_access, pci_device);
+        name = "nVidia" + name;
     }
 
     construct {
