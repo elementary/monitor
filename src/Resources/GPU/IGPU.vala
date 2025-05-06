@@ -42,7 +42,7 @@ public interface Monitor.IGPU : Object {
         debug ("GPU path: %s", sysfs_path);
 
         char namebuf[256];
-        name = "AMD® " + pci_access.lookup_name (namebuf, Pci.LookupMode.DEVICE, pci_device.vendor_id, pci_device.device_id);
+        name = pci_access.lookup_name (namebuf, Pci.LookupMode.DEVICE, pci_device.vendor_id, pci_device.device_id);
     }
 
     public virtual string get_sysfs_value (string path) {
