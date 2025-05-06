@@ -3,32 +3,6 @@ namespace Pci {
 
     public const int LIB_VERSION;
 
-    // version 3.13.0
-    // [CCode (cname = "int", cprefix = "PCI_ACCESS_", has_type_id = false)]
-    // public enum AccessType {
-    // AUTO,           /* Autodetection */
-    // SYS_BUS_PCI,    /* Linux /sys/bus/pci */
-    // PROC_BUS_PCI,   /* Linux /proc/bus/pci */
-    // I386_TYPE1,     /* i386 ports, type 1 */
-    // I386_TYPE2,     /* i386 ports, type 2 */
-    // FBSD_DEVICE,    /* FreeBSD /dev/pci */
-    // AIX_DEVICE,     /* /dev/pci0, /dev/bus0, etc. */
-    // NBSD_LIBPCI,    /* NetBSD libpci */
-    // OBSD_DEVICE,    /* OpenBSD /dev/pci */
-    // DUMP,           /* Dump file */
-    // DARWIN,         /* Darwin */
-    // SYLIXOS_DEVICE, /* SylixOS pci */
-    // HURD,           /* GNU/Hurd */
-    // WIN32_CFGMGR32, /* Win32 cfgmgr32.dll */
-    // WIN32_KLDBG,    /* Win32 kldbgdrv.sys */
-    // WIN32_SYSDBG,   /* Win32 NT SysDbg */
-    // MMIO_TYPE1,     /* MMIO ports, type 1 */
-    // MMIO_TYPE1_EXT, /* MMIO ports, type 1 extended */
-    // ECAM,           /* PCIe ECAM via /dev/mem */
-    // AOS_EXPANSION,  /* AmigaOS Expansion library */
-    // MAX
-    // }
-
     // version 3.10.0
     [CCode (cname = "int", cprefix = "PCI_ACCESS_", has_type_id = false)]
     public enum AccessType {
@@ -67,9 +41,12 @@ namespace Pci {
     [CCode (cname = "pci_cap", has_type_id = false)]
     public struct Cap {
         Cap * next;
-        uint16 id;        /* PCI_CAP_ID_xxx */
-        uint16 type;      /* PCI_CAP_xxx */
-        uint addr;        /* Position in the config space */
+        /** PCI_CAP_ID_xxx */
+        uint16 id;
+        /** PCI_CAP_xxx */
+        uint16 type;
+        /** Position in the config space */
+        uint addr;
     }
 
     [CCode (cname = "struct pci_access", free_function = "pci_cleanup", has_type_id = false)]
@@ -85,7 +62,7 @@ namespace Pci {
         public int numeric_ids;        /* Enforce PCI_LOOKUP_NUMERIC (>1 => PCI_LOOKUP_MIXED) */
 
         public uint id_lookup_mode;    /* pci_lookup_mode flags which are set automatically */
-                                /* Default: PCI_LOOKUP_CACHE */
+        /* Default: PCI_LOOKUP_CACHE */
 
         public int debugging;          /* Turn on debugging messages */
 
@@ -96,7 +73,7 @@ namespace Pci {
 
         public Dev devices;   /* Devices found on this bus */
 
-            /* Initialize PCI access */
+        /* Initialize PCI access */
         [CCode (cname = "pci_alloc")]
         public Access ();
 
@@ -108,7 +85,8 @@ namespace Pci {
         public void scan_bus ();
 
         [CCode (cname = "pci_lookup_name")]
-        public unowned string? lookup_name (char[] buf, int flags, ...);
+        public unowned string ? lookup_name (char[] buf, int flags, ...);
+
     }
 
     [CCode (cname = "pci_methods")]
@@ -121,31 +99,52 @@ namespace Pci {
     [CCode (cname = "struct pci_dev", free_function = "pci_free_dev", has_type_id = false)]
     [Compact]
     public class Dev {
-        public Dev next; /* Next device in the chain */
-        public uint16 domain_16; /* 16-bit version of the PCI domain for backward compatibility */
-        /* 0xffff if the real domain doesn't fit in 16 bits */
+        /** Next device in the chain */
+        public Dev next;
+        /** 16-bit version of the PCI domain for backward compatibility.*/
+        public uint16 domain_16;
+
+        /** Bus inside domain */
         public uint8 bus;
+        /** Device inside domain */
         public uint8 dev;
-        public uint8 func; /* Bus inside domain, device and function */
+        /** Function inside domain */
+        public uint8 func;
 
         /* These fields are set by pci_fill_info() */
-        public uint known_fields; /* Set of info fields already known (see pci_fill_info()) */
+        /** Set of info fields already known (see `pci_fill_info()`) */
+        public uint known_fields;
         public uint16 vendor_id;
-        public uint16 device_id; /* Identity of the device */
-        public uint16 device_class; /* PCI device class */
-        public int irq; /* IRQ number */
-        public PciAddr base_addr[6]; /* Base addresses including flags in lower bits */
-        public PciAddr size[6]; /* Region sizes */
-        public PciAddr rom_base_addr; /* Expansion ROM base address */
-        public PciAddr rom_size; /* Expansion ROM size */
-        public Cap * first_cap; /* List of capabilities */
-        public char * phy_slot; /* Physical slot */
-        public char * module_alias; /* Linux kernel module alias */
-        public char * label; /* Device name as exported by BIOS */
-        public int numa_node; /* NUMA node */
-        public PciAddr flags[6]; /* PCI_IORESOURCE_* flags for regions */
-        public PciAddr rom_flags; /* PCI_IORESOURCE_* flags for expansion ROM */
-        public int domain; /* PCI domain (host bridge) */
+        /** Identity of the device. Use `pci_fill_info()`*/
+        public uint16 device_id;
+        /** PCI device class. Use `pci_fill_info()` */
+        public uint16 device_class;
+        /** IRQ number. Use `pci_fill_info()` */
+        public int irq;
+        /** Base addresses including flags in lower bits. Use `pci_fill_info()` */
+        public PciAddr base_addr[6];
+        /** Region sizes. Use `pci_fill_info()` */
+        public PciAddr size[6];
+        /** Expansion ROM base address. Use `pci_fill_info()` */
+        public PciAddr rom_base_addr;
+        /** Expansion ROM size. Use `pci_fill_info()` */
+        public PciAddr rom_size;
+        /** List of capabilities. Use `pci_fill_info()` */
+        public Cap * first_cap;
+        /** Physical slot. Use `pci_fill_info()` */
+        public char * phy_slot;
+        /** Linux kernel module alias. Use `pci_fill_info()` */
+        public char * module_alias;
+        /** Device name as exported by BIOS. Use `pci_fill_info()` */
+        public char * label;
+        /** NUMA node. Use `pci_fill_info()` */
+        public int numa_node;
+        /** PCI_IORESOURCE_* flags for regions. Use `pci_fill_info()` */
+        public PciAddr flags[6];
+        /** PCI_IORESOURCE_* flags for expansion ROM. Use `pci_fill_info()` */
+        public PciAddr rom_flags;
+        /** PCI domain (host bridge). Use `pci_fill_info()` */
+        public int domain;
 
         /** Programming interface for device_class */
         [Version (since = "3.8.0")]
@@ -158,7 +157,7 @@ namespace Pci {
         /** Subsystem vendor id */
         [Version (since = "3.8.0")]
         public uint16 subsys_vendor_id;
-        
+
         /**Subsystem id */
         [Version (since = "3.8.0")]
         public uint16 subsys_id;
@@ -188,59 +187,71 @@ namespace Pci {
  * XXX: flags and the result should be unsigned, but we do not want to break the ABI.
  */
 
- public const int FILL_IDENT;
- public const int FILL_IRQ;
- public const int FILL_BASES;
- public const int FILL_ROM_BASE;
- public const int FILL_SIZES;
- public const int FILL_CLASS;
- public const int FILL_CAPS;
- public const int FILL_EXT_CAPS;
- public const int FILL_PHYS_SLOT;
- public const int FILL_MODULE_ALIAS;
- public const int FILL_LABEL;
- public const int FILL_NUMA_NODE;
- public const int FILL_IO_FLAGS;
- public const int FILL_DT_NODE;		/* Device tree node */
- public const int FILL_IOMMU_GROUP;
- public const int FILL_BRIDGE_BASES;
- public const int FILL_RESCAN;
- [Version (since = "3.8.0")]
- public const int FILL_CLASS_EXT;      /* prog_if and rev_id */
- [Version (since = "3.8.0")]
- public const int FILL_SUBSYS;      /* subsys_vendor_id and subsys_id */
- public const int FILL_PARENT;
- public const int FILL_DRIVER;      /* OS driver currently in use (string property) */
+    public const int FILL_IDENT;
+    public const int FILL_IRQ;
+    public const int FILL_BASES;
+    public const int FILL_ROM_BASE;
+    public const int FILL_SIZES;
+    public const int FILL_CLASS;
+    public const int FILL_CAPS;
+    public const int FILL_EXT_CAPS;
+    public const int FILL_PHYS_SLOT;
+    public const int FILL_MODULE_ALIAS;
+    public const int FILL_LABEL;
+    public const int FILL_NUMA_NODE;
+    public const int FILL_IO_FLAGS;
+    public const int FILL_DT_NODE;      /* Device tree node */
+    public const int FILL_IOMMU_GROUP;
+    public const int FILL_BRIDGE_BASES;
+    public const int FILL_RESCAN;
+    [Version (since = "3.8.0")]
+    public const int FILL_CLASS_EXT;   /* prog_if and rev_id */
+    [Version (since = "3.8.0")]
+    public const int FILL_SUBSYS;   /* subsys_vendor_id and subsys_id */
+    public const int FILL_PARENT;
+    public const int FILL_DRIVER;   /* OS driver currently in use (string property) */
 
     /*
-    * Conversion of PCI ID's to names (according to the pci.ids file)
-    *
-    * Call pci_lookup_name() to identify different types of ID's:
-    *
-    * VENDOR    (vendorID) -> vendor
-    * DEVICE    (vendorID, deviceID) -> device
-    * VENDOR | DEVICE   (vendorID, deviceID) -> combined vendor and device
-    * SUBSYSTEM | VENDOR  (subvendorID) -> subsystem vendor
-    * SUBSYSTEM | DEVICE  (vendorID, deviceID, subvendorID, subdevID) -> subsystem device
-    * SUBSYSTEM | VENDOR | DEVICE (vendorID, deviceID, subvendorID, subdevID) -> combined subsystem v+d
-    * SUBSYSTEM | ...   (-1, -1, subvendorID, subdevID) -> generic subsystem
-    * CLASS    (classID) -> class
-    * PROGIF    (classID, progif) -> programming interface
-    */
+     * Conversion of PCI ID's to names (according to the pci.ids file)
+     *
+     * Call pci_lookup_name() to identify different types of ID's:
+     *
+     * VENDOR    (vendorID) -> vendor
+     * DEVICE    (vendorID, deviceID) -> device
+     * VENDOR | DEVICE   (vendorID, deviceID) -> combined vendor and device
+     * SUBSYSTEM | VENDOR  (subvendorID) -> subsystem vendor
+     * SUBSYSTEM | DEVICE  (vendorID, deviceID, subvendorID, subdevID) -> subsystem device
+     * SUBSYSTEM | VENDOR | DEVICE (vendorID, deviceID, subvendorID, subdevID) -> combined subsystem v+d
+     * SUBSYSTEM | ...   (-1, -1, subvendorID, subdevID) -> generic subsystem
+     * CLASS    (classID) -> class
+     * PROGIF    (classID, progif) -> programming interface
+     */
     [CCode (cname = "pci_lookup_mode", cprefix = "PCI_LOOKUP_", has_type_id = false)]
     enum LookupMode {
-        VENDOR = 1,                /* Vendor name (args: vendorID) */
-        DEVICE = 2,                /* Device name (args: vendorID, deviceID) */
-        CLASS = 4,                 /* Device class (args: classID) */
+        /** Vendor name (args: vendorID) */
+        VENDOR = 1,
+        /** Device name (args: vendorID, deviceID) */
+        DEVICE = 2,
+        /** Device class (args: classID) */
+        CLASS = 4,
         SUBSYSTEM = 8,
-        PROGIF = 16,               /* Programming interface (args: classID, prog_if) */
-        NUMERIC = 0x10000,         /* Want only formatted numbers; default if access->numeric_ids is set */
-        NO_NUMBERS = 0x20000,      /* Return NULL if not found in the database; default is to print numerically */
-        MIXED = 0x40000,           /* Include both numbers and names */
-        NETWORK = 0x80000,         /* Try to resolve unknown ID's by DNS */
-        SKIP_LOCAL = 0x100000,     /* Do not consult local database */
-        CACHE = 0x200000,          /* Consult the local cache before using DNS */
-        REFRESH_CACHE = 0x400000,  /* Forget all previously cached entries, but still allow updating the cache */
-        NO_HWDB = 0x800000,        /* Do not ask udev's hwdb */
-      }
+        /** Programming interface (args: classID, prog_if) */
+        PROGIF = 16,
+        /** Want only formatted numbers; default if access->numeric_ids is set */
+        NUMERIC = 0x10000,
+        /** Return NULL if not found in the database; default is to print numerically */
+        NO_NUMBERS = 0x20000,
+        /** Include both numbers and names */
+        MIXED = 0x40000,
+        /** Try to resolve unknown ID's by DNS */
+        NETWORK = 0x80000,
+        /** Do not consult local database */
+        SKIP_LOCAL = 0x100000,
+        /** Consult the local cache before using DNS */
+        CACHE = 0x200000,
+        /** Forget all previously cached entries, but still allow updating the cache */
+        REFRESH_CACHE = 0x400000,
+        /** Do not ask udev's hwdb */
+        NO_HWDB = 0x800000,
+    }
 }
