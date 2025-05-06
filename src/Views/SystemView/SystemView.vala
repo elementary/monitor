@@ -37,9 +37,13 @@ public class Monitor.SystemView : Gtk.Box {
         wrapper.add (storage_view);
 
         foreach (var gpu in resources.gpu_list) {
-            var gpu_view = new SystemGPUView (gpu);
-            gpu_views.append (gpu_view);
-            wrapper.add (gpu_view);
+            if (gpu.name.contains ("Intel") || gpu.name.contains ("nVidia")) {
+                wrapper.add(build_no_support_label (gpu.name));
+            } else {
+                var gpu_view = new SystemGPUView (gpu);
+                gpu_views.append (gpu_view);
+                wrapper.add (gpu_view);
+            }
         }
 
         add (scrolled_window);
@@ -51,6 +55,13 @@ public class Monitor.SystemView : Gtk.Box {
         network_view.update ();
         storage_view.update ();
         gpu_views.foreach ((gpu_view) => gpu_view.update ());
+    }
+
+    private Granite.HeaderLabel build_no_support_label (string gpu_name) {
+        string notification_text = "The %s GPU was detected, but is not yet supported.".printf (gpu_name);
+        return new Granite.HeaderLabel (notification_text) {
+            margin = 12,
+        };
     }
 
 }

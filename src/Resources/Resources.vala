@@ -73,9 +73,10 @@ public class Monitor.Resources : Object {
                 debug ("PCI device: GPU: 0x%llX : %s", pci_device.vendor_id, name);
                 // print (" %04x:%02x:%02x.%d\n", pci_device.domain_16, pci_device.bus, pci_device.dev, pci_device.func);
 
-
                 // 0x8086 is Intel Corporation
                 if (pci_device.vendor_id == 0x8086) {
+                    IGPU gpu = new GPUIntel (pci_access, pci_device);
+                    gpu_list.add (gpu);
 
                     // 0x10de is NVIDIA Corporation
                 } else if (pci_device.vendor_id == 0x10de) {
