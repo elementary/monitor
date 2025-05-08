@@ -59,7 +59,7 @@ public class Monitor.Resources : Object {
             string name = pci_access.lookup_name (namebuf, Pci.LookupMode.DEVICE, pci_device.vendor_id, pci_device.device_id);
 
             // Looking for a specific PCI device class
-            if (pci_device.device_class == 0x300 || pci_device.device_class == 0x302) {
+            if (pci_device.device_class == Utils.PCI_CLASS_VGA_CONTROLLER || pci_device.device_class == Utils.PCI_CLASS_3D_CONTROLLER) {
                 // print (" %04x:%02x:%02x.%d\n", pci_device.domain_16, pci_device.bus, pci_device.dev, pci_device.func);
 
                 if (pci_device.vendor_id == Utils.PCI_VENDOR_ID_INTEL) {
