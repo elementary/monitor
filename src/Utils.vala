@@ -6,6 +6,13 @@
 namespace Monitor.Utils {
     const string NOT_AVAILABLE = (_("N/A"));
     const string NO_DATA = "\u2014";
+
+    const int PCI_CLASS_VGA_CONTROLLER = 0x300;
+    const int PCI_CLASS_3D_CONTROLLER = 0x302;
+
+    const int PCI_VENDOR_ID_AMD = 0x1002;
+    const int PCI_VENDOR_ID_NVIDIA = 0x10de;
+    const int PCI_VENDOR_ID_INTEL = 0x8086;
 }
 
 public class Monitor.Utils.Strings {

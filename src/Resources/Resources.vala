@@ -59,29 +59,26 @@ public class Monitor.Resources : Object {
             string name = pci_access.lookup_name (namebuf, Pci.LookupMode.DEVICE, pci_device.vendor_id, pci_device.device_id);
 
             // Looking for a specific PCI device class
-            // 0x300 is a VGA-compatible controller
-            // 0x302 is a 3D controller
             if (pci_device.device_class == 0x300 || pci_device.device_class == 0x302) {
-                debug ("PCI device: GPU: 0x%llX : %s", pci_device.vendor_id, name);
                 // print (" %04x:%02x:%02x.%d\n", pci_device.domain_16, pci_device.bus, pci_device.dev, pci_device.func);
 
-                // 0x8086 is Intel Corporation
-                if (pci_device.vendor_id == 0x8086) {
+                if (pci_device.vendor_id == Utils.PCI_VENDOR_ID_INTEL) {
+                    debug ("PCI device: GPU: Intel %s", name);
                     IGPU gpu = new GPUIntel (pci_access, pci_device);
                     gpu_list.add (gpu);
 
-                    // 0x10de is NVIDIA Corporation
-                } else if (pci_device.vendor_id == 0x10de) {
+                } else if (pci_device.vendor_id == Utils.PCI_VENDOR_ID_NVIDIA) {
+                    debug ("PCI device: GPU: nVidia %s", name);
                     IGPU gpu = new GPUNvidia (pci_access, pci_device);
                     gpu_list.add (gpu);
 
-                    // 0x1002 is Advanced Micro Devices, Inc. [AMD/ATI]
-                } else if (pci_device.vendor_id == 0x1002) {
+                } else if (pci_device.vendor_id == Utils.PCI_VENDOR_ID_AMD) {
+                    debug ("PCI device: GPU: AMD %s", name);
                     IGPU gpu = new GPUAmd (pci_access, pci_device);
                     gpu.hwmon_temperatures = hwmon_path_parser.gpu_paths_parser.temperatures;
                     gpu_list.add (gpu);
                 } else {
-                    warning ("GPU: Unknown: %s", name);
+                    warning ("GPU: Unknown: 0x%llX : %s", pci_device.vendor_id, name);
                 }
             } else {
                 debug ("PCI device: vendor: 0x%llX class:0x%llX  %s", pci_device.vendor_id, pci_device.device_class, name);
