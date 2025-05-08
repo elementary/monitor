@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
  */
 
- public class Monitor.GPUIntel : IGPU, Object {
+public class Monitor.GPUIntel : IGPU, Object {
 
     public Gee.HashMap<string, HwmonTemperature> hwmon_temperatures { get; set; }
 
