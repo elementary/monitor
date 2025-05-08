@@ -58,7 +58,7 @@ public class Monitor.SystemView : Gtk.Box {
     }
 
     private Granite.HeaderLabel build_no_support_label (string gpu_name) {
-        string notification_text = "The %s GPU was detected, but is not yet supported.".printf (gpu_name);
+        string notification_text = _("The %s GPU was detected, but is not yet supported.").printf (gpu_name);
         return new Granite.HeaderLabel (notification_text) {
             margin = 12,
         };
