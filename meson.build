@@ -12,7 +12,7 @@ libdir = join_paths(prefix, get_option('libdir'))
 icondir = join_paths(datadir, 'icons', 'hicolor')
 vapidir = meson.current_source_dir() / 'vapi/'
 
-add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()), language:'c')
+add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()), language: 'c')
 
 add_project_arguments(['--vapidir', vapidir], language: 'vala')
 add_project_arguments(['-DWNCK_I_KNOW_THIS_IS_UNSTABLE', '-w'], language: 'c')
@@ -38,19 +38,23 @@ app_dependencies = [
     dependency('flatpak'),
 
     # FIXME Bump required version to >= 1.10.0 when GTK 4 porting
-    dependency('livechart', version: '< 1.10.0', fallback: ['live-chart', 'livechart_dep']),
+    dependency(
+        'livechart',
+        version: '< 1.10.0',
+        fallback: ['live-chart', 'livechart_dep'],
+    ),
 
-    meson.get_compiler('c').find_library('m', required : false),
+    meson.get_compiler('c').find_library('m', required: false),
     meson.get_compiler('vala').find_library('posix'),
     meson.get_compiler('c').find_library('X11'),
 
+    # PCI needs lower version limit '>= 3.8.0'
     meson.get_compiler('c').find_library('pci'),
     meson.get_compiler('vala').find_library('pci', dirs: vapidir),
 
     meson.get_compiler('c').find_library('XNVCtrl'),
     meson.get_compiler('vala').find_library('libxnvctrl', dirs: vapidir),
 ]
-
 
 config_data = configuration_data()
 config_data.set('GETTEXT_PACKAGE', meson.project_name())
@@ -59,17 +63,16 @@ subdir('data')
 
 config_data.set('VCS_TAG', '@VCS_TAG@')
 project_config = vcs_tag(
-  input: configure_file(
-    input: 'src/Conf.vala.in',
-    output: 'Conf.vala.in',
-    configuration: config_data
-  ),
-  output: 'Conf.vala',
-  command: ['git', 'describe', '--tags', '--dirty']
+    input: configure_file(
+        input: 'src/Conf.vala.in',
+        output: 'Conf.vala.in',
+        configuration: config_data,
+    ),
+    output: 'Conf.vala',
+    command: ['git', 'describe', '--tags', '--dirty'],
 )
 
 subdir('src')
-
 
 # Add in a post install script
 meson.add_install_script('meson/post_install.py')

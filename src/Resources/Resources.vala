@@ -3,12 +3,6 @@
  * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
  */
 
-[DBus (name = "org.gnome.SessionManager")]
-public interface SessionManager : Object {
-    [DBus (name = "Renderer")]
-    public abstract string renderer { owned get; }
-}
-
 public class Monitor.Resources : Object {
     public CPU cpu;
     public Memory memory;
@@ -103,22 +97,22 @@ public class Monitor.Resources : Object {
         IGPU gpu = gpu_list.size > 0 ? gpu_list.first () : null;
 
         return ResourcesSerialized () {
-            cpu_percentage = cpu.percentage,
-            cpu_frequency = cpu.frequency,
-            cpu_temperature = cpu.temperature_mean,
-            memory_percentage = memory.used_percentage,
-            memory_used = memory.used,
-            memory_total = memory.total,
-            swap_percentage = swap.percentage,
-            swap_used = swap.used,
-            swap_total = swap.total,
-            network_up = network.bytes_out,
-            network_down = network.bytes_in,
-            gpu_percentage = gpu != null ? gpu.percentage : 0,
-            gpu_memory_percentage = gpu != null ? gpu.memory_percentage : 0,
-            gpu_memory_used = gpu != null ? gpu.memory_vram_used : 0,
-            gpu_memory_total = gpu != null ? gpu.memory_vram_total : 0,
-            gpu_temperature = gpu != null ? gpu.temperature : 0
+                   cpu_percentage = cpu.percentage,
+                   cpu_frequency = cpu.frequency,
+                   cpu_temperature = cpu.temperature_mean,
+                   memory_percentage = memory.used_percentage,
+                   memory_used = memory.used,
+                   memory_total = memory.total,
+                   swap_percentage = swap.percentage,
+                   swap_used = swap.used,
+                   swap_total = swap.total,
+                   network_up = network.bytes_out,
+                   network_down = network.bytes_in,
+                   gpu_percentage = gpu != null ? gpu.percentage : 0,
+                   gpu_memory_percentage = gpu != null ? gpu.memory_percentage : 0,
+                   gpu_memory_used = gpu != null ? gpu.memory_vram_used : 0,
+                   gpu_memory_total = gpu != null ? gpu.memory_vram_total : 0,
+                   gpu_temperature = gpu != null ? gpu.temperature : 0
         };
     }
 
