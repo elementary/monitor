@@ -29,22 +29,27 @@ public class Monitor.GPUIntel : IGPU, Object {
     }
 
     private void update_temperature () {
+        // @TODO: Intel GPU temperature retrieval needs implementation.
         temperature = 0;
     }
 
     private void update_memory_vram_used () {
+        // @TODO: Intel GPU used VRAM retrieval needs implementation.
         memory_vram_used = 0;
     }
 
     private void update_memory_vram_total () {
+        // @TODO: Intel GPU total VRAM retrieval needs implementation.
         memory_vram_total = 0;
     }
 
     private void update_memory_percentage () {
+        // @TODO: Intel GPU memory percentage needs implementation.
         memory_percentage = 0;
     }
 
     private void update_percentage () {
+        // @TODO: Intel GPU usage percentage needs implementation.
         percentage = 0;
     }
 
