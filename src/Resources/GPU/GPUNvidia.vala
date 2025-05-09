@@ -23,7 +23,7 @@ public class Monitor.GPUNvidia : IGPU, Object {
 
     public double temperature { get; protected set; }
 
-    private string sysfs_path { get; set; }
+    protected string sysfs_path { get; set; }
 
     public int nvidia_temperature = 0;
 
