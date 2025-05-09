@@ -62,23 +62,29 @@ public class Monitor.Resources : Object {
             if (pci_device.device_class == Utils.PCI_CLASS_VGA_CONTROLLER || pci_device.device_class == Utils.PCI_CLASS_3D_CONTROLLER) {
                 // print (" %04x:%02x:%02x.%d\n", pci_device.domain_16, pci_device.bus, pci_device.dev, pci_device.func);
 
-                if (pci_device.vendor_id == Utils.PCI_VENDOR_ID_INTEL) {
+                switch (pci_device.vendor_id) {
+                case Utils.PCI_VENDOR_ID_INTEL:
                     debug ("PCI device: GPU: Intel %s", name);
                     IGPU gpu = new GPUIntel (pci_access, pci_device);
                     gpu_list.add (gpu);
+                    break;
 
-                } else if (pci_device.vendor_id == Utils.PCI_VENDOR_ID_NVIDIA) {
+                case Utils.PCI_VENDOR_ID_NVIDIA:
                     debug ("PCI device: GPU: nVidia %s", name);
                     IGPU gpu = new GPUNvidia (pci_access, pci_device);
                     gpu_list.add (gpu);
+                    break;
 
-                } else if (pci_device.vendor_id == Utils.PCI_VENDOR_ID_AMD) {
+                case Utils.PCI_VENDOR_ID_AMD:
                     debug ("PCI device: GPU: AMD %s", name);
                     IGPU gpu = new GPUAmd (pci_access, pci_device);
                     gpu.hwmon_temperatures = hwmon_path_parser.gpu_paths_parser.temperatures;
                     gpu_list.add (gpu);
-                } else {
+                    break;
+
+                default:
                     warning ("GPU: Unknown: 0x%llX : %s", pci_device.vendor_id, name);
+                    break;
                 }
             } else {
                 debug ("PCI device: vendor: 0x%llX class:0x%llX  %s", pci_device.vendor_id, pci_device.device_class, name);
