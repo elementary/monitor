@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
  */
 
-public class Monitor.GPUAmd : IGPU, Object {
+public class Monitor.GPUIntel : IGPU, Object {
 
     public Gee.HashMap<string, HwmonTemperature> hwmon_temperatures { get; set; }
 
@@ -23,31 +23,36 @@ public class Monitor.GPUAmd : IGPU, Object {
 
     protected string sysfs_path { get; set; }
 
-    public GPUAmd (Pci.Access pci_access, Pci.Dev pci_device) {
+    public GPUIntel (Pci.Access pci_access, Pci.Dev pci_device) {
         name = pci_parse_name (pci_access, pci_device);
-        name = "AMD® " + name;
+        name = "Intel® " + name;
 
         sysfs_path = pci_parse_sysfs_path (pci_access, pci_device);
     }
 
     private void update_temperature () {
-        temperature = double.parse (hwmon_temperatures.get ("edge").input) / 1000;
+        // @TODO: Intel GPU temperature retrieval needs implementation.
+        temperature = 0;
     }
 
     private void update_memory_vram_used () {
-        memory_vram_used = double.parse (get_sysfs_value (sysfs_path + "/mem_info_vram_used"));
+        // @TODO: Intel GPU used VRAM retrieval needs implementation.
+        memory_vram_used = 0;
     }
 
     private void update_memory_vram_total () {
-        memory_vram_total = double.parse (get_sysfs_value (sysfs_path + "/mem_info_vram_total"));
+        // @TODO: Intel GPU total VRAM retrieval needs implementation.
+        memory_vram_total = 0;
     }
 
     private void update_memory_percentage () {
-        memory_percentage = (int) (Math.round ((memory_vram_used / memory_vram_total) * 100));
+        // @TODO: Intel GPU memory percentage needs implementation.
+        memory_percentage = 0;
     }
 
     private void update_percentage () {
-        percentage = int.parse (get_sysfs_value (sysfs_path + "/gpu_busy_percent"));
+        // @TODO: Intel GPU usage percentage needs implementation.
+        percentage = 0;
     }
 
     public void update () {

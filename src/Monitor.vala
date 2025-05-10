@@ -101,6 +101,8 @@ namespace Monitor {
             print (" Monitor %s \n", VCS_TAG);
             print ("\n");
 
+            print ("LibPCI ver: %d \n", Pci.LIB_VERSION);
+
             // add command line options
             try {
                 var opt_context = new OptionContext ("");

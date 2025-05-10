@@ -10,7 +10,7 @@ public class Monitor.SystemView : Gtk.Box {
     private SystemMemoryView memory_view;
     private SystemNetworkView network_view;
     private SystemStorageView storage_view;
-    private SystemGPUView gpu_view;
+    private GLib.List<SystemGPUView> gpu_views = new GLib.List<SystemGPUView> ();
 
     construct {
         orientation = Gtk.Orientation.VERTICAL;
@@ -36,9 +36,14 @@ public class Monitor.SystemView : Gtk.Box {
         wrapper.add (network_view);
         wrapper.add (storage_view);
 
-        if (resources.gpu != null) {
-            gpu_view = new SystemGPUView (resources.gpu);
-            wrapper.add (gpu_view);
+        foreach (IGPU gpu in resources.gpu_list) {
+            if (gpu is GPUIntel || gpu is GPUNvidia) {
+                wrapper.add (build_no_support_label (gpu.name));
+            } else {
+                var gpu_view = new SystemGPUView (gpu);
+                gpu_views.append (gpu_view);
+                wrapper.add (gpu_view);
+            }
         }
 
         add (scrolled_window);
@@ -49,7 +54,14 @@ public class Monitor.SystemView : Gtk.Box {
         memory_view.update ();
         network_view.update ();
         storage_view.update ();
-        if (resources.gpu != null) gpu_view.update ();
+        gpu_views.foreach ((gpu_view) => gpu_view.update ());
+    }
+
+    private Granite.HeaderLabel build_no_support_label (string gpu_name) {
+        string notification_text = _("The %s GPU was detected, but is not yet supported.").printf (gpu_name);
+        return new Granite.HeaderLabel (notification_text) {
+            margin = 12,
+        };
     }
 
 }

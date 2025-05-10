@@ -4,11 +4,12 @@
  */
 
 public class Monitor.GPUNvidia : IGPU, Object {
-    public SessionManager ? session_manager { get; protected set; }
 
     public Gee.HashMap<string, HwmonTemperature> hwmon_temperatures { get; set; }
 
     public string hwmon_module_name { get; set; }
+
+    public string name { get; set; }
 
     public int percentage { get; protected set; }
 
@@ -21,6 +22,8 @@ public class Monitor.GPUNvidia : IGPU, Object {
     public double memory_vram_total { get; set; }
 
     public double temperature { get; protected set; }
+
+    protected string sysfs_path { get; set; }
 
     public int nvidia_temperature = 0;
 
@@ -46,8 +49,14 @@ public class Monitor.GPUNvidia : IGPU, Object {
 
     public X.Display nvidia_display;
 
+    public GPUNvidia (Pci.Access pci_access, Pci.Dev pci_device) {
+        name = pci_parse_name (pci_access, pci_device);
+        name = "nVidia® " + name;
+
+        sysfs_path = pci_parse_sysfs_path (pci_access, pci_device);
+    }
+
     construct {
-        // session_manager = get_sessman ();
         nvidia_display = new X.Display ();
     }
 
