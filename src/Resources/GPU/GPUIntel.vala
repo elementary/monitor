@@ -24,8 +24,10 @@ public class Monitor.GPUIntel : IGPU, Object {
     protected string sysfs_path { get; set; }
 
     public GPUIntel (Pci.Access pci_access, Pci.Dev pci_device) {
-        set_pci_properties (pci_access, pci_device);
+        name = parse_name (pci_access, pci_device);
         name = "Intel® " + name;
+
+        sysfs_path = parse_sysfs_path (pci_access, pci_device);
     }
 
     private void update_temperature () {
