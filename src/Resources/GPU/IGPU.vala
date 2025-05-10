@@ -35,12 +35,12 @@ public interface Monitor.IGPU : Object {
 
     public abstract void update ();
 
-    public virtual string parse_name (Pci.Access pci_access, Pci.Dev pci_device) {
+    protected virtual string pci_parse_name (Pci.Access pci_access, Pci.Dev pci_device) {
         char namebuf[256];
         return pci_access.lookup_name (namebuf, Pci.LookupMode.DEVICE, pci_device.vendor_id, pci_device.device_id);
     }
 
-    public virtual string parse_sysfs_path (Pci.Access pci_access, Pci.Dev pci_device) {
+    protected virtual string pci_parse_sysfs_path (Pci.Access pci_access, Pci.Dev pci_device) {
         string pci_path_domain_bus = "%04x:%02x".printf (pci_device.domain_16, pci_device.bus);
         string pci_path_dev_func = "%02x.%d".printf (pci_device.dev, pci_device.func);
         string path = "/sys/class/pci_bus/%s/device/%s:%s".printf (pci_path_domain_bus, pci_path_domain_bus, pci_path_dev_func);

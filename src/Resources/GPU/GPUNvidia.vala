@@ -50,10 +50,10 @@ public class Monitor.GPUNvidia : IGPU, Object {
     public X.Display nvidia_display;
 
     public GPUNvidia (Pci.Access pci_access, Pci.Dev pci_device) {
-        name = parse_name (pci_access, pci_device);
-        name = "nVidia" + name;
+        name = pci_parse_name (pci_access, pci_device);
+        name = "nVidia® " + name;
 
-        sysfs_path = parse_sysfs_path (pci_access, pci_device);
+        sysfs_path = pci_parse_sysfs_path (pci_access, pci_device);
     }
 
     construct {

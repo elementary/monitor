@@ -24,10 +24,10 @@ public class Monitor.GPUAmd : IGPU, Object {
     protected string sysfs_path { get; set; }
 
     public GPUAmd (Pci.Access pci_access, Pci.Dev pci_device) {
-        name = parse_name (pci_access, pci_device);
+        name = pci_parse_name (pci_access, pci_device);
         name = "AMD® " + name;
 
-        sysfs_path = parse_sysfs_path (pci_access, pci_device);
+        sysfs_path = pci_parse_sysfs_path (pci_access, pci_device);
     }
 
     private void update_temperature () {
