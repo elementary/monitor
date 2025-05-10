@@ -36,8 +36,8 @@ public class Monitor.SystemView : Gtk.Box {
         wrapper.add (network_view);
         wrapper.add (storage_view);
 
-        foreach (var gpu in resources.gpu_list) {
-            if (gpu.name.contains ("Intel") || gpu.name.contains ("nVidia")) {
+        foreach (IGPU gpu in resources.gpu_list) {
+            if (gpu is GPUIntel || gpu is GPUNvidia) {
                 wrapper.add (build_no_support_label (gpu.name));
             } else {
                 var gpu_view = new SystemGPUView (gpu);
