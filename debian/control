@@ -19,6 +19,7 @@ Build-Depends: debhelper-compat (= 13),
                libjson-glib-dev,
                libflatpak-dev,
                liblivechart-1-dev,
+               libpci-dev,
                sassc
 Standards-Version: 4.1.1
 
