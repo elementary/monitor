@@ -3,13 +3,6 @@ namespace Pci {
 
     public const int LIB_VERSION;
 
-    public int[] get_pretty_version () {
-        int major = (Pci.LIB_VERSION & 0xFF0000) >> 16;
-        int minor = (Pci.LIB_VERSION & 0x00FF00) >> 8;
-        int patch = (Pci.LIB_VERSION & 0x0000FF) >> 0;
-        return {major, minor, patch};
-    }
-
     // version 3.10.0
     [CCode (cname = "int", cprefix = "PCI_ACCESS_", has_type_id = false)]
     public enum AccessType {

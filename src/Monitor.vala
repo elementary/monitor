@@ -102,10 +102,10 @@ namespace Monitor {
             print ("\n");
 
             print (
-                "  LibPCI ver: %d.%d.%d \n",
-                Pci.get_pretty_version ()[0],
-                Pci.get_pretty_version ()[1],
-                Pci.get_pretty_version ()[2]
+                "LibPCI ver: %d.%d.%d \n",
+                Utils.LIBPCI_MAJOR_VER,
+                Utils.LIBPCI_MINOR_VER,
+                Utils.LIBPCI_PATCH_VER
                 );
 
             // add command line options

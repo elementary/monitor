@@ -7,6 +7,10 @@ namespace Monitor.Utils {
     const string NOT_AVAILABLE = (_("N/A"));
     const string NO_DATA = "\u2014";
 
+    const int LIBPCI_MAJOR_VER = (Pci.LIB_VERSION & 0xFF0000) >> 16;
+    const int LIBPCI_MINOR_VER = (Pci.LIB_VERSION & 0x00FF00) >> 8;
+    const int LIBPCI_PATCH_VER = (Pci.LIB_VERSION & 0x0000FF) >> 0;
+
     const int PCI_CLASS_VGA_CONTROLLER = 0x300;
     const int PCI_CLASS_3D_CONTROLLER = 0x302;
 
@@ -125,7 +129,7 @@ public class Monitor.Utils.Colors : Object {
     public const string BLACK_700 = "#1a1a1a";
     public const string BLACK_900 = "#000000";
 
-    private Gee.ArrayList<Gdk.RGBA ? > _rgba_colors = new Gee.ArrayList<Gdk.RGBA ? >.wrap ({
+    private Gee.ArrayList<Gdk.RGBA ?> _rgba_colors = new Gee.ArrayList<Gdk.RGBA ?>.wrap ({
         get_rgba_color (Colors.STRAWBERRY_100),
         get_rgba_color (Colors.ORANGE_100),
         get_rgba_color (Colors.BANANA_100),
