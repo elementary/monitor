@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-29 08:15+0000\n"
-"PO-Revision-Date: 2024-12-01 09:46+0000\n"
-"Last-Translator: Gustavo Silva <g.costasalles@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
+"PO-Revision-Date: 2025-05-14 18:55+0000\n"
+"Last-Translator: Max2020 <alcizmaxpereira@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
 "desktop/monitor/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #: src/MainWindow.vala:27 src/MainWindow.vala:71
 msgid "Monitor"
@@ -110,10 +110,8 @@ msgid "The process is stopped by a job control signal"
 msgstr "O processo está parado por um sinal de controle de trabalho"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:128
-#, fuzzy
-#| msgid "The process is stopped stopped by a debugger during the tracing"
 msgid "The process is stopped by a debugger during the tracing"
-msgstr "O processo é interrompido por um depurador durante o rastreio"
+msgstr "O processo é interrompido por um depurador durante o rastreamento"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:130
 msgid "The app is terminated but not reaped by its parent"
@@ -207,16 +205,12 @@ msgid "RAM: %.1f%%"
 msgstr "RAM: %.1f%%"
 
 #: src/Views/PreferencesView.vala:17
-#, fuzzy
-#| msgid "Display CPU frequency"
 msgid "Update frequency"
-msgstr "Mostrar frequência do CPU"
+msgstr "Frequência de atualização"
 
 #: src/Views/PreferencesView.vala:22 src/Views/PreferencesView.vala:52
-#, fuzzy
-#| msgid "Update every (requires restart):"
 msgid "Requires restart"
-msgstr "Atualizar a cada (requer reinício):"
+msgstr "Requer reinicialização"
 
 #: src/Views/PreferencesView.vala:29
 msgid "1s"
