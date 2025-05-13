@@ -2,6 +2,7 @@ source_app_files = [
     'Monitor.vala',
     'MainWindow.vala',
     'Utils.vala',
+    'PCIUtils.vala',
 
     # Views
     'Views/ProcessView/ProcessView.vala',

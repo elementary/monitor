@@ -7,10 +7,6 @@ namespace Monitor.Utils {
     const string NOT_AVAILABLE = (_("N/A"));
     const string NO_DATA = "\u2014";
 
-    const int LIBPCI_MAJOR_VER = (Pci.LIB_VERSION & 0xFF0000) >> 16;
-    const int LIBPCI_MINOR_VER = (Pci.LIB_VERSION & 0x00FF00) >> 8;
-    const int LIBPCI_PATCH_VER = (Pci.LIB_VERSION & 0x0000FF) >> 0;
-
     const int PCI_CLASS_VGA_CONTROLLER = 0x300;
     const int PCI_CLASS_3D_CONTROLLER = 0x302;
 

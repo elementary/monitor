@@ -103,9 +103,9 @@ namespace Monitor {
 
             print (
                 "LibPCI ver: %d.%d.%d \n",
-                Utils.LIBPCI_MAJOR_VER,
-                Utils.LIBPCI_MINOR_VER,
-                Utils.LIBPCI_PATCH_VER
+                PCIUtils.LIBPCI_MAJOR_VER,
+                PCIUtils.LIBPCI_MINOR_VER,
+                PCIUtils.LIBPCI_PATCH_VER
                 );
 
             // add command line options
