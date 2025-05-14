@@ -6,6 +6,13 @@
 namespace Monitor.Utils {
     const string NOT_AVAILABLE = (_("N/A"));
     const string NO_DATA = "\u2014";
+
+    const int PCI_CLASS_VGA_CONTROLLER = 0x300;
+    const int PCI_CLASS_3D_CONTROLLER = 0x302;
+
+    const uint16 PCI_VENDOR_ID_AMD = 0x1002;
+    const uint16 PCI_VENDOR_ID_NVIDIA = 0x10de;
+    const uint16 PCI_VENDOR_ID_INTEL = 0x8086;
 }
 
 public class Monitor.Utils.Strings {
@@ -118,7 +125,7 @@ public class Monitor.Utils.Colors : Object {
     public const string BLACK_700 = "#1a1a1a";
     public const string BLACK_900 = "#000000";
 
-    private Gee.ArrayList<Gdk.RGBA ? > _rgba_colors = new Gee.ArrayList<Gdk.RGBA ? >.wrap ({
+    private Gee.ArrayList<Gdk.RGBA ?> _rgba_colors = new Gee.ArrayList<Gdk.RGBA ?>.wrap ({
         get_rgba_color (Colors.STRAWBERRY_100),
         get_rgba_color (Colors.ORANGE_100),
         get_rgba_color (Colors.BANANA_100),

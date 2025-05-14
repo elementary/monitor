@@ -2,6 +2,7 @@ source_app_files = [
     'Monitor.vala',
     'MainWindow.vala',
     'Utils.vala',
+    'PCIUtils.vala',
 
     # Views
     'Views/ProcessView/ProcessView.vala',
@@ -68,6 +69,7 @@ source_app_files = [
     'Resources/GPU/IGPU.vala',
     'Resources/GPU/GPUAmd.vala',
     'Resources/GPU/GPUNvidia.vala',
+    'Resources/GPU/GPUIntel.vala',
 
     'Resources/Hwmon/HwmonPathsParser.vala',
     'Resources/Hwmon/IHwmonPathsParserInterface.vala',

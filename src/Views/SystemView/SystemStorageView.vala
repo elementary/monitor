@@ -54,7 +54,7 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         attach (storage_chart, 0, 2, 2, 2);
     }
 
-    private bool add_drive_card (owned Disk? drive) {
+    private bool add_drive_card (owned Disk ? drive) {
         drive_cards_container.add (build_drive_card (drive.model, drive.device, drive.size, drive.free));
         return true;
     }
@@ -70,7 +70,7 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         drive_card.margin_bottom = 12;
 
         var drive_grid = new Gtk.Grid ();
-        //  drive_grid.row_spacing = 6;
+        // drive_grid.row_spacing = 6;
         drive_grid.column_spacing = 6;
         drive_grid.margin = 6;
 
@@ -85,7 +85,7 @@ public class Monitor.SystemStorageView : Gtk.Grid {
 
         string drive_block_name_and_size_string = "%s 𐄁 %s / %s".printf (device, used_string, size_string);
 
-        if (free == 0) drive_block_name_and_size_string = "%s 𐄁 %s".printf (device, size_string);
+        if (free == 0)drive_block_name_and_size_string = "%s 𐄁 %s".printf (device, size_string);
 
         var drive_block_name_and_size_label = new Gtk.Label (drive_block_name_and_size_string);
         drive_block_name_and_size_label.get_style_context ().add_class ("h4");
@@ -129,4 +129,5 @@ public class Monitor.SystemStorageView : Gtk.Grid {
             storage_chart.update (1, down_bytes);
         }
     }
+
 }
