@@ -227,31 +227,33 @@ namespace Pci {
      * PROGIF    (classID, progif) -> programming interface
      */
     [CCode (cname = "pci_lookup_mode", cprefix = "PCI_LOOKUP_", has_type_id = false)]
+    [Flags]
     enum LookupMode {
         /** Vendor name (args: vendorID) */
-        VENDOR = 1,
+        VENDOR,
         /** Device name (args: vendorID, deviceID) */
-        DEVICE = 2,
+        DEVICE,
         /** Device class (args: classID) */
-        CLASS = 4,
-        SUBSYSTEM = 8,
+        CLASS,
+
+        SUBSYSTEM,
         /** Programming interface (args: classID, prog_if) */
-        PROGIF = 16,
+        PROGIF,
         /** Want only formatted numbers; default if access->numeric_ids is set */
-        NUMERIC = 0x10000,
+        NUMERIC,
         /** Return NULL if not found in the database; default is to print numerically */
-        NO_NUMBERS = 0x20000,
+        NO_NUMBERS,
         /** Include both numbers and names */
-        MIXED = 0x40000,
+        MIXED,
         /** Try to resolve unknown ID's by DNS */
-        NETWORK = 0x80000,
+        NETWORK,
         /** Do not consult local database */
-        SKIP_LOCAL = 0x100000,
+        SKIP_LOCAL,
         /** Consult the local cache before using DNS */
-        CACHE = 0x200000,
+        CACHE,
         /** Forget all previously cached entries, but still allow updating the cache */
-        REFRESH_CACHE = 0x400000,
+        REFRESH_CACHE,
         /** Do not ask udev's hwdb */
-        NO_HWDB = 0x800000,
+        NO_HWDB,
     }
 }
