@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-29 08:15+0000\n"
-"PO-Revision-Date: 2025-05-14 18:55+0000\n"
-"Last-Translator: Max2020 <alcizmaxpereira@gmail.com>\n"
+"PO-Revision-Date: 2025-05-15 14:12+0000\n"
+"Last-Translator: Leonardo Lemos <leonardolemos@live.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
 "desktop/monitor/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -245,64 +245,44 @@ msgid "Draw smooth lines on CPU chart"
 msgstr "Desenhar linhas suaves no gráfico do CPU (requer reinício):"
 
 #: src/Views/PreferencesView.vala:57
-#, fuzzy
-#| msgid "Show indicator in Wingpanel"
 msgid "Show in panel"
-msgstr "Mostrar indicador no Wingpanel"
+msgstr "Mostrar no painel"
 
 #: src/Views/PreferencesView.vala:62
-#, fuzzy
-#| msgid "Display CPU percentage"
 msgid "CPU percentage"
-msgstr "Mostrar porcentagem do CPU"
+msgstr "Porcentagem do CPU"
 
 #: src/Views/PreferencesView.vala:67
-#, fuzzy
-#| msgid "Display CPU frequency"
 msgid "CPU frequency"
-msgstr "Mostrar frequência do CPU"
+msgstr "Frequência do CPU"
 
 #: src/Views/PreferencesView.vala:72
-#, fuzzy
-#| msgid "Display CPU temperature"
 msgid "CPU temperature"
-msgstr "Mostrar temperatura do CPU"
+msgstr "Temperatura do CPU"
 
 #: src/Views/PreferencesView.vala:77
-#, fuzzy
-#| msgid "Display RAM percentage"
 msgid "RAM percentage"
-msgstr "Mostrar porcentagem da RAM"
+msgstr "Porcentagem da RAM"
 
 #: src/Views/PreferencesView.vala:82
-#, fuzzy
-#| msgid "Display network upload"
 msgid "Network upload"
-msgstr "Mostrar upload de rede"
+msgstr "Upload de rede"
 
 #: src/Views/PreferencesView.vala:87
-#, fuzzy
-#| msgid "Display network download"
 msgid "Network download"
-msgstr "Mostrar download de rede"
+msgstr "Download de rede"
 
 #: src/Views/PreferencesView.vala:92
-#, fuzzy
-#| msgid "Display GPU percentage"
 msgid "GPU percentage"
-msgstr "Mostrar porcentagem da GPU"
+msgstr "Porcentagem da GPU"
 
 #: src/Views/PreferencesView.vala:97
-#, fuzzy
-#| msgid "Display VRAM percentage"
 msgid "VRAM percentage"
-msgstr "Mostrar porcentagem da VRAM"
+msgstr "Porcentagem da VRAM"
 
 #: src/Views/PreferencesView.vala:102
-#, fuzzy
-#| msgid "Display GPU temperature"
 msgid "GPU temperature"
-msgstr "Mostrar temperatura da GPU"
+msgstr "Temperatura da GPU"
 
 #: src/Views/SystemView/SystemCPUView.vala:22
 msgid "Frequency"
@@ -354,7 +334,7 @@ msgstr "Família:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:58
 msgid "Microcode ver.:"
-msgstr "Microcode ver.:"
+msgstr "Versão do microcódigo.:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:59
 msgid "Bogomips:"
