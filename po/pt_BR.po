@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-29 08:15+0000\n"
 "PO-Revision-Date: 2025-05-15 14:12+0000\n"
-"Last-Translator: Leonardo Lemos <leonardolemos@live.com>\n"
+"Last-Translator: Max2020 <alcizmaxpereira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
 "desktop/monitor/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -233,16 +233,12 @@ msgid "5s"
 msgstr "5s"
 
 #: src/Views/PreferencesView.vala:49
-#, fuzzy
-#| msgid "Start in background:"
 msgid "Start in background"
-msgstr "Inicia em segundo plano:"
+msgstr "Inicia em segundo plano"
 
 #: src/Views/PreferencesView.vala:51
-#, fuzzy
-#| msgid "Draw smooth lines on CPU chart (requires restart):"
 msgid "Draw smooth lines on CPU chart"
-msgstr "Desenhar linhas suaves no gráfico do CPU (requer reinício):"
+msgstr "Desenhar linhas suaves no gráfico do CPU"
 
 #: src/Views/PreferencesView.vala:57
 msgid "Show in panel"
