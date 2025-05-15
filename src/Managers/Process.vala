@@ -324,8 +324,9 @@ public class Monitor.Process : GLib.Object {
 
         // also if it is using X Window Server
         if (Gdk.Display.get_default () is Gdk.X11.Display) {
-            Wnck.ResourceUsage resu = Wnck.ResourceUsage.pid_read (Gdk.Display.get_default (), stat.pid);
-            mem_usage += (resu.total_bytes_estimate / 1024);
+            // @TODO figure this out for wayland and X11 in gtk4
+            //  Wnck.ResourceUsage resu = Wnck.ResourceUsage.pid_read (Gdk.Display.get_default (), stat.pid);
+            //  mem_usage += (resu.total_bytes_estimate / 1024);
         }
 
         var total_installed_memory = (double) mem.total / 1024;

@@ -22,17 +22,16 @@ add_project_arguments(['-DWNCK_I_KNOW_THIS_IS_UNSTABLE', '-w'], language: 'c')
 # elementary_stylesheet = subproject('stylesheet')
 
 app_dependencies = [
-    dependency('granite', version: '>= 5.2.0'),
+    dependency('granite-7'),
     dependency('glib-2.0'),
-    dependency('gtk+-3.0'),
+    dependency('gtk4'),
     dependency('gee-0.8'),
     dependency('gio-2.0'),
     dependency('gobject-2.0'),
     dependency('libgtop-2.0'),
-    dependency('libwnck-3.0'),
-    dependency('libhandy-1', version: '>=0.90.0'),
-    dependency('gdk-x11-3.0'),
-    dependency('x11'),
+    # dependency('libwnck-3.0'),
+    dependency('libadwaita-1', version: '>=1.0.0'),
+    dependency('gtk4-x11'),
     dependency('udisks2'),
     dependency('json-glib-1.0'),
     dependency('flatpak'),
