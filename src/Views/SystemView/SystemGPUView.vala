@@ -14,13 +14,18 @@ public class Monitor.SystemGPUView : Monitor.WidgetResource {
 
 
     construct {
-        gpu_vram_percentage_label = new LabelRoundy (_("VRAM"));
-        gpu_vram_percentage_label.margin = 6;
-        gpu_vram_percentage_label.margin_top = 2;
-
-        gpu_temperature_label = new LabelRoundy (_("TEMPERATURE"));
-        gpu_temperature_label.margin = 6;
-        gpu_temperature_label.margin_top = 2;
+        gpu_vram_percentage_label = new LabelRoundy (_("VRAM")){
+            margin_top = 2,
+            margin_bottom = 6,
+            margin_start = 6,
+            margin_end = 6
+        };
+        gpu_temperature_label = new LabelRoundy (_("TEMPERATURE")) {
+            margin_top = 2,
+            margin_bottom = 6,
+            margin_start = 6,
+            margin_end = 6
+        };
 
         gpu_vram_percentage_chart = new Chart (1);
         gpu_vram_percentage_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
@@ -68,7 +73,10 @@ public class Monitor.SystemGPUView : Monitor.WidgetResource {
         Gtk.Grid grid = new Gtk.Grid () {
             column_spacing = 8,
             row_spacing = 4,
-            margin = 6
+            margin_top = 6,
+            margin_bottom = 6,
+            margin_start = 6,
+            margin_end = 6
         };
 
         return grid;

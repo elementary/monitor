@@ -99,7 +99,7 @@ public class Monitor.WidgetResource : Gtk.Box {
         popover_more_info.closed.connect (() => { button_more_info.set_active (false); });
         button_more_info.clicked.connect (() => { popover_more_info.show_all (); });
 
-        popover_more_info.add (widget);
+        popover_more_info.set_child (widget);
 
         grid_header.attach (button_more_info, 1, 0, 1, 1);
     }

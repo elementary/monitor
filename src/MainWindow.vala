@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
  */
 
-public class Monitor.MainWindow : Hdy.ApplicationWindow {
+public class Monitor.MainWindow : Adw.ApplicationWindow {
     private Resources resources;
 
     // Widgets
@@ -43,15 +43,14 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
         stack_switcher.valign = Gtk.Align.CENTER;
         stack_switcher.set_stack (stack);
 
-        var sv = new PreferencesView ();
-        sv.show_all ();
+        var preferences_view = new PreferencesView ();
 
-        var preferences_popover = new Gtk.Popover (null) {
-            child = sv
+        var preferences_popover = new Gtk.Popover () {
+            child = preferences_view
         };
 
         var preferences_button = new Gtk.MenuButton () {
-            image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR),
+            icon_name = "open-menu",
             popover = preferences_popover,
             tooltip_text = (_("Settings"))
         };
@@ -65,13 +64,9 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
             transition_type = SLIDE_LEFT
         };
 
-        var headerbar = new Hdy.HeaderBar () {
-            has_subtitle = false,
-            show_close_button = true,
-            title = _("Monitor")
-        };
+        var headerbar = new Adw.HeaderBar ();
         headerbar.pack_start (search_revealer);
-        headerbar.set_custom_title (stack_switcher);
+        headerbar.set_title_widget (stack_switcher);
         headerbar.pack_end (preferences_button);
 
         statusbar = new Statusbar ();
@@ -80,13 +75,13 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
             orientation = Gtk.Orientation.VERTICAL
         };
 
-        grid.add (headerbar);
-        grid.add (stack);
-        grid.add (statusbar);
+        set_titlebar (headerbar);
+        grid.attach (stack, 0, 1, 1, 1);
+        grid.attach (statusbar, 0, 2, 1, 1);
 
-        add (grid);
+        set_child (grid);
 
-        show_all ();
+        present ();
 
         dbusserver = DBusServer.get_default ();
 
@@ -114,31 +109,32 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
         dbusserver.quit.connect (() => app.quit ());
         dbusserver.show.connect (() => {
-            this.deiconify ();
             this.present ();
             setup_window_state ();
-            this.show_all ();
+            this.present ();
         });
 
-        key_press_event.connect (search.handle_event);
+        // @TODO: Handle search.handle_event
+        // The name `key_press_event' does not exist in the context of `Monitor.MainWindow.new'
+        //  key_press_event.connect (search.handle_event);
 
-        this.delete_event.connect (() => {
+        app.window_removed.connect (() => {
             int window_width, window_height;
-            get_size (out window_width, out window_height);
-            MonitorApp.settings.set_int ("window-width", window_width);
-            MonitorApp.settings.set_int ("window-height", window_height);
-            MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized);
+            MonitorApp.settings.set_int ("window-width", get_size (Gtk.Orientation.HORIZONTAL));
+            MonitorApp.settings.set_int ("window-height", get_size (Gtk.Orientation.VERTICAL));
+
+            //  @TODO: Handle is-maximized
+            //  MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized);
 
             MonitorApp.settings.set_string ("opened-view", stack.visible_child_name);
 
             if (MonitorApp.settings.get_boolean ("indicator-state")) {
-                this.hide_on_delete ();
+                // Read: https://discourse.gnome.org/t/how-to-hide-widget-instead-removing-them-in-gtk-4/8176
+                this.hide ();
             } else {
                 dbusserver.indicator_state (false);
                 app.quit ();
             }
-
-            return true;
         });
 
         dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));

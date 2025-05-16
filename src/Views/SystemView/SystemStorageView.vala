@@ -14,7 +14,10 @@ public class Monitor.SystemStorageView : Gtk.Grid {
     private Gtk.Box drive_cards_container;
 
     construct {
-        margin = 12;
+        margin_top = 12;
+        margin_bottom = 12;
+        margin_start = 12;
+        margin_end = 12;
         column_spacing = 12;
         set_vexpand (false);
     }
@@ -40,7 +43,10 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         var labels_grid = new Gtk.Grid ();
         labels_grid.row_spacing = 6;
         labels_grid.column_spacing = 6;
-        labels_grid.margin = 6;
+        labels_grid.margin_top = 6;
+        labels_grid.margin_bottom = 6;
+        labels_grid.margin_start = 6;
+        labels_grid.margin_end = 6;
         labels_grid.attach (storage_write_label, 0, 0, 1, 1);
         labels_grid.attach (storage_read_label, 1, 0, 1, 1);
 
@@ -55,7 +61,7 @@ public class Monitor.SystemStorageView : Gtk.Grid {
     }
 
     private bool add_drive_card (owned Disk ? drive) {
-        drive_cards_container.add (build_drive_card (drive.model, drive.device, drive.size, drive.free));
+        drive_cards_container.append (build_drive_card (drive.model, drive.device, drive.size, drive.free));
         return true;
     }
 
@@ -72,11 +78,16 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         var drive_grid = new Gtk.Grid ();
         // drive_grid.row_spacing = 6;
         drive_grid.column_spacing = 6;
-        drive_grid.margin = 6;
+        drive_grid.margin_top = 6;
+        drive_grid.margin_bottom = 6;
+        drive_grid.margin_start = 6;
+        drive_grid.margin_end = 6;
 
         var drive_name_label = new Gtk.Label (model);
         drive_name_label.get_style_context ().add_class ("h3");
-        drive_name_label.margin = 6;
+        drive_name_label.margin_start = 6;
+        drive_name_label.margin_end = 6;
+        drive_name_label.margin_top = 6;
         drive_name_label.margin_bottom = 0;
         drive_name_label.halign = Gtk.Align.START;
 
@@ -90,7 +101,9 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         var drive_block_name_and_size_label = new Gtk.Label (drive_block_name_and_size_string);
         drive_block_name_and_size_label.get_style_context ().add_class ("h4");
         drive_block_name_and_size_label.get_style_context ().add_class ("text-secondary");
-        drive_block_name_and_size_label.margin = 6;
+        drive_block_name_and_size_label.margin_bottom = 6;
+        drive_block_name_and_size_label.margin_start = 6;
+        drive_block_name_and_size_label.margin_end = 6;
         drive_block_name_and_size_label.margin_top = 0;
         drive_block_name_and_size_label.halign = Gtk.Align.START;
 
@@ -99,12 +112,17 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         drive_not_mounted_label.get_style_context ().add_class ("h4");
         drive_not_mounted_label.margin_start = 6;
 
-        var usagebar = new Gtk.LevelBar ();
+        var usagebar = new Gtk.LevelBar () {
+            margin_top = 0,
+            margin_bottom = 6,
+            margin_start = 6,
+            margin_end = 6,
+
+            max_value = 100.0,
+            min_value = 0.0,
+        };
         usagebar.get_style_context ().add_class ("flat");
-        usagebar.margin = 6;
-        usagebar.margin_top = 0;
-        usagebar.set_max_value (100.0);
-        usagebar.set_min_value (0.0);
+
         usagebar.set_value (100.0 * (size - free) / size);
 
         drive_grid.attach (drive_name_label, 0, 0, 1, 1);
@@ -114,7 +132,7 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         } else {
             drive_grid.attach (usagebar, 0, 2, 1, 1);
         }
-        drive_card.add (drive_grid);
+        drive_card.append (drive_grid);
 
         return drive_card;
     }

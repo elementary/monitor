@@ -12,7 +12,10 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
     private LabelRoundy network_download_label;
 
     construct {
-        margin = 12;
+        margin_top = 12;
+        margin_bottom = 12;
+        margin_start = 12;
+        margin_end = 12;
         column_spacing = 12;
         set_vexpand (false);
     }
@@ -36,10 +39,14 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
         network_chart.set_serie_color (0, { 155 / 255.0, 219 / 255.0, 77 / 255.0, 1.0 });
         network_chart.set_serie_color (1, { 100 / 255.0, 186 / 255.0, 255 / 255.0, 1.0 });
 
-        var labels_grid = new Gtk.Grid ();
-        labels_grid.row_spacing = 6;
-        labels_grid.column_spacing = 6;
-        labels_grid.margin = 6;
+        var labels_grid = new Gtk.Grid () {
+            margin_top = 6,
+            margin_bottom = 6,
+            margin_start = 6,
+            margin_end = 6,
+            row_spacing = 6,
+        };
+
         labels_grid.attach (network_download_label, 0, 0, 1, 1);
         labels_grid.attach (network_upload_label, 1, 0, 1, 1);
 
