@@ -34,7 +34,8 @@ namespace Monitor {
         public override void startup () {
             base.startup ();
 
-            Hdy.init ();
+            Granite.init ();
+            Adw.init ();
 
             Appearance.set_prefered_style ();
 
@@ -58,7 +59,7 @@ namespace Monitor {
         public override void activate () {
             // only have one window
             if (get_windows () != null) {
-                window.show_all ();
+                //  window.show_all ();
                 window.present ();
                 return;
             }
@@ -89,7 +90,8 @@ namespace Monitor {
                 window.hide ();
                 MonitorApp.settings.set_boolean ("background-state", true);
             } else {
-                window.show_all ();
+                //  @TODO: Find out how this should work without  show_all ()
+                //  window.show_all ();
             }
 
             window.process_view.process_tree_view.focus_on_first_row ();
