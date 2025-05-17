@@ -29,7 +29,7 @@ public class Monitor.Search : Gtk.SearchEntry {
     private void connect_signal () {
         this.search_changed.connect (() => {
             // collapse tree only when search is focused and changed
-            if (this.is_focus) {
+            if (this.is_focus ()) {
                 process_tree_view.collapse_all ();
             }
 
@@ -40,7 +40,8 @@ public class Monitor.Search : Gtk.SearchEntry {
             this.grab_focus ();
 
             if (this.text != "") {
-                this.insert_at_cursor ("");
+                // @TODO: Investigate insert_at_cursor workaround for GTK4
+                // this.insert_at_cursor ("");
             }
         });
 
@@ -96,7 +97,9 @@ public class Monitor.Search : Gtk.SearchEntry {
     public void activate_entry (string search_text = "") {
         this.text = "";
         this.search_changed ();
-        this.insert_at_cursor (search_text);
+
+        // @TODO: Investigate insert_at_cursor workaround for GTK4
+        //  this.insert_at_cursor (search_text);
     }
 
 }

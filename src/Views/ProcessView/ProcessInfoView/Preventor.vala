@@ -27,13 +27,13 @@ public class Monitor.Preventor : Gtk.Stack {
 
         confirm_button = new Gtk.Button.with_label (_("Yes"));
         confirm_button.margin_end = 10;
-        confirm_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+        confirm_button.get_style_context ().add_class (Granite.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
         deny_button = new Gtk.Button.with_label (_("No"));
 
-        preventive_action_bar.add (confirmation_label);
-        preventive_action_bar.add (confirm_button);
-        preventive_action_bar.add (deny_button);
+        preventive_action_bar.append (confirmation_label);
+        preventive_action_bar.append (confirm_button);
+        preventive_action_bar.append (deny_button);
     }
 
     public Preventor (Gtk.Widget _child, string name) {

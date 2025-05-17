@@ -37,8 +37,8 @@ public class Monitor.SystemStorageView : Gtk.Grid {
 
         storage_chart = new Chart (2);
         storage_chart.config.y_axis.fixed_max = null;
-        storage_chart.set_serie_color (0, { 155 / 255.0, 219 / 255.0, 77 / 255.0, 1.0 });
-        storage_chart.set_serie_color (1, { 100 / 255.0, 186 / 255.0, 255 / 255.0, 1.0 });
+        storage_chart.set_serie_color (0, { 155 / 255.0f, 219 / 255.0f, 77 / 255.0f, 1.0f });
+        storage_chart.set_serie_color (1, { 100 / 255.0f, 186 / 255.0f, 255 / 255.0f, 1.0f });
 
         var labels_grid = new Gtk.Grid ();
         labels_grid.row_spacing = 6;
