@@ -14,7 +14,7 @@ public class Monitor.SystemGPUView : Monitor.WidgetResource {
 
 
     construct {
-        gpu_vram_percentage_label = new LabelRoundy (_("VRAM")){
+        gpu_vram_percentage_label = new LabelRoundy (_("VRAM")) {
             margin_top = 2,
             margin_bottom = 6,
             margin_start = 6,
