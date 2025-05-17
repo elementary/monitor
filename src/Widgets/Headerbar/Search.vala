@@ -3,19 +3,23 @@
  * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
  */
 
-public class Monitor.Search : Gtk.SearchEntry {
+public class Monitor.Search : Gtk.Box {
     public MainWindow window { get; construct; }
     private Gtk.TreeModelFilter filter_model;
     private CPUProcessTreeView process_tree_view;
+    private Gtk.SearchEntry search_entry;
 
     public Search (MainWindow window) {
         Object (window: window);
     }
 
     construct {
+        search_entry = new Gtk.SearchEntry () {
+            tooltip_markup = Granite.markup_accel_tooltip ({ "<Ctrl>F" }, _("Type process name or PID to search")),
+            placeholder_text = _("Search Process")
+        };
+
         this.process_tree_view = window.process_view.process_tree_view;
-        this.placeholder_text = _("Search Process");
-        this.tooltip_markup = Granite.markup_accel_tooltip ({ "<Ctrl>F" }, _("Type process name or PID to search"));
 
         filter_model = new Gtk.TreeModelFilter (window.process_view.treeview_model, null);
         connect_signal ();
@@ -27,9 +31,9 @@ public class Monitor.Search : Gtk.SearchEntry {
     }
 
     private void connect_signal () {
-        this.search_changed.connect (() => {
+        search_entry.search_changed.connect (() => {
             // collapse tree only when search is focused and changed
-            if (this.is_focus ()) {
+            if (search_entry.is_focus ()) {
                 process_tree_view.collapse_all ();
             }
 
@@ -39,13 +43,13 @@ public class Monitor.Search : Gtk.SearchEntry {
             process_tree_view.focus_on_child_row ();
             this.grab_focus ();
 
-            if (this.text != "") {
+            if (search_entry.text != "") {
                 // @TODO: Investigate insert_at_cursor workaround for GTK4
                 // this.insert_at_cursor ("");
             }
         });
 
-        activate.connect (() => {
+        search_entry.activate.connect (() => {
             window.process_view.process_tree_view.focus_on_first_row ();
         });
     }
@@ -55,7 +59,7 @@ public class Monitor.Search : Gtk.SearchEntry {
         int pid_haystack;
         string cmd_haystack;
         bool found = false;
-        var needle = this.text;
+        var needle = search_entry.text;
 
         // should help with assertion errors, donno
         // if (needle == null) return true;
@@ -95,11 +99,11 @@ public class Monitor.Search : Gtk.SearchEntry {
 
     // reset filter, grab focus and insert the character
     public void activate_entry (string search_text = "") {
-        this.text = "";
-        this.search_changed ();
+        search_entry.text = "";
+        search_entry.search_changed ();
 
         // @TODO: Investigate insert_at_cursor workaround for GTK4
-        //  this.insert_at_cursor (search_text);
+        // search_entry.insert_at_cursor (search_text);
     }
 
 }

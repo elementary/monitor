@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
  */
 
-public class Monitor.MainWindow : Adw.ApplicationWindow {
+public class Monitor.MainWindow : Gtk.ApplicationWindow {
     private Resources resources;
 
     // Widgets

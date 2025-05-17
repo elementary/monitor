@@ -3,13 +3,18 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-public class Monitor.Statusbar : Gtk.ActionBar {
+public class Monitor.Statusbar : Gtk.Box {
     Gtk.Label cpu_usage_label;
     Gtk.Label memory_usage_label;
     Gtk.Label swap_usage_label;
     Gtk.Label gpu_usage_label;
 
     construct {
+        var actionbar = new Gtk.ActionBar () {
+            hexpand = true,
+        };
+        append (actionbar);
+
         var cpu_icon = new Gtk.Image.from_icon_name ("cpu-symbolic") {
             tooltip_text = _("CPU")
         };
@@ -29,29 +34,29 @@ public class Monitor.Statusbar : Gtk.ActionBar {
         cpu_usage_label = new Gtk.Label (_("Calculating…"));
         cpu_usage_label.set_width_chars (4);
         cpu_usage_label.xalign = 0;
-        pack_start (cpu_icon);
-        pack_start (cpu_usage_label);
+        actionbar.pack_start (cpu_icon);
+        actionbar.pack_start (cpu_usage_label);
 
         memory_usage_label = new Gtk.Label (_("Calculating…"));
         memory_usage_label.set_width_chars (4);
         memory_usage_label.xalign = 0;
         ram_icon.margin_start = 6;
-        pack_start (ram_icon);
-        pack_start (memory_usage_label);
+        actionbar.pack_start (ram_icon);
+        actionbar.pack_start (memory_usage_label);
 
         swap_usage_label = new Gtk.Label (_("Calculating…"));
         swap_usage_label.set_width_chars (4);
         swap_usage_label.xalign = 0;
         swap_icon.margin_start = 6;
-        pack_start (swap_icon);
-        pack_start (swap_usage_label);
+        actionbar.pack_start (swap_icon);
+        actionbar.pack_start (swap_usage_label);
 
         gpu_usage_label = new Gtk.Label (_("Calculating…"));
         gpu_usage_label.set_width_chars (4);
         gpu_usage_label.xalign = 0;
         gpu_icon.margin_start = 6;
-        pack_start (gpu_icon);
-        pack_start (gpu_usage_label);
+        actionbar.pack_start (gpu_icon);
+        actionbar.pack_start (gpu_usage_label);
 
         var support_ua_label = new Gtk.LinkButton.with_label ("http://stand-with-ukraine.pp.ua/", _("🇺🇦"));
         var github_label = new Gtk.LinkButton.with_label ("https://github.com/elementary/monitor", _("Check on Github"));
@@ -62,11 +67,11 @@ public class Monitor.Statusbar : Gtk.ActionBar {
         version_label.get_style_context ().add_class ("dim-label");
 
         // pack_end (build_separator_middot ());
-        pack_end (github_label);
-        pack_end (build_separator_middot ());
-        pack_end (version_label);
-        pack_end (build_separator_middot ());
-        pack_end (support_ua_label);
+        actionbar.pack_end (github_label);
+        actionbar.pack_end (build_separator_middot ());
+        actionbar.pack_end (version_label);
+        actionbar.pack_end (build_separator_middot ());
+        actionbar.pack_end (support_ua_label);
 
     }
 
