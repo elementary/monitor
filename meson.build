@@ -36,10 +36,9 @@ app_dependencies = [
     dependency('json-glib-1.0'),
     dependency('flatpak'),
 
-    # FIXME Bump required version to >= 1.10.0 when GTK 4 porting
     dependency(
-        'livechart',
-        version: '< 1.10.0',
+        'livechart-2',
+        version: '>= 1.10.0',
         fallback: ['live-chart', 'livechart_dep'],
     ),
 
