@@ -19,6 +19,8 @@ public class Monitor.Search : Gtk.Box {
             placeholder_text = _("Search Process")
         };
 
+        append (search_entry);
+
         this.process_tree_view = window.process_view.process_tree_view;
 
         filter_model = new Gtk.TreeModelFilter (window.process_view.treeview_model, null);
