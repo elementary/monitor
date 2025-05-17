@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-29 08:15+0000\n"
-"PO-Revision-Date: 2025-05-15 14:12+0000\n"
-"Last-Translator: Gustavo Silva <g.costasalles@gmail.com>\n"
+"PO-Revision-Date: 2025-05-16 14:55+0000\n"
+"Last-Translator: Leonardo Lemos <leonardolemos@live.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
 "desktop/monitor-extra/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: data/io.elementary.monitor.appdata.xml.in:9 data/monitor.desktop.in:6
 msgid "Monitor"
@@ -168,7 +168,7 @@ msgstr "Informações de processo detalhadas na barra lateral"
 
 #: data/io.elementary.monitor.appdata.xml.in:135
 msgid "CPU frequency in tooltip (Ryo Nakano)"
-msgstr "Frequência de CPU na dica (Ryo Nakano)"
+msgstr "Frequência de CPU na dica de contexto (Ryo Nakano)"
 
 #: data/io.elementary.monitor.appdata.xml.in:142
 msgid "Bugfix (potential) of crushes and high CPU usage"
