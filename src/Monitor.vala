@@ -110,6 +110,13 @@ namespace Monitor {
                 PCIUtils.LIBPCI_PATCH_VER
                 );
 
+            print(
+                "Gtk %d.%d.%d\n",
+                Gtk.MAJOR_VERSION,
+                Gtk.MINOR_VERSION,
+                Gtk.MICRO_VERSION
+            );
+
             // add command line options
             try {
                 var opt_context = new OptionContext ("");

@@ -26,7 +26,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
         title = _("Monitor");
 
-        get_style_context ().add_class ("rounded");
+        add_css_class ("rounded");
 
         resources = new Resources ();
 
@@ -119,7 +119,6 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
         //  key_press_event.connect (search.handle_event);
 
         app.window_removed.connect (() => {
-            int window_width, window_height;
             MonitorApp.settings.set_int ("window-width", get_size (Gtk.Orientation.HORIZONTAL));
             MonitorApp.settings.set_int ("window-height", get_size (Gtk.Orientation.VERTICAL));
 

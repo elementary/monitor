@@ -112,26 +112,26 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
             string percentage_formatted = ("% 3d%%").printf ((int) core_percentage);
             core_label_list[i].set_text (percentage_formatted);
 
-            core_label_list[i].get_style_context ().remove_class ("core_badge-mild-warning");
-            core_label_list[i].get_style_context ().remove_class ("core_badge-strong-warning");
-            core_label_list[i].get_style_context ().remove_class ("core_badge-critical-warning");
+            core_label_list[i].remove_css_class ("core_badge-mild-warning");
+            core_label_list[i].remove_css_class ("core_badge-strong-warning");
+            core_label_list[i].remove_css_class ("core_badge-critical-warning");
 
 
             if (core_percentage > 75.0) {
-                core_label_list[i].get_style_context ().add_class ("core_badge-mild-warning");
-                core_label_list[i].get_style_context ().remove_class ("core_badge-strong-warning");
-                core_label_list[i].get_style_context ().remove_class ("core_badge-critical-warning");
+                core_label_list[i].add_css_class ("core_badge-mild-warning");
+                core_label_list[i].remove_css_class ("core_badge-strong-warning");
+                core_label_list[i].remove_css_class ("core_badge-critical-warning");
             }
             if (core_percentage > 85.0) {
-                core_label_list[i].get_style_context ().add_class ("core_badge-strong-warning");
-                core_label_list[i].get_style_context ().remove_class ("core_badge-mild-warning");
-                core_label_list[i].get_style_context ().remove_class ("core_badge-critical-warning");
+                core_label_list[i].add_css_class ("core_badge-strong-warning");
+                core_label_list[i].remove_css_class ("core_badge-mild-warning");
+                core_label_list[i].remove_css_class ("core_badge-critical-warning");
             }
 
             if (core_percentage > 90.0) {
-                core_label_list[i].get_style_context ().add_class ("core_badge-critical-warning");
-                core_label_list[i].get_style_context ().remove_class ("core_badge-mild-warning");
-                core_label_list[i].get_style_context ().remove_class ("core_badge-strong-warning");
+                core_label_list[i].add_css_class ("core_badge-critical-warning");
+                core_label_list[i].remove_css_class ("core_badge-mild-warning");
+                core_label_list[i].remove_css_class ("core_badge-strong-warning");
             }
         }
         label_vertical_main_metric = ("%d%%").printf (cpu.percentage);
@@ -153,7 +153,7 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         for (int i = 0; i < cpu.core_list.size; i++) {
             var core_label = new Gtk.Label (Utils.NO_DATA);
             core_label.set_width_chars (4);
-            core_label.get_style_context ().add_class ("core_badge");
+            core_label.add_css_class ("core_badge");
             // core_label.set_text (Utils.NO_DATA);
             core_label_list.add (core_label);
 
@@ -166,7 +166,7 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
             }
         }
         var threads_label = new Gtk.Label (_("THREADS"));
-        threads_label.get_style_context ().add_class ("small-text");
+        threads_label.add_css_class ("small-text");
         grid.attach (threads_label, 0, -1, column, 1);
 
         return grid;

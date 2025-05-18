@@ -67,8 +67,8 @@ public class Monitor.SystemStorageView : Gtk.Grid {
 
     private Gtk.Box build_drive_card (string model, string device, uint64 size, uint64 free) {
         var drive_card = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        drive_card.get_style_context ().add_class ("card");
-        drive_card.get_style_context ().add_class ("rounded");
+        drive_card.add_css_class ("card");
+        drive_card.add_css_class ("rounded");
 
         drive_card.halign = Gtk.Align.START;
         drive_card.margin_end = 12;
@@ -84,7 +84,7 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         drive_grid.margin_end = 6;
 
         var drive_name_label = new Gtk.Label (model);
-        drive_name_label.get_style_context ().add_class ("h3");
+        drive_name_label.add_css_class ("h3");
         drive_name_label.margin_start = 6;
         drive_name_label.margin_end = 6;
         drive_name_label.margin_top = 6;
@@ -99,8 +99,8 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         if (free == 0)drive_block_name_and_size_string = "%s 𐄁 %s".printf (device, size_string);
 
         var drive_block_name_and_size_label = new Gtk.Label (drive_block_name_and_size_string);
-        drive_block_name_and_size_label.get_style_context ().add_class ("h4");
-        drive_block_name_and_size_label.get_style_context ().add_class ("text-secondary");
+        drive_block_name_and_size_label.add_css_class ("h4");
+        drive_block_name_and_size_label.add_css_class ("text-secondary");
         drive_block_name_and_size_label.margin_bottom = 6;
         drive_block_name_and_size_label.margin_start = 6;
         drive_block_name_and_size_label.margin_end = 6;
@@ -109,7 +109,7 @@ public class Monitor.SystemStorageView : Gtk.Grid {
 
         var drive_not_mounted_label = new Gtk.Label (_("Not mounted"));
         drive_not_mounted_label.halign = Gtk.Align.START;
-        drive_not_mounted_label.get_style_context ().add_class ("h4");
+        drive_not_mounted_label.add_css_class ("h4");
         drive_not_mounted_label.margin_start = 6;
 
         var usagebar = new Gtk.LevelBar () {
@@ -121,7 +121,7 @@ public class Monitor.SystemStorageView : Gtk.Grid {
             max_value = 100.0,
             min_value = 0.0,
         };
-        usagebar.get_style_context ().add_class ("flat");
+        usagebar.add_css_class ("flat");
 
         usagebar.set_value (100.0 * (size - free) / size);
 

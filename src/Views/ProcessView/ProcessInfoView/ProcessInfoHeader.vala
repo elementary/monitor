@@ -31,14 +31,14 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
 
         state = new Gtk.Label ("?");
         state.halign = Gtk.Align.START;
-        state.get_style_context ().add_class ("state_badge");
+        state.add_css_class ("state_badge");
 
         var icon_container = new Gtk.Fixed ();
         icon_container.put (icon, 0, 0);
         icon_container.put (state, -5, 48);
 
         application_name = new Gtk.Label (_("N/A"));
-        application_name.get_style_context ().add_class ("h2");
+        application_name.add_css_class ("h2");
         application_name.ellipsize = Pango.EllipsizeMode.END;
         application_name.tooltip_text = _("N/A");
         application_name.halign = Gtk.Align.START;
@@ -74,17 +74,17 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         priority.set_text (process.stat.priority.to_string ());
 
         if (process.uid == 0) {
-            username.val.get_style_context ().add_class ("username-root");
-            username.val.get_style_context ().remove_class ("username-other");
-            username.val.get_style_context ().remove_class ("username-current");
+            username.val.add_css_class ("username-root");
+            username.val.remove_css_class ("username-other");
+            username.val.remove_css_class ("username-current");
         } else if (process.uid == (int) Posix.getuid ()) {
-            username.val.get_style_context ().add_class ("username-current");
-            username.val.get_style_context ().remove_class ("username-other");
-            username.val.get_style_context ().remove_class ("username-root");
+            username.val.add_css_class ("username-current");
+            username.val.remove_css_class ("username-other");
+            username.val.remove_css_class ("username-root");
         } else {
-            username.val.get_style_context ().add_class ("username-other");
-            username.val.get_style_context ().remove_class ("username-root");
-            username.val.get_style_context ().remove_class ("username-current");
+            username.val.add_css_class ("username-other");
+            username.val.remove_css_class ("username-root");
+            username.val.remove_css_class ("username-current");
         }
 
         username.set_text (process.username);

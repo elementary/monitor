@@ -11,7 +11,7 @@ public class Monitor.Chart : Gtk.Box {
 
 
     construct {
-        get_style_context ().add_class ("graph");
+        add_css_class ("graph");
 
         vexpand = true;
         height_request = 120;

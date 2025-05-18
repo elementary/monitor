@@ -135,7 +135,7 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
             margin_start = 6,
             margin_end = 6,
         };
-        flag_label.get_style_context ().add_class ("flags_badge");
+        flag_label.add_css_class ("flags_badge");
 
 
         grid.attach (flag_label, 0, 0, 1, 1);

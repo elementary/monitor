@@ -64,7 +64,7 @@ public class Monitor.Statusbar : Gtk.Box {
         var version_label = new Gtk.Label ("%s".printf (VCS_TAG)) {
             selectable = true
         };
-        version_label.get_style_context ().add_class ("dim-label");
+        version_label.add_css_class ("dim-label");
 
         // pack_end (build_separator_middot ());
         actionbar.pack_end (github_label);
@@ -80,7 +80,7 @@ public class Monitor.Statusbar : Gtk.Box {
             margin_end = 6,
             margin_start = 6,
         };
-        label.get_style_context ().add_class ("dim-label");
+        label.add_css_class ("dim-label");
         return label;
     }
 

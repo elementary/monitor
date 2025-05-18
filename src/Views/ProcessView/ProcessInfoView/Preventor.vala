@@ -11,7 +11,7 @@ public class Monitor.Preventor : Gtk.Box {
 
     private Gtk.Stack stack;
 
-    private Gtk.Widget child_widget;
+    //  private Gtk.Widget child_widget;
 
     public signal void confirmed (bool is_confirmed);
 

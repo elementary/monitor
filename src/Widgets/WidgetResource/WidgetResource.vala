@@ -65,7 +65,7 @@ public class Monitor.WidgetResource : Gtk.Box {
             halign = Gtk.Align.START,
         };
 
-        grid_main_onchart_info_container.get_style_context ().add_class ("usage-label-container");
+        grid_main_onchart_info_container.add_css_class ("usage-label-container");
         grid_main_onchart_info_container.attach (_label_vertical_main_metric, 0, 0, 1, 1);
 
         return grid_main_onchart_info_container;
@@ -89,7 +89,7 @@ public class Monitor.WidgetResource : Gtk.Box {
             valign = Gtk.Align.START,
             halign = Gtk.Align.START
         };
-        button_more_info.get_style_context ().add_class ("circular");
+        button_more_info.add_css_class ("circular");
         // button_more_info.get_style_context ().add_class ("popup");
 
 

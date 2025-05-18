@@ -32,11 +32,11 @@ public class Monitor.ProcessInfoCPURAM : Gtk.Grid {
         mem_graph_box.append (ram_chart);
 
         cpu_label = new Gtk.Label ("CPU: " + Utils.NO_DATA);
-        cpu_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
+        cpu_label.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
         cpu_label.halign = Gtk.Align.START;
 
         ram_label = new Gtk.Label ("RAM: " + Utils.NO_DATA);
-        ram_label.get_style_context ().add_class (Granite.STYLE_CLASS_H4_LABEL);
+        ram_label.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
         ram_label.halign = Gtk.Align.START;
 
         attach (cpu_label, 0, 0, 1, 1);
