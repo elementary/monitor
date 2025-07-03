@@ -114,9 +114,6 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
             this.present ();
         });
 
-        // @TODO: Handle search.handle_event
-        // The name `key_press_event' does not exist in the context of `Monitor.MainWindow.new'
-        //  key_press_event.connect (search.handle_event);
 
         app.window_removed.connect (() => {
             MonitorApp.settings.set_int ("window-width", get_size (Gtk.Orientation.HORIZONTAL));

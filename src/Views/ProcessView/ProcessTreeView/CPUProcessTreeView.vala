@@ -19,6 +19,8 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
         regex = /(?i:^.*\.(xpm|png)$)/; // vala-lint=space-before-paren,
         /* *INDENT-ON* */
 
+        enable_search = false;
+
         // setup name column
         name_column = new Gtk.TreeViewColumn ();
         name_column.title = _("Process Name");
@@ -232,7 +234,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
             tree_model.get (iter, Column.PID, out pid);
             Process process = model.process_manager.get_process (pid);
             process_selected (process);
-            // debug ("cursor changed");
+            debug ("cursor changed");
         }
     }
 
