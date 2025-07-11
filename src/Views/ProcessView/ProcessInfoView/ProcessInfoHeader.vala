@@ -16,14 +16,8 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
     public LabelRoundy num_threads;
     public LabelRoundy username;
 
-    private Regex ? regex;
-
     construct {
         column_spacing = 12;
-
-        /* *INDENT-OFF* */
-        regex = /(?i:^.*\.(xpm|png)$)/; // vala-lint=space-before-paren,
-        /* *INDENT-ON* */
 
         icon = new Gtk.Image.from_icon_name ("application-x-executable", Gtk.IconSize.DIALOG) {
             pixel_size = 64
@@ -99,23 +93,7 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         state.label = process.stat.state;
         state.tooltip_text = set_state_tooltip ();
 
-        set_icon (process);
-    }
-
-    private void set_icon (Process process) {
-        // this construction should be somewhere else
-        var icon_name = process.icon.to_string ();
-
-        if (!regex.match (icon_name)) {
-            icon.icon_name = icon_name;
-        } else {
-            try {
-                var pixbuf = new Gdk.Pixbuf.from_file_at_size (icon_name, 48, -1);
-                icon.set_from_pixbuf (pixbuf);
-            } catch (Error e) {
-                warning (e.message);
-            }
-        }
+        icon.gicon = process.icon;
     }
 
     private string set_state_tooltip () {
