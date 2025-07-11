@@ -86,11 +86,11 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
         grid.attach (process_info_io_stats, 0, 4, 1, 1);
 
-        end_process_button = new Gtk.Button.with_label (_("Shut Down")) {
+        end_process_button = new Gtk.Button.with_label (_("Shut Down…")) {
             tooltip_markup = Granite.markup_accel_tooltip ({ "<Ctrl>E" })
         };
 
-        kill_process_button = new Gtk.Button.with_label (_("Force Quit")) {
+        kill_process_button = new Gtk.Button.with_label (_("Force Quit…")) {
             tooltip_markup = Granite.markup_accel_tooltip ({ "<Ctrl>K" })
         };
         kill_process_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
