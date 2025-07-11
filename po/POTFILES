@@ -2,7 +2,6 @@ src/Monitor.vala
 src/MainWindow.vala
 src/Utils.vala
 src/Indicator/Widgets/PopoverWidget.vala
-src/Views/ProcessView/ProcessInfoView/Preventor.vala
 src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala
 src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala
 src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala
