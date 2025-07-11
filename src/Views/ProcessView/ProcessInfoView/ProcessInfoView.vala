@@ -106,7 +106,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
         kill_process_button.clicked.connect (() => {
             var confirmation_dialog = new Granite.MessageDialog (
-                _("Forcefully terminate this process without initiating shutdown tasks?"),
+                _("Forcefully terminate “%s” without initiating shutdown tasks?").printf (process_info_header.application_name.label),
                 _("This may lead to data loss. Only Force Quit if ending the process has failed."),
                 new ThemedIcon ("process-stop"),
                 Gtk.ButtonsType.CANCEL
@@ -133,7 +133,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
         end_process_button.clicked.connect (() => {
             var confirmation_dialog = new Granite.MessageDialog (
-                _("Ask this process to shut down?"),
+                _("Ask “%s” to shut down?").printf (process_info_header.application_name.label),
                 _("The process will be asked to initiate shutdown tasks and close. In some cases the process may not quit."),
                 new ThemedIcon ("system-shutdown"),
                 Gtk.ButtonsType.CANCEL
