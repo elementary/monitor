@@ -86,7 +86,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
         grid.attach (process_info_io_stats, 0, 4, 1, 1);
 
-        end_process_button = new Gtk.Button.with_label (_("End Process")) {
+        end_process_button = new Gtk.Button.with_label (_("Shut Down")) {
             tooltip_markup = Granite.markup_accel_tooltip ({ "<Ctrl>E" })
         };
 
@@ -106,12 +106,12 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
         kill_process_button.clicked.connect (() => {
             var confirmation_dialog = new Granite.MessageDialog (
-                _("Forcefully terminate “%s” without initiating shutdown tasks?").printf (process_info_header.application_name.label),
-                _("This may lead to data loss. Only Force Quit if ending the process has failed."),
-                new ThemedIcon ("process-stop"),
+                _("Force “%s” to quit without initiating shutdown tasks?").printf (process_info_header.application_name.label),
+                _("This may lead to data loss. Only Force Quit if Shut Down has failed."),
+                new ThemedIcon ("computer-fail"),
                 Gtk.ButtonsType.CANCEL
             ) {
-                badge_icon = new ThemedIcon ("dialog-warning"),
+                badge_icon = new ThemedIcon ("process-stop"),
                 modal = true,
                 transient_for = (Gtk.Window) get_toplevel ()
             };
@@ -143,8 +143,8 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 transient_for = (Gtk.Window) get_toplevel ()
             };
 
-            var accept_button = confirmation_dialog.add_button (_("End Process"), Gtk.ResponseType.ACCEPT);
-            accept_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+            var accept_button = confirmation_dialog.add_button (_("Shut Down"), Gtk.ResponseType.ACCEPT);
+            accept_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
             confirmation_dialog.response.connect ((response) => {
                 if (response == Gtk.ResponseType.ACCEPT) {
