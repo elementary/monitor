@@ -25,24 +25,27 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         regex = /(?i:^.*\.(xpm|png)$)/; // vala-lint=space-before-paren,
         /* *INDENT-ON* */
 
-        icon = new Gtk.Image.from_icon_name ("application-x-executable", Gtk.IconSize.DIALOG);
-        icon.set_pixel_size (64);
-        icon.valign = Gtk.Align.END;
+        icon = new Gtk.Image.from_icon_name ("application-x-executable", Gtk.IconSize.DIALOG) {
+            valign = END,
+            pixel_size = 64
+        };
 
-        state = new Gtk.Label ("?");
-        state.halign = Gtk.Align.START;
+        state = new Gtk.Label ("?") {
+            halign = START
+        };
         state.get_style_context ().add_class ("state_badge");
 
         var icon_container = new Gtk.Fixed ();
         icon_container.put (icon, 0, 0);
         icon_container.put (state, -5, 48);
 
-        application_name = new Gtk.Label (_("N/A"));
-        application_name.get_style_context ().add_class ("h2");
-        application_name.ellipsize = Pango.EllipsizeMode.END;
-        application_name.tooltip_text = _("N/A");
-        application_name.halign = Gtk.Align.START;
-        application_name.valign = Gtk.Align.START;
+        application_name = new Gtk.Label (_("N/A")) {
+            ellipsize = END,
+            halign = START,
+            valign = START,
+            tooltip_text = _("N/A")
+        };
+        application_name.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
 
         pid = new LabelRoundy (_("PID"));
         nice = new LabelRoundy (_("NI"));
@@ -54,7 +57,7 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         // TODO: tooltip_text UID
         username = new LabelRoundy ("");
 
-        var wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        var wrapper = new Gtk.Box (HORIZONTAL, 0);
         wrapper.add (pid);
         wrapper.add (priority);
         wrapper.add (nice);
@@ -63,11 +66,11 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
 
         attach (icon_container, 0, 0, 1, 2);
         attach (application_name, 1, 0, 3, 1);
-        attach (wrapper, 1, 1, 1, 1);
+        attach (wrapper, 1, 1);
     }
 
     public void update (Process process) {
-        application_name.set_text (process.application_name);
+        application_name.label = process.application_name;
         application_name.tooltip_text = process.command;
         pid.set_text (process.stat.pid.to_string ());
         nice.set_text (process.stat.nice.to_string ());
@@ -89,10 +92,12 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
 
         username.set_text (process.username);
         username.tooltip_text = process.uid.to_string ();
+
         num_threads.set_text (process.stat.num_threads.to_string ());
-        state.set_text (process.stat.state);
+
+        state.label = process.stat.state;
         state.tooltip_text = set_state_tooltip ();
-        num_threads.set_text (process.stat.num_threads.to_string ());
+
         set_icon (process);
     }
 
@@ -101,7 +106,7 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         var icon_name = process.icon.to_string ();
 
         if (!regex.match (icon_name)) {
-            icon.set_from_icon_name (icon_name, Gtk.IconSize.DIALOG);
+            icon.icon_name = icon_name;
         } else {
             try {
                 var pixbuf = new Gdk.Pixbuf.from_file_at_size (icon_name, 48, -1);
