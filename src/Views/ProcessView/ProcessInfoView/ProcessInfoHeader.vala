@@ -26,18 +26,19 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         /* *INDENT-ON* */
 
         icon = new Gtk.Image.from_icon_name ("application-x-executable", Gtk.IconSize.DIALOG) {
-            valign = END,
             pixel_size = 64
         };
 
         state = new Gtk.Label ("?") {
-            halign = START
+            halign = START,
+            valign = END
         };
         state.get_style_context ().add_class ("state_badge");
 
-        var icon_container = new Gtk.Fixed ();
-        icon_container.put (icon, 0, 0);
-        icon_container.put (state, -5, 48);
+        var icon_container = new Gtk.Overlay () {
+            child = icon
+        };
+        icon_container.add_overlay (state);
 
         application_name = new Gtk.Label (_("N/A")) {
             ellipsize = END,
