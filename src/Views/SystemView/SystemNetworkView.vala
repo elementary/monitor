@@ -22,13 +22,15 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
 
         network_name_label = new Granite.HeaderLabel (_("Network"));
 
-        network_download_label = new LabelRoundy (_("DOWN"));
-        network_download_label.val.set_width_chars (7);
-        network_download_label.set_color ("blue");
+        network_download_label = new LabelRoundy (_("DOWN")) {
+            width_chars = 7
+        };
+        network_download_label.get_style_context ().add_class ("blue");
 
-        network_upload_label = new LabelRoundy (_("UP"));
-        network_upload_label.val.set_width_chars (7);
-        network_upload_label.set_color ("green");
+        network_upload_label = new LabelRoundy (_("UP")) {
+            width_chars = 7
+        };
+        network_upload_label.get_style_context ().add_class ("green");
 
         network_chart = new Chart (2);
         network_chart.config.y_axis.fixed_max = null;
@@ -52,8 +54,8 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
         double up_bytes = network.bytes_out;
         double down_bytes = network.bytes_in;
         if (up_bytes >= 0 && down_bytes >= 0) {
-            network_download_label.set_text (("%s/s").printf (format_size ((uint64) down_bytes, IEC_UNITS)));
-            network_upload_label.set_text (("%s/s").printf (format_size ((uint64) up_bytes, IEC_UNITS)));
+            network_download_label.text = ("%s/s").printf (format_size ((uint64) down_bytes, IEC_UNITS));
+            network_upload_label.text = ("%s/s").printf (format_size ((uint64) up_bytes, IEC_UNITS));
             network_chart.update (0, up_bytes);
             network_chart.update (1, down_bytes);
         }

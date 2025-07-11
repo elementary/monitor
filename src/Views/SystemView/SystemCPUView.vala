@@ -82,7 +82,7 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         //      temperature_index++;
         //  }]
         cpu_temperature_chart.update (0, cpu.temperature_mean);
-        cpu_temperature_label.set_text (("%.2f %s").printf (cpu.temperature_mean, _("℃")));
+        cpu_temperature_label.text = ("%.2f %s").printf (cpu.temperature_mean, _("℃"));
 
         double cpu_prev_util = 0;
 
@@ -128,7 +128,7 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
             }
         }
         label_vertical_main_metric = ("%d%%").printf (cpu.percentage);
-        cpu_frequency_label.set_text (("%.2f %s").printf (cpu.frequency, _("GHz")));
+        cpu_frequency_label.text = ("%.2f %s").printf (cpu.frequency, _("GHz"));
     }
 
     private Gtk.Grid grid_core_labels () {

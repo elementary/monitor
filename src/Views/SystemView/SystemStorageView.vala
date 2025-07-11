@@ -24,13 +24,15 @@ public class Monitor.SystemStorageView : Gtk.Grid {
 
         storage_name_label = new Granite.HeaderLabel (_("Storage"));
 
-        storage_write_label = new LabelRoundy (_("WRITE"));
-        storage_write_label.val.set_width_chars (7);
-        storage_write_label.set_color ("blue");
+        storage_write_label = new LabelRoundy (_("WRITE")) {
+            width_chars = 7
+        };
+        storage_write_label.get_style_context ().add_class ("blue");
 
-        storage_read_label = new LabelRoundy (_("READ"));
-        storage_read_label.val.set_width_chars (7);
-        storage_read_label.set_color ("green");
+        storage_read_label = new LabelRoundy (_("READ")) {
+            width_chars = 7
+        };
+        storage_read_label.get_style_context ().add_class ("green");
 
         storage_chart = new Chart (2);
         storage_chart.config.y_axis.fixed_max = null;
@@ -123,8 +125,8 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         double up_bytes = storage.bytes_read;
         double down_bytes = storage.bytes_write;
         if (up_bytes >= 0 && down_bytes >= 0) {
-            storage_write_label.set_text (("%s/s").printf (format_size ((uint64) down_bytes, IEC_UNITS)));
-            storage_read_label.set_text (("%s/s").printf (format_size ((uint64) up_bytes, IEC_UNITS)));
+            storage_write_label.text = ("%s/s").printf (format_size ((uint64) down_bytes, IEC_UNITS));
+            storage_read_label.text = ("%s/s").printf (format_size ((uint64) up_bytes, IEC_UNITS));
             storage_chart.update (0, up_bytes);
             storage_chart.update (1, down_bytes);
         }
