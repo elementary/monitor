@@ -133,9 +133,9 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
         end_process_button.clicked.connect (() => {
             var confirmation_dialog = new Granite.MessageDialog (
-                _("Ask this process to shutdown?"),
+                _("Ask this process to shut down?"),
                 _("The process will be asked to initiate shutdown tasks and close. In some cases the process may not quit."),
-                new ThemedIcon ("process-stop"),
+                new ThemedIcon ("system-shutdown"),
                 Gtk.ButtonsType.CANCEL
             ) {
                 badge_icon = new ThemedIcon ("dialog-question"),
