@@ -20,7 +20,6 @@ source_app_files = [
     'Views/SystemView/SystemGPUView.vala',
 
     # Widgets related only to ProcessInfoView
-    'Views/ProcessView/ProcessInfoView/Preventor.vala',
     'Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala',
     'Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala',
     'Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala',
