@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-12 12:48+0000\n"
-"PO-Revision-Date: 2025-04-05 07:55+0000\n"
-"Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
+"PO-Revision-Date: 2025-07-13 12:55+0000\n"
+"Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/uk/>\n"
 "Language: uk\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: src/MainWindow.vala:27 src/MainWindow.vala:71
 msgid "Monitor"
@@ -141,7 +141,7 @@ msgstr ""
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:119
 msgid "Force Quit"
-msgstr ""
+msgstr "Примусово вийти"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:136
 #, c-format
