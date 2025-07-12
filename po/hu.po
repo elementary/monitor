@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-29 08:15+0000\n"
+"POT-Creation-Date: 2025-07-12 12:48+0000\n"
 "PO-Revision-Date: 2025-04-23 10:55+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementaryos.org/projects/desktop/"
@@ -36,8 +36,8 @@ msgid "Settings"
 msgstr "Beállítások"
 
 #: src/Utils.vala:7
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:40
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:43
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:37
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:29
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:30
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:34
@@ -55,63 +55,51 @@ msgstr "Rendszerfigyelő megjelenítése"
 msgid "Quit Monitor"
 msgstr "Rendszerfigyelő bezárása"
 
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:25
-msgid "Are you sure you want to do this?"
-msgstr "Biztos benne?"
-
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:28
-msgid "Yes"
-msgstr "Igen"
-
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:32
-msgid "No"
-msgstr "Nem"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:47
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:66
 msgid "PID"
 msgstr "PID"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:48
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
 msgid "NI"
 msgstr "NI"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:49
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:47
 msgid "PRI"
 msgstr "PRI"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:50
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:48
 msgid "THR"
 msgstr "THR"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:118
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:102
 msgid "The app is waiting in an uninterruptible disk sleep"
 msgstr "Az alkalmazás megszakítás nélküli lemezalvásban várakozik"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:120
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:104
 msgid "Idle kernel thread"
 msgstr "Tétlen kernelszál"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:122
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:106
 msgid "The process is running or runnable (on run queue)"
 msgstr "A folyamat fut vagy futtatható (futtatási sorban)"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:124
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:108
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
 msgstr ""
 "Az alkalmazás megszakítás nélküli alvásban van; egy esemény befejezésére "
 "várakozik"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:126
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:110
 msgid "The process is stopped by a job control signal"
 msgstr "A folyamat le lett állítva egy feladatvezérlő jel által"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:128
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:112
 msgid "The process is stopped by a debugger during the tracing"
 msgstr "A folyamat le lett állítva egy hibakereső által"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:130
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:114
 msgid "The app is terminated but not reaped by its parent"
 msgstr "Az alkalmazás be lett zárva, de nem lett leállítva a szülő által"
 
@@ -135,29 +123,41 @@ msgstr "Olvasás/Írás"
 msgid "Cancelled write"
 msgstr "Megszakított írás"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:95
-msgid "End Process"
-msgstr "Folyamat befejezése"
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:89
+msgid "Shut Down…"
+msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:97
-msgid "End selected process"
-msgstr "Kiválasztott folyamat bezárása"
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:93
+msgid "Force Quit…"
+msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:101
-msgid "Kill Process"
-msgstr "Folyamat bezárásra kényszerítése"
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:109
+#, c-format
+msgid "Force “%s” to quit without initiating shutdown tasks?"
+msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:102
-msgid "Kill selected process"
-msgstr "Kiválasztott folyamat bezárásra kényszerítése"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:112
-msgid "Confirm kill of the process?"
-msgstr "Biztosan bezárásra kényszeríti a folyamatot?"
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:110
+msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
+msgstr ""
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:119
-msgid "Confirm end of the process?"
-msgstr "Biztosan bezárja a folyamatot?"
+msgid "Force Quit"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:136
+#, c-format
+msgid "Ask “%s” to shut down?"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:137
+msgid ""
+"The process will be asked to initiate shutdown tasks and close. In some "
+"cases the process may not quit."
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:146
+msgid "Shut Down"
+msgstr ""
 
 #. *INDENT-OFF*
 #. vala-lint=space-before-paren,
@@ -451,6 +451,33 @@ msgstr "Ellenőrzés a Githubon"
 #: src/Widgets/WidgetResource/WidgetResource.vala:16
 msgid "UTILIZATION"
 msgstr "KIHASZNÁLTSÁG"
+
+#~ msgid "Are you sure you want to do this?"
+#~ msgstr "Biztos benne?"
+
+#~ msgid "Yes"
+#~ msgstr "Igen"
+
+#~ msgid "No"
+#~ msgstr "Nem"
+
+#~ msgid "End Process"
+#~ msgstr "Folyamat befejezése"
+
+#~ msgid "End selected process"
+#~ msgstr "Kiválasztott folyamat bezárása"
+
+#~ msgid "Kill Process"
+#~ msgstr "Folyamat bezárásra kényszerítése"
+
+#~ msgid "Kill selected process"
+#~ msgstr "Kiválasztott folyamat bezárásra kényszerítése"
+
+#~ msgid "Confirm kill of the process?"
+#~ msgstr "Biztosan bezárásra kényszeríti a folyamatot?"
+
+#~ msgid "Confirm end of the process?"
+#~ msgstr "Biztosan bezárja a folyamatot?"
 
 #~ msgid "Indicator"
 #~ msgstr "Indikátor"
