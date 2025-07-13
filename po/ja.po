@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-12 12:48+0000\n"
 "PO-Revision-Date: 2025-07-13 12:55+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/ja/>\n"
 "Language: ja\n"
@@ -123,20 +123,21 @@ msgstr "キャンセルされた書き込み"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:89
 msgid "Shut Down…"
-msgstr ""
+msgstr "終了要求を送信…"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:93
 msgid "Force Quit…"
-msgstr ""
+msgstr "強制終了…"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:109
 #, c-format
 msgid "Force “%s” to quit without initiating shutdown tasks?"
-msgstr ""
+msgstr "終了処理を行わずに “%s” を強制終了しますか?"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:110
 msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
-msgstr ""
+msgstr "これはデータ損失を引き起こす可能性があります。終了要求を送信してもプロセスが"
+"終了しない場合のみ、強制終了してください。"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:119
 msgid "Force Quit"
@@ -145,17 +146,18 @@ msgstr "強制終了"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:136
 #, c-format
 msgid "Ask “%s” to shut down?"
-msgstr ""
+msgstr "“%s” に終了要求を送信しますか?"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:137
 msgid ""
 "The process will be asked to initiate shutdown tasks and close. In some "
 "cases the process may not quit."
-msgstr ""
+msgstr "プロセスに対し、終了処理を開始して閉じるように要求します。プロセスの終了には"
+"至らない場合もあります。"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:146
 msgid "Shut Down"
-msgstr ""
+msgstr "終了要求を送信"
 
 #. *INDENT-OFF*
 #. vala-lint=space-before-paren,
