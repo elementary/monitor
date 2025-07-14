@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-29 08:15+0000\n"
-"PO-Revision-Date: 2025-04-05 07:55+0000\n"
+"POT-Creation-Date: 2025-07-12 12:48+0000\n"
+"PO-Revision-Date: 2025-07-13 12:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/ja/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: src/MainWindow.vala:27 src/MainWindow.vala:71
 msgid "Monitor"
@@ -36,8 +36,8 @@ msgid "Settings"
 msgstr "設定"
 
 #: src/Utils.vala:7
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:40
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:43
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:37
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:29
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:30
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:34
@@ -55,61 +55,49 @@ msgstr "モニターを表示"
 msgid "Quit Monitor"
 msgstr "モニターを終了"
 
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:25
-msgid "Are you sure you want to do this?"
-msgstr "この操作を実行してもよろしいですか?"
-
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:28
-msgid "Yes"
-msgstr "はい"
-
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:32
-msgid "No"
-msgstr "いいえ"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:47
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:66
 msgid "PID"
 msgstr "PID"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:48
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
 msgid "NI"
 msgstr "NICE 値"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:49
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:47
 msgid "PRI"
 msgstr "優先度"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:50
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:48
 msgid "THR"
 msgstr "スレッド数"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:118
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:102
 msgid "The app is waiting in an uninterruptible disk sleep"
 msgstr "割り込み不能なディスクの入出力待ち"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:120
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:104
 msgid "Idle kernel thread"
 msgstr "アイドル状態のカーネルスレッド"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:122
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:106
 msgid "The process is running or runnable (on run queue)"
 msgstr "実行状態または実行可能状態のプロセス (実行キューに存在)"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:124
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:108
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
 msgstr "割り込み不能な待ち状態 (イベント完了待ち) のプロセス"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:126
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:110
 msgid "The process is stopped by a job control signal"
 msgstr "ジョブ管理シグナルによって停止されたプロセス"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:128
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:112
 msgid "The process is stopped by a debugger during the tracing"
 msgstr "トレース中にデバッガーによって停止されたプロセス"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:130
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:114
 msgid "The app is terminated but not reaped by its parent"
 msgstr "終了したが、親プロセスによって回収されなかった子プロセス"
 
@@ -133,29 +121,43 @@ msgstr "読み込み/書き込み"
 msgid "Cancelled write"
 msgstr "キャンセルされた書き込み"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:95
-msgid "End Process"
-msgstr "プロセスを終了"
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:89
+msgid "Shut Down…"
+msgstr "終了要求を送信…"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:97
-msgid "End selected process"
-msgstr "選択したプロセスを終了します"
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:93
+msgid "Force Quit…"
+msgstr "強制終了…"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:101
-msgid "Kill Process"
-msgstr "プロセスを強制終了"
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:109
+#, c-format
+msgid "Force “%s” to quit without initiating shutdown tasks?"
+msgstr "終了処理を行わずに “%s” を強制終了しますか?"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:102
-msgid "Kill selected process"
-msgstr "選択したプロセスを強制終了します"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:112
-msgid "Confirm kill of the process?"
-msgstr "プロセスを強制終了してもよろしいですか?"
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:110
+msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
+msgstr "これはデータ損失を引き起こす可能性があります。終了要求を送信してもプロセスが"
+"終了しない場合のみ、強制終了してください。"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:119
-msgid "Confirm end of the process?"
-msgstr "プロセスを終了してもよろしいですか?"
+msgid "Force Quit"
+msgstr "強制終了"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:136
+#, c-format
+msgid "Ask “%s” to shut down?"
+msgstr "“%s” に終了要求を送信しますか?"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:137
+msgid ""
+"The process will be asked to initiate shutdown tasks and close. In some "
+"cases the process may not quit."
+msgstr "プロセスに対し、終了処理を開始して閉じるように要求します。プロセスの終了には"
+"至らない場合もあります。"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:146
+msgid "Shut Down"
+msgstr "終了要求を送信"
 
 #. *INDENT-OFF*
 #. vala-lint=space-before-paren,
@@ -449,6 +451,33 @@ msgstr "GitHub で確認"
 #: src/Widgets/WidgetResource/WidgetResource.vala:16
 msgid "UTILIZATION"
 msgstr "使用率"
+
+#~ msgid "Are you sure you want to do this?"
+#~ msgstr "この操作を実行してもよろしいですか?"
+
+#~ msgid "Yes"
+#~ msgstr "はい"
+
+#~ msgid "No"
+#~ msgstr "いいえ"
+
+#~ msgid "End Process"
+#~ msgstr "プロセスを終了"
+
+#~ msgid "End selected process"
+#~ msgstr "選択したプロセスを終了します"
+
+#~ msgid "Kill Process"
+#~ msgstr "プロセスを強制終了"
+
+#~ msgid "Kill selected process"
+#~ msgstr "選択したプロセスを強制終了します"
+
+#~ msgid "Confirm kill of the process?"
+#~ msgstr "プロセスを強制終了してもよろしいですか?"
+
+#~ msgid "Confirm end of the process?"
+#~ msgstr "プロセスを終了してもよろしいですか?"
 
 #~ msgid "Indicator"
 #~ msgstr "インジケーター"
