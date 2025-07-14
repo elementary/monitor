@@ -171,9 +171,9 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         // @TODO: Find workaround for show_all() in PRocessInfoView
 
         // show_all ();
-        process_info_cpu_ram.hide ();
-        process_info_io_stats.hide ();
-        process_action_bar.hide ();
+        //  process_info_cpu_ram.hide ();
+        //  process_info_io_stats.hide ();
+        //  process_action_bar.hide ();
     }
 
     private void show_permission_error_infobar (string error) {

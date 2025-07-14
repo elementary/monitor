@@ -30,7 +30,7 @@ public class Monitor.ProcessView : Gtk.Box {
 
         var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
         paned.set_start_child (process_tree_view_scrolled);
-        //  paned.set_end_child (process_info_view);
+        paned.set_end_child (process_info_view);
         paned.set_shrink_end_child (false);
         paned.set_resize_end_child (false);
         paned.set_position (paned.max_position - 200);
