@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-29 08:15+0000\n"
+"POT-Creation-Date: 2025-07-12 12:48+0000\n"
 "PO-Revision-Date: 2025-04-10 11:55+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementaryos.org/projects/desktop/"
@@ -37,8 +37,8 @@ msgid "Settings"
 msgstr "Paramètres"
 
 #: src/Utils.vala:7
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:40
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:43
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:37
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:29
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:30
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:34
@@ -56,65 +56,53 @@ msgstr "Afficher Monitor"
 msgid "Quit Monitor"
 msgstr "Quitter Monitor"
 
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:25
-msgid "Are you sure you want to do this?"
-msgstr "Êtes-vous sûr de vouloir faire ça ?"
-
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:28
-msgid "Yes"
-msgstr "Oui"
-
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:32
-msgid "No"
-msgstr "Non"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:47
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:66
 msgid "PID"
 msgstr "PID"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:48
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
 msgid "NI"
 msgstr "NI"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:49
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:47
 msgid "PRI"
 msgstr "PRI"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:50
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:48
 msgid "THR"
 msgstr "FIL"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:118
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:102
 msgid "The app is waiting in an uninterruptible disk sleep"
 msgstr ""
 "Le process est en attente d'une opération de disque qui ne peut être "
 "interrompue"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:120
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:104
 msgid "Idle kernel thread"
 msgstr "Thread noyau inactif"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:122
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:106
 msgid "The process is running or runnable (on run queue)"
 msgstr ""
 "Le process est en cours d'exécution ou peut être exécuté (dans la file "
 "d'attente d'exécution)"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:124
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:108
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
 msgstr "Le process est en veille ; en attente d'un signal"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:126
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:110
 msgid "The process is stopped by a job control signal"
 msgstr "Le process est arrêté par un signal de contrôle de tâche"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:128
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:112
 msgid "The process is stopped by a debugger during the tracing"
 msgstr "Le processus est arrêté par un débogueur pendant le traçage"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:130
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:114
 msgid "The app is terminated but not reaped by its parent"
 msgstr "Le process s'est terminé mais n'a pas été achevé par son parent"
 
@@ -138,29 +126,41 @@ msgstr "Lecture/Écriture"
 msgid "Cancelled write"
 msgstr "Écriture annulée"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:95
-msgid "End Process"
-msgstr "Mettre fin au processus"
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:89
+msgid "Shut Down…"
+msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:97
-msgid "End selected process"
-msgstr "Mettre fin au processus sélectionné"
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:93
+msgid "Force Quit…"
+msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:101
-msgid "Kill Process"
-msgstr "Tuer le processus"
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:109
+#, c-format
+msgid "Force “%s” to quit without initiating shutdown tasks?"
+msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:102
-msgid "Kill selected process"
-msgstr "Tuer le processus sélectionné"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:112
-msgid "Confirm kill of the process?"
-msgstr "Voulez-vous vraiment tuer le processus ?"
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:110
+msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
+msgstr ""
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:119
-msgid "Confirm end of the process?"
-msgstr "Voulez-vous vraiment terminer le processus ?"
+msgid "Force Quit"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:136
+#, c-format
+msgid "Ask “%s” to shut down?"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:137
+msgid ""
+"The process will be asked to initiate shutdown tasks and close. In some "
+"cases the process may not quit."
+msgstr ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:146
+msgid "Shut Down"
+msgstr ""
 
 #. *INDENT-OFF*
 #. vala-lint=space-before-paren,
@@ -454,6 +454,33 @@ msgstr "Vérifier sur GitHub"
 #: src/Widgets/WidgetResource/WidgetResource.vala:16
 msgid "UTILIZATION"
 msgstr "UTILISATION"
+
+#~ msgid "Are you sure you want to do this?"
+#~ msgstr "Êtes-vous sûr de vouloir faire ça ?"
+
+#~ msgid "Yes"
+#~ msgstr "Oui"
+
+#~ msgid "No"
+#~ msgstr "Non"
+
+#~ msgid "End Process"
+#~ msgstr "Mettre fin au processus"
+
+#~ msgid "End selected process"
+#~ msgstr "Mettre fin au processus sélectionné"
+
+#~ msgid "Kill Process"
+#~ msgstr "Tuer le processus"
+
+#~ msgid "Kill selected process"
+#~ msgstr "Tuer le processus sélectionné"
+
+#~ msgid "Confirm kill of the process?"
+#~ msgstr "Voulez-vous vraiment tuer le processus ?"
+
+#~ msgid "Confirm end of the process?"
+#~ msgstr "Voulez-vous vraiment terminer le processus ?"
 
 #~ msgid "Indicator"
 #~ msgstr "Indicateur"

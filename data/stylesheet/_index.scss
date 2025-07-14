@@ -91,8 +91,6 @@ roundy-label:hover:selected {
     padding-right: 4px;
     padding-left:2px;
     font-size: 10px;
-    /* font-weight:bold; */
-    color: $text_color;
 
     @if $color-scheme == "light" {
         border: 1px solid $SILVER_300;
