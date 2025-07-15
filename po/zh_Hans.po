@@ -25,7 +25,7 @@ msgstr ""
 
 #: src/MainWindow.vala:38
 msgid "Processes"
-msgstr ""
+msgstr "进程"
 
 #: src/MainWindow.vala:39
 msgid "System"
@@ -33,7 +33,7 @@ msgstr "系统"
 
 #: src/MainWindow.vala:56
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 #: src/Utils.vala:7
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:37
@@ -49,11 +49,11 @@ msgstr ""
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
-msgstr ""
+msgstr "显示监视器"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:21
 msgid "Quit Monitor"
-msgstr ""
+msgstr "退出监视器"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:66
@@ -123,39 +123,39 @@ msgstr ""
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:89
 msgid "Shut Down…"
-msgstr ""
+msgstr "关闭"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:93
 msgid "Force Quit…"
-msgstr ""
+msgstr "强制退出"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:109
 #, c-format
 msgid "Force “%s” to quit without initiating shutdown tasks?"
-msgstr ""
+msgstr "是否强制退出 “%s”，而不执行关闭任务？"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:110
 msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
-msgstr ""
+msgstr "这可能会导致数据丢失。只有在关闭失败时才应强制退出。"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:119
 msgid "Force Quit"
-msgstr "强制关闭"
+msgstr "强制退出"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:136
 #, c-format
 msgid "Ask “%s” to shut down?"
-msgstr ""
+msgstr "需要关闭 “%s” 吗？"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:137
 msgid ""
 "The process will be asked to initiate shutdown tasks and close. In some "
 "cases the process may not quit."
-msgstr ""
+msgstr "该进程会被要求执行关闭并退出的操作，但在某些情况下它可能不会正常退出。"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:146
 msgid "Shut Down"
-msgstr ""
+msgstr "关闭"
 
 #. *INDENT-OFF*
 #. vala-lint=space-before-paren,
@@ -163,7 +163,7 @@ msgstr ""
 #. setup name column
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:24
 msgid "Process Name"
-msgstr ""
+msgstr "进程名称"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:45
 #: src/Widgets/Statusbar/Statusbar.vala:14
@@ -174,7 +174,7 @@ msgstr ""
 #: src/Views/SystemView/SystemMemoryView.vala:18
 #: src/Widgets/Statusbar/Statusbar.vala:18
 msgid "Memory"
-msgstr ""
+msgstr "内存"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:146
 msgid "KiB"
@@ -201,7 +201,7 @@ msgstr ""
 
 #: src/Views/PreferencesView.vala:17
 msgid "Update frequency"
-msgstr ""
+msgstr "更新频率"
 
 #: src/Views/PreferencesView.vala:22 src/Views/PreferencesView.vala:52
 msgid "Requires restart"
@@ -229,31 +229,31 @@ msgstr ""
 
 #: src/Views/PreferencesView.vala:49
 msgid "Start in background"
-msgstr ""
+msgstr "后台中启动"
 
 #: src/Views/PreferencesView.vala:51
 msgid "Draw smooth lines on CPU chart"
-msgstr ""
+msgstr "在 CPU 图表中显示平滑线条"
 
 #: src/Views/PreferencesView.vala:57
 msgid "Show in panel"
-msgstr ""
+msgstr "面板里显示"
 
 #: src/Views/PreferencesView.vala:62
 msgid "CPU percentage"
-msgstr ""
+msgstr "CPU 占比"
 
 #: src/Views/PreferencesView.vala:67
 msgid "CPU frequency"
-msgstr ""
+msgstr "CPU 频率"
 
 #: src/Views/PreferencesView.vala:72
 msgid "CPU temperature"
-msgstr ""
+msgstr "CPU 温度"
 
 #: src/Views/PreferencesView.vala:77
 msgid "RAM percentage"
-msgstr ""
+msgstr "RAM 占比"
 
 #: src/Views/PreferencesView.vala:82
 msgid "Network upload"
@@ -265,23 +265,23 @@ msgstr ""
 
 #: src/Views/PreferencesView.vala:92
 msgid "GPU percentage"
-msgstr ""
+msgstr "GPU 占比"
 
 #: src/Views/PreferencesView.vala:97
 msgid "VRAM percentage"
-msgstr ""
+msgstr "VRAM 占比"
 
 #: src/Views/PreferencesView.vala:102
 msgid "GPU temperature"
-msgstr ""
+msgstr "GPU温度"
 
 #: src/Views/SystemView/SystemCPUView.vala:22
 msgid "Frequency"
-msgstr ""
+msgstr "频率"
 
 #: src/Views/SystemView/SystemCPUView.vala:26
 msgid "Temperature"
-msgstr ""
+msgstr "温度"
 
 #. int temperature_index = 0;
 #. foreach (var temperature in cpu.paths_temperatures.values) {
@@ -381,27 +381,27 @@ msgstr ""
 
 #: src/Views/SystemView/SystemNetworkView.vala:23
 msgid "Network"
-msgstr ""
+msgstr "网络"
 
 #: src/Views/SystemView/SystemNetworkView.vala:25
 msgid "DOWN"
-msgstr ""
+msgstr "下行"
 
 #: src/Views/SystemView/SystemNetworkView.vala:29
 msgid "UP"
-msgstr ""
+msgstr "上行"
 
 #: src/Views/SystemView/SystemStorageView.vala:25
 msgid "Storage"
-msgstr ""
+msgstr "磁盘"
 
 #: src/Views/SystemView/SystemStorageView.vala:27
 msgid "WRITE"
-msgstr ""
+msgstr "写入"
 
 #: src/Views/SystemView/SystemStorageView.vala:31
 msgid "READ"
-msgstr ""
+msgstr "读取"
 
 #: src/Views/SystemView/SystemStorageView.vala:97
 msgid "Not mounted"
@@ -413,15 +413,15 @@ msgstr ""
 
 #: src/Views/SystemView/SystemGPUView.vala:21
 msgid "TEMPERATURE"
-msgstr ""
+msgstr "温度"
 
 #: src/Widgets/Headerbar/Search.vala:17
 msgid "Search Process"
-msgstr ""
+msgstr "搜索进程"
 
 #: src/Widgets/Headerbar/Search.vala:18
 msgid "Type process name or PID to search"
-msgstr ""
+msgstr "输入进程名称或者 PID 以搜索"
 
 #: src/Widgets/Statusbar/Statusbar.vala:22
 msgid "Swap"
@@ -444,7 +444,7 @@ msgstr ""
 
 #: src/Widgets/Statusbar/Statusbar.vala:57
 msgid "Check on Github"
-msgstr ""
+msgstr "在 Github 上查看"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:16
 msgid "UTILIZATION"
