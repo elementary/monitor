@@ -118,10 +118,10 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 _("This may lead to data loss. Only Force Quit if Shut Down has failed."),
                 new ThemedIcon ("computer-fail"),
                 Gtk.ButtonsType.CANCEL
-            ) {
+                ) {
                 badge_icon = new ThemedIcon ("process-stop"),
                 modal = true,
-                //  transient_for = (Gtk.Window) get_toplevel ()
+                // transient_for = (Gtk.Window) get_toplevel ()
             };
 
             var accept_button = confirmation_dialog.add_button (_("Force Quit"), Gtk.ResponseType.ACCEPT);
@@ -145,10 +145,10 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 _("The process will be asked to initiate shutdown tasks and close. In some cases the process may not quit."),
                 new ThemedIcon ("system-shutdown"),
                 Gtk.ButtonsType.CANCEL
-            ) {
+                ) {
                 badge_icon = new ThemedIcon ("dialog-question"),
                 modal = true,
-                //  transient_for = (Gtk.Window) get_toplevel ()
+                // transient_for = (Gtk.Window) get_toplevel ()
             };
 
             var accept_button = confirmation_dialog.add_button (_("Shut Down"), Gtk.ResponseType.ACCEPT);
@@ -171,9 +171,9 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         // @TODO: Find workaround for show_all() in PRocessInfoView
 
         // show_all ();
-        //  process_info_cpu_ram.hide ();
-        //  process_info_io_stats.hide ();
-        //  process_action_bar.hide ();
+        // process_info_cpu_ram.hide ();
+        // process_info_io_stats.hide ();
+        // process_action_bar.hide ();
     }
 
     private void show_permission_error_infobar (string error) {

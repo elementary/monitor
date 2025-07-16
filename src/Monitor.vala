@@ -59,7 +59,6 @@ namespace Monitor {
         public override void activate () {
             // only have one window
             if (get_windows () != null) {
-                //  window.show_all ();
                 window.present ();
                 return;
             }

@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
  */
 
-public class Monitor.PreferencesView : Gtk.Box {
+public class Monitor.PreferencesView : Granite.Bin {
     private Gtk.Adjustment update_freq_adjustment;
 
     construct {
@@ -139,7 +139,7 @@ public class Monitor.PreferencesView : Gtk.Box {
         box.append (indicator_options_revealer);
 
 
-        append (box);
+        child = box;
 
         indicator_switch.bind_property ("active", indicator_options_revealer, "reveal-child", SYNC_CREATE);
 
