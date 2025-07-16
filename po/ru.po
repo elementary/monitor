@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-12 12:48+0000\n"
-"PO-Revision-Date: 2025-07-13 12:55+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2025-07-17 18:55+0000\n"
+"Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/ru/>\n"
 "Language: ru\n"
@@ -119,20 +119,22 @@ msgstr "Отменённая запись"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:89
 msgid "Shut Down…"
-msgstr ""
+msgstr "Завершить…"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:93
 msgid "Force Quit…"
-msgstr ""
+msgstr "Принудительно закрыть…"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:109
 #, c-format
 msgid "Force “%s” to quit without initiating shutdown tasks?"
-msgstr ""
+msgstr "Принудительно закрыть «%s» без выполнения завершающих задач?"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:110
 msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
 msgstr ""
+"Это может привести к потере данных. Используйте его, только если обычное "
+"завершение не удалось."
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:119
 msgid "Force Quit"
@@ -141,17 +143,19 @@ msgstr "Принудительно закрыть"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:136
 #, c-format
 msgid "Ask “%s” to shut down?"
-msgstr ""
+msgstr "Запросить «%s» выполнить завершение?"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:137
 msgid ""
 "The process will be asked to initiate shutdown tasks and close. In some "
 "cases the process may not quit."
 msgstr ""
+"Процесс получит запрос выполнить завершающие задачи и закрыться. В некоторых "
+"случаях процесс может не завершиться."
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:146
 msgid "Shut Down"
-msgstr ""
+msgstr "Завершить"
 
 #. *INDENT-OFF*
 #. vala-lint=space-before-paren,
