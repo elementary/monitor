@@ -110,7 +110,7 @@ namespace Monitor {
                 PCIUtils.LIBPCI_PATCH_VER
                 );
 
-            print(
+            print (
                 "Gtk %d.%d.%d\n",
                 Gtk.MAJOR_VERSION,
                 Gtk.MINOR_VERSION,

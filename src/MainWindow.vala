@@ -60,7 +60,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
         headerbar.pack_end (preferences_button);
 
         var statusbar = new Statusbar ();
-        
+
         var grid = new Gtk.Grid () {
             orientation = Gtk.Orientation.VERTICAL
         };
@@ -105,7 +105,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
         });
 
 
-        app.window_removed.connect (() => {
+        application.window_removed.connect (() => {
             MonitorApp.settings.set_int ("window-width", get_size (Gtk.Orientation.HORIZONTAL));
             MonitorApp.settings.set_int ("window-height", get_size (Gtk.Orientation.VERTICAL));
 
