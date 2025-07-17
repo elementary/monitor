@@ -3,11 +3,10 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-public class Monitor.SystemStorageView : Gtk.Grid {
-    private Chart storage_chart;
-    private Storage storage;
+public class Monitor.SystemStorageView : Gtk.Box {
+    public Storage storage { get; construct; }
 
-    private Granite.HeaderLabel storage_name_label;
+    private Chart storage_chart;
     private LabelRoundy storage_read_label;
     private LabelRoundy storage_write_label;
 
@@ -23,9 +22,11 @@ public class Monitor.SystemStorageView : Gtk.Grid {
     }
 
     public SystemStorageView (Storage _storage) {
-        storage = _storage;
+        Object (storage: _storage);
+    }
 
-        storage_name_label = new Granite.HeaderLabel (_("Storage"));
+    construct {
+        var storage_name_label = new Granite.HeaderLabel (_("Storage"));
 
         storage_write_label = new LabelRoundy (_("WRITE"));
         storage_write_label.val.set_width_chars (7);
@@ -40,101 +41,42 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         storage_chart.set_serie_color (0, { 155 / 255.0f, 219 / 255.0f, 77 / 255.0f, 1.0f });
         storage_chart.set_serie_color (1, { 100 / 255.0f, 186 / 255.0f, 255 / 255.0f, 1.0f });
 
-        var labels_grid = new Gtk.Grid ();
-        labels_grid.row_spacing = 6;
-        labels_grid.column_spacing = 6;
-        labels_grid.margin_top = 6;
-        labels_grid.margin_bottom = 6;
-        labels_grid.margin_start = 6;
-        labels_grid.margin_end = 6;
-        labels_grid.attach (storage_write_label, 0, 0, 1, 1);
-        labels_grid.attach (storage_read_label, 1, 0, 1, 1);
-
-        drive_cards_container = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-
-        storage.get_drives ().foreach (add_drive_card);
-
-        attach (storage_name_label, 0, 0, 1, 1);
-        attach (drive_cards_container, 0, 1, 1, 1);
-        attach (labels_grid, 0, 2, 2, 2);
-        attach (storage_chart, 0, 2, 2, 2);
-    }
-
-    private bool add_drive_card (owned Disk ? drive) {
-        drive_cards_container.append (build_drive_card (drive.model, drive.device, drive.size, drive.free));
-        return true;
-    }
-
-    private Gtk.Box build_drive_card (string model, string device, uint64 size, uint64 free) {
-        var drive_card = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        drive_card.add_css_class ("card");
-        drive_card.add_css_class ("rounded");
-
-        drive_card.halign = Gtk.Align.START;
-        drive_card.margin_end = 12;
-        drive_card.margin_top = 6;
-        drive_card.margin_bottom = 12;
-
-        var drive_grid = new Gtk.Grid ();
-        // drive_grid.row_spacing = 6;
-        drive_grid.column_spacing = 6;
-        drive_grid.margin_top = 6;
-        drive_grid.margin_bottom = 6;
-        drive_grid.margin_start = 6;
-        drive_grid.margin_end = 6;
-
-        var drive_name_label = new Gtk.Label (model);
-        drive_name_label.add_css_class ("h3");
-        drive_name_label.margin_start = 6;
-        drive_name_label.margin_end = 6;
-        drive_name_label.margin_top = 6;
-        drive_name_label.margin_bottom = 0;
-        drive_name_label.halign = Gtk.Align.START;
-
-        string size_string = format_size ((uint64) size, IEC_UNITS);
-        string used_string = format_size ((uint64) (size - free), IEC_UNITS);
-
-        string drive_block_name_and_size_string = "%s 𐄁 %s / %s".printf (device, used_string, size_string);
-
-        if (free == 0)drive_block_name_and_size_string = "%s 𐄁 %s".printf (device, size_string);
-
-        var drive_block_name_and_size_label = new Gtk.Label (drive_block_name_and_size_string);
-        drive_block_name_and_size_label.add_css_class ("h4");
-        drive_block_name_and_size_label.add_css_class ("text-secondary");
-        drive_block_name_and_size_label.margin_bottom = 6;
-        drive_block_name_and_size_label.margin_start = 6;
-        drive_block_name_and_size_label.margin_end = 6;
-        drive_block_name_and_size_label.margin_top = 0;
-        drive_block_name_and_size_label.halign = Gtk.Align.START;
-
-        var drive_not_mounted_label = new Gtk.Label (_("Not mounted"));
-        drive_not_mounted_label.halign = Gtk.Align.START;
-        drive_not_mounted_label.add_css_class ("h4");
-        drive_not_mounted_label.margin_start = 6;
-
-        var usagebar = new Gtk.LevelBar () {
-            margin_top = 0,
-            margin_bottom = 6,
-            margin_start = 6,
+        var labels_box = new Gtk.Box (HORIZONTAL, 6) {
+            margin_top = 6,
             margin_end = 6,
-
-            max_value = 100.0,
-            min_value = 0.0,
+            margin_bottom = 6,
+            margin_start = 6
         };
-        usagebar.add_css_class ("flat");
+        labels_box.add (storage_write_label);
+        labels_box.add (storage_read_label);
 
-        usagebar.set_value (100.0 * (size - free) / size);
+        var chart_overlay = new Gtk.Overlay () {
+            child = storage_chart
+        };
+        chart_overlay.add_overlay (labels_box);
 
-        drive_grid.attach (drive_name_label, 0, 0, 1, 1);
-        drive_grid.attach (drive_block_name_and_size_label, 0, 1, 1, 1);
-        if (free == 0) {
-            drive_grid.attach (drive_not_mounted_label, 0, 2, 1, 1);
-        } else {
-            drive_grid.attach (usagebar, 0, 2, 1, 1);
-        }
-        drive_card.append (drive_grid);
+        var drive_cards_container = new Gtk.Box (HORIZONTAL, 12) {
+            margin_top = 6,
+            margin_bottom = 12
+        };
 
-        return drive_card;
+        margin_top = 12;
+        margin_end = 12;
+        margin_bottom = 12;
+        margin_start = 12;
+        orientation = VERTICAL;
+
+        add (storage_name_label);
+        add (drive_cards_container);
+        add (chart_overlay);
+
+        storage.get_drives ().foreach ((drive) => {
+            drive_cards_container.add (
+                new DriveCard (drive)
+            );
+
+            return GLib.Source.CONTINUE;
+        });
     }
 
     public void update () {
@@ -148,4 +90,64 @@ public class Monitor.SystemStorageView : Gtk.Grid {
         }
     }
 
+    private class DriveCard : Gtk.Box {
+        public Disk drive { get; construct; }
+
+        public DriveCard (Disk drive) {
+            Object (drive: drive);
+        }
+
+        construct {
+            var drive_name_label = new Gtk.Label (drive.model) {
+                halign = START
+            };
+            drive_name_label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
+
+            string size_string = format_size ((uint64) drive.size, IEC_UNITS);
+            string used_string = format_size ((uint64) (drive.size - drive.free), IEC_UNITS);
+
+            string drive_block_name_and_size_string = "%s 𐄁 %s / %s".printf (drive.device, used_string, size_string);
+
+            if (drive.free == 0) {
+                drive_block_name_and_size_string = "%s 𐄁 %s".printf (drive.device, size_string);
+            }
+
+            var drive_block_name_and_size_label = new Gtk.Label (drive_block_name_and_size_string) {
+                halign = START,
+                margin_bottom = 6
+            };
+            drive_block_name_and_size_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+
+            var drive_not_mounted_label = new Gtk.Label (_("Not mounted")) {
+                halign = START
+            };
+            drive_not_mounted_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+
+            var usagebar = new Gtk.LevelBar () {
+                max_value = 100.0,
+                min_value = 0.0,
+                margin_bottom = 6
+            };
+            usagebar.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+            usagebar.set_value (100.0 * (drive.size - drive.free) / drive.size);
+
+            var drive_box = new Gtk.Box (VERTICAL, 0) {
+                margin_top = 6,
+                margin_end = 12,
+                margin_bottom = 6,
+                margin_start = 12
+            };
+            drive_box.add (drive_name_label);
+            drive_box.add (drive_block_name_and_size_label);
+            if (drive.free == 0) {
+                drive_box.add (drive_not_mounted_label);
+            } else {
+                drive_box.add (usagebar);
+            }
+
+            get_style_context ().add_class (Granite.STYLE_CLASS_CARD);
+            get_style_context ().add_class (Granite.STYLE_CLASS_ROUNDED);
+            add (drive_box);
+        }
+    }
 }
