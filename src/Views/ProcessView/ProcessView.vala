@@ -10,11 +10,13 @@ public class Monitor.ProcessView : Gtk.Box {
     public ProcessInfoView process_info_view;
 
     construct {
-        process_info_view = new ProcessInfoView ();
-
-        // hide on startup
-        // @TODO: Figure out how to no_show_all in GTK4
-        //  process_info_view.no_show_all = true;
+        process_info_view = new ProcessInfoView (){
+            // This might be useless since first process is selected
+            // automatically and this triggers on_process_selected ().
+            // Keeping it just to not forget what was the OG behavior 
+            // in GTK3 version.
+            visible = false,
+        };
     }
 
     public ProcessView () {
@@ -42,9 +44,7 @@ public class Monitor.ProcessView : Gtk.Box {
     public void on_process_selected (Process process) {
         process_info_view.process = process;
 
-        // @TODO: Figure out how to no_show_all in GTK4
-        //  process_info_view.no_show_all = true;
-        //  process_info_view.show_all ();
+        process_info_view.visible = true;
     }
 
     public void update () {

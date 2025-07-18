@@ -10,9 +10,6 @@ public class Monitor.SystemStorageView : Gtk.Box {
     private LabelRoundy storage_read_label;
     private LabelRoundy storage_write_label;
 
-    private Gtk.Box drive_cards_container;
-
-
     public SystemStorageView (Storage _storage) {
         Object (storage: _storage);
     }
