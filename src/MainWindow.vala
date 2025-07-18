@@ -61,15 +61,13 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
         var statusbar = new Statusbar ();
 
-        var grid = new Gtk.Grid () {
-            orientation = Gtk.Orientation.VERTICAL
-        };
+        var main_container = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
         set_titlebar (headerbar);
-        grid.attach (stack, 0, 1, 1, 1);
-        grid.attach (statusbar, 0, 2, 1, 1);
+        main_container.append (stack);
+        main_container.append (statusbar);
 
-        child = grid;
+        child = main_container;
 
         present ();
 
