@@ -27,7 +27,7 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
             halign = START,
             valign = END
         };
-        state.get_style_context ().add_class ("state_badge");
+        state.add_css_class ("state_badge");
 
         var icon_container = new Gtk.Overlay () {
             child = icon
@@ -40,7 +40,7 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
             valign = START,
             tooltip_text = _("N/A")
         };
-        application_name.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
+        application_name.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
 
         pid = new LabelRoundy (_("PID"));
         nice = new LabelRoundy (_("NI"));

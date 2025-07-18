@@ -93,7 +93,7 @@ public class Monitor.SystemStorageView : Gtk.Box {
             var drive_name_label = new Gtk.Label (drive.model) {
                 halign = START
             };
-            drive_name_label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
+            drive_name_label.add_css_class (Granite.STYLE_CLASS_H3_LABEL);
 
             string size_string = format_size ((uint64) drive.size, IEC_UNITS);
             string used_string = format_size ((uint64) (drive.size - drive.free), IEC_UNITS);
@@ -108,19 +108,19 @@ public class Monitor.SystemStorageView : Gtk.Box {
                 halign = START,
                 margin_bottom = 6
             };
-            drive_block_name_and_size_label.get_style_context ().add_class (Granite.STYLE_CLASS_DIM_LABEL);
+            drive_block_name_and_size_label.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
 
             var drive_not_mounted_label = new Gtk.Label (_("Not mounted")) {
                 halign = START
             };
-            drive_not_mounted_label.get_style_context ().add_class (Granite.STYLE_CLASS_DIM_LABEL);
+            drive_not_mounted_label.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
 
             var usagebar = new Gtk.LevelBar () {
                 max_value = 100.0,
                 min_value = 0.0,
                 margin_bottom = 6
             };
-            usagebar.get_style_context ().add_class (Granite.STYLE_CLASS_FLAT);
+            usagebar.add_css_class (Granite.STYLE_CLASS_FLAT);
             usagebar.set_value (100.0 * (drive.size - drive.free) / drive.size);
 
             var drive_box = new Gtk.Box (VERTICAL, 0) {
@@ -137,8 +137,8 @@ public class Monitor.SystemStorageView : Gtk.Box {
                 drive_box.append (usagebar);
             }
 
-            get_style_context ().add_class (Granite.STYLE_CLASS_CARD);
-            get_style_context ().add_class (Granite.STYLE_CLASS_ROUNDED);
+            add_css_class (Granite.STYLE_CLASS_CARD);
+            add_css_class (Granite.STYLE_CLASS_ROUNDED);
             append (drive_box);
         }
     }

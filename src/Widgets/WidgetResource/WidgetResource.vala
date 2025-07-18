@@ -90,7 +90,7 @@ public class Monitor.WidgetResource : Gtk.Box {
             halign = Gtk.Align.START
         };
         button_more_info.add_css_class ("circular");
-        // button_more_info.get_style_context ().add_class ("popup");
+        button_more_info.add_css_class ("popup");
 
 
         button_more_info.set_icon_name ("dialog-information");

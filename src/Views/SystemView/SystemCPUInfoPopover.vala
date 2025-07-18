@@ -140,7 +140,7 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
 
         grid.attach (flag_label, 0, 0, 1, 1);
         grid.attach (label (flag_description), 1, 0, 1, 1);
-        row.set_child (grid);
+        row.child = grid;
 
         return row;
     }
