@@ -1,6 +1,6 @@
 [wrap-git]
 url = https://github.com/elementary/live-chart.git
-revision = 5a690045f2e3df1d78ff0ea1e5df6470a6760639
+revision = 1cdb953dd6313d5102e441c65be8e35c3e12cc32
 depth = 1
 
 [provide]
