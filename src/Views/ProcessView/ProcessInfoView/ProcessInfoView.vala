@@ -148,6 +148,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 ) {
                 badge_icon = new ThemedIcon ("dialog-question"),
                 modal = true,
+                // @TODO: not sure how to set it in GTK4
                 // transient_for = (Gtk.Window) get_toplevel ()
             };
 
@@ -167,13 +168,6 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         });
 
         grid.attach (process_action_bar, 0, 5);
-
-        // @TODO: Find workaround for show_all() in PRocessInfoView
-
-        // show_all ();
-        // process_info_cpu_ram.hide ();
-        // process_info_io_stats.hide ();
-        // process_action_bar.hide ();
     }
 
     private void show_permission_error_infobar (string error) {
