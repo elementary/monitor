@@ -89,8 +89,7 @@ namespace Monitor {
                 window.hide ();
                 MonitorApp.settings.set_boolean ("background-state", true);
             } else {
-                //  @TODO: Find out how this should work without  show_all ()
-                //  window.show_all ();
+                window.present ();
             }
 
             window.process_view.process_tree_view.focus_on_first_row ();
