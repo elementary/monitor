@@ -21,16 +21,16 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
 
         cpu_frequency_label = new LabelRoundy (_("Frequency")) {
             margin_top = 2,
-            margin_bottom = 6,
-            margin_start = 6,
             margin_end = 6,
+            margin_bottom = 6,
+            margin_start = 6
         };
 
         cpu_temperature_label = new LabelRoundy (_("Temperature")) {
             margin_top = 2,
-            margin_bottom = 6,
-            margin_start = 6,
             margin_end = 6,
+            margin_bottom = 6,
+            margin_start = 6
         };
 
 
