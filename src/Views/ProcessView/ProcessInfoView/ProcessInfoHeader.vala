@@ -52,7 +52,7 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         // TODO: tooltip_text UID
         username = new LabelRoundy ("");
 
-        var wrapper = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+        var wrapper = new Gtk.Box (HORIZONTAL, 0);
         wrapper.append (pid);
         wrapper.append (priority);
         wrapper.append (nice);
