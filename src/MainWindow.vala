@@ -107,7 +107,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
             MonitorApp.settings.set_int ("window-width", get_size (Gtk.Orientation.HORIZONTAL));
             MonitorApp.settings.set_int ("window-height", get_size (Gtk.Orientation.VERTICAL));
 
-            MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized());
+            MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized ());
 
             MonitorApp.settings.set_string ("opened-view", stack.visible_child_name);
 
