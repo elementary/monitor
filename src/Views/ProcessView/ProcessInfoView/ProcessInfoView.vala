@@ -146,8 +146,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 ) {
                 badge_icon = new ThemedIcon ("dialog-question"),
                 modal = true,
-                // @TODO: not sure how to set it in GTK4
-                // transient_for = (Gtk.Window) get_toplevel ()
+                transient_for = (Gtk.Window) get_root ()
             };
 
             var accept_button = confirmation_dialog.add_button (_("Shut Down"), Gtk.ResponseType.ACCEPT);
