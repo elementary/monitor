@@ -39,11 +39,11 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
         network_chart.set_serie_color (0, { 155 / 255.0f, 219 / 255.0f, 77 / 255.0f, 1.0f });
         network_chart.set_serie_color (1, { 100 / 255.0f, 186 / 255.0f, 255 / 255.0f, 1.0f });
 
-        var labels_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
+        var labels_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6) {
             margin_top = 6,
-            margin_bottom = 6,
-            margin_start = 6,
             margin_end = 6,
+            margin_bottom = 6,
+            margin_start = 6
         };
 
         labels_box.append (network_download_label);
