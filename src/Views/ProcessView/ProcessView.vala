@@ -10,7 +10,7 @@ public class Monitor.ProcessView : Gtk.Box {
     public ProcessInfoView process_info_view;
 
     construct {
-        process_info_view = new ProcessInfoView (){
+        process_info_view = new ProcessInfoView () {
             // This might be useless since first process is selected
             // automatically and this triggers on_process_selected ().
             // Keeping it just to not forget what was the OG behavior 
