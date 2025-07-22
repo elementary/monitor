@@ -119,7 +119,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 ) {
                 badge_icon = new ThemedIcon ("process-stop"),
                 modal = true,
-                // transient_for = (Gtk.Window) get_toplevel ()
+                transient_for = (Gtk.Window) get_root ()
             };
 
             var accept_button = confirmation_dialog.add_button (_("Force Quit"), Gtk.ResponseType.ACCEPT);
