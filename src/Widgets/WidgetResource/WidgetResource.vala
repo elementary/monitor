@@ -4,7 +4,9 @@
  */
 
 public class Monitor.WidgetResource : Gtk.Box {
-    private Granite.HeaderLabel _title = new Granite.HeaderLabel (Utils.NO_DATA);
+    private Granite.HeaderLabel _title = new Granite.HeaderLabel (Utils.NO_DATA) {
+        valign = Gtk.Align.CENTER,
+    };
 
     public string title {
         set {
@@ -12,7 +14,6 @@ public class Monitor.WidgetResource : Gtk.Box {
         }
     }
 
-    public Gtk.Popover popover_more_info;
     private LabelVertical _label_vertical_main_metric = new LabelVertical (_("UTILIZATION"));
 
     public string label_vertical_main_metric {
@@ -84,23 +85,22 @@ public class Monitor.WidgetResource : Gtk.Box {
     }
 
     public void set_popover_more_info (Gtk.Widget widget) {
-        var button_more_info = new Gtk.MenuButton () {
-            focusable = false,
-            valign = Gtk.Align.START,
-            halign = Gtk.Align.START
-        };
-        button_more_info.add_css_class ("circular");
-        button_more_info.add_css_class ("popup");
-
-
-        button_more_info.set_icon_name ("dialog-information");
-
-        popover_more_info = new Gtk.Popover () {
+        var popover_more_info = new Gtk.Popover () {
             position = Gtk.PositionType.BOTTOM,
-            visible = false,
+            //  visible = false,
             autohide = true,
             child = widget,
         };
+        var button_more_info = new Gtk.MenuButton () {
+            focusable = false,
+            icon_name = "dialog-information",
+            valign = Gtk.Align.START,
+            halign = Gtk.Align.START,
+            popover = popover_more_info,
+
+        };
+        button_more_info.add_css_class ("circular");
+        button_more_info.add_css_class ("popup");
 
         grid_header.attach (button_more_info, 1, 0, 1, 1);
     }

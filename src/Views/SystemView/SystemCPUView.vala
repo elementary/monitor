@@ -45,16 +45,16 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
 
         grid_temperature_info.attach (cpu_temperature_label, 0, 0, 1, 1);
 
+        var smol_charts_container = new Gtk.Grid () {
+            width_request = 200,
+            hexpand = false,
+            halign = Gtk.Align.START,
+            row_spacing = 6,
+            margin_start = 6,
+        };
 
-
-        var smol_charts_container = new Gtk.Grid ();
-        smol_charts_container.width_request = 200;
-        smol_charts_container.hexpand = false;
-        smol_charts_container.halign = Gtk.Align.START;
         smol_charts_container.attach (grid_frequency_info, 0, 0, 1, 1);
         smol_charts_container.attach (grid_temperature_info, 0, 1, 1, 1);
-        smol_charts_container.row_spacing = 6;
-        smol_charts_container.margin_start = 6;
 
         add_charts_container (smol_charts_container);
     }
