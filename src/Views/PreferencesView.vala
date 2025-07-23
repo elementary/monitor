@@ -138,7 +138,6 @@ public class Monitor.PreferencesView : Granite.Bin {
         box.append (indicator_switch);
         box.append (indicator_options_revealer);
 
-
         child = box;
 
         indicator_switch.bind_property ("active", indicator_options_revealer, "reveal-child", SYNC_CREATE);

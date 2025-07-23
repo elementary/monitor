@@ -69,8 +69,6 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
         child = main_container;
 
-        present ();
-
         var dbusserver = DBusServer.get_default ();
 
         search_revealer.reveal_child = stack.visible_child == process_view;
@@ -97,9 +95,8 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
         dbusserver.quit.connect (() => application.quit ());
         dbusserver.show.connect (() => {
-            this.present ();
             setup_window_state ();
-            this.present ();
+            present ();
         });
 
 
