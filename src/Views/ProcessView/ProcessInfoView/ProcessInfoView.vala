@@ -186,7 +186,6 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
             process_info_io_stats.open_files_tree_view.model.process = _process;
 
-
             process_info_io_stats.open_files_tree_view.visible = true;
         }
     }

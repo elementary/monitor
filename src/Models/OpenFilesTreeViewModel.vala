@@ -4,7 +4,7 @@
  */
 
 public class Monitor.OpenFilesTreeViewModel : Gtk.TreeStore {
-    private Gee.Map<string, Gtk.TreeIter ? > open_files_paths = new Gee.HashMap<string, Gtk.TreeIter ? > ();
+    private Gee.Map<string, Gtk.TreeIter ?> open_files_paths = new Gee.HashMap<string, Gtk.TreeIter ?> ();
 
     private Process _process;
 
@@ -37,37 +37,31 @@ public class Monitor.OpenFilesTreeViewModel : Gtk.TreeStore {
     }
 
     private bool add_path (string path) {
-        debug ("Adding path: %s", path);
         if (path.substring (0, 1) == "/") {
             Gtk.TreeIter iter;
             append (out iter, null);
 
-            set (iter,
-                 Column.NAME, path,
-                 -1);
+            set (iter, Column.NAME, path, -1);
 
-            // open_files_paths.set (path, iter);
+            open_files_paths.set (path, iter);
             return true;
         }
         return false;
     }
 
     public void update_model (Process process) {
-        if (process.open_files_paths.size > 0) {
-            foreach (var path in process.open_files_paths) {
+        // if (process.open_files_paths.size > 0) {
+        // foreach (var path in process.open_files_paths) {
 
-                // print("sdsd");
-                // Gtk.TreeIter iter = open_files_paths[path];
-                print (path);
-                //// display only real paths
-                //// probably should be done in process class
-                // if (path.substring (0, 1) == "/") {
-                // set (iter,
-                // Column.NAME, path,
-                // -1);
-                // }
-            }
-        }
+        // Gtk.TreeIter iter = open_files_paths[path];
+        // print (path);
+        //// display only real paths
+        //// probably should be done in process class
+        // if (path.substring (0, 1) == "/") {
+        // set (iter, Column.NAME, path, -1);
+        // }
+        // }
+        // }
     }
 
 }
