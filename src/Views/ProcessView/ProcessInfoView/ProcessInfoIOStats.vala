@@ -51,7 +51,7 @@ public class Monitor.ProcessInfoIOStats : Gtk.Grid {
         attach (cancelled_write_label, 1, 1, 1, 1);
         attach (cancelled_write_bytes_label, 1, 2, 1, 1);
 
-        // attach (opened_files_label, 0, 3, 3, 1);
+        attach (opened_files_label, 0, 3, 3, 1);
 
         var model = new OpenFilesTreeViewModel ();
         var open_files_tree_view_scrolled = new Gtk.ScrolledWindow () {

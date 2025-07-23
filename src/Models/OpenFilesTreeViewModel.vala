@@ -37,6 +37,7 @@ public class Monitor.OpenFilesTreeViewModel : Gtk.TreeStore {
     }
 
     private bool add_path (string path) {
+        debug ("Adding path: %s", path);
         if (path.substring (0, 1) == "/") {
             Gtk.TreeIter iter;
             append (out iter, null);

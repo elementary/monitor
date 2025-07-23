@@ -33,11 +33,15 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 process_info_cpu_ram.clear_graphs ();
                 process_info_cpu_ram.set_charts_data (_process);
 
+                // Setting visibility
+                process_info_cpu_ram.visible = true;
+                process_action_bar.visible = true;
+                process_info_io_stats.visible = true;
+
                 permission_error_infobar.revealed = false;
 
                 process_info_io_stats.open_files_tree_view.model.process = _process;
-                // @TODO: Find workaround for show_all() in PRocessInfoView
-                // process_info_io_stats.open_files_tree_view.show_all ();
+                process_info_io_stats.open_files_tree_view.visible = true;
             }
         }
     }
@@ -181,9 +185,9 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             process_info_io_stats.update (process);
 
             process_info_io_stats.open_files_tree_view.model.process = _process;
-            // @TODO: Find workaround for show_all() in PRocessInfoView
 
-            // process_info_io_stats.open_files_tree_view.show_all ();
+
+            process_info_io_stats.open_files_tree_view.visible = true;
         }
     }
 
