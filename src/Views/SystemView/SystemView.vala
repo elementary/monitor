@@ -69,5 +69,4 @@ public class Monitor.SystemView : Gtk.Box {
             margin_start = 12
         };
     }
-
 }

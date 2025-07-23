@@ -58,9 +58,9 @@ public class Monitor.WidgetResource : Gtk.Box {
         grid_main_onchart_info_container = new Gtk.Grid () {
             column_spacing = 6,
             margin_top = 6,
+            margin_end = 6,
             margin_bottom = 6,
             margin_start = 6,
-            margin_end = 6,
             valign = Gtk.Align.START,
             halign = Gtk.Align.START,
         };
@@ -80,7 +80,7 @@ public class Monitor.WidgetResource : Gtk.Box {
     }
 
     public void add_charts_container (Gtk.Widget widget) {
-        charts_container.prepend (widget);
+        charts_container.append (widget);
     }
 
     public void set_popover_more_info (Gtk.Widget widget) {
