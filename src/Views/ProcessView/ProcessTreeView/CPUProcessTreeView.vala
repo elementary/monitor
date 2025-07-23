@@ -98,6 +98,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
         insert_action_group ("process", action_group);
 
         var key_controller = new Gtk.EventControllerKey ();
+        add_controller (key_controller);
         key_controller.key_released.connect ((keyval, keycode, state) => {
             switch (keyval) {
                 case Gdk.Key.Left:
