@@ -9,15 +9,11 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
     private Gtk.TreeViewColumn pid_column;
     private Gtk.TreeViewColumn cpu_column;
     private Gtk.TreeViewColumn memory_column;
-    private Regex ? regex;
 
     public signal void process_selected (Process process);
 
     public CPUProcessTreeView (TreeViewModel model) {
         this.model = model;
-        /* *INDENT-OFF* */
-        regex = /(?i:^.*\.(xpm|png)$)/; // vala-lint=space-before-paren,
-        /* *INDENT-ON* */
 
         enable_search = false;
 
