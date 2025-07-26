@@ -47,11 +47,6 @@ public class Monitor.Search : Gtk.Box {
             // focus on child row to avoid the app crashes by clicking "Kill/End Process" buttons in headerbar
             process_tree_view.focus_on_child_row ();
             this.grab_focus ();
-
-            if (search_entry.text != "") {
-                // @TODO: Investigate insert_at_cursor workaround for GTK4
-                // this.insert_at_cursor ("");
-            }
         });
 
         search_entry.activate.connect (() => {
@@ -106,9 +101,6 @@ public class Monitor.Search : Gtk.Box {
     public void activate_entry (string search_text = "") {
         search_entry.text = "";
         search_entry.search_changed ();
-
-        // @TODO: Investigate insert_at_cursor workaround for GTK4
-        // search_entry.insert_at_cursor (search_text);
     }
 
 }
