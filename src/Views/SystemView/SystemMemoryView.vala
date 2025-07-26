@@ -41,7 +41,10 @@ public class Monitor.SystemMemoryView : Monitor.WidgetResource {
         Gtk.Grid grid = new Gtk.Grid () {
             column_spacing = 8,
             row_spacing = 4,
-            margin = 6
+            margin_top = 6,
+            margin_bottom = 6,
+            margin_start = 6,
+            margin_end = 6,
         };
 
         grid.attach (memory_used_label, 0, 0, 1, 1);

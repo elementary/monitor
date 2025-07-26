@@ -3,7 +3,8 @@
  * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
  */
 
-public class Monitor.MainWindow : Hdy.ApplicationWindow {
+
+public class Monitor.MainWindow : Gtk.ApplicationWindow {
     public Search search { get; private set; }
     public ProcessView process_view { get; private set; }
 
@@ -32,15 +33,14 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
             valign = CENTER
         };
 
-        var sv = new PreferencesView ();
-        sv.show_all ();
+        var preferences_view = new PreferencesView ();
 
-        var preferences_popover = new Gtk.Popover (null) {
-            child = sv
+        var preferences_popover = new Gtk.Popover () {
+            child = preferences_view
         };
 
         var preferences_button = new Gtk.MenuButton () {
-            image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR),
+            icon_name = "open-menu",
             popover = preferences_popover,
             tooltip_text = (_("Settings"))
         };
@@ -54,25 +54,20 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
             transition_type = SLIDE_LEFT
         };
 
-        var headerbar = new Hdy.HeaderBar () {
-            has_subtitle = false,
-            show_close_button = true,
-            title = _("Monitor")
-        };
+        var headerbar = new Adw.HeaderBar ();
         headerbar.pack_start (search_revealer);
-        headerbar.set_custom_title (stack_switcher);
+        headerbar.set_title_widget (stack_switcher);
         headerbar.pack_end (preferences_button);
 
         var statusbar = new Statusbar ();
 
-        var box = new Gtk.Box (VERTICAL, 0);
-        box.add (headerbar);
-        box.add (stack);
-        box.add (statusbar);
+        var main_container = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
-        child = box;
+        set_titlebar (headerbar);
+        main_container.append (stack);
+        main_container.append (statusbar);
 
-        show_all ();
+        child = main_container;
 
         var dbusserver = DBusServer.get_default ();
 
@@ -100,31 +95,26 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
         dbusserver.quit.connect (() => application.quit ());
         dbusserver.show.connect (() => {
-            this.deiconify ();
-            this.present ();
             setup_window_state ();
-            this.show_all ();
+            present ();
         });
 
-        key_press_event.connect (search.handle_event);
 
-        this.delete_event.connect (() => {
-            int window_width, window_height;
-            get_size (out window_width, out window_height);
-            MonitorApp.settings.set_int ("window-width", window_width);
-            MonitorApp.settings.set_int ("window-height", window_height);
-            MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized);
+        application.window_removed.connect (() => {
+            MonitorApp.settings.set_int ("window-width", get_size (Gtk.Orientation.HORIZONTAL));
+            MonitorApp.settings.set_int ("window-height", get_size (Gtk.Orientation.VERTICAL));
+
+            MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized ());
 
             MonitorApp.settings.set_string ("opened-view", stack.visible_child_name);
 
             if (MonitorApp.settings.get_boolean ("indicator-state")) {
-                this.hide_on_delete ();
+                // Read: https://discourse.gnome.org/t/how-to-hide-widget-instead-removing-them-in-gtk-4/8176
+                this.hide ();
             } else {
                 dbusserver.indicator_state (false);
                 application.quit ();
             }
-
-            return true;
         });
 
         dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
