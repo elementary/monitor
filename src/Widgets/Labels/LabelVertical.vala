@@ -30,17 +30,6 @@ public class Monitor.LabelVertical : Gtk.Box {
         grid.attach (val, 0, 1, 1, 1);
 
         append (grid);
-
-        // @TODO: Find out why it was here.
-        // It is probably a remainings of expandable label,
-        // which is not a thing anymore.
-
-        // events |= Gdk.EventMask.BUTTON_RELEASE_MASK;
-
-        // button_release_event.connect ((event) => {
-        // clicked ();
-        // return false;
-        // });
     }
 
     public void set_text (string text) {
