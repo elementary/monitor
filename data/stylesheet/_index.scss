@@ -165,20 +165,6 @@ roundy-label:hover:selected {
     }
 }
 
-.dim-label {
-    color: rgba($text_color, 0.5);
-}
-
-.small-text {
-    font-weight:bold;
-    font-size:9px;
-    @if $color-scheme == "light" {
-        color:grey;
-    } @else if $color-scheme == "dark" {
-        color: $SILVER_500;
-    }
-}
-
 .graph {
     border-radius: 6px;
 
