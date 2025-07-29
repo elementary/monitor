@@ -31,30 +31,39 @@ public class Monitor.Statusbar : Gtk.Box {
             tooltip_text = _("GPU")
         };
 
-        cpu_usage_label = new Gtk.Label (_("Calculating…"));
-        cpu_usage_label.set_width_chars (4);
-        cpu_usage_label.xalign = 0;
+        cpu_usage_label = new Gtk.Label (_("Calculating…")) {
+            width_chars = 4,
+            xalign = 0,
+            margin_start = 6,
+        };
+
         actionbar.pack_start (cpu_icon);
         actionbar.pack_start (cpu_usage_label);
 
-        memory_usage_label = new Gtk.Label (_("Calculating…"));
-        memory_usage_label.set_width_chars (4);
-        memory_usage_label.xalign = 0;
-        ram_icon.margin_start = 6;
+        memory_usage_label = new Gtk.Label (_("Calculating…")) {
+            width_chars = 4,
+            xalign = 0,
+            margin_start = 6,
+        };
+
         actionbar.pack_start (ram_icon);
         actionbar.pack_start (memory_usage_label);
 
-        swap_usage_label = new Gtk.Label (_("Calculating…"));
-        swap_usage_label.set_width_chars (4);
-        swap_usage_label.xalign = 0;
-        swap_icon.margin_start = 6;
+        swap_usage_label = new Gtk.Label (_("Calculating…")) {
+            width_chars = 4,
+            xalign = 0,
+            margin_start = 6,
+        };
+
         actionbar.pack_start (swap_icon);
         actionbar.pack_start (swap_usage_label);
 
-        gpu_usage_label = new Gtk.Label (_("Calculating…"));
-        gpu_usage_label.set_width_chars (4);
-        gpu_usage_label.xalign = 0;
-        gpu_icon.margin_start = 6;
+        gpu_usage_label = new Gtk.Label (_("Calculating…")) {
+            width_chars = 4,
+            xalign = 0,
+            margin_start = 6,
+        };
+
         actionbar.pack_start (gpu_icon);
         actionbar.pack_start (gpu_usage_label);
 
