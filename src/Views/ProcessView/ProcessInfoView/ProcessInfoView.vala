@@ -47,6 +47,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     }
     public string ? icon_name;
 
+    // How to replace: https://docs.gtk.org/gtk4/class.InfoBar.html
     private Gtk.InfoBar permission_error_infobar;
     private Gtk.Label permission_error_label;
 
@@ -60,9 +61,10 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         orientation = Gtk.Orientation.VERTICAL;
         hexpand = true;
 
-        permission_error_infobar = new Gtk.InfoBar ();
-        permission_error_infobar.message_type = Gtk.MessageType.ERROR;
-        permission_error_infobar.revealed = false;
+        permission_error_infobar = new Gtk.InfoBar () {
+            message_type = Gtk.MessageType.ERROR,
+            revealed = false,
+        };
         permission_error_label = new Gtk.Label (Utils.NO_DATA);
         permission_error_infobar.add_child (permission_error_label);
         append (permission_error_infobar);
@@ -120,7 +122,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 _("This may lead to data loss. Only Force Quit if Shut Down has failed."),
                 new ThemedIcon ("computer-fail"),
                 Gtk.ButtonsType.CANCEL
-            ) {
+                ) {
                 badge_icon = new ThemedIcon ("process-stop"),
                 modal = true,
                 transient_for = (Gtk.Window) get_root ()
@@ -147,7 +149,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 _("The process will be asked to initiate shutdown tasks and close. In some cases the process may not quit."),
                 new ThemedIcon ("system-shutdown"),
                 Gtk.ButtonsType.CANCEL
-            ) {
+                ) {
                 badge_icon = new ThemedIcon ("dialog-question"),
                 modal = true,
                 transient_for = (Gtk.Window) get_root ()
@@ -172,7 +174,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     }
 
     private void show_permission_error_infobar (string error) {
-        if (permission_error_infobar.revealed == false) {
+        if (!permission_error_infobar.revealed) {
             permission_error_label.set_text (error);
             permission_error_infobar.revealed = true;
         }
