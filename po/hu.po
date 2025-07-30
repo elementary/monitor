@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-12 12:48+0000\n"
-"PO-Revision-Date: 2025-07-13 12:55+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2025-07-31 14:55+0000\n"
+"Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/hu/>\n"
 "Language: hu\n"
@@ -125,20 +125,23 @@ msgstr "Megszakított írás"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:89
 msgid "Shut Down…"
-msgstr ""
+msgstr "Leállítás…"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:93
 msgid "Force Quit…"
-msgstr ""
+msgstr "Kényszerített bezárás…"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:109
 #, c-format
 msgid "Force “%s” to quit without initiating shutdown tasks?"
 msgstr ""
+"“%s” kényszerítése a leállásra a leállításkori feladatok elvégzése nélkül?"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:110
 msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
 msgstr ""
+"Adatvesztéshez vezethet. Csak akkor kényszerítse bezárásra, ha a leállítás "
+"sikertelen volt."
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:119
 msgid "Force Quit"
@@ -147,17 +150,19 @@ msgstr "Kényszerített bezárás"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:136
 #, c-format
 msgid "Ask “%s” to shut down?"
-msgstr ""
+msgstr "“%s” megkérése leállásra?"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:137
 msgid ""
 "The process will be asked to initiate shutdown tasks and close. In some "
 "cases the process may not quit."
 msgstr ""
+"A folyamat meg lesz kérve, hogy kezdje el a leállításkori feladatokat és "
+"záródjon be. Néhány esetben a folyamat nem lép ki."
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:146
 msgid "Shut Down"
-msgstr ""
+msgstr "Leállítás"
 
 #. *INDENT-OFF*
 #. vala-lint=space-before-paren,
