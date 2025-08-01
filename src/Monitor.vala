@@ -34,7 +34,8 @@ namespace Monitor {
         public override void startup () {
             base.startup ();
 
-            Hdy.init ();
+            Granite.init ();
+            Adw.init ();
 
             Appearance.set_prefered_style ();
 
@@ -58,7 +59,6 @@ namespace Monitor {
         public override void activate () {
             // only have one window
             if (get_windows () != null) {
-                window.show_all ();
                 window.present ();
                 return;
             }
@@ -89,7 +89,7 @@ namespace Monitor {
                 window.hide ();
                 MonitorApp.settings.set_boolean ("background-state", true);
             } else {
-                window.show_all ();
+                window.present ();
             }
 
             window.process_view.process_tree_view.focus_on_first_row ();
@@ -107,6 +107,13 @@ namespace Monitor {
                 PCIUtils.LIBPCI_MINOR_VER,
                 PCIUtils.LIBPCI_PATCH_VER
                 );
+
+            print (
+                "Gtk %d.%d.%d\n",
+                Gtk.MAJOR_VERSION,
+                Gtk.MINOR_VERSION,
+                Gtk.MICRO_VERSION
+            );
 
             // add command line options
             try {
