@@ -156,7 +156,8 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
             }
         }
         var threads_label = new Gtk.Label (_("THREADS"));
-        threads_label.get_style_context ().add_class ("small-text");
+        threads_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+        threads_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
         grid.attach (threads_label, 0, -1, column, 1);
 
         return grid;
