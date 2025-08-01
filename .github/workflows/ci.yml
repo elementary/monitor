@@ -31,7 +31,7 @@ jobs:
         meson valac sassc git
     - name: Build
       run: |
-        meson setup -Dindicator-wingpanel=disabled build
+        meson setup -Dindicator-wingpanel=enabled build
         meson compile -C build
         # Tests disabled since it starts to test live-chart and some tests fail there
         # meson test -C build --print-errorlogs
