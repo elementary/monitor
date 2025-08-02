@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-12 12:48+0000\n"
-"PO-Revision-Date: 2025-07-13 12:55+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2025-08-02 20:55+0000\n"
+"Last-Translator: JieXu <xujie0739@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
 "l10n.elementaryos.org/projects/desktop/monitor/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -21,11 +21,11 @@ msgstr ""
 
 #: src/MainWindow.vala:27 src/MainWindow.vala:71
 msgid "Monitor"
-msgstr ""
+msgstr "监视器"
 
 #: src/MainWindow.vala:38
 msgid "Processes"
-msgstr ""
+msgstr "进程"
 
 #: src/MainWindow.vala:39
 msgid "System"
@@ -33,7 +33,7 @@ msgstr "系统"
 
 #: src/MainWindow.vala:56
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 #: src/Utils.vala:7
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:37
@@ -45,117 +45,117 @@ msgstr ""
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:39
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:40
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
-msgstr ""
+msgstr "显示监视器"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:21
 msgid "Quit Monitor"
-msgstr ""
+msgstr "退出监视器"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:66
 msgid "PID"
-msgstr ""
+msgstr "PID"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
 msgid "NI"
-msgstr ""
+msgstr "NICE值"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:47
 msgid "PRI"
-msgstr ""
+msgstr "优先度"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:48
 msgid "THR"
-msgstr ""
+msgstr "线程数量"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:102
 msgid "The app is waiting in an uninterruptible disk sleep"
-msgstr ""
+msgstr "进程正在等待不可中断的磁盘操作"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:104
 msgid "Idle kernel thread"
-msgstr ""
+msgstr "空闲内核线程"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:106
 msgid "The process is running or runnable (on run queue)"
-msgstr ""
+msgstr "进程正在运行或可运行（位于运行队列中）"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:108
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
-msgstr ""
+msgstr "进程处于可中断的睡眠状态，正在等待某个事件完成"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:110
 msgid "The process is stopped by a job control signal"
-msgstr ""
+msgstr "进程已被作业控制信号停止"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:112
 msgid "The process is stopped by a debugger during the tracing"
-msgstr ""
+msgstr "进程在跟踪期间被调试器停止"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:114
 msgid "The app is terminated but not reaped by its parent"
-msgstr ""
+msgstr "应用程序已终止，但父进程尚未对其进行回收"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:23
 msgid "Opened files"
-msgstr ""
+msgstr "已打开的文件"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
 msgid "Characters"
-msgstr ""
+msgstr "字符设备"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
 msgid "System calls"
-msgstr ""
+msgstr "系统调用"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
 msgid "Read/Written"
-msgstr ""
+msgstr "读取/写入"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:42
 msgid "Cancelled write"
-msgstr ""
+msgstr "已取消的写入"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:89
 msgid "Shut Down…"
-msgstr ""
+msgstr "发送结束请求…"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:93
 msgid "Force Quit…"
-msgstr ""
+msgstr "强制退出…"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:109
 #, c-format
 msgid "Force “%s” to quit without initiating shutdown tasks?"
-msgstr ""
+msgstr "要强制退出 “%s” 而不关闭它吗？"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:110
 msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
-msgstr ""
+msgstr "这可能导致数据丢失。仅在尝试关闭进程失败后，才应考虑强制退出。"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:119
 msgid "Force Quit"
-msgstr "强制关闭"
+msgstr "强制退出"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:136
 #, c-format
 msgid "Ask “%s” to shut down?"
-msgstr ""
+msgstr "需要关闭 “%s” 吗?"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:137
 msgid ""
 "The process will be asked to initiate shutdown tasks and close. In some "
 "cases the process may not quit."
-msgstr ""
+msgstr "系统将请求该进程开始执行关闭任务，但进程可能不会终止。"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:146
 msgid "Shut Down"
-msgstr ""
+msgstr "关闭"
 
 #. *INDENT-OFF*
 #. vala-lint=space-before-paren,
@@ -163,125 +163,125 @@ msgstr ""
 #. setup name column
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:24
 msgid "Process Name"
-msgstr ""
+msgstr "进程名称"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:45
 #: src/Widgets/Statusbar/Statusbar.vala:14
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:56
 #: src/Views/SystemView/SystemMemoryView.vala:18
 #: src/Widgets/Statusbar/Statusbar.vala:18
 msgid "Memory"
-msgstr ""
+msgstr "内存"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:146
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:151
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:157
 #: src/Widgets/Statusbar/Statusbar.vala:101
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:55
 #, c-format
 msgid "CPU: %.1f%%"
-msgstr ""
+msgstr "CPU: %.1f%%"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:56
 #, c-format
 msgid "RAM: %.1f%%"
-msgstr ""
+msgstr "RAM: %.1f%%"
 
 #: src/Views/PreferencesView.vala:17
 msgid "Update frequency"
-msgstr ""
+msgstr "更新频率"
 
 #: src/Views/PreferencesView.vala:22 src/Views/PreferencesView.vala:52
 msgid "Requires restart"
-msgstr ""
+msgstr "请求重新启动"
 
 #: src/Views/PreferencesView.vala:29
 msgid "1s"
-msgstr ""
+msgstr "1s"
 
 #: src/Views/PreferencesView.vala:30
 msgid "2s"
-msgstr ""
+msgstr "2s"
 
 #: src/Views/PreferencesView.vala:31
 msgid "3s"
-msgstr ""
+msgstr "3s"
 
 #: src/Views/PreferencesView.vala:32
 msgid "4s"
-msgstr ""
+msgstr "4s"
 
 #: src/Views/PreferencesView.vala:33
 msgid "5s"
-msgstr ""
+msgstr "5s"
 
 #: src/Views/PreferencesView.vala:49
 msgid "Start in background"
-msgstr ""
+msgstr "在后台启动"
 
 #: src/Views/PreferencesView.vala:51
 msgid "Draw smooth lines on CPU chart"
-msgstr ""
+msgstr "使用平滑线条绘制 CPU 图表"
 
 #: src/Views/PreferencesView.vala:57
 msgid "Show in panel"
-msgstr ""
+msgstr "在面板中显示"
 
 #: src/Views/PreferencesView.vala:62
 msgid "CPU percentage"
-msgstr ""
+msgstr "CPU 使用率"
 
 #: src/Views/PreferencesView.vala:67
 msgid "CPU frequency"
-msgstr ""
+msgstr "CPU 频率"
 
 #: src/Views/PreferencesView.vala:72
 msgid "CPU temperature"
-msgstr ""
+msgstr "CPU 温度"
 
 #: src/Views/PreferencesView.vala:77
 msgid "RAM percentage"
-msgstr ""
+msgstr "RAM 使用率"
 
 #: src/Views/PreferencesView.vala:82
 msgid "Network upload"
-msgstr ""
+msgstr "网络上传"
 
 #: src/Views/PreferencesView.vala:87
 msgid "Network download"
-msgstr ""
+msgstr "网络下载"
 
 #: src/Views/PreferencesView.vala:92
 msgid "GPU percentage"
-msgstr ""
+msgstr "GPU 使用率"
 
 #: src/Views/PreferencesView.vala:97
 msgid "VRAM percentage"
-msgstr ""
+msgstr "VRAM 使用率"
 
 #: src/Views/PreferencesView.vala:102
 msgid "GPU temperature"
-msgstr ""
+msgstr "GPU 温度"
 
 #: src/Views/SystemView/SystemCPUView.vala:22
 msgid "Frequency"
-msgstr ""
+msgstr "频率"
 
 #: src/Views/SystemView/SystemCPUView.vala:26
 msgid "Temperature"
-msgstr ""
+msgstr "温度"
 
 #. int temperature_index = 0;
 #. foreach (var temperature in cpu.paths_temperatures.values) {
@@ -292,163 +292,163 @@ msgstr ""
 #: src/Views/SystemView/SystemCPUView.vala:85
 #: src/Views/SystemView/SystemGPUView.vala:84
 msgid "℃"
-msgstr ""
+msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:131
 #: src/Widgets/Statusbar/Statusbar.vala:87
 msgid "GHz"
-msgstr ""
+msgstr "GHz"
 
 #: src/Views/SystemView/SystemCPUView.vala:158
 msgid "THREADS"
-msgstr ""
+msgstr "线程"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:26
 msgid "General"
-msgstr ""
+msgstr "一般"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:27
 msgid "Features"
-msgstr ""
+msgstr "功能"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:28
 msgid "Bugs"
-msgstr ""
+msgstr "Bug"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:56
 msgid "Model:"
-msgstr ""
+msgstr "型号："
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:57
 msgid "Family:"
-msgstr ""
+msgstr "家族："
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:58
 msgid "Microcode ver.:"
-msgstr ""
+msgstr "微代码版本："
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:59
 msgid "Bogomips:"
-msgstr ""
+msgstr "Bogomips："
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:63
 msgid "L1 Instruction cache: "
-msgstr ""
+msgstr "L1 指令缓存： "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:67
 msgid "L1 Data cache: "
-msgstr ""
+msgstr "L1 数据缓存： "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:71
 msgid "L1 cache: "
-msgstr ""
+msgstr "L1 缓存： "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:74
 msgid "L2 Cache size: "
-msgstr ""
+msgstr "L2 缓存大小： "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:77
 msgid "L3 Cache size: "
-msgstr ""
+msgstr "L3 缓存大小： "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:80
 msgid "Address sizes: "
-msgstr ""
+msgstr "地址大小： "
 
 #: src/Views/SystemView/SystemMemoryView.vala:10
 msgid "Buffered"
-msgstr ""
+msgstr "缓冲区"
 
 #: src/Views/SystemView/SystemMemoryView.vala:11
 msgid "Cached"
-msgstr ""
+msgstr "缓存"
 
 #: src/Views/SystemView/SystemMemoryView.vala:12
 msgid "Locked"
-msgstr ""
+msgstr "锁定状态"
 
 #: src/Views/SystemView/SystemMemoryView.vala:13
 msgid "Total"
-msgstr ""
+msgstr "总共"
 
 #: src/Views/SystemView/SystemMemoryView.vala:14
 msgid "Used"
-msgstr ""
+msgstr "已使用"
 
 #: src/Views/SystemView/SystemMemoryView.vala:15
 msgid "Shared"
-msgstr ""
+msgstr "共享"
 
 #: src/Views/SystemView/SystemNetworkView.vala:23
 msgid "Network"
-msgstr ""
+msgstr "网络"
 
 #: src/Views/SystemView/SystemNetworkView.vala:25
 msgid "DOWN"
-msgstr ""
+msgstr "下载"
 
 #: src/Views/SystemView/SystemNetworkView.vala:29
 msgid "UP"
-msgstr ""
+msgstr "上传"
 
 #: src/Views/SystemView/SystemStorageView.vala:25
 msgid "Storage"
-msgstr ""
+msgstr "存储设备"
 
 #: src/Views/SystemView/SystemStorageView.vala:27
 msgid "WRITE"
-msgstr ""
+msgstr "写入"
 
 #: src/Views/SystemView/SystemStorageView.vala:31
 msgid "READ"
-msgstr ""
+msgstr "读取"
 
 #: src/Views/SystemView/SystemStorageView.vala:97
 msgid "Not mounted"
-msgstr ""
+msgstr "未挂载"
 
 #: src/Views/SystemView/SystemGPUView.vala:17
 msgid "VRAM"
-msgstr ""
+msgstr "显存"
 
 #: src/Views/SystemView/SystemGPUView.vala:21
 msgid "TEMPERATURE"
-msgstr ""
+msgstr "温度"
 
 #: src/Widgets/Headerbar/Search.vala:17
 msgid "Search Process"
-msgstr ""
+msgstr "搜索进程"
 
 #: src/Widgets/Headerbar/Search.vala:18
 msgid "Type process name or PID to search"
-msgstr ""
+msgstr "输入进程名称或者 PID 来搜索"
 
 #: src/Widgets/Statusbar/Statusbar.vala:22
 msgid "Swap"
-msgstr ""
+msgstr "交换空间"
 
 #: src/Widgets/Statusbar/Statusbar.vala:26
 msgid "GPU"
-msgstr ""
+msgstr "GPU"
 
 #: src/Widgets/Statusbar/Statusbar.vala:29
 #: src/Widgets/Statusbar/Statusbar.vala:35
 #: src/Widgets/Statusbar/Statusbar.vala:42
 #: src/Widgets/Statusbar/Statusbar.vala:49
 msgid "Calculating…"
-msgstr ""
+msgstr "正在计算…"
 
 #: src/Widgets/Statusbar/Statusbar.vala:56
 msgid "🇺🇦"
-msgstr ""
+msgstr "🇺🇦"
 
 #: src/Widgets/Statusbar/Statusbar.vala:57
 msgid "Check on Github"
-msgstr ""
+msgstr "在 GitHub 上查看"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:16
 msgid "UTILIZATION"
-msgstr ""
+msgstr "使用率"
 
 #~ msgid "Disabled"
 #~ msgstr "已禁用"
