@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-12 12:48+0000\n"
-"PO-Revision-Date: 2025-08-02 20:55+0000\n"
+"PO-Revision-Date: 2025-08-06 19:55+0000\n"
 "Last-Translator: lenify <lenify@tutanota.com>\n"
 "Language-Team: Belarusian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/be/>\n"
@@ -22,19 +22,19 @@ msgstr ""
 
 #: src/MainWindow.vala:27 src/MainWindow.vala:71
 msgid "Monitor"
-msgstr ""
+msgstr "Манітор"
 
 #: src/MainWindow.vala:38
 msgid "Processes"
-msgstr ""
+msgstr "Працэсы"
 
 #: src/MainWindow.vala:39
 msgid "System"
-msgstr ""
+msgstr "Сістэма"
 
 #: src/MainWindow.vala:56
 msgid "Settings"
-msgstr ""
+msgstr "Налады"
 
 #: src/Utils.vala:7
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:37
@@ -46,98 +46,100 @@ msgstr ""
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:39
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:40
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
-msgstr ""
+msgstr "Паказаць манітор"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:21
 msgid "Quit Monitor"
-msgstr ""
+msgstr "Выхад"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:66
 msgid "PID"
-msgstr ""
+msgstr "PID"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:47
 msgid "PRI"
-msgstr ""
+msgstr "PRI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:48
 msgid "THR"
-msgstr ""
+msgstr "THR"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:102
 msgid "The app is waiting in an uninterruptible disk sleep"
-msgstr ""
+msgstr "Праграма чакае ў бесперапынным рэжыме сну на дыску"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:104
 msgid "Idle kernel thread"
-msgstr ""
+msgstr "Неактыўны паток ядра"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:106
 msgid "The process is running or runnable (on run queue)"
-msgstr ""
+msgstr "Працэс запушчаны або яго можна запусціць (у чарзе да выканання)"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:108
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
-msgstr ""
+msgstr "Працэс у перапынным сну; чакае канца падзеі"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:110
 msgid "The process is stopped by a job control signal"
-msgstr ""
+msgstr "Працэс спынены сігналам кіравання заданнем"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:112
 msgid "The process is stopped by a debugger during the tracing"
-msgstr ""
+msgstr "Працэс спынены адладкай падчас трасіроўкі"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:114
 msgid "The app is terminated but not reaped by its parent"
-msgstr ""
+msgstr "Праграма спынена, але не выкарыстоўваецца бацькоўскім працэсам"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:23
 msgid "Opened files"
-msgstr ""
+msgstr "Адкрытыя файлы"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
 msgid "Characters"
-msgstr ""
+msgstr "Сімвалы"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
 msgid "System calls"
-msgstr ""
+msgstr "Сістэмныя выклікі"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
 msgid "Read/Written"
-msgstr ""
+msgstr "Счытана/Запісана"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:42
 msgid "Cancelled write"
-msgstr ""
+msgstr "Скасаваны запіс"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:89
 msgid "Shut Down…"
-msgstr ""
+msgstr "Завяршэнне працы…"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:93
 msgid "Force Quit…"
-msgstr ""
+msgstr "Прымусовае закрыццё…"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:109
 #, c-format
 msgid "Force “%s” to quit without initiating shutdown tasks?"
-msgstr ""
+msgstr "Прымусова закрыць “%s” без выканання канчатковых задач?"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:110
 msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
 msgstr ""
+"Гэта можа прывесці да страты даных. Выкарыстоўвайце прымусовае закрыццё "
+"толькі калі завяршэнне працы не ўдалося."
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:119
 msgid "Force Quit"
@@ -146,17 +148,19 @@ msgstr "Закрыць прымусова"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:136
 #, c-format
 msgid "Ask “%s” to shut down?"
-msgstr ""
+msgstr "Запытаць завяршэнне працы “%s”?"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:137
 msgid ""
 "The process will be asked to initiate shutdown tasks and close. In some "
 "cases the process may not quit."
 msgstr ""
+"Працэсу паступіць запыт на выкананне канчатковых задач і закрыццё. У "
+"некаторых выпадках працэс можа не завяршыцца."
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:146
 msgid "Shut Down"
-msgstr ""
+msgstr "Завершыць працу"
 
 #. *INDENT-OFF*
 #. vala-lint=space-before-paren,
@@ -164,85 +168,85 @@ msgstr ""
 #. setup name column
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:24
 msgid "Process Name"
-msgstr ""
+msgstr "Назва працэсу"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:45
 #: src/Widgets/Statusbar/Statusbar.vala:14
 msgid "CPU"
-msgstr ""
+msgstr "ЦП"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:56
 #: src/Views/SystemView/SystemMemoryView.vala:18
 #: src/Widgets/Statusbar/Statusbar.vala:18
 msgid "Memory"
-msgstr ""
+msgstr "Памяць"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:146
 msgid "KiB"
-msgstr ""
+msgstr "КіБ"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:151
 msgid "MiB"
-msgstr ""
+msgstr "МіБ"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:157
 #: src/Widgets/Statusbar/Statusbar.vala:101
 msgid "GiB"
-msgstr ""
+msgstr "ГіБ"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:55
 #, c-format
 msgid "CPU: %.1f%%"
-msgstr ""
+msgstr "ЦП: %.1f%%"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:56
 #, c-format
 msgid "RAM: %.1f%%"
-msgstr ""
+msgstr "Памяць: %.1f%%"
 
 #: src/Views/PreferencesView.vala:17
 msgid "Update frequency"
-msgstr ""
+msgstr "Частата абнаўлення"
 
 #: src/Views/PreferencesView.vala:22 src/Views/PreferencesView.vala:52
 msgid "Requires restart"
-msgstr ""
+msgstr "Патрабуе перазагрузкі"
 
 #: src/Views/PreferencesView.vala:29
 msgid "1s"
-msgstr ""
+msgstr "1 с"
 
 #: src/Views/PreferencesView.vala:30
 msgid "2s"
-msgstr ""
+msgstr "2 с"
 
 #: src/Views/PreferencesView.vala:31
 msgid "3s"
-msgstr ""
+msgstr "3 с"
 
 #: src/Views/PreferencesView.vala:32
 msgid "4s"
-msgstr ""
+msgstr "4 с"
 
 #: src/Views/PreferencesView.vala:33
 msgid "5s"
-msgstr ""
+msgstr "5 с"
 
 #: src/Views/PreferencesView.vala:49
 msgid "Start in background"
-msgstr ""
+msgstr "Запуск у фоне"
 
 #: src/Views/PreferencesView.vala:51
 msgid "Draw smooth lines on CPU chart"
-msgstr ""
+msgstr "Плаўныя лініі для дыяграмы ЦП"
 
 #: src/Views/PreferencesView.vala:57
 msgid "Show in panel"
-msgstr ""
+msgstr "Паказваць на панэлі"
 
 #: src/Views/PreferencesView.vala:62
 msgid "CPU percentage"
-msgstr ""
+msgstr "Выкарыстоўванне ЦП"
 
 #: src/Views/PreferencesView.vala:67
 msgid "CPU frequency"
