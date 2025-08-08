@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-12 12:48+0000\n"
-"PO-Revision-Date: 2025-08-06 19:55+0000\n"
+"PO-Revision-Date: 2025-08-09 18:55+0000\n"
 "Last-Translator: lenify <lenify@tutanota.com>\n"
 "Language-Team: Belarusian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/be/>\n"
@@ -250,11 +250,11 @@ msgstr "Выкарыстоўванне ЦП"
 
 #: src/Views/PreferencesView.vala:67
 msgid "CPU frequency"
-msgstr ""
+msgstr "Частата ЦП"
 
 #: src/Views/PreferencesView.vala:72
 msgid "CPU temperature"
-msgstr ""
+msgstr "Тэмпература ЦП"
 
 #: src/Views/PreferencesView.vala:77
 msgid "RAM percentage"
