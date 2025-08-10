@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-12 12:48+0000\n"
-"PO-Revision-Date: 2025-08-09 18:55+0000\n"
+"PO-Revision-Date: 2025-08-11 20:55+0000\n"
 "Last-Translator: lenify <lenify@tutanota.com>\n"
 "Language-Team: Belarusian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/be/>\n"
@@ -258,35 +258,35 @@ msgstr "Тэмпература ЦП"
 
 #: src/Views/PreferencesView.vala:77
 msgid "RAM percentage"
-msgstr ""
+msgstr "Выкарыстоўванне аператыўнай памяці"
 
 #: src/Views/PreferencesView.vala:82
 msgid "Network upload"
-msgstr ""
+msgstr "Хуткасць запампоўкі"
 
 #: src/Views/PreferencesView.vala:87
 msgid "Network download"
-msgstr ""
+msgstr "Хуткасць спампоўкі"
 
 #: src/Views/PreferencesView.vala:92
 msgid "GPU percentage"
-msgstr ""
+msgstr "Выкарыстанне графічнага працэсара"
 
 #: src/Views/PreferencesView.vala:97
 msgid "VRAM percentage"
-msgstr ""
+msgstr "Выкарыстоўванне відэапамяці"
 
 #: src/Views/PreferencesView.vala:102
 msgid "GPU temperature"
-msgstr ""
+msgstr "Тэмпература графічнага працэсара"
 
 #: src/Views/SystemView/SystemCPUView.vala:22
 msgid "Frequency"
-msgstr ""
+msgstr "Частата"
 
 #: src/Views/SystemView/SystemCPUView.vala:26
 msgid "Temperature"
-msgstr ""
+msgstr "Тэмпература"
 
 #. int temperature_index = 0;
 #. foreach (var temperature in cpu.paths_temperatures.values) {
@@ -297,160 +297,160 @@ msgstr ""
 #: src/Views/SystemView/SystemCPUView.vala:85
 #: src/Views/SystemView/SystemGPUView.vala:84
 msgid "℃"
-msgstr ""
+msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:131
 #: src/Widgets/Statusbar/Statusbar.vala:87
 msgid "GHz"
-msgstr ""
+msgstr "ГГц"
 
 #: src/Views/SystemView/SystemCPUView.vala:158
 msgid "THREADS"
-msgstr ""
+msgstr "ПАТОКІ"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:26
 msgid "General"
-msgstr ""
+msgstr "Агульныя"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:27
 msgid "Features"
-msgstr ""
+msgstr "Функцыі"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:28
 msgid "Bugs"
-msgstr ""
+msgstr "Хібы"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:56
 msgid "Model:"
-msgstr ""
+msgstr "Мадэль:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:57
 msgid "Family:"
-msgstr ""
+msgstr "Сям'я:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:58
 msgid "Microcode ver.:"
-msgstr ""
+msgstr "Вер. мікракода:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:59
 msgid "Bogomips:"
-msgstr ""
+msgstr "Bogomips:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:63
 msgid "L1 Instruction cache: "
-msgstr ""
+msgstr "Кэш інструкцый L1: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:67
 msgid "L1 Data cache: "
-msgstr ""
+msgstr "Кэш даных L1: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:71
 msgid "L1 cache: "
-msgstr ""
+msgstr "Кэш L1: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:74
 msgid "L2 Cache size: "
-msgstr ""
+msgstr "Памер кэшу L2: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:77
 msgid "L3 Cache size: "
-msgstr ""
+msgstr "Памер кэшу L3: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:80
 msgid "Address sizes: "
-msgstr ""
+msgstr "Памеры адрасоў: "
 
 #: src/Views/SystemView/SystemMemoryView.vala:10
 msgid "Buffered"
-msgstr ""
+msgstr "Буферызавана"
 
 #: src/Views/SystemView/SystemMemoryView.vala:11
 msgid "Cached"
-msgstr ""
+msgstr "Кэшавана"
 
 #: src/Views/SystemView/SystemMemoryView.vala:12
 msgid "Locked"
-msgstr ""
+msgstr "Заблакіравана"
 
 #: src/Views/SystemView/SystemMemoryView.vala:13
 msgid "Total"
-msgstr ""
+msgstr "Усяго"
 
 #: src/Views/SystemView/SystemMemoryView.vala:14
 msgid "Used"
-msgstr ""
+msgstr "Выкарыстана"
 
 #: src/Views/SystemView/SystemMemoryView.vala:15
 msgid "Shared"
-msgstr ""
+msgstr "Абагульнена"
 
 #: src/Views/SystemView/SystemNetworkView.vala:23
 msgid "Network"
-msgstr ""
+msgstr "Сетка"
 
 #: src/Views/SystemView/SystemNetworkView.vala:25
 msgid "DOWN"
-msgstr ""
+msgstr "СПАМП"
 
 #: src/Views/SystemView/SystemNetworkView.vala:29
 msgid "UP"
-msgstr ""
+msgstr "ЗАПАМП"
 
 #: src/Views/SystemView/SystemStorageView.vala:25
 msgid "Storage"
-msgstr ""
+msgstr "Сховішча"
 
 #: src/Views/SystemView/SystemStorageView.vala:27
 msgid "WRITE"
-msgstr ""
+msgstr "ЗАПІС"
 
 #: src/Views/SystemView/SystemStorageView.vala:31
 msgid "READ"
-msgstr ""
+msgstr "ЧЫТАННЕ"
 
 #: src/Views/SystemView/SystemStorageView.vala:97
 msgid "Not mounted"
-msgstr ""
+msgstr "Не падключана"
 
 #: src/Views/SystemView/SystemGPUView.vala:17
 msgid "VRAM"
-msgstr ""
+msgstr "ВІДЭА"
 
 #: src/Views/SystemView/SystemGPUView.vala:21
 msgid "TEMPERATURE"
-msgstr ""
+msgstr "ТЭМПЕРАТУРА"
 
 #: src/Widgets/Headerbar/Search.vala:17
 msgid "Search Process"
-msgstr ""
+msgstr "Пошук працэсу"
 
 #: src/Widgets/Headerbar/Search.vala:18
 msgid "Type process name or PID to search"
-msgstr ""
+msgstr "Увядзіце назву працэсу або PID для пошуку"
 
 #: src/Widgets/Statusbar/Statusbar.vala:22
 msgid "Swap"
-msgstr ""
+msgstr "Swap"
 
 #: src/Widgets/Statusbar/Statusbar.vala:26
 msgid "GPU"
-msgstr ""
+msgstr "Графічны працэсар"
 
 #: src/Widgets/Statusbar/Statusbar.vala:29
 #: src/Widgets/Statusbar/Statusbar.vala:35
 #: src/Widgets/Statusbar/Statusbar.vala:42
 #: src/Widgets/Statusbar/Statusbar.vala:49
 msgid "Calculating…"
-msgstr ""
+msgstr "Падлік…"
 
 #: src/Widgets/Statusbar/Statusbar.vala:56
 msgid "🇺🇦"
-msgstr ""
+msgstr "🇺🇦"
 
 #: src/Widgets/Statusbar/Statusbar.vala:57
 msgid "Check on Github"
-msgstr ""
+msgstr "Праглядзець на Github"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:16
 msgid "UTILIZATION"
-msgstr ""
+msgstr "ВЫКАРЫСТАННЕ"
