@@ -20,7 +20,7 @@ public class Monitor.Appearance : Object {
             provider.load_from_resource ("/io/elementary/monitor/monitor-light.css");
         }
 
-        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        Gtk.StyleContext.add_provider_for_display (Gdk.Display.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         // We listen to changes in Granite.Settings and update our app if the user changes their preference
         granite_settings.notify["prefers-color-scheme"].connect (() => {
