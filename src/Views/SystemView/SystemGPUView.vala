@@ -3,12 +3,14 @@ public class Monitor.SystemGPUView : Monitor.WidgetResource {
     private Chart gpu_vram_percentage_chart;
     private Chart gpu_temperature_chart;
     private IGPU gpu;
+    private UDevGPUInfo gpuinfo;
 
     private LabelRoundy gpu_vram_percentage_label;
     private LabelRoundy gpu_temperature_label;
 
 
     construct {
+        gpuinfo = new UDevGPUInfo ();
         gpu_vram_percentage_label = new LabelRoundy (_("VRAM"));
         gpu_vram_percentage_label.margin = 6;
         gpu_vram_percentage_label.margin_top = 2;
@@ -51,6 +53,10 @@ public class Monitor.SystemGPUView : Monitor.WidgetResource {
         gpu = _gpu;
 
         title = gpu.name;
+        debug (gpu.name);
+        if(gpu.name == null){
+            title = gpuinfo.get_model_name();
+        }
 
         gpu_chart = new Chart (1);
         gpu_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));

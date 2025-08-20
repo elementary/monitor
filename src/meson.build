@@ -68,6 +68,7 @@ source_app_files = [
     'Resources/ResourcesSerialized.vala',
     'Resources/CPU.vala',
     'Resources/CPUCache.vala',
+    'Resources/UDevGPUInfo.vala',
     'Resources/Core.vala',
     'Resources/Memory.vala',
     'Resources/Swap.vala',

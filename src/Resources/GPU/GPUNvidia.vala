@@ -32,7 +32,7 @@ public class Monitor.GPUNvidia : IGPU, Object {
     public X.Display nvidia_display;
 
     construct {
-        //  session_manager = get_sessman ();
+        // session_manager = get_sessman ();
         nvidia_display = new X.Display ();
     }
 
