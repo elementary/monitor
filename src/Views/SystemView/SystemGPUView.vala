@@ -80,8 +80,8 @@ public class Monitor.SystemGPUView : Monitor.WidgetResource {
 
         gpu_vram_percentage_chart.update (0, gpu.memory_percentage);
         gpu_temperature_chart.update (0, gpu.temperature);
-        gpu_vram_percentage_label.set_text (("%.2f %s").printf (gpu.memory_percentage, "%"));
-        gpu_temperature_label.set_text (("%.2f %s").printf (gpu.temperature, _("℃")));
+        gpu_vram_percentage_label.text = ("%.2f %s").printf (gpu.memory_percentage, "%");
+        gpu_temperature_label.text = ("%.2f %s").printf (gpu.temperature, _("℃"));
 
     }
 
