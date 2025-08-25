@@ -29,6 +29,7 @@ public class Monitor.LabelRoundy : Gtk.Box {
     }
 
     construct {
+        halign = Gtk.Align.START;
         val = new Gtk.Label (Utils.NO_DATA) {
             selectable = true
         };
