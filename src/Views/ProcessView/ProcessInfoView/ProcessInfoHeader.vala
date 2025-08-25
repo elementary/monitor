@@ -67,28 +67,25 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
     public void update (Process process) {
         application_name.label = process.application_name;
         application_name.tooltip_text = process.command;
-        pid.set_text (process.stat.pid.to_string ());
-        nice.set_text (process.stat.nice.to_string ());
-        priority.set_text (process.stat.priority.to_string ());
+        pid.text = process.stat.pid.to_string ();
+        nice.text = process.stat.nice.to_string ();
+        priority.text = process.stat.priority.to_string ();
 
         if (process.uid == 0) {
-            username.val.add_css_class ("username-root");
-            username.val.remove_css_class ("username-other");
-            username.val.remove_css_class ("username-current");
+            username.add_css_class ("username-root");
+            username.remove_css_class ("username-other");
         } else if (process.uid == (int) Posix.getuid ()) {
-            username.val.add_css_class ("username-current");
-            username.val.remove_css_class ("username-other");
-            username.val.remove_css_class ("username-root");
+            username.remove_css_class ("username-other");
+            username.remove_css_class ("username-root");
         } else {
-            username.val.add_css_class ("username-other");
-            username.val.remove_css_class ("username-root");
-            username.val.remove_css_class ("username-current");
+            username.add_css_class ("username-other");
+            username.remove_css_class ("username-root");
         }
 
-        username.set_text (process.username);
+        username.text = process.username;
         username.tooltip_text = process.uid.to_string ();
 
-        num_threads.set_text (process.stat.num_threads.to_string ());
+        num_threads.text = process.stat.num_threads.to_string ();
 
         state.label = process.stat.state;
         state.tooltip_text = set_state_tooltip ();

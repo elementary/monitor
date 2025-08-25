@@ -23,6 +23,9 @@ public class Monitor.LabelVertical : Gtk.Box {
         val = new Gtk.Label (Utils.NO_DATA);
         val.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
 
+        // this can be archived by Gtk.STYLE_CLASS_DIM_LABEL and
+        // Granite.STYLE_CLASS_SMALL_LABEL, however the style
+        // slightly differs from the OG
         desc = new Gtk.Label (description.up ());
         desc.add_css_class ("small-text");
 

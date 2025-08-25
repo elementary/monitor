@@ -3,29 +3,45 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-public class Monitor.LabelRoundy : Gtk.Fixed {
-    public Gtk.Label val;
-    public Gtk.Label desc;
+public class Monitor.LabelRoundy : Gtk.Box {
+    public string title { get; construct; }
 
-    public LabelRoundy (string description) {
+    public string text {
+        set {
+            val.label = value;
+        }
+    }
+
+    public int width_chars {
+        set {
+            val.width_chars = value;
+        }
+    }
+
+    private Gtk.Label val;
+
+    public LabelRoundy (string title) {
+        Object (title: title);
+    }
+
+    class construct {
+        set_css_name ("roundy-label");
+    }
+
+    construct {
+        halign = Gtk.Align.START;
         val = new Gtk.Label (Utils.NO_DATA) {
             selectable = true
         };
-        val.add_css_class ("roundy-label");
+        val.add_css_class ("value");
 
-        desc = new Gtk.Label (description.up ());
-        desc.add_css_class ("small-text");
+        var header_label = new Granite.HeaderLabel (title.up ()) {
+            mnemonic_widget = val
+        };
+        header_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
 
-        put (val, 0, 12);
-        put (desc, 6, 0);
+        orientation = VERTICAL;
+        append (header_label);
+        append (val);
     }
-
-    public void set_color (string colorname) {
-        val.add_css_class (colorname);
-    }
-
-    public void set_text (string text) {
-        val.set_text (text);
-    }
-
 }
