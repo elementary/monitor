@@ -12,10 +12,6 @@ roundy-label:selected:focus,
 roundy-label:hover:selected {
     margin: 0 3px;
 
-    .small-label {
-        padding: 0;
-    }
-
     .value {
         color: #{'alpha(@text_color, 0.7)'};
         font-feature-settings: "tnum";
@@ -23,9 +19,11 @@ roundy-label:hover:selected {
         border-radius: 10px;
         padding: 0 6px;
 
-        @if $color-scheme == "light" {
+        @if $color-scheme =="light" {
             background-color: $SILVER_300;
-        } @else if $color-scheme == "dark" {
+        }
+
+        @else if $color-scheme =="dark" {
             background-color: $SILVER_900;
         }
     }
@@ -51,6 +49,29 @@ roundy-label:hover:selected {
     }
 }
 
+.small-label {
+    padding: 0;
+    font-weight: bold;
+    font-size: 9px;
+
+    @if $color-scheme =="light" {
+        color: grey;
+    }
+
+    @else if $color-scheme =="dark" {
+        color: $SILVER_500;
+    }
+}
+
+.label-vertical {
+    &-val {
+        color: $text_color;
+        font-size: 30px;
+        font-weight: 200;
+        border-width: 0;
+    }
+}
+
 .grape_500 {
     background-color: rgba($GRAPE_500, 0.6);
 }
@@ -61,10 +82,13 @@ roundy-label:hover:selected {
 
 .usage-label-container {
     border-radius: 3px;
-    @if $color-scheme == "light" {
+
+    @if $color-scheme =="light" {
         background-color: rgba($SILVER_100, 0.5);
         border: 1px solid $SILVER_300;
-    } @else if $color-scheme == "dark" {
+    }
+
+    @else if $color-scheme =="dark" {
         background-color: rgba($SILVER_900, 0.5);
         border: 1px solid $SILVER_900;
     }
@@ -89,25 +113,29 @@ roundy-label:hover:selected {
 .core_badge {
     border-radius: 8px;
     padding-right: 4px;
-    padding-left:2px;
+    padding-left: 2px;
     font-size: 10px;
 
-    @if $color-scheme == "light" {
+    @if $color-scheme =="light" {
         border: 1px solid $SILVER_300;
         background-color: $SILVER_100;
 
-    } @else if $color-scheme == "dark" {
+    }
+
+    @else if $color-scheme =="dark" {
         border: 1px solid $SILVER_700;
         background-color: $SILVER_900;
     }
-    
+
 
     &-mild-warning {
-        @if $color-scheme == "light" {
+        @if $color-scheme =="light" {
             background-color: rgba($BANANA_100, 0.7);
             color: $BANANA_900;
-            border: 1px solid rgba($BANANA_300, 0.7);    
-        } @else if $color-scheme == "dark" {
+            border: 1px solid rgba($BANANA_300, 0.7);
+        }
+
+        @else if $color-scheme =="dark" {
             background-color: rgba($BANANA_900, 0.7);
             color: $BANANA_300;
             border: 1px solid rgba($BANANA_700, 0.7);
@@ -115,11 +143,13 @@ roundy-label:hover:selected {
     }
 
     &-strong-warning {
-        @if $color-scheme == "light" {
+        @if $color-scheme =="light" {
             background-color: rgba($ORANGE_100, 0.7);
             color: $ORANGE_900;
             border: 1px solid rgba($ORANGE_300, 0.7);
-        } @else if $color-scheme == "dark" {
+        }
+
+        @else if $color-scheme =="dark" {
             background-color: rgba($ORANGE_900, 0.7);
             color: $ORANGE_300;
             border: 1px solid rgba($ORANGE_700, 0.7);
@@ -131,11 +161,13 @@ roundy-label:hover:selected {
         color: $STRAWBERRY_700;
         border: 1px solid $STRAWBERRY_300;
 
-        @if $color-scheme == "light" {
+        @if $color-scheme =="light" {
             background-color: rgba($STRAWBERRY_100, 0.7);
             color: $STRAWBERRY_700;
             border: 1px solid rgba($STRAWBERRY_300, 0.7);
-        } @else if $color-scheme == "dark" {
+        }
+
+        @else if $color-scheme =="dark" {
             background-color: rgba($STRAWBERRY_900, 0.7);
             color: $STRAWBERRY_100;
             border: 1px solid rgba($STRAWBERRY_700, 0.7);
@@ -168,29 +200,35 @@ roundy-label:hover:selected {
 .graph {
     border-radius: 6px;
 
-    @if $color-scheme == "light" {
+    @if $color-scheme =="light" {
         border: 1px $SILVER_300 solid;
-    } @else if $color-scheme == "dark" {
+    }
+
+    @else if $color-scheme =="dark" {
         border: 1px $SILVER_900 solid;
     }
 }
 
 .open_files_list_box_wrapper {
-    @if $color-scheme == "light" {
+    @if $color-scheme =="light" {
         border: 1px $SILVER_300 solid;
-    } @else if $color-scheme == "dark" {
+    }
+
+    @else if $color-scheme =="dark" {
         border: 1px $SILVER_900 solid;
     }
 }
 
 .open_files_list_box {
     &_row {
-        @if $color-scheme == "light" {
+        @if $color-scheme =="light" {
             border-bottom: 1px $SILVER_100 solid;
-        } @else if $color-scheme == "dark" {
+        }
+
+        @else if $color-scheme =="dark" {
             border-bottom: 1px $SILVER_900 solid;
         }
-        
+
         label {
             font-family: monospace;
             /* background-color: $SILVER_300; */

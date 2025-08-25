@@ -14,18 +14,25 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
 
     private Gtk.Grid grid_temperature_info = new Gtk.Grid ();
 
-    private Gee.ArrayList<Gtk.Label ? > core_label_list;
+    private Gee.ArrayList<Gtk.Label ?> core_label_list;
 
     construct {
         core_label_list = new Gee.ArrayList<Gtk.Label> ();
 
-        cpu_frequency_label = new LabelRoundy (_("Frequency"));
-        cpu_frequency_label.margin = 6;
-        cpu_frequency_label.margin_top = 2;
+        cpu_frequency_label = new LabelRoundy (_("Frequency")) {
+            margin_top = 2,
+            margin_end = 6,
+            margin_bottom = 6,
+            margin_start = 6
+        };
 
-        cpu_temperature_label = new LabelRoundy (_("Temperature"));
-        cpu_temperature_label.margin = 6;
-        cpu_temperature_label.margin_top = 2;
+        cpu_temperature_label = new LabelRoundy (_("Temperature")) {
+            margin_top = 2,
+            margin_end = 6,
+            margin_bottom = 6,
+            margin_start = 6
+        };
+
 
         cpu_frequency_chart = new Chart (1);
         cpu_frequency_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
@@ -38,16 +45,16 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
 
         grid_temperature_info.attach (cpu_temperature_label, 0, 0, 1, 1);
 
+        var smol_charts_container = new Gtk.Grid () {
+            width_request = 200,
+            hexpand = false,
+            halign = Gtk.Align.START,
+            row_spacing = 6,
+            margin_start = 6,
+        };
 
-
-        var smol_charts_container = new Gtk.Grid ();
-        smol_charts_container.width_request = 200;
-        smol_charts_container.hexpand = false;
-        smol_charts_container.halign = Gtk.Align.START;
         smol_charts_container.attach (grid_frequency_info, 0, 0, 1, 1);
         smol_charts_container.attach (grid_temperature_info, 0, 1, 1, 1);
-        smol_charts_container.row_spacing = 6;
-        smol_charts_container.margin_start = 6;
 
         add_charts_container (smol_charts_container);
     }
@@ -75,12 +82,12 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
     public void update () {
         cpu_frequency_chart.update (0, cpu.frequency);
 
-        //  int temperature_index = 0;
-        //  foreach (var temperature in cpu.paths_temperatures.values) {
-        //      debug (temperature.input);
-        //      cpu_temperature_chart.update (temperature_index, int.parse (temperature.input) / 1000);
-        //      temperature_index++;
-        //  }]
+        // int temperature_index = 0;
+        // foreach (var temperature in cpu.paths_temperatures.values) {
+        // debug (temperature.input);
+        // cpu_temperature_chart.update (temperature_index, int.parse (temperature.input) / 1000);
+        // temperature_index++;
+        // }]
         cpu_temperature_chart.update (0, cpu.temperature_mean);
         cpu_temperature_label.text = ("%.2f %s").printf (cpu.temperature_mean, _("℃"));
 
@@ -105,26 +112,26 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
             string percentage_formatted = ("% 3d%%").printf ((int) core_percentage);
             core_label_list[i].set_text (percentage_formatted);
 
-            core_label_list[i].get_style_context ().remove_class ("core_badge-mild-warning");
-            core_label_list[i].get_style_context ().remove_class ("core_badge-strong-warning");
-            core_label_list[i].get_style_context ().remove_class ("core_badge-critical-warning");
+            core_label_list[i].remove_css_class ("core_badge-mild-warning");
+            core_label_list[i].remove_css_class ("core_badge-strong-warning");
+            core_label_list[i].remove_css_class ("core_badge-critical-warning");
 
 
             if (core_percentage > 75.0) {
-                core_label_list[i].get_style_context ().add_class ("core_badge-mild-warning");
-                core_label_list[i].get_style_context ().remove_class ("core_badge-strong-warning");
-                core_label_list[i].get_style_context ().remove_class ("core_badge-critical-warning");
+                core_label_list[i].add_css_class ("core_badge-mild-warning");
+                core_label_list[i].remove_css_class ("core_badge-strong-warning");
+                core_label_list[i].remove_css_class ("core_badge-critical-warning");
             }
             if (core_percentage > 85.0) {
-                core_label_list[i].get_style_context ().add_class ("core_badge-strong-warning");
-                core_label_list[i].get_style_context ().remove_class ("core_badge-mild-warning");
-                core_label_list[i].get_style_context ().remove_class ("core_badge-critical-warning");
+                core_label_list[i].add_css_class ("core_badge-strong-warning");
+                core_label_list[i].remove_css_class ("core_badge-mild-warning");
+                core_label_list[i].remove_css_class ("core_badge-critical-warning");
             }
 
             if (core_percentage > 90.0) {
-                core_label_list[i].get_style_context ().add_class ("core_badge-critical-warning");
-                core_label_list[i].get_style_context ().remove_class ("core_badge-mild-warning");
-                core_label_list[i].get_style_context ().remove_class ("core_badge-strong-warning");
+                core_label_list[i].add_css_class ("core_badge-critical-warning");
+                core_label_list[i].remove_css_class ("core_badge-mild-warning");
+                core_label_list[i].remove_css_class ("core_badge-strong-warning");
             }
         }
         label_vertical_main_metric = ("%d%%").printf (cpu.percentage);
@@ -135,7 +142,10 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         Gtk.Grid grid = new Gtk.Grid () {
             column_spacing = 8,
             row_spacing = 4,
-            margin = 6
+            margin_top = 6,
+            margin_bottom = 6,
+            margin_start = 6,
+            margin_end = 6,
         };
 
         int column = 0;
@@ -143,7 +153,7 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         for (int i = 0; i < cpu.core_list.size; i++) {
             var core_label = new Gtk.Label (Utils.NO_DATA);
             core_label.set_width_chars (4);
-            core_label.get_style_context ().add_class ("core_badge");
+            core_label.add_css_class ("core_badge");
             // core_label.set_text (Utils.NO_DATA);
             core_label_list.add (core_label);
 
@@ -156,10 +166,13 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
             }
         }
         var threads_label = new Gtk.Label (_("THREADS"));
-        threads_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
-        threads_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
+        // this can be archived by Gtk.STYLE_CLASS_DIM_LABEL and
+        // Granite.STYLE_CLASS_SMALL_LABEL, however the style is
+        // differs from the OG
+        threads_label.add_css_class ("small-label");
         grid.attach (threads_label, 0, -1, column, 1);
 
         return grid;
     }
+
 }
