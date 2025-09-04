@@ -322,13 +322,6 @@ public class Monitor.Process : GLib.Object {
         GTop.get_proc_mem (out proc_mem, stat.pid);
         mem_usage = (proc_mem.resident - proc_mem.share) / 1024; // in KiB
 
-        // also if it is using X Window Server
-        if (Gdk.Display.get_default () is Gdk.X11.Display) {
-            // @TODO figure this out for wayland and X11 in gtk4
-            //  Wnck.ResourceUsage resu = Wnck.ResourceUsage.pid_read (Gdk.Display.get_default (), stat.pid);
-            //  mem_usage += (resu.total_bytes_estimate / 1024);
-        }
-
         var total_installed_memory = (double) mem.total / 1024;
         mem_percentage = (mem_usage / total_installed_memory) * 100;
 
