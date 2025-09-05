@@ -28,12 +28,12 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
         network_download_label = new LabelRoundy (_("DOWN")) {
             width_chars = 7
         };
-        network_download_label.get_style_context ().add_class ("blue");
+        network_download_label.add_css_class ("blue");
 
         network_upload_label = new LabelRoundy (_("UP")) {
             width_chars = 7
         };
-        network_upload_label.get_style_context ().add_class ("green");
+        network_upload_label.add_css_class ("green");
 
         network_chart = new Chart (2);
         network_chart.config.y_axis.fixed_max = null;
@@ -52,8 +52,8 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
         labels_box.append (network_upload_label);
 
         attach (network_name_label, 0, 0, 1, 1);
-        attach (labels_box, 0, 1, 2, 2);
         attach (network_chart, 0, 1, 2, 2);
+        attach (labels_box, 0, 1, 2, 2);
     }
 
     public void update () {

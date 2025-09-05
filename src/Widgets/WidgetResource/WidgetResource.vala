@@ -47,15 +47,7 @@ public class Monitor.WidgetResource : Gtk.Box {
 
 
         grid_main_chart_container = new Gtk.Grid ();
-        grid_main_chart_container.attach (build_grid_main_onchart_info_container (), 0, 0, 1, 1);
 
-        charts_container.prepend (grid_main_chart_container);
-
-        append (charts_container);
-
-    }
-
-    private Gtk.Grid build_grid_main_onchart_info_container () {
         grid_main_onchart_info_container = new Gtk.Grid () {
             column_spacing = 6,
             margin_top = 6,
@@ -69,8 +61,12 @@ public class Monitor.WidgetResource : Gtk.Box {
         grid_main_onchart_info_container.add_css_class ("usage-label-container");
         grid_main_onchart_info_container.attach (_label_vertical_main_metric, 0, 0, 1, 1);
 
-        return grid_main_onchart_info_container;
+        charts_container.append (grid_main_chart_container);
+
+        append (charts_container);
+
     }
+
 
     public void set_main_chart (Chart chart) {
         grid_main_chart_container.attach (chart, 0, 0, 1, 1);
@@ -78,6 +74,8 @@ public class Monitor.WidgetResource : Gtk.Box {
 
     public void set_main_chart_overlay (Gtk.Widget widget) {
         grid_main_onchart_info_container.attach (widget, 1, 0, 1, 1);
+        grid_main_chart_container.attach (grid_main_onchart_info_container, 0, 0, 1, 1);
+
     }
 
     public void add_charts_container (Gtk.Widget widget) {
@@ -87,7 +85,7 @@ public class Monitor.WidgetResource : Gtk.Box {
     public void set_popover_more_info (Gtk.Widget widget) {
         var popover_more_info = new Gtk.Popover () {
             position = Gtk.PositionType.BOTTOM,
-            //  visible = false,
+            // visible = false,
             autohide = true,
             child = widget,
         };

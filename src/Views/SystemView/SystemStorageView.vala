@@ -20,14 +20,17 @@ public class Monitor.SystemStorageView : Gtk.Box {
         storage_write_label = new LabelRoundy (_("WRITE")) {
             width_chars = 7
         };
-        storage_write_label.get_style_context ().add_class ("blue");
+        storage_write_label.add_css_class ("blue");
 
         storage_read_label = new LabelRoundy (_("READ")) {
             width_chars = 7
         };
-        storage_read_label.get_style_context ().add_class ("green");
+        storage_read_label.add_css_class ("green");
 
-        storage_chart = new Chart (2);
+        storage_chart = new Chart (2) {
+            height_request = 120,
+            valign = START
+        };
         storage_chart.config.y_axis.fixed_max = null;
         storage_chart.set_serie_color (0, { 155 / 255.0f, 219 / 255.0f, 77 / 255.0f, 1.0f });
         storage_chart.set_serie_color (1, { 100 / 255.0f, 186 / 255.0f, 255 / 255.0f, 1.0f });

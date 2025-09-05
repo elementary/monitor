@@ -40,9 +40,15 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         cpu_frequency_chart.config.y_axis.fixed_max = 5.0;
 
         var grid_frequency_info = new Gtk.Grid ();
-        grid_frequency_info.attach (cpu_frequency_label, 0, 0, 1, 1);
         grid_frequency_info.attach (cpu_frequency_chart, 0, 0, 1, 1);
+        grid_frequency_info.attach (cpu_frequency_label, 0, 0, 1, 1);
 
+        cpu_temperature_chart = new Chart (1) {
+            height_request = -1
+        };
+        cpu_temperature_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
+
+        grid_temperature_info.attach (cpu_temperature_chart, 0, 0, 1, 1);
         grid_temperature_info.attach (cpu_temperature_label, 0, 0, 1, 1);
 
         var smol_charts_container = new Gtk.Grid () {
@@ -71,12 +77,6 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         set_main_chart (cpu_utilization_chart);
 
         set_main_chart_overlay (grid_core_labels ());
-
-        cpu_temperature_chart = new Chart (1);
-        cpu_temperature_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
-
-        cpu_temperature_chart.height_request = -1;
-        grid_temperature_info.attach (cpu_temperature_chart, 0, 0, 1, 1);
     }
 
     public void update () {
