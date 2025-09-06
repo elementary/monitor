@@ -49,19 +49,4 @@ public class Monitor.OpenFilesTreeViewModel : Gtk.TreeStore {
         return false;
     }
 
-    public void update_model (Process process) {
-        // if (process.open_files_paths.size > 0) {
-        // foreach (var path in process.open_files_paths) {
-
-        // Gtk.TreeIter iter = open_files_paths[path];
-        // print (path);
-        //// display only real paths
-        //// probably should be done in process class
-        // if (path.substring (0, 1) == "/") {
-        // set (iter, Column.NAME, path, -1);
-        // }
-        // }
-        // }
-    }
-
 }
