@@ -15,8 +15,6 @@ public class Monitor.Search : Gtk.Box {
 
     construct {
         search_entry = new Gtk.SearchEntry () {
-            // Commented because there is no need to ctrl-f when you can just type?
-            //  tooltip_markup = Granite.markup_accel_tooltip ({ "<Ctrl>F" }, _("Type process name or PID to search")),
             placeholder_text = _("Search Process")
         };
 
