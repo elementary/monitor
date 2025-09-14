@@ -82,12 +82,6 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
     public void update () {
         cpu_frequency_chart.update (0, cpu.frequency);
 
-        // int temperature_index = 0;
-        // foreach (var temperature in cpu.paths_temperatures.values) {
-        // debug (temperature.input);
-        // cpu_temperature_chart.update (temperature_index, int.parse (temperature.input) / 1000);
-        // temperature_index++;
-        // }]
         cpu_temperature_chart.update (0, cpu.temperature_mean);
         cpu_temperature_label.text = ("%.2f %s").printf (cpu.temperature_mean, _("℃"));
 
