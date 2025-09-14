@@ -21,7 +21,7 @@ roundy-label:hover:selected {
 
         @if $color-scheme == "light" {
             background-color: $SILVER_300;
-        } @else if $color-scheme =="dark" {
+        } @else if $color-scheme == "dark" {
             background-color: $SILVER_900;
         }
     }
