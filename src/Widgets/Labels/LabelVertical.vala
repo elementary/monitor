@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-public class Monitor.LabelVertical : Gtk.Box {
+public class Monitor.LabelVertical : Granite.Bin {
     private Gtk.Grid grid;
 
     public signal void clicked ();
@@ -36,7 +36,7 @@ public class Monitor.LabelVertical : Gtk.Box {
         grid.attach (desc, 0, 0, 1, 1);
         grid.attach (val, 0, 1, 1, 1);
 
-        append (grid);
+        child = grid;
     }
 
     public void set_text (string text) {
