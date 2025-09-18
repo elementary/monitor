@@ -8,28 +8,28 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-12 12:48+0000\n"
-"PO-Revision-Date: 2025-08-02 20:55+0000\n"
-"Last-Translator: JieXu <xujie0739@qq.com>\n"
-"Language-Team: Chinese (Simplified Han script) <https://"
-"l10n.elementaryos.org/projects/desktop/monitor-extra/zh_Hans/>\n"
-"Language: zh_Hans\n"
+"PO-Revision-Date: 2025-04-29 09:12+0000\n"
+"Last-Translator: anonymous <noreply@weblate.org>\n"
+"Language-Team: Chinese (Traditional Han script) <https://"
+"l10n.elementaryos.org/projects/desktop/monitor-extra/zh_Hant/>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #: data/io.elementary.monitor.appdata.xml.in:9 data/monitor.desktop.in:6
 msgid "Monitor"
-msgstr "监视器"
+msgstr "監控"
 
 #: data/io.elementary.monitor.appdata.xml.in:10
 msgid "Manage processes and monitor system resources"
-msgstr ""
+msgstr "管理程序並監控系統資源"
 
 #: data/io.elementary.monitor.appdata.xml.in:12
 msgid "Display usage of system resources, filter and manage processes."
-msgstr ""
+msgstr "顯示系統資源的使用量、過濾或管理程序。"
 
 #: data/io.elementary.monitor.appdata.xml.in:26
 msgid "elementary, Inc."
@@ -37,266 +37,278 @@ msgstr "elementary, Inc."
 
 #: data/io.elementary.monitor.appdata.xml.in:39
 msgid "Add info about drives (based on Dirli's code)"
-msgstr ""
+msgstr "新增關於磁碟的資訊（基於 Dirli 的程式碼）"
 
 #: data/io.elementary.monitor.appdata.xml.in:44
 msgid "Adds dark theme 🌚"
-msgstr ""
+msgstr "新增深色主題"
 
 #: data/io.elementary.monitor.appdata.xml.in:49
 msgid "Uses Wingpanel v3; New *.deb package maintainer: Kristopher Ives"
-msgstr ""
+msgstr "使用 Wingpanel v3；新的 *.deb 套件維護者：Kristopher Ives"
 
 #: data/io.elementary.monitor.appdata.xml.in:54
 msgid "🐛 Should fix empty Indicator. Please reboot after installation ⚡️"
-msgstr ""
+msgstr "🐛 應該會修正指示器空白的問題。安裝後請重新開機 ⚡️"
 
 #: data/io.elementary.monitor.appdata.xml.in:60
 msgid "🐛 Try to fix frequent GUI hangs 🥶"
-msgstr ""
+msgstr "🐛 嘗試修正 GUI 時常當機的問題 🥶"
 
 #: data/io.elementary.monitor.appdata.xml.in:61
 msgid "🇳🇱 Update Dutch translation (@Vistaus)"
-msgstr ""
+msgstr "🇳🇱 更新荷蘭語翻譯 (@Vistaus)"
 
 #: data/io.elementary.monitor.appdata.xml.in:62
 msgid "🇵🇹 Update Portuguese translation (@hugok79)"
-msgstr ""
+msgstr "🇵🇹 更新葡萄牙語翻譯 (@hugok79)"
 
 #: data/io.elementary.monitor.appdata.xml.in:63
 msgid "🇷🇴 Add Romanian translation (@tiberiufrat)"
-msgstr ""
+msgstr "🇷🇴 新增羅馬尼亞語翻譯 (@tiberiufrat)"
 
 #: data/io.elementary.monitor.appdata.xml.in:70
 msgid "Display Storage usage"
-msgstr ""
+msgstr "顯示儲存空間使用量"
 
 #: data/io.elementary.monitor.appdata.xml.in:71
 msgid "Update Russian translation (@camellan)"
-msgstr ""
+msgstr "更新俄語翻譯 (@camellan)"
 
 #: data/io.elementary.monitor.appdata.xml.in:72
 msgid "Update Portuguese translation (@hugok79)"
-msgstr ""
+msgstr "更新葡萄牙語翻譯 (@hugok79)"
 
 #: data/io.elementary.monitor.appdata.xml.in:73
 msgid "Different colours for Upload and Download"
-msgstr ""
+msgstr "為上傳與下載使用不同的色彩"
 
 #: data/io.elementary.monitor.appdata.xml.in:80
 #: data/io.elementary.monitor.appdata.xml.in:92
 msgid "Update Portuguese translation (@rottenpants466)"
-msgstr ""
+msgstr "更新葡萄牙語翻譯 (@rottenpants466)"
 
 #: data/io.elementary.monitor.appdata.xml.in:81
 msgid "Update Dutch translation (@Vistaus)"
-msgstr ""
+msgstr "更新荷蘭語翻譯 (@Vistaus)"
 
 #: data/io.elementary.monitor.appdata.xml.in:82
 msgid "Smoother animations (@DevAlien)"
-msgstr ""
+msgstr "較平滑的動畫效果 (@DevAlien)"
 
 #: data/io.elementary.monitor.appdata.xml.in:83
 msgid "Preselect first entry so that the info panel is always open (@DevAlien)"
-msgstr ""
+msgstr "預先選擇第一個項目，讓資訊面板總是開啟 (@DevAlien)"
 
 #: data/io.elementary.monitor.appdata.xml.in:84
 msgid "Show CPU temperature in the Indicator"
-msgstr ""
+msgstr "在指示器當中顯示 CPU 溫度"
 
 #: data/io.elementary.monitor.appdata.xml.in:91
 msgid "Better System Tab"
-msgstr ""
+msgstr "改善「系統」分頁"
 
 #: data/io.elementary.monitor.appdata.xml.in:93
 msgid "Save last opened view (@ryonakano)"
-msgstr ""
+msgstr "儲存上次開啟的檢視 (@ryonakano)"
 
 #: data/io.elementary.monitor.appdata.xml.in:100
 #: data/io.elementary.monitor.appdata.xml.in:163
 msgid "Update Japanese translation (Ryo Nakano)"
-msgstr ""
+msgstr "更新日文翻譯 (Ryo Nakano)"
 
 #: data/io.elementary.monitor.appdata.xml.in:101
 msgid "Disable search entry, when System tab is active"
-msgstr ""
+msgstr "「系統」分頁作用中時停用搜尋列"
 
 #: data/io.elementary.monitor.appdata.xml.in:102
 msgid "Add screenshots"
-msgstr ""
+msgstr "新增畫面快照"
 
 #: data/io.elementary.monitor.appdata.xml.in:109
 msgid "Add System resources tab"
-msgstr ""
+msgstr "新增「系統資源」分頁"
 
 #: data/io.elementary.monitor.appdata.xml.in:116
 msgid "Added tooltips to process state label (Ryo Nakano)"
-msgstr ""
+msgstr "為程序狀態標籤加上工具提示 (Ryo Nakano)"
 
 #: data/io.elementary.monitor.appdata.xml.in:117
 msgid "Small bugfix"
-msgstr ""
+msgstr "輕微錯誤修正"
 
 #: data/io.elementary.monitor.appdata.xml.in:124
 msgid "Fix sorting arrows"
-msgstr ""
+msgstr "修正排序箭頭"
 
 #: data/io.elementary.monitor.appdata.xml.in:125
 #: data/io.elementary.monitor.appdata.xml.in:161
 #: data/io.elementary.monitor.appdata.xml.in:175
 msgid "Update Russian translation (camellan)"
-msgstr ""
+msgstr "更新俄語翻譯 (camellan)"
 
 #: data/io.elementary.monitor.appdata.xml.in:126
 msgid "Add Turkish translation (Harun Yasar)"
-msgstr ""
+msgstr "新增土耳其語翻譯 (Harun Yasar)"
 
 #: data/io.elementary.monitor.appdata.xml.in:127
 msgid ""
 "Use newest version of live-chart (Laurent Callarec) ← Check his lib for "
 "creating charts, it's amazing!"
 msgstr ""
+"使用最新版本的 live-chart (Laurent Callarec) ← 請也去看看他的這個函式庫，它非"
+"常好用！"
 
 #: data/io.elementary.monitor.appdata.xml.in:134
 msgid "Detailed process info in sidebar"
-msgstr ""
+msgstr "在側邊欄當中提供詳細程序資訊"
 
 #: data/io.elementary.monitor.appdata.xml.in:135
 msgid "CPU frequency in tooltip (Ryo Nakano)"
-msgstr ""
+msgstr "在工具提示中顯示 CPU 頻率 (Ryo Nakano)"
 
 #: data/io.elementary.monitor.appdata.xml.in:142
 msgid "Bugfix (potential) of crushes and high CPU usage"
-msgstr ""
+msgstr "修正崩潰與造成 CPU 用量極高的一些問題"
 
 #: data/io.elementary.monitor.appdata.xml.in:143
 msgid "Update German translation (Carsten Dietrich)"
-msgstr ""
+msgstr "更新德語翻譯 (Carsten Dietrich)"
 
 #: data/io.elementary.monitor.appdata.xml.in:150
 msgid "Update Portuguese translation (Hugo Carvalho)"
-msgstr ""
+msgstr "更新葡萄牙語翻譯 (Hugo Carvalho)"
 
 #: data/io.elementary.monitor.appdata.xml.in:151
 msgid "Update French translation (Nathan Bonnemains and Skeudwenn)"
-msgstr ""
+msgstr "更新法語翻譯 (Nathan Bonnemains 和 Skeudwenn)"
 
 #: data/io.elementary.monitor.appdata.xml.in:152
 msgid "Fix: Don't show swap percentage when it's not available (Ryo Nakano)"
-msgstr ""
+msgstr "修正：置換空間不可用時不要顯示置換空間使用量 (Ryo Nakano)"
 
 #: data/io.elementary.monitor.appdata.xml.in:159
 msgid "Update Italian translation (Mirko Brombin)"
-msgstr ""
+msgstr "更新義大利語翻譯 (Mirko Brombin)"
 
 #: data/io.elementary.monitor.appdata.xml.in:160
 msgid "Show swap usage (Ryo Nakano)"
-msgstr ""
+msgstr "顯示置換空間使用量 (Ryo Nakano)"
 
 #: data/io.elementary.monitor.appdata.xml.in:162
 msgid "Code refactoring (Ryo Nakano)"
-msgstr ""
+msgstr "程式碼 refactor (Ryo Nakano)"
 
 #: data/io.elementary.monitor.appdata.xml.in:170
 msgid "Fix contents of the window are not shown (Ryo Nakano)"
-msgstr ""
+msgstr "修正視窗內容沒被顯示的問題 (Ryo Nakano)"
 
 #: data/io.elementary.monitor.appdata.xml.in:171
 msgid ""
 "ix no row is still selected when indicator options are enabled (Ryo Nakano)"
-msgstr ""
+msgstr "修正啟用指示器選項啟用時程序不會被選取的問題 (Ryo Nakano)"
 
 #: data/io.elementary.monitor.appdata.xml.in:172
 msgid ""
 "Fix the app crashes by clicking the \"End/Kill Process\" buttons when no "
 "process is selected (Ryo Nakano)"
 msgstr ""
+"修正未選取程序時按下「強制終止程序」或「結束程序」按鈕後應用程式會崩潰的問題 "
+"(Ryo Nakano)"
 
 #: data/io.elementary.monitor.appdata.xml.in:173
 msgid "Added buttons to either \"kill\" or \"end\" a process. (Evan Buss)"
-msgstr ""
+msgstr "新增按鈕來「強制終止」或「結束」程序。(Evan Buss)"
 
 #: data/io.elementary.monitor.appdata.xml.in:174
 msgid "Change screenshot to English (Christopher Crouse)"
-msgstr ""
+msgstr "讓畫面快照改為使用英語 (Christopher Crouse)"
 
 #: data/io.elementary.monitor.appdata.xml.in:176
 msgid "Check if the default display is a X11 display (Hannes Schulze)"
-msgstr ""
+msgstr "檢查預設顯示器是不是 X11 的顯示器 (Hannes Schulze)"
 
 #: data/io.elementary.monitor.appdata.xml.in:177
 msgid "Update Spanish translation (Mario Rodrigo)"
-msgstr ""
+msgstr "更新西班牙語翻譯 (Mario Rodrigo)"
 
 #: data/io.elementary.monitor.appdata.xml.in:184
 msgid "Add start-in-background option to UI"
-msgstr ""
+msgstr "將在背景啟動用的選項加入使用者介面"
 
 #: data/io.elementary.monitor.appdata.xml.in:191
 msgid "Add start-in-background command line option"
-msgstr ""
+msgstr "新增在背景啟動用的指令列選項"
 
 #: data/io.elementary.monitor.appdata.xml.in:192
 msgid "Add Italian and Portuguese translations"
-msgstr ""
+msgstr "新增義大利語和葡萄牙語翻譯"
 
 #: data/io.elementary.monitor.appdata.xml.in:193
 msgid "Update Dutch, French and Spanish translations"
-msgstr ""
+msgstr "更新荷蘭語、法語及西班牙語的翻譯"
 
 #: data/io.elementary.monitor.appdata.xml.in:194
 msgid "Fix Japanese translation"
-msgstr ""
+msgstr "修正日文翻譯"
 
 #: data/io.elementary.monitor.appdata.xml.in:201
 msgid "Minor bug fix"
-msgstr ""
+msgstr "輕微錯誤修正"
 
 #: data/io.elementary.monitor.appdata.xml.in:202
 msgid "Make End process button red"
-msgstr ""
+msgstr "將「結束程序」按鈕改為紅色"
 
 #: data/io.elementary.monitor.appdata.xml.in:203
 msgid "Add Japanese translation"
-msgstr ""
+msgstr "新增日文翻譯"
 
 #: data/io.elementary.monitor.appdata.xml.in:210
 msgid "Add CPU and RAM icons"
-msgstr ""
+msgstr "新增 CPU 和記憶體圖示"
 
 #: data/io.elementary.monitor.appdata.xml.in:211
 msgid "Fix bug, that caused hanging"
-msgstr ""
+msgstr "修正造成當機的問題"
 
 #: data/io.elementary.monitor.appdata.xml.in:212
 msgid "Update Polish and Russian translation"
-msgstr ""
+msgstr "更新波蘭語和俄語翻譯"
 
 #: data/io.elementary.monitor.appdata.xml.in:219
 msgid "Add Monitor indicator"
-msgstr ""
+msgstr "新增《監控》專屬的指示器"
 
 #: data/io.elementary.monitor.appdata.xml.in:220
 msgid "Add missing extra French translations"
-msgstr ""
+msgstr "新增詮釋資料用的法語翻譯"
 
 #: data/io.elementary.monitor.appdata.xml.in:221
 msgid ""
 "Fix: if icon missing for the process, icon is taken from previous process"
-msgstr ""
+msgstr "修正：程序缺乏圖示時使用前一個程序的圖示"
 
 #: data/io.elementary.monitor.appdata.xml.in:222
 msgid "Fix: search erases my input while I'm typing"
-msgstr ""
+msgstr "修正：搜尋會在正在輸入時清空打到一半的內容"
 
 #: data/io.elementary.monitor.appdata.xml.in:223
 msgid "Fix POTFILES"
-msgstr ""
+msgstr "修正 POTFILES"
 
 #: data/monitor.desktop.in:7
 msgid "Manage processes and monitor resource usage of the system"
-msgstr ""
+msgstr "管理程序並監控系統的資源使用量"
 
 #: data/monitor.desktop.in:9
 msgid "System monitor;System usage;Task manager;"
 msgstr ""
+"System monitor;System usage;Task manager;系統監控;程式管理員;工作管理員;系統"
+"使用量;"
+
+#~ msgid "Stanisław Dac"
+#~ msgstr "Stanisław Dac"
+
+#~ msgid "System Monitor"
+#~ msgstr "系統監控"
