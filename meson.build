@@ -15,7 +15,6 @@ vapidir = meson.current_source_dir() / 'vapi/'
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()), language: 'c')
 
 add_project_arguments(['--vapidir', vapidir], language: 'vala')
-add_project_arguments(['-DWNCK_I_KNOW_THIS_IS_UNSTABLE', '-w'], language: 'c')
 
 # subprojects should be skipped: https://mesonbuild.com/Release-notes-for-0-58-0.html#skip-subprojects-installation
 # needs meson 0.58.0
@@ -29,7 +28,6 @@ app_dependencies = [
     dependency('gio-2.0'),
     dependency('gobject-2.0'),
     dependency('libgtop-2.0'),
-    dependency('libwnck-3.0'),
     dependency('libhandy-1', version: '>=0.90.0'),
     dependency('gdk-x11-3.0'),
     dependency('x11'),
