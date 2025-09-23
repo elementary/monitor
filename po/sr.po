@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-23 19:46+0000\n"
+"POT-Creation-Date: 2025-09-23 19:51+0000\n"
 "PO-Revision-Date: 2024-10-09 20:00+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Serbian <https://l10n.elementary.io/projects/desktop/monitor/"
@@ -36,6 +36,7 @@ msgstr "Систем"
 msgid "Settings"
 msgstr ""
 
+#. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:37
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
@@ -45,6 +46,7 @@ msgstr ""
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:35
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:39
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:40
+#: src/Widgets/Statusbar/Statusbar.vala:79
 msgid "N/A"
 msgstr ""
 
@@ -173,7 +175,7 @@ msgstr ""
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:56
 #: src/Views/SystemView/SystemMemoryView.vala:18
-#: src/Widgets/Statusbar/Statusbar.vala:18
+#: src/Widgets/Statusbar/Statusbar.vala:23
 msgid "Memory"
 msgstr ""
 
@@ -186,7 +188,6 @@ msgid "MiB"
 msgstr ""
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:157
-#: src/Widgets/Statusbar/Statusbar.vala:101
 msgid "GiB"
 msgstr ""
 
@@ -290,7 +291,7 @@ msgid "℃"
 msgstr ""
 
 #: src/Views/SystemView/SystemCPUView.vala:129
-#: src/Widgets/Statusbar/Statusbar.vala:87
+#: src/Widgets/Statusbar/Statusbar.vala:70
 msgid "GHz"
 msgstr ""
 
@@ -418,27 +419,19 @@ msgstr ""
 msgid "Type process name or PID to search"
 msgstr ""
 
-#: src/Widgets/Statusbar/Statusbar.vala:22
-msgid "Swap"
-msgstr ""
-
+#: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:26
-msgid "GPU"
-msgstr ""
-
-#: src/Widgets/Statusbar/Statusbar.vala:29
-#: src/Widgets/Statusbar/Statusbar.vala:35
-#: src/Widgets/Statusbar/Statusbar.vala:42
-#: src/Widgets/Statusbar/Statusbar.vala:49
+#: src/Widgets/Statusbar/Statusbar.vala:36
+#: src/Widgets/Statusbar/Statusbar.vala:46
 msgid "Calculating…"
 msgstr ""
 
-#: src/Widgets/Statusbar/Statusbar.vala:56
-msgid "🇺🇦"
+#: src/Widgets/Statusbar/Statusbar.vala:33
+msgid "Swap"
 msgstr ""
 
-#: src/Widgets/Statusbar/Statusbar.vala:57
-msgid "Check on Github"
+#: src/Widgets/Statusbar/Statusbar.vala:43
+msgid "GPU"
 msgstr ""
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:16

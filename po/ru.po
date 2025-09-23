@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-23 19:46+0000\n"
+"POT-Creation-Date: 2025-09-23 19:51+0000\n"
 "PO-Revision-Date: 2025-07-17 18:55+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementaryos.org/projects/desktop/"
@@ -31,6 +31,7 @@ msgstr "Система"
 msgid "Settings"
 msgstr "Параметры"
 
+#. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:37
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
@@ -40,6 +41,7 @@ msgstr "Параметры"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:35
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:39
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:40
+#: src/Widgets/Statusbar/Statusbar.vala:79
 msgid "N/A"
 msgstr "Н/Д"
 
@@ -172,7 +174,7 @@ msgstr "ЦП"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:56
 #: src/Views/SystemView/SystemMemoryView.vala:18
-#: src/Widgets/Statusbar/Statusbar.vala:18
+#: src/Widgets/Statusbar/Statusbar.vala:23
 msgid "Memory"
 msgstr "Память"
 
@@ -185,7 +187,6 @@ msgid "MiB"
 msgstr "МиБ"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:157
-#: src/Widgets/Statusbar/Statusbar.vala:101
 msgid "GiB"
 msgstr "ГиБ"
 
@@ -289,7 +290,7 @@ msgid "℃"
 msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:129
-#: src/Widgets/Statusbar/Statusbar.vala:87
+#: src/Widgets/Statusbar/Statusbar.vala:70
 msgid "GHz"
 msgstr "ГГц"
 
@@ -417,32 +418,30 @@ msgstr "Найти процесс"
 msgid "Type process name or PID to search"
 msgstr "Для поиска введите имя или PID процесса"
 
-#: src/Widgets/Statusbar/Statusbar.vala:22
-msgid "Swap"
-msgstr "Подкачка"
-
+#: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:26
-msgid "GPU"
-msgstr "Графический процессор"
-
-#: src/Widgets/Statusbar/Statusbar.vala:29
-#: src/Widgets/Statusbar/Statusbar.vala:35
-#: src/Widgets/Statusbar/Statusbar.vala:42
-#: src/Widgets/Statusbar/Statusbar.vala:49
+#: src/Widgets/Statusbar/Statusbar.vala:36
+#: src/Widgets/Statusbar/Statusbar.vala:46
 msgid "Calculating…"
 msgstr "Вычисление…"
 
-#: src/Widgets/Statusbar/Statusbar.vala:56
-msgid "🇺🇦"
-msgstr "🇺🇦"
+#: src/Widgets/Statusbar/Statusbar.vala:33
+msgid "Swap"
+msgstr "Подкачка"
 
-#: src/Widgets/Statusbar/Statusbar.vala:57
-msgid "Check on Github"
-msgstr "Проект на Github"
+#: src/Widgets/Statusbar/Statusbar.vala:43
+msgid "GPU"
+msgstr "Графический процессор"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:16
 msgid "UTILIZATION"
 msgstr "ИСПОЛЬЗОВАНИЕ"
+
+#~ msgid "🇺🇦"
+#~ msgstr "🇺🇦"
+
+#~ msgid "Check on Github"
+#~ msgstr "Проект на Github"
 
 #~ msgid "Are you sure you want to do this?"
 #~ msgstr "Вы уверены, что хотите это сделать?"
