@@ -1,7 +1,0 @@
-[wrap-git]
-url = https://github.com/elementary/live-chart.git
-revision = 1cdb953dd6313d5102e441c65be8e35c3e12cc32
-depth = 1
-
-[provide]
-livechart = livechart_static_dep

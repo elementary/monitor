@@ -15,7 +15,6 @@ vapidir = meson.current_source_dir() / 'vapi/'
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()), language: 'c')
 
 add_project_arguments(['--vapidir', vapidir], language: 'vala')
-add_project_arguments(['-DWNCK_I_KNOW_THIS_IS_UNSTABLE', '-w'], language: 'c')
 
 # subprojects should be skipped: https://mesonbuild.com/Release-notes-for-0-58-0.html#skip-subprojects-installation
 # needs meson 0.58.0
@@ -35,11 +34,7 @@ app_dependencies = [
     dependency('json-glib-1.0'),
     dependency('flatpak'),
 
-    dependency(
-        'livechart-2',
-        version: '>= 1.10.0',
-        fallback: ['live-chart', 'livechart_dep'],
-    ),
+    dependency('livechart-2', version: '>= 1.10.0'),
 
     meson.get_compiler('c').find_library('m', required: false),
     meson.get_compiler('vala').find_library('posix'),
