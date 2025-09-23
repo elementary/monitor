@@ -25,7 +25,6 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         cpu_utilization_chart.config.y_axis.fixed_max = 100.0 * cpu.core_list.size;
 
         set_main_chart (cpu_utilization_chart);
-
         set_main_chart_overlay (grid_core_labels ());
     }
 
@@ -57,25 +56,24 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         cpu_frequency_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
         cpu_frequency_chart.config.y_axis.fixed_max = 5.0;
 
-        var grid_frequency_info = new Gtk.Grid ();
-        grid_frequency_info.attach (cpu_frequency_label, 0, 0);
-        grid_frequency_info.attach (cpu_frequency_chart, 0, 0);
-
-        var grid_temperature_info = new Gtk.Grid ();
-        grid_temperature_info.attach (cpu_temperature_chart, 0, 0);
-        grid_temperature_info.attach (cpu_temperature_label, 0, 0);
-
-        var smol_charts_container = new Gtk.Grid () {
-            halign = START,
-            hexpand = false,
-            width_request = 200,
-            row_spacing = 6,
-            margin_start = 6
+        var freq_info_overlay = new Gtk.Overlay () {
+            child = cpu_frequency_chart
         };
-        smol_charts_container.attach (grid_frequency_info, 0, 0);
-        smol_charts_container.attach (grid_temperature_info, 0, 1);
+        freq_info_overlay.add_overlay (cpu_frequency_label);
 
-        add_charts_container (smol_charts_container);
+        var temp_info_overlay = new Gtk.Overlay () {
+            child = cpu_temperature_chart
+        };
+        temp_info_overlay.add_overlay (cpu_temperature_label);
+
+        var small_charts_box = new Gtk.Box (VERTICAL, 6) {
+            hexpand = false,
+            width_request = 200
+        };
+        small_charts_box.add (freq_info_overlay);
+        small_charts_box.add (temp_info_overlay);
+
+        add_charts_container (small_charts_box);
     }
 
     public void update () {
