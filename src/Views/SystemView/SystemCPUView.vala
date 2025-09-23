@@ -12,11 +12,28 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
     private LabelRoundy cpu_frequency_label;
     private LabelRoundy cpu_temperature_label;
 
-    private Gtk.Grid grid_temperature_info = new Gtk.Grid ();
-
     private Gee.ArrayList<Gtk.Label ?> core_label_list;
 
+    public SystemCPUView (CPU _cpu) {
+        cpu = _cpu;
+        title = cpu.model_name;
+
+        set_popover_more_info (new SystemCPUInfoPopover (cpu));
+
+        cpu_utilization_chart = new Chart (cpu.core_list.size, MonitorApp.settings.get_boolean ("smooth-lines-state"), 1.0);
+        cpu_utilization_chart.config.y_axis.tick_interval = 100;
+        cpu_utilization_chart.config.y_axis.fixed_max = 100.0 * cpu.core_list.size;
+
+        set_main_chart (cpu_utilization_chart);
+        set_main_chart_overlay (grid_core_labels ());
+    }
+
     construct {
+        cpu_temperature_chart = new Chart (1) {
+            height_request = -1
+        };
+        cpu_temperature_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
+
         core_label_list = new Gee.ArrayList<Gtk.Label> ();
 
         cpu_frequency_label = new LabelRoundy (_("Frequency")) {
@@ -33,50 +50,30 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
             margin_start = 6
         };
 
-
-        cpu_frequency_chart = new Chart (1);
-        cpu_frequency_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
-        cpu_frequency_chart.height_request = -1;
-        cpu_frequency_chart.config.y_axis.fixed_max = 5.0;
-
-        var grid_frequency_info = new Gtk.Grid ();
-        grid_frequency_info.attach (cpu_frequency_chart, 0, 0, 1, 1);
-        grid_frequency_info.attach (cpu_frequency_label, 0, 0, 1, 1);
-
-        cpu_temperature_chart = new Chart (1) {
+        cpu_frequency_chart = new Chart (1) {
             height_request = -1
         };
-        cpu_temperature_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
+        cpu_frequency_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
+        cpu_frequency_chart.config.y_axis.fixed_max = 5.0;
 
-        grid_temperature_info.attach (cpu_temperature_chart, 0, 0, 1, 1);
-        grid_temperature_info.attach (cpu_temperature_label, 0, 0, 1, 1);
-
-        var smol_charts_container = new Gtk.Grid () {
-            width_request = 200,
-            hexpand = false,
-            halign = Gtk.Align.START,
-            row_spacing = 6,
-            margin_start = 6,
+        var freq_info_overlay = new Gtk.Overlay () {
+            child = cpu_frequency_chart
         };
+        freq_info_overlay.add_overlay (cpu_frequency_label);
 
-        smol_charts_container.attach (grid_frequency_info, 0, 0, 1, 1);
-        smol_charts_container.attach (grid_temperature_info, 0, 1, 1, 1);
+        var temp_info_overlay = new Gtk.Overlay () {
+            child = cpu_temperature_chart
+        };
+        temp_info_overlay.add_overlay (cpu_temperature_label);
 
-        add_charts_container (smol_charts_container);
-    }
+        var small_charts_box = new Gtk.Box (VERTICAL, 6) {
+            hexpand = false,
+            width_request = 200
+        };
+        small_charts_box.append (freq_info_overlay);
+        small_charts_box.append (temp_info_overlay);
 
-    public SystemCPUView (CPU _cpu) {
-        cpu = _cpu;
-        title = cpu.model_name;
-
-        set_popover_more_info (new SystemCPUInfoPopover (cpu));
-
-        cpu_utilization_chart = new Chart (cpu.core_list.size, MonitorApp.settings.get_boolean ("smooth-lines-state"), 1.0);
-        cpu_utilization_chart.config.y_axis.tick_interval = 100;
-        cpu_utilization_chart.config.y_axis.fixed_max = 100.0 * cpu.core_list.size;
-        set_main_chart (cpu_utilization_chart);
-
-        set_main_chart_overlay (grid_core_labels ());
+        add_charts_container (small_charts_box);
     }
 
     public void update () {
@@ -88,7 +85,6 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         double cpu_prev_util = 0;
 
         for (int i = 0; i < cpu.core_list.size; i++) {
-
             // must reverse to render layers in the right order
             int reversed_i = cpu.core_list.size - i - 1;
 
@@ -110,12 +106,12 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
             core_label_list[i].remove_css_class ("core_badge-strong-warning");
             core_label_list[i].remove_css_class ("core_badge-critical-warning");
 
-
             if (core_percentage > 75.0) {
                 core_label_list[i].add_css_class ("core_badge-mild-warning");
                 core_label_list[i].remove_css_class ("core_badge-strong-warning");
                 core_label_list[i].remove_css_class ("core_badge-critical-warning");
             }
+
             if (core_percentage > 85.0) {
                 core_label_list[i].add_css_class ("core_badge-strong-warning");
                 core_label_list[i].remove_css_class ("core_badge-mild-warning");
@@ -128,6 +124,7 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
                 core_label_list[i].remove_css_class ("core_badge-strong-warning");
             }
         }
+
         label_vertical_main_metric = ("%d%%").printf (cpu.percentage);
         cpu_frequency_label.text = ("%.2f %s").printf (cpu.frequency, _("GHz"));
     }
@@ -145,8 +142,9 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         int column = 0;
         int row = 0;
         for (int i = 0; i < cpu.core_list.size; i++) {
-            var core_label = new Gtk.Label (Utils.NO_DATA);
-            core_label.set_width_chars (4);
+            var core_label = new Gtk.Label (Utils.NO_DATA) {
+                width_chars = 4
+            };
             core_label.add_css_class ("core_badge");
             // core_label.set_text (Utils.NO_DATA);
             core_label_list.add (core_label);
