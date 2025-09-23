@@ -4,73 +4,81 @@
  */
 
 public class Monitor.MainWindow : Hdy.ApplicationWindow {
-    // application reference
-    private Shortcuts shortcuts;
+    public Search search { get; private set; }
+    public ProcessView process_view { get; private set; }
 
-    private Resources resources;
-
-    // Widgets
-    public Headerbar headerbar;
-
-    public ProcessView process_view;
-    public SystemView system_view;
-    private Gtk.Stack stack;
-
-    private Statusbar statusbar;
-
-    public DBusServer dbusserver;
-
-
-    // Constructs a main window
     public MainWindow (MonitorApp app) {
-        this.set_application (app);
+        Object (application: app);
+    }
 
+    construct {
         setup_window_state ();
 
         title = _("Monitor");
 
-        get_style_context ().add_class ("rounded");
-
-        resources = new Resources ();
+        var resources = new Resources ();
 
         process_view = new ProcessView ();
-        system_view = new SystemView (resources);
+        var system_view = new SystemView (resources);
 
-        stack = new Gtk.Stack ();
-        stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
+        var stack = new Gtk.Stack () {
+            transition_type = SLIDE_LEFT_RIGHT
+        };
         stack.add_titled (process_view, "process_view", _("Processes"));
         stack.add_titled (system_view, "system_view", _("System"));
 
-
-        Gtk.StackSwitcher stack_switcher = new Gtk.StackSwitcher ();
-        stack_switcher.valign = Gtk.Align.CENTER;
-        stack_switcher.set_stack (stack);
-
-        headerbar = new Headerbar (this);
-        headerbar.set_custom_title (stack_switcher);
-        var sv = new PreferencesView ();
-        headerbar.preferences_grid.add (sv);
-        sv.show_all ();
-
-        statusbar = new Statusbar ();
-
-        var grid = new Gtk.Grid () {
-            orientation = Gtk.Orientation.VERTICAL
+        var stack_switcher = new Gtk.StackSwitcher () {
+            stack = stack,
+            valign = CENTER
         };
 
-        grid.add (headerbar);
-        grid.add (stack);
-        grid.add (statusbar);
+        var sv = new PreferencesView ();
+        sv.show_all ();
 
-        add (grid);
+        var preferences_popover = new Gtk.Popover (null) {
+            child = sv
+        };
+
+        var preferences_button = new Gtk.MenuButton () {
+            image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR),
+            popover = preferences_popover,
+            tooltip_text = (_("Settings"))
+        };
+
+        search = new Search (this) {
+            valign = CENTER
+        };
+
+        var search_revealer = new Gtk.Revealer () {
+            child = search,
+            transition_type = SLIDE_LEFT
+        };
+
+        var headerbar = new Hdy.HeaderBar () {
+            has_subtitle = false,
+            show_close_button = true,
+            title = _("Monitor")
+        };
+        headerbar.pack_start (search_revealer);
+        headerbar.set_custom_title (stack_switcher);
+        headerbar.pack_end (preferences_button);
+
+        var statusbar = new Statusbar ();
+
+        var box = new Gtk.Box (VERTICAL, 0);
+        box.add (headerbar);
+        box.add (stack);
+        box.add (statusbar);
+
+        child = box;
 
         show_all ();
 
-        dbusserver = DBusServer.get_default ();
+        var dbusserver = DBusServer.get_default ();
 
-        headerbar.search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
-        stack.notify["visible-child-name"].connect (() => {
-            headerbar.search_revealer.set_reveal_child (stack.visible_child_name == "process_view");
+        search_revealer.reveal_child = stack.visible_child == process_view;
+        stack.notify["visible-child"].connect (() => {
+            search_revealer.reveal_child = stack.visible_child == process_view;
         });
 
         new Thread<void> ("upd", () => {
@@ -90,7 +98,7 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
         });
 
 
-        dbusserver.quit.connect (() => app.quit ());
+        dbusserver.quit.connect (() => application.quit ());
         dbusserver.show.connect (() => {
             this.deiconify ();
             this.present ();
@@ -98,17 +106,13 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
             this.show_all ();
         });
 
-        shortcuts = new Shortcuts (this);
-        key_press_event.connect ((e) => shortcuts.handle (e));
+        key_press_event.connect (search.handle_event);
 
         this.delete_event.connect (() => {
-            int window_width, window_height, position_x, position_y;
+            int window_width, window_height;
             get_size (out window_width, out window_height);
-            get_position (out position_x, out position_y);
             MonitorApp.settings.set_int ("window-width", window_width);
             MonitorApp.settings.set_int ("window-height", window_height);
-            MonitorApp.settings.set_int ("position-x", position_x);
-            MonitorApp.settings.set_int ("position-y", position_y);
             MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized);
 
             MonitorApp.settings.set_string ("opened-view", stack.visible_child_name);
@@ -117,7 +121,7 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
                 this.hide_on_delete ();
             } else {
                 dbusserver.indicator_state (false);
-                app.quit ();
+                application.quit ();
             }
 
             return true;
@@ -125,6 +129,11 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
         dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
         stack.visible_child_name = MonitorApp.settings.get_string ("opened-view");
+
+        var search_action = new GLib.SimpleAction ("search", null);
+        search_action.activate.connect (() => search.activate_entry ());
+
+        add_action (search_action);
     }
 
     private void setup_window_state () {
@@ -134,15 +143,6 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
 
         if (MonitorApp.settings.get_boolean ("is-maximized")) {
             this.maximize ();
-        }
-
-        int position_x = MonitorApp.settings.get_int ("position-x");
-        int position_y = MonitorApp.settings.get_int ("position-y");
-        if (position_x == -1 || position_y == -1) {
-            // -1 is default value of these keys, which means this is the first launch
-            this.window_position = Gtk.WindowPosition.CENTER;
-        } else {
-            move (position_x, position_y);
         }
     }
 

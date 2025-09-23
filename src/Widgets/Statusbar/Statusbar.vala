@@ -54,7 +54,7 @@ public class Monitor.Statusbar : Gtk.ActionBar {
         pack_start (gpu_usage_label);
 
         var support_ua_label = new Gtk.LinkButton.with_label ("http://stand-with-ukraine.pp.ua/", _("🇺🇦"));
-        var github_label = new Gtk.LinkButton.with_label ("https://github.com/stsdc/monitor", _("Check on Github"));
+        var github_label = new Gtk.LinkButton.with_label ("https://github.com/elementary/monitor", _("Check on Github"));
 
         var version_label = new Gtk.Label ("%s".printf (VCS_TAG)) {
             selectable = true
@@ -87,7 +87,10 @@ public class Monitor.Statusbar : Gtk.ActionBar {
         string cpu_tooltip_text = ("%.2f %s").printf (sysres.cpu_frequency, _("GHz"));
         cpu_usage_label.tooltip_text = cpu_tooltip_text;
 
-        string memory_tooltip_text = ("%s / %s").printf (Utils.HumanUnitFormatter.double_bytes_to_human (sysres.memory_used), Utils.HumanUnitFormatter.double_bytes_to_human (sysres.memory_total));
+        string memory_tooltip_text = ("%s / %s").printf (
+            format_size ((uint64) sysres.memory_used, IEC_UNITS),
+            format_size ((uint64) sysres.memory_total, IEC_UNITS)
+        );
         memory_usage_label.tooltip_text = memory_tooltip_text;
 
         // The total amount of the swap is 0 when it is unavailable

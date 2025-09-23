@@ -5,12 +5,12 @@
 
 <h4 align="left">Manage processes and monitor system resources</h4>
 
-[![](https://img.shields.io/github/release/stsdc/monitor.svg)]()
-[![Github Workflow Status](https://github.com/stsdc/monitor/actions/workflows/ci.yml/badge.svg)]()
+[![](https://img.shields.io/github/release/elementary/monitor.svg)]()
+[![Github Workflow Status](https://github.com/elementary/monitor/actions/workflows/ci.yml/badge.svg)]()
 [![Translation status](https://l10n.elementary.io/widget/desktop/monitor/svg-badge.svg)](https://l10n.elementary.io/engage/desktop/)
 
-![Monitor Screenshot](https://github.com/stsdc/monitor/raw/dev/data/screenshots/monitor-processes.png)
-![Monitor Screenshot](https://github.com/stsdc/monitor/raw/dev/data/screenshots/monitor-system.png)
+![Monitor Screenshot](https://github.com/elementary/monitor/raw/main/data/screenshots/monitor-processes.png)
+![Monitor Screenshot](https://github.com/elementary/monitor/raw/main/data/screenshots/monitor-system.png)
 
 ## Install
 
@@ -38,13 +38,13 @@ Monitor will be available from the Applications menu.
 If you plan to install WITH a wingpanel-indicator
 
 ```bash
-sudo apt install build-essential cmake sassc valac libgtk-3-dev libgee-0.8-dev libgranite-dev libgtop2-dev libhandy-1-dev libudisks2-dev libjson-glib-dev libflatpak-dev libxnvctrl-dev liblivechart-1-dev libwingpanel-dev
+sudo apt install build-essential cmake sassc valac libgtk-3-dev libgee-0.8-dev libgranite-dev libgtop2-dev libhandy-1-dev libudisks2-dev libjson-glib-dev libflatpak-dev libxnvctrl-dev liblivechart-1-dev libpci-dev libwingpanel-dev meson
 ```
 
 Alternatively, if you plan to install WITHOUT a wingpanel-indicator
 
 ```bash
-sudo apt install build-essential cmake sassc valac libgtk-3-dev libgee-0.8-dev libgranite-dev libgtop2-dev libhandy-1-dev libudisks2-dev libjson-glib-dev libflatpak-dev libxnvctrl-dev liblivechart-1-dev
+sudo apt install build-essential cmake sassc valac libgtk-3-dev libgee-0.8-dev libgranite-dev libgtop2-dev libhandy-1-dev libudisks2-dev libjson-glib-dev libflatpak-dev libxnvctrl-dev liblivechart-1-dev libpci-dev meson
 ```
 
 
@@ -52,22 +52,22 @@ sudo apt install build-essential cmake sassc valac libgtk-3-dev libgee-0.8-dev l
 
 1. Clone:
    ```bash
-   git clone --recursive https://github.com/stsdc/monitor
+   git clone https://github.com/elementary/monitor
    cd monitor
    ```
 
 2. To build with the wingpanel indicator:
    ```bash
-   meson builddir --prefix=/usr -Dindicator-wingpanel=enabled
+   meson setup -Dindicator-wingpanel=enabled build
    ```
    Alternatively, to build without the wingpanel indicator:
    ```bash
-   meson builddir --prefix=/usr
+   meson setup build
    ```
 
 3. Install:
    ```bash
-   cd builddir
+   cd build
    sudo ninja install
    ```
 

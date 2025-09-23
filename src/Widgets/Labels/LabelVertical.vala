@@ -21,11 +21,11 @@ public class Monitor.LabelVertical : Gtk.EventBox {
 
     public LabelVertical (string description) {
         val = new Gtk.Label (Utils.NO_DATA);
-
-        val.get_style_context ().add_class ("label-vertical-val");
+        val.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
 
         desc = new Gtk.Label (description.up ());
-        desc.get_style_context ().add_class ("small-text");
+        desc.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+        desc.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
 
         grid.attach (desc, 0, 0, 1, 1);
         grid.attach (val, 0, 1, 1, 1);

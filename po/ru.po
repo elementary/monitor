@@ -2,297 +2,284 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 19:51+0000\n"
-"PO-Revision-Date: 2024-11-05 04:32+0000\n"
+"POT-Creation-Date: 2025-07-12 12:48+0000\n"
+"PO-Revision-Date: 2025-07-17 18:55+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
-"Language-Team: Russian <https://l10n.elementary.io/projects/desktop/monitor/"
-"ru/>\n"
+"Language-Team: Russian <https://l10n.elementaryos.org/projects/desktop/"
+"monitor/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.11.4\n"
 
-#: src/MainWindow.vala:26 src/Widgets/Headerbar/Headerbar.vala:14
+#: src/MainWindow.vala:27 src/MainWindow.vala:71
 msgid "Monitor"
 msgstr "Монитор"
 
-#: src/MainWindow.vala:37
+#: src/MainWindow.vala:38
 msgid "Processes"
 msgstr "Процессы"
 
-#: src/MainWindow.vala:38
+#: src/MainWindow.vala:39
 msgid "System"
 msgstr "Система"
 
-#: src/Utils.vala:2
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:35
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:38
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:24
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:25
+#: src/MainWindow.vala:56
+msgid "Settings"
+msgstr "Параметры"
+
+#: src/Utils.vala:7
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:37
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:29
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:30
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:34
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:35
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:39
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:40
 msgid "N/A"
 msgstr "Н/Д"
 
-#: src/Utils.vala:76
-msgid "B"
-msgstr "Б"
-
-#: src/Utils.vala:81
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:117
-msgid "KiB"
-msgstr "КиБ"
-
-#: src/Utils.vala:87
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:122
-msgid "MiB"
-msgstr "МиБ"
-
-#: src/Utils.vala:92
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:128
-#: src/Widgets/Statusbar/Statusbar.vala:93
-msgid "GiB"
-msgstr "ГиБ"
-
-#: src/Indicator/Widgets/PopoverWidget.vala:13
+#: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
 msgstr "Показать монитор"
 
-#: src/Indicator/Widgets/PopoverWidget.vala:16
+#: src/Indicator/Widgets/PopoverWidget.vala:21
 msgid "Quit Monitor"
 msgstr "Выход"
 
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:20
-msgid "Are you sure you want to do this?"
-msgstr "Вы уверены, что хотите это сделать?"
-
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:23
-msgid "Yes"
-msgstr "Да"
-
-#: src/Views/ProcessView/ProcessInfoView/Preventor.vala:27
-msgid "No"
-msgstr "Нет"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:42
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:61
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:66
 msgid "PID"
 msgstr "PID"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:43
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
 msgid "NI"
 msgstr "NI"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:44
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:47
 msgid "PRI"
 msgstr "PRI"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:48
 msgid "THR"
 msgstr "THR"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:113
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:102
 msgid "The app is waiting in an uninterruptible disk sleep"
 msgstr "Приложение ожидает в непрерывном режиме ожидания диска"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:115
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:104
 msgid "Idle kernel thread"
 msgstr "Неактивный поток ядра"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:117
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:106
 msgid "The process is running or runnable (on run queue)"
 msgstr "Процесс запущен или готов к выполнению (в очереди выполнения)"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:119
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:108
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
 msgstr "Процесс находится в прерывистом сне; ожидает завершения события"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:121
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:110
 msgid "The process is stopped by a job control signal"
 msgstr "Процесс останавливается сигналом управления заданием"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:123
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:112
 msgid "The process is stopped by a debugger during the tracing"
 msgstr "Процесс остановлен отладчиком во время трассировки"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:125
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:114
 msgid "The app is terminated but not reaped by its parent"
 msgstr "Приложение завершается, но не используется родителем"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:18
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:23
 msgid "Opened files"
 msgstr "Открытые файлы"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:22
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
 msgid "Characters"
 msgstr "Символы"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
 msgid "System calls"
 msgstr "Системные вызовы"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
 msgid "Read/Written"
 msgstr "Чтение/Запись"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:42
 msgid "Cancelled write"
 msgstr "Отменённая запись"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:90
-msgid "End Process"
-msgstr "Завершить процесс"
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:89
+msgid "Shut Down…"
+msgstr "Завершить…"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:92
-msgid "End selected process"
-msgstr "Завершить выбранный процесс"
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:93
+msgid "Force Quit…"
+msgstr "Принудительно закрыть…"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:96
-msgid "Kill Process"
-msgstr "Убить процесс"
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:109
+#, c-format
+msgid "Force “%s” to quit without initiating shutdown tasks?"
+msgstr "Принудительно закрыть «%s» без выполнения завершающих задач?"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:97
-msgid "Kill selected process"
-msgstr "Убить выбранный процесс"
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:110
+msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
+msgstr ""
+"Это может привести к потере данных. Используйте его, только если обычное "
+"завершение не удалось."
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:107
-msgid "Confirm kill of the process?"
-msgstr "Действительно убить процесс?"
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:119
+msgid "Force Quit"
+msgstr "Принудительно закрыть"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:114
-msgid "Confirm end of the process?"
-msgstr "Действительно завершить процесс?"
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:136
+#, c-format
+msgid "Ask “%s” to shut down?"
+msgstr "Запросить «%s» выполнить завершение?"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:137
+msgid ""
+"The process will be asked to initiate shutdown tasks and close. In some "
+"cases the process may not quit."
+msgstr ""
+"Процесс получит запрос выполнить завершающие задачи и закрыться. В некоторых "
+"случаях процесс может не завершиться."
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:146
+msgid "Shut Down"
+msgstr "Завершить"
 
 #. *INDENT-OFF*
 #. vala-lint=space-before-paren,
 #. *INDENT-ON*
 #. setup name column
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:19
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:24
 msgid "Process Name"
 msgstr "Имя процесса"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:40
-#: src/Widgets/Statusbar/Statusbar.vala:9
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:45
+#: src/Widgets/Statusbar/Statusbar.vala:14
 msgid "CPU"
 msgstr "ЦП"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:51
-#: src/Views/SystemView/SystemMemoryView.vala:13
-#: src/Widgets/Statusbar/Statusbar.vala:13
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:56
+#: src/Views/SystemView/SystemMemoryView.vala:18
+#: src/Widgets/Statusbar/Statusbar.vala:18
 msgid "Memory"
 msgstr "Память"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:50
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:146
+msgid "KiB"
+msgstr "КиБ"
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:151
+msgid "MiB"
+msgstr "МиБ"
+
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:157
+#: src/Widgets/Statusbar/Statusbar.vala:101
+msgid "GiB"
+msgstr "ГиБ"
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:55
 #, c-format
 msgid "CPU: %.1f%%"
 msgstr "ЦП: %.1f%%"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:51
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:56
 #, c-format
 msgid "RAM: %.1f%%"
 msgstr "Память: %.1f%%"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:13
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:21
-msgid "General"
-msgstr "Общие"
+#: src/Views/PreferencesView.vala:17
+msgid "Update frequency"
+msgstr "Частота обновления"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:18
-msgid "Start in background:"
-msgstr "Запускать в фоновом режиме:"
+#: src/Views/PreferencesView.vala:22 src/Views/PreferencesView.vala:52
+msgid "Requires restart"
+msgstr "Требует перезапуска"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:27
-msgid "Draw smooth lines on CPU chart (requires restart):"
-msgstr "Плавные линии для графика ЦП (требуется перезапуск):"
-
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:36
-msgid "Update every (requires restart):"
-msgstr "Обновлять каждые (требуется перезапуск):"
-
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:48
+#: src/Views/PreferencesView.vala:29
 msgid "1s"
 msgstr "1 с"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:49
+#: src/Views/PreferencesView.vala:30
 msgid "2s"
 msgstr "2 с"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:50
+#: src/Views/PreferencesView.vala:31
 msgid "3s"
 msgstr "3 с"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:51
+#: src/Views/PreferencesView.vala:32
 msgid "4s"
 msgstr "4 с"
 
-#: src/Views/PreferencesView/PreferencesGeneralPage.vala:52
+#: src/Views/PreferencesView.vala:33
 msgid "5s"
 msgstr "5 с"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:12
-msgid "Show indicator in Wingpanel"
-msgstr "Показывать индикатор на панели"
+#: src/Views/PreferencesView.vala:49
+msgid "Start in background"
+msgstr "Запускать в фоновом режиме"
 
-#. header: "Simple Pages",
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:15
-msgid "Indicator"
-msgstr "Индикаторы"
+#: src/Views/PreferencesView.vala:51
+msgid "Draw smooth lines on CPU chart"
+msgstr "Плавные линии для графика ЦП"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:23
-msgid "Display CPU percentage"
+#: src/Views/PreferencesView.vala:57
+msgid "Show in panel"
+msgstr "Показывать на панели"
+
+#: src/Views/PreferencesView.vala:62
+msgid "CPU percentage"
 msgstr "Использование процессора"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:37
-msgid "Display CPU frequency"
+#: src/Views/PreferencesView.vala:67
+msgid "CPU frequency"
 msgstr "Частота процессора"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:50
-msgid "Display CPU temperature"
+#: src/Views/PreferencesView.vala:72
+msgid "CPU temperature"
 msgstr "Температура процессора"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:62
-msgid "Display RAM percentage"
+#: src/Views/PreferencesView.vala:77
+msgid "RAM percentage"
 msgstr "Использование памяти"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:74
-msgid "Display network upload"
+#: src/Views/PreferencesView.vala:82
+msgid "Network upload"
 msgstr "Скорость отдачи сети"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:86
-msgid "Display network download"
+#: src/Views/PreferencesView.vala:87
+msgid "Network download"
 msgstr "Скорость загрузки сети"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:98
-msgid "Display GPU percentage"
+#: src/Views/PreferencesView.vala:92
+msgid "GPU percentage"
 msgstr "Использование граф. процессора"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:110
-msgid "Display VRAM percentage"
+#: src/Views/PreferencesView.vala:97
+msgid "VRAM percentage"
 msgstr "Использование видеопамяти"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:122
-msgid "Display GPU temperature"
+#: src/Views/PreferencesView.vala:102
+msgid "GPU temperature"
 msgstr "Температура граф. процессора"
 
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:188
-msgid "Enabled"
-msgstr "Включено"
-
-#: src/Views/PreferencesView/PreferencesIndicatorPage.vala:193
-msgid "Disabled"
-msgstr "Выключено"
-
-#: src/Views/SystemView/SystemCPUView.vala:17
+#: src/Views/SystemView/SystemCPUView.vala:22
 msgid "Frequency"
 msgstr "Частота"
 
-#: src/Views/SystemView/SystemCPUView.vala:21
+#: src/Views/SystemView/SystemCPUView.vala:26
 msgid "Temperature"
 msgstr "Температура"
 
@@ -302,166 +289,205 @@ msgstr "Температура"
 #. cpu_temperature_chart.update (temperature_index, int.parse (temperature.input) / 1000);
 #. temperature_index++;
 #. }]
-#: src/Views/SystemView/SystemCPUView.vala:80
-#: src/Views/SystemView/SystemGPUView.vala:79
+#: src/Views/SystemView/SystemCPUView.vala:85
+#: src/Views/SystemView/SystemGPUView.vala:84
 msgid "℃"
 msgstr "℃"
 
-#: src/Views/SystemView/SystemCPUView.vala:126
-#: src/Widgets/Statusbar/Statusbar.vala:82
+#: src/Views/SystemView/SystemCPUView.vala:131
+#: src/Widgets/Statusbar/Statusbar.vala:87
 msgid "GHz"
 msgstr "ГГц"
 
-#: src/Views/SystemView/SystemCPUView.vala:153
+#: src/Views/SystemView/SystemCPUView.vala:158
 msgid "THREADS"
 msgstr "ПОТОКИ"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:22
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:26
+msgid "General"
+msgstr "Общие"
+
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:27
 msgid "Features"
 msgstr "Возможности"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:23
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:28
 msgid "Bugs"
 msgstr "Баги"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:51
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:56
 msgid "Model:"
 msgstr "Модель:"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:52
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:57
 msgid "Family:"
 msgstr "Семейство:"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:53
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:58
 msgid "Microcode ver.:"
 msgstr "Вер. микрокода:"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:54
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:59
 msgid "Bogomips:"
 msgstr "Операций в сек.:"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:58
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:63
 msgid "L1 Instruction cache: "
 msgstr "Кэш инструкций L1: "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:62
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:67
 msgid "L1 Data cache: "
 msgstr "Кэш данных L1: "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:66
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:71
 msgid "L1 cache: "
 msgstr "Кэш L1: "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:69
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:74
 msgid "L2 Cache size: "
 msgstr "Размер L2 кэша: "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:72
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:77
 msgid "L3 Cache size: "
 msgstr "Размер L3 кэша: "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:75
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:80
 msgid "Address sizes: "
 msgstr "Размеры адресов: "
 
-#: src/Views/SystemView/SystemMemoryView.vala:5
+#: src/Views/SystemView/SystemMemoryView.vala:10
 msgid "Buffered"
 msgstr "Буферизировано"
 
-#: src/Views/SystemView/SystemMemoryView.vala:6
+#: src/Views/SystemView/SystemMemoryView.vala:11
 msgid "Cached"
 msgstr "Кэшировано"
 
-#: src/Views/SystemView/SystemMemoryView.vala:7
+#: src/Views/SystemView/SystemMemoryView.vala:12
 msgid "Locked"
 msgstr "Заблокировано"
 
-#: src/Views/SystemView/SystemMemoryView.vala:8
+#: src/Views/SystemView/SystemMemoryView.vala:13
 msgid "Total"
 msgstr "Суммарно"
 
-#: src/Views/SystemView/SystemMemoryView.vala:9
+#: src/Views/SystemView/SystemMemoryView.vala:14
 msgid "Used"
 msgstr "Использовано"
 
-#: src/Views/SystemView/SystemMemoryView.vala:10
+#: src/Views/SystemView/SystemMemoryView.vala:15
 msgid "Shared"
 msgstr "Общая память"
 
-#: src/Views/SystemView/SystemNetworkView.vala:18
+#: src/Views/SystemView/SystemNetworkView.vala:23
 msgid "Network"
 msgstr "Сеть"
 
-#: src/Views/SystemView/SystemNetworkView.vala:20
+#: src/Views/SystemView/SystemNetworkView.vala:25
 msgid "DOWN"
 msgstr "ЗАГРУЗКА"
 
-#: src/Views/SystemView/SystemNetworkView.vala:24
+#: src/Views/SystemView/SystemNetworkView.vala:29
 msgid "UP"
 msgstr "ОТДАЧА"
 
-#: src/Views/SystemView/SystemStorageView.vala:20
+#: src/Views/SystemView/SystemStorageView.vala:25
 msgid "Storage"
 msgstr "Устройства хранения"
 
-#: src/Views/SystemView/SystemStorageView.vala:22
+#: src/Views/SystemView/SystemStorageView.vala:27
 msgid "WRITE"
 msgstr "ЗАПИСЬ"
 
-#: src/Views/SystemView/SystemStorageView.vala:26
+#: src/Views/SystemView/SystemStorageView.vala:31
 msgid "READ"
 msgstr "ЧТЕНИЕ"
 
-#: src/Views/SystemView/SystemStorageView.vala:92
+#: src/Views/SystemView/SystemStorageView.vala:97
 msgid "Not mounted"
 msgstr "Не подключено"
 
-#: src/Views/SystemView/SystemGPUView.vala:12
+#: src/Views/SystemView/SystemGPUView.vala:17
 msgid "VRAM"
 msgstr "ВИДЕОПАМЯТЬ"
 
-#: src/Views/SystemView/SystemGPUView.vala:16
+#: src/Views/SystemView/SystemGPUView.vala:21
 msgid "TEMPERATURE"
 msgstr "ТЕМПЕРАТУРА"
 
-#: src/Widgets/Headerbar/Headerbar.vala:22
-msgid "Settings"
-msgstr "Параметры"
-
-#: src/Widgets/Headerbar/Search.vala:12
+#: src/Widgets/Headerbar/Search.vala:17
 msgid "Search Process"
 msgstr "Найти процесс"
 
-#: src/Widgets/Headerbar/Search.vala:13
+#: src/Widgets/Headerbar/Search.vala:18
 msgid "Type process name or PID to search"
 msgstr "Для поиска введите имя или PID процесса"
 
-#: src/Widgets/Statusbar/Statusbar.vala:17
+#: src/Widgets/Statusbar/Statusbar.vala:22
 msgid "Swap"
 msgstr "Подкачка"
 
-#: src/Widgets/Statusbar/Statusbar.vala:21
+#: src/Widgets/Statusbar/Statusbar.vala:26
 msgid "GPU"
 msgstr "Графический процессор"
 
-#: src/Widgets/Statusbar/Statusbar.vala:24
-#: src/Widgets/Statusbar/Statusbar.vala:30
-#: src/Widgets/Statusbar/Statusbar.vala:37
-#: src/Widgets/Statusbar/Statusbar.vala:44
+#: src/Widgets/Statusbar/Statusbar.vala:29
+#: src/Widgets/Statusbar/Statusbar.vala:35
+#: src/Widgets/Statusbar/Statusbar.vala:42
+#: src/Widgets/Statusbar/Statusbar.vala:49
 msgid "Calculating…"
 msgstr "Вычисление…"
 
-#: src/Widgets/Statusbar/Statusbar.vala:51
+#: src/Widgets/Statusbar/Statusbar.vala:56
 msgid "🇺🇦"
 msgstr "🇺🇦"
 
-#: src/Widgets/Statusbar/Statusbar.vala:52
+#: src/Widgets/Statusbar/Statusbar.vala:57
 msgid "Check on Github"
 msgstr "Проект на Github"
 
-#: src/Widgets/WidgetResource/WidgetResource.vala:11
+#: src/Widgets/WidgetResource/WidgetResource.vala:16
 msgid "UTILIZATION"
 msgstr "ИСПОЛЬЗОВАНИЕ"
+
+#~ msgid "Are you sure you want to do this?"
+#~ msgstr "Вы уверены, что хотите это сделать?"
+
+#~ msgid "Yes"
+#~ msgstr "Да"
+
+#~ msgid "No"
+#~ msgstr "Нет"
+
+#~ msgid "End Process"
+#~ msgstr "Завершить процесс"
+
+#~ msgid "End selected process"
+#~ msgstr "Завершить выбранный процесс"
+
+#~ msgid "Kill Process"
+#~ msgstr "Убить процесс"
+
+#~ msgid "Kill selected process"
+#~ msgstr "Убить выбранный процесс"
+
+#~ msgid "Confirm kill of the process?"
+#~ msgstr "Действительно убить процесс?"
+
+#~ msgid "Confirm end of the process?"
+#~ msgstr "Действительно завершить процесс?"
+
+#~ msgid "Indicator"
+#~ msgstr "Индикаторы"
+
+#~ msgid "Enabled"
+#~ msgstr "Включено"
+
+#~ msgid "Disabled"
+#~ msgstr "Выключено"
+
+#~ msgid "B"
+#~ msgstr "Б"
 
 #~ msgid "Containers"
 #~ msgstr "Контейнеры"

@@ -23,7 +23,7 @@ namespace Monitor {
             Object (
                 application_id: "io.elementary.monitor",
                 flags : ApplicationFlags.FLAGS_NONE
-            );
+                );
             status_background = status_indicator;
         }
 
@@ -43,12 +43,16 @@ namespace Monitor {
 
             var quit_action = new SimpleAction ("quit", null);
             add_action (quit_action);
-            set_accels_for_action ("app.quit", { "<Ctrl>q" });
             quit_action.activate.connect (() => {
                 if (window != null) {
                     window.destroy ();
                 }
             });
+
+            set_accels_for_action ("app.quit", { "<Ctrl>q" });
+            set_accels_for_action ("win.search", { "<Ctrl>f" });
+            set_accels_for_action ("process.end", { "<Ctrl>e" });
+            set_accels_for_action ("process.kill", { "<Ctrl>k" });
         }
 
         public override void activate () {
@@ -66,21 +70,21 @@ namespace Monitor {
                 if (!MonitorApp.settings.get_boolean ("indicator-state")) {
                     MonitorApp.settings.set_boolean ("indicator-state", true);
                 }
-                //  if (!MonitorApp.settings.get_boolean ("indicator-cpu-state")) {
-                //      MonitorApp.settings.set_boolean ("indicator-cpu-state", true);
-                //  }
-                //  if (!MonitorApp.settings.get_boolean ("indicator-memory-state")) {
-                //      MonitorApp.settings.set_boolean ("indicator-memory-state", true);
-                //  }
-                //  if (!MonitorApp.settings.get_boolean ("indicator-temperature-state")) {
-                //      MonitorApp.settings.set_boolean ("indicator-temperature-state", true);
-                //  }
-                //  if (!MonitorApp.settings.get_boolean ("indicator-network-upload-state")) {
-                //      MonitorApp.settings.set_boolean ("indicator-network-upload-state", false);
-                //  }
-                //  if (!MonitorApp.settings.get_boolean ("indicator-network-download-state")) {
-                //      MonitorApp.settings.set_boolean ("indicator-network-download-state", false);
-                //  }
+                // if (!MonitorApp.settings.get_boolean ("indicator-cpu-state")) {
+                // MonitorApp.settings.set_boolean ("indicator-cpu-state", true);
+                // }
+                // if (!MonitorApp.settings.get_boolean ("indicator-memory-state")) {
+                // MonitorApp.settings.set_boolean ("indicator-memory-state", true);
+                // }
+                // if (!MonitorApp.settings.get_boolean ("indicator-temperature-state")) {
+                // MonitorApp.settings.set_boolean ("indicator-temperature-state", true);
+                // }
+                // if (!MonitorApp.settings.get_boolean ("indicator-network-upload-state")) {
+                // MonitorApp.settings.set_boolean ("indicator-network-upload-state", false);
+                // }
+                // if (!MonitorApp.settings.get_boolean ("indicator-network-download-state")) {
+                // MonitorApp.settings.set_boolean ("indicator-network-download-state", false);
+                // }
 
                 window.hide ();
                 MonitorApp.settings.set_boolean ("background-state", true);
@@ -96,6 +100,13 @@ namespace Monitor {
             print ("\n");
             print (" Monitor %s \n", VCS_TAG);
             print ("\n");
+
+            print (
+                "LibPCI ver: %d.%d.%d \n",
+                PCIUtils.LIBPCI_MAJOR_VER,
+                PCIUtils.LIBPCI_MINOR_VER,
+                PCIUtils.LIBPCI_PATCH_VER
+                );
 
             // add command line options
             try {

@@ -62,13 +62,13 @@ public class Monitor.SystemMemoryView : Monitor.WidgetResource {
         // memory_chart.update (3, memory.shared_percentage + memory.buffer_percentage + memory.cached_percentage);
         // memory_chart.update (3, memory.shared_percentage + memory.buffer_percentage + memory.cached_percentage + memory.locked_percentage);
 
-        memory_total_label.set_text (("%s").printf (Utils.HumanUnitFormatter.double_bytes_to_human (memory.total)));
-        memory_used_label.set_text (("%s").printf (Utils.HumanUnitFormatter.double_bytes_to_human (memory.used)));
-        memory_buffered_label.set_text (("%s").printf (Utils.HumanUnitFormatter.double_bytes_to_human (memory.buffer)));
-        memory_cached_label.set_text (("%s").printf (Utils.HumanUnitFormatter.double_bytes_to_human (memory.cached)));
-        memory_locked_label.set_text (("%s").printf (Utils.HumanUnitFormatter.double_bytes_to_human (memory.locked)));
+        memory_total_label.text = format_size ((uint64) memory.total, IEC_UNITS);
+        memory_used_label.text = format_size ((uint64) memory.used, IEC_UNITS);
+        memory_buffered_label.text = format_size ((uint64) memory.buffer, IEC_UNITS);
+        memory_cached_label.text = format_size ((uint64) memory.cached, IEC_UNITS);
+        memory_locked_label.text = format_size ((uint64) memory.locked, IEC_UNITS);
 
-        memory_shared_label.set_text (("%s").printf (Utils.HumanUnitFormatter.double_bytes_to_human (memory.shared)));
+        memory_shared_label.text = format_size ((uint64) memory.shared, IEC_UNITS);
     }
 
 }

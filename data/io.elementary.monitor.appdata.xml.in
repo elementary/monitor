@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2021 Stanisław <@ststdc> -->
-<component type="desktop">
+<component type="desktop-application">
   <id>io.elementary.monitor</id>
+  <launchable type="desktop-id">io.elementary.monitor.desktop</launchable>
+  <translation type="gettext">io.elementary.monitor</translation>
   <metadata_license>CC0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <name>Monitor</name>
@@ -9,214 +11,218 @@
   <description>
     <p>Display usage of system resources, filter and manage processes.</p>
   </description>
-    <custom>
-     <value key="x-appcenter-color-primary">#d7f4d7</value>
-     <value key="x-appcenter-color-primary-text">#242d40</value>
-     <value key="x-appcenter-suggested-price">0</value>
-  </custom>
-    <screenshots>
+  <branding>
+    <color type="primary">#d7f4d7</color>
+  </branding>
+  <screenshots>
     <screenshot type="default">
-      <image>https://github.com/stsdc/monitor/raw/master/data/screenshots/monitor-processes.png</image>
+      <image>https://github.com/elementary/monitor/raw/0.17.2/data/screenshots/monitor-processes.png</image>
     </screenshot>
     <screenshot>
-      <image>https://github.com/stsdc/monitor/raw/master/data/screenshots/monitor-system.png</image>
+      <image>https://github.com/elementary/monitor/raw/0.17.2/data/screenshots/monitor-system.png</image>
     </screenshot>
   </screenshots>
-  <developer_name>Stanisław Dac</developer_name>
-  <url type="homepage">https://github.com/stsdc/monitor</url>
-  <url type="bugtracker">https://github.com/stsdc/monitor/issues</url>
-<url type="help">https://github.com/stsdc/monitor/issues</url>
+  <developer id="org.elementaryos">
+    <name>elementary, Inc.</name>
+  </developer>
+  <project_group>elementary</project_group>
+  <update_contact>contact_at_elementary.io</update_contact>
+  <url type="homepage">https://github.com/elementary/monitor</url>
+  <url type="bugtracker">https://github.com/elementary/monitor/issues</url>
+  <url type="help">https://github.com/elementary/monitor/issues</url>
 
-<releases>
-<release version="0.11.0" date="2021-10-24">
-​      <description>
-​         <p>Add info about drives (based on Dirli's code)</p>
-​      </description>
-​</release>
-<release version="0.10.0" date="2021-09-23">
-​      <description>
-​         <p>Adds dark theme 🌚</p>
-​      </description>
-​</release>
-<release version="0.9.5" date="2021-08-30">
-​      <description>
-​         <p>Uses Wingpanel v3; New *.deb package maintainer: Kristopher Ives </p>
-​      </description>
-​</release>
-<release version="0.9.4" date="2021-04-23">
-​      <description>
-​         <p>🐛 Should fix empty Indicator. Please reboot after installation ⚡️</p>
-​      </description>
-​    </release>
-<release version="0.9.3" date="2021-04-17">
-​      <description>
-​         <ul>
-           <li>🐛 Try to fix frequent GUI hangs 🥶</li>
-           <li>🇳🇱 Update Dutch translation (@Vistaus)</li>
-           <li>🇵🇹 Update Portuguese translation (@hugok79)</li>
-           <li>🇷🇴 Add Romanian translation (@tiberiufrat)</li>
+  <content_rating type="oars-1.1" />
+
+  <releases>
+    <release version="0.11.0" date="2021-10-24">
+      <description>
+        <p>Add info about drives (based on Dirli's code)</p>
+      </description>
+    </release>
+    <release version="0.10.0" date="2021-09-23">
+      <description>
+        <p>Adds dark theme 🌚</p>
+      </description>
+    </release>
+    <release version="0.9.5" date="2021-08-30">
+      <description>
+        <p>Uses Wingpanel v3; New *.deb package maintainer: Kristopher Ives </p>
+      </description>
+    </release>
+    <release version="0.9.4" date="2021-04-23">
+      <description>
+        <p>🐛 Should fix empty Indicator. Please reboot after installation ⚡️</p>
+      </description>
+    </release>
+    <release version="0.9.3" date="2021-04-17">
+      <description>
+        <ul>
+          <li>🐛 Try to fix frequent GUI hangs 🥶</li>
+          <li>🇳🇱 Update Dutch translation (@Vistaus)</li>
+          <li>🇵🇹 Update Portuguese translation (@hugok79)</li>
+          <li>🇷🇴 Add Romanian translation (@tiberiufrat)</li>
         </ul>
-​      </description>
-​    </release>
-<release version="0.9.2" date="2020-12-14">
-​      <description>
-​         <ul>
-           <li>Display Storage usage</li>
-           <li>Update Russian translation (@camellan)</li>
-           <li>Update Portuguese translation (@hugok79)</li>
-           <li>Different colours for Upload and Download</li>
+      </description>
+    </release>
+    <release version="0.9.2" date="2020-12-14">
+      <description>
+        <ul>
+          <li>Display Storage usage</li>
+          <li>Update Russian translation (@camellan)</li>
+          <li>Update Portuguese translation (@hugok79)</li>
+          <li>Different colours for Upload and Download</li>
         </ul>
-​      </description>
-​    </release>
-<release version="0.9.1" date="2020-09-04">
-​      <description>
-​         <ul>
-           <li>Update Portuguese translation (@rottenpants466)</li>
-           <li>Update Dutch translation (@Vistaus)</li>
-           <li>Smoother animations (@DevAlien)</li>
-           <li>Preselect first entry so that the info panel is always open (@DevAlien)</li>
-           <li>Show CPU temperature in the Indicator</li>
+      </description>
+    </release>
+    <release version="0.9.1" date="2020-09-04">
+      <description>
+        <ul>
+          <li>Update Portuguese translation (@rottenpants466)</li>
+          <li>Update Dutch translation (@Vistaus)</li>
+          <li>Smoother animations (@DevAlien)</li>
+          <li>Preselect first entry so that the info panel is always open (@DevAlien)</li>
+          <li>Show CPU temperature in the Indicator</li>
         </ul>
-​      </description>
-​    </release>
+      </description>
+    </release>
     <release version="0.9.0" date="2020-08-18">
-​      <description>
-​         <ul>
-           <li>Better System Tab</li>
-           <li>Update Portuguese translation (@rottenpants466)</li>
-           <li>Save last opened view (@ryonakano)</li>
+      <description>
+        <ul>
+          <li>Better System Tab</li>
+          <li>Update Portuguese translation (@rottenpants466)</li>
+          <li>Save last opened view (@ryonakano)</li>
         </ul>
-​      </description>
-​    </release>
+      </description>
+    </release>
     <release version="0.8.1" date="2020-07-20">
-​      <description>
-​         <ul>
-           <li>Update Japanese translation (Ryo Nakano)</li>
-           <li>Disable search entry, when System tab is active</li>
-           <li>Add screenshots</li>
+      <description>
+        <ul>
+          <li>Update Japanese translation (Ryo Nakano)</li>
+          <li>Disable search entry, when System tab is active</li>
+          <li>Add screenshots</li>
         </ul>
-​      </description>
-​    </release>
+      </description>
+    </release>
     <release version="0.8.0" date="2020-07-19">
-​      <description>
-​         <ul>
-           <li>Add System resources tab</li>
+      <description>
+        <ul>
+          <li>Add System resources tab</li>
         </ul>
-​      </description>
-​    </release>
+      </description>
+    </release>
     <release version="0.7.3" date="2020-06-22">
-​      <description>
-​         <ul>
-           <li>Added tooltips to process state label (Ryo Nakano)</li>
-           <li>Small bugfix</li>
+      <description>
+        <ul>
+          <li>Added tooltips to process state label (Ryo Nakano)</li>
+          <li>Small bugfix</li>
         </ul>
-​      </description>
-​    </release>
+      </description>
+    </release>
     <release version="0.7.2" date="2020-04-15">
-​      <description>
-​         <ul>
-           <li>Fix sorting arrows</li>
-           <li>Update Russian translation (camellan)</li>
-           <li>Add Turkish translation (Harun Yasar)</li>
-           <li>Use newest version of live-chart (Laurent Callarec) ← Check his lib for creating charts, it's amazing!</li>
+      <description>
+        <ul>
+          <li>Fix sorting arrows</li>
+          <li>Update Russian translation (camellan)</li>
+          <li>Add Turkish translation (Harun Yasar)</li>
+          <li>Use newest version of live-chart (Laurent Callarec) ← Check his lib for creating charts, it's amazing!</li>
         </ul>
-​      </description>
-​    </release>
+      </description>
+    </release>
     <release version="0.7.0" date="2020-04-11">
-​      <description>
-​         <ul>
-           <li>Detailed process info in sidebar</li>
-           <li>CPU frequency in tooltip (Ryo Nakano)</li>
+      <description>
+        <ul>
+          <li>Detailed process info in sidebar</li>
+          <li>CPU frequency in tooltip (Ryo Nakano)</li>
         </ul>
-​      </description>
-​    </release>
+      </description>
+    </release>
     <release version="0.6.2" date="2019-12-21">
-​      <description>
-​         <ul>
-           <li>Bugfix (potential) of crushes and high CPU usage</li>
-           <li>Update German translation (Carsten Dietrich)</li>
+      <description>
+        <ul>
+          <li>Bugfix (potential) of crushes and high CPU usage</li>
+          <li>Update German translation (Carsten Dietrich)</li>
         </ul>
-​      </description>
-​    </release>
+      </description>
+    </release>
     <release version="0.6.1" date="2019-11-13">
-​      <description>
-​         <ul>
-           <li>Update Portuguese translation (Hugo Carvalho)</li>
-           <li>Update French translation (Nathan Bonnemains and Skeudwenn)</li>
-           <li>Fix: Don't show swap percentage when it's not available (Ryo Nakano)</li>
+      <description>
+        <ul>
+          <li>Update Portuguese translation (Hugo Carvalho)</li>
+          <li>Update French translation (Nathan Bonnemains and Skeudwenn)</li>
+          <li>Fix: Don't show swap percentage when it's not available (Ryo Nakano)</li>
         </ul>
-​      </description>
-​    </release>
+      </description>
+    </release>
     <release version="0.6.0" date="2019-10-29">
-​      <description>
-​         <ul>
-           <li>Update Italian translation (Mirko Brombin)</li>
-           <li>Show swap usage (Ryo Nakano)</li>
-           <li>Update Russian translation (camellan)</li>
-           <li>Code refactoring (Ryo Nakano)</li>
-           <li>Update Japanese translation (Ryo Nakano)</li>
+      <description>
+        <ul>
+          <li>Update Italian translation (Mirko Brombin)</li>
+          <li>Show swap usage (Ryo Nakano)</li>
+          <li>Update Russian translation (camellan)</li>
+          <li>Code refactoring (Ryo Nakano)</li>
+          <li>Update Japanese translation (Ryo Nakano)</li>
         </ul>
-​      </description>
-​    </release>
+      </description>
+    </release>
     <release version="0.5.0" date="2019-06-07">
-​      <description>
-​         <ul>
-           <li>Fix contents of the window are not shown (Ryo Nakano)</li>
-           <li>ix no row is still selected when indicator options are enabled (Ryo Nakano)</li>
-           <li>Fix the app crashes by clicking the "End/Kill Process" buttons when no process is selected (Ryo Nakano)</li>
-           <li>Added buttons to either "kill" or "end" a process. (Evan Buss)</li>
-           <li>Change screenshot to English (Christopher Crouse)</li>
-           <li>Update Russian translation (camellan)</li>
-           <li>Check if the default display is a X11 display (Hannes Schulze)</li>
-           <li>Update Spanish translation (Mario Rodrigo)</li>
+      <description>
+        <ul>
+          <li>Fix contents of the window are not shown (Ryo Nakano)</li>
+          <li>ix no row is still selected when indicator options are enabled (Ryo Nakano)</li>
+          <li>Fix the app crashes by clicking the "End/Kill Process" buttons when no process is selected (Ryo Nakano)</li>
+          <li>Added buttons to either "kill" or "end" a process. (Evan Buss)</li>
+          <li>Change screenshot to English (Christopher Crouse)</li>
+          <li>Update Russian translation (camellan)</li>
+          <li>Check if the default display is a X11 display (Hannes Schulze)</li>
+          <li>Update Spanish translation (Mario Rodrigo)</li>
         </ul>
-​      </description>
-​    </release>
+      </description>
+    </release>
     <release version="0.4.4" date="2019-06-07">
-​      <description>
-​         <ul>
-           <li>Add start-in-background option to UI</li>
+      <description>
+        <ul>
+          <li>Add start-in-background option to UI</li>
         </ul>
-​      </description>
-​    </release>
+      </description>
+    </release>
     <release version="0.4.3" date="2019-04-11">
-​      <description>
-​         <ul>
-           <li>Add start-in-background command line option</li>
-           <li>Add Italian and Portuguese translations</li>
-           <li>Update Dutch, French and Spanish translations</li>
-           <li>Fix Japanese translation</li>
+      <description>
+        <ul>
+          <li>Add start-in-background command line option</li>
+          <li>Add Italian and Portuguese translations</li>
+          <li>Update Dutch, French and Spanish translations</li>
+          <li>Fix Japanese translation</li>
         </ul>
-​      </description>
-​    </release>
+      </description>
+    </release>
     <release version="0.4.2" date="2019-03-11">
-​      <description>
-​         <ul>
-           <li>Minor bug fix</li>
-           <li>Make End process button red</li>
-           <li>Add Japanese translation</li>
+      <description>
+        <ul>
+          <li>Minor bug fix</li>
+          <li>Make End process button red</li>
+          <li>Add Japanese translation</li>
         </ul>
-​      </description>
-​    </release>
+      </description>
+    </release>
     <release version="0.4.1" date="2019-02-20">
-​      <description>
-​         <ul>
-           <li>Add CPU and RAM icons</li>
-           <li>Fix bug, that caused hanging</li>
-           <li>Update Polish and Russian translation</li>
+      <description>
+        <ul>
+          <li>Add CPU and RAM icons</li>
+          <li>Fix bug, that caused hanging</li>
+          <li>Update Polish and Russian translation</li>
         </ul>
-​      </description>
-​    </release>
+      </description>
+    </release>
     <release version="0.4.0" date="2019-01-31">
-​      <description>
-​         <ul>
-           <li>Add Monitor indicator</li>
-           <li>Add missing extra French translations</li>
-           <li>Fix: if icon missing for the process, icon is taken from previous process</li>
-           <li>Fix: search erases my input while I'm typing</li>
-           <li>Fix POTFILES</li>
+      <description>
+        <ul>
+          <li>Add Monitor indicator</li>
+          <li>Add missing extra French translations</li>
+          <li>Fix: if icon missing for the process, icon is taken from previous process</li>
+          <li>Fix: search erases my input while I'm typing</li>
+          <li>Fix POTFILES</li>
         </ul>
-​      </description>
-​    </release>
-​  </releases>
+      </description>
+    </release>
+  </releases>
 </component>

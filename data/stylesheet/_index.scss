@@ -5,33 +5,50 @@ $fg-color: $BLACK_500;
 
 $text_color: $fg_color;
 
-.roundy-label,
-.roundy-label:hover,
-.roundy-label:selected,
-.roundy-label:selected:focus,
-.roundy-label:hover:selected {
-    background-image: none;
-    box-shadow: none;
-    color: rgba($text_color, 0.7);
-    font-weight: 700;
-    border-radius: 10px;
-    padding: 0 6px;
+roundy-label,
+roundy-label:hover,
+roundy-label:selected,
+roundy-label:selected:focus,
+roundy-label:hover:selected {
     margin: 0 3px;
-    border-width: 0;
 
-    @if $color-scheme == "light" {
-        background-color: $SILVER_300;
-    } @else if $color-scheme == "dark" {
-        background-color: $SILVER_900;
+    .small-label {
+        padding: 0;
     }
-}
 
-.green {
-    background-color: rgba($LIME_300, 0.6);
-}
+    .value {
+        color: #{'alpha(@text_color, 0.7)'};
+        font-feature-settings: "tnum";
+        font-weight: 700;
+        border-radius: 10px;
+        padding: 0 6px;
 
-.blue {
-    background-color: rgba($BLUEBERRY_300, 0.6);
+        @if $color-scheme == "light" {
+            background-color: $SILVER_300;
+        } @else if $color-scheme == "dark" {
+            background-color: $SILVER_900;
+        }
+    }
+
+    &.green .value {
+        background-color: rgba($LIME_300, 0.6);
+    }
+
+    &.blue .value {
+        background-color: rgba($BLUEBERRY_300, 0.6);
+    }
+
+    &.username {
+        &-other .value {
+            background-color: $BANANA_300;
+            color: #381F00;
+        }
+
+        &-root .value {
+            background-color: $STRAWBERRY_300;
+            color: $SILVER_100;
+        }
+    }
 }
 
 .grape_500 {
@@ -42,17 +59,6 @@ $text_color: $fg_color;
     background-color: rgba($BLUEBERRY_100, 0.6);
 }
 
-.label-vertical {
-    &-val {
-        color: $text_color;
-        font-size: 30px;
-        font-weight: 200;
-        border-width: 0;
-    }
-}
-
-
-
 .usage-label-container {
     border-radius: 3px;
     @if $color-scheme == "light" {
@@ -61,28 +67,6 @@ $text_color: $fg_color;
     } @else if $color-scheme == "dark" {
         background-color: rgba($SILVER_900, 0.5);
         border: 1px solid $SILVER_900;
-    }
-}
-
-.username {
-    &-current {
-        @if $color-scheme == "light" {
-            background-color: $SILVER_300;
-            color: $SILVER_900;
-        } @else if $color-scheme == "dark" {
-            background-color: $SILVER_900;
-            color: rgba($text_color, 0.7);
-        }
-    }
-
-    &-other {
-        background-color: $BANANA_300;
-        color: #381F00;
-    }
-
-    &-root {
-        background-color: $STRAWBERRY_300;
-        color: $SILVER_100;
     }
 }
 
@@ -107,8 +91,6 @@ $text_color: $fg_color;
     padding-right: 4px;
     padding-left:2px;
     font-size: 10px;
-    /* font-weight:bold; */
-    color: $text_color;
 
     @if $color-scheme == "light" {
         border: 1px solid $SILVER_300;
@@ -180,20 +162,6 @@ $text_color: $fg_color;
 
     text {
         background-color: #fdf6e3;
-    }
-}
-
-.dim-label {
-    color: rgba($text_color, 0.5);
-}
-
-.small-text {
-    font-weight:bold;
-    font-size:9px;
-    @if $color-scheme == "light" {
-        color:grey;
-    } @else if $color-scheme == "dark" {
-        color: $SILVER_500;
     }
 }
 

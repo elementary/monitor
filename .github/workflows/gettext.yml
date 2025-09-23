@@ -2,7 +2,7 @@ name: Gettext Updates
 
 on:
   push:
-    branches: [dev]
+    branches: [main]
 
 jobs:
   build:
