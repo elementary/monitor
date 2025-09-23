@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-12 12:48+0000\n"
+"POT-Creation-Date: 2025-09-23 19:51+0000\n"
 "PO-Revision-Date: 2025-07-13 12:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/desktop/"
@@ -19,22 +19,23 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: src/MainWindow.vala:27 src/MainWindow.vala:71
+#: src/MainWindow.vala:17 src/MainWindow.vala:60
 msgid "Monitor"
 msgstr "モニター"
 
-#: src/MainWindow.vala:38
+#: src/MainWindow.vala:27
 msgid "Processes"
 msgstr "プロセス"
 
-#: src/MainWindow.vala:39
+#: src/MainWindow.vala:28
 msgid "System"
 msgstr "システム"
 
-#: src/MainWindow.vala:56
+#: src/MainWindow.vala:45
 msgid "Settings"
 msgstr "設定"
 
+#. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:37
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
@@ -44,6 +45,7 @@ msgstr "設定"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:35
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:39
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:40
+#: src/Widgets/Statusbar/Statusbar.vala:79
 msgid "N/A"
 msgstr "N/A"
 
@@ -72,32 +74,32 @@ msgstr "優先度"
 msgid "THR"
 msgstr "スレッド数"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:102
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:99
 msgid "The app is waiting in an uninterruptible disk sleep"
 msgstr "割り込み不能なディスクの入出力待ち"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:104
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:101
 msgid "Idle kernel thread"
 msgstr "アイドル状態のカーネルスレッド"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:106
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:103
 msgid "The process is running or runnable (on run queue)"
 msgstr "実行状態または実行可能状態のプロセス (実行キューに存在)"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:108
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:105
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
 msgstr "割り込み不能な待ち状態 (イベント完了待ち) のプロセス"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:110
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:107
 msgid "The process is stopped by a job control signal"
 msgstr "ジョブ管理シグナルによって停止されたプロセス"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:112
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:109
 msgid "The process is stopped by a debugger during the tracing"
 msgstr "トレース中にデバッガーによって停止されたプロセス"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:114
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:111
 msgid "The app is terminated but not reaped by its parent"
 msgstr "終了したが、親プロセスによって回収されなかった子プロセス"
 
@@ -136,7 +138,8 @@ msgstr "終了処理を行わずに “%s” を強制終了しますか?"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:110
 msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
-msgstr "これはデータ損失を引き起こす可能性があります。終了要求を送信してもプロセスが"
+msgstr ""
+"これはデータ損失を引き起こす可能性があります。終了要求を送信してもプロセスが"
 "終了しない場合のみ、強制終了してください。"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:119
@@ -152,7 +155,8 @@ msgstr "“%s” に終了要求を送信しますか?"
 msgid ""
 "The process will be asked to initiate shutdown tasks and close. In some "
 "cases the process may not quit."
-msgstr "プロセスに対し、終了処理を開始して閉じるように要求します。プロセスの終了には"
+msgstr ""
+"プロセスに対し、終了処理を開始して閉じるように要求します。プロセスの終了には"
 "至らない場合もあります。"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:146
@@ -174,7 +178,7 @@ msgstr "CPU"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:56
 #: src/Views/SystemView/SystemMemoryView.vala:18
-#: src/Widgets/Statusbar/Statusbar.vala:18
+#: src/Widgets/Statusbar/Statusbar.vala:23
 msgid "Memory"
 msgstr "メモリー"
 
@@ -187,7 +191,6 @@ msgid "MiB"
 msgstr "MiB"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:157
-#: src/Widgets/Statusbar/Statusbar.vala:101
 msgid "GiB"
 msgstr "GiB"
 
@@ -277,31 +280,25 @@ msgstr "VRAM 使用率"
 msgid "GPU temperature"
 msgstr "GPU 温度"
 
-#: src/Views/SystemView/SystemCPUView.vala:22
+#: src/Views/SystemView/SystemCPUView.vala:39
 msgid "Frequency"
 msgstr "周波数"
 
-#: src/Views/SystemView/SystemCPUView.vala:26
+#: src/Views/SystemView/SystemCPUView.vala:46
 msgid "Temperature"
 msgstr "温度"
 
-#. int temperature_index = 0;
-#. foreach (var temperature in cpu.paths_temperatures.values) {
-#. debug (temperature.input);
-#. cpu_temperature_chart.update (temperature_index, int.parse (temperature.input) / 1000);
-#. temperature_index++;
-#. }]
-#: src/Views/SystemView/SystemCPUView.vala:85
+#: src/Views/SystemView/SystemCPUView.vala:83
 #: src/Views/SystemView/SystemGPUView.vala:84
 msgid "℃"
 msgstr "℃"
 
-#: src/Views/SystemView/SystemCPUView.vala:131
-#: src/Widgets/Statusbar/Statusbar.vala:87
+#: src/Views/SystemView/SystemCPUView.vala:129
+#: src/Widgets/Statusbar/Statusbar.vala:70
 msgid "GHz"
 msgstr "GHz"
 
-#: src/Views/SystemView/SystemCPUView.vala:158
+#: src/Views/SystemView/SystemCPUView.vala:160
 msgid "THREADS"
 msgstr "スレッド"
 
@@ -389,23 +386,23 @@ msgstr "ネットワーク"
 msgid "DOWN"
 msgstr "受信"
 
-#: src/Views/SystemView/SystemNetworkView.vala:29
+#: src/Views/SystemView/SystemNetworkView.vala:30
 msgid "UP"
 msgstr "送信"
 
-#: src/Views/SystemView/SystemStorageView.vala:25
+#: src/Views/SystemView/SystemStorageView.vala:18
 msgid "Storage"
 msgstr "ストレージ"
 
-#: src/Views/SystemView/SystemStorageView.vala:27
+#: src/Views/SystemView/SystemStorageView.vala:20
 msgid "WRITE"
 msgstr "書き込み"
 
-#: src/Views/SystemView/SystemStorageView.vala:31
+#: src/Views/SystemView/SystemStorageView.vala:25
 msgid "READ"
 msgstr "読み込み"
 
-#: src/Views/SystemView/SystemStorageView.vala:97
+#: src/Views/SystemView/SystemStorageView.vala:112
 msgid "Not mounted"
 msgstr "未マウント"
 
@@ -425,32 +422,30 @@ msgstr "プロセスを検索"
 msgid "Type process name or PID to search"
 msgstr "プロセス名か PID を入力して検索"
 
-#: src/Widgets/Statusbar/Statusbar.vala:22
-msgid "Swap"
-msgstr "スワップ"
-
+#: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:26
-msgid "GPU"
-msgstr "GPU"
-
-#: src/Widgets/Statusbar/Statusbar.vala:29
-#: src/Widgets/Statusbar/Statusbar.vala:35
-#: src/Widgets/Statusbar/Statusbar.vala:42
-#: src/Widgets/Statusbar/Statusbar.vala:49
+#: src/Widgets/Statusbar/Statusbar.vala:36
+#: src/Widgets/Statusbar/Statusbar.vala:46
 msgid "Calculating…"
 msgstr "計算しています…"
 
-#: src/Widgets/Statusbar/Statusbar.vala:56
-msgid "🇺🇦"
-msgstr "🇺🇦"
+#: src/Widgets/Statusbar/Statusbar.vala:33
+msgid "Swap"
+msgstr "スワップ"
 
-#: src/Widgets/Statusbar/Statusbar.vala:57
-msgid "Check on Github"
-msgstr "GitHub で確認"
+#: src/Widgets/Statusbar/Statusbar.vala:43
+msgid "GPU"
+msgstr "GPU"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:16
 msgid "UTILIZATION"
 msgstr "使用率"
+
+#~ msgid "🇺🇦"
+#~ msgstr "🇺🇦"
+
+#~ msgid "Check on Github"
+#~ msgstr "GitHub で確認"
 
 #~ msgid "Are you sure you want to do this?"
 #~ msgstr "この操作を実行してもよろしいですか?"

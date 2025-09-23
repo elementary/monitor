@@ -21,7 +21,7 @@ public class Monitor.WidgetResource : Gtk.Box {
         }
     }
 
-    private Gtk.Box charts_container = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+    private Gtk.Box charts_container = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6);
 
     private Gtk.Grid grid_main_chart_container;
     private Gtk.Grid grid_main_onchart_info_container;
