@@ -5,7 +5,7 @@
 
 public class Monitor.Search : Gtk.SearchEntry {
     public MainWindow window { get; construct; }
-    private Gtk.TreeModelFilter filter_model;
+
     private CPUProcessTreeView process_tree_view;
 
     public Search (MainWindow window) {
@@ -13,21 +13,17 @@ public class Monitor.Search : Gtk.SearchEntry {
     }
 
     construct {
-        this.process_tree_view = window.process_view.process_tree_view;
-        this.placeholder_text = _("Search Process");
-        this.tooltip_markup = Granite.markup_accel_tooltip ({ "<Ctrl>F" }, _("Type process name or PID to search"));
+        placeholder_text = _("Type process name or PID to search");
 
-        filter_model = new Gtk.TreeModelFilter (window.process_view.treeview_model, null);
-        connect_signal ();
+        var filter_model = new Gtk.TreeModelFilter (window.process_view.treeview_model, null);
         filter_model.set_visible_func (filter_func);
-        // process_tree_view.set_model (filter_model);
 
         var sort_model = new Gtk.TreeModelSort.with_model (filter_model);
-        process_tree_view.set_model (sort_model);
-    }
 
-    private void connect_signal () {
-        this.search_changed.connect (() => {
+        process_tree_view = window.process_view.process_tree_view;
+        process_tree_view.set_model (sort_model);
+
+        search_changed.connect (() => {
             // collapse tree only when search is focused and changed
             if (this.is_focus) {
                 process_tree_view.collapse_all ();
@@ -93,10 +89,8 @@ public class Monitor.Search : Gtk.SearchEntry {
     }
 
     // reset filter, grab focus and insert the character
-    public void activate_entry (string search_text = "") {
-        this.text = "";
-        this.search_changed ();
-        this.insert_at_cursor (search_text);
+    public void activate_entry () {
+        text = "";
+        search_changed ();
     }
-
 }
