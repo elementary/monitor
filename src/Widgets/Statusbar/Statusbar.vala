@@ -10,8 +10,6 @@ public class Monitor.Statusbar : Granite.Bin {
     private Gtk.Label gpu_usage_label;
 
     construct {
-        var actionbar = new Gtk.ActionBar ();
-
         var cpu_icon = new Gtk.Image.from_icon_name ("cpu-symbolic") {
             tooltip_text = _("CPU")
         };
