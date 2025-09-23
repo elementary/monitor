@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-12 12:48+0000\n"
+"POT-Creation-Date: 2025-09-23 19:46+0000\n"
 "PO-Revision-Date: 2025-08-02 20:55+0000\n"
 "Last-Translator: JieXu <xujie0739@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
@@ -19,19 +19,19 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: src/MainWindow.vala:27 src/MainWindow.vala:71
+#: src/MainWindow.vala:17 src/MainWindow.vala:60
 msgid "Monitor"
 msgstr "监视器"
 
-#: src/MainWindow.vala:38
+#: src/MainWindow.vala:27
 msgid "Processes"
 msgstr "进程"
 
-#: src/MainWindow.vala:39
+#: src/MainWindow.vala:28
 msgid "System"
 msgstr "系统"
 
-#: src/MainWindow.vala:56
+#: src/MainWindow.vala:45
 msgid "Settings"
 msgstr "设置"
 
@@ -72,32 +72,32 @@ msgstr "优先度"
 msgid "THR"
 msgstr "线程数量"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:102
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:99
 msgid "The app is waiting in an uninterruptible disk sleep"
 msgstr "进程正在等待不可中断的磁盘操作"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:104
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:101
 msgid "Idle kernel thread"
 msgstr "空闲内核线程"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:106
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:103
 msgid "The process is running or runnable (on run queue)"
 msgstr "进程正在运行或可运行（位于运行队列中）"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:108
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:105
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
 msgstr "进程处于可中断的睡眠状态，正在等待某个事件完成"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:110
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:107
 msgid "The process is stopped by a job control signal"
 msgstr "进程已被作业控制信号停止"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:112
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:109
 msgid "The process is stopped by a debugger during the tracing"
 msgstr "进程在跟踪期间被调试器停止"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:114
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:111
 msgid "The app is terminated but not reaped by its parent"
 msgstr "应用程序已终止，但父进程尚未对其进行回收"
 
@@ -275,31 +275,25 @@ msgstr "VRAM 使用率"
 msgid "GPU temperature"
 msgstr "GPU 温度"
 
-#: src/Views/SystemView/SystemCPUView.vala:22
+#: src/Views/SystemView/SystemCPUView.vala:39
 msgid "Frequency"
 msgstr "频率"
 
-#: src/Views/SystemView/SystemCPUView.vala:26
+#: src/Views/SystemView/SystemCPUView.vala:46
 msgid "Temperature"
 msgstr "温度"
 
-#. int temperature_index = 0;
-#. foreach (var temperature in cpu.paths_temperatures.values) {
-#. debug (temperature.input);
-#. cpu_temperature_chart.update (temperature_index, int.parse (temperature.input) / 1000);
-#. temperature_index++;
-#. }]
-#: src/Views/SystemView/SystemCPUView.vala:85
+#: src/Views/SystemView/SystemCPUView.vala:83
 #: src/Views/SystemView/SystemGPUView.vala:84
 msgid "℃"
 msgstr "℃"
 
-#: src/Views/SystemView/SystemCPUView.vala:131
+#: src/Views/SystemView/SystemCPUView.vala:129
 #: src/Widgets/Statusbar/Statusbar.vala:87
 msgid "GHz"
 msgstr "GHz"
 
-#: src/Views/SystemView/SystemCPUView.vala:158
+#: src/Views/SystemView/SystemCPUView.vala:160
 msgid "THREADS"
 msgstr "线程"
 
@@ -387,23 +381,23 @@ msgstr "网络"
 msgid "DOWN"
 msgstr "下载"
 
-#: src/Views/SystemView/SystemNetworkView.vala:29
+#: src/Views/SystemView/SystemNetworkView.vala:30
 msgid "UP"
 msgstr "上传"
 
-#: src/Views/SystemView/SystemStorageView.vala:25
+#: src/Views/SystemView/SystemStorageView.vala:18
 msgid "Storage"
 msgstr "存储设备"
 
-#: src/Views/SystemView/SystemStorageView.vala:27
+#: src/Views/SystemView/SystemStorageView.vala:20
 msgid "WRITE"
 msgstr "写入"
 
-#: src/Views/SystemView/SystemStorageView.vala:31
+#: src/Views/SystemView/SystemStorageView.vala:25
 msgid "READ"
 msgstr "读取"
 
-#: src/Views/SystemView/SystemStorageView.vala:97
+#: src/Views/SystemView/SystemStorageView.vala:112
 msgid "Not mounted"
 msgstr "未挂载"
 
