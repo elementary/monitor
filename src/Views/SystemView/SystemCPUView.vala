@@ -24,7 +24,7 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         cpu_utilization_chart.config.y_axis.tick_interval = 100;
         cpu_utilization_chart.config.y_axis.fixed_max = 100.0 * cpu.core_list.size;
 
-        set_main_chart (cpu_utilization_chart);
+        main_chart = cpu_utilization_chart;
         set_main_chart_overlay (grid_core_labels ());
     }
 

@@ -59,7 +59,7 @@ public class Monitor.SystemGPUView : Monitor.WidgetResource {
 
         gpu_chart = new Chart (1);
         gpu_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
-        set_main_chart (gpu_chart);
+        main_chart = gpu_chart;
 
         set_main_chart_overlay (gpu_usage_grid ());
     }
