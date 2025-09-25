@@ -75,7 +75,7 @@ public class Monitor.SystemGPUView : Monitor.WidgetResource {
     }
 
     public void update () {
-        label_vertical_main_metric = (("%d%%").printf (gpu.percentage));
+        main_metric_value = (("%d%%").printf (gpu.percentage));
         gpu_chart.update (0, gpu.percentage);
 
         gpu_vram_percentage_chart.update (0, gpu.memory_percentage);

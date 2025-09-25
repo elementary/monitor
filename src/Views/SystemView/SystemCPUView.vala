@@ -125,7 +125,7 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
             }
         }
 
-        label_vertical_main_metric = ("%d%%").printf (cpu.percentage);
+        main_metric_value = ("%d%%").printf (cpu.percentage);
         cpu_frequency_label.text = ("%.2f %s").printf (cpu.frequency, _("GHz"));
     }
 

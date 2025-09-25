@@ -55,7 +55,7 @@ public class Monitor.SystemMemoryView : Monitor.WidgetResource {
     }
 
     public void update () {
-        label_vertical_main_metric = (("%u%%").printf (memory.used_percentage));
+        main_metric_value = (("%u%%").printf (memory.used_percentage));
         memory_chart.update (0, memory.used_percentage);
         // memory_chart.update (1, memory.shared_percentage);
         // memory_chart.update (2, memory.shared_percentage + memory.buffer_percentage);
