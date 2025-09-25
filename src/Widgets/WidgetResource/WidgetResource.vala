@@ -10,9 +10,9 @@ public class Monitor.WidgetResource : Gtk.Box {
         }
     }
 
-    public string label_vertical_main_metric {
+    public string main_metric_value {
         set {
-            _label_vertical_main_metric.set_text (value);
+            main_metric_label.label = value;
         }
     }
 
@@ -27,7 +27,7 @@ public class Monitor.WidgetResource : Gtk.Box {
     private Gtk.Box header_box;
     private Gtk.Overlay main_overlay;
     private Gtk.Box info_box;
-    private LabelVertical _label_vertical_main_metric;
+    private Gtk.Label main_metric_label;
 
     construct {
         _title = new Granite.HeaderLabel (Utils.NO_DATA);
@@ -35,14 +35,27 @@ public class Monitor.WidgetResource : Gtk.Box {
         header_box = new Gtk.Box (HORIZONTAL, 6);
         header_box.add (_title);
 
-        _label_vertical_main_metric = new LabelVertical (_("UTILIZATION"));
+        var main_metric_title = new Gtk.Label (_("Utilization").up ());
+        main_metric_title.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+        main_metric_title.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
+
+        main_metric_label = new Gtk.Label (Utils.NO_DATA);
+        main_metric_label.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
+
+        var main_metric_box = new Gtk.Box (VERTICAL, 0) {
+            margin_top = 6,
+            margin_bottom = 6,
+            margin_start = 12
+        };
+        main_metric_box.add (main_metric_title);
+        main_metric_box.add (main_metric_label);
 
         info_box = new Gtk.Box (HORIZONTAL, 6) {
             halign = START,
             valign = START
         };
         info_box.get_style_context ().add_class ("usage-label-container");
-        info_box.add (_label_vertical_main_metric);
+        info_box.add (main_metric_box);
 
         main_overlay = new Gtk.Overlay ();
         main_overlay.add_overlay (info_box);
