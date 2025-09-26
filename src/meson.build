@@ -27,7 +27,6 @@ source_app_files = [
 
     # Widgets
     'Widgets/Statusbar/Statusbar.vala',
-    'Widgets/Labels/LabelVertical.vala',
     'Widgets/Labels/LabelRoundy.vala',
     'Widgets/Chart/Chart.vala',
     'Widgets/WidgetResource/WidgetResource.vala',

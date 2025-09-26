@@ -24,7 +24,7 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         cpu_utilization_chart.config.y_axis.tick_interval = 100;
         cpu_utilization_chart.config.y_axis.fixed_max = 100.0 * cpu.core_list.size;
 
-        set_main_chart (cpu_utilization_chart);
+        main_chart = cpu_utilization_chart;
         set_main_chart_overlay (grid_core_labels ());
     }
 
@@ -125,7 +125,7 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
             }
         }
 
-        label_vertical_main_metric = ("%d%%").printf (cpu.percentage);
+        main_metric_value = ("%d%%").printf (cpu.percentage);
         cpu_frequency_label.text = ("%.2f %s").printf (cpu.frequency, _("GHz"));
     }
 

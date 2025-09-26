@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-23 19:51+0000\n"
+"POT-Creation-Date: 2025-09-26 11:02+0000\n"
 "PO-Revision-Date: 2025-07-13 12:55+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Czech <https://l10n.elementaryos.org/projects/desktop/monitor/"
@@ -433,8 +433,8 @@ msgstr ""
 msgid "GPU"
 msgstr ""
 
-#: src/Widgets/WidgetResource/WidgetResource.vala:16
-msgid "UTILIZATION"
+#: src/Widgets/WidgetResource/WidgetResource.vala:38
+msgid "Utilization"
 msgstr ""
 
 #~ msgid "Disabled"

@@ -61,6 +61,8 @@ roundy-label:hover:selected {
 
 .usage-label-container {
     border-radius: 3px;
+    margin: 6px;
+
     @if $color-scheme == "light" {
         background-color: rgba($SILVER_100, 0.5);
         border: 1px solid $SILVER_300;

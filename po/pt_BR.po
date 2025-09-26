@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-23 19:51+0000\n"
+"POT-Creation-Date: 2025-09-26 11:02+0000\n"
 "PO-Revision-Date: 2025-07-28 23:55+0000\n"
 "Last-Translator: Guilherme Faura <guilhermefaura@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
@@ -442,9 +442,12 @@ msgstr "Swap"
 msgid "GPU"
 msgstr "GPU"
 
-#: src/Widgets/WidgetResource/WidgetResource.vala:16
-msgid "UTILIZATION"
-msgstr "UTILIZAÇÃO"
+#: src/Widgets/WidgetResource/WidgetResource.vala:38
+msgid "Utilization"
+msgstr ""
+
+#~ msgid "UTILIZATION"
+#~ msgstr "UTILIZAÇÃO"
 
 #~ msgid "🇺🇦"
 #~ msgstr "🇺🇦"

@@ -32,7 +32,7 @@ public class Monitor.SystemMemoryView : Monitor.WidgetResource {
         // memory_chart.set_serie_color (2, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
         // memory_chart.set_serie_color (3, Utils.Colors.get_rgba_color (Utils.Colors.LIME_700));
         // memory_chart.set_serie_color (4, Utils.Colors.get_rgba_color (Utils.Colors.LIME_900));
-        set_main_chart (memory_chart);
+        main_chart = memory_chart;
 
         set_main_chart_overlay (memory_usage_grid ());
     }
@@ -55,7 +55,7 @@ public class Monitor.SystemMemoryView : Monitor.WidgetResource {
     }
 
     public void update () {
-        label_vertical_main_metric = (("%u%%").printf (memory.used_percentage));
+        main_metric_value = (("%u%%").printf (memory.used_percentage));
         memory_chart.update (0, memory.used_percentage);
         // memory_chart.update (1, memory.shared_percentage);
         // memory_chart.update (2, memory.shared_percentage + memory.buffer_percentage);

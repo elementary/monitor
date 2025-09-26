@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-23 19:51+0000\n"
+"POT-Creation-Date: 2025-09-26 11:02+0000\n"
 "PO-Revision-Date: 2025-07-13 12:55+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Portuguese <https://l10n.elementaryos.org/projects/desktop/"
@@ -437,9 +437,12 @@ msgstr "Swap"
 msgid "GPU"
 msgstr "GPU"
 
-#: src/Widgets/WidgetResource/WidgetResource.vala:16
-msgid "UTILIZATION"
-msgstr "UTILIZAÇÃO"
+#: src/Widgets/WidgetResource/WidgetResource.vala:38
+msgid "Utilization"
+msgstr "Utilização"
+
+#~ msgid "UTILIZATION"
+#~ msgstr "UTILIZAÇÃO"
 
 #~ msgid "🇺🇦"
 #~ msgstr "🇺🇦"
@@ -491,9 +494,6 @@ msgstr "UTILIZAÇÃO"
 
 #~ msgid "Show containers tab (requires restart):"
 #~ msgstr "Mostrar separador de contentores (requer reinício):"
-
-#~ msgid "Utilization"
-#~ msgstr "Utilização"
 
 #~ msgid "Show detailed info"
 #~ msgstr "Mostrar informação detalhada"
