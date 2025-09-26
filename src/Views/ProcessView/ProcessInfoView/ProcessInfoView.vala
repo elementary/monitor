@@ -122,7 +122,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 _("This may lead to data loss. Only Force Quit if Shut Down has failed."),
                 new ThemedIcon ("computer-fail"),
                 Gtk.ButtonsType.CANCEL
-                ) {
+            ) {
                 badge_icon = new ThemedIcon ("process-stop"),
                 modal = true,
                 transient_for = (Gtk.Window) get_root ()
@@ -149,7 +149,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 _("The process will be asked to initiate shutdown tasks and close. In some cases the process may not quit."),
                 new ThemedIcon ("system-shutdown"),
                 Gtk.ButtonsType.CANCEL
-                ) {
+    ) {
                 badge_icon = new ThemedIcon ("dialog-question"),
                 modal = true,
                 transient_for = (Gtk.Window) get_root ()
