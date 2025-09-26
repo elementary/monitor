@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-23 19:51+0000\n"
+"POT-Creation-Date: 2025-09-26 11:02+0000\n"
 "PO-Revision-Date: 2024-10-08 17:21+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Italian <https://l10n.elementary.io/projects/desktop/monitor/"
@@ -439,8 +439,8 @@ msgstr ""
 msgid "GPU"
 msgstr "CPU"
 
-#: src/Widgets/WidgetResource/WidgetResource.vala:16
-msgid "UTILIZATION"
+#: src/Widgets/WidgetResource/WidgetResource.vala:38
+msgid "Utilization"
 msgstr ""
 
 #, fuzzy

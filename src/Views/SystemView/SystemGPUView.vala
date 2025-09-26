@@ -64,7 +64,7 @@ public class Monitor.SystemGPUView : Monitor.WidgetResource {
 
         gpu_chart = new Chart (1);
         gpu_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
-        set_main_chart (gpu_chart);
+        main_chart = gpu_chart;
 
         set_main_chart_overlay (gpu_usage_grid ());
     }
@@ -83,7 +83,7 @@ public class Monitor.SystemGPUView : Monitor.WidgetResource {
     }
 
     public void update () {
-        label_vertical_main_metric = (("%d%%").printf (gpu.percentage));
+        main_metric_value = (("%d%%").printf (gpu.percentage));
         gpu_chart.update (0, gpu.percentage);
 
         gpu_vram_percentage_chart.update (0, gpu.memory_percentage);
