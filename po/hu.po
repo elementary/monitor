@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-23 19:51+0000\n"
+"POT-Creation-Date: 2025-09-26 11:02+0000\n"
 "PO-Revision-Date: 2025-07-31 14:55+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementaryos.org/projects/desktop/"
@@ -440,9 +440,12 @@ msgstr "Cserehely"
 msgid "GPU"
 msgstr "GPU"
 
-#: src/Widgets/WidgetResource/WidgetResource.vala:16
-msgid "UTILIZATION"
-msgstr "KIHASZNÁLTSÁG"
+#: src/Widgets/WidgetResource/WidgetResource.vala:38
+msgid "Utilization"
+msgstr ""
+
+#~ msgid "UTILIZATION"
+#~ msgstr "KIHASZNÁLTSÁG"
 
 #~ msgid "🇺🇦"
 #~ msgstr "🇺🇦"

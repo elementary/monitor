@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-23 19:51+0000\n"
+"POT-Creation-Date: 2025-09-26 11:02+0000\n"
 "PO-Revision-Date: 2025-07-13 12:55+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Dutch <https://l10n.elementaryos.org/projects/desktop/monitor/"
@@ -440,9 +440,12 @@ msgstr "Wisselgeheugen"
 msgid "GPU"
 msgstr "GPU"
 
-#: src/Widgets/WidgetResource/WidgetResource.vala:16
-msgid "UTILIZATION"
-msgstr "GEBRUIK"
+#: src/Widgets/WidgetResource/WidgetResource.vala:38
+msgid "Utilization"
+msgstr ""
+
+#~ msgid "UTILIZATION"
+#~ msgstr "GEBRUIK"
 
 #~ msgid "🇺🇦"
 #~ msgstr "🇺🇦"

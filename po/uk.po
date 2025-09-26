@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-23 19:51+0000\n"
+"POT-Creation-Date: 2025-09-26 11:02+0000\n"
 "PO-Revision-Date: 2025-07-31 14:55+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/desktop/"
@@ -439,9 +439,12 @@ msgstr "Swap"
 msgid "GPU"
 msgstr "Графічний процесор (GPU)"
 
-#: src/Widgets/WidgetResource/WidgetResource.vala:16
-msgid "UTILIZATION"
-msgstr "ВИКОРИСТАННЯ"
+#: src/Widgets/WidgetResource/WidgetResource.vala:38
+msgid "Utilization"
+msgstr "Утилізація"
+
+#~ msgid "UTILIZATION"
+#~ msgstr "ВИКОРИСТАННЯ"
 
 #~ msgid "🇺🇦"
 #~ msgstr "🇺🇦"
@@ -493,9 +496,6 @@ msgstr "ВИКОРИСТАННЯ"
 
 #~ msgid "Show containers tab (requires restart):"
 #~ msgstr "Показувати вкладку контейнерів (потрібен перезапуск):"
-
-#~ msgid "Utilization"
-#~ msgstr "Утилізація"
 
 #~ msgid "Show detailed info"
 #~ msgstr "Показати подробиці"
