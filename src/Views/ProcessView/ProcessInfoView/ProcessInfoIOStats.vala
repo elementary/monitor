@@ -20,10 +20,6 @@ public class Monitor.ProcessInfoIOStats : Gtk.Grid {
         column_homogeneous = true;
         row_homogeneous = false;
 
-        var opened_files_label = create_label (_("Opened files"));
-        opened_files_label.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
-        opened_files_label.margin_top = 24;
-
         var characters_label = create_label (_("Characters"));
         characters_label.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
         rchar_label = create_label (_("N/A"));
@@ -50,8 +46,6 @@ public class Monitor.ProcessInfoIOStats : Gtk.Grid {
 
         attach (cancelled_write_label, 1, 1, 1, 1);
         attach (cancelled_write_bytes_label, 1, 2, 1, 1);
-
-        attach (opened_files_label, 0, 3, 3, 1);
 
         open_files_tree_view = new OpenFilesTreeView ();
         var open_files_tree_view_scrolled = new Gtk.ScrolledWindow () {
