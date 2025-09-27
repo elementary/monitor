@@ -12,10 +12,6 @@ roundy-label:selected:focus,
 roundy-label:hover:selected {
     margin: 0 3px;
 
-    .small-label {
-        padding: 0;
-    }
-
     .value {
         color: #{'alpha(@text_color, 0.7)'};
         font-feature-settings: "tnum";
@@ -48,6 +44,27 @@ roundy-label:hover:selected {
             background-color: $STRAWBERRY_300;
             color: $SILVER_100;
         }
+    }
+}
+
+.small-label {
+    padding: 0;
+    font-weight: bold;
+    font-size: 9px;
+
+    @if $color-scheme == "light" {
+        color: grey;
+    } @else if $color-scheme == "dark" {
+        color: $SILVER_500;
+    }
+}
+
+.label-vertical {
+    &-val {
+        color: $text_color;
+        font-size: 30px;
+        font-weight: 200;
+        border-width: 0;
     }
 }
 
@@ -91,24 +108,23 @@ roundy-label:hover:selected {
 .core_badge {
     border-radius: 8px;
     padding-right: 4px;
-    padding-left:2px;
+    padding-left: 2px;
     font-size: 10px;
 
     @if $color-scheme == "light" {
         border: 1px solid $SILVER_300;
         background-color: $SILVER_100;
-
     } @else if $color-scheme == "dark" {
         border: 1px solid $SILVER_700;
         background-color: $SILVER_900;
     }
-    
+
 
     &-mild-warning {
         @if $color-scheme == "light" {
             background-color: rgba($BANANA_100, 0.7);
             color: $BANANA_900;
-            border: 1px solid rgba($BANANA_300, 0.7);    
+            border: 1px solid rgba($BANANA_300, 0.7);
         } @else if $color-scheme == "dark" {
             background-color: rgba($BANANA_900, 0.7);
             color: $BANANA_300;
@@ -192,7 +208,7 @@ roundy-label:hover:selected {
         } @else if $color-scheme == "dark" {
             border-bottom: 1px $SILVER_900 solid;
         }
-        
+
         label {
             font-family: monospace;
             /* background-color: $SILVER_300; */

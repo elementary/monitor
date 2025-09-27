@@ -25,28 +25,31 @@ public class Monitor.SystemView : Gtk.Box {
         network_view = new SystemNetworkView (resources.network);
         storage_view = new SystemStorageView (resources.storage);
 
-        var scrolled_window = new Gtk.ScrolledWindow (null, null);
-        var wrapper = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        wrapper.expand = true;
-        scrolled_window.add (wrapper);
+        var wrapper = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
+            hexpand = true,
+            vexpand = true
+        };
 
+        var scrolled_window = new Gtk.ScrolledWindow () {
+            child = wrapper
+        };
 
-        wrapper.add (cpu_view);
-        wrapper.add (memory_view);
-        wrapper.add (network_view);
-        wrapper.add (storage_view);
+        wrapper.append (cpu_view);
+        wrapper.append (memory_view);
+        wrapper.append (network_view);
+        wrapper.append (storage_view);
 
         foreach (IGPU gpu in resources.gpu_list) {
             if (gpu is GPUIntel || gpu is GPUNvidia) {
-                wrapper.add (build_no_support_label (gpu.name));
+                wrapper.append (build_no_support_label (gpu.name));
             } else {
                 var gpu_view = new SystemGPUView (gpu);
                 gpu_views.append (gpu_view);
-                wrapper.add (gpu_view);
+                wrapper.append (gpu_view);
             }
         }
 
-        add (scrolled_window);
+        append (scrolled_window);
     }
 
     public void update () {
@@ -60,8 +63,10 @@ public class Monitor.SystemView : Gtk.Box {
     private Granite.HeaderLabel build_no_support_label (string gpu_name) {
         string notification_text = _("The %s GPU was detected, but is not yet supported.").printf (gpu_name);
         return new Granite.HeaderLabel (notification_text) {
-            margin = 12,
+            margin_top = 12,
+            margin_end = 12,
+            margin_bottom = 12,
+            margin_start = 12
         };
     }
-
 }

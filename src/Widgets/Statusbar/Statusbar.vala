@@ -3,14 +3,14 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-public class Monitor.Statusbar : Gtk.Bin {
+public class Monitor.Statusbar : Granite.Bin {
     private Gtk.Label cpu_usage_label;
     private Gtk.Label memory_usage_label;
     private Gtk.Label swap_usage_label;
     private Gtk.Label gpu_usage_label;
 
     construct {
-        var cpu_icon = new Gtk.Image.from_icon_name ("cpu-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
+        var cpu_icon = new Gtk.Image.from_icon_name ("cpu-symbolic") {
             tooltip_text = _("CPU")
         };
 
@@ -19,7 +19,7 @@ public class Monitor.Statusbar : Gtk.Bin {
             xalign = 0
         };
 
-        var ram_icon = new Gtk.Image.from_icon_name ("ram-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
+        var ram_icon = new Gtk.Image.from_icon_name ("ram-symbolic") {
             tooltip_text = _("Memory")
         };
 
@@ -29,7 +29,7 @@ public class Monitor.Statusbar : Gtk.Bin {
             xalign = 0
         };
 
-        var swap_icon = new Gtk.Image.from_icon_name ("swap-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
+        var swap_icon = new Gtk.Image.from_icon_name ("swap-symbolic") {
             tooltip_text = _("Swap")
         };
 
@@ -39,7 +39,7 @@ public class Monitor.Statusbar : Gtk.Bin {
             xalign = 0
         };
 
-        var gpu_icon = new Gtk.Image.from_icon_name ("gpu-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
+        var gpu_icon = new Gtk.Image.from_icon_name ("gpu-symbolic") {
             tooltip_text = _("GPU")
         };
 
