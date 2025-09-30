@@ -68,9 +68,6 @@ public class Monitor.ProcessView : Gtk.Box {
         string cmd_haystack;
         bool found = false;
 
-        // should help with assertion errors, donno
-        // if (needle == null) return true;
-
         if (needle.length == 0) {
             return true;
         }
@@ -86,7 +83,6 @@ public class Monitor.ProcessView : Gtk.Box {
             bool cmd_found = cmd_haystack.casefold ().contains (needle.casefold ()) || false;
             found = name_found || pid_found || cmd_found;
         }
-
 
         Gtk.TreeIter child_iter;
         bool child_found = false;
