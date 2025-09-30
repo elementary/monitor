@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-26 11:02+0000\n"
-"PO-Revision-Date: 2025-07-17 18:55+0000\n"
+"PO-Revision-Date: 2025-09-29 14:55+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/ru/>\n"
@@ -435,7 +435,7 @@ msgstr "Графический процессор"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
-msgstr ""
+msgstr "Использование"
 
 #~ msgid "UTILIZATION"
 #~ msgstr "ИСПОЛЬЗОВАНИЕ"
