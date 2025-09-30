@@ -6,7 +6,7 @@
 public class Monitor.ProcessView : Gtk.Box {
     public string needle = "";
 
-    public CPUProcessTreeView process_tree_view{ get; private set; }
+    public CPUProcessTreeView process_tree_view { get; private set; }
 
     private ProcessInfoView process_info_view;
     private TreeViewModel treeview_model;
