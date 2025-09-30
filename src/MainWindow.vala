@@ -6,8 +6,6 @@
 public class Monitor.MainWindow : Hdy.ApplicationWindow {
     public ProcessView process_view { get; private set; }
 
-    private Gtk.SearchEntry search_entry;
-
     public MainWindow (MonitorApp app) {
         Object (application: app);
     }
@@ -46,7 +44,7 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
             tooltip_text = (_("Settings"))
         };
 
-        search_entry = new Gtk.SearchEntry () {
+        var search_entry = new Gtk.SearchEntry () {
             placeholder_text = _("Search process name or PID"),
             valign = CENTER
         };
