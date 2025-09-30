@@ -139,7 +139,6 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
             }
 
             process_view.needle = search_entry.text;
-            process_view.filter_model.refilter ();
 
             // focus on child row to avoid the app crashes by clicking "Kill/End Process" buttons in headerbar
             process_view.process_tree_view.focus_on_child_row ();

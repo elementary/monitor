@@ -6,8 +6,7 @@
 public class Monitor.ProcessView : Gtk.Box {
     public string needle = "";
 
-    public Gtk.TreeModelFilter filter_model { get; private set; }
-    public CPUProcessTreeView process_tree_view { get; private set; }
+    public CPUProcessTreeView process_tree_view{ get; private set; }
 
     private ProcessInfoView process_info_view;
     private TreeViewModel treeview_model;
@@ -15,7 +14,7 @@ public class Monitor.ProcessView : Gtk.Box {
     construct {
         treeview_model = new TreeViewModel ();
 
-        filter_model = new Gtk.TreeModelFilter (treeview_model, null);
+        var filter_model = new Gtk.TreeModelFilter (treeview_model, null);
         filter_model.set_visible_func (filter_func);
 
         var sort_model = new Gtk.TreeModelSort.with_model (filter_model);
@@ -41,6 +40,8 @@ public class Monitor.ProcessView : Gtk.Box {
         paned.pack2 (process_info_view, false, false);
 
         add (paned);
+
+        notify["needle"].connect (filter_model.refilter);
     }
 
     public void on_process_selected (Process process) {
