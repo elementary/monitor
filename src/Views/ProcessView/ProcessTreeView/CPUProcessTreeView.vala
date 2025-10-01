@@ -112,16 +112,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
         model.get_value (iter, Column.ICON, out icon_name);
         string path = ((string) icon_name);
 
-        if (regex.match (path)) {
-            try {
-                Gdk.Pixbuf icon = new Gdk.Pixbuf.from_file_at_size (path, 16, -1);
-                ((Gtk.CellRendererPixbuf)icon_cell).pixbuf = icon;
-            } catch (Error e) {
-                warning (e.message);
-            }
-        } else {
-            ((Gtk.CellRendererPixbuf)icon_cell).icon_name = path;
-        }
+        ((Gtk.CellRendererPixbuf)icon_cell).icon_name = path;
     }
 
     public void cpu_usage_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
