@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 11:02+0000\n"
+"POT-Creation-Date: 2025-10-01 08:34+0000\n"
 "PO-Revision-Date: 2025-08-22 15:58+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
@@ -19,21 +19,27 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: src/MainWindow.vala:17 src/MainWindow.vala:60
+#: src/MainWindow.vala:16 src/MainWindow.vala:60
 msgid "Monitor"
 msgstr "監控"
 
-#: src/MainWindow.vala:27
+#: src/MainWindow.vala:26
 msgid "Processes"
 msgstr "程序"
 
-#: src/MainWindow.vala:28
+#: src/MainWindow.vala:27
 msgid "System"
 msgstr "系統"
 
-#: src/MainWindow.vala:45
+#: src/MainWindow.vala:44
 msgid "Settings"
 msgstr "設定"
+
+#: src/MainWindow.vala:48
+#, fuzzy
+#| msgid "Type process name or PID to search"
+msgid "Search process name or PID"
+msgstr "輸入程序名稱或 PID 來搜尋"
 
 #. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
@@ -412,14 +418,6 @@ msgstr "VRAM"
 msgid "TEMPERATURE"
 msgstr "溫度"
 
-#: src/Widgets/Headerbar/Search.vala:17
-msgid "Search Process"
-msgstr "搜尋程序"
-
-#: src/Widgets/Headerbar/Search.vala:18
-msgid "Type process name or PID to search"
-msgstr "輸入程序名稱或 PID 來搜尋"
-
 #: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:26
 #: src/Widgets/Statusbar/Statusbar.vala:36
@@ -438,6 +436,9 @@ msgstr "GPU"
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr ""
+
+#~ msgid "Search Process"
+#~ msgstr "搜尋程序"
 
 #~ msgid "UTILIZATION"
 #~ msgstr "使用率"

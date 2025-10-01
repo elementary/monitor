@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 11:02+0000\n"
+"POT-Creation-Date: 2025-10-01 08:34+0000\n"
 "PO-Revision-Date: 2020-12-16 10:30+0200\n"
 "Last-Translator: Tiberiu Frățilă\n"
 "Language-Team: \n"
@@ -19,21 +19,27 @@ msgstr ""
 "2:1));\n"
 "X-Generator: Poedit 2.0.6\n"
 
-#: src/MainWindow.vala:17 src/MainWindow.vala:60
+#: src/MainWindow.vala:16 src/MainWindow.vala:60
 msgid "Monitor"
 msgstr "Monitor"
 
-#: src/MainWindow.vala:27
+#: src/MainWindow.vala:26
 msgid "Processes"
 msgstr "Procese"
 
-#: src/MainWindow.vala:28
+#: src/MainWindow.vala:27
 msgid "System"
 msgstr "Sistem"
 
-#: src/MainWindow.vala:45
+#: src/MainWindow.vala:44
 msgid "Settings"
 msgstr "Configurări"
+
+#: src/MainWindow.vala:48
+#, fuzzy
+#| msgid "Type process name or PID to search"
+msgid "Search process name or PID"
+msgstr "Introdu numele unui proces sau un PID pentru a căuta"
 
 #. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
@@ -422,14 +428,6 @@ msgstr ""
 msgid "TEMPERATURE"
 msgstr "TEMPERATURĂ"
 
-#: src/Widgets/Headerbar/Search.vala:17
-msgid "Search Process"
-msgstr "Caută un proces"
-
-#: src/Widgets/Headerbar/Search.vala:18
-msgid "Type process name or PID to search"
-msgstr "Introdu numele unui proces sau un PID pentru a căuta"
-
 #: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:26
 #: src/Widgets/Statusbar/Statusbar.vala:36
@@ -449,6 +447,9 @@ msgstr "Procesor"
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr ""
+
+#~ msgid "Search Process"
+#~ msgstr "Caută un proces"
 
 #~ msgid "UTILIZATION"
 #~ msgstr "UTILIZARE"
