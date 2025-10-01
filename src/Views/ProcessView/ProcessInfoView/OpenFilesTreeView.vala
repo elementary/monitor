@@ -6,15 +6,11 @@
 public class Monitor.OpenFilesTreeView : Gtk.TreeView {
     public new OpenFilesTreeViewModel model;
     private Gtk.TreeViewColumn path_column;
-    private Regex ? regex;
 
     public signal void process_selected (Process process);
 
     public OpenFilesTreeView (OpenFilesTreeViewModel model) {
         this.model = model;
-        /* *INDENT-OFF* */
-        regex = /(?i:^.*\.(xpm|png)$)/; // vala-lint=space-before-paren,
-        /* *INDENT-ON* */
 
         show_expanders = false;
 
