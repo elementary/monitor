@@ -47,7 +47,6 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     }
     public string ? icon_name;
 
-    // How to replace: https://docs.gtk.org/gtk4/class.InfoBar.html
     private Gtk.InfoBar permission_error_infobar;
     private Gtk.Label permission_error_label;
 
