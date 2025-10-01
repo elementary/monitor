@@ -9,8 +9,8 @@ public class Monitor.OpenFilesTreeView : Gtk.TreeView {
 
     public signal void process_selected (Process process);
 
-    public OpenFilesTreeView (OpenFilesTreeViewModel model) {
-        this.model = model;
+    public OpenFilesTreeView () {
+        this.model = new OpenFilesTreeViewModel ();
 
         show_expanders = false;
 
