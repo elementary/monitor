@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-01 08:34+0000\n"
-"PO-Revision-Date: 2025-09-29 14:55+0000\n"
+"POT-Creation-Date: 2025-10-01 17:21+0000\n"
+"PO-Revision-Date: 2025-10-01 17:21+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/fr/>\n"
@@ -37,21 +37,15 @@ msgid "Settings"
 msgstr "Paramètres"
 
 #: src/MainWindow.vala:48
-#, fuzzy
-#| msgid "Type process name or PID to search"
 msgid "Search process name or PID"
-msgstr "Tapez le nom d'un processus ou un PID à rechercher"
+msgstr "Recherchez le nom d'un processus ou d'un PID"
 
 #. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:37
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:29
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:30
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:34
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:35
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:39
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:40
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:16
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:79
 msgid "N/A"
 msgstr "N/A"
@@ -114,23 +108,11 @@ msgstr "Le processus est arrêté par un débogueur pendant le traçage"
 msgid "The app is terminated but not reaped by its parent"
 msgstr "Le process s'est terminé mais n'a pas été achevé par son parent"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:23
-msgid "Opened files"
-msgstr "Fichiers ouverts"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
-msgid "Characters"
-msgstr "Caractères"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
-msgid "System calls"
-msgstr "Appels système"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:14
 msgid "Read/Written"
 msgstr "Lecture/Écriture"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:42
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:19
 msgid "Cancelled write"
 msgstr "Écriture annulée"
 
@@ -443,6 +425,15 @@ msgstr "Carte graphique"
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr "Utilisation"
+
+#~ msgid "Opened files"
+#~ msgstr "Fichiers ouverts"
+
+#~ msgid "Characters"
+#~ msgstr "Caractères"
+
+#~ msgid "System calls"
+#~ msgstr "Appels système"
 
 #~ msgid "Search Process"
 #~ msgstr "Rechercher un processus"
