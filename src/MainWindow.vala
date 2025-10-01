@@ -3,9 +3,7 @@
  * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
  */
 
-
 public class Monitor.MainWindow : Gtk.ApplicationWindow {
-    public Search search { get; private set; }
     public ProcessView process_view { get; private set; }
 
     public MainWindow (MonitorApp app) {
@@ -45,13 +43,16 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
             tooltip_text = (_("Settings"))
         };
 
-        search = new Search (this) {
+        var search_entry = new Gtk.SearchEntry () {
+            placeholder_text = _("Search process name or PID"),
             valign = CENTER
         };
+        search_entry.set_key_capture_widget (this);
 
         var search_revealer = new Gtk.Revealer () {
-            child = search,
-            transition_type = SLIDE_LEFT
+            child = search_entry,
+            transition_type = SLIDE_LEFT,
+            overflow = VISIBLE
         };
 
         var headerbar = new Adw.HeaderBar ();
@@ -99,7 +100,6 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
             present ();
         });
 
-
         application.window_removed.connect (() => {
             MonitorApp.settings.set_int ("window-width", get_size (Gtk.Orientation.HORIZONTAL));
             MonitorApp.settings.set_int ("window-height", get_size (Gtk.Orientation.VERTICAL));
@@ -120,8 +120,28 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
         dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
         stack.visible_child_name = MonitorApp.settings.get_string ("opened-view");
 
+        search_entry.search_changed.connect (() => {
+            // collapse tree only when search is focused and changed
+            if (search_entry.is_focus ()) {
+                process_view.process_tree_view.collapse_all ();
+            }
+
+            process_view.needle = search_entry.text;
+
+            // focus on child row to avoid the app crashes by clicking "Kill/End Process" buttons in headerbar
+            process_view.process_tree_view.focus_on_child_row ();
+            search_entry.grab_focus ();
+        });
+
+        search_entry.activate.connect (() => {
+            process_view.process_tree_view.focus_on_first_row ();
+        });
+
         var search_action = new GLib.SimpleAction ("search", null);
-        search_action.activate.connect (() => search.activate_entry ());
+        search_action.activate.connect (() => {
+            search_entry.text = "";
+            search_entry.search_changed ();
+        });
 
         add_action (search_action);
     }
@@ -135,5 +155,4 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
             this.maximize ();
         }
     }
-
 }

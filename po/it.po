@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 11:02+0000\n"
+"POT-Creation-Date: 2025-10-01 08:34+0000\n"
 "PO-Revision-Date: 2024-10-08 17:21+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Italian <https://l10n.elementary.io/projects/desktop/monitor/"
@@ -20,22 +20,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.6.2\n"
 
-#: src/MainWindow.vala:17 src/MainWindow.vala:60
+#: src/MainWindow.vala:16 src/MainWindow.vala:60
 msgid "Monitor"
 msgstr "Monitor"
 
-#: src/MainWindow.vala:27
+#: src/MainWindow.vala:26
 #, fuzzy
 msgid "Processes"
 msgstr "Nome del processo"
 
-#: src/MainWindow.vala:28
+#: src/MainWindow.vala:27
 msgid "System"
 msgstr "Sistema"
 
-#: src/MainWindow.vala:45
+#: src/MainWindow.vala:44
 msgid "Settings"
 msgstr "Preferenze"
+
+#: src/MainWindow.vala:48
+#, fuzzy
+msgid "Search process name or PID"
+msgstr "Digita il nome del processo o il PID"
 
 #. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
@@ -414,15 +419,6 @@ msgstr ""
 msgid "TEMPERATURE"
 msgstr ""
 
-#: src/Widgets/Headerbar/Search.vala:17
-msgid "Search Process"
-msgstr "Cerca un processo"
-
-#: src/Widgets/Headerbar/Search.vala:18
-#, fuzzy
-msgid "Type process name or PID to search"
-msgstr "Digita il nome del processo o il PID"
-
 #: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:26
 #: src/Widgets/Statusbar/Statusbar.vala:36
@@ -442,6 +438,9 @@ msgstr "CPU"
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr ""
+
+#~ msgid "Search Process"
+#~ msgstr "Cerca un processo"
 
 #, fuzzy
 #~ msgid "End Process"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 11:02+0000\n"
+"POT-Creation-Date: 2025-10-01 08:34+0000\n"
 "PO-Revision-Date: 2025-07-28 23:55+0000\n"
 "Last-Translator: Guilherme Faura <guilhermefaura@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
@@ -19,21 +19,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: src/MainWindow.vala:17 src/MainWindow.vala:60
+#: src/MainWindow.vala:16 src/MainWindow.vala:60
 msgid "Monitor"
 msgstr "Monitor"
 
-#: src/MainWindow.vala:27
+#: src/MainWindow.vala:26
 msgid "Processes"
 msgstr "Processos"
 
-#: src/MainWindow.vala:28
+#: src/MainWindow.vala:27
 msgid "System"
 msgstr "Sistema"
 
-#: src/MainWindow.vala:45
+#: src/MainWindow.vala:44
 msgid "Settings"
 msgstr "Preferências"
+
+#: src/MainWindow.vala:48
+#, fuzzy
+#| msgid "Type process name or PID to search"
+msgid "Search process name or PID"
+msgstr "Escreva o nome do processo ou PID para pesquisar"
 
 #. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
@@ -419,14 +425,6 @@ msgstr "VRAM"
 msgid "TEMPERATURE"
 msgstr "TEMPERATURA"
 
-#: src/Widgets/Headerbar/Search.vala:17
-msgid "Search Process"
-msgstr "Procurar processo"
-
-#: src/Widgets/Headerbar/Search.vala:18
-msgid "Type process name or PID to search"
-msgstr "Escreva o nome do processo ou PID para pesquisar"
-
 #: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:26
 #: src/Widgets/Statusbar/Statusbar.vala:36
@@ -445,6 +443,9 @@ msgstr "GPU"
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr ""
+
+#~ msgid "Search Process"
+#~ msgstr "Procurar processo"
 
 #~ msgid "UTILIZATION"
 #~ msgstr "UTILIZAÇÃO"

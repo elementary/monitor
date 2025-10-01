@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-26 11:02+0000\n"
+"POT-Creation-Date: 2025-10-01 08:34+0000\n"
 "PO-Revision-Date: 2025-07-13 12:55+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Turkish <https://l10n.elementaryos.org/projects/desktop/"
@@ -19,23 +19,29 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: src/MainWindow.vala:17 src/MainWindow.vala:60
+#: src/MainWindow.vala:16 src/MainWindow.vala:60
 msgid "Monitor"
 msgstr "Monitor"
 
-#: src/MainWindow.vala:27
+#: src/MainWindow.vala:26
 #, fuzzy
 msgid "Processes"
 msgstr "Süreç Adı"
 
-#: src/MainWindow.vala:28
+#: src/MainWindow.vala:27
 #, fuzzy
 msgid "System"
 msgstr "Sistem çağrıları"
 
-#: src/MainWindow.vala:45
+#: src/MainWindow.vala:44
 msgid "Settings"
 msgstr "Ayarlar"
+
+#: src/MainWindow.vala:48
+#, fuzzy
+#| msgid "Type process name or PID to search"
+msgid "Search process name or PID"
+msgstr "Aramak için süreç adı veya PID yazın"
 
 #. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
@@ -415,14 +421,6 @@ msgstr ""
 msgid "TEMPERATURE"
 msgstr ""
 
-#: src/Widgets/Headerbar/Search.vala:17
-msgid "Search Process"
-msgstr "Süreç Ara"
-
-#: src/Widgets/Headerbar/Search.vala:18
-msgid "Type process name or PID to search"
-msgstr "Aramak için süreç adı veya PID yazın"
-
 #: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:26
 #: src/Widgets/Statusbar/Statusbar.vala:36
@@ -442,6 +440,9 @@ msgstr "CPU"
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr ""
+
+#~ msgid "Search Process"
+#~ msgstr "Süreç Ara"
 
 #~ msgid "Are you sure you want to do this?"
 #~ msgstr "Bunu yapmak istediğinizden emin misiniz?"
