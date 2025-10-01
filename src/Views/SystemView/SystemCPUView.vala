@@ -158,8 +158,8 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
             }
         }
         var threads_label = new Gtk.Label (_("THREADS"));
-        // this can be archived by Gtk.STYLE_CLASS_DIM_LABEL and
-        // Granite.STYLE_CLASS_SMALL_LABEL, however the style is
+        // this can be archived by Granite.CssClass.DIM and
+        // Granite.CssClass.SMALL, however the style is
         // differs from the OG
         threads_label.add_css_class ("small-label");
         grid.attach (threads_label, 0, -1, column, 1);

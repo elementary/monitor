@@ -105,7 +105,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         kill_process_button = new Gtk.Button.with_label (_("Force Quit…")) {
             tooltip_markup = Granite.markup_accel_tooltip ({ "<Ctrl>K" })
         };
-        kill_process_button.add_css_class (Granite.STYLE_CLASS_DESTRUCTIVE_ACTION);
+        kill_process_button.add_css_class (Granite.CssClass.DESTRUCTIVE);
 
         process_action_bar = new Gtk.Box (HORIZONTAL, 12) {
             halign = END,
@@ -129,7 +129,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             };
 
             var accept_button = confirmation_dialog.add_button (_("Force Quit"), Gtk.ResponseType.ACCEPT);
-            accept_button.add_css_class (Granite.STYLE_CLASS_DESTRUCTIVE_ACTION);
+            accept_button.add_css_class (Granite.CssClass.DESTRUCTIVE);
 
             confirmation_dialog.response.connect ((response) => {
                 if (response == Gtk.ResponseType.ACCEPT) {
@@ -156,7 +156,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             };
 
             var accept_button = confirmation_dialog.add_button (_("Shut Down"), Gtk.ResponseType.ACCEPT);
-            accept_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
+            accept_button.add_css_class (Granite.CssClass.SUGGESTED);
 
             confirmation_dialog.response.connect ((response) => {
                 if (response == Gtk.ResponseType.ACCEPT) {

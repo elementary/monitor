@@ -23,8 +23,8 @@ public class Monitor.PreferencesView : Granite.Bin {
             halign = START,
             margin_bottom = 6
         };
-        update_freq_description.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
-        update_freq_description.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
+        update_freq_description.add_css_class (Granite.CssClass.DIM);
+        update_freq_description.add_css_class (Granite.CssClass.SMALL);
 
         update_freq_scale.add_mark (1.0, BOTTOM, _("1s"));
         update_freq_scale.add_mark (2.0, BOTTOM, _("2s"));

@@ -110,12 +110,12 @@ public class Monitor.SystemStorageView : Gtk.Box {
                 halign = START,
                 margin_bottom = 6
             };
-            drive_block_name_and_size_label.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
+            drive_block_name_and_size_label.add_css_class (Granite.CssClass.DIM);
 
             var drive_not_mounted_label = new Gtk.Label (_("Not mounted")) {
                 halign = START
             };
-            drive_not_mounted_label.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
+            drive_not_mounted_label.add_css_class (Granite.CssClass.DIM);
 
             var usagebar = new Gtk.LevelBar () {
                 max_value = 100.0,
@@ -139,8 +139,7 @@ public class Monitor.SystemStorageView : Gtk.Box {
                 drive_box.append (usagebar);
             }
 
-            add_css_class (Granite.STYLE_CLASS_CARD);
-            add_css_class (Granite.STYLE_CLASS_ROUNDED);
+            add_css_class (Granite.CssClass.CARD);
             append (drive_box);
         }
     }

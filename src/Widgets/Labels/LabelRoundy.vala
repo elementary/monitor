@@ -38,7 +38,7 @@ public class Monitor.LabelRoundy : Gtk.Box {
         var header_label = new Granite.HeaderLabel (title.up ()) {
             mnemonic_widget = val
         };
-        header_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
+        header_label.add_css_class (Granite.CssClass.SMALL);
 
         orientation = VERTICAL;
         append (header_label);

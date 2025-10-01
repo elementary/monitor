@@ -36,8 +36,8 @@ public class Monitor.WidgetResource : Gtk.Box {
         header_box.append (_title);
 
         var main_metric_title = new Gtk.Label (_("Utilization").up ());
-        main_metric_title.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
-        main_metric_title.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
+        main_metric_title.add_css_class (Granite.CssClass.DIM);
+        main_metric_title.add_css_class (Granite.CssClass.SMALL);
 
         main_metric_label = new Gtk.Label (Utils.NO_DATA);
         main_metric_label.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
@@ -94,7 +94,7 @@ public class Monitor.WidgetResource : Gtk.Box {
             icon_name = "dialog-information",
             popover = popover_more_info
         };
-        button_more_info.add_css_class ("circular");
+        button_more_info.add_css_class (Granite.CssClass.CIRCULAR);
 
         header_box.append (button_more_info);
     }

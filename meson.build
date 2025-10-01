@@ -21,7 +21,7 @@ add_project_arguments(['--vapidir', vapidir], language: 'vala')
 # elementary_stylesheet = subproject('stylesheet')
 
 app_dependencies = [
-    dependency('granite-7'),
+    dependency('granite-7', version: '>=7.7.0'),
     dependency('glib-2.0'),
     dependency('gtk4'),
     dependency('gee-0.8'),
