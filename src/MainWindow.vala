@@ -39,9 +39,14 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
         var preferences_button = new Gtk.MenuButton () {
             icon_name = "open-menu",
+            primary = true,
             popover = preferences_popover,
-            tooltip_text = (_("Settings"))
+            tooltip_markup = ("%s\n" + Granite.TOOLTIP_SECONDARY_TEXT_MARKUP).printf (
+                _("Settings"),
+                "F10"
+            )
         };
+        preferences_button.add_css_class (Granite.STYLE_CLASS_LARGE_ICONS);
 
         var search_entry = new Gtk.SearchEntry () {
             placeholder_text = _("Search process name or PID"),
