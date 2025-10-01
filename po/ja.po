@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-01 08:34+0000\n"
+"POT-Creation-Date: 2025-10-01 17:21+0000\n"
 "PO-Revision-Date: 2025-09-27 11:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/desktop/"
@@ -45,12 +45,8 @@ msgstr "プロセス名か PID を入力して検索"
 #: src/Utils.vala:7
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:37
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:29
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:30
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:34
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:35
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:39
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:40
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:16
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:79
 msgid "N/A"
 msgstr "N/A"
@@ -109,23 +105,11 @@ msgstr "トレース中にデバッガーによって停止されたプロセス
 msgid "The app is terminated but not reaped by its parent"
 msgstr "終了したが、親プロセスによって回収されなかった子プロセス"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:23
-msgid "Opened files"
-msgstr "開いているファイル"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
-msgid "Characters"
-msgstr "キャラクタデバイス"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
-msgid "System calls"
-msgstr "システムコール"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:14
 msgid "Read/Written"
 msgstr "読み込み/書き込み"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:42
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:19
 msgid "Cancelled write"
 msgstr "キャンセルされた書き込み"
 
@@ -438,6 +422,15 @@ msgstr "GPU"
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr "使用率"
+
+#~ msgid "Opened files"
+#~ msgstr "開いているファイル"
+
+#~ msgid "Characters"
+#~ msgstr "キャラクタデバイス"
+
+#~ msgid "System calls"
+#~ msgstr "システムコール"
 
 #~ msgid "Search Process"
 #~ msgstr "プロセスを検索"

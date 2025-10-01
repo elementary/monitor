@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-01 08:34+0000\n"
+"POT-Creation-Date: 2025-10-01 17:21+0000\n"
 "PO-Revision-Date: 2025-07-13 12:55+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Portuguese <https://l10n.elementaryos.org/projects/desktop/"
@@ -46,12 +46,8 @@ msgstr "Escreva o nome do processo ou PID a pesquisar"
 #: src/Utils.vala:7
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:37
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:29
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:30
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:34
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:35
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:39
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:40
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:16
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:79
 msgid "N/A"
 msgstr "N/A"
@@ -113,23 +109,11 @@ msgstr "O processo é interrompido por um depurador durante o rastreio"
 msgid "The app is terminated but not reaped by its parent"
 msgstr "A aplicação é terminada mas não recuperada pela sua origem"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:23
-msgid "Opened files"
-msgstr "Ficheiros abertos"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
-msgid "Characters"
-msgstr "Caracteres"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
-msgid "System calls"
-msgstr "Chamadas de sistema"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:14
 msgid "Read/Written"
 msgstr "Leitura/Escrita"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:42
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:19
 msgid "Cancelled write"
 msgstr "Escrita cancelada"
 
@@ -438,6 +422,15 @@ msgstr "GPU"
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr "Utilização"
+
+#~ msgid "Opened files"
+#~ msgstr "Ficheiros abertos"
+
+#~ msgid "Characters"
+#~ msgstr "Caracteres"
+
+#~ msgid "System calls"
+#~ msgstr "Chamadas de sistema"
 
 #~ msgid "Search Process"
 #~ msgstr "Procurar processo"

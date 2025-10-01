@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-01 08:34+0000\n"
+"POT-Creation-Date: 2025-10-01 17:21+0000\n"
 "PO-Revision-Date: 2025-07-31 14:55+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/desktop/"
@@ -46,12 +46,8 @@ msgstr "Введіть назву процесу або PID для пошуку"
 #: src/Utils.vala:7
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:37
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:29
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:30
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:34
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:35
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:39
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:40
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:16
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:79
 msgid "N/A"
 msgstr "Н/Д"
@@ -110,23 +106,11 @@ msgstr "Процес зупинено зневаджувачем під час �
 msgid "The app is terminated but not reaped by its parent"
 msgstr "Застосунок завершено, але не використовується батьківським процесом"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:23
-msgid "Opened files"
-msgstr "Відкриті файли"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
-msgid "Characters"
-msgstr "Символи"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
-msgid "System calls"
-msgstr "Системні виклики"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:14
 msgid "Read/Written"
 msgstr "Читання/запис"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:42
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:19
 msgid "Cancelled write"
 msgstr "Скасовані записування"
 
@@ -440,6 +424,15 @@ msgstr "Графічний процесор (GPU)"
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr "Утилізація"
+
+#~ msgid "Opened files"
+#~ msgstr "Відкриті файли"
+
+#~ msgid "Characters"
+#~ msgstr "Символи"
+
+#~ msgid "System calls"
+#~ msgstr "Системні виклики"
 
 #~ msgid "Search Process"
 #~ msgstr "Пошук процесу"

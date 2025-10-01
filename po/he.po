@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-01 08:34+0000\n"
+"POT-Creation-Date: 2025-10-01 17:21+0000\n"
 "PO-Revision-Date: 2025-04-05 07:55+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementaryos.org/projects/desktop/"
@@ -46,12 +46,8 @@ msgstr "נא להקליד שם תהליך או מזהה תהליך לחיפוש"
 #: src/Utils.vala:7
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:37
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:29
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:30
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:34
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:35
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:39
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:40
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:16
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:79
 msgid "N/A"
 msgstr "לא זמין"
@@ -110,23 +106,11 @@ msgstr "התהליך נעצר על ידי מנפה שגיאות במהלך מע�
 msgid "The app is terminated but not reaped by its parent"
 msgstr "היישום חוסל אבל לא נגרע מההורה שלו"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:23
-msgid "Opened files"
-msgstr "קבצים פתוחים"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:27
-msgid "Characters"
-msgstr "תווים"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:32
-msgid "System calls"
-msgstr "קריאות מערכת"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:37
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:14
 msgid "Read/Written"
 msgstr "נקרא/נכתב"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:42
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:19
 msgid "Cancelled write"
 msgstr "כתיבה בוטלה"
 
@@ -435,6 +419,15 @@ msgstr "מעבד גרפי"
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr ""
+
+#~ msgid "Opened files"
+#~ msgstr "קבצים פתוחים"
+
+#~ msgid "Characters"
+#~ msgstr "תווים"
+
+#~ msgid "System calls"
+#~ msgstr "קריאות מערכת"
 
 #~ msgid "Search Process"
 #~ msgstr "חיפוש תהליך"
