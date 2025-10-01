@@ -23,6 +23,7 @@ public class Monitor.ProcessInfoIOStats : Gtk.Grid {
         open_files_tree_view = new OpenFilesTreeView ();
 
         var open_files_tree_view_scrolled = new Gtk.ScrolledWindow () {
+
             child = open_files_tree_view
         };
 
