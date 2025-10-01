@@ -92,6 +92,20 @@ namespace Monitor {
                 window.present ();
             }
 
+            /*
+            * This is very finicky. Bind size after present else set_titlebar gives us bad sizes
+            * Set maximize after height/width else window is min size on unmaximize
+            * Bind maximize as SET else get get bad sizes
+            */
+            settings.bind ("window-height", window, "default-height", SettingsBindFlags.DEFAULT);
+            settings.bind ("window-width", window, "default-width", SettingsBindFlags.DEFAULT);
+
+            if (settings.get_boolean ("is-maximized")) {
+                window.maximize ();
+            }
+
+            settings.bind ("is-maximized", window, "maximized", SettingsBindFlags.SET);
+
             window.process_view.process_tree_view.focus_on_first_row ();
         }
 

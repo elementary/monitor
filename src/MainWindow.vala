@@ -11,8 +11,6 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
     }
 
     construct {
-        setup_window_state ();
-
         title = _("Monitor");
 
         var resources = new Resources ();
@@ -101,16 +99,10 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
         dbusserver.quit.connect (() => application.quit ());
         dbusserver.show.connect (() => {
-            setup_window_state ();
             present ();
         });
 
         application.window_removed.connect (() => {
-            MonitorApp.settings.set_int ("window-width", get_size (Gtk.Orientation.HORIZONTAL));
-            MonitorApp.settings.set_int ("window-height", get_size (Gtk.Orientation.VERTICAL));
-
-            MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized ());
-
             MonitorApp.settings.set_string ("opened-view", stack.visible_child_name);
 
             if (MonitorApp.settings.get_boolean ("indicator-state")) {
@@ -149,15 +141,5 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
         });
 
         add_action (search_action);
-    }
-
-    private void setup_window_state () {
-        int window_width = MonitorApp.settings.get_int ("window-width");
-        int window_height = MonitorApp.settings.get_int ("window-height");
-        this.set_default_size (window_width, window_height);
-
-        if (MonitorApp.settings.get_boolean ("is-maximized")) {
-            this.maximize ();
-        }
     }
 }
