@@ -43,7 +43,7 @@ public class Monitor.OpenFilesTreeViewModel : Gtk.TreeStore {
 
             set (iter, Column.NAME, path, -1);
 
-            open_files_paths.set (path, iter);
+            //  open_files_paths.set (path, iter);
             return true;
         }
         return false;
