@@ -9,15 +9,11 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
     private Gtk.TreeViewColumn pid_column;
     private Gtk.TreeViewColumn cpu_column;
     private Gtk.TreeViewColumn memory_column;
-    private Regex ? regex;
 
     public signal void process_selected (Process process);
 
     public CPUProcessTreeView (TreeViewModel model) {
         this.model = model;
-        /* *INDENT-OFF* */
-        regex = /(?i:^.*\.(xpm|png)$)/; // vala-lint=space-before-paren,
-        /* *INDENT-ON* */
 
         // setup name column
         name_column = new Gtk.TreeViewColumn ();
@@ -112,16 +108,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
         model.get_value (iter, Column.ICON, out icon_name);
         string path = ((string) icon_name);
 
-        if (regex.match (path)) {
-            try {
-                Gdk.Pixbuf icon = new Gdk.Pixbuf.from_file_at_size (path, 16, -1);
-                ((Gtk.CellRendererPixbuf)icon_cell).pixbuf = icon;
-            } catch (Error e) {
-                warning (e.message);
-            }
-        } else {
-            ((Gtk.CellRendererPixbuf)icon_cell).icon_name = path;
-        }
+        ((Gtk.CellRendererPixbuf)icon_cell).icon_name = path;
     }
 
     public void cpu_usage_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
