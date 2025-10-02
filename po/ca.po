@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-01 17:21+0000\n"
-"PO-Revision-Date: 2025-09-27 11:55+0000\n"
+"PO-Revision-Date: 2025-10-03 03:55+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/ca/>\n"
@@ -36,10 +36,8 @@ msgid "Settings"
 msgstr "Paràmetres"
 
 #: src/MainWindow.vala:48
-#, fuzzy
-#| msgid "Type process name or PID to search"
 msgid "Search process name or PID"
-msgstr "Escriviu el nom o el PID del procés per cercar-lo"
+msgstr "Cerqueu el nom del procés o PID"
 
 #. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
