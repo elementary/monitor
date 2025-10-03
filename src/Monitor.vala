@@ -54,6 +54,18 @@ namespace Monitor {
             set_accels_for_action ("win.search", { "<Ctrl>f" });
             set_accels_for_action ("process.end", { "<Ctrl>e" });
             set_accels_for_action ("process.kill", { "<Ctrl>k" });
+
+            window_removed.connect (() => {
+                MonitorApp.settings.set_string ("opened-view", window.stack.visible_child_name);
+
+                if (MonitorApp.settings.get_boolean ("indicator-state")) {
+                    // Read: https://discourse.gnome.org/t/how-to-hide-widget-instead-removing-them-in-gtk-4/8176
+                    window.hide ();
+                } else {
+                    window.dbusserver.indicator_state (false);
+                    quit ();
+                }
+            });
         }
 
         public override void activate () {

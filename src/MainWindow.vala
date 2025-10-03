@@ -5,6 +5,8 @@
 
 public class Monitor.MainWindow : Gtk.ApplicationWindow {
     public ProcessView process_view { get; private set; }
+    public Gtk.Stack stack { get; private set; }
+    public DBusServer dbusserver { get; private set; }
 
     public MainWindow (MonitorApp app) {
         Object (application: app);
@@ -18,7 +20,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
         process_view = new ProcessView ();
         var system_view = new SystemView (resources);
 
-        var stack = new Gtk.Stack () {
+        stack = new Gtk.Stack () {
             transition_type = SLIDE_LEFT_RIGHT
         };
         stack.add_titled (process_view, "process_view", _("Processes"));
@@ -73,7 +75,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
         child = main_container;
 
-        var dbusserver = DBusServer.get_default ();
+        dbusserver = DBusServer.get_default ();
 
         search_revealer.reveal_child = stack.visible_child == process_view;
         stack.notify["visible-child"].connect (() => {
@@ -102,17 +104,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
             present ();
         });
 
-        application.window_removed.connect (() => {
-            MonitorApp.settings.set_string ("opened-view", stack.visible_child_name);
 
-            if (MonitorApp.settings.get_boolean ("indicator-state")) {
-                // Read: https://discourse.gnome.org/t/how-to-hide-widget-instead-removing-them-in-gtk-4/8176
-                this.hide ();
-            } else {
-                dbusserver.indicator_state (false);
-                application.quit ();
-            }
-        });
 
         dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
         stack.visible_child_name = MonitorApp.settings.get_string ("opened-view");
