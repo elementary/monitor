@@ -51,7 +51,7 @@ namespace Monitor {
                 if (settings.get_boolean ("indicator-state")) {
                     held = true;
                     hold ();
-                } else if (held){
+                } else if (held) {
                     release ();
                 }
             });
