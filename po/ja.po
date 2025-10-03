@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-03 16:58+0000\n"
+"POT-Creation-Date: 2025-10-03 22:07+0000\n"
 "PO-Revision-Date: 2025-09-27 11:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/desktop/"
@@ -19,23 +19,23 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: src/MainWindow.vala:16 src/MainWindow.vala:60
+#: src/MainWindow.vala:14
 msgid "Monitor"
 msgstr "モニター"
 
-#: src/MainWindow.vala:26
+#: src/MainWindow.vala:24
 msgid "Processes"
 msgstr "プロセス"
 
-#: src/MainWindow.vala:27
+#: src/MainWindow.vala:25
 msgid "System"
 msgstr "システム"
 
-#: src/MainWindow.vala:44
+#: src/MainWindow.vala:43
 msgid "Settings"
 msgstr "設定"
 
-#: src/MainWindow.vala:48
+#: src/MainWindow.vala:50
 #, fuzzy
 #| msgid "Type process name or PID to search"
 msgid "Search process name or PID"
@@ -60,7 +60,7 @@ msgid "Quit Monitor"
 msgstr "モニターを終了"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:62
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:64
 msgid "PID"
 msgstr "PID"
 
@@ -113,35 +113,35 @@ msgstr "読み込み/書き込み"
 msgid "Cancelled write"
 msgstr "キャンセルされた書き込み"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:89
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:100
 msgid "Shut Down…"
 msgstr "終了要求を送信…"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:93
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:104
 msgid "Force Quit…"
 msgstr "強制終了…"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:109
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:120
 #, c-format
 msgid "Force “%s” to quit without initiating shutdown tasks?"
 msgstr "終了処理を行わずに “%s” を強制終了しますか?"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:110
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:121
 msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
 msgstr ""
 "これはデータ損失を引き起こす可能性があります。終了要求を送信してもプロセスが"
 "終了しない場合のみ、強制終了してください。"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:119
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:130
 msgid "Force Quit"
 msgstr "強制終了"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:136
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:147
 #, c-format
 msgid "Ask “%s” to shut down?"
 msgstr "“%s” に終了要求を送信しますか?"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:137
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:148
 msgid ""
 "The process will be asked to initiate shutdown tasks and close. In some "
 "cases the process may not quit."
@@ -149,35 +149,35 @@ msgstr ""
 "プロセスに対し、終了処理を開始して閉じるように要求します。プロセスの終了には"
 "至らない場合もあります。"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:146
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:157
 msgid "Shut Down"
 msgstr "終了要求を送信"
 
 #. setup name column
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:20
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:22
 msgid "Process Name"
 msgstr "プロセス名"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:41
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:43
 #: src/Widgets/Statusbar/Statusbar.vala:14
 msgid "CPU"
 msgstr "CPU"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:52
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:54
 #: src/Views/SystemView/SystemMemoryView.vala:18
 #: src/Widgets/Statusbar/Statusbar.vala:23
 msgid "Memory"
 msgstr "メモリー"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:133
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:136
 msgid "KiB"
 msgstr "KiB"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:138
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:141
 msgid "MiB"
 msgstr "MiB"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:144
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:147
 msgid "GiB"
 msgstr "GiB"
 
@@ -276,7 +276,7 @@ msgid "Temperature"
 msgstr "温度"
 
 #: src/Views/SystemView/SystemCPUView.vala:83
-#: src/Views/SystemView/SystemGPUView.vala:84
+#: src/Views/SystemView/SystemGPUView.vala:92
 msgid "℃"
 msgstr "℃"
 
@@ -289,55 +289,55 @@ msgstr "GHz"
 msgid "THREADS"
 msgstr "スレッド"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:26
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:29
 msgid "General"
 msgstr "一般"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:27
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:30
 msgid "Features"
 msgstr "命令セット"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:28
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:31
 msgid "Bugs"
 msgstr "バグ"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:56
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:62
 msgid "Model:"
 msgstr "モデル:"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:57
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:63
 msgid "Family:"
 msgstr "CPU ファミリー:"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:58
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:64
 msgid "Microcode ver.:"
 msgstr "マイクロコードバージョン:"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:59
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:65
 msgid "Bogomips:"
 msgstr "BogoMips:"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:63
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:69
 msgid "L1 Instruction cache: "
 msgstr "L1 命令キャッシュ: "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:67
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:73
 msgid "L1 Data cache: "
 msgstr "L1 データキャッシュ: "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:71
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:77
 msgid "L1 cache: "
 msgstr "L1 キャッシュ: "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:74
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:80
 msgid "L2 Cache size: "
 msgstr "L2 キャッシュサイズ: "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:77
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:83
 msgid "L3 Cache size: "
 msgstr "L3 キャッシュサイズ: "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:80
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:86
 msgid "Address sizes: "
 msgstr "アドレスサイズ: "
 
@@ -365,15 +365,15 @@ msgstr "使用中"
 msgid "Shared"
 msgstr "共有中"
 
-#: src/Views/SystemView/SystemNetworkView.vala:23
+#: src/Views/SystemView/SystemNetworkView.vala:26
 msgid "Network"
 msgstr "ネットワーク"
 
-#: src/Views/SystemView/SystemNetworkView.vala:25
+#: src/Views/SystemView/SystemNetworkView.vala:28
 msgid "DOWN"
 msgstr "受信"
 
-#: src/Views/SystemView/SystemNetworkView.vala:30
+#: src/Views/SystemView/SystemNetworkView.vala:33
 msgid "UP"
 msgstr "送信"
 
@@ -389,7 +389,7 @@ msgstr "書き込み"
 msgid "READ"
 msgstr "読み込み"
 
-#: src/Views/SystemView/SystemStorageView.vala:112
+#: src/Views/SystemView/SystemStorageView.vala:115
 msgid "Not mounted"
 msgstr "未マウント"
 
@@ -397,7 +397,7 @@ msgstr "未マウント"
 msgid "VRAM"
 msgstr "VRAM"
 
-#: src/Views/SystemView/SystemGPUView.vala:21
+#: src/Views/SystemView/SystemGPUView.vala:23
 msgid "TEMPERATURE"
 msgstr "温度"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-03 16:58+0000\n"
+"POT-Creation-Date: 2025-10-03 22:07+0000\n"
 "PO-Revision-Date: 2025-08-22 15:58+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
@@ -19,23 +19,23 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: src/MainWindow.vala:16 src/MainWindow.vala:60
+#: src/MainWindow.vala:14
 msgid "Monitor"
 msgstr "監控"
 
-#: src/MainWindow.vala:26
+#: src/MainWindow.vala:24
 msgid "Processes"
 msgstr "程序"
 
-#: src/MainWindow.vala:27
+#: src/MainWindow.vala:25
 msgid "System"
 msgstr "系統"
 
-#: src/MainWindow.vala:44
+#: src/MainWindow.vala:43
 msgid "Settings"
 msgstr "設定"
 
-#: src/MainWindow.vala:48
+#: src/MainWindow.vala:50
 #, fuzzy
 #| msgid "Type process name or PID to search"
 msgid "Search process name or PID"
@@ -60,7 +60,7 @@ msgid "Quit Monitor"
 msgstr "離開《監控》"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:62
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:64
 msgid "PID"
 msgstr "PID"
 
@@ -113,33 +113,33 @@ msgstr "讀取/寫入"
 msgid "Cancelled write"
 msgstr "已取消的寫入"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:89
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:100
 msgid "Shut Down…"
 msgstr "結束…"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:93
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:104
 msgid "Force Quit…"
 msgstr "強制終止…"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:109
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:120
 #, c-format
 msgid "Force “%s” to quit without initiating shutdown tasks?"
 msgstr "要強制終止 \"%s\" 而不讓其進行結束前的工作嗎？"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:110
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:121
 msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
 msgstr "這可能會造成資料喪失。請只在沒辦法「結束」時才使用「強制終止」。"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:119
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:130
 msgid "Force Quit"
 msgstr "強制終止"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:136
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:147
 #, c-format
 msgid "Ask “%s” to shut down?"
 msgstr "要向 \"%s\" 要求結束嗎？"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:137
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:148
 msgid ""
 "The process will be asked to initiate shutdown tasks and close. In some "
 "cases the process may not quit."
@@ -147,35 +147,35 @@ msgstr ""
 "該處理程序會被要求進行結束前的工作然後關閉。有的時候有些處理程序接收到這個要"
 "求還是不會關閉。"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:146
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:157
 msgid "Shut Down"
 msgstr "結束"
 
 #. setup name column
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:20
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:22
 msgid "Process Name"
 msgstr "程序名稱"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:41
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:43
 #: src/Widgets/Statusbar/Statusbar.vala:14
 msgid "CPU"
 msgstr "CPU"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:52
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:54
 #: src/Views/SystemView/SystemMemoryView.vala:18
 #: src/Widgets/Statusbar/Statusbar.vala:23
 msgid "Memory"
 msgstr "記憶體"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:133
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:136
 msgid "KiB"
 msgstr "KiB"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:138
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:141
 msgid "MiB"
 msgstr "MiB"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:144
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:147
 msgid "GiB"
 msgstr "GiB"
 
@@ -274,7 +274,7 @@ msgid "Temperature"
 msgstr "溫度"
 
 #: src/Views/SystemView/SystemCPUView.vala:83
-#: src/Views/SystemView/SystemGPUView.vala:84
+#: src/Views/SystemView/SystemGPUView.vala:92
 msgid "℃"
 msgstr "℃"
 
@@ -287,55 +287,55 @@ msgstr "GHz"
 msgid "THREADS"
 msgstr "執行緒"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:26
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:29
 msgid "General"
 msgstr "一般"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:27
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:30
 msgid "Features"
 msgstr "功能"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:28
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:31
 msgid "Bugs"
 msgstr "Bug"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:56
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:62
 msgid "Model:"
 msgstr "型號："
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:57
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:63
 msgid "Family:"
 msgstr "家族："
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:58
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:64
 msgid "Microcode ver.:"
 msgstr "微碼版本："
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:59
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:65
 msgid "Bogomips:"
 msgstr "BogoMips："
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:63
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:69
 msgid "L1 Instruction cache: "
 msgstr "L1 命令快取： "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:67
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:73
 msgid "L1 Data cache: "
 msgstr "L1 資料快取： "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:71
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:77
 msgid "L1 cache: "
 msgstr "L1 快取： "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:74
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:80
 msgid "L2 Cache size: "
 msgstr "L2 快取大小： "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:77
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:83
 msgid "L3 Cache size: "
 msgstr "L3 快取大小： "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:80
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:86
 msgid "Address sizes: "
 msgstr "位址大小： "
 
@@ -363,15 +363,15 @@ msgstr "已使用"
 msgid "Shared"
 msgstr "共享"
 
-#: src/Views/SystemView/SystemNetworkView.vala:23
+#: src/Views/SystemView/SystemNetworkView.vala:26
 msgid "Network"
 msgstr "網路"
 
-#: src/Views/SystemView/SystemNetworkView.vala:25
+#: src/Views/SystemView/SystemNetworkView.vala:28
 msgid "DOWN"
 msgstr "下載"
 
-#: src/Views/SystemView/SystemNetworkView.vala:30
+#: src/Views/SystemView/SystemNetworkView.vala:33
 msgid "UP"
 msgstr "上傳"
 
@@ -387,7 +387,7 @@ msgstr "寫入"
 msgid "READ"
 msgstr "讀取"
 
-#: src/Views/SystemView/SystemStorageView.vala:112
+#: src/Views/SystemView/SystemStorageView.vala:115
 msgid "Not mounted"
 msgstr "未掛載"
 
@@ -395,7 +395,7 @@ msgstr "未掛載"
 msgid "VRAM"
 msgstr "VRAM"
 
-#: src/Views/SystemView/SystemGPUView.vala:21
+#: src/Views/SystemView/SystemGPUView.vala:23
 msgid "TEMPERATURE"
 msgstr "溫度"
 

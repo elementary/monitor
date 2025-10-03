@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-03 16:58+0000\n"
+"POT-Creation-Date: 2025-10-03 22:07+0000\n"
 "PO-Revision-Date: 2025-07-13 12:55+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Polish <https://l10n.elementaryos.org/projects/desktop/"
@@ -15,23 +15,23 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: src/MainWindow.vala:16 src/MainWindow.vala:60
+#: src/MainWindow.vala:14
 msgid "Monitor"
 msgstr "Monitor"
 
-#: src/MainWindow.vala:26
+#: src/MainWindow.vala:24
 msgid "Processes"
 msgstr "Procesy"
 
-#: src/MainWindow.vala:27
+#: src/MainWindow.vala:25
 msgid "System"
 msgstr "System"
 
-#: src/MainWindow.vala:44
+#: src/MainWindow.vala:43
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: src/MainWindow.vala:48
+#: src/MainWindow.vala:50
 #, fuzzy
 #| msgid "Type process name or PID to search"
 msgid "Search process name or PID"
@@ -56,7 +56,7 @@ msgid "Quit Monitor"
 msgstr "Wyjdź"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:62
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:64
 msgid "PID"
 msgstr "PID"
 
@@ -111,67 +111,67 @@ msgstr "Przeczytano/Zapisano"
 msgid "Cancelled write"
 msgstr "Anulowane pisanie"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:89
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:100
 msgid "Shut Down…"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:93
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:104
 msgid "Force Quit…"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:109
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:120
 #, c-format
 msgid "Force “%s” to quit without initiating shutdown tasks?"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:110
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:121
 msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:119
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:130
 msgid "Force Quit"
 msgstr "Wymuś zamknięcie"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:136
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:147
 #, c-format
 msgid "Ask “%s” to shut down?"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:137
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:148
 msgid ""
 "The process will be asked to initiate shutdown tasks and close. In some "
 "cases the process may not quit."
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:146
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:157
 msgid "Shut Down"
 msgstr ""
 
 #. setup name column
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:20
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:22
 msgid "Process Name"
 msgstr "Nazwa procesu"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:41
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:43
 #: src/Widgets/Statusbar/Statusbar.vala:14
 msgid "CPU"
 msgstr "CPU"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:52
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:54
 #: src/Views/SystemView/SystemMemoryView.vala:18
 #: src/Widgets/Statusbar/Statusbar.vala:23
 msgid "Memory"
 msgstr "Pamięć"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:133
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:136
 msgid "KiB"
 msgstr "KiB"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:138
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:141
 msgid "MiB"
 msgstr "MiB"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:144
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:147
 msgid "GiB"
 msgstr "GiB"
 
@@ -270,7 +270,7 @@ msgid "Temperature"
 msgstr "Temperatura"
 
 #: src/Views/SystemView/SystemCPUView.vala:83
-#: src/Views/SystemView/SystemGPUView.vala:84
+#: src/Views/SystemView/SystemGPUView.vala:92
 msgid "℃"
 msgstr "℃"
 
@@ -283,55 +283,55 @@ msgstr "GHz"
 msgid "THREADS"
 msgstr "WĄTKI"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:26
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:29
 msgid "General"
 msgstr "Ogólne"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:27
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:30
 msgid "Features"
 msgstr "Funkcje"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:28
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:31
 msgid "Bugs"
 msgstr "Bugi"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:56
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:62
 msgid "Model:"
 msgstr "Model:"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:57
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:63
 msgid "Family:"
 msgstr "Rodzina:"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:58
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:64
 msgid "Microcode ver.:"
 msgstr "Wersja mikrokodu:"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:59
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:65
 msgid "Bogomips:"
 msgstr "BogoMips:"
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:63
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:69
 msgid "L1 Instruction cache: "
 msgstr "Cache instrukcji L1: "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:67
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:73
 msgid "L1 Data cache: "
 msgstr "Cache danych L1: "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:71
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:77
 msgid "L1 cache: "
 msgstr "Cache L1: "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:74
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:80
 msgid "L2 Cache size: "
 msgstr "Rozmiar Cache L2: "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:77
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:83
 msgid "L3 Cache size: "
 msgstr "Rozmiar Cache L3: "
 
-#: src/Views/SystemView/SystemCPUInfoPopover.vala:80
+#: src/Views/SystemView/SystemCPUInfoPopover.vala:86
 msgid "Address sizes: "
 msgstr "Rozmiary adresów: "
 
@@ -359,15 +359,15 @@ msgstr "Użyte"
 msgid "Shared"
 msgstr "Współdzielone"
 
-#: src/Views/SystemView/SystemNetworkView.vala:23
+#: src/Views/SystemView/SystemNetworkView.vala:26
 msgid "Network"
 msgstr "Sieć"
 
-#: src/Views/SystemView/SystemNetworkView.vala:25
+#: src/Views/SystemView/SystemNetworkView.vala:28
 msgid "DOWN"
 msgstr "POBIERANIE"
 
-#: src/Views/SystemView/SystemNetworkView.vala:30
+#: src/Views/SystemView/SystemNetworkView.vala:33
 msgid "UP"
 msgstr "WYSYŁANIE"
 
@@ -383,7 +383,7 @@ msgstr "ZAPISYWANIE"
 msgid "READ"
 msgstr "CZYTANIE"
 
-#: src/Views/SystemView/SystemStorageView.vala:112
+#: src/Views/SystemView/SystemStorageView.vala:115
 msgid "Not mounted"
 msgstr "Niezamontowane"
 
@@ -391,7 +391,7 @@ msgstr "Niezamontowane"
 msgid "VRAM"
 msgstr "VRAM"
 
-#: src/Views/SystemView/SystemGPUView.vala:21
+#: src/Views/SystemView/SystemGPUView.vala:23
 msgid "TEMPERATURE"
 msgstr "TEMPERATURA"
 
