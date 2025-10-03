@@ -35,7 +35,7 @@ app_dependencies = [
     dependency('flatpak'),
 
     dependency(
-        'livechart',
+        'livechart-2',
         version: '>= 1.10.0',
         fallback: ['live-chart', 'livechart_dep'],
     ),
