@@ -34,7 +34,11 @@ app_dependencies = [
     dependency('json-glib-1.0'),
     dependency('flatpak'),
 
-    dependency('livechart-2', version: '>= 1.10.0'),
+    dependency(
+        'livechart',
+        version: '>= 1.10.0',
+        fallback: ['live-chart', 'livechart_dep'],
+    ),
 
     meson.get_compiler('c').find_library('m', required: false),
     meson.get_compiler('vala').find_library('posix'),
