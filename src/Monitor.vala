@@ -41,6 +41,18 @@ namespace Monitor {
             // Controls the direction of the sort indicators
             Gtk.Settings.get_default ().set ("gtk-alternative-sort-arrows", true, null);
 
+            if (settings.get_boolean ("indicator-state")) {
+                hold ();
+            }
+
+            settings.notify["indicator-state"].connect (() => {
+                if (settings.get_boolean ("indicator-state")) {
+                    hold ();
+                } else {
+                    release ();
+                }
+            });
+
             var quit_action = new SimpleAction ("quit", null);
             add_action (quit_action);
             quit_action.activate.connect (() => {
