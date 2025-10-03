@@ -97,15 +97,6 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
             });
         });
 
-
-        dbusserver.quit.connect (() => application.quit ());
-        dbusserver.show.connect (() => {
-            this.deiconify ();
-            this.present ();
-            setup_window_state ();
-            this.show_all ();
-        });
-
         key_press_event.connect (search_entry.handle_event);
 
         this.delete_event.connect (() => {
@@ -114,7 +105,6 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
             MonitorApp.settings.set_int ("window-width", window_width);
             MonitorApp.settings.set_int ("window-height", window_height);
             MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized);
-
 
             if (!MonitorApp.settings.get_boolean ("indicator-state")) {
                 dbusserver.indicator_state (false);
