@@ -97,15 +97,6 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
             });
         });
 
-
-        dbusserver.quit.connect (() => application.quit ());
-        dbusserver.show.connect (() => {
-            this.deiconify ();
-            this.present ();
-            setup_window_state ();
-            this.show_all ();
-        });
-
         key_press_event.connect (search_entry.handle_event);
 
         this.delete_event.connect (() => {
