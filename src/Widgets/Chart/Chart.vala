@@ -15,6 +15,7 @@ public class Monitor.Chart : Gtk.Box {
 
         vexpand = true;
         height_request = 120;
+        overflow = HIDDEN;
 
         config = new LiveChart.Config ();
         config.y_axis.unit = "%";
