@@ -45,7 +45,7 @@ namespace Monitor {
                 hold ();
             }
 
-            settings.notify["indicator-state"].connect (() => {
+            settings.changed["indicator-state"].connect (() => {
                 if (settings.get_boolean ("indicator-state")) {
                     hold ();
                 } else {
