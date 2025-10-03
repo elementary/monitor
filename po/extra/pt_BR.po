@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-03 22:07+0000\n"
-"PO-Revision-Date: 2025-05-16 14:55+0000\n"
-"Last-Translator: Leonardo Lemos <leonardolemos@live.com>\n"
+"PO-Revision-Date: 2025-10-04 22:55+0000\n"
+"Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
 "desktop/monitor-extra/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -37,13 +37,11 @@ msgstr "elementary, Inc."
 
 #: data/io.elementary.monitor.appdata.xml.in:39
 msgid "Other Improvements:"
-msgstr ""
+msgstr "Outras melhorias:"
 
 #: data/io.elementary.monitor.appdata.xml.in:41
-#, fuzzy
-#| msgid "Update Dutch translation (@Vistaus)"
 msgid "Updated translations"
-msgstr "Atualiza tradução neerlandesa (@Vistaus)"
+msgstr "Traduções atualizadas"
 
 #: data/io.elementary.monitor.appdata.xml.in:62
 msgid "Add info about drives (based on Dirli's code)"
