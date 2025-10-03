@@ -115,7 +115,6 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
             MonitorApp.settings.set_int ("window-height", window_height);
             MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized);
 
-            MonitorApp.settings.set_string ("opened-view", stack.visible_child_name);
 
             if (MonitorApp.settings.get_boolean ("indicator-state")) {
                 this.hide_on_delete ();
@@ -128,7 +127,8 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
         });
 
         dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
-        stack.visible_child_name = MonitorApp.settings.get_string ("opened-view");
+
+        MonitorApp.settings.bind ("opened-view", stack, "visible-child-name", DEFAULT);
 
         search_entry.search_changed.connect (() => {
             // collapse tree only when search is focused and changed
