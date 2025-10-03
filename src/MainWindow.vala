@@ -106,7 +106,6 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
             MonitorApp.settings.set_int ("window-height", window_height);
             MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized);
 
-
             if (MonitorApp.settings.get_boolean ("indicator-state")) {
                 this.hide_on_delete ();
             } else {
