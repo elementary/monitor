@@ -9,6 +9,7 @@ namespace Monitor {
         private MainWindow window = null;
         public string[] args;
 
+        private bool held = false;
         private static bool start_in_background = false;
         private static bool status_background = false;
         private const GLib.OptionEntry[] CMD_OPTIONS = {
@@ -42,13 +43,15 @@ namespace Monitor {
             Gtk.Settings.get_default ().set ("gtk-alternative-sort-arrows", true, null);
 
             if (settings.get_boolean ("indicator-state")) {
+                held = true;
                 hold ();
             }
 
             settings.changed["indicator-state"].connect (() => {
                 if (settings.get_boolean ("indicator-state")) {
+                    held = true;
                     hold ();
-                } else {
+                } else if (held){
                     release ();
                 }
             });
