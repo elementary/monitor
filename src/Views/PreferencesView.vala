@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
  */
 
-public class Monitor.PreferencesView : Gtk.Bin {
+public class Monitor.PreferencesView : Granite.Bin {
     private Gtk.Adjustment update_freq_adjustment;
 
     construct {
@@ -23,8 +23,8 @@ public class Monitor.PreferencesView : Gtk.Bin {
             halign = START,
             margin_bottom = 6
         };
-        update_freq_description.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
-        update_freq_description.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
+        update_freq_description.add_css_class (Granite.CssClass.DIM);
+        update_freq_description.add_css_class (Granite.CssClass.SMALL);
 
         update_freq_scale.add_mark (1.0, BOTTOM, _("1s"));
         update_freq_scale.add_mark (2.0, BOTTOM, _("2s"));
@@ -38,9 +38,9 @@ public class Monitor.PreferencesView : Gtk.Bin {
             margin_top = 12,
             margin_bottom = 12
         };
-        update_freq_box.add (update_freq_label);
-        update_freq_box.add (update_freq_description);
-        update_freq_box.add (update_freq_scale);
+        update_freq_box.append (update_freq_label);
+        update_freq_box.append (update_freq_description);
+        update_freq_box.append (update_freq_scale);
 
         update_freq_adjustment.value_changed.connect (() => {
             MonitorApp.settings.set_int ("update-time", (int) update_freq_adjustment.get_value ());
@@ -112,18 +112,18 @@ public class Monitor.PreferencesView : Gtk.Bin {
             margin_bottom = 6,
             margin_start = 12
         };
-        indicator_options_box.add (cpu_check);
-        indicator_options_box.add (cpu_freq_check);
-        indicator_options_box.add (cpu_temp_check);
-        indicator_options_box.add (new Gtk.Separator (HORIZONTAL));
-        indicator_options_box.add (memory_check);
-        indicator_options_box.add (new Gtk.Separator (HORIZONTAL));
-        indicator_options_box.add (gpu_check);
-        indicator_options_box.add (gpu_memory_check);
-        indicator_options_box.add (gpu_temp_check);
-        indicator_options_box.add (new Gtk.Separator (HORIZONTAL));
-        indicator_options_box.add (network_upload_check);
-        indicator_options_box.add (network_download_check);
+        indicator_options_box.append (cpu_check);
+        indicator_options_box.append (cpu_freq_check);
+        indicator_options_box.append (cpu_temp_check);
+        indicator_options_box.append (new Gtk.Separator (HORIZONTAL));
+        indicator_options_box.append (memory_check);
+        indicator_options_box.append (new Gtk.Separator (HORIZONTAL));
+        indicator_options_box.append (gpu_check);
+        indicator_options_box.append (gpu_memory_check);
+        indicator_options_box.append (gpu_temp_check);
+        indicator_options_box.append (new Gtk.Separator (HORIZONTAL));
+        indicator_options_box.append (network_upload_check);
+        indicator_options_box.append (network_download_check);
 
         var indicator_options_revealer = new Gtk.Revealer () {
             child = indicator_options_box
@@ -132,11 +132,11 @@ public class Monitor.PreferencesView : Gtk.Bin {
         var box = new Gtk.Box (VERTICAL, 0) {
             margin_bottom = 6
         };
-        box.add (update_freq_box);
-        box.add (enable_smooth_lines_switch);
-        box.add (background_switch);
-        box.add (indicator_switch);
-        box.add (indicator_options_revealer);
+        box.append (update_freq_box);
+        box.append (enable_smooth_lines_switch);
+        box.append (background_switch);
+        box.append (indicator_switch);
+        box.append (indicator_options_revealer);
 
         child = box;
 

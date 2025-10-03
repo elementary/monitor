@@ -22,7 +22,7 @@ public class Monitor.ProcessInfoIOStats : Gtk.Grid {
 
         open_files_tree_view = new OpenFilesTreeView ();
 
-        var open_files_tree_view_scrolled = new Gtk.ScrolledWindow (null, null) {
+        var open_files_tree_view_scrolled = new Gtk.ScrolledWindow () {
             child = open_files_tree_view
         };
 
@@ -53,11 +53,11 @@ public class Monitor.ProcessInfoIOStats : Gtk.Grid {
     }
 
     private Gtk.Box create_label_with_icon (Gtk.Label label, string icon_name) {
-        var image = new Gtk.Image.from_icon_name (icon_name, SMALL_TOOLBAR);
+        var image = new Gtk.Image.from_icon_name (icon_name);
 
         var box = new Gtk.Box (HORIZONTAL, 3);
-        box.add (image);
-        box.add (label);
+        box.append (image);
+        box.append (label);
 
         return box;
     }

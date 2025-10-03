@@ -33,15 +33,15 @@ public class Monitor.LabelRoundy : Gtk.Box {
         val = new Gtk.Label (Utils.NO_DATA) {
             selectable = true
         };
-        val.get_style_context ().add_class ("value");
+        val.add_css_class ("value");
 
         var header_label = new Granite.HeaderLabel (title.up ()) {
             mnemonic_widget = val
         };
-        header_label.get_style_context ().add_class (Granite.STYLE_CLASS_SMALL_LABEL);
+        header_label.add_css_class (Granite.CssClass.SMALL);
 
         orientation = VERTICAL;
-        add (header_label);
-        add (val);
+        append (header_label);
+        append (val);
     }
 }

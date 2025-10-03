@@ -19,7 +19,7 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
     construct {
         column_spacing = 12;
 
-        icon = new Gtk.Image.from_icon_name ("application-x-executable", Gtk.IconSize.DIALOG) {
+        icon = new Gtk.Image.from_icon_name ("application-x-executable") {
             pixel_size = 64
         };
 
@@ -27,7 +27,7 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
             halign = START,
             valign = END
         };
-        state.get_style_context ().add_class ("state_badge");
+        state.add_css_class ("state_badge");
 
         var icon_container = new Gtk.Overlay () {
             child = icon
@@ -40,7 +40,7 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
             valign = START,
             tooltip_text = _("N/A")
         };
-        application_name.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
+        application_name.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
 
         pid = new LabelRoundy (_("PID"));
         nice = new LabelRoundy (_("NI"));
@@ -53,11 +53,11 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         username = new LabelRoundy ("");
 
         var wrapper = new Gtk.Box (HORIZONTAL, 0);
-        wrapper.add (pid);
-        wrapper.add (priority);
-        wrapper.add (nice);
-        wrapper.add (num_threads);
-        wrapper.add (username);
+        wrapper.append (pid);
+        wrapper.append (priority);
+        wrapper.append (nice);
+        wrapper.append (num_threads);
+        wrapper.append (username);
 
         attach (icon_container, 0, 0, 1, 2);
         attach (application_name, 1, 0, 3, 1);
@@ -72,14 +72,14 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         priority.text = process.stat.priority.to_string ();
 
         if (process.uid == 0) {
-            username.get_style_context ().add_class ("username-root");
-            username.get_style_context ().remove_class ("username-other");
+            username.add_css_class ("username-root");
+            username.remove_css_class ("username-other");
         } else if (process.uid == (int) Posix.getuid ()) {
-            username.get_style_context ().remove_class ("username-other");
-            username.get_style_context ().remove_class ("username-root");
+            username.remove_css_class ("username-other");
+            username.remove_css_class ("username-root");
         } else {
-            username.get_style_context ().add_class ("username-other");
-            username.get_style_context ().remove_class ("username-root");
+            username.add_css_class ("username-other");
+            username.remove_css_class ("username-root");
         }
 
         username.text = process.username;

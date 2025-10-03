@@ -15,6 +15,8 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
     public CPUProcessTreeView (TreeViewModel model) {
         this.model = model;
 
+        enable_search = false;
+
         // setup name column
         name_column = new Gtk.TreeViewColumn ();
         name_column.title = _("Process Name");
@@ -91,7 +93,8 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
 
         insert_action_group ("process", action_group);
 
-        var key_controller = new Gtk.EventControllerKey (this);
+        var key_controller = new Gtk.EventControllerKey ();
+        add_controller (key_controller);
         key_controller.key_released.connect ((keyval, keycode, state) => {
             switch (keyval) {
                 case Gdk.Key.Left:
@@ -219,7 +222,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
             tree_model.get (iter, Column.PID, out pid);
             Process process = model.process_manager.get_process (pid);
             process_selected (process);
-            // debug ("cursor changed");
+            debug ("cursor changed");
         }
     }
 

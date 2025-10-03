@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
  */
 
-public class Monitor.MainWindow : Hdy.ApplicationWindow {
+public class Monitor.MainWindow : Gtk.ApplicationWindow {
     public ProcessView process_view { get; private set; }
 
     public MainWindow (MonitorApp app) {
@@ -11,8 +11,6 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
     }
 
     construct {
-        setup_window_state ();
-
         title = _("Monitor");
 
         var resources = new Resources ();
@@ -31,48 +29,49 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
             valign = CENTER
         };
 
-        var sv = new PreferencesView ();
-        sv.show_all ();
+        var preferences_view = new PreferencesView ();
 
-        var preferences_popover = new Gtk.Popover (null) {
-            child = sv
+        var preferences_popover = new Gtk.Popover () {
+            child = preferences_view
         };
 
         var preferences_button = new Gtk.MenuButton () {
-            image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR),
+            icon_name = "open-menu",
+            primary = true,
             popover = preferences_popover,
-            tooltip_text = (_("Settings"))
+            tooltip_markup = ("%s\n" + Granite.TOOLTIP_SECONDARY_TEXT_MARKUP).printf (
+                _("Settings"),
+                "F10"
+            )
         };
+        preferences_button.add_css_class (Granite.STYLE_CLASS_LARGE_ICONS);
 
         var search_entry = new Gtk.SearchEntry () {
             placeholder_text = _("Search process name or PID"),
             valign = CENTER
         };
+        search_entry.set_key_capture_widget (this);
 
         var search_revealer = new Gtk.Revealer () {
             child = search_entry,
-            transition_type = SLIDE_LEFT
+            transition_type = SLIDE_LEFT,
+            overflow = VISIBLE
         };
 
-        var headerbar = new Hdy.HeaderBar () {
-            has_subtitle = false,
-            show_close_button = true,
-            title = _("Monitor")
-        };
+        var headerbar = new Adw.HeaderBar ();
         headerbar.pack_start (search_revealer);
-        headerbar.set_custom_title (stack_switcher);
+        headerbar.set_title_widget (stack_switcher);
         headerbar.pack_end (preferences_button);
 
         var statusbar = new Statusbar ();
 
-        var box = new Gtk.Box (VERTICAL, 0);
-        box.add (headerbar);
-        box.add (stack);
-        box.add (statusbar);
+        var main_container = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
-        child = box;
+        set_titlebar (headerbar);
+        main_container.append (stack);
+        main_container.append (statusbar);
 
-        show_all ();
+        child = main_container;
 
         var dbusserver = DBusServer.get_default ();
 
@@ -97,29 +96,13 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
             });
         });
 
-        key_press_event.connect (search_entry.handle_event);
-
-        this.delete_event.connect (() => {
-            int window_width, window_height;
-            get_size (out window_width, out window_height);
-            MonitorApp.settings.set_int ("window-width", window_width);
-            MonitorApp.settings.set_int ("window-height", window_height);
-            MonitorApp.settings.set_boolean ("is-maximized", this.is_maximized);
-
-            if (!MonitorApp.settings.get_boolean ("indicator-state")) {
-                dbusserver.indicator_state (false);
-            }
-
-            return Gdk.EVENT_PROPAGATE;
-        });
-
         dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
 
         MonitorApp.settings.bind ("opened-view", stack, "visible-child-name", DEFAULT);
 
         search_entry.search_changed.connect (() => {
             // collapse tree only when search is focused and changed
-            if (search_entry.is_focus) {
+            if (search_entry.is_focus ()) {
                 process_view.process_tree_view.collapse_all ();
             }
 
@@ -128,10 +111,6 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
             // focus on child row to avoid the app crashes by clicking "Kill/End Process" buttons in headerbar
             process_view.process_tree_view.focus_on_child_row ();
             search_entry.grab_focus ();
-
-            if (search_entry.text != "") {
-                search_entry.insert_at_cursor ("");
-            }
         });
 
         search_entry.activate.connect (() => {
@@ -145,15 +124,5 @@ public class Monitor.MainWindow : Hdy.ApplicationWindow {
         });
 
         add_action (search_action);
-    }
-
-    private void setup_window_state () {
-        int window_width = MonitorApp.settings.get_int ("window-width");
-        int window_height = MonitorApp.settings.get_int ("window-height");
-        this.set_default_size (window_width, window_height);
-
-        if (MonitorApp.settings.get_boolean ("is-maximized")) {
-            this.maximize ();
-        }
     }
 }

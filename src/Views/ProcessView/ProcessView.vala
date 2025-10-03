@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-public class Monitor.ProcessView : Gtk.Box {
+public class Monitor.ProcessView : Granite.Bin {
     public string needle = "";
 
     public CPUProcessTreeView process_tree_view { get; private set; }
@@ -23,30 +23,35 @@ public class Monitor.ProcessView : Gtk.Box {
         process_tree_view.process_selected.connect ((process) => on_process_selected (process));
         process_tree_view.set_model (sort_model);
 
-        var process_tree_view_scrolled = new Gtk.ScrolledWindow (null, null) {
+        var process_tree_view_scrolled = new Gtk.ScrolledWindow () {
             child = process_tree_view
         };
 
         process_info_view = new ProcessInfoView () {
-            // hide on startup
-            no_show_all = true
+            // This might be useless since first process is selected
+            // automatically and this triggers on_process_selected ().
+            // Keeping it just to not forget what was the OG behavior 
+            // in GTK3 version.
+            visible = false,
         };
 
         var paned = new Gtk.Paned (HORIZONTAL) {
+            start_child = process_tree_view_scrolled,
+            end_child = process_info_view,
+            shrink_end_child = false,
+            resize_end_child = false,
             hexpand = true
         };
         paned.position = paned.max_position;
-        paned.pack1 (process_tree_view_scrolled, true, false);
-        paned.pack2 (process_info_view, false, false);
 
-        add (paned);
+        child = paned;
 
         notify["needle"].connect (filter_model.refilter);
     }
 
     public void on_process_selected (Process process) {
         process_info_view.process = process;
-        process_info_view.no_show_all = false;
+        process_info_view.visible = true;
     }
 
     public void update () {

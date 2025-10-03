@@ -35,7 +35,8 @@ namespace Monitor {
         public override void startup () {
             base.startup ();
 
-            Hdy.init ();
+            Granite.init ();
+            Adw.init ();
 
             Appearance.set_prefered_style ();
 
@@ -72,12 +73,17 @@ namespace Monitor {
             var dbusserver = DBusServer.get_default ();
             dbusserver.show.connect (() => activate ());
             dbusserver.quit.connect (quit);
+
+            window_removed.connect (() => {
+                if (!settings.get_boolean ("indicator-state")) {
+                    dbusserver.indicator_state (false);
+                }
+            });
         }
 
         public override void activate () {
             // only have one window
             if (get_windows () != null) {
-                window.show_all ();
                 window.present ();
                 return;
             }
@@ -108,8 +114,22 @@ namespace Monitor {
                 window.hide ();
                 MonitorApp.settings.set_boolean ("background-state", true);
             } else {
-                window.show_all ();
+                window.present ();
             }
+
+            /*
+            * This is very finicky. Bind size after present else set_titlebar gives us bad sizes
+            * Set maximize after height/width else window is min size on unmaximize
+            * Bind maximize as SET else get get bad sizes
+            */
+            settings.bind ("window-height", window, "default-height", SettingsBindFlags.DEFAULT);
+            settings.bind ("window-width", window, "default-width", SettingsBindFlags.DEFAULT);
+
+            if (settings.get_boolean ("is-maximized")) {
+                window.maximize ();
+            }
+
+            settings.bind ("is-maximized", window, "maximized", SettingsBindFlags.SET);
 
             window.process_view.process_tree_view.focus_on_first_row ();
         }
@@ -126,6 +146,13 @@ namespace Monitor {
                 PCIUtils.LIBPCI_MINOR_VER,
                 PCIUtils.LIBPCI_PATCH_VER
                 );
+
+            print (
+                "Gtk %d.%d.%d\n",
+                Gtk.MAJOR_VERSION,
+                Gtk.MINOR_VERSION,
+                Gtk.MICRO_VERSION
+            );
 
             // add command line options
             try {

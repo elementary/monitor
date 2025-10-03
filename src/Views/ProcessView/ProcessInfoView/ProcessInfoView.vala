@@ -21,7 +21,6 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
             process_info_header.update (_process);
 
-            this.show_all ();
             if (_process.uid != Posix.getuid ()) {
                 process_info_cpu_ram.hide ();
                 process_info_io_stats.hide ();
@@ -34,10 +33,15 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 process_info_cpu_ram.clear_graphs ();
                 process_info_cpu_ram.set_charts_data (_process);
 
+                // Setting visibility
+                process_info_cpu_ram.visible = true;
+                process_action_bar.visible = true;
+                process_info_io_stats.visible = true;
+
                 permission_error_infobar.revealed = false;
 
                 process_info_io_stats.open_files_tree_view.model.process = _process;
-                process_info_io_stats.open_files_tree_view.show_all ();
+                process_info_io_stats.open_files_tree_view.visible = true;
             }
         }
     }
@@ -56,26 +60,33 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         orientation = Gtk.Orientation.VERTICAL;
         hexpand = true;
 
-        permission_error_infobar = new Gtk.InfoBar ();
-        permission_error_infobar.message_type = Gtk.MessageType.ERROR;
-        permission_error_infobar.revealed = false;
+        permission_error_infobar = new Gtk.InfoBar () {
+            message_type = Gtk.MessageType.ERROR,
+            revealed = false,
+        };
         permission_error_label = new Gtk.Label (Utils.NO_DATA);
-        permission_error_infobar.get_content_area ().add (permission_error_label);
-        add (permission_error_infobar);
+        permission_error_infobar.add_child (permission_error_label);
+        append (permission_error_infobar);
 
         var grid = new Gtk.Grid () {
-            margin = 12,
+            margin_top = 12,
+            margin_bottom = 12,
+            margin_start = 12,
+            margin_end = 12,
             hexpand = true,
             column_spacing = 12
         };
-        add (grid);
+        append (grid);
 
 
         process_info_header = new ProcessInfoHeader ();
         grid.attach (process_info_header, 0, 0, 1, 1);
 
         var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
-            margin = 12,
+            margin_top = 12,
+            margin_bottom = 12,
+            margin_start = 12,
+            margin_end = 12,
             hexpand = true
         };
         grid.attach (separator, 0, 1, 1, 1);
@@ -93,7 +104,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         kill_process_button = new Gtk.Button.with_label (_("Force Quit…")) {
             tooltip_markup = Granite.markup_accel_tooltip ({ "<Ctrl>K" })
         };
-        kill_process_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+        kill_process_button.add_css_class (Granite.CssClass.DESTRUCTIVE);
 
         process_action_bar = new Gtk.Box (HORIZONTAL, 12) {
             halign = END,
@@ -101,8 +112,8 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             homogeneous = true,
             margin_top = 12
         };
-        process_action_bar.add (end_process_button);
-        process_action_bar.add (kill_process_button);
+        process_action_bar.append (end_process_button);
+        process_action_bar.append (kill_process_button);
 
         kill_process_button.clicked.connect (() => {
             var confirmation_dialog = new Granite.MessageDialog (
@@ -113,15 +124,15 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             ) {
                 badge_icon = new ThemedIcon ("process-stop"),
                 modal = true,
-                transient_for = (Gtk.Window) get_toplevel ()
+                transient_for = (Gtk.Window) get_root ()
             };
 
             var accept_button = confirmation_dialog.add_button (_("Force Quit"), Gtk.ResponseType.ACCEPT);
-            accept_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+            accept_button.add_css_class (Granite.CssClass.DESTRUCTIVE);
 
             confirmation_dialog.response.connect ((response) => {
                 if (response == Gtk.ResponseType.ACCEPT) {
-                    // TODO: maybe add a toast that process killed
+                    // @TODO: maybe add a toast that process killed
                     process.kill ();
                 }
 
@@ -137,14 +148,14 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 _("The process will be asked to initiate shutdown tasks and close. In some cases the process may not quit."),
                 new ThemedIcon ("system-shutdown"),
                 Gtk.ButtonsType.CANCEL
-            ) {
+    ) {
                 badge_icon = new ThemedIcon ("dialog-question"),
                 modal = true,
-                transient_for = (Gtk.Window) get_toplevel ()
+                transient_for = (Gtk.Window) get_root ()
             };
 
             var accept_button = confirmation_dialog.add_button (_("Shut Down"), Gtk.ResponseType.ACCEPT);
-            accept_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+            accept_button.add_css_class (Granite.CssClass.SUGGESTED);
 
             confirmation_dialog.response.connect ((response) => {
                 if (response == Gtk.ResponseType.ACCEPT) {
@@ -159,15 +170,10 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         });
 
         grid.attach (process_action_bar, 0, 5);
-
-        show_all ();
-        process_info_cpu_ram.hide ();
-        process_info_io_stats.hide ();
-        process_action_bar.hide ();
     }
 
     private void show_permission_error_infobar (string error) {
-        if (permission_error_infobar.revealed == false) {
+        if (!permission_error_infobar.revealed) {
             permission_error_label.set_text (error);
             permission_error_infobar.revealed = true;
         }
@@ -180,7 +186,8 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             process_info_io_stats.update (process);
 
             process_info_io_stats.open_files_tree_view.model.process = _process;
-            process_info_io_stats.open_files_tree_view.show_all ();
+
+            process_info_io_stats.open_files_tree_view.visible = true;
         }
     }
 

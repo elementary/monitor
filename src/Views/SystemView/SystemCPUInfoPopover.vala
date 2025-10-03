@@ -7,7 +7,10 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
     private CPU cpu;
 
     construct {
-        margin = 12;
+        margin_top = 12;
+        margin_bottom = 12;
+        margin_start = 12;
+        margin_end = 12;
         orientation = Gtk.Orientation.VERTICAL;
     }
 
@@ -33,8 +36,8 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
         };
         stack_switcher.set_stack (stack);
 
-        add (stack_switcher);
-        add (stack);
+        append (stack_switcher);
+        append (stack);
     }
 
     private Gtk.Label label (string text) {
@@ -42,7 +45,10 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
             halign = Gtk.Align.START,
             valign = Gtk.Align.CENTER,
             wrap = true,
-            margin = 6,
+            margin_top = 6,
+            margin_bottom = 6,
+            margin_start = 6,
+            margin_end = 6,
         };
 
         return label;
@@ -53,31 +59,31 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
             activate_on_single_click = false
         };
 
-        listbox.add (label (_("Model:") + " " + cpu.model));
-        listbox.add (label (_("Family:") + " " + cpu.family));
-        listbox.add (label (_("Microcode ver.:") + " " + cpu.microcode));
-        listbox.add (label (_("Bogomips:") + " " + cpu.bogomips));
+        listbox.append (label (_("Model:") + " " + cpu.model));
+        listbox.append (label (_("Family:") + " " + cpu.family));
+        listbox.append (label (_("Microcode ver.:") + " " + cpu.microcode));
+        listbox.append (label (_("Bogomips:") + " " + cpu.bogomips));
 
         if (cpu.core_list[0].caches.has_key ("L1Instruction")) {
             var value = cpu.cache_multipliers["L1Instruction"].to_string () + "×" + cpu.core_list[0].caches["L1Instruction"].size;
-            listbox.add (label (_("L1 Instruction cache: ") + value));
+            listbox.append (label (_("L1 Instruction cache: ") + value));
         }
         if (cpu.core_list[0].caches.has_key ("L1Data")) {
             var value = cpu.cache_multipliers["L1Data"].to_string () + "×" + cpu.core_list[0].caches["L1Data"].size;
-            listbox.add (label (_("L1 Data cache: ") + value));
+            listbox.append (label (_("L1 Data cache: ") + value));
         }
         if (cpu.core_list[0].caches.has_key ("L1")) {
             var value = cpu.cache_multipliers["L1"].to_string () + "×" + cpu.core_list[0].caches["L1"].size;
-            listbox.add (label (_("L1 cache: ") + value));
+            listbox.append (label (_("L1 cache: ") + value));
         }
         if (cpu.core_list[0].caches.has_key ("L2")) {
-            listbox.add (label (_("L2 Cache size: ") + cpu.cache_multipliers["L2"].to_string () + "×" + cpu.core_list[0].caches["L2"].size));
+            listbox.append (label (_("L2 Cache size: ") + cpu.cache_multipliers["L2"].to_string () + "×" + cpu.core_list[0].caches["L2"].size));
         }
         if (cpu.core_list[0].caches.has_key ("L3")) {
-            listbox.add (label (_("L3 Cache size: ") + cpu.cache_multipliers["L3"].to_string () + "×" + cpu.core_list[0].caches["L3"].size));
+            listbox.append (label (_("L3 Cache size: ") + cpu.cache_multipliers["L3"].to_string () + "×" + cpu.core_list[0].caches["L3"].size));
         }
 
-        listbox.add (label (_("Address sizes: ") + cpu.address_sizes));
+        listbox.append (label (_("Address sizes: ") + cpu.address_sizes));
 
         return listbox;
     }
@@ -88,11 +94,12 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
         };
 
         foreach (var feature in cpu.features) {
-            listbox.add (create_row (feature.key, feature.value));
+            listbox.append (create_row (feature.key, feature.value));
         }
 
-        var scrolled_window = new Gtk.ScrolledWindow (null, null);
-        scrolled_window.add (listbox);
+        var scrolled_window = new Gtk.ScrolledWindow () {
+            child = listbox
+        };
 
         return scrolled_window;
     }
@@ -103,11 +110,12 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
         };
 
         foreach (var bug in cpu.bugs) {
-            listbox.add (create_row (bug.key, bug.value));
+            listbox.append (create_row (bug.key, bug.value));
         }
 
-        var scrolled_window = new Gtk.ScrolledWindow (null, null);
-        scrolled_window.add (listbox);
+        var scrolled_window = new Gtk.ScrolledWindow () {
+            child = listbox
+        };
 
         return scrolled_window;
     }
@@ -122,14 +130,17 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
             halign = Gtk.Align.START,
             valign = Gtk.Align.CENTER,
             wrap = true,
-            margin = 6,
+            margin_top = 6,
+            margin_bottom = 6,
+            margin_start = 6,
+            margin_end = 6,
         };
-        flag_label.get_style_context ().add_class ("flags_badge");
+        flag_label.add_css_class ("flags_badge");
 
 
         grid.attach (flag_label, 0, 0, 1, 1);
         grid.attach (label (flag_description), 1, 0, 1, 1);
-        row.add (grid);
+        row.child = grid;
 
         return row;
     }

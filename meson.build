@@ -21,24 +21,22 @@ add_project_arguments(['--vapidir', vapidir], language: 'vala')
 # elementary_stylesheet = subproject('stylesheet')
 
 app_dependencies = [
-    dependency('granite', version: '>= 5.2.0'),
+    dependency('granite-7', version: '>=7.7.0'),
     dependency('glib-2.0'),
-    dependency('gtk+-3.0'),
+    dependency('gtk4'),
     dependency('gee-0.8'),
     dependency('gio-2.0'),
     dependency('gobject-2.0'),
     dependency('libgtop-2.0'),
-    dependency('libhandy-1', version: '>=0.90.0'),
-    dependency('gdk-x11-3.0'),
-    dependency('x11'),
+    dependency('libadwaita-1', version: '>=1.0.0'),
+    dependency('gtk4-x11'),
     dependency('udisks2'),
     dependency('json-glib-1.0'),
     dependency('flatpak'),
 
-    # FIXME Bump required version to >= 1.10.0 when GTK 4 porting
     dependency(
-        'livechart',
-        version: '< 1.10.0',
+        'livechart-2',
+        version: '>= 1.10.0',
         fallback: ['live-chart', 'livechart_dep'],
     ),
 
