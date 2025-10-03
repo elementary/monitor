@@ -96,26 +96,9 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
             });
         });
 
-
-        dbusserver.quit.connect (() => application.quit ());
-        dbusserver.show.connect (() => {
-            present ();
-        });
-
-        application.window_removed.connect (() => {
-            MonitorApp.settings.set_string ("opened-view", stack.visible_child_name);
-
-            if (MonitorApp.settings.get_boolean ("indicator-state")) {
-                // Read: https://discourse.gnome.org/t/how-to-hide-widget-instead-removing-them-in-gtk-4/8176
-                this.hide ();
-            } else {
-                dbusserver.indicator_state (false);
-                application.quit ();
-            }
-        });
-
         dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
-        stack.visible_child_name = MonitorApp.settings.get_string ("opened-view");
+
+        MonitorApp.settings.bind ("opened-view", stack, "visible-child-name", DEFAULT);
 
         search_entry.search_changed.connect (() => {
             // collapse tree only when search is focused and changed

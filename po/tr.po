@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-01 17:21+0000\n"
+"POT-Creation-Date: 2025-10-03 16:58+0000\n"
 "PO-Revision-Date: 2025-07-13 12:55+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Turkish <https://l10n.elementaryos.org/projects/desktop/"
@@ -62,7 +62,7 @@ msgid "Quit Monitor"
 msgstr "Monitor'ü Kapat"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:66
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:62
 msgid "PID"
 msgstr "PID"
 
@@ -151,34 +151,31 @@ msgstr ""
 msgid "Shut Down"
 msgstr ""
 
-#. *INDENT-OFF*
-#. vala-lint=space-before-paren,
-#. *INDENT-ON*
 #. setup name column
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:24
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:20
 msgid "Process Name"
 msgstr "Süreç Adı"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:45
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:41
 #: src/Widgets/Statusbar/Statusbar.vala:14
 msgid "CPU"
 msgstr "CPU"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:56
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:52
 #: src/Views/SystemView/SystemMemoryView.vala:18
 #: src/Widgets/Statusbar/Statusbar.vala:23
 msgid "Memory"
 msgstr "Bellek"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:146
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:133
 msgid "KiB"
 msgstr "KiB"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:151
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:138
 msgid "MiB"
 msgstr "MiB"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:157
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:144
 msgid "GiB"
 msgstr "GiB"
 
