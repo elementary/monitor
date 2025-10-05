@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-03 22:07+0000\n"
-"PO-Revision-Date: 2025-04-29 09:12+0000\n"
+"PO-Revision-Date: 2025-10-04 22:55+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Hungarian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor-extra/hu/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: data/io.elementary.monitor.appdata.xml.in:9 data/monitor.desktop.in:6
 msgid "Monitor"
@@ -39,11 +39,11 @@ msgstr "elementary, Inc."
 
 #: data/io.elementary.monitor.appdata.xml.in:39
 msgid "Other Improvements:"
-msgstr ""
+msgstr "Egyéb fejlesztések:"
 
 #: data/io.elementary.monitor.appdata.xml.in:41
 msgid "Updated translations"
-msgstr ""
+msgstr "Frissített fordítások"
 
 #: data/io.elementary.monitor.appdata.xml.in:62
 msgid "Add info about drives (based on Dirli's code)"

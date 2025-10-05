@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-03 22:07+0000\n"
-"PO-Revision-Date: 2025-09-27 11:55+0000\n"
+"PO-Revision-Date: 2025-10-04 22:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/ja/>\n"
@@ -36,10 +36,8 @@ msgid "Settings"
 msgstr "設定"
 
 #: src/MainWindow.vala:50
-#, fuzzy
-#| msgid "Type process name or PID to search"
 msgid "Search process name or PID"
-msgstr "プロセス名か PID を入力して検索"
+msgstr "プロセス名か PID を検索"
 
 #. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
