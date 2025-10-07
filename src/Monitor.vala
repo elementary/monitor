@@ -67,8 +67,6 @@ namespace Monitor {
 
             set_accels_for_action ("app.quit", { "<Ctrl>q" });
             set_accels_for_action ("win.search", { "<Ctrl>f" });
-            set_accels_for_action ("process.end", { "<Ctrl>e" });
-            set_accels_for_action ("process.kill", { "<Ctrl>k" });
 
             var dbusserver = DBusServer.get_default ();
             dbusserver.show.connect (() => activate ());

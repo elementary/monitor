@@ -60,6 +60,10 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         orientation = Gtk.Orientation.VERTICAL;
         hexpand = true;
 
+        var application = (Gtk.Application) GLib.Application.get_default ();
+        application.set_accels_for_action ("process.end", { "<Ctrl>E" });
+        application.set_accels_for_action ("process.kill", { "<Ctrl>K" });
+
         permission_error_infobar = new Gtk.InfoBar () {
             message_type = Gtk.MessageType.ERROR,
             revealed = false,
@@ -98,12 +102,18 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         grid.attach (process_info_io_stats, 0, 4, 1, 1);
 
         end_process_button = new Gtk.Button.with_label (_("Shut Down…")) {
-            tooltip_markup = Granite.markup_accel_tooltip ({ "<Ctrl>E" })
+            action_name = "process.end"
         };
+        end_process_button.tooltip_markup = Granite.markup_accel_tooltip (
+            application.get_accels_for_action (end_process_button.action_name)
+        );
 
         kill_process_button = new Gtk.Button.with_label (_("Force Quit…")) {
-            tooltip_markup = Granite.markup_accel_tooltip ({ "<Ctrl>K" })
+            action_name = "process.kill"
         };
+        kill_process_button.tooltip_markup = Granite.markup_accel_tooltip (
+            application.get_accels_for_action (kill_process_button.action_name)
+        );
         kill_process_button.add_css_class (Granite.CssClass.DESTRUCTIVE);
 
         process_action_bar = new Gtk.Box (HORIZONTAL, 12) {
@@ -115,7 +125,10 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         process_action_bar.append (end_process_button);
         process_action_bar.append (kill_process_button);
 
-        kill_process_button.clicked.connect (() => {
+        grid.attach (process_action_bar, 0, 5);
+
+        var kill_action = new SimpleAction ("kill", null);
+        kill_action.activate.connect (() => {
             var confirmation_dialog = new Granite.MessageDialog (
                 _("Force “%s” to quit without initiating shutdown tasks?").printf (process_info_header.application_name.label),
                 _("This may lead to data loss. Only Force Quit if Shut Down has failed."),
@@ -142,13 +155,14 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             confirmation_dialog.present ();
         });
 
-        end_process_button.clicked.connect (() => {
+        var end_action = new SimpleAction ("end", null);
+        end_action.activate.connect (() => {
             var confirmation_dialog = new Granite.MessageDialog (
                 _("Ask “%s” to shut down?").printf (process_info_header.application_name.label),
                 _("The process will be asked to initiate shutdown tasks and close. In some cases the process may not quit."),
                 new ThemedIcon ("system-shutdown"),
                 Gtk.ButtonsType.CANCEL
-    ) {
+            ) {
                 badge_icon = new ThemedIcon ("dialog-question"),
                 modal = true,
                 transient_for = (Gtk.Window) get_root ()
@@ -169,7 +183,11 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             confirmation_dialog.present ();
         });
 
-        grid.attach (process_action_bar, 0, 5);
+        var action_group = new SimpleActionGroup ();
+        action_group.add_action (kill_action);
+        action_group.add_action (end_action);
+
+        insert_action_group ("process", action_group);
     }
 
     private void show_permission_error_infobar (string error) {
