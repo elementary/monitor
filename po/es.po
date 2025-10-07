@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-03 22:07+0000\n"
-"PO-Revision-Date: 2025-07-20 16:55+0000\n"
+"PO-Revision-Date: 2025-10-08 05:55+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <italo@gp-mail.com>\n"
 "Language-Team: Spanish <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/es/>\n"
@@ -37,10 +37,8 @@ msgid "Settings"
 msgstr "Preferencias"
 
 #: src/MainWindow.vala:50
-#, fuzzy
-#| msgid "Type process name or PID to search"
 msgid "Search process name or PID"
-msgstr "Introduce el nombre del proceso o el PID"
+msgstr "Buscar nombre de proceso o PID"
 
 #. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
@@ -428,7 +426,7 @@ msgstr "GPU"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
-msgstr ""
+msgstr "Utilización"
 
 #~ msgid "Opened files"
 #~ msgstr "Archivos abiertos"
