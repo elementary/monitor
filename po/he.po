@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-03 22:07+0000\n"
-"PO-Revision-Date: 2025-04-05 07:55+0000\n"
+"PO-Revision-Date: 2025-10-08 05:55+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/he/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: src/MainWindow.vala:14
 msgid "Monitor"
@@ -37,10 +37,8 @@ msgid "Settings"
 msgstr "הגדרות"
 
 #: src/MainWindow.vala:50
-#, fuzzy
-#| msgid "Type process name or PID to search"
 msgid "Search process name or PID"
-msgstr "נא להקליד שם תהליך או מזהה תהליך לחיפוש"
+msgstr "חיפוש שם או מזהה תהליך"
 
 #. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
@@ -116,39 +114,40 @@ msgstr "כתיבה בוטלה"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:100
 msgid "Shut Down…"
-msgstr ""
+msgstr "כיבוי…"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:104
 msgid "Force Quit…"
-msgstr ""
+msgstr "אילוץ יציאה…"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:120
 #, c-format
 msgid "Force “%s” to quit without initiating shutdown tasks?"
-msgstr ""
+msgstr "לאלץ את „%s” להיסגר מבלי להתחיל משימות כיבוי?"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:121
 msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
-msgstr ""
+msgstr "עלול להוביל לאובדן נתונים. יש לאלץ יציאה רק אם הכיבוי נכשל."
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:130
 msgid "Force Quit"
-msgstr ""
+msgstr "אילוץ יציאה"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:147
 #, c-format
 msgid "Ask “%s” to shut down?"
-msgstr ""
+msgstr "לבקש מ־„%s” לכבות?"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:148
 msgid ""
 "The process will be asked to initiate shutdown tasks and close. In some "
 "cases the process may not quit."
 msgstr ""
+"התהליך יתבקש להתחיל כיבוי משימות ולהיסגר. בחלק מהמקרים התהליך עשוי שלא לצאת."
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:157
 msgid "Shut Down"
-msgstr ""
+msgstr "כיבוי"
 
 #. setup name column
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:22
@@ -415,7 +414,7 @@ msgstr "מעבד גרפי"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
-msgstr ""
+msgstr "ניצולת"
 
 #~ msgid "Opened files"
 #~ msgstr "קבצים פתוחים"

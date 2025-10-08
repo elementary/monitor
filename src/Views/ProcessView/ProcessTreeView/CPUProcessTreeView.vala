@@ -81,18 +81,6 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
         cursor_changed.connect (_cursor_changed);
         // model.process_manager.updated.connect (_cursor_changed);
 
-        var end_process_action = new GLib.SimpleAction ("end", null);
-        end_process_action.activate.connect (end_process);
-
-        var kill_process_action = new GLib.SimpleAction ("kill", null);
-        kill_process_action.activate.connect (kill_process);
-
-        var action_group = new SimpleActionGroup ();
-        action_group.add_action (end_process_action);
-        action_group.add_action (kill_process_action);
-
-        insert_action_group ("process", action_group);
-
         var key_controller = new Gtk.EventControllerKey ();
         add_controller (key_controller);
         key_controller.key_released.connect ((keyval, keycode, state) => {

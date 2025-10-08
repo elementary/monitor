@@ -4,11 +4,8 @@
  */
 
 public class Monitor.ProcessInfoView : Gtk.Box {
-    private Gtk.Box process_action_bar;
-    private ProcessInfoIOStats process_info_io_stats = new ProcessInfoIOStats ();
-
     private Process _process;
-    public Process ? process {
+    public Process? process {
         get {
             return _process;
         }
@@ -45,7 +42,9 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             }
         }
     }
-    public string ? icon_name;
+
+    private Gtk.Box process_action_bar;
+    private ProcessInfoIOStats process_info_io_stats;
 
     private Gtk.InfoBar permission_error_infobar;
     private Gtk.Label permission_error_label;
@@ -53,60 +52,41 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     private ProcessInfoHeader process_info_header;
     private ProcessInfoCPURAM process_info_cpu_ram;
 
-    private Gtk.Button end_process_button;
-    private Gtk.Button kill_process_button;
-
-    public ProcessInfoView () {
-        orientation = Gtk.Orientation.VERTICAL;
-        hexpand = true;
+    construct {
+        permission_error_label = new Gtk.Label (Utils.NO_DATA);
 
         permission_error_infobar = new Gtk.InfoBar () {
-            message_type = Gtk.MessageType.ERROR,
-            revealed = false,
+            message_type = ERROR,
+            revealed = false
         };
-        permission_error_label = new Gtk.Label (Utils.NO_DATA);
         permission_error_infobar.add_child (permission_error_label);
-        append (permission_error_infobar);
-
-        var grid = new Gtk.Grid () {
-            margin_top = 12,
-            margin_bottom = 12,
-            margin_start = 12,
-            margin_end = 12,
-            hexpand = true,
-            column_spacing = 12
-        };
-        append (grid);
-
 
         process_info_header = new ProcessInfoHeader ();
-        grid.attach (process_info_header, 0, 0, 1, 1);
 
-        var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL) {
+        var separator = new Gtk.Separator (HORIZONTAL) {
             margin_top = 12,
-            margin_bottom = 12,
-            margin_start = 12,
-            margin_end = 12,
-            hexpand = true
+            margin_bottom = 12
         };
-        grid.attach (separator, 0, 1, 1, 1);
 
         process_info_cpu_ram = new ProcessInfoCPURAM ();
         process_info_cpu_ram.hide ();
-        grid.attach (process_info_cpu_ram, 0, 2, 1, 1);
 
-        grid.attach (process_info_io_stats, 0, 4, 1, 1);
+        process_info_io_stats = new ProcessInfoIOStats ();
 
-        end_process_button = new Gtk.Button.with_label (_("Shut Down…")) {
-            tooltip_markup = Granite.markup_accel_tooltip ({ "<Ctrl>E" })
+        var app = (Gtk.Application) GLib.Application.get_default ();
+
+        var end_process_button = new Gtk.Button.with_label (_("Shut Down…")) {
+            action_name = "process.end",
+            tooltip_markup = Granite.markup_accel_tooltip (app.get_accels_for_action ("process.end"))
         };
 
-        kill_process_button = new Gtk.Button.with_label (_("Force Quit…")) {
-            tooltip_markup = Granite.markup_accel_tooltip ({ "<Ctrl>K" })
+        var kill_process_button = new Gtk.Button.with_label (_("Force Quit…")) {
+            action_name = "process.kill",
+            tooltip_markup = Granite.markup_accel_tooltip (app.get_accels_for_action ("process.kill"))
         };
         kill_process_button.add_css_class (Granite.CssClass.DESTRUCTIVE);
 
-        process_action_bar = new Gtk.Box (HORIZONTAL, 12) {
+        process_action_bar = new Granite.Box (HORIZONTAL) {
             halign = END,
             valign = END,
             homogeneous = true,
@@ -115,66 +95,27 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         process_action_bar.append (end_process_button);
         process_action_bar.append (kill_process_button);
 
-        kill_process_button.clicked.connect (() => {
-            var confirmation_dialog = new Granite.MessageDialog (
-                _("Force “%s” to quit without initiating shutdown tasks?").printf (process_info_header.application_name.label),
-                _("This may lead to data loss. Only Force Quit if Shut Down has failed."),
-                new ThemedIcon ("computer-fail"),
-                Gtk.ButtonsType.CANCEL
-            ) {
-                badge_icon = new ThemedIcon ("process-stop"),
-                modal = true,
-                transient_for = (Gtk.Window) get_root ()
-            };
+        var box = new Granite.Box (VERTICAL) {
+            margin_top = 12,
+            margin_bottom = 12,
+            margin_start = 12,
+            margin_end = 12
+        };
+        box.append (process_info_header);
+        box.append (separator);
+        box.append (process_info_cpu_ram);
+        box.append (process_info_io_stats);
+        box.append (process_action_bar);
 
-            var accept_button = confirmation_dialog.add_button (_("Force Quit"), Gtk.ResponseType.ACCEPT);
-            accept_button.add_css_class (Granite.CssClass.DESTRUCTIVE);
-
-            confirmation_dialog.response.connect ((response) => {
-                if (response == Gtk.ResponseType.ACCEPT) {
-                    // @TODO: maybe add a toast that process killed
-                    process.kill ();
-                }
-
-                confirmation_dialog.close ();
-            });
-
-            confirmation_dialog.present ();
-        });
-
-        end_process_button.clicked.connect (() => {
-            var confirmation_dialog = new Granite.MessageDialog (
-                _("Ask “%s” to shut down?").printf (process_info_header.application_name.label),
-                _("The process will be asked to initiate shutdown tasks and close. In some cases the process may not quit."),
-                new ThemedIcon ("system-shutdown"),
-                Gtk.ButtonsType.CANCEL
-    ) {
-                badge_icon = new ThemedIcon ("dialog-question"),
-                modal = true,
-                transient_for = (Gtk.Window) get_root ()
-            };
-
-            var accept_button = confirmation_dialog.add_button (_("Shut Down"), Gtk.ResponseType.ACCEPT);
-            accept_button.add_css_class (Granite.CssClass.SUGGESTED);
-
-            confirmation_dialog.response.connect ((response) => {
-                if (response == Gtk.ResponseType.ACCEPT) {
-                    // TODO: maybe add a toast that process killed
-                    process.end ();
-                }
-
-                confirmation_dialog.close ();
-            });
-
-            confirmation_dialog.present ();
-        });
-
-        grid.attach (process_action_bar, 0, 5);
+        orientation = VERTICAL;
+        hexpand = true;
+        append (permission_error_infobar);
+        append (box);
     }
 
     private void show_permission_error_infobar (string error) {
         if (!permission_error_infobar.revealed) {
-            permission_error_label.set_text (error);
+            permission_error_label.label = error;
             permission_error_infobar.revealed = true;
         }
     }
@@ -190,5 +131,4 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             process_info_io_stats.open_files_tree_view.visible = true;
         }
     }
-
 }
