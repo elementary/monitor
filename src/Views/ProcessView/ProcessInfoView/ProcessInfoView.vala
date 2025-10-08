@@ -53,8 +53,6 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     private ProcessInfoCPURAM process_info_cpu_ram;
 
     construct {
-        var application = (Gtk.Application) GLib.Application.get_default ();
-
         permission_error_label = new Gtk.Label (Utils.NO_DATA);
 
         permission_error_infobar = new Gtk.InfoBar () {
@@ -75,19 +73,17 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
         process_info_io_stats = new ProcessInfoIOStats ();
 
+        var app = (Gtk.Application) GLib.Application.get_default ();
+
         var end_process_button = new Gtk.Button.with_label (_("Shut Down…")) {
-            action_name = "process.end"
+            action_name = "process.end",
+            tooltip_markup = Granite.markup_accel_tooltip (app.get_accels_for_action ("process.end"))
         };
-        end_process_button.tooltip_markup = Granite.markup_accel_tooltip (
-            application.get_accels_for_action (end_process_button.action_name)
-        );
 
         var kill_process_button = new Gtk.Button.with_label (_("Force Quit…")) {
-            action_name = "process.kill"
+            action_name = "process.kill",
+            tooltip_markup = Granite.markup_accel_tooltip (app.get_accels_for_action ("process.kill"))
         };
-        kill_process_button.tooltip_markup = Granite.markup_accel_tooltip (
-            application.get_accels_for_action (kill_process_button.action_name)
-        );
         kill_process_button.add_css_class (Granite.CssClass.DESTRUCTIVE);
 
         process_action_bar = new Granite.Box (HORIZONTAL) {
@@ -117,66 +113,70 @@ public class Monitor.ProcessInfoView : Gtk.Box {
         append (box);
 
         var kill_action = new SimpleAction ("kill", null);
-        kill_action.activate.connect (() => {
-            var confirmation_dialog = new Granite.MessageDialog (
-                _("Force “%s” to quit without initiating shutdown tasks?").printf (process.application_name),
-                _("This may lead to data loss. Only Force Quit if Shut Down has failed."),
-                new ThemedIcon ("computer-fail"),
-                Gtk.ButtonsType.CANCEL
-            ) {
-                badge_icon = new ThemedIcon ("process-stop"),
-                modal = true,
-                transient_for = (Gtk.Window) get_root ()
-            };
-
-            var accept_button = confirmation_dialog.add_button (_("Force Quit"), Gtk.ResponseType.ACCEPT);
-            accept_button.add_css_class (Granite.CssClass.DESTRUCTIVE);
-
-            confirmation_dialog.response.connect ((response) => {
-                if (response == Gtk.ResponseType.ACCEPT) {
-                    // @TODO: maybe add a toast that process killed
-                    process.kill ();
-                }
-
-                confirmation_dialog.close ();
-            });
-
-            confirmation_dialog.present ();
-        });
+        kill_action.activate.connect (action_kill);
 
         var end_action = new SimpleAction ("end", null);
-        end_action.activate.connect (() => {
-            var confirmation_dialog = new Granite.MessageDialog (
-                _("Ask “%s” to shut down?").printf (process.application_name),
-                _("The process will be asked to initiate shutdown tasks and close. In some cases the process may not quit."),
-                new ThemedIcon ("system-shutdown"),
-                Gtk.ButtonsType.CANCEL
-            ) {
-                badge_icon = new ThemedIcon ("dialog-question"),
-                modal = true,
-                transient_for = (Gtk.Window) get_root ()
-            };
-
-            var accept_button = confirmation_dialog.add_button (_("Shut Down"), Gtk.ResponseType.ACCEPT);
-            accept_button.add_css_class (Granite.CssClass.SUGGESTED);
-
-            confirmation_dialog.response.connect ((response) => {
-                if (response == Gtk.ResponseType.ACCEPT) {
-                    // TODO: maybe add a toast that process killed
-                    process.end ();
-                }
-
-                confirmation_dialog.close ();
-            });
-
-            confirmation_dialog.present ();
-        });
+        end_action.activate.connect (action_end);
 
         var action_group = new SimpleActionGroup ();
         action_group.add_action (kill_action);
         action_group.add_action (end_action);
 
         insert_action_group ("process", action_group);
+    }
+
+    private void action_end () {
+        var confirmation_dialog = new Granite.MessageDialog (
+            _("Ask “%s” to shut down?").printf (process.application_name),
+            _("The process will be asked to initiate shutdown tasks and close. In some cases the process may not quit."),
+            new ThemedIcon ("system-shutdown"),
+            Gtk.ButtonsType.CANCEL
+        ) {
+            badge_icon = new ThemedIcon ("dialog-question"),
+            modal = true,
+            transient_for = (Gtk.Window) get_root ()
+        };
+
+        var accept_button = confirmation_dialog.add_button (_("Shut Down"), Gtk.ResponseType.ACCEPT);
+        accept_button.add_css_class (Granite.CssClass.SUGGESTED);
+
+        confirmation_dialog.response.connect ((response) => {
+            if (response == Gtk.ResponseType.ACCEPT) {
+                // TODO: maybe add a toast that process killed
+                process.end ();
+            }
+
+            confirmation_dialog.close ();
+        });
+
+        confirmation_dialog.present ();
+    }
+
+    private void action_kill () {
+        var confirmation_dialog = new Granite.MessageDialog (
+            _("Force “%s” to quit without initiating shutdown tasks?").printf (process.application_name),
+            _("This may lead to data loss. Only Force Quit if Shut Down has failed."),
+            new ThemedIcon ("computer-fail"),
+            Gtk.ButtonsType.CANCEL
+        ) {
+            badge_icon = new ThemedIcon ("process-stop"),
+            modal = true,
+            transient_for = (Gtk.Window) get_root ()
+        };
+
+        var accept_button = confirmation_dialog.add_button (_("Force Quit"), Gtk.ResponseType.ACCEPT);
+        accept_button.add_css_class (Granite.CssClass.DESTRUCTIVE);
+
+        confirmation_dialog.response.connect ((response) => {
+            if (response == Gtk.ResponseType.ACCEPT) {
+                // @TODO: maybe add a toast that process killed
+                process.kill ();
+            }
+
+            confirmation_dialog.close ();
+        });
+
+        confirmation_dialog.present ();
     }
 
     private void show_permission_error_infobar (string error) {
