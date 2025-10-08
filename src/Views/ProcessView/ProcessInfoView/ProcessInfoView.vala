@@ -53,11 +53,9 @@ public class Monitor.ProcessInfoView : Gtk.Box {
     private ProcessInfoCPURAM process_info_cpu_ram;
 
     construct {
-        permission_error_label = new Gtk.Label (Utils.NO_DATA);
-
         var application = (Gtk.Application) GLib.Application.get_default ();
-        application.set_accels_for_action ("process.end", { "<Ctrl>E" });
-        application.set_accels_for_action ("process.kill", { "<Ctrl>K" });
+
+        permission_error_label = new Gtk.Label (Utils.NO_DATA);
 
         permission_error_infobar = new Gtk.InfoBar () {
             message_type = ERROR,
