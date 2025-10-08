@@ -11,6 +11,9 @@ public class Monitor.ProcessView : Granite.Bin {
     private ProcessInfoView process_info_view;
     private TreeViewModel treeview_model;
 
+    private SimpleAction end_action;
+    private SimpleAction kill_action;
+
     construct {
         treeview_model = new TreeViewModel ();
 
@@ -48,10 +51,10 @@ public class Monitor.ProcessView : Granite.Bin {
 
         notify["needle"].connect (filter_model.refilter);
 
-        var kill_action = new SimpleAction ("kill", null);
+        kill_action = new SimpleAction ("kill", null);
         kill_action.activate.connect (action_kill);
 
-        var end_action = new SimpleAction ("end", null);
+        end_action = new SimpleAction ("end", null);
         end_action.activate.connect (action_end);
 
         var action_group = new SimpleActionGroup ();
@@ -136,6 +139,9 @@ public class Monitor.ProcessView : Granite.Bin {
     public void on_process_selected (Process process) {
         process_info_view.process = process;
         process_info_view.visible = true;
+
+        end_action.set_enabled (process.uid == Posix.getuid ());
+        kill_action.set_enabled (process.uid == Posix.getuid ());
     }
 
     public void update () {
