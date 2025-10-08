@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-03 22:07+0000\n"
+"POT-Creation-Date: 2025-10-08 20:33+0000\n"
 "PO-Revision-Date: 2025-10-03 03:55+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementaryos.org/projects/desktop/"
@@ -107,45 +107,13 @@ msgstr "Чтение/Запись"
 msgid "Cancelled write"
 msgstr "Отменённая запись"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:100
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:78
 msgid "Shut Down…"
 msgstr "Завершить…"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:104
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:83
 msgid "Force Quit…"
 msgstr "Принудительно закрыть…"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:120
-#, c-format
-msgid "Force “%s” to quit without initiating shutdown tasks?"
-msgstr "Принудительно закрыть «%s» без выполнения завершающих задач?"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:121
-msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
-msgstr ""
-"Это может привести к потере данных. Используйте его, только если обычное "
-"завершение не удалось."
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:130
-msgid "Force Quit"
-msgstr "Принудительно закрыть"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:147
-#, c-format
-msgid "Ask “%s” to shut down?"
-msgstr "Запросить «%s» выполнить завершение?"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:148
-msgid ""
-"The process will be asked to initiate shutdown tasks and close. In some "
-"cases the process may not quit."
-msgstr ""
-"Процесс получит запрос выполнить завершающие задачи и закрыться. В некоторых "
-"случаях процесс может не завершиться."
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:157
-msgid "Shut Down"
-msgstr "Завершить"
 
 #. setup name column
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:22
@@ -163,15 +131,15 @@ msgstr "ЦП"
 msgid "Memory"
 msgstr "Память"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:136
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:124
 msgid "KiB"
 msgstr "КиБ"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:141
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:129
 msgid "MiB"
 msgstr "МиБ"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:147
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:135
 msgid "GiB"
 msgstr "ГиБ"
 
@@ -413,6 +381,32 @@ msgstr "Графический процессор"
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr "Использование"
+
+#, c-format
+#~ msgid "Force “%s” to quit without initiating shutdown tasks?"
+#~ msgstr "Принудительно закрыть «%s» без выполнения завершающих задач?"
+
+#~ msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
+#~ msgstr ""
+#~ "Это может привести к потере данных. Используйте его, только если обычное "
+#~ "завершение не удалось."
+
+#~ msgid "Force Quit"
+#~ msgstr "Принудительно закрыть"
+
+#, c-format
+#~ msgid "Ask “%s” to shut down?"
+#~ msgstr "Запросить «%s» выполнить завершение?"
+
+#~ msgid ""
+#~ "The process will be asked to initiate shutdown tasks and close. In some "
+#~ "cases the process may not quit."
+#~ msgstr ""
+#~ "Процесс получит запрос выполнить завершающие задачи и закрыться. В "
+#~ "некоторых случаях процесс может не завершиться."
+
+#~ msgid "Shut Down"
+#~ msgstr "Завершить"
 
 #~ msgid "Opened files"
 #~ msgstr "Открытые файлы"

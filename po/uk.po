@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-03 22:07+0000\n"
+"POT-Creation-Date: 2025-10-08 20:33+0000\n"
 "PO-Revision-Date: 2025-07-31 14:55+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/desktop/"
@@ -114,46 +114,13 @@ msgstr "Читання/запис"
 msgid "Cancelled write"
 msgstr "Скасовані записування"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:100
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:78
 msgid "Shut Down…"
 msgstr "Завершити роботу…"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:104
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:83
 msgid "Force Quit…"
 msgstr "Примусово вийти…"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:120
-#, c-format
-msgid "Force “%s” to quit without initiating shutdown tasks?"
-msgstr ""
-"Змусити «%s» завершити роботу без ініціювання завдань завершення роботи?"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:121
-msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
-msgstr ""
-"Це може призвести до втрати даних. Виконуйте примусовий вихід лише у "
-"випадку, якщо не вдалося завершити роботу."
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:130
-msgid "Force Quit"
-msgstr "Примусово вийти"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:147
-#, c-format
-msgid "Ask “%s” to shut down?"
-msgstr "Попросити «%s» завершити роботу?"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:148
-msgid ""
-"The process will be asked to initiate shutdown tasks and close. In some "
-"cases the process may not quit."
-msgstr ""
-"Процесу буде запропоновано ініціювати завдання завершення роботи й "
-"закритися. У деяких випадках процес може не завершити роботу."
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:157
-msgid "Shut Down"
-msgstr "Завершити роботу"
 
 #. setup name column
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:22
@@ -171,15 +138,15 @@ msgstr "Процесор"
 msgid "Memory"
 msgstr "Пам'ять"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:136
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:124
 msgid "KiB"
 msgstr "КіБ"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:141
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:129
 msgid "MiB"
 msgstr "МіБ"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:147
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:135
 msgid "GiB"
 msgstr "ГіБ"
 
@@ -421,6 +388,33 @@ msgstr "Графічний процесор (GPU)"
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr "Утилізація"
+
+#, c-format
+#~ msgid "Force “%s” to quit without initiating shutdown tasks?"
+#~ msgstr ""
+#~ "Змусити «%s» завершити роботу без ініціювання завдань завершення роботи?"
+
+#~ msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
+#~ msgstr ""
+#~ "Це може призвести до втрати даних. Виконуйте примусовий вихід лише у "
+#~ "випадку, якщо не вдалося завершити роботу."
+
+#~ msgid "Force Quit"
+#~ msgstr "Примусово вийти"
+
+#, c-format
+#~ msgid "Ask “%s” to shut down?"
+#~ msgstr "Попросити «%s» завершити роботу?"
+
+#~ msgid ""
+#~ "The process will be asked to initiate shutdown tasks and close. In some "
+#~ "cases the process may not quit."
+#~ msgstr ""
+#~ "Процесу буде запропоновано ініціювати завдання завершення роботи й "
+#~ "закритися. У деяких випадках процес може не завершити роботу."
+
+#~ msgid "Shut Down"
+#~ msgstr "Завершити роботу"
 
 #~ msgid "Opened files"
 #~ msgstr "Відкриті файли"

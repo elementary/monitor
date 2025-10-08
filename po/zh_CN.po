@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-03 22:07+0000\n"
+"POT-Creation-Date: 2025-10-08 20:33+0000\n"
 "PO-Revision-Date: 2025-08-02 20:55+0000\n"
 "Last-Translator: JieXu <xujie0739@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
@@ -113,41 +113,13 @@ msgstr "读取/写入"
 msgid "Cancelled write"
 msgstr "已取消的写入"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:100
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:78
 msgid "Shut Down…"
 msgstr "发送结束请求…"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:104
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:83
 msgid "Force Quit…"
 msgstr "强制退出…"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:120
-#, c-format
-msgid "Force “%s” to quit without initiating shutdown tasks?"
-msgstr "要强制退出 “%s” 而不关闭它吗？"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:121
-msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
-msgstr "这可能导致数据丢失。仅在尝试关闭进程失败后，才应考虑强制退出。"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:130
-msgid "Force Quit"
-msgstr "强制退出"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:147
-#, c-format
-msgid "Ask “%s” to shut down?"
-msgstr "需要关闭 “%s” 吗?"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:148
-msgid ""
-"The process will be asked to initiate shutdown tasks and close. In some "
-"cases the process may not quit."
-msgstr "系统将请求该进程开始执行关闭任务，但进程可能不会终止。"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:157
-msgid "Shut Down"
-msgstr "关闭"
 
 #. setup name column
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:22
@@ -165,15 +137,15 @@ msgstr "CPU"
 msgid "Memory"
 msgstr "内存"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:136
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:124
 msgid "KiB"
 msgstr "KiB"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:141
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:129
 msgid "MiB"
 msgstr "MiB"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:147
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:135
 msgid "GiB"
 msgstr "GiB"
 
@@ -415,6 +387,28 @@ msgstr "GPU"
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr ""
+
+#, c-format
+#~ msgid "Force “%s” to quit without initiating shutdown tasks?"
+#~ msgstr "要强制退出 “%s” 而不关闭它吗？"
+
+#~ msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
+#~ msgstr "这可能导致数据丢失。仅在尝试关闭进程失败后，才应考虑强制退出。"
+
+#~ msgid "Force Quit"
+#~ msgstr "强制退出"
+
+#, c-format
+#~ msgid "Ask “%s” to shut down?"
+#~ msgstr "需要关闭 “%s” 吗?"
+
+#~ msgid ""
+#~ "The process will be asked to initiate shutdown tasks and close. In some "
+#~ "cases the process may not quit."
+#~ msgstr "系统将请求该进程开始执行关闭任务，但进程可能不会终止。"
+
+#~ msgid "Shut Down"
+#~ msgstr "关闭"
 
 #~ msgid "Opened files"
 #~ msgstr "已打开的文件"
