@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-03 22:07+0000\n"
+"POT-Creation-Date: 2025-10-08 20:33+0000\n"
 "PO-Revision-Date: 2025-07-28 23:55+0000\n"
 "Last-Translator: Guilherme Faura <guilhermefaura@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
@@ -118,45 +118,13 @@ msgstr "Leitura/Escrita"
 msgid "Cancelled write"
 msgstr "Escrita cancelada"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:100
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:78
 msgid "Shut Down…"
 msgstr "Desligar…"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:104
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:83
 msgid "Force Quit…"
 msgstr "Forçar Encerramento…"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:120
-#, c-format
-msgid "Force “%s” to quit without initiating shutdown tasks?"
-msgstr "Forçar “%s” a sair sem iniciar tarefas de desligamento?"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:121
-msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
-msgstr ""
-"Isso pode levar à perda de dados. Force o Encerramento somente se o "
-"Desligamento falhar."
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:130
-msgid "Force Quit"
-msgstr "Forçar encerramento"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:147
-#, c-format
-msgid "Ask “%s” to shut down?"
-msgstr "Pedir para “%s” desligar?"
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:148
-msgid ""
-"The process will be asked to initiate shutdown tasks and close. In some "
-"cases the process may not quit."
-msgstr ""
-"O processo será solicitado a iniciar tarefas de desligamento e fechar. Em "
-"alguns casos, o processo pode não encerrar."
-
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:157
-msgid "Shut Down"
-msgstr "Desligar"
 
 #. setup name column
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:22
@@ -174,15 +142,15 @@ msgstr "CPU"
 msgid "Memory"
 msgstr "Memória"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:136
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:124
 msgid "KiB"
 msgstr "KiB"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:141
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:129
 msgid "MiB"
 msgstr "MiB"
 
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:147
+#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:135
 msgid "GiB"
 msgstr "GiB"
 
@@ -424,6 +392,32 @@ msgstr "GPU"
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr ""
+
+#, c-format
+#~ msgid "Force “%s” to quit without initiating shutdown tasks?"
+#~ msgstr "Forçar “%s” a sair sem iniciar tarefas de desligamento?"
+
+#~ msgid "This may lead to data loss. Only Force Quit if Shut Down has failed."
+#~ msgstr ""
+#~ "Isso pode levar à perda de dados. Force o Encerramento somente se o "
+#~ "Desligamento falhar."
+
+#~ msgid "Force Quit"
+#~ msgstr "Forçar encerramento"
+
+#, c-format
+#~ msgid "Ask “%s” to shut down?"
+#~ msgstr "Pedir para “%s” desligar?"
+
+#~ msgid ""
+#~ "The process will be asked to initiate shutdown tasks and close. In some "
+#~ "cases the process may not quit."
+#~ msgstr ""
+#~ "O processo será solicitado a iniciar tarefas de desligamento e fechar. Em "
+#~ "alguns casos, o processo pode não encerrar."
+
+#~ msgid "Shut Down"
+#~ msgstr "Desligar"
 
 #~ msgid "Opened files"
 #~ msgstr "Arquivos abertos"
