@@ -1,3 +1,9 @@
+io.elementary.monitor (8.0.0) jammy; urgency=medium
+
+  * Release 8.0.0 (#479)
+
+ -- Stanisław Dac <stadac@pm.me>  Fri, 10 Oct 2025 09:54:43 +0000
+
 io.elementary.monitor (0.17.2) jammy; urgency=low
 
   * Add CPU frequency and VRAM to the indicator
