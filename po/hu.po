@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-08 20:33+0000\n"
-"PO-Revision-Date: 2025-07-31 14:55+0000\n"
+"PO-Revision-Date: 2025-10-16 13:55+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/hu/>\n"
@@ -36,10 +36,8 @@ msgid "Settings"
 msgstr "Beállítások"
 
 #: src/MainWindow.vala:50
-#, fuzzy
-#| msgid "Type process name or PID to search"
 msgid "Search process name or PID"
-msgstr "Íjon be egy folyamatnevet vagy PID-et a kereséshez"
+msgstr "Folyamatnév vagy PID keresése"
 
 #. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
@@ -388,7 +386,7 @@ msgstr "GPU"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
-msgstr ""
+msgstr "Kihasználtság"
 
 #, c-format
 #~ msgid "Force “%s” to quit without initiating shutdown tasks?"
