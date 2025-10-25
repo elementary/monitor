@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-08 20:33+0000\n"
-"PO-Revision-Date: 2025-10-22 09:59+0000\n"
+"PO-Revision-Date: 2025-10-26 09:55+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/sv/>\n"
@@ -221,7 +221,7 @@ msgstr "Nätverksuppladdning"
 
 #: src/Views/PreferencesView.vala:87
 msgid "Network download"
-msgstr "Nedladdning av nätverk"
+msgstr "Nätverksnerladdning"
 
 #: src/Views/PreferencesView.vala:92
 msgid "GPU percentage"
