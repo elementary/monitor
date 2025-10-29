@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-08 20:33+0000\n"
-"PO-Revision-Date: 2025-10-22 05:26+0000\n"
+"PO-Revision-Date: 2025-10-30 09:55+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/desktop/"
 "monitor-extra/sv/>\n"
@@ -139,7 +139,7 @@ msgstr "Lägg till fliken Systemresurser"
 
 #: data/io.elementary.monitor.appdata.xml.in:139
 msgid "Added tooltips to process state label (Ryo Nakano)"
-msgstr "Lade till verktygstips till processstatusetiketten (Ryo Nakano)"
+msgstr "Lade till verktygstips till processtatusetiketten (Ryo Nakano)"
 
 #: data/io.elementary.monitor.appdata.xml.in:140
 msgid "Small bugfix"
