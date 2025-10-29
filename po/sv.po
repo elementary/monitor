@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-08 20:33+0000\n"
-"PO-Revision-Date: 2025-10-26 09:55+0000\n"
+"PO-Revision-Date: 2025-10-30 09:55+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/sv/>\n"
@@ -47,15 +47,15 @@ msgstr "Sök processnamn eller PID"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:79
 msgid "N/A"
-msgstr "N/A"
+msgstr "Inte tillgänglig"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
-msgstr "Visa bildskärm"
+msgstr "Visa Övervaka"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:21
 msgid "Quit Monitor"
-msgstr "Avsluta monitor"
+msgstr "Avsluta Övervaka"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:64
@@ -90,7 +90,7 @@ msgstr "Processen körs eller kan köras (i körkö)"
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
 msgstr ""
-"Processen befinner sig i en avbrytbar viloläge; väntar på att en händelse "
+"Processen befinner sig i ett avbrytbart viloläge; väntar på att en händelse "
 "ska slutföras"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:107
@@ -103,11 +103,11 @@ msgstr "Processen stoppas av en felsökare under spårningen"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:111
 msgid "The app is terminated but not reaped by its parent"
-msgstr "Appen avslutas men skördas inte av sin moder"
+msgstr "Appen avslutas men hanteras inte av sin förälder"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:14
 msgid "Read/Written"
-msgstr "Läst/skriven"
+msgstr "Läst/skrivet"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:19
 msgid "Cancelled write"
@@ -124,7 +124,7 @@ msgstr "Tvinga avslutning…"
 #. setup name column
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:22
 msgid "Process Name"
-msgstr "Processens namn"
+msgstr "Processnamn"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:43
 #: src/Widgets/Statusbar/Statusbar.vala:14
@@ -213,23 +213,23 @@ msgstr "CPU-temperatur"
 
 #: src/Views/PreferencesView.vala:77
 msgid "RAM percentage"
-msgstr "Andel RAM-minne"
+msgstr "RAM-procentdel"
 
 #: src/Views/PreferencesView.vala:82
 msgid "Network upload"
-msgstr "Nätverksuppladdning"
+msgstr "Nätverkssändning"
 
 #: src/Views/PreferencesView.vala:87
 msgid "Network download"
-msgstr "Nätverksnerladdning"
+msgstr "Nätverkshämtning"
 
 #: src/Views/PreferencesView.vala:92
 msgid "GPU percentage"
-msgstr "GPU-procentandel"
+msgstr "GPU-procentdel"
 
 #: src/Views/PreferencesView.vala:97
 msgid "VRAM percentage"
-msgstr "VRAM-procentandel"
+msgstr "VRAM-procentdel"
 
 #: src/Views/PreferencesView.vala:102
 msgid "GPU temperature"
@@ -307,7 +307,7 @@ msgstr "L3-cachestorlek: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:86
 msgid "Address sizes: "
-msgstr "Adressstorlekar: "
+msgstr "Adresstorlekar: "
 
 #: src/Views/SystemView/SystemMemoryView.vala:10
 msgid "Buffered"
@@ -327,7 +327,7 @@ msgstr "Totalt"
 
 #: src/Views/SystemView/SystemMemoryView.vala:14
 msgid "Used"
-msgstr "Använda"
+msgstr "Använt"
 
 #: src/Views/SystemView/SystemMemoryView.vala:15
 msgid "Shared"
@@ -339,11 +339,11 @@ msgstr "Nätverk"
 
 #: src/Views/SystemView/SystemNetworkView.vala:28
 msgid "DOWN"
-msgstr "NER"
+msgstr "NERE"
 
 #: src/Views/SystemView/SystemNetworkView.vala:33
 msgid "UP"
-msgstr "UP"
+msgstr "UPPE"
 
 #: src/Views/SystemView/SystemStorageView.vala:18
 msgid "Storage"
@@ -359,7 +359,7 @@ msgstr "LÄS"
 
 #: src/Views/SystemView/SystemStorageView.vala:115
 msgid "Not mounted"
-msgstr "Ej monterad"
+msgstr "Inte monterad"
 
 #: src/Views/SystemView/SystemGPUView.vala:17
 msgid "VRAM"
@@ -374,7 +374,7 @@ msgstr "TEMPERATUR"
 #: src/Widgets/Statusbar/Statusbar.vala:36
 #: src/Widgets/Statusbar/Statusbar.vala:46
 msgid "Calculating…"
-msgstr "Beräknande…"
+msgstr "Beräknar…"
 
 #: src/Widgets/Statusbar/Statusbar.vala:33
 msgid "Swap"
