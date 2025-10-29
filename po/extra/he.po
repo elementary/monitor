@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-08 20:33+0000\n"
-"PO-Revision-Date: 2025-10-06 12:55+0000\n"
+"PO-Revision-Date: 2025-10-30 09:55+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementaryos.org/projects/desktop/"
 "monitor-extra/he/>\n"
@@ -34,7 +34,7 @@ msgstr "הצגת ניצולת משאבי המערכת, סינון וניהול �
 
 #: data/io.elementary.monitor.appdata.xml.in:26
 msgid "elementary, Inc."
-msgstr "elementary בע״מ"
+msgstr "elementary בע״מ."
 
 #: data/io.elementary.monitor.appdata.xml.in:39
 msgid "Other Improvements:"
