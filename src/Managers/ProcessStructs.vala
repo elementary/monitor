@@ -107,3 +107,9 @@ public struct Monitor.ProcessStatus {
     // The time the process started after system boot.
     public uint64 starttime;
 }
+
+public struct Monitor.ProcessDRMDriver {
+    // Time spent busy in nanoseconds by the
+    // render engine executing workloads
+    public uint64 engine_render;
+}
