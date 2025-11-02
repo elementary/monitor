@@ -292,7 +292,9 @@ public class Monitor.Process : GLib.Object {
         int ret = Posix.fstatat (fd_dir_fd, name, out stat, 0);
         return ret == 0 && (stat.st_mode & Posix.S_IFMT) == Posix.S_IFCHR && Posix.major (stat.st_rdev) == 226;
     }
-
+    // Reads the /proc/%pid%/fdinfo file, then check if the corresponding fd is a drm fd
+    // Next, parsing the fdinfo file to get time spent on gpu in ns
+    // Calculating delta from last time and dividing by time interval to get percentage
     private bool get_gpu_usage () {
         string path_fdinfo = "/proc/%d/fdinfo".printf (stat.pid);
         string path_fd = "/proc/%d/fd".printf (stat.pid);
@@ -322,10 +324,12 @@ public class Monitor.Process : GLib.Object {
                         while ((line = dis.read_line ()) != null) {
                             var splitted_line = line.split (":");
                             switch (splitted_line[0]) {
+                            // for i915 there is only drm-engine-render to check
                             case "drm-engine-render":
                                 drm_driver.engine_render = uint64.parse (splitted_line[1].strip().split(" ")[0]);
                                 if (last_drm_driver_engine_render != 0) {
-                                    gpu_percentage = 100 * ((double) (drm_driver.engine_render - last_drm_driver_engine_render)) / 2e9; // assuming 2 second interval
+                                    var interval = 2; // @TODO: get actual interval
+                                    gpu_percentage = 100 * ((double) (drm_driver.engine_render - last_drm_driver_engine_render)) / (interval * 1e9);
                                 }
                                 last_drm_driver_engine_render = drm_driver.engine_render;
                                 debug("%s %s", this.application_name, gpu_percentage.to_string());
