@@ -27,7 +27,7 @@ public class Monitor.WidgetResource : Gtk.Box {
     private Gtk.Box header_box;
     private Gtk.Overlay main_overlay;
     private Gtk.Box info_box;
-    private Gtk.Label main_metric_label;
+    private Granite.HeaderLabel main_metric_label;
 
     construct {
         _title = new Granite.HeaderLabel (Utils.NO_DATA);
@@ -39,8 +39,9 @@ public class Monitor.WidgetResource : Gtk.Box {
         main_metric_title.add_css_class (Granite.CssClass.DIM);
         main_metric_title.add_css_class (Granite.CssClass.SMALL);
 
-        main_metric_label = new Gtk.Label (Utils.NO_DATA);
-        main_metric_label.add_css_class (Granite.HeaderLabel.Size.H2);
+        main_metric_label = new Granite.HeaderLabel (Utils.NO_DATA) {
+            size = Granite.HeaderLabel.Size.H2
+        };
 
         var main_metric_box = new Gtk.Box (VERTICAL, 0) {
             margin_top = 6,
