@@ -25,6 +25,9 @@ public class Monitor.Process : GLib.Object {
 
     public string username = Utils.NO_DATA;
 
+    // Update interval in seconds is used to calculate GPU usage
+    public int update_interval;
+
     Icon _icon;
     public Icon icon {
         get {
@@ -79,7 +82,7 @@ public class Monitor.Process : GLib.Object {
 
 
     // Construct a new process
-    public Process (int _pid) {
+    public Process (int _pid, int _update_interval) {
         _icon = ProcessUtils.get_default_icon ();
 
         open_files_paths = new Gee.HashSet<string> ();
@@ -90,6 +93,7 @@ public class Monitor.Process : GLib.Object {
         stat = {};
         drm_driver = {};
         stat.pid = _pid;
+        update_interval = _update_interval;
 
         // getting uid
         GTop.ProcUid proc_uid;
@@ -107,8 +111,7 @@ public class Monitor.Process : GLib.Object {
         exists = parse_stat () && read_cmdline ();
         get_children_pids ();
         get_usage (0, 1);
-
-        get_gpu_usage ();
+        get_usage_gpu ();
     }
 
     // Updates the process to get latest information
@@ -117,7 +120,7 @@ public class Monitor.Process : GLib.Object {
         exists = parse_stat ();
         if (exists) {
             get_usage (cpu_total, cpu_last_total);
-            get_gpu_usage ();
+            get_usage_gpu ();
             parse_io ();
             parse_statm ();
             get_open_files ();
@@ -287,15 +290,18 @@ public class Monitor.Process : GLib.Object {
         return true;
     }
 
+    // Based on nvtop
+    // https://github.com/Syllo/nvtop/blob/4bf5db248d7aa7528f3a1ab7c94f504dff6834e4/src/extract_processinfo_fdinfo.c#L88
     static bool is_drm_fd (int fd_dir_fd, string name) {
         Posix.Stat stat;
         int ret = Posix.fstatat (fd_dir_fd, name, out stat, 0);
         return ret == 0 && (stat.st_mode & Posix.S_IFMT) == Posix.S_IFCHR && Posix.major (stat.st_rdev) == 226;
     }
+
     // Reads the /proc/%pid%/fdinfo file, then check if the corresponding fd is a drm fd
     // Next, parsing the fdinfo file to get time spent on gpu in ns
     // Calculating delta from last time and dividing by time interval to get percentage
-    private bool get_gpu_usage () {
+    private bool get_usage_gpu () {
         string path_fdinfo = "/proc/%d/fdinfo".printf (stat.pid);
         string path_fd = "/proc/%d/fd".printf (stat.pid);
 
@@ -328,11 +334,10 @@ public class Monitor.Process : GLib.Object {
                             case "drm-engine-render":
                                 drm_driver.engine_render = uint64.parse (splitted_line[1].strip ().split (" ")[0]);
                                 if (last_drm_driver_engine_render != 0) {
-                                    var interval = 2; // @TODO: get actual interval
-                                    gpu_percentage = 100 * ((double) (drm_driver.engine_render - last_drm_driver_engine_render)) / (interval * 1e9);
+                                    gpu_percentage = 100 * ((double) (drm_driver.engine_render - last_drm_driver_engine_render)) / (update_interval * 1e9);
                                 }
                                 last_drm_driver_engine_render = drm_driver.engine_render;
-                                debug ("%s %s", this.application_name, gpu_percentage.to_string ());
+                                //  debug ("%s %s", this.application_name, gpu_percentage.to_string ());
                                 break;
                             default:
                                 //  warning ("Unknown value in %s", path);
@@ -383,6 +388,7 @@ public class Monitor.Process : GLib.Object {
         return true;
     }
 
+    // @TODO: Divide into get_usage_cpu and get_usage_mem and write some tests
     private void get_usage (uint64 cpu_total, uint64 cpu_last_total) {
         // Get CPU usage by process
         GTop.ProcTime proc_time;
