@@ -40,7 +40,7 @@ public class Monitor.WidgetResource : Gtk.Box {
         main_metric_title.add_css_class (Granite.CssClass.SMALL);
 
         main_metric_label = new Gtk.Label (Utils.NO_DATA);
-        main_metric_label.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
+        main_metric_label.add_css_class (Granite.HeaderLabel.Size.H2);
 
         var main_metric_box = new Gtk.Box (VERTICAL, 0) {
             margin_top = 6,
