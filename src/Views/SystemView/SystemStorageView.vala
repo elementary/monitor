@@ -93,7 +93,6 @@ public class Monitor.SystemStorageView : Gtk.Box {
 
         construct {
             var drive_name_label = new Granite.HeaderLabel (drive.model) {
-                halign = START,
                 size = Granite.HeaderLabel.Size.H3
             };
 
