@@ -3,7 +3,6 @@
  * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
  */
 
-[Compact]
 public class Monitor.Volume : Object {
     public string device;
     public string label;
