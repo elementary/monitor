@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: Monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-08 20:33+0000\n"
-"PO-Revision-Date: 2025-07-13 12:55+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2025-11-11 13:55+0000\n"
+"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/pt/>\n"
 "Language: pt\n"
@@ -37,10 +37,8 @@ msgid "Settings"
 msgstr "Definições"
 
 #: src/MainWindow.vala:50
-#, fuzzy
-#| msgid "Type process name or PID to search"
 msgid "Search process name or PID"
-msgstr "Escreva o nome do processo ou PID a pesquisar"
+msgstr "Pesquisar nome do processo ou PID"
 
 #. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
@@ -119,11 +117,11 @@ msgstr "Escrita cancelada"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:78
 msgid "Shut Down…"
-msgstr ""
+msgstr "Desligar…"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:83
 msgid "Force Quit…"
-msgstr ""
+msgstr "Forçar o Sair…"
 
 #. setup name column
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:22
