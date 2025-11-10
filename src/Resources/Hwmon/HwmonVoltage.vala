@@ -6,8 +6,7 @@
 // This struct holds paths to temperature data
 // Learn more: https://www.kernel.org/doc/html/v5.11/gpu/amdgpu.html#hwmon-interfaces
 
-[Compact]
-public class Monitor.HwmonVoltage : Object {
+public class Monitor.HwmonVoltage {
     // voltage channel label
     public string label;
 
