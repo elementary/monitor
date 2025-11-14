@@ -215,7 +215,7 @@ public class Monitor.CPU : Object {
                 while ((flag_data = dis.read_line ()) != null) {
 
                     int comma_position = flag_data.index_of_char (',');
-                    
+
                     if (comma_position == -1) break; // quick exit if no commas are in the line
 
                     string key = flag_data.substring (0, comma_position);
@@ -223,7 +223,7 @@ public class Monitor.CPU : Object {
                         .replace ("\"", "")
                         .replace ("  ", " ")
                         .strip ();
-                    
+
                     all_flags.set (key, value.replace ("\r", ""));
                 }
                 debug ("Parsed file %s", csv_file.get_path ());
