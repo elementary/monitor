@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-08 20:33+0000\n"
+"POT-Creation-Date: 2025-11-16 22:43+0000\n"
 "PO-Revision-Date: 2025-10-08 05:55+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementaryos.org/projects/desktop/"
@@ -131,7 +131,7 @@ msgid "CPU"
 msgstr "מעבד"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:54
-#: src/Views/SystemView/SystemMemoryView.vala:18
+#: src/Views/SystemView/SystemMemoryView.vala:21
 #: src/Widgets/Statusbar/Statusbar.vala:23
 msgid "Memory"
 msgstr "זיכרון"
@@ -308,29 +308,41 @@ msgstr "גודל מטמון L3: "
 msgid "Address sizes: "
 msgstr "גודלי כתובות: "
 
-#: src/Views/SystemView/SystemMemoryView.vala:10
+#: src/Views/SystemView/SystemMemoryView.vala:11
 msgid "Buffered"
 msgstr "בזיכרון החוצץ"
 
-#: src/Views/SystemView/SystemMemoryView.vala:11
+#: src/Views/SystemView/SystemMemoryView.vala:12
 msgid "Cached"
 msgstr "במטמון"
 
-#: src/Views/SystemView/SystemMemoryView.vala:12
+#: src/Views/SystemView/SystemMemoryView.vala:13
 msgid "Locked"
 msgstr "נעול"
 
-#: src/Views/SystemView/SystemMemoryView.vala:13
+#: src/Views/SystemView/SystemMemoryView.vala:14
 msgid "Total"
 msgstr "סך הכול"
 
-#: src/Views/SystemView/SystemMemoryView.vala:14
+#: src/Views/SystemView/SystemMemoryView.vala:15
 msgid "Used"
 msgstr "בשימוש"
 
-#: src/Views/SystemView/SystemMemoryView.vala:15
+#: src/Views/SystemView/SystemMemoryView.vala:16
 msgid "Shared"
 msgstr "משותף"
+
+#: src/Views/SystemView/SystemMemoryView.vala:17
+#, fuzzy
+#| msgid "Total"
+msgid "Swap Total"
+msgstr "סך הכול"
+
+#: src/Views/SystemView/SystemMemoryView.vala:18
+#, fuzzy
+#| msgid "Used"
+msgid "Swap Used"
+msgstr "בשימוש"
 
 #: src/Views/SystemView/SystemNetworkView.vala:26
 msgid "Network"
@@ -356,7 +368,7 @@ msgstr "כתיבה"
 msgid "READ"
 msgstr "קריאה"
 
-#: src/Views/SystemView/SystemStorageView.vala:115
+#: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
 msgstr "לא מעוגן"
 
