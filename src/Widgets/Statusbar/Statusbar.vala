@@ -81,8 +81,8 @@ public class Monitor.Statusbar : Granite.Bin {
             swap_usage_label.label = ("%d%%").printf (sysres.swap_percentage);
             swap_usage_label.tooltip_text = ("%s / %s").printf (
                 // We get a value in GB, not bytes
-                format_size ((uint64) sysres.swap_used * 1024 * 1024 * 1024, IEC_UNITS),
-                format_size ((uint64) sysres.swap_total * 1024 * 1024 * 1024, IEC_UNITS)
+                format_size ((uint64) sysres.swap_used, IEC_UNITS),
+                format_size ((uint64) sysres.swap_total, IEC_UNITS)
             );
         }
 
