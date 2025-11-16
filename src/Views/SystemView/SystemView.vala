@@ -21,7 +21,7 @@ public class Monitor.SystemView : Gtk.Box {
         resources = _resources;
 
         cpu_view = new SystemCPUView (resources.cpu);
-        memory_view = new SystemMemoryView (resources.memory);
+        memory_view = new SystemMemoryView (resources.memory, resources.swap);
         network_view = new SystemNetworkView (resources.network);
         storage_view = new SystemStorageView (resources.storage);
 
