@@ -7,8 +7,7 @@
 // returns contents of the file as a string
 // Learn more: https://www.kernel.org/doc/html/v5.11/gpu/amdgpu.html#hwmon-interfaces
 
-[Compact]
-public class Monitor.HwmonTemperature : Object {
+public class Monitor.HwmonTemperature {
     // temperature channel label
     // temp2_label and temp3_label are supported on SOC15 dGPUs only
     public string _label;

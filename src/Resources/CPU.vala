@@ -213,8 +213,18 @@ public class Monitor.CPU : Object {
                 dis = new DataInputStream (csv_file.read ());
                 string flag_data;
                 while ((flag_data = dis.read_line ()) != null) {
-                    var splitted = flag_data.split (",");
-                    all_flags.set (splitted[0], splitted[1].replace ("\r", ""));
+
+                    int comma_position = flag_data.index_of_char (',');
+
+                    if (comma_position == -1) break; // quick exit if no commas are in the line
+
+                    string key = flag_data.substring (0, comma_position);
+                    string value = flag_data.substring (comma_position + 1)
+                        .replace ("\"", "")
+                        .replace ("  ", " ")
+                        .strip ();
+
+                    all_flags.set (key, value.replace ("\r", ""));
                 }
                 debug ("Parsed file %s", csv_file.get_path ());
 
