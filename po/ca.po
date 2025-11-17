@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-08 20:33+0000\n"
+"POT-Creation-Date: 2025-11-16 22:43+0000\n"
 "PO-Revision-Date: 2025-10-03 03:55+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementaryos.org/projects/desktop/"
@@ -131,7 +131,7 @@ msgid "CPU"
 msgstr "CPU"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:54
-#: src/Views/SystemView/SystemMemoryView.vala:18
+#: src/Views/SystemView/SystemMemoryView.vala:21
 #: src/Widgets/Statusbar/Statusbar.vala:23
 msgid "Memory"
 msgstr "Memòria"
@@ -308,29 +308,41 @@ msgstr "Mida de la memòria cau L3: "
 msgid "Address sizes: "
 msgstr "Mides de l'adreça: "
 
-#: src/Views/SystemView/SystemMemoryView.vala:10
+#: src/Views/SystemView/SystemMemoryView.vala:11
 msgid "Buffered"
 msgstr "A la memòria intermèdia"
 
-#: src/Views/SystemView/SystemMemoryView.vala:11
+#: src/Views/SystemView/SystemMemoryView.vala:12
 msgid "Cached"
 msgstr "A la cau"
 
-#: src/Views/SystemView/SystemMemoryView.vala:12
+#: src/Views/SystemView/SystemMemoryView.vala:13
 msgid "Locked"
 msgstr "Blocat"
 
-#: src/Views/SystemView/SystemMemoryView.vala:13
+#: src/Views/SystemView/SystemMemoryView.vala:14
 msgid "Total"
 msgstr "Total"
 
-#: src/Views/SystemView/SystemMemoryView.vala:14
+#: src/Views/SystemView/SystemMemoryView.vala:15
 msgid "Used"
 msgstr "Usat"
 
-#: src/Views/SystemView/SystemMemoryView.vala:15
+#: src/Views/SystemView/SystemMemoryView.vala:16
 msgid "Shared"
 msgstr "Compartit"
+
+#: src/Views/SystemView/SystemMemoryView.vala:17
+#, fuzzy
+#| msgid "Total"
+msgid "Swap Total"
+msgstr "Total"
+
+#: src/Views/SystemView/SystemMemoryView.vala:18
+#, fuzzy
+#| msgid "Used"
+msgid "Swap Used"
+msgstr "Usat"
 
 #: src/Views/SystemView/SystemNetworkView.vala:26
 msgid "Network"
@@ -356,7 +368,7 @@ msgstr "ESCRIPTURA"
 msgid "READ"
 msgstr "LECTURA"
 
-#: src/Views/SystemView/SystemStorageView.vala:115
+#: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
 msgstr "Sense muntar"
 

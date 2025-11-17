@@ -23,12 +23,13 @@ public class Monitor.Swap : Object {
     }
 
     public Swap () {
+        update ();
     }
 
-    private void update () {
+    public void update () {
         GTop.get_swap (out swap);
-        total = (double) (swap.total / 1024 / 1024) / 1000;
-        used = (double) (swap.used / 1024 / 1024) / 1000;
+        total = (double) (swap.total);
+        used = (double) (swap.used);
     }
 
 }

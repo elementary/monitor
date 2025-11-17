@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-08 20:33+0000\n"
+"POT-Creation-Date: 2025-11-16 22:43+0000\n"
 "PO-Revision-Date: 2025-10-04 22:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/desktop/"
@@ -130,7 +130,7 @@ msgid "CPU"
 msgstr "CPU"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:54
-#: src/Views/SystemView/SystemMemoryView.vala:18
+#: src/Views/SystemView/SystemMemoryView.vala:21
 #: src/Widgets/Statusbar/Statusbar.vala:23
 msgid "Memory"
 msgstr "メモリー"
@@ -307,29 +307,41 @@ msgstr "L3 キャッシュサイズ: "
 msgid "Address sizes: "
 msgstr "アドレスサイズ: "
 
-#: src/Views/SystemView/SystemMemoryView.vala:10
+#: src/Views/SystemView/SystemMemoryView.vala:11
 msgid "Buffered"
 msgstr "バッファ"
 
-#: src/Views/SystemView/SystemMemoryView.vala:11
+#: src/Views/SystemView/SystemMemoryView.vala:12
 msgid "Cached"
 msgstr "キャッシュ"
 
-#: src/Views/SystemView/SystemMemoryView.vala:12
+#: src/Views/SystemView/SystemMemoryView.vala:13
 msgid "Locked"
 msgstr "ロック状態"
 
-#: src/Views/SystemView/SystemMemoryView.vala:13
+#: src/Views/SystemView/SystemMemoryView.vala:14
 msgid "Total"
 msgstr "合計"
 
-#: src/Views/SystemView/SystemMemoryView.vala:14
+#: src/Views/SystemView/SystemMemoryView.vala:15
 msgid "Used"
 msgstr "使用中"
 
-#: src/Views/SystemView/SystemMemoryView.vala:15
+#: src/Views/SystemView/SystemMemoryView.vala:16
 msgid "Shared"
 msgstr "共有中"
+
+#: src/Views/SystemView/SystemMemoryView.vala:17
+#, fuzzy
+#| msgid "Total"
+msgid "Swap Total"
+msgstr "合計"
+
+#: src/Views/SystemView/SystemMemoryView.vala:18
+#, fuzzy
+#| msgid "Used"
+msgid "Swap Used"
+msgstr "使用中"
 
 #: src/Views/SystemView/SystemNetworkView.vala:26
 msgid "Network"
@@ -355,7 +367,7 @@ msgstr "書き込み"
 msgid "READ"
 msgstr "読み込み"
 
-#: src/Views/SystemView/SystemStorageView.vala:115
+#: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
 msgstr "未マウント"
 

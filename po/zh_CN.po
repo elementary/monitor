@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-08 20:33+0000\n"
+"POT-Creation-Date: 2025-11-16 22:43+0000\n"
 "PO-Revision-Date: 2025-08-02 20:55+0000\n"
 "Last-Translator: JieXu <xujie0739@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
@@ -132,7 +132,7 @@ msgid "CPU"
 msgstr "CPU"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:54
-#: src/Views/SystemView/SystemMemoryView.vala:18
+#: src/Views/SystemView/SystemMemoryView.vala:21
 #: src/Widgets/Statusbar/Statusbar.vala:23
 msgid "Memory"
 msgstr "内存"
@@ -309,29 +309,41 @@ msgstr "L3 缓存大小： "
 msgid "Address sizes: "
 msgstr "地址大小： "
 
-#: src/Views/SystemView/SystemMemoryView.vala:10
+#: src/Views/SystemView/SystemMemoryView.vala:11
 msgid "Buffered"
 msgstr "缓冲区"
 
-#: src/Views/SystemView/SystemMemoryView.vala:11
+#: src/Views/SystemView/SystemMemoryView.vala:12
 msgid "Cached"
 msgstr "缓存"
 
-#: src/Views/SystemView/SystemMemoryView.vala:12
+#: src/Views/SystemView/SystemMemoryView.vala:13
 msgid "Locked"
 msgstr "锁定状态"
 
-#: src/Views/SystemView/SystemMemoryView.vala:13
+#: src/Views/SystemView/SystemMemoryView.vala:14
 msgid "Total"
 msgstr "总共"
 
-#: src/Views/SystemView/SystemMemoryView.vala:14
+#: src/Views/SystemView/SystemMemoryView.vala:15
 msgid "Used"
 msgstr "已使用"
 
-#: src/Views/SystemView/SystemMemoryView.vala:15
+#: src/Views/SystemView/SystemMemoryView.vala:16
 msgid "Shared"
 msgstr "共享"
+
+#: src/Views/SystemView/SystemMemoryView.vala:17
+#, fuzzy
+#| msgid "Total"
+msgid "Swap Total"
+msgstr "总共"
+
+#: src/Views/SystemView/SystemMemoryView.vala:18
+#, fuzzy
+#| msgid "Used"
+msgid "Swap Used"
+msgstr "已使用"
 
 #: src/Views/SystemView/SystemNetworkView.vala:26
 msgid "Network"
@@ -357,7 +369,7 @@ msgstr "写入"
 msgid "READ"
 msgstr "读取"
 
-#: src/Views/SystemView/SystemStorageView.vala:115
+#: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
 msgstr "未挂载"
 

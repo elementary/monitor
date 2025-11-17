@@ -35,6 +35,7 @@ public class Monitor.Resources : Object {
                 memory.update ();
                 network.update ();
                 storage.update ();
+                swap.update ();
 
                 foreach (var gpu in gpu_list) {
                     gpu.update ();

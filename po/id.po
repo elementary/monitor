@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-08 20:33+0000\n"
+"POT-Creation-Date: 2025-11-16 22:43+0000\n"
 "PO-Revision-Date: 2025-07-13 12:55+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Indonesian <https://l10n.elementaryos.org/projects/desktop/"
@@ -130,7 +130,7 @@ msgid "CPU"
 msgstr ""
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:54
-#: src/Views/SystemView/SystemMemoryView.vala:18
+#: src/Views/SystemView/SystemMemoryView.vala:21
 #: src/Widgets/Statusbar/Statusbar.vala:23
 msgid "Memory"
 msgstr ""
@@ -307,28 +307,36 @@ msgstr ""
 msgid "Address sizes: "
 msgstr ""
 
-#: src/Views/SystemView/SystemMemoryView.vala:10
+#: src/Views/SystemView/SystemMemoryView.vala:11
 msgid "Buffered"
 msgstr ""
 
-#: src/Views/SystemView/SystemMemoryView.vala:11
+#: src/Views/SystemView/SystemMemoryView.vala:12
 msgid "Cached"
 msgstr ""
 
-#: src/Views/SystemView/SystemMemoryView.vala:12
+#: src/Views/SystemView/SystemMemoryView.vala:13
 msgid "Locked"
 msgstr ""
 
-#: src/Views/SystemView/SystemMemoryView.vala:13
+#: src/Views/SystemView/SystemMemoryView.vala:14
 msgid "Total"
 msgstr ""
 
-#: src/Views/SystemView/SystemMemoryView.vala:14
+#: src/Views/SystemView/SystemMemoryView.vala:15
 msgid "Used"
 msgstr ""
 
-#: src/Views/SystemView/SystemMemoryView.vala:15
+#: src/Views/SystemView/SystemMemoryView.vala:16
 msgid "Shared"
+msgstr ""
+
+#: src/Views/SystemView/SystemMemoryView.vala:17
+msgid "Swap Total"
+msgstr ""
+
+#: src/Views/SystemView/SystemMemoryView.vala:18
+msgid "Swap Used"
 msgstr ""
 
 #: src/Views/SystemView/SystemNetworkView.vala:26
@@ -355,7 +363,7 @@ msgstr ""
 msgid "READ"
 msgstr ""
 
-#: src/Views/SystemView/SystemStorageView.vala:115
+#: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
 msgstr ""
 
