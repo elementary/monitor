@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-16 22:43+0000\n"
-"PO-Revision-Date: 2025-10-01 17:21+0000\n"
+"PO-Revision-Date: 2025-11-18 07:55+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/fr/>\n"
@@ -337,16 +337,12 @@ msgid "Shared"
 msgstr "Partagé"
 
 #: src/Views/SystemView/SystemMemoryView.vala:17
-#, fuzzy
-#| msgid "Total"
 msgid "Swap Total"
-msgstr "Total"
+msgstr "Mémoire Swap totale"
 
 #: src/Views/SystemView/SystemMemoryView.vala:18
-#, fuzzy
-#| msgid "Used"
 msgid "Swap Used"
-msgstr "Rempli"
+msgstr "Espace d'échange utilisé"
 
 #: src/Views/SystemView/SystemNetworkView.vala:26
 msgid "Network"
