@@ -35,6 +35,6 @@ jobs:
           meson compile -C build
 
       - name: Run tests
-        run: | 
-          xvfb-run -a meson test -C build --suite monitor-gui-headless "*:" --print-errorlogs
+        run: |
+          GTK_A11Y=test; xvfb-run -a meson test -C build --suite monitor-gui-headless "*:" --print-errorlogs
           # non-headless gui example: meson test -C build --suite monitor "*:" --print-errorlogs
