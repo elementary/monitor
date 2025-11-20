@@ -1,0 +1,37 @@
+name: Test
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        version: [stable, unstable, development-target]
+    container:
+      image: ghcr.io/elementary/docker:${{ matrix.version }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: |
+          apt update
+          apt install -y libgala-dev libgee-0.8-dev libglib2.0-dev libgranite-dev libgtk-4-dev libadwaita-1-dev \
+          libdbus-glib-1-dev libgtop2-dev libwingpanel-3.0-dev libudisks2-dev \
+          libxnvctrl0 libxnvctrl-dev libcurl4-gnutls-dev libflatpak-dev libjson-glib-dev \
+          liblivechart-2-dev libpci-dev \
+          meson valac sassc git
+      - name: Build
+        run: |
+          meson setup -Dindicator-wingpanel=enabled build
+          meson compile -C build
+
+      - name: Run tests
+        run: meson test -C build --suite monitor "*:" --print-errorlogs
