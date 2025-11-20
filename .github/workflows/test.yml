@@ -37,7 +37,5 @@ jobs:
       - name: Run tests
         run: |
           export XDG_RUNTIME_DIR="$(mktemp --tmpdir -d xdg-runtime-XXXXXX)"
-          weston --backend=headless --socket=wayland-1
-          export WAYLAND_DISPLAY=wayland-1
-          meson test -C build --suite monitor-gui-headless "*:" --print-errorlogs
+          weston --backend=headless --socket=wayland-1 --idle-time=0 & dbus-run-session --env WAYLAND_DISPLAY=wayland-1 meson test --suite monitor-gui-headless "*:" --print-errorlogs
           # non-headless gui example: meson test -C build --suite monitor "*:" --print-errorlogs
