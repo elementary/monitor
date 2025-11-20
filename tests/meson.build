@@ -10,5 +10,5 @@ test(
     ],
     project_config,
     dependencies: app_dependencies),
-    suite: 'monitor'
+    suite: 'monitor-gui-headless'
 )

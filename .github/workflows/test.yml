@@ -27,11 +27,14 @@ jobs:
           libdbus-glib-1-dev libgtop2-dev libwingpanel-3.0-dev libudisks2-dev \
           libxnvctrl0 libxnvctrl-dev libcurl4-gnutls-dev libflatpak-dev libjson-glib-dev \
           liblivechart-2-dev libpci-dev \
-          meson valac sassc git
+          meson valac sassc git \
+          xvfb
       - name: Build
         run: |
           meson setup -Dindicator-wingpanel=enabled build
           meson compile -C build
 
       - name: Run tests
-        run: meson test -C build --suite monitor "*:" --print-errorlogs --wrapper=
+        run: | 
+          xvfb-run -a meson test -C build --suite monitor-gui-headless "*:" --print-errorlogs
+          # non-headless gui example: meson test -C build --suite monitor "*:" --print-errorlogs
