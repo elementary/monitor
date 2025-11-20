@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-16 22:43+0000\n"
-"PO-Revision-Date: 2025-10-08 05:55+0000\n"
+"PO-Revision-Date: 2025-11-20 21:55+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <italo@gp-mail.com>\n"
 "Language-Team: Spanish <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/es/>\n"
@@ -340,16 +340,12 @@ msgid "Shared"
 msgstr "Compartida"
 
 #: src/Views/SystemView/SystemMemoryView.vala:17
-#, fuzzy
-#| msgid "Total"
 msgid "Swap Total"
-msgstr "Total"
+msgstr "Intercambio total"
 
 #: src/Views/SystemView/SystemMemoryView.vala:18
-#, fuzzy
-#| msgid "Used"
 msgid "Swap Used"
-msgstr "Usada"
+msgstr "Intercambio usada"
 
 #: src/Views/SystemView/SystemNetworkView.vala:26
 msgid "Network"
