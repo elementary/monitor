@@ -95,7 +95,13 @@ public class Monitor.Resources : Object {
 
         // quick fix; so no need to comment out GPU
         // code for Indicator and Preferences
-        IGPU gpu = gpu_list.size > 0 ? gpu_list.first () : null;
+        IGPU active_gpu = gpu_list.size > 0 ? gpu_list.first () : null;
+
+        foreach (IGPU gpu in gpu_list) {
+            if (gpu.percentage > active_gpu.percentage) {
+                active_gpu = gpu;
+            }
+        }
 
         return ResourcesSerialized () {
                    cpu_percentage = cpu.percentage,
@@ -109,11 +115,11 @@ public class Monitor.Resources : Object {
                    swap_total = swap.total,
                    network_up = network.bytes_out,
                    network_down = network.bytes_in,
-                   gpu_percentage = gpu != null ? gpu.percentage : 0,
-                   gpu_memory_percentage = gpu != null ? gpu.memory_percentage : 0,
-                   gpu_memory_used = gpu != null ? gpu.memory_vram_used : 0,
-                   gpu_memory_total = gpu != null ? gpu.memory_vram_total : 0,
-                   gpu_temperature = gpu != null ? gpu.temperature : 0
+                   gpu_percentage = active_gpu != null ? active_gpu.percentage : 0,
+                   gpu_memory_percentage = active_gpu != null ? active_gpu.memory_percentage : 0,
+                   gpu_memory_used = active_gpu != null ? active_gpu.memory_vram_used : 0,
+                   gpu_memory_total = active_gpu != null ? active_gpu.memory_vram_total : 0,
+                   gpu_temperature = active_gpu != null ? active_gpu.temperature : 0
         };
     }
 
