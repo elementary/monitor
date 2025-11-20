@@ -28,7 +28,7 @@ jobs:
           libxnvctrl0 libxnvctrl-dev libcurl4-gnutls-dev libflatpak-dev libjson-glib-dev \
           liblivechart-2-dev libpci-dev \
           meson valac sassc git \
-          xvfb
+          xvfb dbus-x11
       - name: Build
         run: |
           meson setup -Dindicator-wingpanel=enabled build
