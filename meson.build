@@ -76,4 +76,4 @@ gnome.post_install(
 )
 
 subdir('po')
-# subdir('tests')
+subdir('tests')
