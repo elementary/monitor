@@ -9,5 +9,6 @@ test(
         meson.source_root() / 'src/Utils.vala'
     ],
     project_config,
-    dependencies: app_dependencies)
+    dependencies: app_dependencies),
+    suite: 'monitor'
 )
