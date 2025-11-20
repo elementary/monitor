@@ -36,6 +36,8 @@ jobs:
 
       - name: Run tests
         run: |
+          export NO_AT_BRIDGE="1"
+          export GTK_A11Y="none"
           export XDG_RUNTIME_DIR="$(mktemp --tmpdir -d xdg-runtime-XXXXXX)"
           weston --backend=headless --socket=wayland-1 --idle-time=0 &
           dbus-run-session -- env WAYLAND_DISPLAY=wayland-1 meson test -C build --suite monitor-gui-headless "*:" --print-errorlogs
