@@ -158,19 +158,5 @@ public class Monitor.PreferencesView : Granite.Bin {
         settings.bind ("indicator-gpu-state", gpu_check, "active", DEFAULT);
         settings.bind ("indicator-network-download-state", network_download_check, "active", DEFAULT);
         settings.bind ("indicator-network-upload-state", network_upload_check, "active", DEFAULT);
-
-        // Disable the background preference when the indicator is enabled
-        settings.bind_with_mapping (
-            "indicator-state", background_switch, "active", GET,
-            (switch_state, settings_state, user_data) => {
-                bool state = settings_state.get_boolean ();
-                if (!state) {
-                    switch_state.set_boolean (false);
-                }
-
-                return true;
-            },
-            (SettingsBindSetMappingShared) null, null, null
-        );
     }
 }
