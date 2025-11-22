@@ -345,7 +345,7 @@ public class Monitor.Process : GLib.Object {
                     var splitted_line = line.split (":");
                     switch (splitted_line[0]) {
                     // for i915 there is only drm-engine-render to check
-                    case "drm-engine-render":
+                    case "drm-engine-gfx":
                         drm_driver.engine_render = uint64.parse (splitted_line[1].strip ().split (" ")[0]);
                         if (last_drm_driver_engine_render != 0) {
                             gpu_percentage = 100 * ((double) (drm_driver.engine_render - last_drm_driver_engine_render)) / (update_interval * 1e9);
