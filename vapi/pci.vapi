@@ -165,6 +165,9 @@ namespace Pci {
         [CCode (cname = "pci_fill_info")]
         public int fill_info (int flags);
 
+        [CCode (cname = "pci_get_string_property")]
+        public unowned string ? get_string_property (int flag);
+
         private Dev ();
     }
 

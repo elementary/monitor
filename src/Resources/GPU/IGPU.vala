@@ -9,6 +9,8 @@ public interface Monitor.IGPU : Object {
 
     public abstract string hwmon_module_name { get; protected set; }
 
+    public abstract string driver_name { get; protected set; }
+
     public abstract string name { get; protected set; }
 
     public abstract int percentage { get; protected set; }
