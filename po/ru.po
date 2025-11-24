@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-16 22:43+0000\n"
-"PO-Revision-Date: 2025-10-03 03:55+0000\n"
+"PO-Revision-Date: 2025-11-23 11:55+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/ru/>\n"
@@ -328,16 +328,12 @@ msgid "Shared"
 msgstr "Общая память"
 
 #: src/Views/SystemView/SystemMemoryView.vala:17
-#, fuzzy
-#| msgid "Total"
 msgid "Swap Total"
-msgstr "Суммарно"
+msgstr "Подкачка всего"
 
 #: src/Views/SystemView/SystemMemoryView.vala:18
-#, fuzzy
-#| msgid "Used"
 msgid "Swap Used"
-msgstr "Использовано"
+msgstr "Подкачка исп."
 
 #: src/Views/SystemView/SystemNetworkView.vala:26
 msgid "Network"
