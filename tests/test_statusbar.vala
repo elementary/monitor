@@ -17,8 +17,8 @@ private void test_statusbar () {
             swap_total = 1.0,
             network_up = 12,
             network_down = 23,
-            gpu_percentage = 20
-            gpu_memory_percentage = 10
+            gpu_percentage = 20,
+            gpu_memory_percentage = 10,
             gpu_temperature = 31.0
         };
 

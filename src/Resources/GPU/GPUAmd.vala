@@ -9,6 +9,8 @@ public class Monitor.GPUAmd : IGPU, Object {
 
     public string hwmon_module_name { get; set; }
 
+    public string driver_name { get; set; }
+
     public string name { get; set; }
 
     public int percentage { get; protected set; }
@@ -28,6 +30,7 @@ public class Monitor.GPUAmd : IGPU, Object {
         name = "AMD® " + name;
 
         sysfs_path = pci_parse_sysfs_path (pci_access, pci_device);
+        driver_name = pci_device.get_string_property (Pci.FILL_DRIVER);
     }
 
     private void update_temperature () {
