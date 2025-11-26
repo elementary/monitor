@@ -70,7 +70,6 @@ public class Monitor.Process : GLib.Object {
     public uint64 mem_usage { get; private set; }
     public double mem_percentage { get; private set; }
 
-    private uint64 last_drm_driver_engine_render;
     public double gpu_percentage { get; private set; }
 
     private uint64 last_total; // Obsolete?
