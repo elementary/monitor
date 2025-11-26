@@ -33,7 +33,21 @@
 
   <content_rating type="oars-1.1" />
 
-  <releases>
+    <releases>
+    <release version="8.0.1" date="2025-11-26">
+      <description>
+        <p>Other Improvements:</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/monitor/issues/503">GPU statusbar item uses only the first found GPU rather than select actively used one</issue>
+        <issue url="https://github.com/elementary/monitor/issues/500">Starting in the background option doesn't seem to work</issue>
+        <issue url="https://github.com/elementary/monitor/issues/496">Feature/Bug Flag parsing from csv issues</issue>
+      </issues>
+    </release>
+
     <release version="8.0.0" date="2025-10-10">
       <description>
         <p>Other Improvements:</p>
