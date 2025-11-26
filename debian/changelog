@@ -1,3 +1,9 @@
+io.elementary.monitor (8.0.1) jammy; urgency=medium
+
+  * Release 8.0.1 (#513)
+
+ -- Stanisław Dac <stadac@pm.me>  Wed, 26 Nov 2025 18:20:03 +0000
+
 io.elementary.monitor (8.0.0) jammy; urgency=medium
 
   * Release 8.0.0 (#479)
