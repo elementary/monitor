@@ -46,7 +46,7 @@ public class Monitor.Process : GLib.Object {
     public ProcessIO io;
 
     // Contains info about GPU usage
-    public ProcessDRMDriver drm_driver;
+    public ProcessDRM drm;
 
     // Contains status info
     public ProcessStatus stat;
@@ -89,9 +89,10 @@ public class Monitor.Process : GLib.Object {
 
         last_total = 0;
 
+        drm = new ProcessDRM (_pid, _update_interval);
+
         io = {};
         stat = {};
-        drm_driver = {};
         stat.pid = _pid;
         update_interval = _update_interval;
 
@@ -111,7 +112,8 @@ public class Monitor.Process : GLib.Object {
         exists = parse_stat () && read_cmdline ();
         get_children_pids ();
         get_usage (0, 1);
-        get_usage_gpu ();
+
+        gpu_percentage = 0;
     }
 
     // Updates the process to get latest information
@@ -120,7 +122,8 @@ public class Monitor.Process : GLib.Object {
         exists = parse_stat ();
         if (exists) {
             get_usage (cpu_total, cpu_last_total);
-            get_usage_gpu ();
+            drm.update ();
+            gpu_percentage = drm.gpu_percentage;
             parse_io ();
             parse_statm ();
             get_open_files ();
@@ -288,89 +291,6 @@ public class Monitor.Process : GLib.Object {
             }
         }
         return true;
-    }
-
-    // Based on nvtop
-    // https://github.com/Syllo/nvtop/blob/4bf5db248d7aa7528f3a1ab7c94f504dff6834e4/src/extract_processinfo_fdinfo.c#L88
-    static bool is_drm_fd (int fd_dir_fd, string name) {
-        Posix.Stat stat;
-        int ret = Posix.fstatat (fd_dir_fd, name, out stat, 0);
-        return ret == 0 && (stat.st_mode & Posix.S_IFMT) == Posix.S_IFCHR && Posix.major (stat.st_rdev) == 226;
-    }
-
-    // Reads the /proc/%pid%/fdinfo file, then check if the corresponding fd is a drm fd
-    // Next, parsing the fdinfo file to get time spent on gpu in ns
-    // Calculating delta from last time and dividing by time interval to get percentage
-    private bool get_usage_gpu () {
-        string path_fdinfo = "/proc/%d/fdinfo".printf (stat.pid);
-        string path_fd = "/proc/%d/fd".printf (stat.pid);
-
-        var drm_files = new Gee.ArrayList<GLib.File ?> ();
-
-        try {
-            Dir dir = Dir.open (path_fdinfo, 0);
-            string ? name = null;
-
-            while ((name = dir.read_name ()) != null) {
-
-                // skip standard fds
-                if (name == "0" || name == "1" || name == "2") {
-                    continue;
-                }
-                string path = Path.build_filename (path_fdinfo, name);
-
-                int fd_dir_fd = Posix.open (path_fd, Posix.O_RDONLY | Posix.O_DIRECTORY, 0);
-                bool is_drm = is_drm_fd (fd_dir_fd, name);
-                Posix.close (fd_dir_fd);
-
-                if (is_drm) {
-                    var drm_file = File.new_for_path (path);
-                    drm_files.add (drm_file);
-                }
-            }
-        } catch (FileError err) {
-            if (err is FileError.ACCES) {
-
-            } else {
-                warning (err.message);
-            }
-        }
-
-        foreach (var drm_file in drm_files) {
-            try {
-                var dis = new DataInputStream (drm_file.read ());
-                string ? line;
-
-                while ((line = dis.read_line ()) != null) {
-                    var splitted_line = line.split (":");
-                    switch (splitted_line[0]) {
-                    // for i915 there is only drm-engine-render to check
-                    case "drm-engine-render":
-                        drm_driver.engine_render = uint64.parse (splitted_line[1].strip ().split (" ")[0]);
-                        if (last_drm_driver_engine_render != 0) {
-                            gpu_percentage = 100 * ((double) (drm_driver.engine_render - last_drm_driver_engine_render)) / (update_interval * 1e9);
-                        }
-                        last_drm_driver_engine_render = drm_driver.engine_render;
-                        // debug ("%s %s", this.application_name, gpu_percentage.to_string ());
-                        break;
-                    default:
-                        // warning ("Unknown value in %s", path);
-                        break;
-                    }
-                }
-            } catch (Error e) {
-                if (e.code != 14) {
-                    // if the error is not `no access to file`, because regular user
-                    // TODO: remove `magic` number
-
-                    warning ("Can't read process io: '%s' %d", e.message, e.code);
-                }
-                return false;
-            }
-            break;
-        }
-        return true;
-
     }
 
 /**
