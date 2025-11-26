@@ -4,15 +4,14 @@
  */
 
 public class Monitor.ProcessDRM {
-    // Time spent busy in nanoseconds by the
-    // render engine executing workloads
-    public uint64 engine_render { get; private set; }
+    /** Time spent busy in nanoseconds by the render engine executing
+     * workloads from the last time it was read
+     */
+    private uint64 last_engine_render;
+    private uint64 last_engine_gfx;
 
-    public uint engine_gfx { get; private set; }
 
     public double gpu_percentage { get; private set; }
-
-    private uint64 last_drm_driver_engine_render;
 
     private int pid;
     private int update_interval;
@@ -20,11 +19,15 @@ public class Monitor.ProcessDRM {
     public ProcessDRM (int pid, int update_interval) {
         this.pid = pid;
         this.update_interval = update_interval;
+
+        last_engine_render = 0;
+        last_engine_gfx = 0;
     }
 
     public void update () {
         string path_fdinfo = "/proc/%d/fdinfo".printf (pid);
         string path_fd = "/proc/%d/fd".printf (pid);
+
 
         var drm_files = new Gee.ArrayList<GLib.File ?> ();
 
@@ -65,14 +68,12 @@ public class Monitor.ProcessDRM {
                 while ((line = dis.read_line ()) != null) {
                     var splitted_line = line.split (":");
                     switch (splitted_line[0]) {
+                    case "drm-engine-gfx":
+                        update_engine (splitted_line[1], ref last_engine_gfx);
+                        break;
                     // for i915 there is only drm-engine-render to check
                     case "drm-engine-render":
-                        this.engine_render = uint64.parse (splitted_line[1].strip ().split (" ")[0]);
-                        if (last_drm_driver_engine_render != 0) {
-                            gpu_percentage = 100 * ((double) (this.engine_render - last_drm_driver_engine_render)) / (update_interval * 1e9);
-                        }
-                        last_drm_driver_engine_render = this.engine_render;
-                        // debug ("%s %s", this.application_name, gpu_percentage.to_string ());
+                        update_engine (splitted_line[1], ref last_engine_render);
                         break;
                     default:
                         // warning ("Unknown value in %s", path);
@@ -84,11 +85,23 @@ public class Monitor.ProcessDRM {
                     // if the error is not `no access to file`, because regular user
                     // TODO: remove `magic` number
 
-                    warning ("Can't read process io: '%s' %d", e.message, e.code);
+                    warning ("Can't read fdinfo: '%s' %d", e.message, e.code);
                 }
             }
             break;
         }
+    }
+
+    private void update_engine (string line, ref uint64 last_engine) {
+        var engine = uint64.parse (line.strip ().split (" ")[0]);
+        if (last_engine != 0) {
+            gpu_percentage = calculate_percentage (engine, last_engine, update_interval);
+        }
+        last_engine = engine;
+    }
+
+    private static double calculate_percentage (uint64 engine, uint64 last_engine, int interval) {
+        return 100 * ((double) (engine - last_engine)) / (interval * 1e9);
     }
 
     // Based on nvtop
