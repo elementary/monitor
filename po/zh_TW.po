@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-16 22:43+0000\n"
-"PO-Revision-Date: 2025-08-22 15:58+0000\n"
+"PO-Revision-Date: 2025-11-30 07:55+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
-"l10n.elementaryos.org/projects/desktop/monitor/zh_Hant/>\n"
+"l10n.elementaryos.org/projects/desktop/monitor/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,10 +36,8 @@ msgid "Settings"
 msgstr "設定"
 
 #: src/MainWindow.vala:50
-#, fuzzy
-#| msgid "Type process name or PID to search"
 msgid "Search process name or PID"
-msgstr "輸入程序名稱或 PID 來搜尋"
+msgstr "搜尋程序名稱或 PID"
 
 #. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
@@ -334,16 +332,12 @@ msgid "Shared"
 msgstr "共享"
 
 #: src/Views/SystemView/SystemMemoryView.vala:17
-#, fuzzy
-#| msgid "Total"
 msgid "Swap Total"
-msgstr "總計"
+msgstr "置換空間總計"
 
 #: src/Views/SystemView/SystemMemoryView.vala:18
-#, fuzzy
-#| msgid "Used"
 msgid "Swap Used"
-msgstr "已使用"
+msgstr "置換中心已使用"
 
 #: src/Views/SystemView/SystemNetworkView.vala:26
 msgid "Network"
@@ -398,7 +392,7 @@ msgstr "GPU"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
-msgstr ""
+msgstr "使用率"
 
 #, c-format
 #~ msgid "Force “%s” to quit without initiating shutdown tasks?"
