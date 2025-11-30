@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-16 22:43+0000\n"
-"PO-Revision-Date: 2025-11-18 07:55+0000\n"
+"PO-Revision-Date: 2025-12-01 08:55+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/sv/>\n"
@@ -347,11 +347,11 @@ msgstr "Nätverk"
 
 #: src/Views/SystemView/SystemNetworkView.vala:28
 msgid "DOWN"
-msgstr "NERE"
+msgstr "NER"
 
 #: src/Views/SystemView/SystemNetworkView.vala:33
 msgid "UP"
-msgstr "UPPE"
+msgstr "UPP"
 
 #: src/Views/SystemView/SystemStorageView.vala:18
 msgid "Storage"
