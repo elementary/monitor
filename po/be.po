@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-16 22:43+0000\n"
-"PO-Revision-Date: 2025-08-11 20:55+0000\n"
+"PO-Revision-Date: 2025-12-04 11:55+0000\n"
 "Last-Translator: lenify <lenify@tutanota.com>\n"
 "Language-Team: Belarusian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/be/>\n"
@@ -37,10 +37,8 @@ msgid "Settings"
 msgstr "Налады"
 
 #: src/MainWindow.vala:50
-#, fuzzy
-#| msgid "Type process name or PID to search"
 msgid "Search process name or PID"
-msgstr "Увядзіце назву працэсу або PID для пошуку"
+msgstr "Пошук па назве працэсу або PID"
 
 #. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
@@ -338,13 +336,11 @@ msgstr "Абагульнена"
 #, fuzzy
 #| msgid "Total"
 msgid "Swap Total"
-msgstr "Усяго"
+msgstr "Усяго: Swap"
 
 #: src/Views/SystemView/SystemMemoryView.vala:18
-#, fuzzy
-#| msgid "Used"
 msgid "Swap Used"
-msgstr "Выкарыстана"
+msgstr "Выкарыстана: Swap"
 
 #: src/Views/SystemView/SystemNetworkView.vala:26
 msgid "Network"
@@ -399,7 +395,7 @@ msgstr "Графічны працэсар"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
-msgstr ""
+msgstr "Выкарыстанне"
 
 #, c-format
 #~ msgid "Force “%s” to quit without initiating shutdown tasks?"
