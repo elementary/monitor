@@ -259,7 +259,8 @@ namespace Monitor {
          */
         private Process ? add_process (int pid, bool lazy_signal = false) {
             // create the process
-            var process = new Process (pid);
+            int update_interval = MonitorApp.settings.get_int ("update-time");
+            var process = new Process (pid, update_interval);
 
             if (!process.exists) {
                 return null;
