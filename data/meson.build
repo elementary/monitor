@@ -32,7 +32,7 @@ install_data(
 i18n.merge_file(
     input: 'monitor.desktop.in',
     output: meson.project_name() + '.desktop',
-    po_dir: meson.source_root() / 'po' / 'extra',
+    po_dir: meson.project_source_root() / 'po' / 'extra',
     type: 'desktop',
     install: true,
     install_dir: datadir / 'applications'
@@ -41,7 +41,7 @@ i18n.merge_file(
 i18n.merge_file(
     input: meson.project_name() + '.metainfo.xml.in',
     output: meson.project_name() + '.metainfo.xml',
-    po_dir: join_paths(meson.source_root(), 'po', 'extra'),
+    po_dir: meson.project_source_root() / 'po' / 'extra',
     install: true,
     install_dir: join_paths(datadir, 'metainfo')
 )
