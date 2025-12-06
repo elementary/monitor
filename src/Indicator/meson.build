@@ -21,5 +21,5 @@ shared_module(
     icons_gresource,
     dependencies: indicator_dependencies,
     install: true,
-    install_dir : wingpanel_dep.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir]),
+    install_dir: wingpanel_dep.get_variable('indicatorsdir', pkgconfig_define: ['libdir', libdir])
 )
