@@ -1,4 +1,4 @@
-project('io.elementary.monitor', 'vala', 'c', version: '8.0.1')
+project('io.elementary.monitor', 'vala', 'c', version: '8.0.1', meson_version: '>=0.59')
 
 # these are Meson modules
 gnome = import('gnome')
@@ -13,6 +13,7 @@ icondir = join_paths(datadir, 'icons', 'hicolor')
 vapidir = meson.current_source_dir() / 'vapi/'
 
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()), language: 'c')
+add_global_arguments(['-w'], language: 'c')
 
 add_project_arguments(['--vapidir', vapidir], language: 'vala')
 
