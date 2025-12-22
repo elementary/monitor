@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-16 22:43+0000\n"
-"PO-Revision-Date: 2025-12-14 04:55+0000\n"
-"Last-Translator: Bas Ernst <bas@ernstgenova.it>\n"
+"PO-Revision-Date: 2025-12-22 10:55+0000\n"
+"Last-Translator: Bas Ernst <ernstbas@users.noreply.l10n.elementaryos.org>\n"
 "Language-Team: Dutch <https://l10n.elementaryos.org/projects/desktop/monitor/"
 "nl/>\n"
 "Language: nl\n"
@@ -93,10 +93,8 @@ msgid "The process is stopped by a job control signal"
 msgstr "Het proces is afgebroken door een taaksignaal"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:109
-#, fuzzy
-#| msgid "The process is stopped stopped by a debugger during the tracing"
 msgid "The process is stopped by a debugger during the tracing"
-msgstr "Het proces is afgebroken door een foutopsporingstoepassing"
+msgstr "Het proces is gestopt door een foutopsporingstoepassing"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:111
 msgid "The app is terminated but not reaped by its parent"
@@ -114,11 +112,11 @@ msgstr "Wegschrijven afgebroken"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:78
 msgid "Shut Down…"
-msgstr ""
+msgstr "Afsluiten…"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:83
 msgid "Force Quit…"
-msgstr ""
+msgstr "Geforceerd afsluiten…"
 
 #. setup name column
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:22
@@ -285,34 +283,28 @@ msgid "Bogomips:"
 msgstr "Bogomips:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:69
-#, fuzzy
 msgid "L1 Instruction cache: "
-msgstr "L1-instructiecache:"
+msgstr "L1-instructiecache: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:73
-#, fuzzy
 msgid "L1 Data cache: "
-msgstr "L1-gegevenscache:"
+msgstr "L1-gegevenscache: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:77
-#, fuzzy
 msgid "L1 cache: "
-msgstr "L1-cache:"
+msgstr "L1-cache: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:80
-#, fuzzy
 msgid "L2 Cache size: "
-msgstr "L2-cache-omvang:"
+msgstr "L2-cache-omvang: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:83
-#, fuzzy
 msgid "L3 Cache size: "
-msgstr "L3-cache-omvang:"
+msgstr "L3-cache-omvang: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:86
-#, fuzzy
 msgid "Address sizes: "
-msgstr "Adresgroottes:"
+msgstr "Adresgroottes: "
 
 #: src/Views/SystemView/SystemMemoryView.vala:11
 msgid "Buffered"
@@ -339,16 +331,12 @@ msgid "Shared"
 msgstr "Gedeeld"
 
 #: src/Views/SystemView/SystemMemoryView.vala:17
-#, fuzzy
-#| msgid "Total"
 msgid "Swap Total"
-msgstr "Totaal"
+msgstr "Swaptotaal"
 
 #: src/Views/SystemView/SystemMemoryView.vala:18
-#, fuzzy
-#| msgid "Used"
 msgid "Swap Used"
-msgstr "Gebruikt"
+msgstr "Gebruikte swap"
 
 #: src/Views/SystemView/SystemNetworkView.vala:26
 msgid "Network"
@@ -403,7 +391,7 @@ msgstr "GPU"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
-msgstr ""
+msgstr "Gebruik"
 
 #~ msgid "Force Quit"
 #~ msgstr "Geforceerd afsluiten"
