@@ -14,7 +14,13 @@ vapidir = meson.current_source_dir() / 'vapi/'
 
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()), language: 'c')
 
-add_project_arguments(['--vapidir', vapidir], language: 'vala')
+vala_flags = ['--vapidir', vapidir]
+
+if get_option('aarch64').enabled()
+    vala_flags += ['--define', 'AARCH64']
+endif
+
+add_project_arguments(vala_flags, language: 'vala')
 
 # subprojects should be skipped: https://mesonbuild.com/Release-notes-for-0-58-0.html#skip-subprojects-installation
 # needs meson 0.58.0
@@ -48,9 +54,13 @@ app_dependencies = [
     meson.get_compiler('c').find_library('pci'),
     meson.get_compiler('vala').find_library('pci', dirs: vapidir),
 
-    meson.get_compiler('c').find_library('XNVCtrl'),
-    meson.get_compiler('vala').find_library('libxnvctrl', dirs: vapidir),
+    # Disable nvidia libs on aarch64 builds
+    meson.get_compiler('c').find_library('XNVCtrl', required: get_option('aarch64').disabled()),
+    meson.get_compiler('vala').find_library('libxnvctrl', dirs: vapidir, required: get_option('aarch64').disabled()),
 ]
+
+
+
 
 config_data = configuration_data()
 config_data.set('GETTEXT_PACKAGE', meson.project_name())

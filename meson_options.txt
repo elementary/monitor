@@ -1,1 +1,2 @@
 option('indicator-wingpanel', type : 'feature', value : 'disabled', description : 'Enables the Indicator for Wingpanel.')
+option('aarch64', type : 'feature', value : 'disabled', description : 'Build for aarch64 architecture.')
