@@ -7,40 +7,7 @@ public class Monitor.IndicatorWidget : Gtk.Box {
 
     public string icon_name { get; construct; }
 
-    public uint state_percentage {
-        set {
-            label.label = "%u%%".printf (value);
-            label.get_style_context ().remove_class ("monitor-indicator-label-warning");
-            label.get_style_context ().remove_class ("monitor-indicator-label-critical");
-
-            if (value > 80) {
-                label.get_style_context ().add_class ("monitor-indicator-label-warning");
-            }
-            if (value > 90) {
-                label.get_style_context ().add_class ("monitor-indicator-label-critical");
-            }
-        }
-    }
-
-    public int state_temperature {
-        set {
-            label.label = "%i℃".printf (value);
-        }
-    }
-
-    public double state_frequency {
-        set {
-            label.label = ("%.2f %s").printf (value, _("GHz"));
-        }
-    }
-
-    public uint64 state_bandwidth {
-        set {
-            label.label = format_size (value);
-        }
-    }
-
-    private Gtk.Label label = new Gtk.Label (Utils.NOT_AVAILABLE);
+    protected Gtk.Label label;
 
     public IndicatorWidget (string icon_name) {
         Object (
@@ -52,9 +19,17 @@ public class Monitor.IndicatorWidget : Gtk.Box {
 
     construct {
         var icon = new Gtk.Image.from_icon_name (icon_name, Gtk.IconSize.SMALL_TOOLBAR);
-        label.margin = 2;
-        label.width_chars = 4;
+
+        label = new Gtk.Label (Utils.NOT_AVAILABLE) {
+            margin = 2,
+            width_chars = 4,
+        };
+
         pack_start (icon);
         pack_start (label);
+    }
+
+    public virtual void update_label (Value value) {
+        // NOP; should be overridden by child classes
     }
 }

@@ -52,15 +52,41 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         dbusclient.interface.indicator_gpu_temperature_state.connect ((state) => display_widget.gpu_temperature_widget.visible = state);
 
         dbusclient.interface.update.connect ((sysres) => {
-            display_widget.cpu_widget.state_percentage = sysres.cpu_percentage;
-            display_widget.cpu_frequency_widget.state_frequency = sysres.cpu_frequency;
-            display_widget.cpu_temperature_widget.state_temperature = (int) Math.round (sysres.cpu_temperature);
-            display_widget.memory_widget.state_percentage = sysres.memory_percentage;
-            display_widget.network_up_widget.state_bandwidth = sysres.network_up;
-            display_widget.network_down_widget.state_bandwidth = sysres.network_down;
-            display_widget.gpu_widget.state_percentage = sysres.gpu_percentage;
-            display_widget.gpu_memory_widget.state_percentage = sysres.gpu_memory_percentage;
-            display_widget.gpu_temperature_widget.state_temperature = (int) Math.round (sysres.gpu_temperature);
+            var cpu_percentage = Value (typeof (uint));
+            cpu_percentage.set_uint (sysres.cpu_percentage);
+            display_widget.cpu_widget.update_label (cpu_percentage);
+
+            var cpu_frequency = Value (typeof (double));
+            cpu_frequency.set_double (sysres.cpu_frequency);
+            display_widget.cpu_frequency_widget.update_label (cpu_frequency);
+
+            var cpu_temperature = Value (typeof (int));
+            cpu_temperature.set_int ((int) Math.round (sysres.cpu_temperature));
+            display_widget.cpu_temperature_widget.update_label (cpu_temperature);
+
+            var memory_percentage = Value (typeof (uint));
+            memory_percentage.set_uint (sysres.memory_percentage);
+            display_widget.memory_widget.update_label (memory_percentage);
+
+            var network_up = Value (typeof (uint64));
+            network_up.set_uint64 (sysres.network_up);
+            display_widget.network_up_widget.update_label (network_up);
+
+            var network_down = Value (typeof (uint64));
+            network_down.set_uint64 (sysres.network_down);
+            display_widget.network_down_widget.update_label (network_down);
+
+            var gpu_percentage = Value (typeof (uint));
+            gpu_percentage.set_uint (sysres.gpu_percentage);
+            display_widget.gpu_widget.update_label (gpu_percentage);
+
+            var gpu_memory_percentage = Value (typeof (uint));
+            gpu_memory_percentage.set_uint (sysres.gpu_memory_percentage);
+            display_widget.gpu_memory_widget.update_label (gpu_memory_percentage);
+
+            var gpu_temperature = Value (typeof (int));
+            gpu_temperature.set_int ((int) Math.round (sysres.gpu_temperature));
+            display_widget.gpu_temperature_widget.update_label (gpu_temperature);
         });
 
         popover_widget.quit_monitor.connect (() => {
