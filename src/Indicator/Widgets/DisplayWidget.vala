@@ -4,18 +4,18 @@
  */
 
 public class Monitor.Widgets.DisplayWidget : Gtk.Grid {
-    public IndicatorWidget cpu_widget = new IndicatorWidget ("cpu-symbolic");
-    public IndicatorWidget cpu_frequency_widget = new IndicatorWidget ("cpu-symbolic");
-    public IndicatorWidget cpu_temperature_widget = new IndicatorWidget ("temperature-sensor-symbolic");
+    public IndicatorWidgetPercentage cpu_widget = new IndicatorWidgetPercentage ("cpu-symbolic");
+    public IndicatorWidgetFrequency cpu_frequency_widget = new IndicatorWidgetFrequency ("cpu-symbolic");
+    public IndicatorWidgetTemperature cpu_temperature_widget = new IndicatorWidgetTemperature ("temperature-sensor-symbolic");
 
-    public IndicatorWidget memory_widget = new IndicatorWidget ("ram-symbolic");
+    public IndicatorWidgetPercentage memory_widget = new IndicatorWidgetPercentage ("ram-symbolic");
 
-    public IndicatorWidget network_up_widget = new IndicatorWidget ("go-up-symbolic");
-    public IndicatorWidget network_down_widget = new IndicatorWidget ("go-down-symbolic");
+    public IndicatorWidgetBandwidth network_up_widget = new IndicatorWidgetBandwidth ("go-up-symbolic");
+    public IndicatorWidgetBandwidth network_down_widget = new IndicatorWidgetBandwidth ("go-down-symbolic");
 
-    public IndicatorWidget gpu_widget = new IndicatorWidget ("gpu-symbolic");
-    public IndicatorWidget gpu_memory_widget = new IndicatorWidget ("gpu-vram-symbolic");
-    public IndicatorWidget gpu_temperature_widget = new IndicatorWidget ("temperature-gpu-symbolic");
+    public IndicatorWidgetPercentage gpu_widget = new IndicatorWidgetPercentage ("gpu-symbolic");
+    public IndicatorWidgetPercentage gpu_memory_widget = new IndicatorWidgetPercentage ("gpu-vram-symbolic");
+    public IndicatorWidgetTemperature gpu_temperature_widget = new IndicatorWidgetTemperature ("temperature-gpu-symbolic");
 
     construct {
         valign = Gtk.Align.CENTER;
