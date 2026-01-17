@@ -4,21 +4,21 @@
  */
 
 public class Monitor.Widgets.DisplayWidget : Gtk.Grid {
-    public IndicatorWidgetPercentage cpu_widget = new IndicatorWidgetPercentage ("cpu-symbolic");
-    public IndicatorWidgetFrequency cpu_frequency_widget = new IndicatorWidgetFrequency ("cpu-symbolic");
-    public IndicatorWidgetTemperature cpu_temperature_widget = new IndicatorWidgetTemperature ("temperature-sensor-symbolic");
-
-    public IndicatorWidgetPercentage memory_widget = new IndicatorWidgetPercentage ("ram-symbolic");
-
-    public IndicatorWidgetBandwidth network_up_widget = new IndicatorWidgetBandwidth ("go-up-symbolic");
-    public IndicatorWidgetBandwidth network_down_widget = new IndicatorWidgetBandwidth ("go-down-symbolic");
-
-    public IndicatorWidgetPercentage gpu_widget = new IndicatorWidgetPercentage ("gpu-symbolic");
-    public IndicatorWidgetPercentage gpu_memory_widget = new IndicatorWidgetPercentage ("gpu-vram-symbolic");
-    public IndicatorWidgetTemperature gpu_temperature_widget = new IndicatorWidgetTemperature ("temperature-gpu-symbolic");
-
     construct {
         valign = Gtk.Align.CENTER;
+
+        var cpu_widget = new IndicatorWidgetPercentage ("cpu-symbolic");
+        var cpu_frequency_widget = new IndicatorWidgetFrequency ("cpu-symbolic");
+        var cpu_temperature_widget = new IndicatorWidgetTemperature ("temperature-sensor-symbolic");
+
+        var memory_widget = new IndicatorWidgetPercentage ("ram-symbolic");
+
+        var network_up_widget = new IndicatorWidgetBandwidth ("go-up-symbolic");
+        var network_down_widget = new IndicatorWidgetBandwidth ("go-down-symbolic");
+
+        var gpu_widget = new IndicatorWidgetPercentage ("gpu-symbolic");
+        var gpu_memory_widget = new IndicatorWidgetPercentage ("gpu-vram-symbolic");
+        var gpu_temperature_widget = new IndicatorWidgetTemperature ("temperature-gpu-symbolic");
 
         unowned var dbusclient = DBusClient.get_default ();
 
