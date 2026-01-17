@@ -20,19 +20,18 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Grid {
     construct {
         valign = Gtk.Align.CENTER;
 
-        var settings = new Settings ("io.elementary.monitor.settings");
         unowned var dbusclient = DBusClient.get_default ();
 
         dbusclient.monitor_appeared.connect (() => {
-            cpu_widget.visible = settings.get_boolean ("indicator-cpu-state");
-            cpu_frequency_widget.visible = settings.get_boolean ("indicator-cpu-frequency-state");
-            cpu_temperature_widget.visible = settings.get_boolean ("indicator-cpu-temperature-state");
-            memory_widget.visible = settings.get_boolean ("indicator-memory-state");
-            network_up_widget.visible = settings.get_boolean ("indicator-network-upload-state");
-            network_down_widget.visible = settings.get_boolean ("indicator-network-download-state");
-            gpu_widget.visible = settings.get_boolean ("indicator-gpu-state");
-            gpu_memory_widget.visible = settings.get_boolean ("indicator-gpu-memory-state");
-            gpu_temperature_widget.visible = settings.get_boolean ("indicator-gpu-temperature-state");
+            cpu_widget.visible = Indicator.settings.get_boolean ("indicator-cpu-state");
+            cpu_frequency_widget.visible = Indicator.settings.get_boolean ("indicator-cpu-frequency-state");
+            cpu_temperature_widget.visible = Indicator.settings.get_boolean ("indicator-cpu-temperature-state");
+            memory_widget.visible = Indicator.settings.get_boolean ("indicator-memory-state");
+            network_up_widget.visible = Indicator.settings.get_boolean ("indicator-network-upload-state");
+            network_down_widget.visible = Indicator.settings.get_boolean ("indicator-network-download-state");
+            gpu_widget.visible = Indicator.settings.get_boolean ("indicator-gpu-state");
+            gpu_memory_widget.visible = Indicator.settings.get_boolean ("indicator-gpu-memory-state");
+            gpu_temperature_widget.visible = Indicator.settings.get_boolean ("indicator-gpu-temperature-state");
         });
 
         dbusclient.interface.indicator_cpu_state.connect ((state) => cpu_widget.visible = state);

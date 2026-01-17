@@ -5,14 +5,18 @@
 
 // TODO: Change namespace
 public class Monitor.Indicator : Wingpanel.Indicator {
+    public static Settings settings;
+
     private Widgets.DisplayWidget ? display_widget = null;
     private Widgets.PopoverWidget ? popover_widget = null;
-    private Settings settings;
     private DBusClient dbusclient;
+
+    static construct {
+        settings = new Settings ("io.elementary.monitor.settings");
+    }
 
     construct {
         Gtk.IconTheme.get_default ().add_resource_path ("/io/elementary/monitor/icons");
-        settings = new Settings ("io.elementary.monitor.settings");
         this.visible = false;
         display_widget = new Widgets.DisplayWidget ();
         popover_widget = new Widgets.PopoverWidget ();
