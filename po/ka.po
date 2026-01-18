@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-16 22:43+0000\n"
+"POT-Creation-Date: 2026-01-18 13:52+0000\n"
 "PO-Revision-Date: 2025-07-13 12:55+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Georgian <https://l10n.elementaryos.org/projects/desktop/"
@@ -48,6 +48,12 @@ msgstr ""
 #: src/Widgets/Statusbar/Statusbar.vala:79
 msgid "N/A"
 msgstr "N/A"
+
+#: src/Indicator/Widgets/IndicatorWidgetFrequency.vala:14
+#: src/Views/SystemView/SystemCPUView.vala:129
+#: src/Widgets/Statusbar/Statusbar.vala:70
+msgid "GHz"
+msgstr "გჰც"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
@@ -257,11 +263,6 @@ msgstr "ტემპერატურა"
 #: src/Views/SystemView/SystemGPUView.vala:92
 msgid "℃"
 msgstr "℃"
-
-#: src/Views/SystemView/SystemCPUView.vala:129
-#: src/Widgets/Statusbar/Statusbar.vala:70
-msgid "GHz"
-msgstr "გჰც"
 
 #: src/Views/SystemView/SystemCPUView.vala:160
 msgid "THREADS"
