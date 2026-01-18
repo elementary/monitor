@@ -64,7 +64,7 @@ public class Monitor.GPUNvidia : IGPU, Object {
     }
 
     private void update_nv_resources () {
-        #if !AARCH64
+        #if NVIDIA_SUPPORT
         nvidia_resources_temperature = NVCtrl.XNVCTRLQueryAttribute (
             nvidia_display,
             0,

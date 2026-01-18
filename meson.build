@@ -16,8 +16,8 @@ add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()), lan
 
 vala_flags = ['--vapidir', vapidir]
 
-if get_option('aarch64').enabled()
-    vala_flags += ['--define', 'AARCH64']
+if get_option('nvidia').enabled()
+    vala_flags += ['--define', 'NVIDIA_SUPPORT']
 endif
 
 add_project_arguments(vala_flags, language: 'vala')
@@ -55,8 +55,8 @@ app_dependencies = [
     meson.get_compiler('vala').find_library('pci', dirs: vapidir),
 
     # Disable nvidia libs on aarch64 builds
-    meson.get_compiler('c').find_library('XNVCtrl', required: get_option('aarch64').disabled()),
-    meson.get_compiler('vala').find_library('libxnvctrl', dirs: vapidir, required: get_option('aarch64').disabled()),
+    meson.get_compiler('c').find_library('XNVCtrl', required: get_option('nvidia').enabled()),
+    meson.get_compiler('vala').find_library('libxnvctrl', dirs: vapidir, required: get_option('nvidia').enabled()),
 ]
 
 
