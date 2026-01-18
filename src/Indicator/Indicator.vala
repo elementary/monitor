@@ -5,14 +5,18 @@
 
 // TODO: Change namespace
 public class Monitor.Indicator : Wingpanel.Indicator {
+    public static Settings settings;
+
     private Widgets.DisplayWidget ? display_widget = null;
     private Widgets.PopoverWidget ? popover_widget = null;
-    private Settings settings;
     private DBusClient dbusclient;
+
+    static construct {
+        settings = new Settings ("io.elementary.monitor.settings");
+    }
 
     construct {
         Gtk.IconTheme.get_default ().add_resource_path ("/io/elementary/monitor/icons");
-        settings = new Settings ("io.elementary.monitor.settings");
         this.visible = false;
         display_widget = new Widgets.DisplayWidget ();
         popover_widget = new Widgets.PopoverWidget ();
@@ -28,40 +32,9 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         dbusclient.monitor_vanished.connect (() => this.visible = false);
         dbusclient.monitor_appeared.connect (() => {
             this.visible = settings.get_boolean ("indicator-state");
-            display_widget.cpu_widget.visible = settings.get_boolean ("indicator-cpu-state");
-            display_widget.cpu_frequency_widget.visible = settings.get_boolean ("indicator-cpu-frequency-state");
-            display_widget.cpu_temperature_widget.visible = settings.get_boolean ("indicator-cpu-temperature-state");
-            display_widget.memory_widget.visible = settings.get_boolean ("indicator-memory-state");
-            display_widget.network_up_widget.visible = settings.get_boolean ("indicator-network-upload-state");
-            display_widget.network_down_widget.visible = settings.get_boolean ("indicator-network-download-state");
-            display_widget.gpu_widget.visible = settings.get_boolean ("indicator-gpu-state");
-            display_widget.gpu_memory_widget.visible = settings.get_boolean ("indicator-gpu-memory-state");
-            display_widget.gpu_temperature_widget.visible = settings.get_boolean ("indicator-gpu-temperature-state");
-
         });
 
         dbusclient.interface.indicator_state.connect ((state) => this.visible = state);
-        dbusclient.interface.indicator_cpu_state.connect ((state) => display_widget.cpu_widget.visible = state);
-        dbusclient.interface.indicator_cpu_frequency_state.connect ((state) => display_widget.cpu_frequency_widget.visible = state);
-        dbusclient.interface.indicator_cpu_temperature_state.connect ((state) => display_widget.cpu_temperature_widget.visible = state);
-        dbusclient.interface.indicator_memory_state.connect ((state) => display_widget.memory_widget.visible = state);
-        dbusclient.interface.indicator_network_up_state.connect ((state) => display_widget.network_up_widget.visible = state);
-        dbusclient.interface.indicator_network_down_state.connect ((state) => display_widget.network_down_widget.visible = state);
-        dbusclient.interface.indicator_gpu_state.connect ((state) => display_widget.gpu_widget.visible = state);
-        dbusclient.interface.indicator_gpu_memory_state.connect ((state) => display_widget.gpu_memory_widget.visible = state);
-        dbusclient.interface.indicator_gpu_temperature_state.connect ((state) => display_widget.gpu_temperature_widget.visible = state);
-
-        dbusclient.interface.update.connect ((sysres) => {
-            display_widget.cpu_widget.state_percentage = sysres.cpu_percentage;
-            display_widget.cpu_frequency_widget.state_frequency = sysres.cpu_frequency;
-            display_widget.cpu_temperature_widget.state_temperature = (int) Math.round (sysres.cpu_temperature);
-            display_widget.memory_widget.state_percentage = sysres.memory_percentage;
-            display_widget.network_up_widget.state_bandwidth = sysres.network_up;
-            display_widget.network_down_widget.state_bandwidth = sysres.network_down;
-            display_widget.gpu_widget.state_percentage = sysres.gpu_percentage;
-            display_widget.gpu_memory_widget.state_percentage = sysres.gpu_memory_percentage;
-            display_widget.gpu_temperature_widget.state_temperature = (int) Math.round (sysres.gpu_temperature);
-        });
 
         popover_widget.quit_monitor.connect (() => {
             try {

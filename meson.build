@@ -1,4 +1,4 @@
-project('io.elementary.monitor', 'vala', 'c', version: '8.0.1')
+project('io.elementary.monitor', 'vala', 'c', version: '8.0.1', meson_version: '>=0.59')
 
 # these are Meson modules
 gnome = import('gnome')

@@ -3,6 +3,10 @@ source_indicator_files = [
     'Services/DBusClient.vala',
     'Widgets/DisplayWidget.vala',
     'Widgets/IndicatorWidget.vala',
+    'Widgets/IndicatorWidgetPercentage.vala',
+    'Widgets/IndicatorWidgetTemperature.vala',
+    'Widgets/IndicatorWidgetFrequency.vala',
+    'Widgets/IndicatorWidgetBandwidth.vala',
     'Widgets/PopoverWidget.vala',
 
     meson.project_source_root() / 'src' / 'Resources/ResourcesSerialized.vala',
@@ -21,5 +25,5 @@ shared_module(
     icons_gresource,
     dependencies: indicator_dependencies,
     install: true,
-    install_dir : wingpanel_dep.get_pkgconfig_variable('indicatorsdir', define_variable: ['libdir', libdir]),
+    install_dir: wingpanel_dep.get_variable('indicatorsdir', pkgconfig_define: ['libdir', libdir])
 )

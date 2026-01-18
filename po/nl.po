@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-16 22:43+0000\n"
-"PO-Revision-Date: 2025-07-13 12:55+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"POT-Creation-Date: 2026-01-18 13:52+0000\n"
+"PO-Revision-Date: 2025-12-22 10:55+0000\n"
+"Last-Translator: Bas Ernst <ernstbas@users.noreply.l10n.elementaryos.org>\n"
 "Language-Team: Dutch <https://l10n.elementaryos.org/projects/desktop/monitor/"
 "nl/>\n"
 "Language: nl\n"
@@ -31,10 +31,8 @@ msgid "Settings"
 msgstr "Instellingen"
 
 #: src/MainWindow.vala:50
-#, fuzzy
-#| msgid "Type process name or PID to search"
 msgid "Search process name or PID"
-msgstr "Voer de procesnaam of pid in"
+msgstr "Zoek de procesnaam of PID"
 
 #. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
@@ -45,6 +43,12 @@ msgstr "Voer de procesnaam of pid in"
 #: src/Widgets/Statusbar/Statusbar.vala:79
 msgid "N/A"
 msgstr "n/b"
+
+#: src/Indicator/Widgets/IndicatorWidgetFrequency.vala:14
+#: src/Views/SystemView/SystemCPUView.vala:129
+#: src/Widgets/Statusbar/Statusbar.vala:70
+msgid "GHz"
+msgstr "GHz"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
@@ -95,10 +99,8 @@ msgid "The process is stopped by a job control signal"
 msgstr "Het proces is afgebroken door een taaksignaal"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:109
-#, fuzzy
-#| msgid "The process is stopped stopped by a debugger during the tracing"
 msgid "The process is stopped by a debugger during the tracing"
-msgstr "Het proces is afgebroken door een foutopsporingstoepassing"
+msgstr "Het proces is gestopt door een foutopsporingstoepassing"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:111
 msgid "The app is terminated but not reaped by its parent"
@@ -116,11 +118,11 @@ msgstr "Wegschrijven afgebroken"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:78
 msgid "Shut Down…"
-msgstr ""
+msgstr "Afsluiten…"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:83
 msgid "Force Quit…"
-msgstr ""
+msgstr "Geforceerd afsluiten…"
 
 #. setup name column
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:22
@@ -249,11 +251,6 @@ msgstr "Temperatuur"
 msgid "℃"
 msgstr "℃"
 
-#: src/Views/SystemView/SystemCPUView.vala:129
-#: src/Widgets/Statusbar/Statusbar.vala:70
-msgid "GHz"
-msgstr "GHz"
-
 #: src/Views/SystemView/SystemCPUView.vala:160
 msgid "THREADS"
 msgstr "AANTAL KERNEN"
@@ -287,34 +284,28 @@ msgid "Bogomips:"
 msgstr "Bogomips:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:69
-#, fuzzy
 msgid "L1 Instruction cache: "
-msgstr "L1-instructiecache:"
+msgstr "L1-instructiecache: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:73
-#, fuzzy
 msgid "L1 Data cache: "
-msgstr "L1-gegevenscache:"
+msgstr "L1-gegevenscache: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:77
-#, fuzzy
 msgid "L1 cache: "
-msgstr "L1-cache:"
+msgstr "L1-cache: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:80
-#, fuzzy
 msgid "L2 Cache size: "
-msgstr "L2-cache-omvang:"
+msgstr "L2-cache-omvang: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:83
-#, fuzzy
 msgid "L3 Cache size: "
-msgstr "L3-cache-omvang:"
+msgstr "L3-cache-omvang: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:86
-#, fuzzy
 msgid "Address sizes: "
-msgstr "Adresgroottes:"
+msgstr "Adresgroottes: "
 
 #: src/Views/SystemView/SystemMemoryView.vala:11
 msgid "Buffered"
@@ -341,16 +332,12 @@ msgid "Shared"
 msgstr "Gedeeld"
 
 #: src/Views/SystemView/SystemMemoryView.vala:17
-#, fuzzy
-#| msgid "Total"
 msgid "Swap Total"
-msgstr "Totaal"
+msgstr "Swaptotaal"
 
 #: src/Views/SystemView/SystemMemoryView.vala:18
-#, fuzzy
-#| msgid "Used"
 msgid "Swap Used"
-msgstr "Gebruikt"
+msgstr "Gebruikte swap"
 
 #: src/Views/SystemView/SystemNetworkView.vala:26
 msgid "Network"
@@ -405,7 +392,7 @@ msgstr "GPU"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
-msgstr ""
+msgstr "Gebruik"
 
 #~ msgid "Force Quit"
 #~ msgstr "Geforceerd afsluiten"

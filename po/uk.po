@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-16 22:43+0000\n"
-"PO-Revision-Date: 2025-07-31 14:55+0000\n"
+"POT-Creation-Date: 2026-01-18 13:52+0000\n"
+"PO-Revision-Date: 2025-12-19 00:55+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/uk/>\n"
@@ -37,10 +37,8 @@ msgid "Settings"
 msgstr "Налаштування"
 
 #: src/MainWindow.vala:50
-#, fuzzy
-#| msgid "Type process name or PID to search"
 msgid "Search process name or PID"
-msgstr "Введіть назву процесу або PID для пошуку"
+msgstr "Пошук назви процесу або PID"
 
 #. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
@@ -51,6 +49,12 @@ msgstr "Введіть назву процесу або PID для пошуку"
 #: src/Widgets/Statusbar/Statusbar.vala:79
 msgid "N/A"
 msgstr "Н/Д"
+
+#: src/Indicator/Widgets/IndicatorWidgetFrequency.vala:14
+#: src/Views/SystemView/SystemCPUView.vala:129
+#: src/Widgets/Statusbar/Statusbar.vala:70
+msgid "GHz"
+msgstr "ГГц"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
@@ -248,11 +252,6 @@ msgstr "Температура"
 #: src/Views/SystemView/SystemGPUView.vala:92
 msgid "℃"
 msgstr "℃"
-
-#: src/Views/SystemView/SystemCPUView.vala:129
-#: src/Widgets/Statusbar/Statusbar.vala:70
-msgid "GHz"
-msgstr "ГГц"
 
 #: src/Views/SystemView/SystemCPUView.vala:160
 msgid "THREADS"
