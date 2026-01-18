@@ -161,10 +161,11 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
         double gpu_usage = gpu_usage_value.get_double ();
 
         // format the double into a string
-        if (gpu_usage < 0.0)
+        if (gpu_usage < 0.0) {
             ((Gtk.CellRendererText)cell).text = Utils.NO_DATA;
-        else
+        } else {
             ((Gtk.CellRendererText)cell).text = "%.0f%%".printf (gpu_usage);
+        }
     }
 
     private void pid_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer cell, Gtk.TreeModel model, Gtk.TreeIter iter) {

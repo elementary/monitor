@@ -53,11 +53,10 @@ public class Monitor.ProcessDRM {
                 }
             }
         } catch (FileError err) {
-            if (err is FileError.ACCES) {
-
-            } else {
-                warning (err.message);
-            }
+            // prevent flooding logs with permission errors
+            if (!(err is FileError.ACCES)) {  
+                warning (err.message);  
+            } 
         }
 
         foreach (var drm_file in drm_files) {
@@ -76,17 +75,14 @@ public class Monitor.ProcessDRM {
                         update_engine (splitted_line[1], ref last_engine_render);
                         break;
                     default:
-                        // warning ("Unknown value in %s", path);
+                        // Ignore other entries
                         break;
                     }
                 }
-            } catch (Error e) {
-                if (e.code != 14) {
-                    // if the error is not `no access to file`, because regular user
-                    // TODO: remove `magic` number
-
-                    warning ("Can't read fdinfo: '%s' %d", e.message, e.code);
-                }
+            } catch (Error err) {
+                if (!(err is FileError.ACCES)) {  
+                    warning ("Can't read fdinfo: '%s' %d", err.message, err.code); 
+                } 
             }
             break;
         }

@@ -25,8 +25,6 @@ public class Monitor.Process : GLib.Object {
 
     public string username = Utils.NO_DATA;
 
-    // Update interval in seconds is used to calculate GPU usage
-    public int update_interval;
 
     Icon _icon;
     public Icon icon {
@@ -46,7 +44,7 @@ public class Monitor.Process : GLib.Object {
     public ProcessIO io;
 
     // Contains info about GPU usage
-    public ProcessDRM drm;
+    private ProcessDRM drm;
 
     // Contains status info
     public ProcessStatus stat;
@@ -81,19 +79,18 @@ public class Monitor.Process : GLib.Object {
 
 
     // Construct a new process
-    public Process (int _pid, int _update_interval) {
+    public Process (int _pid, int update_interval) {
         _icon = ProcessUtils.get_default_icon ();
 
         open_files_paths = new Gee.HashSet<string> ();
 
         last_total = 0;
 
-        drm = new ProcessDRM (_pid, _update_interval);
+        drm = new ProcessDRM (_pid, update_interval);
 
         io = {};
         stat = {};
         stat.pid = _pid;
-        update_interval = _update_interval;
 
         // getting uid
         GTop.ProcUid proc_uid;
@@ -292,9 +289,9 @@ public class Monitor.Process : GLib.Object {
         return true;
     }
 
-/**
- * Reads the /proc/%pid%/cmdline file and updates from the information contained therein.
- */
+    /**
+    * Reads the /proc/%pid%/cmdline file and updates from the information contained therein.
+    */
     private bool read_cmdline () {
         string ? cmdline = ProcessUtils.read_file ("/proc/%d/cmdline".printf (stat.pid));
 
