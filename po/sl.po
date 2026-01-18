@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-18 13:52+0000\n"
-"PO-Revision-Date: 2024-10-09 20:00+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
-"Language-Team: Slovenian <https://l10n.elementary.io/projects/desktop/"
+"PO-Revision-Date: 2026-01-19 16:55+0000\n"
+"Last-Translator: Jernej Virag <jernej@virag.si>\n"
+"Language-Team: Slovenian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -18,15 +18,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: src/MainWindow.vala:14
 msgid "Monitor"
-msgstr ""
+msgstr "Nadzornik"
 
 #: src/MainWindow.vala:24
 msgid "Processes"
-msgstr ""
+msgstr "Procesi"
 
 #: src/MainWindow.vala:25
 msgid "System"
@@ -34,11 +34,11 @@ msgstr "Sistem"
 
 #: src/MainWindow.vala:43
 msgid "Settings"
-msgstr ""
+msgstr "Nastavitve"
 
 #: src/MainWindow.vala:50
 msgid "Search process name or PID"
-msgstr ""
+msgstr "Išči ime procesa ali PID"
 
 #. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
@@ -48,353 +48,353 @@ msgstr ""
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:79
 msgid "N/A"
-msgstr ""
+msgstr "--"
 
 #: src/Indicator/Widgets/IndicatorWidgetFrequency.vala:14
 #: src/Views/SystemView/SystemCPUView.vala:129
 #: src/Widgets/Statusbar/Statusbar.vala:70
 msgid "GHz"
-msgstr ""
+msgstr "GHz"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
-msgstr ""
+msgstr "Prikaži Monitor"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:21
 msgid "Quit Monitor"
-msgstr ""
+msgstr "Zapri Monitor"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:64
 msgid "PID"
-msgstr ""
+msgstr "PID"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:47
 msgid "PRI"
-msgstr ""
+msgstr "PRI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:48
 msgid "THR"
-msgstr ""
+msgstr "THR"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:99
 msgid "The app is waiting in an uninterruptible disk sleep"
-msgstr ""
+msgstr "Aplikacija čaka na trdi disk brez možnosti prekinitve"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:101
 msgid "Idle kernel thread"
-msgstr ""
+msgstr "Nedejavna jedrna nit"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:103
 msgid "The process is running or runnable (on run queue)"
-msgstr ""
+msgstr "Proces se izvaja oz. čaka na izvajanje"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:105
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
-msgstr ""
+msgstr "Proces je v spanju, ki ga ni moč prekiniti; čaka na zaključek dogodka"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:107
 msgid "The process is stopped by a job control signal"
-msgstr ""
+msgstr "Process je ustavljen s signalom za kontrolo nalog"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:109
 msgid "The process is stopped by a debugger during the tracing"
-msgstr ""
+msgstr "Proces je ustravljen s strani razhroščevalnika"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:111
 msgid "The app is terminated but not reaped by its parent"
-msgstr ""
+msgstr "Aplikacija je zaključena, ampak še ni bila počiščena od starša"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:14
 msgid "Read/Written"
-msgstr ""
+msgstr "Prebrano/zapisano"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:19
 msgid "Cancelled write"
-msgstr ""
+msgstr "Preklicano pisanje"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:78
 msgid "Shut Down…"
-msgstr ""
+msgstr "Izklop…"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:83
 msgid "Force Quit…"
-msgstr ""
+msgstr "Prisilno končaj…"
 
 #. setup name column
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:22
 msgid "Process Name"
-msgstr ""
+msgstr "Ime procesa"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:43
 #: src/Widgets/Statusbar/Statusbar.vala:14
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:54
 #: src/Views/SystemView/SystemMemoryView.vala:21
 #: src/Widgets/Statusbar/Statusbar.vala:23
 msgid "Memory"
-msgstr ""
+msgstr "Pomnilnik"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:124
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:129
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 #: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:135
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:55
 #, c-format
 msgid "CPU: %.1f%%"
-msgstr ""
+msgstr "CPU: %.1f%%"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:56
 #, c-format
 msgid "RAM: %.1f%%"
-msgstr ""
+msgstr "RAM: %.1f%%"
 
 #: src/Views/PreferencesView.vala:17
 msgid "Update frequency"
-msgstr ""
+msgstr "Pogostost posodobitve"
 
 #: src/Views/PreferencesView.vala:22 src/Views/PreferencesView.vala:52
 msgid "Requires restart"
-msgstr ""
+msgstr "Zahteva ponovni zagon"
 
 #: src/Views/PreferencesView.vala:29
 msgid "1s"
-msgstr ""
+msgstr "1s"
 
 #: src/Views/PreferencesView.vala:30
 msgid "2s"
-msgstr ""
+msgstr "2s"
 
 #: src/Views/PreferencesView.vala:31
 msgid "3s"
-msgstr ""
+msgstr "3s"
 
 #: src/Views/PreferencesView.vala:32
 msgid "4s"
-msgstr ""
+msgstr "4s"
 
 #: src/Views/PreferencesView.vala:33
 msgid "5s"
-msgstr ""
+msgstr "5s"
 
 #: src/Views/PreferencesView.vala:49
 msgid "Start in background"
-msgstr ""
+msgstr "Zaženi v ozadju"
 
 #: src/Views/PreferencesView.vala:51
 msgid "Draw smooth lines on CPU chart"
-msgstr ""
+msgstr "Nariši gladke črte na grafikon CPU"
 
 #: src/Views/PreferencesView.vala:57
 msgid "Show in panel"
-msgstr ""
+msgstr "Prikaži v vrhnji plošči"
 
 #: src/Views/PreferencesView.vala:62
 msgid "CPU percentage"
-msgstr ""
+msgstr "Odstotek CPU"
 
 #: src/Views/PreferencesView.vala:67
 msgid "CPU frequency"
-msgstr ""
+msgstr "Frekvenca CPU"
 
 #: src/Views/PreferencesView.vala:72
 msgid "CPU temperature"
-msgstr ""
+msgstr "Temperatura CPU"
 
 #: src/Views/PreferencesView.vala:77
 msgid "RAM percentage"
-msgstr ""
+msgstr "Odstotek pomnilnika"
 
 #: src/Views/PreferencesView.vala:82
 msgid "Network upload"
-msgstr ""
+msgstr "Oddajanje"
 
 #: src/Views/PreferencesView.vala:87
 msgid "Network download"
-msgstr ""
+msgstr "Prejemanje"
 
 #: src/Views/PreferencesView.vala:92
 msgid "GPU percentage"
-msgstr ""
+msgstr "Odstotek GPU"
 
 #: src/Views/PreferencesView.vala:97
 msgid "VRAM percentage"
-msgstr ""
+msgstr "Odstotek grafičnega pomnilnika"
 
 #: src/Views/PreferencesView.vala:102
 msgid "GPU temperature"
-msgstr ""
+msgstr "Temperatura GPU"
 
 #: src/Views/SystemView/SystemCPUView.vala:39
 msgid "Frequency"
-msgstr ""
+msgstr "Frekvenca"
 
 #: src/Views/SystemView/SystemCPUView.vala:46
 msgid "Temperature"
-msgstr ""
+msgstr "Temperatura"
 
 #: src/Views/SystemView/SystemCPUView.vala:83
 #: src/Views/SystemView/SystemGPUView.vala:92
 msgid "℃"
-msgstr ""
+msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:160
 msgid "THREADS"
-msgstr ""
+msgstr "NITI"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:29
 msgid "General"
-msgstr ""
+msgstr "Splošno"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:30
 msgid "Features"
-msgstr ""
+msgstr "Značilnosti"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:31
 msgid "Bugs"
-msgstr ""
+msgstr "Hrošči"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:62
 msgid "Model:"
-msgstr ""
+msgstr "Model:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:63
 msgid "Family:"
-msgstr ""
+msgstr "Družina:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:64
 msgid "Microcode ver.:"
-msgstr ""
+msgstr "Različica mikrokode:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:65
 msgid "Bogomips:"
-msgstr ""
+msgstr "Bogomips:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:69
 msgid "L1 Instruction cache: "
-msgstr ""
+msgstr "L1 ukazni prepomnilnik: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:73
 msgid "L1 Data cache: "
-msgstr ""
+msgstr "L1 podatkovni predpomnilnik: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:77
 msgid "L1 cache: "
-msgstr ""
+msgstr "L1 predpomnilnik: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:80
 msgid "L2 Cache size: "
-msgstr ""
+msgstr "L2 predpomnilnik: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:83
 msgid "L3 Cache size: "
-msgstr ""
+msgstr "L3 predpomnilnik: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:86
 msgid "Address sizes: "
-msgstr ""
+msgstr "Naslovna velikost: "
 
 #: src/Views/SystemView/SystemMemoryView.vala:11
 msgid "Buffered"
-msgstr ""
+msgstr "Medpomnjeni"
 
 #: src/Views/SystemView/SystemMemoryView.vala:12
 msgid "Cached"
-msgstr ""
+msgstr "Predpomnilnik"
 
 #: src/Views/SystemView/SystemMemoryView.vala:13
 msgid "Locked"
-msgstr ""
+msgstr "Zaklenjeno"
 
 #: src/Views/SystemView/SystemMemoryView.vala:14
 msgid "Total"
-msgstr ""
+msgstr "Skupaj"
 
 #: src/Views/SystemView/SystemMemoryView.vala:15
 msgid "Used"
-msgstr ""
+msgstr "Zasedeno"
 
 #: src/Views/SystemView/SystemMemoryView.vala:16
 msgid "Shared"
-msgstr ""
+msgstr "Deljeno"
 
 #: src/Views/SystemView/SystemMemoryView.vala:17
 msgid "Swap Total"
-msgstr ""
+msgstr "Skupaj izmenjalne"
 
 #: src/Views/SystemView/SystemMemoryView.vala:18
 msgid "Swap Used"
-msgstr ""
+msgstr "Zasedene izmenjalne"
 
 #: src/Views/SystemView/SystemNetworkView.vala:26
 msgid "Network"
-msgstr ""
+msgstr "Omrežje"
 
 #: src/Views/SystemView/SystemNetworkView.vala:28
 msgid "DOWN"
-msgstr ""
+msgstr "DOL"
 
 #: src/Views/SystemView/SystemNetworkView.vala:33
 msgid "UP"
-msgstr ""
+msgstr "GOR"
 
 #: src/Views/SystemView/SystemStorageView.vala:18
 msgid "Storage"
-msgstr ""
+msgstr "Shranjevanje"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
 msgid "WRITE"
-msgstr ""
+msgstr "PISANJE"
 
 #: src/Views/SystemView/SystemStorageView.vala:25
 msgid "READ"
-msgstr ""
+msgstr "BRANJE"
 
 #: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
-msgstr ""
+msgstr "Ni priklopljen"
 
 #: src/Views/SystemView/SystemGPUView.vala:17
 msgid "VRAM"
-msgstr ""
+msgstr "VRAM"
 
 #: src/Views/SystemView/SystemGPUView.vala:23
 msgid "TEMPERATURE"
-msgstr ""
+msgstr "TEMPERATURA"
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:26
 #: src/Widgets/Statusbar/Statusbar.vala:36
 #: src/Widgets/Statusbar/Statusbar.vala:46
 msgid "Calculating…"
-msgstr ""
+msgstr "Računam…"
 
 #: src/Widgets/Statusbar/Statusbar.vala:33
 msgid "Swap"
-msgstr ""
+msgstr "Izmenjalna datoteka"
 
 #: src/Widgets/Statusbar/Statusbar.vala:43
 msgid "GPU"
-msgstr ""
+msgstr "GPU"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
-msgstr ""
+msgstr "Uporaba"
 
 #~ msgid "Disabled"
 #~ msgstr "Onemogočeno"
