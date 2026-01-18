@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-16 22:43+0000\n"
-"PO-Revision-Date: 2025-12-01 08:55+0000\n"
+"PO-Revision-Date: 2026-01-18 13:52+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/sv/>\n"
@@ -311,7 +311,7 @@ msgstr "Adresstorlekar: "
 
 #: src/Views/SystemView/SystemMemoryView.vala:11
 msgid "Buffered"
-msgstr "Buffrad"
+msgstr "Buffrat"
 
 #: src/Views/SystemView/SystemMemoryView.vala:12
 msgid "Cached"
@@ -331,7 +331,7 @@ msgstr "Använt"
 
 #: src/Views/SystemView/SystemMemoryView.vala:16
 msgid "Shared"
-msgstr "Delad"
+msgstr "Delat"
 
 #: src/Views/SystemView/SystemMemoryView.vala:17
 msgid "Swap Total"
