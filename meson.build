@@ -54,13 +54,10 @@ app_dependencies = [
     meson.get_compiler('c').find_library('pci'),
     meson.get_compiler('vala').find_library('pci', dirs: vapidir),
 
-    # Disable nvidia libs on aarch64 builds
+    # Disable nvidia libs. Useful for Alpine which uses musl, instead of glibc
     meson.get_compiler('c').find_library('XNVCtrl', required: get_option('nvidia').enabled()),
     meson.get_compiler('vala').find_library('libxnvctrl', dirs: vapidir, required: get_option('nvidia').enabled()),
 ]
-
-
-
 
 config_data = configuration_data()
 config_data.set('GETTEXT_PACKAGE', meson.project_name())
