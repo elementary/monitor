@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-18 13:52+0000\n"
-"PO-Revision-Date: 2025-10-04 22:55+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2026-01-19 16:55+0000\n"
+"Last-Translator: Jernej Virag <jernej@virag.si>\n"
 "Language-Team: Slovenian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor-extra/sl/>\n"
 "Language: sl\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: data/io.elementary.monitor.metainfo.xml.in:9 data/monitor.desktop.in:6
 msgid "Monitor"
-msgstr ""
+msgstr "Nadzornik"
 
 #: data/io.elementary.monitor.metainfo.xml.in:10
 msgid "Manage processes and monitor system resources"
