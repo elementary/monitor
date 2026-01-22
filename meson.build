@@ -54,7 +54,8 @@ app_dependencies = [
     meson.get_compiler('c').find_library('pci'),
     meson.get_compiler('vala').find_library('pci', dirs: vapidir),
 
-    # Disable nvidia libs. Useful for Alpine which uses musl, instead of glibc
+    # Allow building without nvidia libraries because they're not packaged or does not run
+    # on some distros due to incompatibility with muslc. Also they're not needed on ARM architecture
     meson.get_compiler('c').find_library('XNVCtrl', required: get_option('nvidia').enabled()),
     meson.get_compiler('vala').find_library('libxnvctrl', dirs: vapidir, required: get_option('nvidia').enabled()),
 ]
