@@ -54,9 +54,9 @@ public class Monitor.ProcessDRM {
             }
         } catch (FileError err) {
             // prevent flooding logs with permission errors
-            if (!(err is FileError.ACCES)) {  
-                warning (err.message);  
-            } 
+            if (!(err is FileError.ACCES)) {
+                warning (err.message);
+            }
         }
 
         foreach (var drm_file in drm_files) {
@@ -80,9 +80,9 @@ public class Monitor.ProcessDRM {
                     }
                 }
             } catch (Error err) {
-                if (!(err is FileError.ACCES)) {  
-                    warning ("Can't read fdinfo: '%s' %d", err.message, err.code); 
-                } 
+                if (!(err is FileError.ACCES)) {
+                    warning ("Can't read fdinfo: '%s' %d", err.message, err.code);
+                }
             }
             break;
         }
