@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-16 22:43+0000\n"
+"POT-Creation-Date: 2026-01-18 13:52+0000\n"
 "PO-Revision-Date: 2025-12-21 08:55+0000\n"
 "Last-Translator: Bas Ernst <bas@ernstgenova.it>\n"
-"Language-Team: Dutch <https://l10n.elementaryos.org/projects/desktop/"
-"monitor-extra/nl/>\n"
+"Language-Team: Dutch <https://l10n.elementaryos.org/projects/desktop/monitor-"
+"extra/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,151 +19,153 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: data/io.elementary.monitor.appdata.xml.in:9 data/monitor.desktop.in:6
+#: data/io.elementary.monitor.metainfo.xml.in:9 data/monitor.desktop.in:6
 msgid "Monitor"
 msgstr "Monitor"
 
-#: data/io.elementary.monitor.appdata.xml.in:10
+#: data/io.elementary.monitor.metainfo.xml.in:10
 msgid "Manage processes and monitor system resources"
 msgstr "Beheer processen en monitor systeembronnen"
 
-#: data/io.elementary.monitor.appdata.xml.in:12
+#: data/io.elementary.monitor.metainfo.xml.in:12
 msgid "Display usage of system resources, filter and manage processes."
 msgstr "Toon het gebruik van systeembronnen en filter en beheer processen."
 
-#: data/io.elementary.monitor.appdata.xml.in:26
+#: data/io.elementary.monitor.metainfo.xml.in:26
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/io.elementary.monitor.appdata.xml.in:39
+#: data/io.elementary.monitor.metainfo.xml.in:39
+#: data/io.elementary.monitor.metainfo.xml.in:53
 msgid "Other Improvements:"
 msgstr "Andere verbeteringen:"
 
-#: data/io.elementary.monitor.appdata.xml.in:41
+#: data/io.elementary.monitor.metainfo.xml.in:41
+#: data/io.elementary.monitor.metainfo.xml.in:55
 msgid "Updated translations"
 msgstr "Bijgewerkte vertalingen"
 
-#: data/io.elementary.monitor.appdata.xml.in:62
+#: data/io.elementary.monitor.metainfo.xml.in:76
 msgid "Add info about drives (based on Dirli's code)"
 msgstr "Voeg info over schijven toe (gebaseerd op Dirli's code)"
 
-#: data/io.elementary.monitor.appdata.xml.in:67
+#: data/io.elementary.monitor.metainfo.xml.in:81
 msgid "Adds dark theme 🌚"
 msgstr "Voegt donker thema toe 🌚"
 
-#: data/io.elementary.monitor.appdata.xml.in:72
+#: data/io.elementary.monitor.metainfo.xml.in:86
 msgid "Uses Wingpanel v3; New *.deb package maintainer: Kristopher Ives"
 msgstr ""
 "Gebruikt Wingpanel v3; Nieuwe *.deb package maintainer: Kristopher Ives"
 
-#: data/io.elementary.monitor.appdata.xml.in:77
+#: data/io.elementary.monitor.metainfo.xml.in:91
 msgid "🐛 Should fix empty Indicator. Please reboot after installation ⚡️"
 msgstr ""
 "🐛 Dit zou lege indicator moeten verhelpen. Start opnieuw op na installatie⚡️"
 
-#: data/io.elementary.monitor.appdata.xml.in:83
+#: data/io.elementary.monitor.metainfo.xml.in:97
 msgid "🐛 Try to fix frequent GUI hangs 🥶"
 msgstr "🐛 Probeer frequente gevallen van vastlopende GUI op te lossen 🥶"
 
-#: data/io.elementary.monitor.appdata.xml.in:84
+#: data/io.elementary.monitor.metainfo.xml.in:98
 msgid "🇳🇱 Update Dutch translation (@Vistaus)"
 msgstr "🇳🇱 Nederlandse vertaling bijwerken (@Vistaus)"
 
-#: data/io.elementary.monitor.appdata.xml.in:85
+#: data/io.elementary.monitor.metainfo.xml.in:99
 msgid "🇵🇹 Update Portuguese translation (@hugok79)"
 msgstr "🇵🇹 Portugese vertaling bijwerken (@hugok79)"
 
-#: data/io.elementary.monitor.appdata.xml.in:86
+#: data/io.elementary.monitor.metainfo.xml.in:100
 msgid "🇷🇴 Add Romanian translation (@tiberiufrat)"
 msgstr "🇷🇴 Voeg Roemeense vertaling toe (@tiberiufrat)"
 
-#: data/io.elementary.monitor.appdata.xml.in:93
+#: data/io.elementary.monitor.metainfo.xml.in:107
 msgid "Display Storage usage"
 msgstr "Weergave van opslaggebruik"
 
-#: data/io.elementary.monitor.appdata.xml.in:94
+#: data/io.elementary.monitor.metainfo.xml.in:108
 msgid "Update Russian translation (@camellan)"
 msgstr "Russische vertaling bijwerken (@camellan)"
 
-#: data/io.elementary.monitor.appdata.xml.in:95
+#: data/io.elementary.monitor.metainfo.xml.in:109
 msgid "Update Portuguese translation (@hugok79)"
 msgstr "Portugese vertaling bijwerken (@hugok79)"
 
-#: data/io.elementary.monitor.appdata.xml.in:96
+#: data/io.elementary.monitor.metainfo.xml.in:110
 msgid "Different colours for Upload and Download"
 msgstr "Verschillende kleuren voor Upload en Download"
 
-#: data/io.elementary.monitor.appdata.xml.in:103
-#: data/io.elementary.monitor.appdata.xml.in:115
+#: data/io.elementary.monitor.metainfo.xml.in:117
+#: data/io.elementary.monitor.metainfo.xml.in:129
 msgid "Update Portuguese translation (@rottenpants466)"
 msgstr "Portugese vertaling bijwerken (@rottenpants466)"
 
-#: data/io.elementary.monitor.appdata.xml.in:104
+#: data/io.elementary.monitor.metainfo.xml.in:118
 msgid "Update Dutch translation (@Vistaus)"
 msgstr "Nederlandse vertaling bijwerken (@Vistaus)"
 
-#: data/io.elementary.monitor.appdata.xml.in:105
+#: data/io.elementary.monitor.metainfo.xml.in:119
 msgid "Smoother animations (@DevAlien)"
 msgstr "Vloeiendere animaties (@DevAlien)"
 
-#: data/io.elementary.monitor.appdata.xml.in:106
+#: data/io.elementary.monitor.metainfo.xml.in:120
 msgid "Preselect first entry so that the info panel is always open (@DevAlien)"
 msgstr ""
 "Selecteer het eerste item vooraf, zodat het infopaneel altijd open is "
 "(@DevAlien)"
 
-#: data/io.elementary.monitor.appdata.xml.in:107
+#: data/io.elementary.monitor.metainfo.xml.in:121
 msgid "Show CPU temperature in the Indicator"
 msgstr "Weergave van de CPU temperatuur in de Indicator"
 
-#: data/io.elementary.monitor.appdata.xml.in:114
+#: data/io.elementary.monitor.metainfo.xml.in:128
 msgid "Better System Tab"
 msgstr "Better Systeemtabblad"
 
-#: data/io.elementary.monitor.appdata.xml.in:116
+#: data/io.elementary.monitor.metainfo.xml.in:130
 msgid "Save last opened view (@ryonakano)"
 msgstr "Bewaar de laatste geopende weergave (@ryonakano)"
 
-#: data/io.elementary.monitor.appdata.xml.in:123
-#: data/io.elementary.monitor.appdata.xml.in:186
+#: data/io.elementary.monitor.metainfo.xml.in:137
+#: data/io.elementary.monitor.metainfo.xml.in:200
 msgid "Update Japanese translation (Ryo Nakano)"
 msgstr "De Japanse vertaling bijwerken (Ryo Nakano)"
 
-#: data/io.elementary.monitor.appdata.xml.in:124
+#: data/io.elementary.monitor.metainfo.xml.in:138
 msgid "Disable search entry, when System tab is active"
 msgstr "De zoekfunctie uitzetten als Systeemtabblad actief is"
 
-#: data/io.elementary.monitor.appdata.xml.in:125
+#: data/io.elementary.monitor.metainfo.xml.in:139
 msgid "Add screenshots"
 msgstr "Schermafbeeldingen oevoegen"
 
-#: data/io.elementary.monitor.appdata.xml.in:132
+#: data/io.elementary.monitor.metainfo.xml.in:146
 msgid "Add System resources tab"
 msgstr "Tabblad Systeembronnen toevoegen"
 
-#: data/io.elementary.monitor.appdata.xml.in:139
+#: data/io.elementary.monitor.metainfo.xml.in:153
 msgid "Added tooltips to process state label (Ryo Nakano)"
 msgstr "Tooltips toevoegen aan processtatuslabel (Ryo Nakano)"
 
-#: data/io.elementary.monitor.appdata.xml.in:140
+#: data/io.elementary.monitor.metainfo.xml.in:154
 msgid "Small bugfix"
 msgstr "Kleine bugfix"
 
-#: data/io.elementary.monitor.appdata.xml.in:147
+#: data/io.elementary.monitor.metainfo.xml.in:161
 msgid "Fix sorting arrows"
 msgstr "Sorteerpijlen corrigeren"
 
-#: data/io.elementary.monitor.appdata.xml.in:148
-#: data/io.elementary.monitor.appdata.xml.in:184
-#: data/io.elementary.monitor.appdata.xml.in:198
+#: data/io.elementary.monitor.metainfo.xml.in:162
+#: data/io.elementary.monitor.metainfo.xml.in:198
+#: data/io.elementary.monitor.metainfo.xml.in:212
 msgid "Update Russian translation (camellan)"
 msgstr "Russische vertaling bijwerken (camellan)"
 
-#: data/io.elementary.monitor.appdata.xml.in:149
+#: data/io.elementary.monitor.metainfo.xml.in:163
 msgid "Add Turkish translation (Harun Yasar)"
 msgstr "Turkse vertaling toevoegen (Harun Yasar)"
 
-#: data/io.elementary.monitor.appdata.xml.in:150
+#: data/io.elementary.monitor.metainfo.xml.in:164
 msgid ""
 "Use newest version of live-chart (Laurent Callarec) ← Check his lib for "
 "creating charts, it's amazing!"
@@ -171,62 +173,62 @@ msgstr ""
 "Gebruik de nieuwste versie van live-chart (Laurent Callarec) ← Bekijk zijn "
 "bibliotheek voor het aanmaken van grafieken, die is geweldig!"
 
-#: data/io.elementary.monitor.appdata.xml.in:157
+#: data/io.elementary.monitor.metainfo.xml.in:171
 msgid "Detailed process info in sidebar"
 msgstr "Gedetailleerde procesinformatie in de zijbalk"
 
-#: data/io.elementary.monitor.appdata.xml.in:158
+#: data/io.elementary.monitor.metainfo.xml.in:172
 msgid "CPU frequency in tooltip (Ryo Nakano)"
 msgstr "CPU-frequentie in de tooltip (Ryo Nakano)"
 
-#: data/io.elementary.monitor.appdata.xml.in:165
+#: data/io.elementary.monitor.metainfo.xml.in:179
 msgid "Bugfix (potential) of crushes and high CPU usage"
 msgstr "Bugfix voor (mogelijke) vastlopers en hoog CPU-gebruik"
 
-#: data/io.elementary.monitor.appdata.xml.in:166
+#: data/io.elementary.monitor.metainfo.xml.in:180
 msgid "Update German translation (Carsten Dietrich)"
 msgstr "Duitse vertaling bijwerken (Carsten Dietrich)"
 
-#: data/io.elementary.monitor.appdata.xml.in:173
+#: data/io.elementary.monitor.metainfo.xml.in:187
 msgid "Update Portuguese translation (Hugo Carvalho)"
 msgstr "Portugese vertaling bijwerken (Hugo Carvalho)"
 
-#: data/io.elementary.monitor.appdata.xml.in:174
+#: data/io.elementary.monitor.metainfo.xml.in:188
 msgid "Update French translation (Nathan Bonnemains and Skeudwenn)"
 msgstr "Franse vertaling bijwerken (Nathan Bonnemains and Skeudwenn)"
 
-#: data/io.elementary.monitor.appdata.xml.in:175
+#: data/io.elementary.monitor.metainfo.xml.in:189
 msgid "Fix: Don't show swap percentage when it's not available (Ryo Nakano)"
 msgstr ""
 "Oplossing: Toon het swappercentage niet als het niet beschikbaar is (Ryo "
 "Nakano)"
 
-#: data/io.elementary.monitor.appdata.xml.in:182
+#: data/io.elementary.monitor.metainfo.xml.in:196
 msgid "Update Italian translation (Mirko Brombin)"
 msgstr "Italiaanse vertaling bijwerken (Mirko Brombin)"
 
-#: data/io.elementary.monitor.appdata.xml.in:183
+#: data/io.elementary.monitor.metainfo.xml.in:197
 msgid "Show swap usage (Ryo Nakano)"
 msgstr "Toon swapgebruik (Ryo Nakano)"
 
-#: data/io.elementary.monitor.appdata.xml.in:185
+#: data/io.elementary.monitor.metainfo.xml.in:199
 msgid "Code refactoring (Ryo Nakano)"
 msgstr "Code refactoring (Ryo Nakano)"
 
-#: data/io.elementary.monitor.appdata.xml.in:193
+#: data/io.elementary.monitor.metainfo.xml.in:207
 msgid "Fix contents of the window are not shown (Ryo Nakano)"
 msgstr ""
 "Het probleem is opgelost dat de inhoud van de vensters niet wordt "
 "weergegeven (Ryo Nakano)"
 
-#: data/io.elementary.monitor.appdata.xml.in:194
+#: data/io.elementary.monitor.metainfo.xml.in:208
 msgid ""
 "ix no row is still selected when indicator options are enabled (Ryo Nakano)"
 msgstr ""
 "Het probleem is opgelost dat er nog steeds geen rij is geselecteerd wanneer "
 "de indicatoropties zijn ingeschakeld (Ryo Nakano)"
 
-#: data/io.elementary.monitor.appdata.xml.in:195
+#: data/io.elementary.monitor.metainfo.xml.in:209
 msgid ""
 "Fix the app crashes by clicking the \"End/Kill Process\" buttons when no "
 "process is selected (Ryo Nakano)"
@@ -234,90 +236,90 @@ msgstr ""
 "Het probleem is opgelost dat de app vastloopt bij het aanklikken van de "
 "\"End/Kill Process\"-knoppen als geen proces is geselecteerd (Ryo Nakano)"
 
-#: data/io.elementary.monitor.appdata.xml.in:196
+#: data/io.elementary.monitor.metainfo.xml.in:210
 msgid "Added buttons to either \"kill\" or \"end\" a process. (Evan Buss)"
 msgstr ""
 "Knoppen zijn toegevoegd voor hetzij \"beëindigen\" of \"stoppen\" van een "
 "process. (Evan Buss)"
 
-#: data/io.elementary.monitor.appdata.xml.in:197
+#: data/io.elementary.monitor.metainfo.xml.in:211
 msgid "Change screenshot to English (Christopher Crouse)"
 msgstr "De schermafbeelding wijzigen naar Engels (Christopher Crouse)"
 
-#: data/io.elementary.monitor.appdata.xml.in:199
+#: data/io.elementary.monitor.metainfo.xml.in:213
 msgid "Check if the default display is a X11 display (Hannes Schulze)"
 msgstr ""
 "Controleer of het standaardbeeldscherm een X11 beeldscherm is (Hannes "
 "Schulze)"
 
-#: data/io.elementary.monitor.appdata.xml.in:200
+#: data/io.elementary.monitor.metainfo.xml.in:214
 msgid "Update Spanish translation (Mario Rodrigo)"
 msgstr "Spaanse vertaling bijwerken (Mario Rodrigo)"
 
-#: data/io.elementary.monitor.appdata.xml.in:207
+#: data/io.elementary.monitor.metainfo.xml.in:221
 msgid "Add start-in-background option to UI"
 msgstr "'Start op de achtergrond'-optie toevoegen aan de gebruikersinterface"
 
-#: data/io.elementary.monitor.appdata.xml.in:214
+#: data/io.elementary.monitor.metainfo.xml.in:228
 msgid "Add start-in-background command line option"
 msgstr "'Start op de achtergrond' opdrachtregeloptie toevoegen"
 
-#: data/io.elementary.monitor.appdata.xml.in:215
+#: data/io.elementary.monitor.metainfo.xml.in:229
 msgid "Add Italian and Portuguese translations"
 msgstr "Italiaanse en Portugese vertalingen toevoegen"
 
-#: data/io.elementary.monitor.appdata.xml.in:216
+#: data/io.elementary.monitor.metainfo.xml.in:230
 msgid "Update Dutch, French and Spanish translations"
 msgstr "Nederlands, Franse en Spaanse vertalingen bijwerken"
 
-#: data/io.elementary.monitor.appdata.xml.in:217
+#: data/io.elementary.monitor.metainfo.xml.in:231
 msgid "Fix Japanese translation"
 msgstr "Herstel Japanse vertaling"
 
-#: data/io.elementary.monitor.appdata.xml.in:224
+#: data/io.elementary.monitor.metainfo.xml.in:238
 msgid "Minor bug fix"
 msgstr "Minieme bugfix"
 
-#: data/io.elementary.monitor.appdata.xml.in:225
+#: data/io.elementary.monitor.metainfo.xml.in:239
 msgid "Make End process button red"
 msgstr "Maak de knop 'Proces beëindigen' rood"
 
-#: data/io.elementary.monitor.appdata.xml.in:226
+#: data/io.elementary.monitor.metainfo.xml.in:240
 msgid "Add Japanese translation"
 msgstr "Japanse vertaling toevoegen"
 
-#: data/io.elementary.monitor.appdata.xml.in:233
+#: data/io.elementary.monitor.metainfo.xml.in:247
 msgid "Add CPU and RAM icons"
 msgstr "CPU- en RAM-pictogrammen toevoegen"
 
-#: data/io.elementary.monitor.appdata.xml.in:234
+#: data/io.elementary.monitor.metainfo.xml.in:248
 msgid "Fix bug, that caused hanging"
 msgstr "Bug verhelpen die vastlopen veroorzaakt"
 
-#: data/io.elementary.monitor.appdata.xml.in:235
+#: data/io.elementary.monitor.metainfo.xml.in:249
 msgid "Update Polish and Russian translation"
 msgstr "Poolse en Russische vertaling bijwerken"
 
-#: data/io.elementary.monitor.appdata.xml.in:242
+#: data/io.elementary.monitor.metainfo.xml.in:256
 msgid "Add Monitor indicator"
 msgstr "Monitorindicator toevoegen"
 
-#: data/io.elementary.monitor.appdata.xml.in:243
+#: data/io.elementary.monitor.metainfo.xml.in:257
 msgid "Add missing extra French translations"
 msgstr "Ontbrekende extra Franse vertalingen toevoegen"
 
-#: data/io.elementary.monitor.appdata.xml.in:244
+#: data/io.elementary.monitor.metainfo.xml.in:258
 msgid ""
 "Fix: if icon missing for the process, icon is taken from previous process"
 msgstr ""
 "Oplossing: als icoon ontbreekt voor het proces, wordt icoon van het vorige "
 "proces gebruikt"
 
-#: data/io.elementary.monitor.appdata.xml.in:245
+#: data/io.elementary.monitor.metainfo.xml.in:259
 msgid "Fix: search erases my input while I'm typing"
 msgstr "Oplossing: zoeken verwijdert mijn invoer als ik aan het typen ben"
 
-#: data/io.elementary.monitor.appdata.xml.in:246
+#: data/io.elementary.monitor.metainfo.xml.in:260
 msgid "Fix POTFILES"
 msgstr "Oplossing POTBESTANDEN"
 

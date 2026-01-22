@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-16 22:43+0000\n"
+"POT-Creation-Date: 2026-01-18 13:52+0000\n"
 "PO-Revision-Date: 2024-10-09 20:00+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Occitan <https://l10n.elementary.io/projects/desktop/monitor/"
@@ -47,6 +47,12 @@ msgstr ""
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:79
 msgid "N/A"
+msgstr ""
+
+#: src/Indicator/Widgets/IndicatorWidgetFrequency.vala:14
+#: src/Views/SystemView/SystemCPUView.vala:129
+#: src/Widgets/Statusbar/Statusbar.vala:70
+msgid "GHz"
 msgstr ""
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
@@ -244,11 +250,6 @@ msgstr ""
 #: src/Views/SystemView/SystemCPUView.vala:83
 #: src/Views/SystemView/SystemGPUView.vala:92
 msgid "℃"
-msgstr ""
-
-#: src/Views/SystemView/SystemCPUView.vala:129
-#: src/Widgets/Statusbar/Statusbar.vala:70
-msgid "GHz"
 msgstr ""
 
 #: src/Views/SystemView/SystemCPUView.vala:160

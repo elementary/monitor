@@ -3,6 +3,10 @@ source_indicator_files = [
     'Services/DBusClient.vala',
     'Widgets/DisplayWidget.vala',
     'Widgets/IndicatorWidget.vala',
+    'Widgets/IndicatorWidgetPercentage.vala',
+    'Widgets/IndicatorWidgetTemperature.vala',
+    'Widgets/IndicatorWidgetFrequency.vala',
+    'Widgets/IndicatorWidgetBandwidth.vala',
     'Widgets/PopoverWidget.vala',
 
     meson.project_source_root() / 'src' / 'Resources/ResourcesSerialized.vala',
