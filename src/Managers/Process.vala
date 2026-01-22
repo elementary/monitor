@@ -70,7 +70,7 @@ public class Monitor.Process : GLib.Object {
 
     public double gpu_percentage { get; private set; }
 
-    private uint64 last_total; // Obsolete?
+    private uint64 last_total; // @TODO: Obsolete?
 
     const int HISTORY_BUFFER_SIZE = 30;
     public Gee.ArrayList<double ?> cpu_percentage_history = new Gee.ArrayList<double ?> ();
