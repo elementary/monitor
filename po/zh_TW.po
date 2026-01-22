@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-16 22:43+0000\n"
+"POT-Creation-Date: 2026-01-18 13:52+0000\n"
 "PO-Revision-Date: 2025-11-30 07:55+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
@@ -48,6 +48,12 @@ msgstr "搜尋程序名稱或 PID"
 #: src/Widgets/Statusbar/Statusbar.vala:79
 msgid "N/A"
 msgstr "N/A"
+
+#: src/Indicator/Widgets/IndicatorWidgetFrequency.vala:14
+#: src/Views/SystemView/SystemCPUView.vala:129
+#: src/Widgets/Statusbar/Statusbar.vala:70
+msgid "GHz"
+msgstr "GHz"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
@@ -245,11 +251,6 @@ msgstr "溫度"
 #: src/Views/SystemView/SystemGPUView.vala:92
 msgid "℃"
 msgstr "℃"
-
-#: src/Views/SystemView/SystemCPUView.vala:129
-#: src/Widgets/Statusbar/Statusbar.vala:70
-msgid "GHz"
-msgstr "GHz"
 
 #: src/Views/SystemView/SystemCPUView.vala:160
 msgid "THREADS"

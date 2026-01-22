@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-16 22:43+0000\n"
+"POT-Creation-Date: 2026-01-18 13:52+0000\n"
 "PO-Revision-Date: 2025-11-11 13:55+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementaryos.org/projects/desktop/"
@@ -49,6 +49,12 @@ msgstr "Pesquisar nome do processo ou PID"
 #: src/Widgets/Statusbar/Statusbar.vala:79
 msgid "N/A"
 msgstr "N/A"
+
+#: src/Indicator/Widgets/IndicatorWidgetFrequency.vala:14
+#: src/Views/SystemView/SystemCPUView.vala:129
+#: src/Widgets/Statusbar/Statusbar.vala:70
+msgid "GHz"
+msgstr "GHz"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
@@ -249,11 +255,6 @@ msgstr "Temperatura"
 #: src/Views/SystemView/SystemGPUView.vala:92
 msgid "℃"
 msgstr "℃"
-
-#: src/Views/SystemView/SystemCPUView.vala:129
-#: src/Widgets/Statusbar/Statusbar.vala:70
-msgid "GHz"
-msgstr "GHz"
 
 #: src/Views/SystemView/SystemCPUView.vala:160
 msgid "THREADS"

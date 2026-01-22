@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-16 22:43+0000\n"
+"POT-Creation-Date: 2026-01-18 13:52+0000\n"
 "PO-Revision-Date: 2025-11-23 11:55+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementaryos.org/projects/desktop/"
@@ -44,6 +44,12 @@ msgstr "Введите имя процесса или PID"
 #: src/Widgets/Statusbar/Statusbar.vala:79
 msgid "N/A"
 msgstr "Н/Д"
+
+#: src/Indicator/Widgets/IndicatorWidgetFrequency.vala:14
+#: src/Views/SystemView/SystemCPUView.vala:129
+#: src/Widgets/Statusbar/Statusbar.vala:70
+msgid "GHz"
+msgstr "ГГц"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
@@ -241,11 +247,6 @@ msgstr "Температура"
 #: src/Views/SystemView/SystemGPUView.vala:92
 msgid "℃"
 msgstr "℃"
-
-#: src/Views/SystemView/SystemCPUView.vala:129
-#: src/Widgets/Statusbar/Statusbar.vala:70
-msgid "GHz"
-msgstr "ГГц"
 
 #: src/Views/SystemView/SystemCPUView.vala:160
 msgid "THREADS"
