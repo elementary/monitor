@@ -58,7 +58,7 @@ sudo apt install build-essential cmake sassc valac libgtk-4-dev libgee-0.8-dev l
 
 2. To build with the wingpanel indicator:
    ```bash
-   meson setup -Dindicator-wingpanel=enabled build --prefix=/usr
+   meson setup build --prefix=/usr -Dindicator-wingpanel=enabled
    ```
    Alternatively, to build without the wingpanel indicator:
    ```bash
