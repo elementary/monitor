@@ -1,12 +1,19 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-FileCopyrightText: 2026 elementary, Inc. (https://elementary.io)
  */
 
 public class Monitor.CPU : Object {
     private float last_used;
     private float last_total;
     private float load;
+
+    // ARM specific fields
+    public uint ? implementer;
+    public uint ? architecture;
+    public uint ? variant;
+    public uint ? part;
+    public uint ? revision;
 
     public string ? model_name;
     public string ? model;
@@ -68,9 +75,11 @@ public class Monitor.CPU : Object {
         last_used = 0;
         last_total = 0;
 
+        parse_cpuinfo ();
+
         model_name = get_cpu_info ();
 
-        parse_cpuinfo ();
+        debug ("CPU name: %s", model_name);
 
         debug ("Number of cores: %d", (int) get_num_processors ());
         for (int i = 0; i < (int) get_num_processors (); i++) {
@@ -192,14 +201,21 @@ public class Monitor.CPU : Object {
         family = values["cpu family"];
         microcode = values["microcode"];
         cache_size = values["cache size"];
-        parse_flags (values["flags"], features, DBDIR + "/cpu_features.csv");
-        bogomips = values["bogomips"];
-        parse_flags (values["bugs"], bugs, DBDIR + "/cpu_bugs.csv");
+        parse_flags (values["flags"] ?? values["Features"], features, DBDIR + "/cpu_features.csv");
+        bogomips = values["bogomips"] ?? values["BogoMIPS"];
+        parse_flags (values["bugs"] ?? "", bugs, DBDIR + "/cpu_bugs.csv");
         address_sizes = values["address sizes"];
 
-        // values.foreach ((key, value) => {
-        // debug("%s: %s\n", key, value);
-        // });
+        // long.parse supports 0x format hex strings
+        implementer = (int)long.parse (values["CPU implementer"]);
+        architecture = (int)long.parse (values["CPU architecture"]);
+        variant = (int)long.parse (values["CPU variant"]);
+        part = (int)long.parse (values["CPU part"]);
+        revision = (int)long.parse (values["CPU revision"]);
+
+        values.foreach ((key, value) => {
+        debug("%s: %s\n", key, value);
+        });
     }
 
     private void parse_flags (string _flags, Gee.HashMap<string, string> flags, string path) {
@@ -261,6 +277,14 @@ public class Monitor.CPU : Object {
 
                 if (model != null) {
                     break;
+                }
+            }
+
+            if (model == null) {
+                debug ("Try ARM decoding for CPU %d", i);
+                model = ARMPartDecoder.decode_arm_model (implementer, part);
+                if (model == null) {
+                    continue;
                 }
             }
 
