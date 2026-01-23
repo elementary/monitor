@@ -213,9 +213,9 @@ public class Monitor.CPU : Object {
         part = (int)long.parse (values["CPU part"]);
         revision = (int)long.parse (values["CPU revision"]);
 
-        values.foreach ((key, value) => {
-        debug("%s: %s\n", key, value);
-        });
+        //  values.foreach ((key, value) => {
+        //  debug("%s: %s\n", key, value);
+        //  });
     }
 
     private void parse_flags (string _flags, Gee.HashMap<string, string> flags, string path) {
