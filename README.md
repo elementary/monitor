@@ -68,7 +68,7 @@ sudo apt install build-essential cmake sassc valac libgtk-4-dev libgee-0.8-dev l
 3. Install:
    ```bash
    cd build
-   sudo ninja install 
+   sudo ninja install
    ```
 
 ### Debug logging
