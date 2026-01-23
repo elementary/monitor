@@ -44,7 +44,7 @@ sudo apt install sassc valac libgtk-3-dev libgtk-4-dev libgee-0.8-dev libgranite
 Alternatively, if you plan to install WITHOUT a wingpanel-indicator
 
 ```bash
-sudo apt install build-essential cmake sassc valac libgtk-4-dev libgee-0.8-dev libgranite-7-dev libgtop2-dev libadwaita-1-dev libudisks2-dev libjson-glib-dev libflatpak-dev libxnvctrl0 libxnvctrl-dev liblivechart-2-dev libpci-dev meson xvfb
+sudo apt install sassc valac libgtk-4-dev libgee-0.8-dev libgranite-7-dev libgtop2-dev libadwaita-1-dev libudisks2-dev libjson-glib-dev libflatpak-dev libxnvctrl-dev liblivechart-2-dev libpci-dev meson
 ```
 
 
