@@ -14,7 +14,13 @@ vapidir = meson.current_source_dir() / 'vapi/'
 
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()), language: 'c')
 
-add_project_arguments(['--vapidir', vapidir], language: 'vala')
+vala_flags = ['--vapidir', vapidir]
+
+if get_option('nvidia').enabled()
+    vala_flags += ['--define', 'NVIDIA_SUPPORT']
+endif
+
+add_project_arguments(vala_flags, language: 'vala')
 
 # subprojects should be skipped: https://mesonbuild.com/Release-notes-for-0-58-0.html#skip-subprojects-installation
 # needs meson 0.58.0
@@ -48,8 +54,10 @@ app_dependencies = [
     meson.get_compiler('c').find_library('pci'),
     meson.get_compiler('vala').find_library('pci', dirs: vapidir),
 
-    meson.get_compiler('c').find_library('XNVCtrl'),
-    meson.get_compiler('vala').find_library('libxnvctrl', dirs: vapidir),
+    # Allow building without nvidia libraries because they're not packaged or does not run
+    # on some distros due to incompatibility with muslc. Also they're not needed on ARM architecture
+    meson.get_compiler('c').find_library('XNVCtrl', required: get_option('nvidia').enabled()),
+    meson.get_compiler('vala').find_library('libxnvctrl', dirs: vapidir, required: get_option('nvidia').enabled()),
 ]
 
 config_data = configuration_data()

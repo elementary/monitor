@@ -64,6 +64,7 @@ public class Monitor.GPUNvidia : IGPU, Object {
     }
 
     private void update_nv_resources () {
+#if NVIDIA_SUPPORT
         nvidia_resources_temperature = NVCtrl.XNVCTRLQueryAttribute (
             nvidia_display,
             0,
@@ -119,6 +120,7 @@ public class Monitor.GPUNvidia : IGPU, Object {
         nvidia_fb_percentage = int.parse (((string) nvidia_used).split_set ("=,")[3]);
         debug ("USED_GRAPHICS: %d%\n", nvidia_percentage);
         debug ("USED_FB_MEMORY: %d%\n", nvidia_fb_percentage);
+#endif
 
         if (!nvidia_resources_used) {
             warning ("Could not query NV_CTRL_STRING_GPU_UTILIZATION attribute!\n");

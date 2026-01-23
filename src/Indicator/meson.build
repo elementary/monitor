@@ -14,9 +14,11 @@ source_indicator_files = [
 ]
 
 wingpanel_dep = dependency('wingpanel', version: '>=2.1.0')
+gtk_dep = dependency('gtk+-3.0')
 
 indicator_dependencies = [
-    wingpanel_dep
+    wingpanel_dep,
+    gtk_dep
 ]
 
 shared_module(
