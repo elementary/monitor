@@ -97,6 +97,7 @@ public class Monitor.ProcessDRM {
     }
 
     private static double calculate_percentage (uint64 engine, uint64 last_engine, int interval) {
+        // Since values in the files are in nanoseconds, it is also needed to convert interval to nanoseconds (10^9)
         return 100 * ((double) (engine - last_engine)) / (interval * 1e9);
     }
 
