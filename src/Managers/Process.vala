@@ -25,6 +25,7 @@ public class Monitor.Process : GLib.Object {
 
     public string username = Utils.NO_DATA;
 
+
     Icon _icon;
     public Icon icon {
         get {
@@ -41,6 +42,9 @@ public class Monitor.Process : GLib.Object {
 
     // Contains info about io
     public ProcessIO io;
+
+    // Contains info about GPU usage
+    private ProcessDRM drm;
 
     // Contains status info
     public ProcessStatus stat;
@@ -61,25 +65,28 @@ public class Monitor.Process : GLib.Object {
     private uint64 cpu_last_used;
 
     // Memory usage of the process, measured in KiB.
-
     public uint64 mem_usage { get; private set; }
     public double mem_percentage { get; private set; }
 
-    private uint64 last_total;
+    public double gpu_percentage { get; private set; }
+
+    private uint64 last_total; // @TODO: Obsolete?
 
     const int HISTORY_BUFFER_SIZE = 30;
-    public Gee.ArrayList<double ? > cpu_percentage_history = new Gee.ArrayList<double ? > ();
-    public Gee.ArrayList<double ? > mem_percentage_history = new Gee.ArrayList<double ? > ();
+    public Gee.ArrayList<double ?> cpu_percentage_history = new Gee.ArrayList<double ?> ();
+    public Gee.ArrayList<double ?> mem_percentage_history = new Gee.ArrayList<double ?> ();
 
 
 
     // Construct a new process
-    public Process (int _pid) {
+    public Process (int _pid, int update_interval) {
         _icon = ProcessUtils.get_default_icon ();
 
         open_files_paths = new Gee.HashSet<string> ();
 
         last_total = 0;
+
+        drm = new ProcessDRM (_pid, update_interval);
 
         io = {};
         stat = {};
@@ -101,8 +108,9 @@ public class Monitor.Process : GLib.Object {
         exists = parse_stat () && read_cmdline ();
         get_children_pids ();
         get_usage (0, 1);
-    }
 
+        gpu_percentage = 0;
+    }
 
     // Updates the process to get latest information
     // Returns if the update was successful
@@ -110,6 +118,8 @@ public class Monitor.Process : GLib.Object {
         exists = parse_stat ();
         if (exists) {
             get_usage (cpu_total, cpu_last_total);
+            drm.update ();
+            gpu_percentage = drm.gpu_percentage;
             parse_io ();
             parse_statm ();
             get_open_files ();
@@ -280,8 +290,8 @@ public class Monitor.Process : GLib.Object {
     }
 
     /**
-     * Reads the /proc/%pid%/cmdline file and updates from the information contained therein.
-     */
+    * Reads the /proc/%pid%/cmdline file and updates from the information contained therein.
+    */
     private bool read_cmdline () {
         string ? cmdline = ProcessUtils.read_file ("/proc/%d/cmdline".printf (stat.pid));
 
@@ -301,6 +311,7 @@ public class Monitor.Process : GLib.Object {
         return true;
     }
 
+    // @TODO: Divide into get_usage_cpu and get_usage_mem and write some tests
     private void get_usage (uint64 cpu_total, uint64 cpu_last_total) {
         // Get CPU usage by process
         GTop.ProcTime proc_time;
