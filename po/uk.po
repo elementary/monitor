@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-18 13:52+0000\n"
-"PO-Revision-Date: 2025-12-19 00:55+0000\n"
+"PO-Revision-Date: 2026-01-31 23:55+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/uk/>\n"
@@ -334,16 +334,12 @@ msgid "Shared"
 msgstr "Спільне"
 
 #: src/Views/SystemView/SystemMemoryView.vala:17
-#, fuzzy
-#| msgid "Total"
 msgid "Swap Total"
-msgstr "Усього"
+msgstr "Усього Swap"
 
 #: src/Views/SystemView/SystemMemoryView.vala:18
-#, fuzzy
-#| msgid "Used"
 msgid "Swap Used"
-msgstr "Використано"
+msgstr "Використано Swap"
 
 #: src/Views/SystemView/SystemNetworkView.vala:26
 msgid "Network"
