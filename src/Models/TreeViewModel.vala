@@ -8,8 +8,9 @@ public enum Monitor.Column {
     NAME,
     CPU,
     MEMORY,
+    GPU,
     PID,
-    CMD
+    CMD,
 }
 
 public class Monitor.TreeViewModel : Gtk.TreeStore {
@@ -25,6 +26,7 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
             typeof (string),
             typeof (double),
             typeof (int64),
+            typeof (double),
             typeof (int),
             typeof (string),
         });
@@ -79,6 +81,7 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
             set (iter,
                  Column.CPU, process.cpu_percentage,
                  Column.MEMORY, process.mem_usage,
+                 Column.GPU, process.gpu_percentage,
                  -1);
         }
     }

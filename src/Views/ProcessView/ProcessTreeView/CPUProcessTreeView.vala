@@ -9,6 +9,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
     private Gtk.TreeViewColumn pid_column;
     private Gtk.TreeViewColumn cpu_column;
     private Gtk.TreeViewColumn memory_column;
+    private Gtk.TreeViewColumn gpu_column;
 
     public signal void process_selected (Process process);
 
@@ -57,6 +58,17 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
         memory_column.alignment = 0.5f;
         memory_column.set_sort_column_id (Column.MEMORY);
         insert_column (memory_column, -1);
+
+        // setup gpu column
+        var gpu_cell = new Gtk.CellRendererText ();
+        gpu_cell.xalign = 0.5f;
+
+        gpu_column = new Gtk.TreeViewColumn.with_attributes (_("GPU"), gpu_cell);
+        gpu_column.expand = false;
+        gpu_column.set_cell_data_func (gpu_cell, gpu_usage_cell_layout);
+        gpu_column.alignment = 0.5f;
+        gpu_column.set_sort_column_id (Column.GPU);
+        insert_column (gpu_column, -1);
 
         // setup PID column
         var pid_cell = new Gtk.CellRendererText ();
@@ -140,6 +152,20 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
             ((Gtk.CellRendererText)cell).text = Utils.NO_DATA;
         else
             ((Gtk.CellRendererText)cell).text = "%.1f %s".printf (memory_usage_double, units);
+    }
+
+    public void gpu_usage_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
+        // grab the value that was store in the model and convert it down to a usable format
+        Value gpu_usage_value;
+        model.get_value (iter, Column.GPU, out gpu_usage_value);
+        double gpu_usage = gpu_usage_value.get_double ();
+
+        // format the double into a string
+        if (gpu_usage < 0.0) {
+            ((Gtk.CellRendererText)cell).text = Utils.NO_DATA;
+        } else {
+            ((Gtk.CellRendererText)cell).text = "%.0f%%".printf (gpu_usage);
+        }
     }
 
     private void pid_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
