@@ -12,7 +12,7 @@ public enum Monitor.Column {
     CMD
 }
 
-public class Monitor.TreeViewModel : Gtk.TreeStore {
+public class Monitor.TreeViewModel : GLib.ListModel, GLib.Object {
     public ProcessManager process_manager;
     private Gee.Map<int, Gtk.TreeIter ? > process_rows;
     public signal void added_first_row ();
@@ -20,14 +20,14 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
     construct {
         process_rows = new Gee.HashMap<int, Gtk.TreeIter ? > ();
 
-        set_column_types (new Type[] {
-            typeof (string),
-            typeof (string),
-            typeof (double),
-            typeof (int64),
-            typeof (int),
-            typeof (string),
-        });
+        //  set_column_types (new Type[] {
+        //      typeof (string),
+        //      typeof (string),
+        //      typeof (double),
+        //      typeof (int64),
+        //      typeof (int),
+        //      typeof (string),
+        //  });
 
         process_manager = ProcessManager.get_default ();
         process_manager.process_added.connect ((process) => add_process (process));
@@ -49,24 +49,24 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
         if (process != null && !process_rows.has_key (process.stat.pid)) {
             debug ("Add process %d Parent PID: %d", process.stat.pid, process.stat.ppid);
             // add the process to the model
-            Gtk.TreeIter iter;
-            append (out iter, null); // null means top-level
+            //  Gtk.TreeIter iter;
+            //  append (out iter, null); // null means top-level
 
             // donno what is going on, but maybe just use a string instead of Icon ??
             // coz it lagz
             // string icon_name = process.icon.to_string ();
 
-            set (iter,
-                 Column.NAME, process.application_name,
-                 Column.ICON, process.icon.to_string (),
-                 Column.PID, process.stat.pid,
-                 Column.CMD, process.command,
-                 -1);
+            //  set (iter,
+            //       Column.NAME, process.application_name,
+            //       Column.ICON, process.icon.to_string (),
+            //       Column.PID, process.stat.pid,
+            //       Column.CMD, process.command,
+            //       -1);
             if (process_rows.size < 1) {
                 added_first_row ();
             }
             // add the process to our cache of process_rows
-            process_rows.set (process.stat.pid, iter);
+            //  process_rows.set (process.stat.pid, iter);
             return true;
         }
         return false;
@@ -75,11 +75,11 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
     private void update_model () {
         foreach (int pid in process_rows.keys) {
             Process process = process_manager.get_process (pid);
-            Gtk.TreeIter iter = process_rows[pid];
-            set (iter,
-                 Column.CPU, process.cpu_percentage,
-                 Column.MEMORY, process.mem_usage,
-                 -1);
+            //  Gtk.TreeIter iter = process_rows[pid];
+            //  set (iter,
+            //       Column.CPU, process.cpu_percentage,
+            //       Column.MEMORY, process.mem_usage,
+            //       -1);
         }
     }
 
@@ -87,8 +87,8 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
         debug ("remove process %d from model".printf (pid));
         // if process rows has pid
         if (process_rows.has_key (pid)) {
-            var cached_iter = process_rows.get (pid);
-            remove (ref cached_iter);
+            //  var cached_iter = process_rows.get (pid);
+            //  remove (ref cached_iter);
             process_rows.unset (pid);
         }
     }
@@ -107,6 +107,18 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
             process.end ();
             info ("End:%d", process.stat.pid);
         }
+    }
+
+    public uint get_n_items() {
+        return process_manager.get_process_list ().size;
+    }
+
+    public GLib.Type get_item_type() {
+        return typeof (Process);
+    }
+
+    public GLib.Object? get_item (uint position) {
+        return null;
     }
 
 }
