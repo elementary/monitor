@@ -6,8 +6,7 @@
 public class Monitor.ProcessView : Granite.Bin {
     public string needle = "";
 
-    public CPUProcessTreeView process_tree_view { get; private set; }
-
+    public ProcessTreeView process_tree_view { get; private set; }
     private ProcessInfoView process_info_view;
     private TreeViewModel treeview_model;
 
@@ -17,14 +16,13 @@ public class Monitor.ProcessView : Granite.Bin {
     construct {
         treeview_model = new TreeViewModel ();
 
-        var filter_model = new Gtk.TreeModelFilter (treeview_model, null);
-        filter_model.set_visible_func (filter_func);
+        //  var filter_model = new Gtk.FilterListModel (treeview_model, filter_func);
 
-        var sort_model = new Gtk.TreeModelSort.with_model (filter_model);
+        //  var sort_model = new Gtk.TreeModelSort.with_model (filter_model); //SortListModel (filter_model);
 
-        process_tree_view = new CPUProcessTreeView (treeview_model);
-        process_tree_view.process_selected.connect ((process) => on_process_selected (process));
-        process_tree_view.set_model (sort_model);
+        process_tree_view = new ProcessTreeView (treeview_model);
+        //  process_tree_view.process_selected.connect ((process) => on_process_selected (process));
+        //  process_tree_view.set_model (sort_model);
 
         var process_tree_view_scrolled = new Gtk.ScrolledWindow () {
             child = process_tree_view
@@ -50,7 +48,7 @@ public class Monitor.ProcessView : Granite.Bin {
 
         child = paned;
 
-        notify["needle"].connect (filter_model.refilter);
+        //  notify["needle"].connect (filter_model.refilter);
 
         kill_action = new SimpleAction ("kill", null);
         kill_action.activate.connect (action_kill);
@@ -178,7 +176,7 @@ public class Monitor.ProcessView : Granite.Bin {
         }
 
         if (child_found && needle.length > 0) {
-            process_tree_view.expand_all ();
+            //  process_tree_view.expand_all ();
         }
 
         return found || child_found;
