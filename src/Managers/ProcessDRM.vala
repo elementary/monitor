@@ -44,6 +44,11 @@ public class Monitor.ProcessDRM {
                 string path = Path.build_filename (path_fdinfo, name);
 
                 int fd_dir_fd = Posix.open (path_fd, Posix.O_RDONLY | Posix.O_DIRECTORY);
+                if (fd_dir_fd == -1) {
+                    warning ("Cannot open file descriptor: %s", path_fd);
+                    continue;
+                }
+
                 bool is_drm = is_drm_fd (fd_dir_fd, name);
                 Posix.close (fd_dir_fd);
 
