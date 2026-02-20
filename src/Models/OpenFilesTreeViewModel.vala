@@ -3,50 +3,11 @@
  * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
  */
 
-public class Monitor.OpenFilesTreeViewModel : Gtk.TreeStore {
-    private Gee.Map<string, Gtk.TreeIter ?> open_files_paths = new Gee.HashMap<string, Gtk.TreeIter ?> ();
+public class Monitor.OpenFile : GLib.Object {
+    public string path { get; set; }
 
-    private Process _process;
-
-    public Process ? process {
-        get {
-            return _process;
-        }
-        set {
-            _process = value;
-
-            // repopulating
-            open_files_paths.clear ();
-            clear ();
-            add_paths ();
-        }
-    }
-
-    construct {
-        set_column_types (new Type[] {
-            typeof (string),
-            typeof (string),
-        });
-
-    }
-
-    public void add_paths () {
-        foreach (var path in process.open_files_paths) {
-            add_path (path);
-        }
-    }
-
-    private bool add_path (string path) {
-        if (path.substring (0, 1) == "/") {
-            Gtk.TreeIter iter;
-            append (out iter, null);
-
-            set (iter, Column.NAME, path, -1);
-
-            //  open_files_paths.set (path, iter);
-            return true;
-        }
-        return false;
+    public OpenFile (string path) {
+        Object (path: path);
     }
 
 }

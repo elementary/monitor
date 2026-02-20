@@ -3,53 +3,51 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-public class Monitor.OpenFilesTreeView : Gtk.TreeView {
-    public new OpenFilesTreeViewModel model;
-    private Gtk.TreeViewColumn path_column;
+public class Monitor.OpenFilesTreeView : Granite.Bin {
+    private GLib.ListStore model;
 
     public signal void process_selected (Process process);
 
     public OpenFilesTreeView () {
-        this.model = new OpenFilesTreeViewModel ();
+        model = new GLib.ListStore (typeof (Monitor.OpenFile));
+        var selection_model = new Gtk.NoSelection (model);
 
-        show_expanders = false;
+        var path_column_factory = new Gtk.SignalListItemFactory ();
+        path_column_factory.setup.connect (on_path_column_setup);
+        path_column_factory.bind.connect (on_path_column_bind);
 
-        // setup name column
-        path_column = new Gtk.TreeViewColumn ();
-        path_column.title = _("Opened files");
-        path_column.expand = true;
-        path_column.min_width = 250;
-        path_column.set_sort_column_id (Column.NAME);
+        var path_column = new Gtk.ColumnViewColumn (_("Opened files"), path_column_factory) {
+            expand = true,
+        };
 
-        var icon_cell = new Gtk.CellRendererPixbuf ();
-        path_column.pack_start (icon_cell, false);
-        // path_column.add_attribute (icon_cell, "icon_name", Column.ICON);
-        path_column.set_cell_data_func (icon_cell, icon_cell_layout);
+        var column_view = new Gtk.ColumnView (selection_model);
+        column_view.append_column (path_column);
 
-        var name_cell = new Gtk.CellRendererText ();
-        name_cell.ellipsize = Pango.EllipsizeMode.END;
-        name_cell.set_fixed_height_from_font (1);
-        path_column.pack_start (name_cell, false);
-        path_column.add_attribute (name_cell, "text", Column.NAME);
-        insert_column (path_column, -1);
-
-        // resize all of the columns
-        columns_autosize ();
-
-        set_model (model);
-
-        hadjustment = null;
-        vadjustment = null;
         vexpand = true;
 
+        child = new Gtk.ScrolledWindow () {
+            child = column_view,
+            max_content_height = 250, 
+        };
     }
 
-    public void icon_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer icon_cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
-        try {
-            var icon = Icon.new_for_string ("emblem-documents-symbolic");
-            ((Gtk.CellRendererPixbuf)icon_cell).icon_name = icon.to_string ();
-        } catch (Error e) {
-            warning (e.message);
+    private void on_path_column_setup (Gtk.SignalListItemFactory factory, GLib.Object list_item_obj) {
+        var label = new Gtk.Label ("");
+        label.halign = Gtk.Align.START;
+        ((Gtk.ListItem) list_item_obj).child = label;
+    }
+
+    private void on_path_column_bind (Gtk.SignalListItemFactory factory, GLib.Object list_item_obj) {
+        var list_item = (Gtk.ListItem) list_item_obj;
+        var item_data = (OpenFile) list_item.item;
+        var label = (Gtk.Label) list_item.child;
+        label.label = item_data.path;
+    }
+
+    public void update (Process process) {
+        model.remove_all ();
+        foreach (var path in process.open_files_paths) {
+            model.append (new OpenFile (path));
         }
     }
 

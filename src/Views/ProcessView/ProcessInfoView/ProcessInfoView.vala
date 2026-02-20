@@ -5,7 +5,7 @@
 
 public class Monitor.ProcessInfoView : Gtk.Box {
     private Process _process;
-    public Process? process {
+    public Process ? process {
         get {
             return _process;
         }
@@ -37,7 +37,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
                 permission_error_infobar.revealed = false;
 
-                process_info_io_stats.open_files_tree_view.model.process = _process;
+                process_info_io_stats.update (_process);
                 process_info_io_stats.open_files_tree_view.visible = true;
             }
         }
@@ -125,10 +125,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             process_info_header.update (process);
             process_info_cpu_ram.update (process);
             process_info_io_stats.update (process);
-
-            process_info_io_stats.open_files_tree_view.model.process = _process;
-
-            process_info_io_stats.open_files_tree_view.visible = true;
         }
     }
+
 }
