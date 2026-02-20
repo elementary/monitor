@@ -12,13 +12,22 @@ public enum Monitor.Column {
     CMD
 }
 
-public class Monitor.TreeViewModel : GLib.ListModel, GLib.Object {
+public class Monitor.ProcessRow : GLib.Object {
+    public string icon { get; set; }
+    public string name { get; set; }
+    public double cpu { get; set; }
+    public uint64 memory { get; set; }
+    public int pid { get; set; }
+    public string cmd { get; set; }
+}
+
+public class Monitor.TreeViewModel : GLib.ListStore {
     public ProcessManager process_manager;
-    private Gee.Map<int, Gtk.TreeIter ? > process_rows;
+    private Gee.Map<int, ProcessRow ? > process_rows;
     public signal void added_first_row ();
 
     construct {
-        process_rows = new Gee.HashMap<int, Gtk.TreeIter ? > ();
+        process_rows = new Gee.HashMap<int, ProcessRow ? > ();
 
         //  set_column_types (new Type[] {
         //      typeof (string),
@@ -51,6 +60,15 @@ public class Monitor.TreeViewModel : GLib.ListModel, GLib.Object {
             // add the process to the model
             //  Gtk.TreeIter iter;
             //  append (out iter, null); // null means top-level
+            var row = new ProcessRow ();
+            row.icon = process.icon.to_string ();
+            row.name = process.application_name;
+            row.cpu = process.cpu_percentage;
+            row.memory = process.mem_usage;
+            row.pid = process.stat.pid;
+            row.cmd = process.command;
+
+            append (row);
 
             // donno what is going on, but maybe just use a string instead of Icon ??
             // coz it lagz
@@ -66,7 +84,7 @@ public class Monitor.TreeViewModel : GLib.ListModel, GLib.Object {
                 added_first_row ();
             }
             // add the process to our cache of process_rows
-            //  process_rows.set (process.stat.pid, iter);
+            process_rows.set (process.stat.pid, row);
             return true;
         }
         return false;
@@ -75,6 +93,10 @@ public class Monitor.TreeViewModel : GLib.ListModel, GLib.Object {
     private void update_model () {
         foreach (int pid in process_rows.keys) {
             Process process = process_manager.get_process (pid);
+            var process_row = process_rows.get (pid);
+            process_row.cpu = process.cpu_percentage;
+            process_row.memory = process.mem_usage;
+            
             //  Gtk.TreeIter iter = process_rows[pid];
             //  set (iter,
             //       Column.CPU, process.cpu_percentage,
@@ -87,8 +109,6 @@ public class Monitor.TreeViewModel : GLib.ListModel, GLib.Object {
         debug ("remove process %d from model".printf (pid));
         // if process rows has pid
         if (process_rows.has_key (pid)) {
-            //  var cached_iter = process_rows.get (pid);
-            //  remove (ref cached_iter);
             process_rows.unset (pid);
         }
     }
@@ -109,16 +129,16 @@ public class Monitor.TreeViewModel : GLib.ListModel, GLib.Object {
         }
     }
 
-    public uint get_n_items() {
-        return process_manager.get_process_list ().size;
-    }
+    //  public uint get_n_items() {
+    //      return process_manager.get_process_list ().size;
+    //  }
 
-    public GLib.Type get_item_type() {
-        return typeof (Process);
-    }
+    //  public GLib.Type get_item_type() {
+    //      return typeof (Process);
+    //  }
 
-    public GLib.Object? get_item (uint position) {
-        return null;
-    }
+    //  public GLib.Object? get_item (uint position) {
+    //      return process_rows.get ((int) position);
+    //  }
 
 }
