@@ -5,7 +5,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
     // private new TreeViewModel model;
     public ProcessTreeView (TreeViewModel model) {
 
-        //  model = new Gtk.TreeListModel();
+        // model = new Gtk.TreeListModel();
         // Constructor implementation
 
 
@@ -41,39 +41,85 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         var proc_name_factory = new Gtk.SignalListItemFactory ();
         proc_name_factory.setup.connect ((factory, obj) => {
             var cell = obj as Gtk.ColumnViewCell;
-            cell.child = new Gtk.Label ("-") {
+            cell.child = new Gtk.Label (Utils.NO_DATA) {
                 hexpand = true,
                 halign = Gtk.Align.START
             };
         });
 
-        proc_name_factory.bind.connect((factory, obj) => {
-                var cell = obj as Gtk.ColumnViewCell;
-                var label = cell.child as Gtk.Label;
-                var item = cell.item as ProcessRowData;
-                debug (item.name);
-                label.set_text (item.name);
-            });
+        proc_name_factory.bind.connect ((factory, obj) => {
+            var cell = obj as Gtk.ColumnViewCell;
+            var label = cell.child as Gtk.Label;
+            var item = cell.item as ProcessRowData;
+            label.set_text (item.name);
+        });
 
-         Gee.MapFunc<Gtk.StringSorter, string> str_sorter = (property_name) =>
-                new Gtk.StringSorter(new Gtk.PropertyExpression(typeof (ProcessRowData), null, property_name));
-
-        var proc_name_column = new Gtk.ColumnViewColumn (_("Process Name"), proc_name_factory) {
-            sorter = str_sorter("name")
+        var name_column = new Gtk.ColumnViewColumn (_("Process Name"), proc_name_factory) {
+            sorter = model.str_sorter ("name")
         };
-        list.append_column (proc_name_column);
+        list.append_column (name_column);
         sorted_list.sorter = list.sorter;
 
-        // list.append_column (new Gtk.ColumnViewColumn ("Chip", chipname_factory) {
-        // sorter = str_sorter ("chip_label")
-        // });
-        // list.append_column (new Gtk.ColumnViewColumn ("Feature", feature_factory) {
-        // sorter = str_sorter ("feature_label")
-        // });
-        // list.append_column (new Gtk.ColumnViewColumn ("Value", value_factory) {
-        // sorter = num_sorter ("value"), expand = true
-        // });
-        // list.append_column (new Gtk.ColumnViewColumn ("", remove_factory));
+        var proc_cpu_factory = new Gtk.SignalListItemFactory ();
+        proc_cpu_factory.setup.connect ((factory, obj) => {
+            var cell = obj as Gtk.ColumnViewCell;
+            cell.child = new Gtk.Label (Utils.NO_DATA) {
+                hexpand = true,
+                halign = Gtk.Align.START
+            };
+        });
+
+        proc_cpu_factory.bind.connect ((factory, obj) => {
+            var cell = obj as Gtk.ColumnViewCell;
+            var label = cell.child as Gtk.Label;
+            var item = cell.item as ProcessRowData;
+            label.set_text ("%.0f%%".printf (item.cpu));
+        });
+
+        var cpu_column = new Gtk.ColumnViewColumn (_("CPU"), proc_cpu_factory) {
+            sorter = model.num_sorter ("cpu"),
+            expand = false
+        };
+        list.append_column (cpu_column);
+
+        var proc_mem_factory = new Gtk.SignalListItemFactory ();
+        proc_mem_factory.setup.connect ((factory, obj) => {
+            var cell = obj as Gtk.ColumnViewCell;
+            cell.child = new Gtk.Label (Utils.NO_DATA) {
+                hexpand = true,
+                halign = Gtk.Align.START
+            };
+        });
+
+        proc_mem_factory.bind.connect ((factory, obj) => {
+            var cell = obj as Gtk.ColumnViewCell;
+            var label = cell.child as Gtk.Label;
+            var item = cell.item as ProcessRowData;
+
+            double memory_usage_double = (double) item.memory;
+            string units = _("KiB");
+
+            // convert to MiB if needed
+            if (memory_usage_double > 1024.0) {
+                memory_usage_double /= 1024.0;
+                units = _("MiB");
+            }
+
+            // convert to GiB if needed
+            if (memory_usage_double > 1024.0) {
+                memory_usage_double /= 1024.0;
+                units = _("GiB");
+            }
+
+            label.set_text ("%.1f %s".printf (memory_usage_double, units));
+        });
+
+        var mem_column = new Gtk.ColumnViewColumn (_("Memory"), proc_mem_factory) {
+            sorter = model.num_sorter ("memory"),
+            expand = false
+        };
+        list.append_column (mem_column);
+
     }
 
     public void collapse_all () {
