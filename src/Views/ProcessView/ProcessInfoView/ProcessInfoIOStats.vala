@@ -38,9 +38,6 @@ public class Monitor.ProcessInfoIOStats : Gtk.Grid {
         write_bytes_label.label = format_size ((uint64) process.io.write_bytes, IEC_UNITS);
         read_bytes_label.label = format_size ((uint64) process.io.read_bytes, IEC_UNITS);
         cancelled_write_bytes_label.label = format_size ((uint64) process.io.cancelled_write_bytes, IEC_UNITS);
-
-        open_files_tree_view.update (process);
-        open_files_tree_view.visible = true;
     }
 
     private Gtk.Label create_label (string text) {

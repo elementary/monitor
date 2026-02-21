@@ -38,7 +38,11 @@ public class Monitor.ProcessInfoView : Gtk.Box {
                 permission_error_infobar.revealed = false;
 
                 process_info_io_stats.update (_process);
-                process_info_io_stats.open_files_tree_view.visible = true;
+
+                // Updating open files list on process change (row select) only
+                // to prevent list jump to the top after a scroll
+                process_info_io_stats.open_files_tree_view.update (process);
+
             }
         }
     }

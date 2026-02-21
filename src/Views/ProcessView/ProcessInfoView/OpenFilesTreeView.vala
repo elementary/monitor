@@ -27,7 +27,7 @@ public class Monitor.OpenFilesTreeView : Granite.Bin {
 
         child = new Gtk.ScrolledWindow () {
             child = column_view,
-            max_content_height = 250, 
+            max_content_height = 250,
         };
     }
 
@@ -45,6 +45,7 @@ public class Monitor.OpenFilesTreeView : Granite.Bin {
     }
 
     public void update (Process process) {
+        visible = true;
         model.remove_all ();
         foreach (var path in process.open_files_paths) {
             model.append (new OpenFile (path));
