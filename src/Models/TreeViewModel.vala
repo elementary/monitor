@@ -27,6 +27,12 @@ public class Monitor.TreeViewModel : GLib.Object {
     private Gee.Map<int, ProcessRowData ? > process_rows;
     public signal void added_first_row ();
 
+    public Gee.MapFunc<Gtk.StringSorter, string> str_sorter = (property_name) =>
+                new Gtk.StringSorter(new Gtk.PropertyExpression(typeof (ProcessRowData), null, property_name));
+
+    public Gee.MapFunc<Gtk.NumericSorter, string> num_sorter = (property_name) =>
+                new Gtk.NumericSorter(new Gtk.PropertyExpression(typeof (ProcessRowData), null, property_name));
+
     construct {
         process_rows = new Gee.HashMap<int, ProcessRowData ? > ();
         list_store = new GLib.ListStore (typeof (ProcessRowData));
