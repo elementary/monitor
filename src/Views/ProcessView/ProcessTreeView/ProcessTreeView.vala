@@ -8,15 +8,16 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         //  model = new Gtk.TreeListModel();
         // Constructor implementation
 
-        var mmodel = new GLib.ListStore (typeof (ProcessRow));
 
-        var sorted_sensors = new Gtk.SortListModel (mmodel, null);
+        var sorted_list = new Gtk.SortListModel (model.list_store, null);
 
-        mmodel.append (new ProcessRow () { name = "test" });
-        mmodel.append (new ProcessRow () { name = "test2" });
+        var selection_model = new Gtk.SingleSelection (sorted_list) {
+            autoselect = true
+        };
 
-        list = new Gtk.ColumnView (new Gtk.NoSelection (sorted_sensors)) {
-            name = "sensors",
+
+        list = new Gtk.ColumnView (selection_model) {
+            name = "monitor-process-column-view",
             reorderable = false,
             hexpand = false,
             vexpand = true
@@ -32,13 +33,15 @@ public class Monitor.ProcessTreeView : Granite.Bin {
 
         list.row_factory = row_factory;
 
-        child = list;
+        child = new Gtk.ScrolledWindow () {
+            child = list
+        };
 
 
         var proc_name_factory = new Gtk.SignalListItemFactory ();
         proc_name_factory.setup.connect ((factory, obj) => {
             var cell = obj as Gtk.ColumnViewCell;
-            cell.child = new Gtk.Label ("") {
+            cell.child = new Gtk.Label ("-") {
                 hexpand = true,
                 halign = Gtk.Align.START
             };
@@ -47,13 +50,20 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         proc_name_factory.bind.connect((factory, obj) => {
                 var cell = obj as Gtk.ColumnViewCell;
                 var label = cell.child as Gtk.Label;
-                var item = cell.item as ProcessRow;
+                var item = cell.item as ProcessRowData;
                 debug (item.name);
                 label.set_text (item.name);
             });
 
-        var proc_name_column = new Gtk.ColumnViewColumn (_("Process Name"), proc_name_factory);
+         Gee.MapFunc<Gtk.StringSorter, string> str_sorter = (property_name) =>
+                new Gtk.StringSorter(new Gtk.PropertyExpression(typeof (ProcessRowData), null, property_name));
+
+        var proc_name_column = new Gtk.ColumnViewColumn (_("Process Name"), proc_name_factory) {
+            sorter = str_sorter("name")
+        };
         list.append_column (proc_name_column);
+        sorted_list.sorter = list.sorter;
+
         // list.append_column (new Gtk.ColumnViewColumn ("Chip", chipname_factory) {
         // sorter = str_sorter ("chip_label")
         // });

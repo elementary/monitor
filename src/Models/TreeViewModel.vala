@@ -12,7 +12,7 @@ public enum Monitor.Column {
     CMD
 }
 
-public class Monitor.ProcessRow : GLib.Object {
+public class Monitor.ProcessRowData : GLib.Object {
     public string icon { get; set; }
     public string name { get; set; }
     public double cpu { get; set; }
@@ -21,13 +21,15 @@ public class Monitor.ProcessRow : GLib.Object {
     public string cmd { get; set; }
 }
 
-public class Monitor.TreeViewModel : GLib.ListStore {
+public class Monitor.TreeViewModel : GLib.Object {
     public ProcessManager process_manager;
-    private Gee.Map<int, ProcessRow ? > process_rows;
+    public GLib.ListStore list_store;
+    private Gee.Map<int, ProcessRowData ? > process_rows;
     public signal void added_first_row ();
 
     construct {
-        process_rows = new Gee.HashMap<int, ProcessRow ? > ();
+        process_rows = new Gee.HashMap<int, ProcessRowData ? > ();
+        list_store = new GLib.ListStore (typeof (ProcessRowData));
 
         //  set_column_types (new Type[] {
         //      typeof (string),
@@ -60,15 +62,16 @@ public class Monitor.TreeViewModel : GLib.ListStore {
             // add the process to the model
             //  Gtk.TreeIter iter;
             //  append (out iter, null); // null means top-level
-            var row = new ProcessRow ();
-            row.icon = process.icon.to_string ();
-            row.name = process.application_name;
-            row.cpu = process.cpu_percentage;
-            row.memory = process.mem_usage;
-            row.pid = process.stat.pid;
-            row.cmd = process.command;
+            var row = new ProcessRowData () {
+                icon = process.icon.to_string (),
+                name = process.application_name,
+                cpu = process.cpu_percentage,
+                memory = process.mem_usage,
+                pid = process.stat.pid,
+                cmd = process.command
+            };
 
-            append (row);
+            list_store.append (row);
 
             // donno what is going on, but maybe just use a string instead of Icon ??
             // coz it lagz

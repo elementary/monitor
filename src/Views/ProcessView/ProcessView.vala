@@ -24,9 +24,6 @@ public class Monitor.ProcessView : Granite.Bin {
         //  process_tree_view.process_selected.connect ((process) => on_process_selected (process));
         //  process_tree_view.set_model (sort_model);
 
-        var process_tree_view_scrolled = new Gtk.ScrolledWindow () {
-            child = process_tree_view
-        };
 
         process_info_view = new ProcessInfoView () {
             // This might be useless since first process is selected
@@ -38,7 +35,7 @@ public class Monitor.ProcessView : Granite.Bin {
         treeview_model.process_manager.updated.connect ( process_info_view.update);
 
         var paned = new Gtk.Paned (HORIZONTAL) {
-            start_child = process_tree_view_scrolled,
+            start_child = process_tree_view,
             end_child = process_info_view,
             shrink_end_child = false,
             resize_end_child = false,
