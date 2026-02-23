@@ -37,9 +37,13 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             child = list
         };
 
+        var name_item_factory = new Gtk.SignalListItemFactory ();
+        var cpu_item_factory = new Gtk.SignalListItemFactory ();
+        var memory_item_factory = new Gtk.SignalListItemFactory ();
+        var pid_item_factory = new Gtk.SignalListItemFactory ();
 
-        var proc_name_factory = new Gtk.SignalListItemFactory ();
-        proc_name_factory.setup.connect ((factory, obj) => {
+        
+        name_item_factory.setup.connect ((factory, obj) => {
             var cell = obj as Gtk.ColumnViewCell;
             cell.child = new Gtk.Label (Utils.NO_DATA) {
                 hexpand = true,
@@ -47,21 +51,20 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             };
         });
 
-        proc_name_factory.bind.connect ((factory, obj) => {
+        name_item_factory.bind.connect ((factory, obj) => {
             var cell = obj as Gtk.ColumnViewCell;
             var label = cell.child as Gtk.Label;
             var item = cell.item as ProcessRowData;
             label.set_text (item.name);
         });
 
-        var name_column = new Gtk.ColumnViewColumn (_("Process Name"), proc_name_factory) {
+        var name_column = new Gtk.ColumnViewColumn (_("Process Name"), name_item_factory) {
             sorter = model.str_sorter ("name")
         };
         list.append_column (name_column);
         sorted_list.sorter = list.sorter;
 
-        var proc_cpu_factory = new Gtk.SignalListItemFactory ();
-        proc_cpu_factory.setup.connect ((factory, obj) => {
+        cpu_item_factory.setup.connect ((factory, obj) => {
             var cell = obj as Gtk.ColumnViewCell;
             cell.child = new Gtk.Label (Utils.NO_DATA) {
                 hexpand = true,
@@ -69,21 +72,20 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             };
         });
 
-        proc_cpu_factory.bind.connect ((factory, obj) => {
+        cpu_item_factory.bind.connect ((factory, obj) => {
             var cell = obj as Gtk.ColumnViewCell;
             var label = cell.child as Gtk.Label;
             var item = cell.item as ProcessRowData;
             label.set_text ("%.0f%%".printf (item.cpu));
         });
 
-        var cpu_column = new Gtk.ColumnViewColumn (_("CPU"), proc_cpu_factory) {
+        var cpu_column = new Gtk.ColumnViewColumn (_("CPU"), cpu_item_factory) {
             sorter = model.num_sorter ("cpu"),
             expand = false
         };
         list.append_column (cpu_column);
 
-        var proc_mem_factory = new Gtk.SignalListItemFactory ();
-        proc_mem_factory.setup.connect ((factory, obj) => {
+        memory_item_factory.setup.connect ((factory, obj) => {
             var cell = obj as Gtk.ColumnViewCell;
             cell.child = new Gtk.Label (Utils.NO_DATA) {
                 hexpand = true,
@@ -91,7 +93,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             };
         });
 
-        proc_mem_factory.bind.connect ((factory, obj) => {
+        memory_item_factory.bind.connect ((factory, obj) => {
             var cell = obj as Gtk.ColumnViewCell;
             var label = cell.child as Gtk.Label;
             var item = cell.item as ProcessRowData;
@@ -114,12 +116,32 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             label.set_text ("%.1f %s".printf (memory_usage_double, units));
         });
 
-        var mem_column = new Gtk.ColumnViewColumn (_("Memory"), proc_mem_factory) {
+        var mem_column = new Gtk.ColumnViewColumn (_("Memory"), memory_item_factory) {
             sorter = model.num_sorter ("memory"),
             expand = false
         };
         list.append_column (mem_column);
 
+        pid_item_factory.setup.connect ((factory, obj) => {
+            var cell = obj as Gtk.ColumnViewCell;
+            cell.child = new Gtk.Label (Utils.NO_DATA) {
+                hexpand = true,
+                halign = Gtk.Align.START
+            };
+        });
+
+        pid_item_factory.bind.connect ((factory, obj) => {
+            var cell = obj as Gtk.ColumnViewCell;
+            var label = cell.child as Gtk.Label;
+            var item = cell.item as ProcessRowData;
+            label.set_text ("%d".printf (item.pid));
+        });
+
+        var pid_column = new Gtk.ColumnViewColumn (_("PID"), pid_item_factory) {
+            sorter = model.num_sorter ("pid"),
+            expand = false
+        };
+        list.append_column (pid_column);
     }
 
     public void collapse_all () {

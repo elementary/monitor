@@ -22,7 +22,7 @@ public class Monitor.ProcessView : Granite.Bin {
 
         process_tree_view = new ProcessTreeView (treeview_model);
         //  process_tree_view.process_selected.connect ((process) => on_process_selected (process));
-        //  process_tree_view.set_model (sort_model);
+
 
 
         process_info_view = new ProcessInfoView () {
