@@ -2,12 +2,11 @@
 public class Monitor.ProcessTreeView : Granite.Bin {
     private Gtk.ColumnView list;
 
+    public signal void process_selected (Process process);
+
+
     // private new TreeViewModel model;
     public ProcessTreeView (TreeViewModel model) {
-
-        // model = new Gtk.TreeListModel();
-        // Constructor implementation
-
 
         var sorted_list = new Gtk.SortListModel (model.list_store, null);
 
@@ -15,11 +14,16 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             autoselect = true
         };
 
+        selection_model.selection_changed.connect ((position, n_items) => {
+            var row_data = selection_model.get_selected_item () as ProcessRowData;
+            Process process = model.process_manager.get_process (row_data.pid);
+            process_selected (process);
+        });
 
         list = new Gtk.ColumnView (selection_model) {
             name = "monitor-process-column-view",
             reorderable = false,
-            hexpand = false,
+            hexpand = true,
             vexpand = true
         };
 
@@ -27,8 +31,6 @@ public class Monitor.ProcessTreeView : Granite.Bin {
 
         row_factory.setup.connect ((factory, obj) => {
             var row = obj as Gtk.ColumnViewRow;
-            row.focusable = false;
-            row.activatable = false;
         });
 
         list.row_factory = row_factory;
@@ -42,7 +44,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         var memory_item_factory = new Gtk.SignalListItemFactory ();
         var pid_item_factory = new Gtk.SignalListItemFactory ();
 
-        
+
         name_item_factory.setup.connect ((factory, obj) => {
             var cell = obj as Gtk.ColumnViewCell;
             cell.child = new Gtk.Label (Utils.NO_DATA) {
@@ -142,6 +144,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             expand = false
         };
         list.append_column (pid_column);
+
     }
 
     public void collapse_all () {

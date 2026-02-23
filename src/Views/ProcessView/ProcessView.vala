@@ -21,7 +21,7 @@ public class Monitor.ProcessView : Granite.Bin {
         //  var sort_model = new Gtk.TreeModelSort.with_model (filter_model); //SortListModel (filter_model);
 
         process_tree_view = new ProcessTreeView (treeview_model);
-        //  process_tree_view.process_selected.connect ((process) => on_process_selected (process));
+        process_tree_view.process_selected.connect ((process) => on_process_selected (process));
 
 
 
