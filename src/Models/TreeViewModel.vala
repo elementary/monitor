@@ -138,16 +138,4 @@ public class Monitor.TreeViewModel : GLib.Object {
         }
     }
 
-    //  public uint get_n_items() {
-    //      return process_manager.get_process_list ().size;
-    //  }
-
-    //  public GLib.Type get_item_type() {
-    //      return typeof (Process);
-    //  }
-
-    //  public GLib.Object? get_item (uint position) {
-    //      return process_rows.get ((int) position);
-    //  }
-
 }
