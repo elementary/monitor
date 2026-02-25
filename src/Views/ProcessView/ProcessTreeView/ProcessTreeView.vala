@@ -14,11 +14,11 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             autoselect = true
         };
 
-        selection_model.selection_changed.connect ((position, n_items) => {
+        selection_model.notify["selected-item"].connect ((sender, property) => {
             var row_data = selection_model.get_selected_item () as ProcessRowData;
             Process process = model.process_manager.get_process (row_data.pid);
             process_selected (process);
-        });
+        }); 
 
         list = new Gtk.ColumnView (selection_model) {
             name = "monitor-process-column-view",
@@ -61,7 +61,8 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         });
 
         var name_column = new Gtk.ColumnViewColumn (_("Process Name"), name_item_factory) {
-            sorter = model.str_sorter ("name")
+            sorter = model.str_sorter ("name"),
+            expand = true
         };
         list.append_column (name_column);
         sorted_list.sorter = list.sorter;
