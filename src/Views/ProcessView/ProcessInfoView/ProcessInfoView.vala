@@ -5,7 +5,7 @@
 
 public class Monitor.ProcessInfoView : Gtk.Box {
     private Process _process;
-    public Process ? process {
+    public Process? process {
         get {
             return _process;
         }
@@ -131,5 +131,4 @@ public class Monitor.ProcessInfoView : Gtk.Box {
             process_info_io_stats.update (process);
         }
     }
-
 }
