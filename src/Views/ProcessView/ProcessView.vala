@@ -10,15 +10,12 @@ public class Monitor.ProcessView : Granite.Bin {
     private ProcessInfoView process_info_view;
     private TreeViewModel treeview_model;
 
+
     private SimpleAction end_action;
     private SimpleAction kill_action;
 
     construct {
         treeview_model = new TreeViewModel ();
-
-        //  var filter_model = new Gtk.FilterListModel (treeview_model, filter_func);
-
-        //  var sort_model = new Gtk.TreeModelSort.with_model (filter_model); //SortListModel (filter_model);
 
         process_tree_view = new ProcessTreeView (treeview_model);
         process_tree_view.process_selected.connect ((process) => on_process_selected (process));
@@ -152,41 +149,41 @@ public class Monitor.ProcessView : Granite.Bin {
 
     }
 
-    private bool filter_func (Gtk.TreeModel model, Gtk.TreeIter iter) {
-        string name_haystack;
-        int pid_haystack;
-        string cmd_haystack;
-        bool found = false;
+    //  private bool filter_func (Gtk.TreeModel model, Gtk.TreeIter iter) {
+    //      string name_haystack;
+    //      int pid_haystack;
+    //      string cmd_haystack;
+    //      bool found = false;
 
-        if (needle.length == 0) {
-            return true;
-        }
+    //      if (needle.length == 0) {
+    //          return true;
+    //      }
 
-        model.get (iter, Column.NAME, out name_haystack, -1);
-        model.get (iter, Column.PID, out pid_haystack, -1);
-        model.get (iter, Column.CMD, out cmd_haystack, -1);
+    //      model.get (iter, Column.NAME, out name_haystack, -1);
+    //      model.get (iter, Column.PID, out pid_haystack, -1);
+    //      model.get (iter, Column.CMD, out cmd_haystack, -1);
 
-        // sometimes name_haystack is null
-        if (name_haystack != null) {
-            bool name_found = name_haystack.casefold ().contains (needle.casefold ()) || false;
-            bool pid_found = pid_haystack.to_string ().casefold ().contains (needle.casefold ()) || false;
-            bool cmd_found = cmd_haystack.casefold ().contains (needle.casefold ()) || false;
-            found = name_found || pid_found || cmd_found;
-        }
+    //      // sometimes name_haystack is null
+    //      if (name_haystack != null) {
+    //          bool name_found = name_haystack.casefold ().contains (needle.casefold ()) || false;
+    //          bool pid_found = pid_haystack.to_string ().casefold ().contains (needle.casefold ()) || false;
+    //          bool cmd_found = cmd_haystack.casefold ().contains (needle.casefold ()) || false;
+    //          found = name_found || pid_found || cmd_found;
+    //      }
 
-        Gtk.TreeIter child_iter;
-        bool child_found = false;
+    //      Gtk.TreeIter child_iter;
+    //      bool child_found = false;
 
-        if (model.iter_children (out child_iter, iter)) {
-            do {
-                child_found = filter_func (model, child_iter);
-            } while (model.iter_next (ref child_iter) && !child_found);
-        }
+    //      if (model.iter_children (out child_iter, iter)) {
+    //          do {
+    //              child_found = filter_func (model, child_iter);
+    //          } while (model.iter_next (ref child_iter) && !child_found);
+    //      }
 
-        if (child_found && needle.length > 0) {
-            //  process_tree_view.expand_all ();
-        }
+    //      if (child_found && needle.length > 0) {
+    //          //  process_tree_view.expand_all ();
+    //      }
 
-        return found || child_found;
-    }
+    //      return found || child_found;
+    //  }
 }

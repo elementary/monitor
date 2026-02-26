@@ -4,13 +4,24 @@ public class Monitor.ProcessTreeView : Granite.Bin {
 
     public signal void process_selected (Process process);
 
+    public Gtk.StringFilter filter;
 
     // private new TreeViewModel model;
     public ProcessTreeView (TreeViewModel model) {
 
         var sorted_list = new Gtk.SortListModel (model.list_store, null);
 
-        var selection_model = new Gtk.SingleSelection (sorted_list) {
+        var expression = new Gtk.PropertyExpression (typeof (ProcessRowData), null, "name");
+        filter = new Gtk.StringFilter (expression) {
+            ignore_case = true,
+            match_mode = SUBSTRING
+        };
+
+
+        var filter_model = new Gtk.FilterListModel (sorted_list, filter);
+
+
+        var selection_model = new Gtk.SingleSelection (filter_model) {
             autoselect = true
         };
 
