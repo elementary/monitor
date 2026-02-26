@@ -79,16 +79,6 @@ public class Monitor.TreeViewModel : GLib.Object {
 
             list_store.append (row);
 
-            // donno what is going on, but maybe just use a string instead of Icon ??
-            // coz it lagz
-            // string icon_name = process.icon.to_string ();
-
-            //  set (iter,
-            //       Column.NAME, process.application_name,
-            //       Column.ICON, process.icon.to_string (),
-            //       Column.PID, process.stat.pid,
-            //       Column.CMD, process.command,
-            //       -1);
             if (process_rows.size < 1) {
                 added_first_row ();
             }
@@ -103,14 +93,16 @@ public class Monitor.TreeViewModel : GLib.Object {
         foreach (int pid in process_rows.keys) {
             Process process = process_manager.get_process (pid);
             var process_row = process_rows.get (pid);
-            process_row.cpu = process.cpu_percentage;
-            process_row.memory = process.mem_usage;
-            
-            //  Gtk.TreeIter iter = process_rows[pid];
-            //  set (iter,
-            //       Column.CPU, process.cpu_percentage,
-            //       Column.MEMORY, process.mem_usage,
-            //       -1);
+
+            uint pos;
+            if (list_store.find (process_row, out pos)) {
+                var item = list_store.get_item (pos) as ProcessRowData;
+                item.cpu = process.cpu_percentage;
+                item.memory = process.mem_usage;
+                list_store.items_changed (pos, 1, 1);
+            } else {
+                debug ("Failed to find process row for pid %d", pid);
+            }
         }
     }
 
@@ -118,6 +110,11 @@ public class Monitor.TreeViewModel : GLib.Object {
         debug ("remove process %d from model".printf (pid));
         // if process rows has pid
         if (process_rows.has_key (pid)) {
+            uint pos;
+            var process_row = process_rows.get (pid);
+            if (list_store.find (process_row, out pos)) {
+                list_store.remove (pos);
+            }
             process_rows.unset (pid);
         }
     }
