@@ -4,7 +4,6 @@
  */
 
 public class Monitor.ProcessView : Granite.Bin {
-    public string needle = "";
 
     public ProcessTreeView process_tree_view { get; private set; }
     private ProcessInfoView process_info_view;
@@ -41,7 +40,6 @@ public class Monitor.ProcessView : Granite.Bin {
 
         child = paned;
 
-        //  notify["needle"].connect (filter_model.refilter);
 
         kill_action = new SimpleAction ("kill", null);
         kill_action.activate.connect (action_kill);

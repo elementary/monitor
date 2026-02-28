@@ -4,21 +4,44 @@ public class Monitor.ProcessTreeView : Granite.Bin {
 
     public signal void process_selected (Process process);
 
-    public Gtk.StringFilter filter;
+    public string needle = "";
 
+    public Gtk.StringFilter name_filter;
+    public Gtk.StringFilter cmd_filter;
+    public Gtk.CustomFilter pid_filter;
     // private new TreeViewModel model;
     public ProcessTreeView (TreeViewModel model) {
 
         var sorted_list = new Gtk.SortListModel (model.list_store, null);
 
         var expression = new Gtk.PropertyExpression (typeof (ProcessRowData), null, "name");
-        filter = new Gtk.StringFilter (expression) {
+        name_filter = new Gtk.StringFilter (expression) {
             ignore_case = true,
-            match_mode = SUBSTRING
+            match_mode = SUBSTRING,
+            search = needle
+        };
+
+        cmd_filter = new Gtk.StringFilter (new Gtk.PropertyExpression (typeof (ProcessRowData), null, "cmd")) {
+            ignore_case = true,
+            match_mode = SUBSTRING,
+            search = needle
         };
 
 
-        var filter_model = new Gtk.FilterListModel (sorted_list, filter);
+        pid_filter = new Gtk.CustomFilter ((obj) => {
+            var item = (ProcessRowData) obj;
+            print ("Filtering PID: %d with needle: %s\n".printf (item.pid, needle));
+            bool pid_found = item.pid.to_string ().contains (needle.casefold ()) || false;
+            return pid_found;
+        });
+
+        var any_filter = new Gtk.AnyFilter ();
+        any_filter.append (name_filter);
+        any_filter.append (cmd_filter);
+        any_filter.append (pid_filter);
+
+
+        var filter_model = new Gtk.FilterListModel (sorted_list, any_filter);
 
 
         var selection_model = new Gtk.SingleSelection (filter_model) {
