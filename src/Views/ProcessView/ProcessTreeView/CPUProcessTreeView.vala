@@ -9,6 +9,7 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
     private Gtk.TreeViewColumn pid_column;
     private Gtk.TreeViewColumn cpu_column;
     private Gtk.TreeViewColumn memory_column;
+    private Gtk.TreeViewColumn ports_column;
 
     public signal void process_selected (Process process);
 
@@ -57,6 +58,17 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
         memory_column.alignment = 0.5f;
         memory_column.set_sort_column_id (Column.MEMORY);
         insert_column (memory_column, -1);
+
+        // setup ports column
+        var ports_cell = new Gtk.CellRendererText ();
+        ports_cell.ellipsize = Pango.EllipsizeMode.END;
+        ports_column = new Gtk.TreeViewColumn.with_attributes (_("Ports"), ports_cell);
+        ports_column.expand = false;
+        ports_column.min_width = 120;
+        ports_column.set_cell_data_func (ports_cell, ports_cell_layout);
+        ports_column.alignment = 0.0f;
+        ports_column.set_sort_column_id (Column.PORTS);
+        insert_column (ports_column, -1);
 
         // setup PID column
         var pid_cell = new Gtk.CellRendererText ();
@@ -149,6 +161,17 @@ public class Monitor.CPUProcessTreeView : Gtk.TreeView {
         // format the double into a string
         if (pid == 0) {
             ((Gtk.CellRendererText)cell).text = Utils.NO_DATA;
+        }
+    }
+
+    private void ports_cell_layout (Gtk.CellLayout cell_layout, Gtk.CellRenderer cell, Gtk.TreeModel model, Gtk.TreeIter iter) {
+        Value ports_value;
+        model.get_value (iter, Column.PORTS, out ports_value);
+        string ports = (string) ports_value;
+        if (ports == null || ports == Utils.NO_DATA) {
+            ((Gtk.CellRendererText)cell).text = Utils.NO_DATA;
+        } else {
+            ((Gtk.CellRendererText)cell).text = ports;
         }
     }
 

@@ -50,6 +50,11 @@ public class Monitor.Process : GLib.Object {
     public Gee.HashSet<string> open_files_paths;
 
     public Gee.HashSet<int> children = new Gee.HashSet<int> ();
+    public Gee.ArrayList<ListeningPort?> listening_ports = new Gee.ArrayList<ListeningPort?> ();
+    public Gee.HashSet<uint64?> socket_inodes = new Gee.HashSet<uint64?> (
+        (a) => { return (uint) (a ^ (a >> 32)); },
+        (a, b) => { return a == b; }
+    );
 
     /**
      * CPU usage of this process from the last time that it was updated, measured in percent
@@ -57,6 +62,29 @@ public class Monitor.Process : GLib.Object {
      * Will be 0 on first update.
      */
     public double cpu_percentage { get; private set; }
+
+    public string ports_display_string {
+        owned get {
+            if (listening_ports.size == 0) {
+                return Utils.NO_DATA;
+            }
+
+            var sb = new StringBuilder ();
+            int show_count = int.min (3, listening_ports.size);
+            for (int i = 0; i < show_count; i++) {
+                if (i > 0) {
+                    sb.append (", ");
+                }
+                sb.append ("%s:%u".printf (listening_ports[i].protocol, listening_ports[i].port));
+            }
+
+            if (listening_ports.size > 3) {
+                sb.append (" " + _("+ %d more").printf (listening_ports.size - 3));
+            }
+
+            return sb.str;
+        }
+    }
 
     private uint64 cpu_last_used;
 
@@ -256,6 +284,8 @@ public class Monitor.Process : GLib.Object {
     }
 
     private bool get_open_files () {
+        socket_inodes.clear ();
+
         try {
             string directory = "/proc/%d/fd".printf (stat.pid);
             Dir dir = Dir.open (directory, 0);
@@ -267,6 +297,15 @@ public class Monitor.Process : GLib.Object {
                     string real_path = FileUtils.read_link (path);
                     // debug(content);
                     open_files_paths.add (real_path);
+
+                    // Extract socket inode if this is a socket fd
+                    if (real_path.has_prefix ("socket:[") && real_path.has_suffix ("]") && real_path.length > 9) {
+                        string inode_str = real_path.substring (8, real_path.length - 9);
+                        uint64 inode = uint64.parse (inode_str);
+                        if (inode > 0) {
+                            socket_inodes.add (inode);
+                        }
+                    }
                 }
             }
         } catch (FileError err) {
@@ -277,6 +316,44 @@ public class Monitor.Process : GLib.Object {
             }
         }
         return true;
+    }
+
+    public void update_listening_ports (Gee.HashMap<uint64?, ListeningPort?> inode_port_map) {
+        listening_ports.clear ();
+
+        // Build a set to deduplicate by (protocol_base, port) for column display
+        var seen = new Gee.HashSet<string> ();
+
+        foreach (var inode in socket_inodes) {
+            if (!inode_port_map.has_key (inode)) {
+                continue;
+            }
+
+            var lp = inode_port_map.get (inode);
+            if (lp == null || lp.protocol == null) {
+                continue;
+            }
+
+            // Deduplicate: treat tcp/tcp6 as same base, udp/udp6 as same base
+            var base_proto = lp.protocol.has_prefix ("tcp") ? "tcp" : "udp";
+            var key = "%s:%u".printf (base_proto, lp.port);
+            if (!seen.contains (key)) {
+                seen.add (key);
+                // Store with base protocol for display
+                listening_ports.add (ListeningPort () {
+                    protocol = base_proto,
+                    port = lp.port,
+                    local_address = lp.local_address
+                });
+            }
+        }
+
+        // Sort by port number ascending
+        listening_ports.sort ((a, b) => {
+            if (a.port < b.port) return -1;
+            if (a.port > b.port) return 1;
+            return 0;
+        });
     }
 
     /**

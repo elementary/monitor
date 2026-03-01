@@ -4,6 +4,7 @@ void main (string[] args) {
     Gtk.init ();
 
     test_statusbar ();
+    test_network_connections ();
 
     Test.run ();
 }

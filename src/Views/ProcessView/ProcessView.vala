@@ -161,6 +161,7 @@ public class Monitor.ProcessView : Granite.Bin {
         string name_haystack;
         int pid_haystack;
         string cmd_haystack;
+        string ports_haystack;
         bool found = false;
 
         if (needle.length == 0) {
@@ -170,13 +171,15 @@ public class Monitor.ProcessView : Granite.Bin {
         model.get (iter, Column.NAME, out name_haystack, -1);
         model.get (iter, Column.PID, out pid_haystack, -1);
         model.get (iter, Column.CMD, out cmd_haystack, -1);
+        model.get (iter, Column.PORTS, out ports_haystack, -1);
 
         // sometimes name_haystack is null
         if (name_haystack != null) {
             bool name_found = name_haystack.casefold ().contains (needle.casefold ()) || false;
             bool pid_found = pid_haystack.to_string ().casefold ().contains (needle.casefold ()) || false;
             bool cmd_found = cmd_haystack.casefold ().contains (needle.casefold ()) || false;
-            found = name_found || pid_found || cmd_found;
+            bool ports_found = ports_haystack != null && ports_haystack.casefold ().contains (needle.casefold ()) || false;
+            found = name_found || pid_found || cmd_found || ports_found;
         }
 
         Gtk.TreeIter child_iter;

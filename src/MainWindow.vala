@@ -47,7 +47,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
         preferences_button.add_css_class (Granite.STYLE_CLASS_LARGE_ICONS);
 
         var search_entry = new Gtk.SearchEntry () {
-            placeholder_text = _("Search process name or PID"),
+            placeholder_text = _("Search process name, PID, or port"),
             valign = CENTER
         };
         search_entry.set_key_capture_widget (this);

@@ -121,12 +121,15 @@ namespace Monitor {
             }
 
             var remove_me = new Gee.HashSet<int> ();
+            var inode_port_map = NetworkConnections.build_inode_port_map ();
 
             /* go through each process and update it, removing the old ones */
             foreach (var process in process_list.values) {
                 if (!process.update (cpu_data.total, cpu_last_total)) {
                     /* process doesn't exist any more, flag it for removal! */
                     remove_me.add (process.stat.pid);
+                } else {
+                    process.update_listening_ports (inode_port_map);
                 }
             }
 

@@ -107,3 +107,14 @@ public struct Monitor.ProcessStatus {
     // The time the process started after system boot.
     public uint64 starttime;
 }
+
+public struct Monitor.ListeningPort {
+    // Network protocol (tcp or udp)
+    public string protocol;
+
+    // Listening port number
+    public uint16 port;
+
+    // Local bind address
+    public string local_address;
+}

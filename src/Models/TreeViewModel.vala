@@ -9,7 +9,8 @@ public enum Monitor.Column {
     CPU,
     MEMORY,
     PID,
-    CMD
+    CMD,
+    PORTS
 }
 
 public class Monitor.TreeViewModel : Gtk.TreeStore {
@@ -26,6 +27,7 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
             typeof (double),
             typeof (int64),
             typeof (int),
+            typeof (string),
             typeof (string),
         });
 
@@ -61,6 +63,7 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
                  Column.ICON, process.icon.to_string (),
                  Column.PID, process.stat.pid,
                  Column.CMD, process.command,
+                 Column.PORTS, process.ports_display_string,
                  -1);
             if (process_rows.size < 1) {
                 added_first_row ();
@@ -79,6 +82,7 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
             set (iter,
                  Column.CPU, process.cpu_percentage,
                  Column.MEMORY, process.mem_usage,
+                 Column.PORTS, process.ports_display_string,
                  -1);
         }
     }
