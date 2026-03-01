@@ -18,7 +18,7 @@ public class Monitor.ProcessInfoView : Gtk.Box {
 
             process_info_header.update (_process);
 
-            if (_process.uid != Posix.getuid ()) {
+            if (!_process.is_own) {
                 process_info_cpu_ram.hide ();
                 process_info_io_stats.hide ();
                 process_action_bar.hide ();

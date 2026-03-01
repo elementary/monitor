@@ -23,6 +23,11 @@ public class Monitor.Process : GLib.Object {
     // User id
     public int uid;
 
+    // Whether the current user can access this process's data and send signals
+    public bool is_own {
+        get { return uid == Posix.getuid () || Posix.getuid () == 0; }
+    }
+
     public string username = Utils.NO_DATA;
 
     Icon _icon;
