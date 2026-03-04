@@ -13,7 +13,7 @@ public enum Monitor.Column {
 }
 
 public class Monitor.ProcessRowData : GLib.Object {
-    public string icon { get; set; }
+    public Icon icon { get; set; }
     public string name { get; set; }
     public int cpu { get; set; }
     public uint64 memory { get; set; }
@@ -71,7 +71,7 @@ public class Monitor.TreeViewModel : GLib.Object {
             //  Gtk.TreeIter iter;
             //  append (out iter, null); // null means top-level
             var row = new ProcessRowData () {
-                icon = process.icon.to_string (),
+                icon = process.icon,
                 name = process.application_name,
                 cpu = (int) process.cpu_percentage,
                 memory = process.mem_usage,
