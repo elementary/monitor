@@ -51,7 +51,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             var row_data = selection_model.get_selected_item () as ProcessRowData;
             Process process = model.process_manager.get_process (row_data.pid);
             process_selected (process);
-        }); 
+        });
 
         list = new Gtk.ColumnView (selection_model) {
             name = "monitor-process-column-view",
@@ -82,17 +82,29 @@ public class Monitor.ProcessTreeView : Granite.Bin {
 
         name_item_factory.setup.connect ((factory, obj) => {
             var cell = obj as Gtk.ColumnViewCell;
-            cell.child = new Gtk.Label (Utils.NO_DATA) {
+
+            var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6) {
                 hexpand = true,
                 halign = Gtk.Align.START
             };
+            var icon = new Gtk.Image.from_icon_name ("application-x-executable") {
+                pixel_size = 16
+            };
+
+            box.append (icon);
+            box.append (new Gtk.Label (Utils.NO_DATA));
+            cell.child = box;
         });
 
         name_item_factory.bind.connect ((factory, obj) => {
             var cell = obj as Gtk.ColumnViewCell;
-            var label = cell.child as Gtk.Label;
+            var box = cell.child as Gtk.Box;
+            var label = box.get_last_child () as Gtk.Label;
+            var icon = box.get_first_child () as Gtk.Image;
+
             var item = cell.item as ProcessRowData;
             label.set_text (item.name);
+            icon.gicon = item.icon;
         });
 
         var name_column = new Gtk.ColumnViewColumn (_("Process Name"), name_item_factory) {
