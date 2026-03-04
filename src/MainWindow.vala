@@ -106,9 +106,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
                 process_view.process_tree_view.collapse_all ();
             }
 
-            process_view.treeview_model.name_filter.search = search_entry.text;
-            process_view.treeview_model.cmd_filter.search = search_entry.text;
-            process_view.treeview_model.needle = search_entry.text;
+            process_view.treeview_model.filtered.needle = search_entry.text;
 
             // focus on child row to avoid the app crashes by clicking "Kill/End Process" buttons in headerbar
             process_view.process_tree_view.focus_on_child_row ();
