@@ -22,10 +22,20 @@ public class Monitor.ProcessRowData : GLib.Object {
 }
 
 public class Monitor.TreeViewModel : GLib.Object {
+    public string needle = "";
+
     public ProcessManager process_manager;
     public GLib.ListStore list_store;
+    public Gtk.SortListModel sorted_list;
+    public Gtk.StringFilter name_filter;
+    public Gtk.StringFilter cmd_filter;
+    public Gtk.CustomFilter pid_filter;
+    public Gtk.FilterListModel filtered_list;
+    public Gtk.SingleSelection selection_model;
     private Gee.Map<int, ProcessRowData ? > process_rows;
     public signal void added_first_row ();
+    public signal void process_selected (Process process);
+
 
     public Gee.MapFunc<Gtk.StringSorter, string> str_sorter = (property_name) =>
                 new Gtk.StringSorter(new Gtk.PropertyExpression(typeof (ProcessRowData), null, property_name) );
@@ -38,6 +48,45 @@ public class Monitor.TreeViewModel : GLib.Object {
     construct {
         process_rows = new Gee.HashMap<int, ProcessRowData ? > ();
         list_store = new GLib.ListStore (typeof (ProcessRowData));
+        sorted_list = new Gtk.SortListModel (list_store, null);
+
+
+        var expression = new Gtk.PropertyExpression (typeof (ProcessRowData), null, "name");
+        name_filter = new Gtk.StringFilter (expression) {
+            ignore_case = true,
+            match_mode = SUBSTRING,
+            search = needle
+        };
+
+        cmd_filter = new Gtk.StringFilter (new Gtk.PropertyExpression (typeof (ProcessRowData), null, "cmd")) {
+            ignore_case = true,
+            match_mode = SUBSTRING,
+            search = needle
+        };
+
+        // since the pid property is an int, we need to use a custom filter to convert it to a string
+        pid_filter = new Gtk.CustomFilter ((obj) => {
+            var item = (ProcessRowData) obj;
+            bool pid_found = item.pid.to_string ().contains (needle.casefold ()) || false;
+            return pid_found;
+        });
+
+        var any_filter = new Gtk.AnyFilter ();
+        any_filter.append (name_filter);
+        any_filter.append (cmd_filter);
+        any_filter.append (pid_filter);
+
+        filtered_list = new Gtk.FilterListModel (sorted_list, any_filter);
+
+        selection_model = new Gtk.SingleSelection (filtered_list) {
+            autoselect = true
+        };
+
+        selection_model.notify["selected-item"].connect ((sender, property) => {
+            var row_data = selection_model.get_selected_item () as ProcessRowData;
+            Process process = process_manager.get_process (row_data.pid);
+            process_selected (process);
+        });
 
         //  set_column_types (new Type[] {
         //      typeof (string),
