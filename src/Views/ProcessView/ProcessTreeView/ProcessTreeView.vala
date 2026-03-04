@@ -10,7 +10,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             hexpand = true,
             vexpand = true
         };
-        model.sorted_list.sorter = list.sorter;
+        model.sorter = list.sorter;
 
 
         var row_factory = new Gtk.SignalListItemFactory ();
