@@ -15,7 +15,7 @@ public enum Monitor.Column {
 public class Monitor.ProcessRowData : GLib.Object {
     public string icon { get; set; }
     public string name { get; set; }
-    public double cpu { get; set; }
+    public int cpu { get; set; }
     public uint64 memory { get; set; }
     public int pid { get; set; }
     public string cmd { get; set; }
@@ -28,10 +28,12 @@ public class Monitor.TreeViewModel : GLib.Object {
     public signal void added_first_row ();
 
     public Gee.MapFunc<Gtk.StringSorter, string> str_sorter = (property_name) =>
-                new Gtk.StringSorter(new Gtk.PropertyExpression(typeof (ProcessRowData), null, property_name));
+                new Gtk.StringSorter(new Gtk.PropertyExpression(typeof (ProcessRowData), null, property_name) );
 
     public Gee.MapFunc<Gtk.NumericSorter, string> num_sorter = (property_name) =>
-                new Gtk.NumericSorter(new Gtk.PropertyExpression(typeof (ProcessRowData), null, property_name));
+                new Gtk.NumericSorter(new Gtk.PropertyExpression(typeof (ProcessRowData), null, property_name) ) {
+                    sort_order = Gtk.SortType.DESCENDING
+                };
 
     construct {
         process_rows = new Gee.HashMap<int, ProcessRowData ? > ();
@@ -71,7 +73,7 @@ public class Monitor.TreeViewModel : GLib.Object {
             var row = new ProcessRowData () {
                 icon = process.icon.to_string (),
                 name = process.application_name,
-                cpu = process.cpu_percentage,
+                cpu = (int) process.cpu_percentage,
                 memory = process.mem_usage,
                 pid = process.stat.pid,
                 cmd = process.command
@@ -97,7 +99,7 @@ public class Monitor.TreeViewModel : GLib.Object {
             uint pos;
             if (list_store.find (process_row, out pos)) {
                 var item = list_store.get_item (pos) as ProcessRowData;
-                item.cpu = process.cpu_percentage;
+                item.cpu = (int) process.cpu_percentage;
                 item.memory = process.mem_usage;
                 list_store.items_changed (pos, 1, 1);
             } else {

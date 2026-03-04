@@ -27,10 +27,9 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             search = needle
         };
 
-
+        // since the pid property is an int, we need to use a custom filter to convert it to a string
         pid_filter = new Gtk.CustomFilter ((obj) => {
             var item = (ProcessRowData) obj;
-            print ("Filtering PID: %d with needle: %s\n".printf (item.pid, needle));
             bool pid_found = item.pid.to_string ().contains (needle.casefold ()) || false;
             return pid_found;
         });
@@ -60,6 +59,8 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             hexpand = true,
             vexpand = true
         };
+        sorted_list.sorter = list.sorter;
+
 
         var row_factory = new Gtk.SignalListItemFactory ();
 
@@ -99,7 +100,6 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             expand = true
         };
         list.append_column (name_column);
-        sorted_list.sorter = list.sorter;
 
         cpu_item_factory.setup.connect ((factory, obj) => {
             var cell = obj as Gtk.ColumnViewCell;
