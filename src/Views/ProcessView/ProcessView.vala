@@ -7,7 +7,7 @@ public class Monitor.ProcessView : Granite.Bin {
 
     public ProcessTreeView process_tree_view { get; private set; }
     private ProcessInfoView process_info_view;
-    private TreeViewModel treeview_model;
+    public TreeViewModel treeview_model { get; private set; }
 
 
     private SimpleAction end_action;
@@ -17,7 +17,7 @@ public class Monitor.ProcessView : Granite.Bin {
         treeview_model = new TreeViewModel ();
 
         process_tree_view = new ProcessTreeView (treeview_model);
-        process_tree_view.process_selected.connect ((process) => on_process_selected (process));
+        treeview_model.process_selected.connect ((process) => on_process_selected (process));
 
 
 

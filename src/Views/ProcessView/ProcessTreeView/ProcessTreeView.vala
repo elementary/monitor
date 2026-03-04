@@ -2,64 +2,15 @@
 public class Monitor.ProcessTreeView : Granite.Bin {
     private Gtk.ColumnView list;
 
-    public signal void process_selected (Process process);
-
-    public string needle = "";
-
-    public Gtk.StringFilter name_filter;
-    public Gtk.StringFilter cmd_filter;
-    public Gtk.CustomFilter pid_filter;
-    // private new TreeViewModel model;
     public ProcessTreeView (TreeViewModel model) {
 
-        var sorted_list = new Gtk.SortListModel (model.list_store, null);
-
-        var expression = new Gtk.PropertyExpression (typeof (ProcessRowData), null, "name");
-        name_filter = new Gtk.StringFilter (expression) {
-            ignore_case = true,
-            match_mode = SUBSTRING,
-            search = needle
-        };
-
-        cmd_filter = new Gtk.StringFilter (new Gtk.PropertyExpression (typeof (ProcessRowData), null, "cmd")) {
-            ignore_case = true,
-            match_mode = SUBSTRING,
-            search = needle
-        };
-
-        // since the pid property is an int, we need to use a custom filter to convert it to a string
-        pid_filter = new Gtk.CustomFilter ((obj) => {
-            var item = (ProcessRowData) obj;
-            bool pid_found = item.pid.to_string ().contains (needle.casefold ()) || false;
-            return pid_found;
-        });
-
-        var any_filter = new Gtk.AnyFilter ();
-        any_filter.append (name_filter);
-        any_filter.append (cmd_filter);
-        any_filter.append (pid_filter);
-
-
-        var filter_model = new Gtk.FilterListModel (sorted_list, any_filter);
-
-
-        var selection_model = new Gtk.SingleSelection (filter_model) {
-            autoselect = true
-        };
-
-        selection_model.notify["selected-item"].connect ((sender, property) => {
-            var row_data = selection_model.get_selected_item () as ProcessRowData;
-            Process process = model.process_manager.get_process (row_data.pid);
-            process_selected (process);
-        });
-
-        list = new Gtk.ColumnView (selection_model) {
+        list = new Gtk.ColumnView (model.selection_model) {
             name = "monitor-process-column-view",
             reorderable = false,
             hexpand = true,
             vexpand = true
         };
-        sorted_list.sorter = list.sorter;
+        model.sorted_list.sorter = list.sorter;
 
 
         var row_factory = new Gtk.SignalListItemFactory ();
@@ -83,7 +34,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         name_item_factory.setup.connect ((factory, obj) => {
             var cell = obj as Gtk.ColumnViewCell;
 
-            var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6) {
+            var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 4) {
                 hexpand = true,
                 halign = Gtk.Align.START
             };
