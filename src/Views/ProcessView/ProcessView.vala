@@ -140,8 +140,8 @@ public class Monitor.ProcessView : Granite.Bin {
         process_info_view.process = process;
         process_info_view.visible = true;
 
-        end_action.set_enabled (process.uid == Posix.getuid ());
-        kill_action.set_enabled (process.uid == Posix.getuid ());
+        end_action.set_enabled (process.is_own);
+        kill_action.set_enabled (process.is_own);
     }
 
     public void update () {
