@@ -19,8 +19,6 @@ public class Monitor.ProcessView : Granite.Bin {
         process_tree_view = new ProcessTreeView (treeview_model);
         treeview_model.process_selected.connect ((process) => on_process_selected (process));
 
-
-
         process_info_view = new ProcessInfoView () {
             // This might be useless since first process is selected
             // automatically and this triggers on_process_selected ().
