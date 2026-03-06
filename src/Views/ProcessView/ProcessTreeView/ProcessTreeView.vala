@@ -136,16 +136,5 @@ public class Monitor.ProcessTreeView : Granite.Bin {
 
     }
 
-    public void collapse_all () {
-        // Method implementation
-    }
-
-    public void focus_on_child_row () {
-        // Method implementation
-    }
-
-    public void focus_on_first_row () {
-        // Method implementation
-    }
 
 }
