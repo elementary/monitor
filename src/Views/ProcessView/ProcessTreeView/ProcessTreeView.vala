@@ -27,7 +27,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
 
             var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 4) {
                 hexpand = true,
-                halign = Gtk.Align.START
+                halign = START
             };
             var icon = new Gtk.Image.from_icon_name ("application-x-executable") {
                 pixel_size = 16
@@ -59,7 +59,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             var cell = obj as Gtk.ColumnViewCell;
             cell.child = new Gtk.Label (Utils.NO_DATA) {
                 hexpand = true,
-                halign = Gtk.Align.START
+                halign = START
             };
         });
 
@@ -80,7 +80,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             var cell = obj as Gtk.ColumnViewCell;
             cell.child = new Gtk.Label (Utils.NO_DATA) {
                 hexpand = true,
-                halign = Gtk.Align.START
+                halign = START
             };
         });
 
@@ -117,7 +117,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             var cell = obj as Gtk.ColumnViewCell;
             cell.child = new Gtk.Label (Utils.NO_DATA) {
                 hexpand = true,
-                halign = Gtk.Align.START
+                halign = START
             };
         });
 
