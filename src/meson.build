@@ -7,7 +7,6 @@ source_app_files = [
     # Views
     'Views/ProcessView/ProcessView.vala',
     'Views/ProcessView/ProcessInfoView/ProcessInfoView.vala',
-    # 'Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala',
     'Views/ProcessView/ProcessTreeView/ProcessTreeView.vala',
 
     'Views/PreferencesView.vala',
