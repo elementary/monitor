@@ -1,19 +1,18 @@
 
 public class Monitor.ProcessTreeView : Granite.Bin {
-    private Gtk.ColumnView list;
 
     public ProcessTreeView (TreeViewModel model) {
 
-        list = new Gtk.ColumnView (model.selection_model) {
+        var column_view = new Gtk.ColumnView (model.selection_model) {
             name = "monitor-process-column-view",
             reorderable = false,
             hexpand = true,
             vexpand = true
         };
-        model.sorter = list.sorter;
+        model.sorter = column_view.sorter;
 
         child = new Gtk.ScrolledWindow () {
-            child = list
+            child = column_view
         };
 
         var name_item_factory = new Gtk.SignalListItemFactory ();
@@ -37,26 +36,26 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             sorter = model.str_sorter ("name"),
             expand = true
         };
-        list.append_column (name_column);
+        column_view.append_column (name_column);
 
         var cpu_column = new Gtk.ColumnViewColumn (_("CPU"), cpu_item_factory) {
             sorter = model.num_sorter ("cpu"),
             expand = false
         };
-        list.append_column (cpu_column);
+        column_view.append_column (cpu_column);
 
 
         var mem_column = new Gtk.ColumnViewColumn (_("Memory"), memory_item_factory) {
             sorter = model.num_sorter ("memory"),
             expand = false
         };
-        list.append_column (mem_column);
+        column_view.append_column (mem_column);
 
         var pid_column = new Gtk.ColumnViewColumn (_("PID"), pid_item_factory) {
             sorter = model.num_sorter ("pid"),
             expand = false
         };
-        list.append_column (pid_column);
+        column_view.append_column (pid_column);
 
     }
 
