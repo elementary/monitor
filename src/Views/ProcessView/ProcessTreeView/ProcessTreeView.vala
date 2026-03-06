@@ -64,10 +64,10 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         });
 
         cpu_item_factory.bind.connect ((factory, obj) => {
-            var cell = obj as Gtk.ColumnViewCell;
-            var label = cell.child as Gtk.Label;
-            var item = cell.item as ProcessRowData;
-            label.set_text ("%.0f%%".printf (item.cpu));
+            var cell = (Gtk.ColumnViewCell) obj;
+            var label = (Gtk.Label) cell.child;
+            var item = (ProcessRowData) cell.item;
+            label.text = "%.0f%%".printf (item.cpu);
         });
 
         var cpu_column = new Gtk.ColumnViewColumn (_("CPU"), cpu_item_factory) {
