@@ -12,21 +12,102 @@ public enum Monitor.Column {
     CMD
 }
 
-public class Monitor.TreeViewModel : Gtk.TreeStore {
+public class Monitor.ProcessRowData : GLib.Object {
+    public Icon icon { get; set; }
+    public string name { get; set; }
+    public int cpu { get; set; }
+    public uint64 memory { get; set; }
+    public int pid { get; set; }
+    public string cmd { get; set; }
+}
+
+public class Monitor.TreeViewFilter : GLib.Object {
+    private string _needle;
+    public string needle {
+        get {
+            return _needle;
+        }
+        set {
+            name_filter.search = value;
+            cmd_filter.search = value;
+            _needle = value;
+        }
+    }
+    public Gtk.FilterListModel model_out;
+    private Gtk.AnyFilter any_filter;
+    public Gtk.StringFilter name_filter;
+    public Gtk.StringFilter cmd_filter;
+    public Gtk.CustomFilter pid_filter;
+
+    public TreeViewFilter (GLib.ListModel? model) {
+        name_filter = build_str_filter ("name");
+        cmd_filter = build_str_filter ("cmd");
+
+        // since the pid property is an int, we need to use a custom filter to convert it to a string
+        pid_filter = new Gtk.CustomFilter ((obj) => {
+            var item = (ProcessRowData) obj;
+            bool pid_found = item.pid.to_string ().contains (needle.casefold ()) || false;
+            return pid_found;
+        });
+
+        any_filter = new Gtk.AnyFilter ();
+        any_filter.append (name_filter);
+        any_filter.append (cmd_filter);
+        any_filter.append (pid_filter);
+
+        model_out = new Gtk.FilterListModel (model, any_filter);
+
+    }
+
+    private Gtk.StringFilter build_str_filter (string column_name) {
+        var expression = new Gtk.PropertyExpression (typeof (ProcessRowData), null, column_name);
+        return new Gtk.StringFilter (expression) {
+            ignore_case = true,
+            match_mode = SUBSTRING,
+            search = needle
+        };
+    }
+
+}
+
+public class Monitor.TreeViewModel : GLib.Object {
+
     public ProcessManager process_manager;
-    private Gee.Map<int, Gtk.TreeIter ? > process_rows;
+
+    public TreeViewFilter filtered;
+    public Gtk.SingleSelection selection_model;
+
     public signal void added_first_row ();
+    public signal void process_selected (Process process);
+
+    public Gtk.Sorter sorter {
+        get { return sorted.sorter; }
+        set {
+            sorted.sorter = value;
+        }
+    }
+
+    private GLib.ListStore store;
+    private Gtk.SortListModel sorted;
+
+    private Gee.Map<int, ProcessRowData ?> process_rows;
+
 
     construct {
-        process_rows = new Gee.HashMap<int, Gtk.TreeIter ? > ();
+        process_rows = new Gee.HashMap<int, ProcessRowData ?> ();
+        store = new GLib.ListStore (typeof (ProcessRowData));
+        sorted = new Gtk.SortListModel (store, null);
 
-        set_column_types (new Type[] {
-            typeof (string),
-            typeof (string),
-            typeof (double),
-            typeof (int64),
-            typeof (int),
-            typeof (string),
+        filtered = new TreeViewFilter (sorted);
+
+        selection_model = new Gtk.SingleSelection (filtered.model_out) {
+            autoselect = true
+        };
+
+        selection_model.notify["selected-item"].connect ((sender, property) => {
+            var row_data = selection_model.get_selected_item () as ProcessRowData;
+            Process process = process_manager.get_process (row_data.pid);
+            process_selected (process);
         });
 
         process_manager = ProcessManager.get_default ();
@@ -35,6 +116,16 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
         process_manager.updated.connect (update_model);
 
         Idle.add (() => { add_running_processes (); return false; });
+    }
+
+    public Gtk.StringSorter str_sorter (string column_name) {
+        return new Gtk.StringSorter (new Gtk.PropertyExpression (typeof (ProcessRowData), null, column_name));
+    }
+
+    public Gtk.NumericSorter num_sorter (string column_name) {
+        return new Gtk.NumericSorter (new Gtk.PropertyExpression (typeof (ProcessRowData), null, column_name)) {
+            sort_order = Gtk.SortType.DESCENDING
+        };
     }
 
     private void add_running_processes () {
@@ -49,24 +140,22 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
         if (process != null && !process_rows.has_key (process.stat.pid)) {
             debug ("Add process %d Parent PID: %d", process.stat.pid, process.stat.ppid);
             // add the process to the model
-            Gtk.TreeIter iter;
-            append (out iter, null); // null means top-level
+            var row = new ProcessRowData () {
+                icon = process.icon,
+                name = process.application_name,
+                cpu = (int) process.cpu_percentage,
+                memory = process.mem_usage,
+                pid = process.stat.pid,
+                cmd = process.command
+            };
 
-            // donno what is going on, but maybe just use a string instead of Icon ??
-            // coz it lagz
-            // string icon_name = process.icon.to_string ();
+            store.append (row);
 
-            set (iter,
-                 Column.NAME, process.application_name,
-                 Column.ICON, process.icon.to_string (),
-                 Column.PID, process.stat.pid,
-                 Column.CMD, process.command,
-                 -1);
             if (process_rows.size < 1) {
                 added_first_row ();
             }
             // add the process to our cache of process_rows
-            process_rows.set (process.stat.pid, iter);
+            process_rows.set (process.stat.pid, row);
             return true;
         }
         return false;
@@ -75,11 +164,17 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
     private void update_model () {
         foreach (int pid in process_rows.keys) {
             Process process = process_manager.get_process (pid);
-            Gtk.TreeIter iter = process_rows[pid];
-            set (iter,
-                 Column.CPU, process.cpu_percentage,
-                 Column.MEMORY, process.mem_usage,
-                 -1);
+            var process_row = process_rows.get (pid);
+
+            uint pos;
+            if (store.find (process_row, out pos)) {
+                var item = store.get_item (pos) as ProcessRowData;
+                item.cpu = (int) process.cpu_percentage;
+                item.memory = process.mem_usage;
+                store.items_changed (pos, 1, 1);
+            } else {
+                debug ("Failed to find process row for pid %d", pid);
+            }
         }
     }
 
@@ -87,8 +182,11 @@ public class Monitor.TreeViewModel : Gtk.TreeStore {
         debug ("remove process %d from model".printf (pid));
         // if process rows has pid
         if (process_rows.has_key (pid)) {
-            var cached_iter = process_rows.get (pid);
-            remove (ref cached_iter);
+            uint pos;
+            var process_row = process_rows.get (pid);
+            if (store.find (process_row, out pos)) {
+                store.remove (pos);
+            }
             process_rows.unset (pid);
         }
     }
