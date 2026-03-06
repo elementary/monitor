@@ -106,7 +106,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         var cell = (Gtk.ColumnViewCell) object;
         var label = (Gtk.Label) cell.child;
         var item = (ProcessRowData) cell.item;
-        label.label = format_size (item.memory, IEC_UNITS);
+        label.label = format_size (item.memory * 1024, IEC_UNITS);
     }
 
     private void pid_item_bind_factory (Object object) {
