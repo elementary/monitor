@@ -54,13 +54,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         };
         list.append_column (name_column);
 
-        cpu_item_factory.setup.connect ((factory, obj) => {
-            var cell = (Gtk.ColumnViewCell) obj;
-            cell.child = new Gtk.Label (Utils.NO_DATA) {
-                hexpand = true,
-                halign = START
-            };
-        });
+        cpu_item_factory.setup.connect (metric_setup_factory);
 
         cpu_item_factory.bind.connect ((factory, obj) => {
             var cell = (Gtk.ColumnViewCell) obj;
@@ -75,35 +69,14 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         };
         list.append_column (cpu_column);
 
-        memory_item_factory.setup.connect ((factory, obj) => {
-            var cell = (Gtk.ColumnViewCell) obj;
-            cell.child = new Gtk.Label (Utils.NO_DATA) {
-                hexpand = true,
-                halign = START
-            };
-        });
+        memory_item_factory.setup.connect (metric_setup_factory);
 
         memory_item_factory.bind.connect ((factory, obj) => {
             var cell = (Gtk.ColumnViewCell) obj;
             var label = (Gtk.Label) cell.child;
             var item = (ProcessRowData) cell.item;
 
-            double memory_usage_double = (double) item.memory;
-            string units = _("KiB");
-
-            // convert to MiB if needed
-            if (memory_usage_double > 1024.0) {
-                memory_usage_double /= 1024.0;
-                units = _("MiB");
-            }
-
-            // convert to GiB if needed
-            if (memory_usage_double > 1024.0) {
-                memory_usage_double /= 1024.0;
-                units = _("GiB");
-            }
-
-            label.label = "%.1f %s".printf (memory_usage_double, units);
+            label.label = format_size (item.memory, IEC_UNITS);
         });
 
         var mem_column = new Gtk.ColumnViewColumn (_("Memory"), memory_item_factory) {
@@ -112,13 +85,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         };
         list.append_column (mem_column);
 
-        pid_item_factory.setup.connect ((factory, obj) => {
-            var cell = (Gtk.ColumnViewCell) obj;
-            cell.child = new Gtk.Label (Utils.NO_DATA) {
-                hexpand = true,
-                halign = START
-            };
-        });
+        pid_item_factory.setup.connect (metric_setup_factory);
 
         pid_item_factory.bind.connect ((factory, obj) => {
             var cell = (Gtk.ColumnViewCell) obj;
@@ -135,5 +102,12 @@ public class Monitor.ProcessTreeView : Granite.Bin {
 
     }
 
+    private void metric_setup_factory (Object object) {
+        var cell = (Gtk.ColumnViewCell) object;
+        cell.child = new Gtk.Label (Utils.NO_DATA) {
+            hexpand = true,
+            halign = START
+        };
+    }
 
 }
