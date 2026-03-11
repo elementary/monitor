@@ -4,6 +4,10 @@
  */
 
 public class Monitor.TreeViewModel : GLib.Object {
+    private static GLib.Once<TreeViewModel> instance;
+    public static unowned TreeViewModel get_default () {
+        return instance.once (() => { return new TreeViewModel (); });
+    }
 
     public ProcessManager process_manager;
 
@@ -40,7 +44,7 @@ public class Monitor.TreeViewModel : GLib.Object {
         };
 
         selection_model.notify["selected-item"].connect ((sender, property) => {
-            var row_data = selection_model.get_selected_item () as ProcessRowData;
+            var row_data = (ProcessRowData) selection_model.get_selected_item ();
             Process process = process_manager.get_process (row_data.pid);
             process_selected (process);
         });

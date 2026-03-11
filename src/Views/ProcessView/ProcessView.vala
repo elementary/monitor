@@ -14,7 +14,7 @@ public class Monitor.ProcessView : Granite.Bin {
     private SimpleAction kill_action;
 
     construct {
-        treeview_model = new TreeViewModel ();
+        treeview_model = TreeViewModel.get_default ();
 
         process_tree_view = new ProcessTreeView (treeview_model);
         treeview_model.process_selected.connect ((process) => on_process_selected (process));
