@@ -37,7 +37,7 @@ public class Monitor.ProcessView : Granite.Bin {
             // in GTK3 version.
             visible = false,
         };
-        treeview_model.process_manager.updated.connect (() => process_info_view.update());
+        treeview_model.process_manager.updated.connect ( process_info_view.update);
 
         var paned = new Gtk.Paned (HORIZONTAL) {
             start_child = process_tree_view_scrolled,
