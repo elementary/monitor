@@ -80,10 +80,10 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
             search_revealer.reveal_child = stack.visible_child == process_view;
         });
 
-        new Thread<void> ("upd", () => {
-            Timeout.add_seconds (MonitorApp.settings.get_int ("update-time"), () => {
-                process_view.update ();
+        var process_manager = ProcessManager.get_default ();
 
+        Timeout.add_seconds (MonitorApp.settings.get_int ("update-time"), () => {
+            process_manager.execute_update_thread ();
                 Idle.add (() => {
                     system_view.update ();
                     dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
@@ -92,9 +92,9 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
                     dbusserver.update (res);
                     return false;
                 });
-                return true;
-            });
+            return true;
         });
+
 
         dbusserver.indicator_state (MonitorApp.settings.get_boolean ("indicator-state"));
 
