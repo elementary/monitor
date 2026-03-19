@@ -33,6 +33,8 @@ source_app_files = [
 
     # Models
     'Models/TreeViewModel.vala',
+    'Models/ProcessRowData.vala',
+    'Models/TreeViewFilter.vala',
     'Models/OpenFilesTreeViewModel.vala',
 
     # Other
