@@ -12,9 +12,9 @@ public class Monitor.TreeViewFilter : GLib.Object {
     }
     public Gtk.FilterListModel model_out;
     private Gtk.AnyFilter any_filter;
-    public Gtk.StringFilter name_filter;
-    public Gtk.StringFilter cmd_filter;
-    public Gtk.CustomFilter pid_filter;
+    private Gtk.StringFilter name_filter;
+    private Gtk.StringFilter cmd_filter;
+    private Gtk.CustomFilter pid_filter;
 
     public TreeViewFilter (GLib.ListModel? model) {
         name_filter = build_str_filter ("name");
