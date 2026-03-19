@@ -52,6 +52,7 @@ source_app_files = [
     'Resources/CPU.vala',
     'Resources/CPUCache.vala',
     'Resources/Core.vala',
+    'Resources/ARMPartDecoder.vala',
     'Resources/Memory.vala',
     'Resources/Swap.vala',
     'Resources/Network.vala',
