@@ -26,6 +26,7 @@ public class Monitor.ProcessView : Granite.Bin {
             // in GTK3 version.
             visible = false,
         };
+        treeview_model.process_manager.updated.connect ( process_info_view.update);
 
         var paned = new Gtk.Paned (HORIZONTAL) {
             start_child = process_tree_view,
@@ -132,17 +133,5 @@ public class Monitor.ProcessView : Granite.Bin {
         kill_action.set_enabled (process.uid == Posix.getuid ());
     }
 
-    public void update () {
-        new Thread<bool> ("update-processes", () => {
-            Idle.add (() => {
-                process_info_view.update ();
-                treeview_model.process_manager.update_processes.begin ();
-
-                return false;
-            });
-            return true;
-        });
-
-    }
 
 }

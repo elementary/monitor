@@ -74,7 +74,7 @@ public class Monitor.GPUNvidia : IGPU, Object {
             );
 
         if (!nvidia_resources_temperature) {
-            warning ("Could not query NV_CTRL_GPU_CORE_TEMPERATURE attribute!\n");
+            debug ("Could not query NV_CTRL_GPU_CORE_TEMPERATURE attribute!\n");
             return;
         }
 
@@ -88,7 +88,7 @@ public class Monitor.GPUNvidia : IGPU, Object {
             );
 
         if (!nvidia_resources_vram_used) {
-            warning ("Could not query NV_CTRL_USED_DEDICATED_GPU_MEMORY attribute!\n");
+            debug ("Could not query NV_CTRL_USED_DEDICATED_GPU_MEMORY attribute!\n");
             return;
         }
 
@@ -102,7 +102,7 @@ public class Monitor.GPUNvidia : IGPU, Object {
             );
 
         if (!nvidia_resources_vram_total) {
-            warning ("Could not query NV_CTRL_TOTAL_DEDICATED_GPU_MEMORY attribute!\n");
+            debug ("Could not query NV_CTRL_TOTAL_DEDICATED_GPU_MEMORY attribute!\n");
             return;
         }
 
@@ -123,7 +123,7 @@ public class Monitor.GPUNvidia : IGPU, Object {
 #endif
 
         if (!nvidia_resources_used) {
-            warning ("Could not query NV_CTRL_STRING_GPU_UTILIZATION attribute!\n");
+            debug ("Could not query NV_CTRL_STRING_GPU_UTILIZATION attribute!\n");
             return;
         }
 
