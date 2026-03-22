@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-18 13:52+0000\n"
-"PO-Revision-Date: 2025-10-04 22:55+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2026-03-22 15:55+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementaryos.org/projects/desktop/"
 "monitor-extra/fi/>\n"
 "Language: fi\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: data/io.elementary.monitor.metainfo.xml.in:9 data/monitor.desktop.in:6
 msgid "Monitor"
-msgstr ""
+msgstr "Monitori"
 
 #: data/io.elementary.monitor.metainfo.xml.in:10
 msgid "Manage processes and monitor system resources"
@@ -38,7 +38,7 @@ msgstr "elementary, Inc."
 #: data/io.elementary.monitor.metainfo.xml.in:39
 #: data/io.elementary.monitor.metainfo.xml.in:53
 msgid "Other Improvements:"
-msgstr ""
+msgstr "Muut parannukset:"
 
 #: data/io.elementary.monitor.metainfo.xml.in:41
 #: data/io.elementary.monitor.metainfo.xml.in:55
