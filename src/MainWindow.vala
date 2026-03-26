@@ -17,11 +17,10 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
             if (MonitorApp.settings.get_boolean ("indicator-state")) {
                 debug ("Indicator is enabled, hiding the window instead of closing");
                 hide ();
-                return true;
+                return Gdk.EVENT_STOP;
             }
             debug ("Close the window");
-            close ();
-            return false;
+            return Gdk.EVENT_PROPAGATE;
         });
 
 
