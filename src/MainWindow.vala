@@ -13,6 +13,17 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
     construct {
         title = _("Monitor");
 
+        close_request.connect (() => {
+            if (MonitorApp.settings.get_boolean ("indicator-state")) {
+                debug ("Indicator is enabled, hiding the window instead of closing");
+                hide ();
+                return Gdk.EVENT_STOP;
+            }
+            debug ("Close the window");
+            return Gdk.EVENT_PROPAGATE;
+        });
+
+
         var resources = new Resources ();
 
         process_view = new ProcessView ();
