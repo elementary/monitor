@@ -54,11 +54,17 @@ app_dependencies = [
     meson.get_compiler('c').find_library('pci'),
     meson.get_compiler('vala').find_library('pci', dirs: vapidir),
 
-    # Allow building without nvidia libraries because they're not packaged or does not run
-    # on some distros due to incompatibility with muslc. Also they're not needed on ARM architecture
-    meson.get_compiler('c').find_library('XNVCtrl', required: get_option('nvidia').enabled()),
-    meson.get_compiler('vala').find_library('libxnvctrl', dirs: vapidir, required: get_option('nvidia').enabled()),
 ]
+
+if get_option('nvidia').enabled()
+    if not meson.get_compiler('c').has_header('nvml.h')
+        error('NVIDIA support requested, but nvml.h was not found')
+    endif
+
+    app_dependencies += [
+        meson.get_compiler('c').find_library('nvidia-ml', required: true),
+    ]
+endif
 
 config_data = configuration_data()
 config_data.set('GETTEXT_PACKAGE', meson.project_name())

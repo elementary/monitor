@@ -67,7 +67,7 @@ source_app_files = [
     'Resources/GPU/IGPU.vala',
     'Resources/GPU/GPUAmd.vala',
     'Resources/GPU/GPUNvidia.vala',
-    'Resources/GPU/GPUIntel.vala',
+    'Resources/GPU/GPUIntel.vala', 'Resources/GPU/nvml-bridge.c',
 
     'Resources/Hwmon/HwmonPathsParser.vala',
     'Resources/Hwmon/IHwmonPathsParserInterface.vala',

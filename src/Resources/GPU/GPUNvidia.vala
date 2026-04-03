@@ -3,163 +3,157 @@
  * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
  */
 
+[Compact]
+[CCode (cname = "MonitorNvmlGpu", free_function = "monitor_nvml_gpu_free")]
+private class MonitorNvmlGpu {
+}
+
+[CCode (cname = "MonitorNvmlSample")]
+private struct MonitorNvmlSample {
+    public uint gpu_percent;
+    public uint64 mem_used;
+    public uint64 mem_total;
+    public uint temperature_c;
+    public bool ok_util;
+    public bool ok_mem;
+    public bool ok_temp;
+}
+
+[CCode (cname = "monitor_nvml_gpu_new_from_pci_bus_id")]
+private extern MonitorNvmlGpu? monitor_nvml_gpu_new_from_pci_bus_id (string pci_bus_id);
+
+[CCode (cname = "monitor_nvml_gpu_sample")]
+private extern bool monitor_nvml_gpu_sample (MonitorNvmlGpu gpu, out MonitorNvmlSample sample);
+
 public class Monitor.GPUNvidia : IGPU, Object {
-
     public Gee.HashMap<string, HwmonTemperature> hwmon_temperatures { get; set; }
-
-    public string hwmon_module_name { get; set; }
-
-    public string driver_name { get; set; }
-
-    public string name { get; set; }
-
+    public string hwmon_module_name { get; protected set; }
+    public string driver_name { get; protected set; }
+    public string name { get; protected set; }
     public int percentage { get; protected set; }
-
     public int memory_percentage { get; protected set; }
-
     public int fb_percentage { get; protected set; }
-
     public double memory_vram_used { get; protected set; }
-
-    public double memory_vram_total { get; set; }
-
+    public double memory_vram_total { get; protected set; }
     public double temperature { get; protected set; }
+    protected string sysfs_path { get; protected set; }
 
-    protected string sysfs_path { get; set; }
-
-    public int nvidia_temperature = 0;
-
-    public int nvidia_memory_vram_used = 0;
-
-    public int nvidia_memory_vram_total = 0;
-
-    public int nvidia_memory_percentage = 0;
-
-    public int nvidia_fb_percentage = 0;
-
-    public int nvidia_percentage = 0;
-
-    public char * nvidia_used = "";
-
-    public bool nvidia_resources_temperature;
-
-    public bool nvidia_resources_vram_used;
-
-    public bool nvidia_resources_vram_total;
-
-    public bool nvidia_resources_used;
-
-    public X.Display nvidia_display;
+    private MonitorNvmlGpu? nvml_gpu;
+    private MonitorNvmlSample sample_cache;
 
     public GPUNvidia (Pci.Access pci_access, Pci.Dev pci_device) {
-        name = pci_parse_name (pci_access, pci_device);
-        name = "nVidia® " + name;
-
+        name = "NVIDIA " + pci_parse_name (pci_access, pci_device);
         sysfs_path = pci_parse_sysfs_path (pci_access, pci_device);
         driver_name = pci_device.get_string_property (Pci.FILL_DRIVER);
-    }
+        hwmon_module_name = driver_name;
+        hwmon_temperatures = new Gee.HashMap<string, HwmonTemperature> ();
 
-    construct {
-        nvidia_display = new X.Display ();
-    }
-
-    private void update_nv_resources () {
 #if NVIDIA_SUPPORT
-        nvidia_resources_temperature = NVCtrl.XNVCTRLQueryAttribute (
-            nvidia_display,
-            0,
-            0,
-            NV_CTRL_GPU_CORE_TEMPERATURE,
-            &nvidia_temperature
-            );
+        string pci_bus_id = "%04x:%02x:%02x.%u".printf (
+            pci_device.domain_16,
+            pci_device.bus,
+            pci_device.dev,
+            pci_device.func
+        );
 
-        if (!nvidia_resources_temperature) {
-            debug ("Could not query NV_CTRL_GPU_CORE_TEMPERATURE attribute!\n");
-            return;
+        nvml_gpu = monitor_nvml_gpu_new_from_pci_bus_id (pci_bus_id);
+        if (nvml_gpu == null) {
+            warning ("Failed to initialize NVML handle for %s (%s)", name, pci_bus_id);
         }
-
-        nvidia_resources_vram_used = NVCtrl.XNVCTRLQueryTargetAttribute (
-            nvidia_display,
-            NV_CTRL_TARGET_TYPE_GPU,
-            0,
-            0,
-            NV_CTRL_USED_DEDICATED_GPU_MEMORY,
-            &nvidia_memory_vram_used
-            );
-
-        if (!nvidia_resources_vram_used) {
-            debug ("Could not query NV_CTRL_USED_DEDICATED_GPU_MEMORY attribute!\n");
-            return;
-        }
-
-        nvidia_resources_vram_total = NVCtrl.XNVCTRLQueryTargetAttribute (
-            nvidia_display,
-            NV_CTRL_TARGET_TYPE_GPU,
-            0,
-            0,
-            NV_CTRL_TOTAL_DEDICATED_GPU_MEMORY,
-            &nvidia_memory_vram_total
-            );
-
-        if (!nvidia_resources_vram_total) {
-            debug ("Could not query NV_CTRL_TOTAL_DEDICATED_GPU_MEMORY attribute!\n");
-            return;
-        }
-
-        nvidia_resources_used = NVCtrl.XNVCTRLQueryTargetStringAttribute (
-            nvidia_display,
-            NV_CTRL_TARGET_TYPE_GPU,
-            0,
-            0,
-            NV_CTRL_STRING_GPU_UTILIZATION,
-            &nvidia_used
-            );
-
-        // var str_used = (string)nvidia_used;
-        nvidia_percentage = int.parse (((string) nvidia_used).split_set ("=,")[1]);
-        nvidia_fb_percentage = int.parse (((string) nvidia_used).split_set ("=,")[3]);
-        debug ("USED_GRAPHICS: %d%\n", nvidia_percentage);
-        debug ("USED_FB_MEMORY: %d%\n", nvidia_fb_percentage);
 #endif
+    }
 
-        if (!nvidia_resources_used) {
-            debug ("Could not query NV_CTRL_STRING_GPU_UTILIZATION attribute!\n");
-            return;
+    private bool update_nv_resources () {
+#if NVIDIA_SUPPORT
+        if (nvml_gpu == null) {
+            return false;
         }
 
+        if (!monitor_nvml_gpu_sample (nvml_gpu, out sample_cache)) {
+            return false;
+        }
+
+        return true;
+#else
+        return false;
+#endif
     }
 
-    private void update_temperature () {
-        temperature = nvidia_temperature;
+    public void update_temperature () {
+#if NVIDIA_SUPPORT
+        if (sample_cache.ok_temp) {
+            temperature = (double) sample_cache.temperature_c;
+        } else {
+            temperature = 0;
+        }
+#else
+        temperature = 0;
+#endif
     }
 
-    private void update_memory_vram_used () {
-        memory_vram_used = (double) nvidia_memory_vram_used * 1000000.0;
+    public void update_memory_vram_used () {
+#if NVIDIA_SUPPORT
+        if (sample_cache.ok_mem) {
+            memory_vram_used = (double) sample_cache.mem_used;
+        } else {
+            memory_vram_used = 0;
+        }
+#else
+        memory_vram_used = 0;
+#endif
     }
 
-    private void update_memory_vram_total () {
-        memory_vram_total = (double) nvidia_memory_vram_total * 1000000.0;
+    public void update_memory_vram_total () {
+#if NVIDIA_SUPPORT
+        if (sample_cache.ok_mem) {
+            memory_vram_total = (double) sample_cache.mem_total;
+        } else {
+            memory_vram_total = 0;
+        }
+#else
+        memory_vram_total = 0;
+#endif
     }
 
-    private void update_memory_percentage () {
-        memory_percentage = (int) (Math.round ((memory_vram_used / memory_vram_total) * 100));
+    public void update_memory_percentage () {
+        if (memory_vram_total > 0) {
+            memory_percentage = (int) Math.round ((memory_vram_used / memory_vram_total) * 100.0);
+            fb_percentage = memory_percentage;
+        } else {
+            memory_percentage = 0;
+            fb_percentage = 0;
+        }
     }
 
-    private void update_fb_percentage () {
-        fb_percentage = nvidia_fb_percentage;
-    }
-
-    private void update_percentage () {
-        percentage = nvidia_percentage;
+    public void update_percentage () {
+#if NVIDIA_SUPPORT
+        if (sample_cache.ok_util) {
+            percentage = (int) sample_cache.gpu_percent;
+        } else {
+            percentage = 0;
+        }
+#else
+        percentage = 0;
+#endif
     }
 
     public void update () {
-        update_nv_resources ();
+        bool ok = update_nv_resources ();
+
+        if (!ok) {
+            percentage = 0;
+            memory_percentage = 0;
+            fb_percentage = 0;
+            memory_vram_used = 0;
+            memory_vram_total = 0;
+            temperature = 0;
+            return;
+        }
+
         update_temperature ();
         update_memory_vram_used ();
         update_memory_vram_total ();
         update_memory_percentage ();
         update_percentage ();
     }
-
 }
