@@ -41,6 +41,7 @@ source_app_files = [
     'Managers/Process.vala',
     'Managers/ProcessStructs.vala',
     'Managers/ProcessUtils.vala',
+    'Managers/ProcessDRM.vala',
 
     # Services
     'Services/DBusServer.vala',
