@@ -112,21 +112,10 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
         MonitorApp.settings.bind ("opened-view", stack, "visible-child-name", DEFAULT);
 
         search_entry.search_changed.connect (() => {
-            // collapse tree only when search is focused and changed
-            if (search_entry.is_focus ()) {
-                process_view.process_tree_view.collapse_all ();
-            }
-
-            process_view.needle = search_entry.text;
-
-            // focus on child row to avoid the app crashes by clicking "Kill/End Process" buttons in headerbar
-            process_view.process_tree_view.focus_on_child_row ();
+            process_view.treeview_model.filtered.needle = search_entry.text;
             search_entry.grab_focus ();
         });
 
-        search_entry.activate.connect (() => {
-            process_view.process_tree_view.focus_on_first_row ();
-        });
 
         var search_action = new GLib.SimpleAction ("search", null);
         search_action.activate.connect (() => {
