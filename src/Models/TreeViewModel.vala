@@ -3,15 +3,6 @@
  * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
  */
 
-public enum Monitor.Column {
-    ICON,
-    NAME,
-    CPU,
-    MEMORY,
-    PID,
-    CMD
-}
-
 public class Monitor.TreeViewModel : GLib.Object {
 
     public ProcessManager process_manager;
@@ -23,7 +14,9 @@ public class Monitor.TreeViewModel : GLib.Object {
     public signal void process_selected (Process process);
 
     public Gtk.Sorter sorter {
-        get { return sorted.sorter; }
+        get {
+            return sorted.sorter;
+        }
         set {
             sorted.sorter = value;
         }

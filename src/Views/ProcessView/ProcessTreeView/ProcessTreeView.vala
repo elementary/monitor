@@ -143,7 +143,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         item.bindings.set ("memory", binding_memory);
     }
 
-        private void memory_item_unbind_factory (Object object) {
+    private void memory_item_unbind_factory (Object object) {
         var cell = (Gtk.ColumnViewCell) object;
         var label = (Gtk.Label) cell.child;
         var item = (ProcessRowData) cell.item;
@@ -162,7 +162,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         item.bindings.set ("pid", binding_pid);
     }
 
-        private void pid_item_unbind_factory (Object object) {
+    private void pid_item_unbind_factory (Object object) {
         var cell = (Gtk.ColumnViewCell) object;
         var label = (Gtk.Label) cell.child;
         var item = (ProcessRowData) cell.item;
