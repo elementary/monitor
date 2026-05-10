@@ -113,7 +113,7 @@ public class Monitor.TreeViewModel : GLib.Object {
                 var item = store.get_item (pos) as ProcessRowData;
                 item.cpu = (int) process.cpu_percentage;
                 item.memory = process.mem_usage;
-                store.items_changed (pos, 1, 1);
+                sorter.changed (DIFFERENT);
             } else {
                 debug ("Failed to find process row for pid %d", pid);
             }

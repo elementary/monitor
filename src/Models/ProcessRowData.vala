@@ -7,4 +7,5 @@ public class Monitor.ProcessRowData : GLib.Object {
     public uint64 memory { get; set; }
     public int pid { get; set; }
     public string cmd { get; set; }
+    public Gee.HashMap<string, Binding> bindings = new Gee.HashMap<string, Binding> ();
 }
