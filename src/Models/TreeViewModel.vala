@@ -110,7 +110,7 @@ public class Monitor.TreeViewModel : GLib.Object {
 
             uint pos;
             if (store.find (process_row, out pos)) {
-                var item = store.get_item (pos) as ProcessRowData;
+                var item = (ProcessRowData) store.get_item (pos);
                 item.cpu = (int) process.cpu_percentage;
                 item.memory = process.mem_usage;
                 sorter.changed (DIFFERENT);
