@@ -11,9 +11,10 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         };
         model.sorter = column_view.sorter;
 
-        child = new Gtk.ScrolledWindow () {
+        var scrolled_window = new Gtk.ScrolledWindow () {
             child = column_view
         };
+        child = scrolled_window;
 
         var name_item_factory = new Gtk.SignalListItemFactory ();
         name_item_factory.setup.connect (name_item_setup_factory);
