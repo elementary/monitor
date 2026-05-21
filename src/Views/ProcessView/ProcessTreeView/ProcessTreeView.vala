@@ -74,25 +74,15 @@ public class Monitor.ProcessTreeView : Granite.Bin {
 
     private void name_item_factory_setup (Object object) {
         var cell = (Gtk.ColumnViewCell) object;
-
-        var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 4) {
-            hexpand = true,
-            halign = START
-        };
-        var icon = new Gtk.Image.from_icon_name ("application-x-executable") {
-            pixel_size = 16
-        };
-
-        box.append (icon);
-        box.append (new Gtk.Label (Utils.NO_DATA));
-        cell.child = box;
+        var name_cell = new ProcessTreeViewNameCell ();
+        cell.child = name_cell;
     }
 
     private void name_item_factory_bind (Object object) {
         var cell = (Gtk.ColumnViewCell) object;
-        var box = (Gtk.Box) cell.child;
-        var label = (Gtk.Label) box.get_last_child ();
-        var icon = (Gtk.Image) box.get_first_child ();
+        var name_cell = (ProcessTreeViewNameCell) cell.child;
+        var label = name_cell.label;
+        var icon = name_cell.icon;
 
         var item = (ProcessRowData) cell.item;
 

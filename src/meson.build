@@ -8,6 +8,7 @@ source_app_files = [
     'Views/ProcessView/ProcessView.vala',
     'Views/ProcessView/ProcessInfoView/ProcessInfoView.vala',
     'Views/ProcessView/ProcessTreeView/ProcessTreeView.vala',
+    'Views/ProcessView/ProcessTreeView/ProcessTreeViewNameCell.vala',
 
     'Views/PreferencesView.vala',
 
