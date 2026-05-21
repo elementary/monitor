@@ -11,8 +11,8 @@ public class Monitor.TreeViewModel : GLib.Object {
 
     public ProcessManager process_manager;
 
-    public TreeViewFilter filtered;
-    public Gtk.SingleSelection selection_model;
+    public TreeViewFilter filtered { get; private set; }
+    public Gtk.SingleSelection selection_model { get; private set; }
 
     public signal void added_first_row ();
     public signal void process_selected (Process process);
@@ -45,6 +45,10 @@ public class Monitor.TreeViewModel : GLib.Object {
 
         selection_model.notify["selected-item"].connect ((sender, property) => {
             var row_data = (ProcessRowData) selection_model.get_selected_item ();
+            // prevent passing null when when there is no more processes left after filtering
+            if (row_data == null) {
+                return;
+            }
             Process process = process_manager.get_process (row_data.pid);
             process_selected (process);
         });
@@ -100,20 +104,20 @@ public class Monitor.TreeViewModel : GLib.Object {
         return false;
     }
 
-    public void update_model () {
-        foreach (int pid in process_rows.keys) {
+    private void update_model () {
+         foreach (int pid in process_rows.keys) {
             Process process = process_manager.get_process (pid);
             var process_row = process_rows.get (pid);
 
             uint pos;
-            if (store.find (process_row, out pos)) {
-                var item = (ProcessRowData) store.get_item (pos);
-                item.cpu = (int) process.cpu_percentage;
-                item.memory = process.mem_usage;
-                sorter.changed (DIFFERENT);
-            } else {
-                debug ("Failed to find process row for pid %d", pid);
+            if (!store.find (process_row, out pos)) {
+                return;
             }
+
+            var item = (ProcessRowData) store.get_item (pos);
+            item.cpu = (int) process.cpu_percentage;
+            item.memory = process.mem_usage;
+            sorter.changed (DIFFERENT);
         }
     }
 
