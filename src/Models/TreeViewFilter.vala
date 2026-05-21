@@ -1,15 +1,5 @@
 public class Monitor.TreeViewFilter : GLib.Object {
-    private string _needle;
-    public string needle {
-        get {
-            return _needle;
-        }
-        set {
-            name_filter.search = value;
-            cmd_filter.search = value;
-            _needle = value;
-        }
-    }
+    public string needle { get; set; }
     public Gtk.FilterListModel model_out;
     private Gtk.AnyFilter any_filter;
     private Gtk.StringFilter name_filter;
@@ -34,6 +24,8 @@ public class Monitor.TreeViewFilter : GLib.Object {
 
         model_out = new Gtk.FilterListModel (model, any_filter);
 
+        bind_property ("needle", name_filter, "search", SYNC_CREATE);
+        bind_property ("needle", cmd_filter, "search", SYNC_CREATE);
     }
 
     private Gtk.StringFilter build_str_filter (string column_name) {
