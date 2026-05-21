@@ -17,24 +17,24 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         child = scrolled_window;
 
         var name_item_factory = new Gtk.SignalListItemFactory ();
-        name_item_factory.setup.connect (name_item_setup_factory);
-        name_item_factory.bind.connect (name_item_bind_factory);
-        name_item_factory.unbind.connect (name_item_unbind_factory);
+        name_item_factory.setup.connect (name_item_factory_setup);
+        name_item_factory.bind.connect (name_item_factory_bind);
+        name_item_factory.unbind.connect (name_item_factory_unbind);
 
         var cpu_item_factory = new Gtk.SignalListItemFactory ();
-        cpu_item_factory.setup.connect (generic_item_setup_factory);
-        cpu_item_factory.bind.connect (cpu_item_bind_factory);
-        cpu_item_factory.unbind.connect (cpu_item_unbind_factory);
+        cpu_item_factory.setup.connect (generic_item_factory_setup);
+        cpu_item_factory.bind.connect (cpu_item_factory_bind);
+        cpu_item_factory.unbind.connect (cpu_item_factory_unbind);
 
         var memory_item_factory = new Gtk.SignalListItemFactory ();
-        memory_item_factory.setup.connect (generic_item_setup_factory);
-        memory_item_factory.bind.connect (memory_item_bind_factory);
-        memory_item_factory.unbind.connect (memory_item_unbind_factory);
+        memory_item_factory.setup.connect (generic_item_factory_setup);
+        memory_item_factory.bind.connect (memory_item_factory_bind);
+        memory_item_factory.unbind.connect (memory_item_factory_unbind);
 
         var pid_item_factory = new Gtk.SignalListItemFactory ();
-        pid_item_factory.setup.connect (generic_item_setup_factory);
-        pid_item_factory.bind.connect (pid_item_bind_factory);
-        pid_item_factory.unbind.connect (pid_item_unbind_factory);
+        pid_item_factory.setup.connect (generic_item_factory_setup);
+        pid_item_factory.bind.connect (pid_item_factory_bind);
+        pid_item_factory.unbind.connect (pid_item_factory_unbind);
 
 
         var name_column = new Gtk.ColumnViewColumn (_("Process Name"), name_item_factory) {
@@ -64,7 +64,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
 
     }
 
-    private void generic_item_setup_factory (Object object) {
+    private void generic_item_factory_setup (Object object) {
         var cell = (Gtk.ColumnViewCell) object;
         cell.child = new Gtk.Label (Utils.NO_DATA) {
             hexpand = true,
@@ -72,7 +72,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         };
     }
 
-    private void name_item_setup_factory (Object object) {
+    private void name_item_factory_setup (Object object) {
         var cell = (Gtk.ColumnViewCell) object;
 
         var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 4) {
@@ -88,7 +88,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         cell.child = box;
     }
 
-    private void name_item_bind_factory (Object object) {
+    private void name_item_factory_bind (Object object) {
         var cell = (Gtk.ColumnViewCell) object;
         var box = (Gtk.Box) cell.child;
         var label = (Gtk.Label) box.get_last_child ();
@@ -103,7 +103,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         item.bindings.set ("icon", binding_icon);
     }
 
-    private void name_item_unbind_factory (Object object) {
+    private void name_item_factory_unbind (Object object) {
         var cell = (Gtk.ColumnViewCell) object;
         var box = (Gtk.Box) cell.child;
         var label = (Gtk.Label) box.get_last_child ();
@@ -113,7 +113,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         ((ProcessRowData) cell.item).bindings["name"].unbind ();
     }
 
-    private void cpu_item_bind_factory (Object object) {
+    private void cpu_item_factory_bind (Object object) {
         var cell = (Gtk.ColumnViewCell) object;
         var label = (Gtk.Label) cell.child;
         var item = (ProcessRowData) cell.item;
@@ -125,7 +125,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         item.bindings.set ("cpu", binding_cpu);
     }
 
-    private void cpu_item_unbind_factory (Object object) {
+    private void cpu_item_factory_unbind (Object object) {
         var cell = (Gtk.ColumnViewCell) object;
         var label = (Gtk.Label) cell.child;
         var item = (ProcessRowData) cell.item;
@@ -133,7 +133,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         item.bindings["cpu"].unbind ();
     }
 
-    private void memory_item_bind_factory (Object object) {
+    private void memory_item_factory_bind (Object object) {
         var cell = (Gtk.ColumnViewCell) object;
         var label = (Gtk.Label) cell.child;
         var item = (ProcessRowData) cell.item;
@@ -144,7 +144,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         item.bindings.set ("memory", binding_memory);
     }
 
-    private void memory_item_unbind_factory (Object object) {
+    private void memory_item_factory_unbind (Object object) {
         var cell = (Gtk.ColumnViewCell) object;
         var label = (Gtk.Label) cell.child;
         var item = (ProcessRowData) cell.item;
@@ -152,7 +152,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         item.bindings["memory"].unbind ();
     }
 
-    private void pid_item_bind_factory (Object object) {
+    private void pid_item_factory_bind (Object object) {
         var cell = (Gtk.ColumnViewCell) object;
         var label = (Gtk.Label) cell.child;
         var item = (ProcessRowData) cell.item;
@@ -163,7 +163,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         item.bindings.set ("pid", binding_pid);
     }
 
-    private void pid_item_unbind_factory (Object object) {
+    private void pid_item_factory_unbind (Object object) {
         var cell = (Gtk.ColumnViewCell) object;
         var label = (Gtk.Label) cell.child;
         var item = (ProcessRowData) cell.item;
