@@ -105,7 +105,7 @@ public class Monitor.TreeViewModel : GLib.Object {
     }
 
     private void update_model () {
-         foreach (int pid in process_rows.keys) {
+        foreach (int pid in process_rows.keys) {
             Process process = process_manager.get_process (pid);
             var process_row = process_rows.get (pid);
 
