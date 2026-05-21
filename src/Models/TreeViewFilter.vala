@@ -9,7 +9,7 @@ public class Monitor.TreeViewFilter : GLib.Object {
         // since the pid property is an int, we need to use a custom filter to convert it to a string
         var pid_filter = new Gtk.CustomFilter ((obj) => {
             var item = (ProcessRowData) obj;
-            bool pid_found = item.pid.to_string ().contains (needle.casefold ()) || false;
+            bool pid_found = item.pid.to_string ().contains (needle.casefold ());
             return pid_found;
         });
 
