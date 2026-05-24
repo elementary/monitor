@@ -97,9 +97,9 @@ public class Monitor.ProcessTreeView : Granite.Bin {
 
     private void name_item_factory_unbind (Object object) {
         var cell = (Gtk.ColumnViewCell) object;
-        var box = (Gtk.Box) cell.child;
-        var label = (Gtk.Label) box.get_last_child ();
-        var icon = (Gtk.Image) box.get_first_child ();
+        var name_cell = (ProcessTreeViewNameCell) cell.child;
+        var label = name_cell.label;
+        var icon = name_cell.icon;
         label.label = null;
         icon.gicon = null;
         ((ProcessRowData) cell.item).bindings["name"].unbind ();
