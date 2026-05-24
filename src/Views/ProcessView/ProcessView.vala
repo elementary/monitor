@@ -9,7 +9,6 @@ public class Monitor.ProcessView : Granite.Bin {
     private ProcessInfoView process_info_view;
     public TreeViewModel treeview_model { get; private set; }
 
-
     private SimpleAction end_action;
     private SimpleAction kill_action;
 
@@ -37,7 +36,6 @@ public class Monitor.ProcessView : Granite.Bin {
         paned.position = paned.max_position;
 
         child = paned;
-
 
         kill_action = new SimpleAction ("kill", null);
         kill_action.activate.connect (action_kill);

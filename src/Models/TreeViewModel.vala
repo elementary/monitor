@@ -31,7 +31,6 @@ public class Monitor.TreeViewModel : GLib.Object {
 
     private Gee.Map<int, ProcessRowData ?> process_rows;
 
-
     construct {
         process_rows = new Gee.HashMap<int, ProcessRowData ?> ();
         store = new GLib.ListStore (typeof (ProcessRowData));

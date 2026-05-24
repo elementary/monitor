@@ -40,7 +40,6 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         pid_item_factory.bind.connect (pid_item_factory_bind);
         pid_item_factory.unbind.connect (pid_item_factory_unbind);
 
-
         var name_column = new Gtk.ColumnViewColumn (_("Process Name"), name_item_factory) {
             sorter = model.str_sorter ("name"),
             expand = true
@@ -52,7 +51,6 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             expand = false
         };
         column_view.append_column (cpu_column);
-
 
         var mem_column = new Gtk.ColumnViewColumn (_("Memory"), memory_item_factory) {
             sorter = model.num_sorter ("memory"),
