@@ -104,6 +104,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         label.label = null;
         icon.gicon = null;
         ((ProcessRowData) cell.item).bindings["name"].unbind ();
+        ((ProcessRowData) cell.item).bindings["icon"].unbind ();
     }
 
     private void cpu_item_factory_bind (Object object) {
