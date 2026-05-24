@@ -68,10 +68,11 @@ public class Monitor.ProcessTreeView : Granite.Bin {
 
     private void generic_item_factory_setup (Object object) {
         var cell = (Gtk.ColumnViewCell) object;
-        cell.child = new Gtk.Label (Utils.NO_DATA) {
+        var label = new Gtk.Label (Utils.NO_DATA) {
             hexpand = true,
             halign = START
         };
+        cell.child = label;
     }
 
     private void name_item_factory_setup (Object object) {
