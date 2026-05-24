@@ -6,7 +6,6 @@ src/Indicator/Widgets/PopoverWidget.vala
 src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala
 src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala
 src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala
-src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala
 src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala
 src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala
 src/Views/ProcessView/ProcessTreeView/ProcessTreeViewNameCell.vala

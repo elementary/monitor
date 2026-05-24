@@ -1,3 +1,8 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2026 elementary, Inc. (https://elementary.io)
+ */
+
 public class Monitor.TreeViewFilter : GLib.Object {
     public string needle { get; set; }
     public Gtk.FilterListModel model_out;

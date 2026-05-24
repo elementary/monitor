@@ -45,7 +45,7 @@ public class Monitor.TreeViewModel : GLib.Object {
 
         selection_model.notify["selected-item"].connect ((sender, property) => {
             var row_data = (ProcessRowData) selection_model.get_selected_item ();
-            // prevent passing null when when there is no more processes left after filtering
+            // prevent passing null when there is no more processes left after filtering
             if (row_data == null) {
                 return;
             }

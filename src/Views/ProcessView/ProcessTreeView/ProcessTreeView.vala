@@ -1,3 +1,7 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2026 elementary, Inc. (https://elementary.io)
+ */
 
 public class Monitor.ProcessTreeView : Granite.Bin {
 
