@@ -4,10 +4,6 @@
  */
 
 public class Monitor.TreeViewModel : GLib.Object {
-    private static GLib.Once<TreeViewModel> instance;
-    public static unowned TreeViewModel get_default () {
-        return instance.once (() => { return new TreeViewModel (); });
-    }
 
     public ProcessManager process_manager;
 
