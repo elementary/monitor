@@ -127,7 +127,6 @@ namespace Monitor {
             }
 
             settings.bind ("is-maximized", window, "maximized", SettingsBindFlags.SET);
-
         }
 
         public static int main (string[] args) {

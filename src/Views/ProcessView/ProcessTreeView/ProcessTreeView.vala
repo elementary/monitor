@@ -6,7 +6,6 @@
 public class Monitor.ProcessTreeView : Granite.Bin {
 
     public ProcessTreeView (TreeViewModel model) {
-
         var column_view = new Gtk.ColumnView (model.selection_model) {
             name = "monitor-process-column-view",
             reorderable = false,
@@ -14,11 +13,6 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             vexpand = true
         };
         model.sorter = column_view.sorter;
-
-        var scrolled_window = new Gtk.ScrolledWindow () {
-            child = column_view
-        };
-        child = scrolled_window;
 
         var name_item_factory = new Gtk.SignalListItemFactory ();
         name_item_factory.setup.connect (name_item_factory_setup);
@@ -64,6 +58,10 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         };
         column_view.append_column (pid_column);
 
+        var scrolled_window = new Gtk.ScrolledWindow () {
+            child = column_view
+        };
+        child = scrolled_window;
     }
 
     private void generic_item_factory_setup (Object object) {
