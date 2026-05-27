@@ -7,7 +7,8 @@ source_app_files = [
     # Views
     'Views/ProcessView/ProcessView.vala',
     'Views/ProcessView/ProcessInfoView/ProcessInfoView.vala',
-    'Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala',
+    'Views/ProcessView/ProcessTreeView/ProcessTreeView.vala',
+    'Views/ProcessView/ProcessTreeView/ProcessTreeViewNameCell.vala',
 
     'Views/PreferencesView.vala',
 
@@ -33,6 +34,8 @@ source_app_files = [
 
     # Models
     'Models/TreeViewModel.vala',
+    'Models/ProcessRowData.vala',
+    'Models/TreeViewFilter.vala',
     'Models/OpenFile.vala',
 
     # Other

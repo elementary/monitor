@@ -127,8 +127,6 @@ namespace Monitor {
             }
 
             settings.bind ("is-maximized", window, "maximized", SettingsBindFlags.SET);
-
-            window.process_view.process_tree_view.focus_on_first_row ();
         }
 
         public static int main (string[] args) {
