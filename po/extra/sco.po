@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-18 13:52+0000\n"
-"PO-Revision-Date: 2025-10-04 22:55+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
-"Language-Team: Scots <https://l10n.elementaryos.org/projects/desktop/monitor-"
-"extra/sco/>\n"
+"PO-Revision-Date: 2026-04-04 02:32+0000\n"
+"Last-Translator: Buni <ben.gordon@posteo.de>\n"
+"Language-Team: Scots <https://l10n.elementaryos.org/projects/desktop/"
+"monitor-extra/sco/>\n"
 "Language: sco\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,7 +43,7 @@ msgstr "Ither Betterments:"
 #: data/io.elementary.monitor.metainfo.xml.in:41
 #: data/io.elementary.monitor.metainfo.xml.in:55
 msgid "Updated translations"
-msgstr "Rewerkt translaitions"
+msgstr "Rewrocht translaitions"
 
 #: data/io.elementary.monitor.metainfo.xml.in:76
 msgid "Add info about drives (based on Dirli's code)"

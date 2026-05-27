@@ -8,6 +8,7 @@ source_app_files = [
     'Views/ProcessView/ProcessView.vala',
     'Views/ProcessView/ProcessInfoView/ProcessInfoView.vala',
     'Views/ProcessView/ProcessTreeView/ProcessTreeView.vala',
+    'Views/ProcessView/ProcessTreeView/ProcessTreeViewNameCell.vala',
 
     'Views/PreferencesView.vala',
 
@@ -35,7 +36,7 @@ source_app_files = [
     'Models/TreeViewModel.vala',
     'Models/ProcessRowData.vala',
     'Models/TreeViewFilter.vala',
-    'Models/OpenFilesTreeViewModel.vala',
+    'Models/OpenFile.vala',
 
     # Other
     # 'Managers/AppManager.vala',

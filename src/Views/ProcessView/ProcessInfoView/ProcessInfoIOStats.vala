@@ -22,10 +22,6 @@ public class Monitor.ProcessInfoIOStats : Gtk.Grid {
 
         open_files_tree_view = new OpenFilesTreeView ();
 
-        var open_files_tree_view_scrolled = new Gtk.ScrolledWindow () {
-            child = open_files_tree_view
-        };
-
         column_spacing = 6;
         row_spacing = 6;
         column_homogeneous = true;
@@ -35,7 +31,7 @@ public class Monitor.ProcessInfoIOStats : Gtk.Grid {
         attach (create_label_with_icon (write_bytes_label, "go-down-symbolic"), 0, 3);
         attach (cancelled_write_label, 1, 1);
         attach (cancelled_write_bytes_label, 1, 2);
-        attach (open_files_tree_view_scrolled, 0, 4, 2);
+        attach (open_files_tree_view, 0, 4, 2);
     }
 
     public void update (Process process) {

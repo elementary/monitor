@@ -115,7 +115,6 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
             search_entry.grab_focus ();
         });
 
-
         var search_action = new GLib.SimpleAction ("search", null);
         search_action.activate.connect (() => {
             search_entry.text = "";
