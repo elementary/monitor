@@ -4,7 +4,7 @@
  */
 
 namespace Monitor {
-    public class ProcessManager {
+    public class ProcessManager : GLib.Object {
         private static GLib.Once<ProcessManager> instance;
         public static unowned ProcessManager get_default () {
             return instance.once (() => { return new ProcessManager (); });
@@ -33,7 +33,7 @@ namespace Monitor {
             apps_info_list = new Gee.HashMap<string, AppInfo> ();
 
             populate_apps_info ();
-            update_processes.begin ();
+            update ();
         }
 
         public void populate_apps_info () {
@@ -102,7 +102,7 @@ namespace Monitor {
         /**
          * Gets all new process and adds them
          */
-        public async void update_processes () {
+        public void update_processes () {
             /* CPU */
             GTop.Cpu cpu_data;
             GTop.get_cpu (out cpu_data);
@@ -156,6 +156,18 @@ namespace Monitor {
             /* emit the updated signal so that subscribers can update */
             updated ();
 
+        }
+
+        public void update () {
+            new Thread<bool> ("update-processes", () => {
+                Idle.add (() => {
+                    update_processes ();
+                    return false;
+                });
+                return true;
+            });
+            /* emit the updated signal so that subscribers can update */
+            updated ();
         }
 
         /** Sets name and icon for a process that is a Flatpak app and its children. */
