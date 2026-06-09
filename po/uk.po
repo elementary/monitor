@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-18 13:52+0000\n"
+"POT-Creation-Date: 2026-05-27 22:01+0000\n"
 "PO-Revision-Date: 2026-01-31 23:55+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/desktop/"
@@ -24,19 +24,19 @@ msgstr ""
 msgid "Monitor"
 msgstr "Монітор"
 
-#: src/MainWindow.vala:24
+#: src/MainWindow.vala:35
 msgid "Processes"
 msgstr "Процеси"
 
-#: src/MainWindow.vala:25
+#: src/MainWindow.vala:36
 msgid "System"
 msgstr "Система"
 
-#: src/MainWindow.vala:43
+#: src/MainWindow.vala:54
 msgid "Settings"
 msgstr "Налаштування"
 
-#: src/MainWindow.vala:50
+#: src/MainWindow.vala:61
 msgid "Search process name or PID"
 msgstr "Пошук назви процесу або PID"
 
@@ -46,13 +46,13 @@ msgstr "Пошук назви процесу або PID"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:16
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:17
-#: src/Widgets/Statusbar/Statusbar.vala:79
+#: src/Widgets/Statusbar/Statusbar.vala:80
 msgid "N/A"
 msgstr "Н/Д"
 
 #: src/Indicator/Widgets/IndicatorWidgetFrequency.vala:14
 #: src/Views/SystemView/SystemCPUView.vala:129
-#: src/Widgets/Statusbar/Statusbar.vala:70
+#: src/Widgets/Statusbar/Statusbar.vala:71
 msgid "GHz"
 msgstr "ГГц"
 
@@ -65,7 +65,7 @@ msgid "Quit Monitor"
 msgstr "Вийти"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:64
+#: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:55
 msgid "PID"
 msgstr "PID"
 
@@ -118,41 +118,13 @@ msgstr "Читання/запис"
 msgid "Cancelled write"
 msgstr "Скасовані записування"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:78
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:82
 msgid "Shut Down…"
 msgstr "Завершити роботу…"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:83
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:87
 msgid "Force Quit…"
 msgstr "Примусово вийти…"
-
-#. setup name column
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:22
-msgid "Process Name"
-msgstr "Назва процесу"
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:43
-#: src/Widgets/Statusbar/Statusbar.vala:14
-msgid "CPU"
-msgstr "Процесор"
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:54
-#: src/Views/SystemView/SystemMemoryView.vala:21
-#: src/Widgets/Statusbar/Statusbar.vala:23
-msgid "Memory"
-msgstr "Пам'ять"
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:124
-msgid "KiB"
-msgstr "КіБ"
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:129
-msgid "MiB"
-msgstr "МіБ"
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:135
-msgid "GiB"
-msgstr "ГіБ"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:55
 #, c-format
@@ -163,6 +135,21 @@ msgstr "Процесор: %.1f%%"
 #, c-format
 msgid "RAM: %.1f%%"
 msgstr "RAM: %.1f%%"
+
+#: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:37
+msgid "Process Name"
+msgstr "Назва процесу"
+
+#: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:43
+#: src/Widgets/Statusbar/Statusbar.vala:14
+msgid "CPU"
+msgstr "Процесор"
+
+#: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:49
+#: src/Views/SystemView/SystemMemoryView.vala:21
+#: src/Widgets/Statusbar/Statusbar.vala:24
+msgid "Memory"
+msgstr "Пам'ять"
 
 #: src/Views/PreferencesView.vala:17
 msgid "Update frequency"
@@ -378,23 +365,32 @@ msgid "TEMPERATURE"
 msgstr "ТЕМПЕРАТУРА"
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
-#: src/Widgets/Statusbar/Statusbar.vala:26
-#: src/Widgets/Statusbar/Statusbar.vala:36
-#: src/Widgets/Statusbar/Statusbar.vala:46
+#: src/Widgets/Statusbar/Statusbar.vala:27
+#: src/Widgets/Statusbar/Statusbar.vala:37
+#: src/Widgets/Statusbar/Statusbar.vala:47
 msgid "Calculating…"
 msgstr "Обчислення…"
 
-#: src/Widgets/Statusbar/Statusbar.vala:33
+#: src/Widgets/Statusbar/Statusbar.vala:34
 msgid "Swap"
 msgstr "Swap"
 
-#: src/Widgets/Statusbar/Statusbar.vala:43
+#: src/Widgets/Statusbar/Statusbar.vala:44
 msgid "GPU"
 msgstr "Графічний процесор (GPU)"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr "Утилізація"
+
+#~ msgid "KiB"
+#~ msgstr "КіБ"
+
+#~ msgid "MiB"
+#~ msgstr "МіБ"
+
+#~ msgid "GiB"
+#~ msgstr "ГіБ"
 
 #, c-format
 #~ msgid "Force “%s” to quit without initiating shutdown tasks?"
