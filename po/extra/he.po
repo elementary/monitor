@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-18 13:52+0000\n"
+"POT-Creation-Date: 2026-05-27 22:01+0000\n"
 "PO-Revision-Date: 2025-10-30 09:55+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementaryos.org/projects/desktop/"
@@ -20,7 +20,7 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: data/io.elementary.monitor.metainfo.xml.in:9 data/monitor.desktop.in:6
+#: data/io.elementary.monitor.metainfo.xml.in:9 data/monitor.desktop.in:5
 msgid "Monitor"
 msgstr "צג"
 
@@ -310,11 +310,11 @@ msgstr "תיקון: החיפוש מוחק את הקלט שלי תוך כדי ה�
 msgid "Fix POTFILES"
 msgstr "תוקן POTFILES"
 
-#: data/monitor.desktop.in:7
+#: data/monitor.desktop.in:6
 msgid "Manage processes and monitor resource usage of the system"
 msgstr "ניהול תהליכים ומעקב אחרי ניצולת משאבי המערכת"
 
-#: data/monitor.desktop.in:9
+#: data/monitor.desktop.in:8
 msgid "System monitor;System usage;Task manager;"
 msgstr ""
 "צג מערכת;ניצולת מערכת;תפוסת מערכת;שימוש במערכת;מנהל משימות;הנהלת "
