@@ -37,7 +37,8 @@ public class Monitor.ProcessDRM : GLib.Object {
     private Gee.ArrayList<GLib.File> drm_files;
 
     public ProcessDRM (int pid, int update_interval) {
-        Object (pid: pid, update_interval: update_interval);
+        this.pid = pid;
+        this.update_interval = update_interval;
 
         last_engine_render = 0;
         last_engine_gfx = 0;
