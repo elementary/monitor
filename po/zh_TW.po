@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-18 13:52+0000\n"
+"POT-Creation-Date: 2026-05-27 22:01+0000\n"
 "PO-Revision-Date: 2025-11-30 07:55+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
@@ -23,19 +23,19 @@ msgstr ""
 msgid "Monitor"
 msgstr "監控"
 
-#: src/MainWindow.vala:24
+#: src/MainWindow.vala:35
 msgid "Processes"
 msgstr "程序"
 
-#: src/MainWindow.vala:25
+#: src/MainWindow.vala:36
 msgid "System"
 msgstr "系統"
 
-#: src/MainWindow.vala:43
+#: src/MainWindow.vala:54
 msgid "Settings"
 msgstr "設定"
 
-#: src/MainWindow.vala:50
+#: src/MainWindow.vala:61
 msgid "Search process name or PID"
 msgstr "搜尋程序名稱或 PID"
 
@@ -45,13 +45,13 @@ msgstr "搜尋程序名稱或 PID"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:16
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:17
-#: src/Widgets/Statusbar/Statusbar.vala:79
+#: src/Widgets/Statusbar/Statusbar.vala:80
 msgid "N/A"
 msgstr "N/A"
 
 #: src/Indicator/Widgets/IndicatorWidgetFrequency.vala:14
 #: src/Views/SystemView/SystemCPUView.vala:129
-#: src/Widgets/Statusbar/Statusbar.vala:70
+#: src/Widgets/Statusbar/Statusbar.vala:71
 msgid "GHz"
 msgstr "GHz"
 
@@ -64,7 +64,7 @@ msgid "Quit Monitor"
 msgstr "離開《監控》"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:64
+#: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:55
 msgid "PID"
 msgstr "PID"
 
@@ -117,41 +117,13 @@ msgstr "讀取/寫入"
 msgid "Cancelled write"
 msgstr "已取消的寫入"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:78
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:82
 msgid "Shut Down…"
 msgstr "結束…"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:83
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:87
 msgid "Force Quit…"
 msgstr "強制終止…"
-
-#. setup name column
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:22
-msgid "Process Name"
-msgstr "程序名稱"
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:43
-#: src/Widgets/Statusbar/Statusbar.vala:14
-msgid "CPU"
-msgstr "CPU"
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:54
-#: src/Views/SystemView/SystemMemoryView.vala:21
-#: src/Widgets/Statusbar/Statusbar.vala:23
-msgid "Memory"
-msgstr "記憶體"
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:124
-msgid "KiB"
-msgstr "KiB"
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:129
-msgid "MiB"
-msgstr "MiB"
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:135
-msgid "GiB"
-msgstr "GiB"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:55
 #, c-format
@@ -162,6 +134,21 @@ msgstr "CPU：%.1f%%"
 #, c-format
 msgid "RAM: %.1f%%"
 msgstr "記憶體：%.1f%%"
+
+#: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:37
+msgid "Process Name"
+msgstr "程序名稱"
+
+#: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:43
+#: src/Widgets/Statusbar/Statusbar.vala:14
+msgid "CPU"
+msgstr "CPU"
+
+#: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:49
+#: src/Views/SystemView/SystemMemoryView.vala:21
+#: src/Widgets/Statusbar/Statusbar.vala:24
+msgid "Memory"
+msgstr "記憶體"
 
 #: src/Views/PreferencesView.vala:17
 msgid "Update frequency"
@@ -377,23 +364,32 @@ msgid "TEMPERATURE"
 msgstr "溫度"
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
-#: src/Widgets/Statusbar/Statusbar.vala:26
-#: src/Widgets/Statusbar/Statusbar.vala:36
-#: src/Widgets/Statusbar/Statusbar.vala:46
+#: src/Widgets/Statusbar/Statusbar.vala:27
+#: src/Widgets/Statusbar/Statusbar.vala:37
+#: src/Widgets/Statusbar/Statusbar.vala:47
 msgid "Calculating…"
 msgstr "正在計算…"
 
-#: src/Widgets/Statusbar/Statusbar.vala:33
+#: src/Widgets/Statusbar/Statusbar.vala:34
 msgid "Swap"
 msgstr "置換空間"
 
-#: src/Widgets/Statusbar/Statusbar.vala:43
+#: src/Widgets/Statusbar/Statusbar.vala:44
 msgid "GPU"
 msgstr "GPU"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr "使用率"
+
+#~ msgid "KiB"
+#~ msgstr "KiB"
+
+#~ msgid "MiB"
+#~ msgstr "MiB"
+
+#~ msgid "GiB"
+#~ msgstr "GiB"
 
 #, c-format
 #~ msgid "Force “%s” to quit without initiating shutdown tasks?"

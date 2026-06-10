@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-18 13:52+0000\n"
+"POT-Creation-Date: 2026-05-27 22:01+0000\n"
 "PO-Revision-Date: 2020-12-16 10:30+0200\n"
 "Last-Translator: Tiberiu Frățilă\n"
 "Language-Team: \n"
@@ -23,19 +23,19 @@ msgstr ""
 msgid "Monitor"
 msgstr "Monitor"
 
-#: src/MainWindow.vala:24
+#: src/MainWindow.vala:35
 msgid "Processes"
 msgstr "Procese"
 
-#: src/MainWindow.vala:25
+#: src/MainWindow.vala:36
 msgid "System"
 msgstr "Sistem"
 
-#: src/MainWindow.vala:43
+#: src/MainWindow.vala:54
 msgid "Settings"
 msgstr "Configurări"
 
-#: src/MainWindow.vala:50
+#: src/MainWindow.vala:61
 #, fuzzy
 #| msgid "Type process name or PID to search"
 msgid "Search process name or PID"
@@ -47,13 +47,13 @@ msgstr "Introdu numele unui proces sau un PID pentru a căuta"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:16
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:17
-#: src/Widgets/Statusbar/Statusbar.vala:79
+#: src/Widgets/Statusbar/Statusbar.vala:80
 msgid "N/A"
 msgstr "N/A"
 
 #: src/Indicator/Widgets/IndicatorWidgetFrequency.vala:14
 #: src/Views/SystemView/SystemCPUView.vala:129
-#: src/Widgets/Statusbar/Statusbar.vala:70
+#: src/Widgets/Statusbar/Statusbar.vala:71
 msgid "GHz"
 msgstr "GHz"
 
@@ -66,7 +66,7 @@ msgid "Quit Monitor"
 msgstr "Închide monitorul"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:64
+#: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:55
 msgid "PID"
 msgstr "PID"
 
@@ -119,41 +119,13 @@ msgstr "Citit/scris"
 msgid "Cancelled write"
 msgstr "Scriere anulată"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:78
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:82
 msgid "Shut Down…"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:83
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:87
 msgid "Force Quit…"
 msgstr ""
-
-#. setup name column
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:22
-msgid "Process Name"
-msgstr "Numele procesului"
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:43
-#: src/Widgets/Statusbar/Statusbar.vala:14
-msgid "CPU"
-msgstr "Procesor"
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:54
-#: src/Views/SystemView/SystemMemoryView.vala:21
-#: src/Widgets/Statusbar/Statusbar.vala:23
-msgid "Memory"
-msgstr "Memorie"
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:124
-msgid "KiB"
-msgstr "Kio"
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:129
-msgid "MiB"
-msgstr "Mio"
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:135
-msgid "GiB"
-msgstr "Gio"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:55
 #, c-format
@@ -164,6 +136,21 @@ msgstr "Procesor: %.1f%%"
 #, c-format
 msgid "RAM: %.1f%%"
 msgstr "Memorie: %.1f%%"
+
+#: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:37
+msgid "Process Name"
+msgstr "Numele procesului"
+
+#: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:43
+#: src/Widgets/Statusbar/Statusbar.vala:14
+msgid "CPU"
+msgstr "Procesor"
+
+#: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:49
+#: src/Views/SystemView/SystemMemoryView.vala:21
+#: src/Widgets/Statusbar/Statusbar.vala:24
+msgid "Memory"
+msgstr "Memorie"
 
 #: src/Views/PreferencesView.vala:17
 msgid "Update frequency"
@@ -393,17 +380,17 @@ msgid "TEMPERATURE"
 msgstr "TEMPERATURĂ"
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
-#: src/Widgets/Statusbar/Statusbar.vala:26
-#: src/Widgets/Statusbar/Statusbar.vala:36
-#: src/Widgets/Statusbar/Statusbar.vala:46
+#: src/Widgets/Statusbar/Statusbar.vala:27
+#: src/Widgets/Statusbar/Statusbar.vala:37
+#: src/Widgets/Statusbar/Statusbar.vala:47
 msgid "Calculating…"
 msgstr "Se calculează..."
 
-#: src/Widgets/Statusbar/Statusbar.vala:33
+#: src/Widgets/Statusbar/Statusbar.vala:34
 msgid "Swap"
 msgstr "Swap"
 
-#: src/Widgets/Statusbar/Statusbar.vala:43
+#: src/Widgets/Statusbar/Statusbar.vala:44
 #, fuzzy
 msgid "GPU"
 msgstr "Procesor"
@@ -411,6 +398,15 @@ msgstr "Procesor"
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr ""
+
+#~ msgid "KiB"
+#~ msgstr "Kio"
+
+#~ msgid "MiB"
+#~ msgstr "Mio"
+
+#~ msgid "GiB"
+#~ msgstr "Gio"
 
 #~ msgid "Opened files"
 #~ msgstr "Fișiere deschise"

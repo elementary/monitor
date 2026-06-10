@@ -7,36 +7,39 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-18 13:52+0000\n"
-"PO-Revision-Date: 2017-09-07 11:24+0300\n"
-"Last-Translator: Moo\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2026-05-27 22:01+0000\n"
+"PO-Revision-Date: 2026-06-09 03:56+0000\n"
+"Last-Translator: Automatic translation add-on <noreply-addon-"
+"autotranslate@weblate.org>\n"
+"Language-Team: Lithuanian <https://l10n.elementaryos.org/projects/desktop/"
+"monitor/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"(n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
+"19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
+"1 : 2);\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: src/MainWindow.vala:14
 msgid "Monitor"
 msgstr "Monitor"
 
-#: src/MainWindow.vala:24
+#: src/MainWindow.vala:35
 #, fuzzy
 msgid "Processes"
 msgstr "Proceso pavadinimas"
 
-#: src/MainWindow.vala:25
+#: src/MainWindow.vala:36
 msgid "System"
-msgstr ""
+msgstr "Sistema"
 
-#: src/MainWindow.vala:43
+#: src/MainWindow.vala:54
 msgid "Settings"
 msgstr ""
 
-#: src/MainWindow.vala:50
+#: src/MainWindow.vala:61
 #, fuzzy
 msgid "Search process name or PID"
 msgstr "Įrašykite proceso pavadinimą ar PID"
@@ -47,13 +50,13 @@ msgstr "Įrašykite proceso pavadinimą ar PID"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:16
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:17
-#: src/Widgets/Statusbar/Statusbar.vala:79
+#: src/Widgets/Statusbar/Statusbar.vala:80
 msgid "N/A"
 msgstr ""
 
 #: src/Indicator/Widgets/IndicatorWidgetFrequency.vala:14
 #: src/Views/SystemView/SystemCPUView.vala:129
-#: src/Widgets/Statusbar/Statusbar.vala:70
+#: src/Widgets/Statusbar/Statusbar.vala:71
 msgid "GHz"
 msgstr ""
 
@@ -68,7 +71,7 @@ msgid "Quit Monitor"
 msgstr "Monitor"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:64
+#: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:55
 msgid "PID"
 msgstr "PID"
 
@@ -122,41 +125,13 @@ msgstr ""
 msgid "Cancelled write"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:78
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:82
 msgid "Shut Down…"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:83
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:87
 msgid "Force Quit…"
 msgstr ""
-
-#. setup name column
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:22
-msgid "Process Name"
-msgstr "Proceso pavadinimas"
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:43
-#: src/Widgets/Statusbar/Statusbar.vala:14
-msgid "CPU"
-msgstr "CPU"
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:54
-#: src/Views/SystemView/SystemMemoryView.vala:21
-#: src/Widgets/Statusbar/Statusbar.vala:23
-msgid "Memory"
-msgstr "Atmintis"
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:124
-msgid "KiB"
-msgstr "KiB"
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:129
-msgid "MiB"
-msgstr "MiB"
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:135
-msgid "GiB"
-msgstr "GiB"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:55
 #, c-format
@@ -167,6 +142,21 @@ msgstr ""
 #, c-format
 msgid "RAM: %.1f%%"
 msgstr ""
+
+#: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:37
+msgid "Process Name"
+msgstr "Proceso pavadinimas"
+
+#: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:43
+#: src/Widgets/Statusbar/Statusbar.vala:14
+msgid "CPU"
+msgstr "CPU"
+
+#: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:49
+#: src/Views/SystemView/SystemMemoryView.vala:21
+#: src/Widgets/Statusbar/Statusbar.vala:24
+msgid "Memory"
+msgstr "Atmintis"
 
 #: src/Views/PreferencesView.vala:17
 msgid "Update frequency"
@@ -383,17 +373,17 @@ msgid "TEMPERATURE"
 msgstr ""
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
-#: src/Widgets/Statusbar/Statusbar.vala:26
-#: src/Widgets/Statusbar/Statusbar.vala:36
-#: src/Widgets/Statusbar/Statusbar.vala:46
+#: src/Widgets/Statusbar/Statusbar.vala:27
+#: src/Widgets/Statusbar/Statusbar.vala:37
+#: src/Widgets/Statusbar/Statusbar.vala:47
 msgid "Calculating…"
 msgstr ""
 
-#: src/Widgets/Statusbar/Statusbar.vala:33
+#: src/Widgets/Statusbar/Statusbar.vala:34
 msgid "Swap"
 msgstr ""
 
-#: src/Widgets/Statusbar/Statusbar.vala:43
+#: src/Widgets/Statusbar/Statusbar.vala:44
 #, fuzzy
 msgid "GPU"
 msgstr "CPU"
@@ -401,6 +391,15 @@ msgstr "CPU"
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr ""
+
+#~ msgid "KiB"
+#~ msgstr "KiB"
+
+#~ msgid "MiB"
+#~ msgstr "MiB"
+
+#~ msgid "GiB"
+#~ msgstr "GiB"
 
 #~ msgid "Search Process"
 #~ msgstr "Ieškoti proceso"

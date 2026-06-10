@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-18 13:52+0000\n"
+"POT-Creation-Date: 2026-05-27 22:01+0000\n"
 "PO-Revision-Date: 2024-10-09 20:00+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/desktop/"
@@ -23,19 +23,19 @@ msgstr ""
 msgid "Monitor"
 msgstr ""
 
-#: src/MainWindow.vala:24
+#: src/MainWindow.vala:35
 msgid "Processes"
 msgstr ""
 
-#: src/MainWindow.vala:25
+#: src/MainWindow.vala:36
 msgid "System"
 msgstr "Sistemo"
 
-#: src/MainWindow.vala:43
+#: src/MainWindow.vala:54
 msgid "Settings"
 msgstr ""
 
-#: src/MainWindow.vala:50
+#: src/MainWindow.vala:61
 msgid "Search process name or PID"
 msgstr ""
 
@@ -45,13 +45,13 @@ msgstr ""
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:16
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:17
-#: src/Widgets/Statusbar/Statusbar.vala:79
+#: src/Widgets/Statusbar/Statusbar.vala:80
 msgid "N/A"
 msgstr ""
 
 #: src/Indicator/Widgets/IndicatorWidgetFrequency.vala:14
 #: src/Views/SystemView/SystemCPUView.vala:129
-#: src/Widgets/Statusbar/Statusbar.vala:70
+#: src/Widgets/Statusbar/Statusbar.vala:71
 msgid "GHz"
 msgstr ""
 
@@ -64,7 +64,7 @@ msgid "Quit Monitor"
 msgstr ""
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:64
+#: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:55
 msgid "PID"
 msgstr ""
 
@@ -117,40 +117,12 @@ msgstr ""
 msgid "Cancelled write"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:78
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:82
 msgid "Shut Down…"
 msgstr ""
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:83
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:87
 msgid "Force Quit…"
-msgstr ""
-
-#. setup name column
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:22
-msgid "Process Name"
-msgstr ""
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:43
-#: src/Widgets/Statusbar/Statusbar.vala:14
-msgid "CPU"
-msgstr ""
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:54
-#: src/Views/SystemView/SystemMemoryView.vala:21
-#: src/Widgets/Statusbar/Statusbar.vala:23
-msgid "Memory"
-msgstr ""
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:124
-msgid "KiB"
-msgstr ""
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:129
-msgid "MiB"
-msgstr ""
-
-#: src/Views/ProcessView/ProcessTreeView/CPUProcessTreeView.vala:135
-msgid "GiB"
 msgstr ""
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:55
@@ -161,6 +133,21 @@ msgstr ""
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:56
 #, c-format
 msgid "RAM: %.1f%%"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:37
+msgid "Process Name"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:43
+#: src/Widgets/Statusbar/Statusbar.vala:14
+msgid "CPU"
+msgstr ""
+
+#: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:49
+#: src/Views/SystemView/SystemMemoryView.vala:21
+#: src/Widgets/Statusbar/Statusbar.vala:24
+msgid "Memory"
 msgstr ""
 
 #: src/Views/PreferencesView.vala:17
@@ -377,17 +364,17 @@ msgid "TEMPERATURE"
 msgstr ""
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
-#: src/Widgets/Statusbar/Statusbar.vala:26
-#: src/Widgets/Statusbar/Statusbar.vala:36
-#: src/Widgets/Statusbar/Statusbar.vala:46
+#: src/Widgets/Statusbar/Statusbar.vala:27
+#: src/Widgets/Statusbar/Statusbar.vala:37
+#: src/Widgets/Statusbar/Statusbar.vala:47
 msgid "Calculating…"
 msgstr ""
 
-#: src/Widgets/Statusbar/Statusbar.vala:33
+#: src/Widgets/Statusbar/Statusbar.vala:34
 msgid "Swap"
 msgstr ""
 
-#: src/Widgets/Statusbar/Statusbar.vala:43
+#: src/Widgets/Statusbar/Statusbar.vala:44
 msgid "GPU"
 msgstr ""
 
