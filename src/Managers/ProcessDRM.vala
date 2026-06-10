@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
  */
 
-public class Monitor.ProcessDRM {
+public class Monitor.ProcessDRM : GLib.Object {
 
     private string driver;
 
@@ -20,14 +20,9 @@ public class Monitor.ProcessDRM {
     // Xe driver related fields
     private uint64 cycles_rcs = 0;
     private uint64 cycles_rcs_total = 0;
-    private uint64 cycles_bcs = 0;
-    private uint64 cycles_bcs_total = 0;
-    private uint64 cycles_vcs = 0;
-    private uint64 cycles_vcs_total = 0;
+
     private uint64 cycles_ccs = 0;
     private uint64 cycles_ccs_total = 0;
-    private uint64 cycles_vecs = 0;
-    private uint64 cycles_vecs_total = 0;
 
     private uint64 delta_rcs = 0;
     private uint64 delta_total_rcs = 0;
@@ -42,8 +37,7 @@ public class Monitor.ProcessDRM {
     private Gee.ArrayList<GLib.File> drm_files;
 
     public ProcessDRM (int pid, int update_interval) {
-        this.pid = pid;
-        this.update_interval = update_interval;
+        Object (pid: pid, update_interval: update_interval);
 
         last_engine_render = 0;
         last_engine_gfx = 0;
@@ -101,10 +95,8 @@ public class Monitor.ProcessDRM {
 
         foreach (var drm_file in drm_files) {
             try {
-                debug ("Reading fdinfo from: %s", drm_file.get_path ());
                 var dis = new DataInputStream (drm_file.read ());
                 string ? line;
-
                 while ((line = dis.read_line ()) != null) {
                     parse_drm_line (line);
                 }
@@ -118,39 +110,38 @@ public class Monitor.ProcessDRM {
 
         switch (driver) {
         case "i915":
-            update_engine (ref engine_render, ref last_engine_render);
+            calculate_percentage_ns (ref engine_render, ref last_engine_render);
             break;
         case "xe":
-            var pre = (float) delta_rcs / (float) delta_total_rcs;
-            gpu_percentage = delta_total_rcs > 0 ? 100 * (pre.clamp (0.0f, 1.0f)) : 0;
+            calculate_percentage_cycles (ref delta_rcs, ref delta_total_rcs);
             break;
         case "amdgpu":
-             update_engine (ref engine_gfx, ref last_engine_gfx);
+             calculate_percentage_ns (ref engine_gfx, ref last_engine_gfx);
              break;
         default:
             // Handle default case
             break;
         }
-
     }
 
-    private void update_engine (ref uint64 engine, ref uint64 last_engine) {
+    private void calculate_percentage_ns (ref uint64 engine, ref uint64 last_engine) {
         if (last_engine != 0) {
-            gpu_percentage = calculate_percentage (engine, last_engine, update_interval);
+            // Since values in the files are in nanoseconds, it is also needed to convert
+            // interval to nanoseconds (10^9)
+            gpu_percentage = 100 * ((double) (engine - last_engine)) / (update_interval * 1e9);
         }
         last_engine = engine;
+    }
+
+    private void calculate_percentage_cycles (ref uint64 delta, ref uint64 delta_total) {
+        var pre = (float) delta / (float) delta_total;
+        gpu_percentage = delta_total > 0 ? 100 * (pre.clamp (0.0f, 1.0f)) : 0;
     }
 
     private void update_cycles (string line, ref uint64 last_cycles, ref uint64 delta) {
         var cycles = uint64.parse (line.strip ().split (" ")[0]);
         delta = cycles > last_cycles ? cycles - last_cycles : 0;
-        // debug ("pid %d Cycles: %llu, Last Cycles: %llu, Delta: %llu", pid, cycles, last_cycles, delta);
         last_cycles = cycles;
-    }
-
-    private static double calculate_percentage (uint64 engine, uint64 last_engine, int interval) {
-        // Since values in the files are in nanoseconds, it is also needed to convert interval to nanoseconds (10^9)
-        return 100 * ((double) (engine - last_engine)) / (interval * 1e9);
     }
 
     // Based on nvtop
@@ -182,11 +173,9 @@ public class Monitor.ProcessDRM {
             update_cycles (splitted_line[1], ref cycles_ccs_total, ref delta_total_ccs);
             break;
         case "drm-cycles-rcs":
-            // debug ("path: %s, line: %s", drm_file.get_path (), line);
             update_cycles (splitted_line[1], ref cycles_rcs, ref delta_rcs);
             break;
         case "drm-total-cycles-rcs":
-            // debug ("path: %s, line: %s", drm_file.get_path (), line);
             update_cycles (splitted_line[1], ref cycles_rcs_total, ref delta_total_rcs);
             break;
         default:
