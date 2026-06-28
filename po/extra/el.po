@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-27 22:01+0000\n"
 "PO-Revision-Date: 2026-06-29 13:56+0000\n"
-"Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
+"Last-Translator: kalligator <kalligator+github@gmail.com>\n"
 "Language-Team: Greek <https://l10n.elementaryos.org/projects/desktop/monitor-"
 "extra/el/>\n"
 "Language: el\n"
@@ -43,7 +43,7 @@ msgstr "Άλλες βελτιώσεις:"
 #: data/io.elementary.monitor.metainfo.xml.in:41
 #: data/io.elementary.monitor.metainfo.xml.in:55
 msgid "Updated translations"
-msgstr ""
+msgstr "Ενημερωμένες μεταφράσεις"
 
 #: data/io.elementary.monitor.metainfo.xml.in:76
 msgid "Add info about drives (based on Dirli's code)"
