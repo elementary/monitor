@@ -8,29 +8,32 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-27 22:01+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-06-29 13:56+0000\n"
+"Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
+"Language-Team: Greek <https://l10n.elementaryos.org/projects/desktop/monitor/"
+"el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: src/MainWindow.vala:14
 msgid "Monitor"
-msgstr ""
+msgstr "Εποπτεία"
 
 #: src/MainWindow.vala:35
 msgid "Processes"
-msgstr ""
+msgstr "Διεργασίες"
 
 #: src/MainWindow.vala:36
 msgid "System"
-msgstr ""
+msgstr "Σύστημα"
 
 #: src/MainWindow.vala:54
 msgid "Settings"
-msgstr ""
+msgstr "Ρυθμίσεις"
 
 #: src/MainWindow.vala:61
 msgid "Search process name or PID"
@@ -44,13 +47,13 @@ msgstr ""
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:80
 msgid "N/A"
-msgstr ""
+msgstr "Μ/Δ"
 
 #: src/Indicator/Widgets/IndicatorWidgetFrequency.vala:14
 #: src/Views/SystemView/SystemCPUView.vala:129
 #: src/Widgets/Statusbar/Statusbar.vala:71
 msgid "GHz"
-msgstr ""
+msgstr "GHz"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
@@ -63,19 +66,19 @@ msgstr ""
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:55
 msgid "PID"
-msgstr ""
+msgstr "PID"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:47
 msgid "PRI"
-msgstr ""
+msgstr "PRI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:48
 msgid "THR"
-msgstr ""
+msgstr "THR"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:99
 msgid "The app is waiting in an uninterruptible disk sleep"
@@ -139,49 +142,49 @@ msgstr ""
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:43
 #: src/Widgets/Statusbar/Statusbar.vala:14
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:49
 #: src/Views/SystemView/SystemMemoryView.vala:21
 #: src/Widgets/Statusbar/Statusbar.vala:24
 msgid "Memory"
-msgstr ""
+msgstr "Μνήμη"
 
 #: src/Views/PreferencesView.vala:17
 msgid "Update frequency"
-msgstr ""
+msgstr "Συχνότητα ενημέρωσης"
 
 #: src/Views/PreferencesView.vala:22 src/Views/PreferencesView.vala:52
 msgid "Requires restart"
-msgstr ""
+msgstr "Απαιτεί επανεκκίνηση"
 
 #: src/Views/PreferencesView.vala:29
 msgid "1s"
-msgstr ""
+msgstr "1δ"
 
 #: src/Views/PreferencesView.vala:30
 msgid "2s"
-msgstr ""
+msgstr "2δ"
 
 #: src/Views/PreferencesView.vala:31
 msgid "3s"
-msgstr ""
+msgstr "3δ"
 
 #: src/Views/PreferencesView.vala:32
 msgid "4s"
-msgstr ""
+msgstr "4δ"
 
 #: src/Views/PreferencesView.vala:33
 msgid "5s"
-msgstr ""
+msgstr "5δ"
 
 #: src/Views/PreferencesView.vala:49
 msgid "Start in background"
-msgstr ""
+msgstr "Εκκίνηση στο παρασκήνιο"
 
 #: src/Views/PreferencesView.vala:51
 msgid "Draw smooth lines on CPU chart"
-msgstr ""
+msgstr "Σχεδίαση ομαλών γραμμών στο γράφημα CPU"
 
 #: src/Views/PreferencesView.vala:57
 msgid "Show in panel"
@@ -189,19 +192,19 @@ msgstr ""
 
 #: src/Views/PreferencesView.vala:62
 msgid "CPU percentage"
-msgstr ""
+msgstr "Ποσοστό CPU"
 
 #: src/Views/PreferencesView.vala:67
 msgid "CPU frequency"
-msgstr ""
+msgstr "Συχνότητα CPU"
 
 #: src/Views/PreferencesView.vala:72
 msgid "CPU temperature"
-msgstr ""
+msgstr "Θερμοκρασία CPU"
 
 #: src/Views/PreferencesView.vala:77
 msgid "RAM percentage"
-msgstr ""
+msgstr "Ποσοστό RAM"
 
 #: src/Views/PreferencesView.vala:82
 msgid "Network upload"
@@ -213,60 +216,60 @@ msgstr ""
 
 #: src/Views/PreferencesView.vala:92
 msgid "GPU percentage"
-msgstr ""
+msgstr "Ποσοστό GPU"
 
 #: src/Views/PreferencesView.vala:97
 msgid "VRAM percentage"
-msgstr ""
+msgstr "Ποσοστό VRAM"
 
 #: src/Views/PreferencesView.vala:102
 msgid "GPU temperature"
-msgstr ""
+msgstr "Θερμοκρασία GPU"
 
 #: src/Views/SystemView/SystemCPUView.vala:39
 msgid "Frequency"
-msgstr ""
+msgstr "Συχνότητα"
 
 #: src/Views/SystemView/SystemCPUView.vala:46
 msgid "Temperature"
-msgstr ""
+msgstr "Θερμοκρασία"
 
 #: src/Views/SystemView/SystemCPUView.vala:83
 #: src/Views/SystemView/SystemGPUView.vala:92
 msgid "℃"
-msgstr ""
+msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:160
 msgid "THREADS"
-msgstr ""
+msgstr "ΝΗΜΑΤΑ"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:29
 msgid "General"
-msgstr ""
+msgstr "Γενικά"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:30
 msgid "Features"
-msgstr ""
+msgstr "Λειτουργίες"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:31
 msgid "Bugs"
-msgstr ""
+msgstr "Σφάλματα"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:62
 msgid "Model:"
-msgstr ""
+msgstr "Μοντέλο:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:63
 msgid "Family:"
-msgstr ""
+msgstr "Οικογένεια:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:64
 msgid "Microcode ver.:"
-msgstr ""
+msgstr "Έκδοση μικροκώδικα:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:65
 msgid "Bogomips:"
-msgstr ""
+msgstr "Bogomips:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:69
 msgid "L1 Instruction cache: "
@@ -326,7 +329,7 @@ msgstr ""
 
 #: src/Views/SystemView/SystemNetworkView.vala:26
 msgid "Network"
-msgstr ""
+msgstr "Δίκτυο"
 
 #: src/Views/SystemView/SystemNetworkView.vala:28
 msgid "DOWN"
@@ -342,11 +345,11 @@ msgstr ""
 
 #: src/Views/SystemView/SystemStorageView.vala:20
 msgid "WRITE"
-msgstr ""
+msgstr "ΕΓΓΡΑΦΗ"
 
 #: src/Views/SystemView/SystemStorageView.vala:25
 msgid "READ"
-msgstr ""
+msgstr "ΑΝΑΓΝΩΣΗ"
 
 #: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
@@ -354,26 +357,26 @@ msgstr ""
 
 #: src/Views/SystemView/SystemGPUView.vala:17
 msgid "VRAM"
-msgstr ""
+msgstr "VRAM"
 
 #: src/Views/SystemView/SystemGPUView.vala:23
 msgid "TEMPERATURE"
-msgstr ""
+msgstr "ΘΕΡΜΟΚΡΑΣΙΑ"
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:27
 #: src/Widgets/Statusbar/Statusbar.vala:37
 #: src/Widgets/Statusbar/Statusbar.vala:47
 msgid "Calculating…"
-msgstr ""
+msgstr "Υπολογισμός…"
 
 #: src/Widgets/Statusbar/Statusbar.vala:34
 msgid "Swap"
-msgstr ""
+msgstr "Swap"
 
 #: src/Widgets/Statusbar/Statusbar.vala:44
 msgid "GPU"
-msgstr ""
+msgstr "GPU"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
