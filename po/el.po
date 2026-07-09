@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-27 22:01+0000\n"
-"PO-Revision-Date: 2026-06-29 13:56+0000\n"
+"PO-Revision-Date: 2026-07-10 08:09+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: Greek <https://l10n.elementaryos.org/projects/desktop/monitor/"
 "el/>\n"
@@ -57,7 +57,7 @@ msgstr "GHz"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
-msgstr ""
+msgstr "Εμφάνιση Εποπτείας"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:21
 msgid "Quit Monitor"
@@ -128,16 +128,16 @@ msgstr ""
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:55
 #, c-format
 msgid "CPU: %.1f%%"
-msgstr ""
+msgstr "CPU: %.1f%%"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:56
 #, c-format
 msgid "RAM: %.1f%%"
-msgstr ""
+msgstr "RAM: %.1f%%"
 
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:37
 msgid "Process Name"
-msgstr ""
+msgstr "Όνομα διεργασίας"
 
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:43
 #: src/Widgets/Statusbar/Statusbar.vala:14
@@ -380,4 +380,4 @@ msgstr "GPU"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
-msgstr ""
+msgstr "Αξιοποίηση"
