@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-27 22:01+0000\n"
-"PO-Revision-Date: 2026-06-29 13:56+0000\n"
-"Last-Translator: kalligator <kalligator+github@gmail.com>\n"
+"PO-Revision-Date: 2026-07-25 20:01+0000\n"
+"Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: Greek <https://l10n.elementaryos.org/projects/desktop/monitor-"
 "extra/el/>\n"
 "Language: el\n"
@@ -67,15 +67,15 @@ msgstr ""
 
 #: data/io.elementary.monitor.metainfo.xml.in:98
 msgid "🇳🇱 Update Dutch translation (@Vistaus)"
-msgstr ""
+msgstr "🇳🇱 Ενημέρωση ολλανδικής μετάφρασης (@Vistaus)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:99
 msgid "🇵🇹 Update Portuguese translation (@hugok79)"
-msgstr ""
+msgstr "🇵🇹 Ενημέρωση πορτογαλικής μετάφρασης (@hugok79)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:100
 msgid "🇷🇴 Add Romanian translation (@tiberiufrat)"
-msgstr ""
+msgstr "🇷🇴 Προσθήκη ρουμανικής μετάφρασης (@tiberiufrat)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:107
 msgid "Display Storage usage"
@@ -83,11 +83,11 @@ msgstr ""
 
 #: data/io.elementary.monitor.metainfo.xml.in:108
 msgid "Update Russian translation (@camellan)"
-msgstr ""
+msgstr "Ενημέρωση ρωσικής μετάφρασης (@camellan)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:109
 msgid "Update Portuguese translation (@hugok79)"
-msgstr ""
+msgstr "Ενημέρωση πορτογαλικής μετάφρασης (@hugok79)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:110
 msgid "Different colours for Upload and Download"
@@ -96,11 +96,11 @@ msgstr ""
 #: data/io.elementary.monitor.metainfo.xml.in:117
 #: data/io.elementary.monitor.metainfo.xml.in:129
 msgid "Update Portuguese translation (@rottenpants466)"
-msgstr ""
+msgstr "Ενημέρωση πορτογαλικής μετάφρασης (@rottenpants466)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:118
 msgid "Update Dutch translation (@Vistaus)"
-msgstr ""
+msgstr "Ενημέρωση ολλανδικής μετάφρασης (@Vistaus)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:119
 msgid "Smoother animations (@DevAlien)"
@@ -125,7 +125,7 @@ msgstr ""
 #: data/io.elementary.monitor.metainfo.xml.in:137
 #: data/io.elementary.monitor.metainfo.xml.in:200
 msgid "Update Japanese translation (Ryo Nakano)"
-msgstr ""
+msgstr "Ενημέρωση ιαπωνικής μετάφρασης (Ryo Nakano)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:138
 msgid "Disable search entry, when System tab is active"
@@ -155,11 +155,11 @@ msgstr ""
 #: data/io.elementary.monitor.metainfo.xml.in:198
 #: data/io.elementary.monitor.metainfo.xml.in:212
 msgid "Update Russian translation (camellan)"
-msgstr ""
+msgstr "Ενημέρωση ρωσικής μετάφρασης (camellan)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:163
 msgid "Add Turkish translation (Harun Yasar)"
-msgstr ""
+msgstr "Προσθήκη τουρκικής μετάφρασης (Harun Yasar)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:164
 msgid ""
@@ -181,15 +181,15 @@ msgstr ""
 
 #: data/io.elementary.monitor.metainfo.xml.in:180
 msgid "Update German translation (Carsten Dietrich)"
-msgstr ""
+msgstr "Ενημέρωση γερμανικής μετάφρασης (Carsten Dietrich)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:187
 msgid "Update Portuguese translation (Hugo Carvalho)"
-msgstr ""
+msgstr "Ενημέρωση πορτογαλικής μετάφρασης (Hugo Carvalho)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:188
 msgid "Update French translation (Nathan Bonnemains and Skeudwenn)"
-msgstr ""
+msgstr "Ενημέρωση γαλλικής μετάφρασης (Nathan Bonnemains και Skeudwenn)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:189
 msgid "Fix: Don't show swap percentage when it's not available (Ryo Nakano)"
@@ -197,7 +197,7 @@ msgstr ""
 
 #: data/io.elementary.monitor.metainfo.xml.in:196
 msgid "Update Italian translation (Mirko Brombin)"
-msgstr ""
+msgstr "Ενημέρωση ιταλικής μετάφρασης (Mirko Brombin)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:197
 msgid "Show swap usage (Ryo Nakano)"
@@ -236,7 +236,7 @@ msgstr ""
 
 #: data/io.elementary.monitor.metainfo.xml.in:214
 msgid "Update Spanish translation (Mario Rodrigo)"
-msgstr ""
+msgstr "Ενημέρωση ισπανικής μετάφρασης (Mario Rodrigo)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:221
 msgid "Add start-in-background option to UI"
@@ -248,19 +248,19 @@ msgstr ""
 
 #: data/io.elementary.monitor.metainfo.xml.in:229
 msgid "Add Italian and Portuguese translations"
-msgstr ""
+msgstr "Προσθήκη ιταλικής και πορτογαλικής μετάφρασης"
 
 #: data/io.elementary.monitor.metainfo.xml.in:230
 msgid "Update Dutch, French and Spanish translations"
-msgstr ""
+msgstr "Ενημέρωση ολλανδικής, γαλλικής και ισπανικής μετάφρασης"
 
 #: data/io.elementary.monitor.metainfo.xml.in:231
 msgid "Fix Japanese translation"
-msgstr ""
+msgstr "Διόρθωση ιαπωνικής μετάφρασης"
 
 #: data/io.elementary.monitor.metainfo.xml.in:238
 msgid "Minor bug fix"
-msgstr ""
+msgstr "Διόρθωση μικρού σφάλματος"
 
 #: data/io.elementary.monitor.metainfo.xml.in:239
 msgid "Make End process button red"
@@ -268,7 +268,7 @@ msgstr ""
 
 #: data/io.elementary.monitor.metainfo.xml.in:240
 msgid "Add Japanese translation"
-msgstr ""
+msgstr "Προσθήκη ιαπωνικής μετάφρασης"
 
 #: data/io.elementary.monitor.metainfo.xml.in:247
 msgid "Add CPU and RAM icons"
@@ -280,7 +280,7 @@ msgstr ""
 
 #: data/io.elementary.monitor.metainfo.xml.in:249
 msgid "Update Polish and Russian translation"
-msgstr ""
+msgstr "Ενημέρωση πολωνικής και ρωσικής μετάφρασης"
 
 #: data/io.elementary.monitor.metainfo.xml.in:256
 msgid "Add Monitor indicator"
@@ -288,7 +288,7 @@ msgstr ""
 
 #: data/io.elementary.monitor.metainfo.xml.in:257
 msgid "Add missing extra French translations"
-msgstr ""
+msgstr "Προσθήκη επιπλέον γαλλικών μεταφράσεων που απουσίαζαν"
 
 #: data/io.elementary.monitor.metainfo.xml.in:258
 msgid ""
