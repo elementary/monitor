@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-27 22:01+0000\n"
-"PO-Revision-Date: 2026-07-10 08:09+0000\n"
+"PO-Revision-Date: 2026-07-25 20:01+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: Greek <https://l10n.elementaryos.org/projects/desktop/monitor/"
 "el/>\n"
@@ -37,7 +37,7 @@ msgstr "Ρυθμίσεις"
 
 #: src/MainWindow.vala:61
 msgid "Search process name or PID"
-msgstr ""
+msgstr "Αναζήτηση ονόματος διεργασίας ή PID"
 
 #. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
@@ -333,15 +333,15 @@ msgstr "Δίκτυο"
 
 #: src/Views/SystemView/SystemNetworkView.vala:28
 msgid "DOWN"
-msgstr ""
+msgstr "ΚΑΤΩ"
 
 #: src/Views/SystemView/SystemNetworkView.vala:33
 msgid "UP"
-msgstr ""
+msgstr "ΠΑΝΩ"
 
 #: src/Views/SystemView/SystemStorageView.vala:18
 msgid "Storage"
-msgstr ""
+msgstr "Αποθηκευτικός χώρος"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
 msgid "WRITE"
