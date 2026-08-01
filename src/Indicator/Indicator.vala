@@ -16,7 +16,7 @@ public class Monitor.Indicator : Wingpanel.Indicator {
     }
 
     construct {
-        Gtk.IconTheme.get_default ().add_resource_path ("/io/elementary/monitor/icons");
+        Gtk.IconTheme.get_for_display (Gdk.Display.get_default ()).add_resource_path ("/io/elementary/monitor/icons");
         this.visible = false;
         display_widget = new Widgets.DisplayWidget ();
         popover_widget = new Widgets.PopoverWidget ();
@@ -83,10 +83,10 @@ public class Monitor.Indicator : Wingpanel.Indicator {
             color: @error_color;
         }
         """;
-        provider.load_from_data (css, -1);
+        provider.load_from_string (css);
 
-        Gtk.StyleContext.add_provider_for_screen (
-            Gdk.Screen.get_default (),
+        Gtk.StyleContext.add_provider_for_display (
+            Gdk.Display.get_default (),
             provider,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );

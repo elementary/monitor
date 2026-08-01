@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
  */
 
-public class Monitor.Widgets.DisplayWidget : Gtk.Grid {
+public class Monitor.Widgets.DisplayWidget : Gtk.Box {
     construct {
         valign = Gtk.Align.CENTER;
 
@@ -82,14 +82,14 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Grid {
             gpu_temperature_widget.update_label (gpu_temperature);
         });
 
-        add (cpu_widget);
-        add (cpu_frequency_widget);
-        add (cpu_temperature_widget);
-        add (memory_widget);
-        add (gpu_widget);
-        add (gpu_memory_widget);
-        add (gpu_temperature_widget);
-        add (network_up_widget);
-        add (network_down_widget);
+        append (cpu_widget);
+        append (cpu_frequency_widget);
+        append (cpu_temperature_widget);
+        append (memory_widget);
+        append (gpu_widget);
+        append (gpu_memory_widget);
+        append (gpu_temperature_widget);
+        append (network_up_widget);
+        append (network_down_widget);
     }
 }

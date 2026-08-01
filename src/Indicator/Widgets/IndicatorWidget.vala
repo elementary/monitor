@@ -18,15 +18,18 @@ public class Monitor.IndicatorWidget : Gtk.Box {
     }
 
     construct {
-        var icon = new Gtk.Image.from_icon_name (icon_name, Gtk.IconSize.SMALL_TOOLBAR);
+        var icon = new Gtk.Image.from_icon_name (icon_name);
 
         label = new Gtk.Label (Utils.NOT_AVAILABLE) {
-            margin = 2,
+            margin_start = 2,
+            margin_end = 2,
+            margin_top = 2,
+            margin_bottom = 2,
             width_chars = 4,
         };
 
-        pack_start (icon);
-        pack_start (label);
+        append (icon);
+        append (label);
     }
 
     public virtual void update_label (Value value) {
