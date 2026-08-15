@@ -12,25 +12,6 @@
 ![Monitor Screenshot](https://github.com/elementary/monitor/raw/main/data/screenshots/monitor-processes.png)
 ![Monitor Screenshot](https://github.com/elementary/monitor/raw/main/data/screenshots/monitor-system.png)
 
-## Install
-
-### elementary OS 7 Horus
-
-If you have never added a PPA on your system before, you might need to run this command first:
-
-```bash
-sudo apt install -y software-properties-common
-```
-
-Add the PPA of Monitor and then install it:
-
-```bash
-sudo add-apt-repository ppa:stsdc/monitor
-sudo apt install com.github.stsdc.monitor
-```
-
-Monitor will be available from the Applications menu.
-
 ## Development
 
 ### Install dependencies
