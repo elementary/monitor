@@ -8,6 +8,10 @@ public class Monitor.IndicatorWidgetBandwidth : Monitor.IndicatorWidget {
         base (icon_name);
     }
 
+    construct {
+        label.width_chars = 8;
+    }
+
     public override void update_label (Value value) {
         uint64 bandwidth = value.get_uint64 ();
 
