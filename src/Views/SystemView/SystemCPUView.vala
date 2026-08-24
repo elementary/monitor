@@ -126,7 +126,7 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         }
 
         main_metric_value = ("%d%%").printf (cpu.percentage);
-        cpu_frequency_label.text = ("%.2f %s").printf (cpu.frequency, _("GHz"));
+        cpu_frequency_label.text = Utils.Strings.format_frequency (cpu.frequency);
     }
 
     private Gtk.Grid grid_core_labels () {
