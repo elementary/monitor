@@ -17,22 +17,6 @@ public class Monitor.IndicatorWidgetBandwidth : Monitor.IndicatorWidget {
     public override void update_label (Value value) {
         uint64 bandwidth = value.get_uint64 ();
 
-        label.label = format_network_speed (bandwidth, use_bits);
-    }
-
-    public string format_network_speed (uint64 bandwidth, bool use_bits = false) {
-        const int SCALE = 1000;
-        bandwidth = bandwidth * (use_bits ? 8 : 1);
-        string unit_suffix = use_bits ? "bps" : "Bps";
-        string[] units = { "", "K", "M", "G", "T" };
-
-        int unit_index = 0;
-
-        while (bandwidth >= SCALE && unit_index < units.length - 1) {
-            bandwidth /= SCALE;
-            unit_index++;
-        }
-
-        return "%llu %s%s".printf (bandwidth, units[unit_index], unit_suffix);
+        label.label = Utils.Strings.format_network_speed (bandwidth, use_bits);
     }
 }
