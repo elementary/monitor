@@ -32,7 +32,5 @@ public class Monitor.IndicatorWidget : Gtk.Box {
         append (label);
     }
 
-    public virtual void update_label (Value value) {
-        // NOP; should be overridden by child classes
-    }
+    public abstract void update_label (Value value);
 }
