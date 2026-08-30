@@ -8,6 +8,10 @@ public class Monitor.IndicatorWidgetFrequency : Monitor.IndicatorWidget {
         base (icon_name);
     }
 
+    construct {
+        label.width_chars = 8;
+    }
+
     public override void update_label (Value value) {
         double frequency = value.get_double ();
 
