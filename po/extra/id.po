@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-27 22:01+0000\n"
-"PO-Revision-Date: 2025-10-04 22:55+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2026-09-07 10:02+0000\n"
+"Last-Translator: Chairul Akmal <chairulakmal@protonmail.com>\n"
 "Language-Team: Indonesian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor-extra/id/>\n"
 "Language: id\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: data/io.elementary.monitor.metainfo.xml.in:9 data/monitor.desktop.in:5
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 #: data/io.elementary.monitor.metainfo.xml.in:10
 msgid "Manage processes and monitor system resources"
@@ -38,12 +38,12 @@ msgstr "elementary, Inc."
 #: data/io.elementary.monitor.metainfo.xml.in:39
 #: data/io.elementary.monitor.metainfo.xml.in:53
 msgid "Other Improvements:"
-msgstr ""
+msgstr "Peningkatan Lainnya:"
 
 #: data/io.elementary.monitor.metainfo.xml.in:41
 #: data/io.elementary.monitor.metainfo.xml.in:55
 msgid "Updated translations"
-msgstr "Terjemahan yang diperbarui"
+msgstr "Terjemahan diperbarui"
 
 #: data/io.elementary.monitor.metainfo.xml.in:76
 msgid "Add info about drives (based on Dirli's code)"
