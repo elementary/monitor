@@ -49,6 +49,21 @@ public class Monitor.Utils.Strings {
         return pretty;
     }
 
+    public static string format_network_speed (uint64 bandwidth, bool use_bits = false) {
+        const int SCALE = 1000;
+        bandwidth = bandwidth * (use_bits ? 8 : 1);
+        string unit_suffix = use_bits ? "bps" : "Bps";
+        string[] units = { "", "K", "M", "G", "T" };
+
+        int unit_index = 0;
+
+        while (bandwidth >= SCALE && unit_index < units.length - 1) {
+            bandwidth /= SCALE;
+            unit_index++;
+        }
+
+        return "%llu %s%s".printf (bandwidth, units[unit_index], unit_suffix);
+    }
 }
 
 public class Monitor.Utils.Colors : Object {

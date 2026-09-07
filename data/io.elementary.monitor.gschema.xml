@@ -60,6 +60,11 @@
       <summary>To show network down bandwidth in Monitor Indicator or not</summary>
       <description>To show network down bandwidth in Monitor Indicator or not</description>
     </key>
+    <key type='b' name="network-use-bits-state">
+      <default>false</default>
+      <summary>To show network bandwidth in in bits instead of bytes per second</summary>
+      <description>To show network bandwidth in in bits instead of bytes per second</description>
+    </key>
     <key type='b' name="indicator-gpu-state">
       <default>false</default>
       <summary>To show GPU used percentage in Monitor Indicator or not</summary>
