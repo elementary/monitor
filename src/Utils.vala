@@ -49,6 +49,13 @@ public class Monitor.Utils.Strings {
         return pretty;
     }
 
+    public static string format_frequency (double mhz) {
+        if (mhz >= 1000.0) {
+            return "%.2f %s".printf (mhz / 1000.0, _("GHz"));
+        }
+
+        return "%.0f %s".printf (mhz, _("MHz"));
+    }
 }
 
 public class Monitor.Utils.Colors : Object {
