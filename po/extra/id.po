@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-27 22:01+0000\n"
-"PO-Revision-Date: 2026-09-07 10:02+0000\n"
+"PO-Revision-Date: 2026-09-09 05:28+0000\n"
 "Last-Translator: Chairul Akmal <chairulakmal@protonmail.com>\n"
 "Language-Team: Indonesian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor-extra/id/>\n"
@@ -25,11 +25,11 @@ msgstr "Monitor"
 
 #: data/io.elementary.monitor.metainfo.xml.in:10
 msgid "Manage processes and monitor system resources"
-msgstr ""
+msgstr "Kelola proses dan pantau sumber daya sistem"
 
 #: data/io.elementary.monitor.metainfo.xml.in:12
 msgid "Display usage of system resources, filter and manage processes."
-msgstr ""
+msgstr "Tampilkan penggunaan sumber daya sistem, saring dan kelola proses."
 
 #: data/io.elementary.monitor.metainfo.xml.in:26
 msgid "elementary, Inc."
@@ -47,266 +47,278 @@ msgstr "Terjemahan diperbarui"
 
 #: data/io.elementary.monitor.metainfo.xml.in:76
 msgid "Add info about drives (based on Dirli's code)"
-msgstr ""
+msgstr "Tambah info tentang diska (berdasarkan kode Dirli)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:81
 msgid "Adds dark theme 🌚"
-msgstr ""
+msgstr "Tambah tema gelap 🌚"
 
 #: data/io.elementary.monitor.metainfo.xml.in:86
 msgid "Uses Wingpanel v3; New *.deb package maintainer: Kristopher Ives"
-msgstr ""
+msgstr "Gunakan Wingpanel v3; Pengelola paket *.deb baru: Kristopher Ives"
 
 #: data/io.elementary.monitor.metainfo.xml.in:91
 msgid "🐛 Should fix empty Indicator. Please reboot after installation ⚡️"
 msgstr ""
+"🐛 Seharusnya memperbaiki Indikator kosong. Mulai ulang setelah pemasangan ⚡️"
 
 #: data/io.elementary.monitor.metainfo.xml.in:97
 msgid "🐛 Try to fix frequent GUI hangs 🥶"
-msgstr ""
+msgstr "🐛 Coba perbaiki GUI yang sering macet 🥶"
 
 #: data/io.elementary.monitor.metainfo.xml.in:98
 msgid "🇳🇱 Update Dutch translation (@Vistaus)"
-msgstr ""
+msgstr "🇳🇱 Perbarui terjemahan Belanda (@Vistaus)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:99
 msgid "🇵🇹 Update Portuguese translation (@hugok79)"
-msgstr ""
+msgstr "🇵🇹 Perbarui terjemahan Portugis (@hugok79)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:100
 msgid "🇷🇴 Add Romanian translation (@tiberiufrat)"
-msgstr ""
+msgstr "🇷🇴 Tambah terjemahan Rumania (@tiberiufrat)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:107
 msgid "Display Storage usage"
-msgstr ""
+msgstr "Tampilkan penggunaan Penyimpanan"
 
 #: data/io.elementary.monitor.metainfo.xml.in:108
 msgid "Update Russian translation (@camellan)"
-msgstr ""
+msgstr "Perbarui terjemahan Rusia (@camellan)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:109
 msgid "Update Portuguese translation (@hugok79)"
-msgstr ""
+msgstr "Perbarui terjemahan Portugis (@hugok79)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:110
 msgid "Different colours for Upload and Download"
-msgstr ""
+msgstr "Warna berbeda untuk Unggah dan Unduh"
 
 #: data/io.elementary.monitor.metainfo.xml.in:117
 #: data/io.elementary.monitor.metainfo.xml.in:129
 msgid "Update Portuguese translation (@rottenpants466)"
-msgstr ""
+msgstr "Perbarui terjemahan Portugis (@rottenpants466)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:118
 msgid "Update Dutch translation (@Vistaus)"
-msgstr ""
+msgstr "Perbarui terjemahan Belanda (@Vistaus)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:119
 msgid "Smoother animations (@DevAlien)"
-msgstr ""
+msgstr "Animasi lebih halus (@DevAlien)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:120
 msgid "Preselect first entry so that the info panel is always open (@DevAlien)"
 msgstr ""
+"Pilih entri pertama secara otomatis agar panel info selalu terbuka "
+"(@DevAlien)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:121
 msgid "Show CPU temperature in the Indicator"
-msgstr ""
+msgstr "Tampilkan suhu CPU di Indikator"
 
 #: data/io.elementary.monitor.metainfo.xml.in:128
 msgid "Better System Tab"
-msgstr ""
+msgstr "Tab Sistem yang Lebih Baik"
 
 #: data/io.elementary.monitor.metainfo.xml.in:130
 msgid "Save last opened view (@ryonakano)"
-msgstr ""
+msgstr "Simpan tampilan terakhir yang dibuka (@ryonakano)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:137
 #: data/io.elementary.monitor.metainfo.xml.in:200
 msgid "Update Japanese translation (Ryo Nakano)"
-msgstr ""
+msgstr "Perbarui terjemahan Jepang (Ryo Nakano)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:138
 msgid "Disable search entry, when System tab is active"
-msgstr ""
+msgstr "Nonaktifkan entri pencarian saat tab Sistem aktif"
 
 #: data/io.elementary.monitor.metainfo.xml.in:139
 msgid "Add screenshots"
-msgstr ""
+msgstr "Tambah tangkapan layar"
 
 #: data/io.elementary.monitor.metainfo.xml.in:146
 msgid "Add System resources tab"
-msgstr ""
+msgstr "Tambah tab sumber daya Sistem"
 
 #: data/io.elementary.monitor.metainfo.xml.in:153
 msgid "Added tooltips to process state label (Ryo Nakano)"
-msgstr ""
+msgstr "Tambah tooltip pada label keadaan proses (Ryo Nakano)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:154
 msgid "Small bugfix"
-msgstr ""
+msgstr "Perbaikan bug kecil"
 
 #: data/io.elementary.monitor.metainfo.xml.in:161
 msgid "Fix sorting arrows"
-msgstr ""
+msgstr "Perbaiki panah pengurutan"
 
 #: data/io.elementary.monitor.metainfo.xml.in:162
 #: data/io.elementary.monitor.metainfo.xml.in:198
 #: data/io.elementary.monitor.metainfo.xml.in:212
 msgid "Update Russian translation (camellan)"
-msgstr ""
+msgstr "Perbarui terjemahan Rusia (camellan)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:163
 msgid "Add Turkish translation (Harun Yasar)"
-msgstr ""
+msgstr "Tambah terjemahan Turki (Harun Yasar)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:164
 msgid ""
 "Use newest version of live-chart (Laurent Callarec) ← Check his lib for "
 "creating charts, it's amazing!"
 msgstr ""
+"Gunakan versi terbaru live-chart (Laurent Callarec) ← Lihat pustakanya untuk "
+"membuat grafik, sangat bagus!"
 
 #: data/io.elementary.monitor.metainfo.xml.in:171
 msgid "Detailed process info in sidebar"
-msgstr ""
+msgstr "Info proses terperinci di bilah sisi"
 
 #: data/io.elementary.monitor.metainfo.xml.in:172
 msgid "CPU frequency in tooltip (Ryo Nakano)"
-msgstr ""
+msgstr "Frekuensi CPU di tooltip (Ryo Nakano)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:179
 msgid "Bugfix (potential) of crushes and high CPU usage"
-msgstr ""
+msgstr "Perbaikan bug (potensial) untuk mogok dan penggunaan CPU tinggi"
 
 #: data/io.elementary.monitor.metainfo.xml.in:180
 msgid "Update German translation (Carsten Dietrich)"
-msgstr ""
+msgstr "Perbarui terjemahan Jerman (Carsten Dietrich)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:187
 msgid "Update Portuguese translation (Hugo Carvalho)"
-msgstr ""
+msgstr "Perbarui terjemahan Portugis (Hugo Carvalho)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:188
 msgid "Update French translation (Nathan Bonnemains and Skeudwenn)"
-msgstr ""
+msgstr "Perbarui terjemahan Prancis (Nathan Bonnemains dan Skeudwenn)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:189
 msgid "Fix: Don't show swap percentage when it's not available (Ryo Nakano)"
 msgstr ""
+"Perbaikan: Jangan tampilkan persentase swap saat tidak tersedia (Ryo Nakano)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:196
 msgid "Update Italian translation (Mirko Brombin)"
-msgstr ""
+msgstr "Perbarui terjemahan Italia (Mirko Brombin)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:197
 msgid "Show swap usage (Ryo Nakano)"
-msgstr ""
+msgstr "Tampilkan penggunaan swap (Ryo Nakano)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:199
 msgid "Code refactoring (Ryo Nakano)"
-msgstr ""
+msgstr "Pemfaktoran ulang kode (Ryo Nakano)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:207
 msgid "Fix contents of the window are not shown (Ryo Nakano)"
-msgstr ""
+msgstr "Perbaiki isi jendela yang tidak ditampilkan (Ryo Nakano)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:208
 msgid ""
 "ix no row is still selected when indicator options are enabled (Ryo Nakano)"
 msgstr ""
+"Perbaiki tidak ada baris yang terpilih saat opsi indikator diaktifkan (Ryo "
+"Nakano)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:209
 msgid ""
 "Fix the app crashes by clicking the \"End/Kill Process\" buttons when no "
 "process is selected (Ryo Nakano)"
 msgstr ""
+"Perbaiki aplikasi mogok saat mengeklik tombol \"End/Kill Process\" ketika "
+"tidak ada proses yang dipilih (Ryo Nakano)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:210
 msgid "Added buttons to either \"kill\" or \"end\" a process. (Evan Buss)"
-msgstr ""
+msgstr "Tambah tombol untuk \"kill\" atau \"end\" suatu proses. (Evan Buss)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:211
 msgid "Change screenshot to English (Christopher Crouse)"
-msgstr ""
+msgstr "Ubah tangkapan layar ke bahasa Inggris (Christopher Crouse)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:213
 msgid "Check if the default display is a X11 display (Hannes Schulze)"
-msgstr ""
+msgstr "Periksa apakah tampilan bawaan adalah tampilan X11 (Hannes Schulze)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:214
 msgid "Update Spanish translation (Mario Rodrigo)"
-msgstr ""
+msgstr "Perbarui terjemahan Spanyol (Mario Rodrigo)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:221
 msgid "Add start-in-background option to UI"
-msgstr ""
+msgstr "Tambah opsi start-in-background ke antarmuka"
 
 #: data/io.elementary.monitor.metainfo.xml.in:228
 msgid "Add start-in-background command line option"
-msgstr ""
+msgstr "Tambah opsi baris perintah start-in-background"
 
 #: data/io.elementary.monitor.metainfo.xml.in:229
 msgid "Add Italian and Portuguese translations"
-msgstr ""
+msgstr "Tambah terjemahan Italia dan Portugis"
 
 #: data/io.elementary.monitor.metainfo.xml.in:230
 msgid "Update Dutch, French and Spanish translations"
-msgstr ""
+msgstr "Perbarui terjemahan Belanda, Prancis dan Spanyol"
 
 #: data/io.elementary.monitor.metainfo.xml.in:231
 msgid "Fix Japanese translation"
-msgstr ""
+msgstr "Perbaiki terjemahan Jepang"
 
 #: data/io.elementary.monitor.metainfo.xml.in:238
 msgid "Minor bug fix"
-msgstr ""
+msgstr "Perbaikan bug kecil"
 
 #: data/io.elementary.monitor.metainfo.xml.in:239
 msgid "Make End process button red"
-msgstr ""
+msgstr "Buat tombol Akhiri proses berwarna merah"
 
 #: data/io.elementary.monitor.metainfo.xml.in:240
 msgid "Add Japanese translation"
-msgstr ""
+msgstr "Tambah terjemahan Jepang"
 
 #: data/io.elementary.monitor.metainfo.xml.in:247
 msgid "Add CPU and RAM icons"
-msgstr ""
+msgstr "Tambah ikon CPU dan RAM"
 
 #: data/io.elementary.monitor.metainfo.xml.in:248
 msgid "Fix bug, that caused hanging"
-msgstr ""
+msgstr "Perbaiki bug yang menyebabkan macet"
 
 #: data/io.elementary.monitor.metainfo.xml.in:249
 msgid "Update Polish and Russian translation"
-msgstr ""
+msgstr "Perbarui terjemahan Polandia dan Rusia"
 
 #: data/io.elementary.monitor.metainfo.xml.in:256
 msgid "Add Monitor indicator"
-msgstr ""
+msgstr "Tambah indikator Monitor"
 
 #: data/io.elementary.monitor.metainfo.xml.in:257
 msgid "Add missing extra French translations"
-msgstr ""
+msgstr "Tambah terjemahan tambahan Prancis yang hilang"
 
 #: data/io.elementary.monitor.metainfo.xml.in:258
 msgid ""
 "Fix: if icon missing for the process, icon is taken from previous process"
-msgstr ""
+msgstr "Perbaikan: jika ikon proses hilang, ikon diambil dari proses sebelumnya"
 
 #: data/io.elementary.monitor.metainfo.xml.in:259
 msgid "Fix: search erases my input while I'm typing"
-msgstr ""
+msgstr "Perbaikan: pencarian menghapus masukan saya saat saya mengetik"
 
 #: data/io.elementary.monitor.metainfo.xml.in:260
 msgid "Fix POTFILES"
-msgstr ""
+msgstr "Perbaiki POTFILES"
 
 #: data/monitor.desktop.in:6
 msgid "Manage processes and monitor resource usage of the system"
-msgstr ""
+msgstr "Kelola proses dan pantau penggunaan sumber daya sistem"
 
 #: data/monitor.desktop.in:8
 msgid "System monitor;System usage;Task manager;"
 msgstr ""
+"Pemantau sistem;Penggunaan sistem;Pengelola tugas;System monitor;System "
+"usage;Task manager;"
