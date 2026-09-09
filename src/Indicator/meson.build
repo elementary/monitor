@@ -13,8 +13,8 @@ source_indicator_files = [
     meson.project_source_root() / 'src' / 'Utils.vala',
 ]
 
-wingpanel_dep = dependency('wingpanel', version: '>=2.1.0')
-gtk_dep = dependency('gtk+-3.0')
+wingpanel_dep = dependency('wingpanel-9')
+gtk_dep = dependency('gtk4', version: '>= 4.12')
 
 indicator_dependencies = [
     wingpanel_dep,

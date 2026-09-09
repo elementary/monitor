@@ -12,15 +12,15 @@ public class Monitor.IndicatorWidgetPercentage : Monitor.IndicatorWidget {
         uint percentage = value.get_uint ();
 
         label.label = "%u%%".printf (percentage);
-        label.get_style_context ().remove_class ("monitor-indicator-label-warning");
-        label.get_style_context ().remove_class ("monitor-indicator-label-critical");
+        label.remove_css_class ("monitor-indicator-label-warning");
+        label.remove_css_class ("monitor-indicator-label-critical");
 
         if (percentage > 80) {
-            label.get_style_context ().add_class ("monitor-indicator-label-warning");
+            label.add_css_class ("monitor-indicator-label-warning");
         }
 
         if (percentage > 90) {
-            label.get_style_context ().add_class ("monitor-indicator-label-critical");
+            label.add_css_class ("monitor-indicator-label-critical");
         }
     }
 }

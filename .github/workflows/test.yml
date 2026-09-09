@@ -23,8 +23,8 @@ jobs:
       - name: Install Dependencies
         run: |
           apt update
-          apt install -y libgala-dev libgee-0.8-dev libglib2.0-dev libgranite-dev libgtk-4-dev libadwaita-1-dev \
-          libdbus-glib-1-dev libgtop2-dev libwingpanel-3.0-dev libudisks2-dev \
+          apt install -y libgala-dev libgee-0.8-dev libglib2.0-dev libgranite-7-dev libgtk-4-dev libadwaita-1-dev \
+          libdbus-glib-1-dev libgtop2-dev libwingpanel-9-dev libudisks2-dev \
           libxnvctrl0 libxnvctrl-dev libcurl4-gnutls-dev libflatpak-dev libjson-glib-dev \
           liblivechart-2-dev libpci-dev \
           meson valac sassc git \

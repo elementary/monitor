@@ -12,25 +12,6 @@
 ![Monitor Screenshot](https://github.com/elementary/monitor/raw/main/data/screenshots/monitor-processes.png)
 ![Monitor Screenshot](https://github.com/elementary/monitor/raw/main/data/screenshots/monitor-system.png)
 
-## Install
-
-### elementary OS 7 Horus
-
-If you have never added a PPA on your system before, you might need to run this command first:
-
-```bash
-sudo apt install -y software-properties-common
-```
-
-Add the PPA of Monitor and then install it:
-
-```bash
-sudo add-apt-repository ppa:stsdc/monitor
-sudo apt install com.github.stsdc.monitor
-```
-
-Monitor will be available from the Applications menu.
-
 ## Development
 
 ### Install dependencies
@@ -38,7 +19,7 @@ Monitor will be available from the Applications menu.
 If you plan to install WITH a wingpanel-indicator
 
 ```bash
-sudo apt install sassc valac libgtk-3-dev libgtk-4-dev libgee-0.8-dev libgranite-7-dev libgtop2-dev libadwaita-1-dev libudisks2-dev libjson-glib-dev libflatpak-dev libxnvctrl-dev liblivechart-2-dev libpci-dev libwingpanel-dev meson
+sudo apt install sassc valac libgtk-4-dev libgee-0.8-dev libgranite-7-dev libgtop2-dev libadwaita-1-dev libudisks2-dev libjson-glib-dev libflatpak-dev libxnvctrl-dev liblivechart-2-dev libpci-dev libwingpanel-9-dev meson
 ```
 
 Alternatively, if you plan to install WITHOUT a wingpanel-indicator
