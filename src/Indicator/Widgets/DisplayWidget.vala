@@ -29,6 +29,9 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Box {
             memory_widget.visible = Indicator.settings.get_boolean ("indicator-memory-state");
             network_up_widget.visible = Indicator.settings.get_boolean ("indicator-network-upload-state");
             network_down_widget.visible = Indicator.settings.get_boolean ("indicator-network-download-state");
+            bool use_bits = Indicator.settings.get_boolean ("network-use-bits-state");
+            network_up_widget.use_bits = use_bits;
+            network_down_widget.use_bits = use_bits;
             gpu_widget.visible = Indicator.settings.get_boolean ("indicator-gpu-state");
             gpu_memory_widget.visible = Indicator.settings.get_boolean ("indicator-gpu-memory-state");
             gpu_temperature_widget.visible = Indicator.settings.get_boolean ("indicator-gpu-temperature-state");
@@ -40,6 +43,10 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Box {
         dbusclient.interface.indicator_memory_state.connect ((state) => memory_widget.visible = state);
         dbusclient.interface.indicator_network_up_state.connect ((state) => network_up_widget.visible = state);
         dbusclient.interface.indicator_network_down_state.connect ((state) => network_down_widget.visible = state);
+        dbusclient.interface.network_use_bits_state.connect ((state) => {
+            network_up_widget.use_bits = state;
+            network_down_widget.use_bits = state;
+        });
         dbusclient.interface.indicator_gpu_state.connect ((state) => gpu_widget.visible = state);
         dbusclient.interface.indicator_gpu_memory_state.connect ((state) => gpu_memory_widget.visible = state);
         dbusclient.interface.indicator_gpu_temperature_state.connect ((state) => gpu_temperature_widget.visible = state);

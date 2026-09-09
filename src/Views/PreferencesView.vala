@@ -89,6 +89,11 @@ public class Monitor.PreferencesView : Granite.Bin {
             dbusserver.indicator_network_down_state (network_download_check.active);
         });
 
+        var network_use_bits_check = new Gtk.CheckButton.with_label (_("Network use bits"));
+        network_use_bits_check.toggled.connect (() => {
+            dbusserver.network_use_bits_state (network_use_bits_check.active);
+        });
+
         var gpu_check = new Gtk.CheckButton.with_label (_("GPU percentage"));
         gpu_check.toggled.connect (() => {
             dbusserver.indicator_gpu_state (gpu_check.active);
@@ -124,6 +129,7 @@ public class Monitor.PreferencesView : Granite.Bin {
         indicator_options_box.append (new Gtk.Separator (HORIZONTAL));
         indicator_options_box.append (network_upload_check);
         indicator_options_box.append (network_download_check);
+        indicator_options_box.append (network_use_bits_check);
 
         var indicator_options_revealer = new Gtk.Revealer () {
             child = indicator_options_box
@@ -158,5 +164,6 @@ public class Monitor.PreferencesView : Granite.Bin {
         settings.bind ("indicator-gpu-state", gpu_check, "active", DEFAULT);
         settings.bind ("indicator-network-download-state", network_download_check, "active", DEFAULT);
         settings.bind ("indicator-network-upload-state", network_upload_check, "active", DEFAULT);
+        settings.bind ("network-use-bits-state", network_use_bits_check, "active", DEFAULT);
     }
 }
