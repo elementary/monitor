@@ -94,10 +94,10 @@ public class Monitor.Indicator : Wingpanel.Indicator {
 
 }
 
-public Wingpanel.Indicator ? get_indicator (Module module, Wingpanel.IndicatorManager.ServerType server_type) {
+public Wingpanel.Indicator ? get_indicator (Module module, Wingpanel.ServerType server_type) {
     debug ("Activating Monitor Indicator");
 
-    if (server_type != Wingpanel.IndicatorManager.ServerType.SESSION) {
+    if (server_type != Wingpanel.ServerType.SESSION) {
         /* We want to display our monitor indicator only in the "normal" session, not on the login screen, so stop here! */
         return null;
     }
