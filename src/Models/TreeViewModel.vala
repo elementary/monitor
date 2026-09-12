@@ -83,6 +83,7 @@ public class Monitor.TreeViewModel : GLib.Object {
                 name = process.application_name,
                 cpu = (int) process.cpu_percentage,
                 memory = process.mem_usage,
+                gpu = (int) process.gpu_percentage,
                 pid = process.stat.pid,
                 cmd = process.command
             };
@@ -112,6 +113,7 @@ public class Monitor.TreeViewModel : GLib.Object {
             var item = (ProcessRowData) store.get_item (pos);
             item.cpu = (int) process.cpu_percentage;
             item.memory = process.mem_usage;
+            item.gpu = (int) process.gpu_percentage;
             sorter.changed (DIFFERENT);
         }
     }

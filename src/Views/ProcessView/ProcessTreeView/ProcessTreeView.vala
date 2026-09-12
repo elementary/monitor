@@ -29,6 +29,11 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         memory_item_factory.bind.connect (memory_item_factory_bind);
         memory_item_factory.unbind.connect (memory_item_factory_unbind);
 
+        var gpu_item_factory = new Gtk.SignalListItemFactory ();
+        gpu_item_factory.setup.connect (generic_item_factory_setup);
+        gpu_item_factory.bind.connect (gpu_item_factory_bind);
+        gpu_item_factory.unbind.connect (gpu_item_factory_unbind);
+
         var pid_item_factory = new Gtk.SignalListItemFactory ();
         pid_item_factory.setup.connect (generic_item_factory_setup);
         pid_item_factory.bind.connect (pid_item_factory_bind);
@@ -51,6 +56,12 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             expand = false
         };
         column_view.append_column (mem_column);
+
+        var gpu_column = new Gtk.ColumnViewColumn (_("GPU"), gpu_item_factory) {
+            sorter = model.num_sorter ("gpu"),
+            expand = false
+        };
+        column_view.append_column (gpu_column);
 
         var pid_column = new Gtk.ColumnViewColumn (_("PID"), pid_item_factory) {
             sorter = model.num_sorter ("pid"),
@@ -142,6 +153,26 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         var item = (ProcessRowData) cell.item;
         label.label = null;
         item.bindings["memory"].unbind ();
+    }
+
+    private void gpu_item_factory_bind (Object object) {
+        var cell = (Gtk.ColumnViewCell) object;
+        var label = (Gtk.Label) cell.child;
+        var item = (ProcessRowData) cell.item;
+        var binding_gpu = item.bind_property ("gpu", label, "label", SYNC_CREATE, (_, from_val, ref to_val) => {
+            int percentage = from_val.get_int ();
+            to_val.set_string ("%.0f%%".printf (percentage));
+            return true;
+        });
+        item.bindings.set ("gpu", binding_gpu);
+    }
+
+    private void gpu_item_factory_unbind (Object object) {
+        var cell = (Gtk.ColumnViewCell) object;
+        var label = (Gtk.Label) cell.child;
+        var item = (ProcessRowData) cell.item;
+        label.label = null;
+        item.bindings["gpu"].unbind ();
     }
 
     private void pid_item_factory_bind (Object object) {
