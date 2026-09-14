@@ -54,7 +54,7 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
             height_request = -1
         };
         cpu_frequency_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
-        cpu_frequency_chart.config.y_axis.fixed_max = 5.0;
+        cpu_frequency_chart.config.y_axis.fixed_max = 5000.0;
 
         var freq_info_overlay = new Gtk.Overlay () {
             child = cpu_frequency_chart
