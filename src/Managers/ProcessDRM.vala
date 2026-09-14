@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
+ * SPDX-FileCopyrightText: 2026 elementary, Inc. (https://elementary.io)
  */
 
 public class Monitor.ProcessDRM : GLib.Object {
@@ -11,8 +11,8 @@ public class Monitor.ProcessDRM : GLib.Object {
      * Time spent busy in nanoseconds by the render engine executing
      * workloads from the last time it was read
      */
-    private uint64 last_engine_render;
-    private uint64 last_engine_gfx;
+    private uint64 last_engine_render = 0;
+    private uint64 last_engine_gfx = 0;
 
     private uint64 engine_gfx;
     private uint64 engine_render;
@@ -36,21 +36,30 @@ public class Monitor.ProcessDRM : GLib.Object {
     private int update_interval;
     private Gee.ArrayList<GLib.File> drm_files;
 
+    internal string path_fdinfo;
+    internal string path_fd;
+
     public ProcessDRM (int pid, int update_interval) {
         this.pid = pid;
         this.update_interval = update_interval;
 
-        last_engine_render = 0;
-        last_engine_gfx = 0;
+        path_fdinfo = "/proc/%d/fdinfo".printf (pid);
+        path_fd = "/proc/%d/fd".printf (pid);
+
+        get_drm_files ();
+    }
+
+    public ProcessDRM.with_paths (int pid, int update_interval, string path_fdinfo, string path_fd) {
+        this.pid = pid;
+        this.update_interval = update_interval;
+        this.path_fdinfo = path_fdinfo;
+        this.path_fd = path_fd;
 
         get_drm_files ();
     }
 
     private void get_drm_files () {
-        string path_fdinfo = "/proc/%d/fdinfo".printf (pid);
-        string path_fd = "/proc/%d/fd".printf (pid);
-
-        drm_files = new Gee.ArrayList<GLib.File ?> ();
+    drm_files = new Gee.ArrayList<GLib.File ?> ();
 
         try {
             Dir dir = Dir.open (path_fdinfo, 0);
@@ -70,7 +79,7 @@ public class Monitor.ProcessDRM : GLib.Object {
                     continue;
                 }
 
-                bool is_drm = is_drm_fd (fd_dir_fd, name);
+                bool is_drm = ProcessUtils.is_drm_fd (fd_dir_fd, name);
                 Posix.close (fd_dir_fd);
 
                 if (is_drm) {
@@ -109,6 +118,8 @@ public class Monitor.ProcessDRM : GLib.Object {
             break;
         }
 
+        // Every GPU driver creates a bit different DRM file content,
+        // so we need to use a specific gpu percentage calculation functions
         switch (driver) {
         case "i915":
             calculate_percentage_ns (ref engine_render, ref last_engine_render);
@@ -121,6 +132,7 @@ public class Monitor.ProcessDRM : GLib.Object {
              break;
         default:
             // Handle default case
+            gpu_percentage = -1;
             break;
         }
     }
@@ -128,29 +140,21 @@ public class Monitor.ProcessDRM : GLib.Object {
     private void calculate_percentage_ns (ref uint64 engine, ref uint64 last_engine) {
         if (last_engine != 0) {
             // Since values in the files are in nanoseconds, it is also needed to convert
-            // interval to nanoseconds (10^9)
+            // the interval to nanoseconds (10^9)
             gpu_percentage = 100 * ((double) (engine - last_engine)) / (update_interval * 1e9);
         }
         last_engine = engine;
     }
 
     private void calculate_percentage_cycles (ref uint64 delta, ref uint64 delta_total) {
-        var pre = (float) delta / (float) delta_total;
-        gpu_percentage = delta_total > 0 ? 100 * (pre.clamp (0.0f, 1.0f)) : 0;
+        var fraction = (float) delta / (float) delta_total;
+        gpu_percentage = delta_total > 0 ? 100 * (fraction.clamp (0.0f, 1.0f)) : 0;
     }
 
     private void update_cycles (string line, ref uint64 last_cycles, ref uint64 delta) {
         var cycles = uint64.parse (line.strip ().split (" ")[0]);
         delta = cycles > last_cycles ? cycles - last_cycles : 0;
         last_cycles = cycles;
-    }
-
-    // Based on nvtop
-    // https://github.com/Syllo/nvtop/blob/4bf5db248d7aa7528f3a1ab7c94f504dff6834e4/src/extract_processinfo_fdinfo.c#L88
-    private static bool is_drm_fd (int fd_dir_fd, string name) {
-        Posix.Stat stat;
-        int ret = Posix.fstatat (fd_dir_fd, name, out stat, 0);
-        return ret == 0 && (stat.st_mode & Posix.S_IFMT) == Posix.S_IFCHR && Posix.major (stat.st_rdev) == 226;
     }
 
     private void parse_drm_line (string line) {

@@ -67,4 +67,12 @@ public class Monitor.ProcessUtils {
             return null;
         }
     }
+
+    // Based on nvtop
+    // https://github.com/Syllo/nvtop/blob/4bf5db248d7aa7528f3a1ab7c94f504dff6834e4/src/extract_processinfo_fdinfo.c#L88
+    public static bool is_drm_fd (int fd_dir_fd, string name) {
+        Posix.Stat stat;
+        int ret = Posix.fstatat (fd_dir_fd, name, out stat, 0);
+        return ret == 0 && (stat.st_mode & Posix.S_IFMT) == Posix.S_IFCHR && Posix.major (stat.st_rdev) == 226;
+    }
 }
