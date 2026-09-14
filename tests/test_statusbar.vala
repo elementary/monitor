@@ -1,5 +1,3 @@
-using Monitor;
-
 private void test_statusbar () {
 
     Test.add_func ("/Monitor/Widgets/Statusbar/Statusbar#Statusbar", () => {
