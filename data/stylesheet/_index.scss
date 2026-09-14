@@ -77,16 +77,9 @@ roundy-label:hover:selected {
 }
 
 .usage-label-container {
-    border-radius: 3px;
-    margin: 6px;
-
-    @if $color-scheme == "light" {
-        background-color: rgba($SILVER_100, 0.5);
-        border: 1px solid $SILVER_300;
-    } @else if $color-scheme == "dark" {
-        background-color: rgba($SILVER_900, 0.5);
-        border: 1px solid $SILVER_900;
-    }
+    backdrop-filter: blur(12px);
+    background-color: #{'color-mix(in srgb, @base_color 20%, transparent)'};
+    margin: 0.5rem;
 }
 
 .state_badge,
@@ -184,13 +177,8 @@ roundy-label:hover:selected {
 }
 
 .graph {
-    border-radius: 6px;
-
-    @if $color-scheme == "light" {
-        border: 1px $SILVER_300 solid;
-    } @else if $color-scheme == "dark" {
-        border: 1px $SILVER_900 solid;
-    }
+    border: 1px solid #{'@borders'};
+    border-radius: 0.75rem;
 }
 
 .open_files_list_box_wrapper {
