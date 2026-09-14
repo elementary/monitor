@@ -50,11 +50,24 @@ public class Monitor.Utils.Strings {
     }
 
     public static string format_frequency (double mhz) {
+        double frequency = mhz;
+        string unit = _("Mhz");
+        string format_value = "%.0f";
+
         if (mhz >= 1000.0) {
-            return "%.2f %s".printf (mhz / 1000.0, _("GHz"));
+            frequency = mhz / 1000.0;
+            unit = _("Ghz");
+            format_value = "%.2f";
         }
 
-        return "%.0f %s".printf (mhz, _("MHz"));
+        string format = format_value + " %s";
+
+        if (Gtk.Widget.get_default_direction () == Gtk.TextDirection.LTR) {
+            return format.printf (frequency, unit);
+        } else {
+            format = "%s " + format_value;
+            return format.printf (unit, frequency);
+        }
     }
 }
 
