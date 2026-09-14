@@ -14,6 +14,8 @@ public class Monitor.SystemGPUView : Monitor.WidgetResource {
 
 
     construct {
+        title = (_("Graphics"));
+
         gpu_vram_percentage_label = new LabelRoundy (_("VRAM")) {
             margin_top = 2,
             margin_bottom = 6,
@@ -60,7 +62,7 @@ public class Monitor.SystemGPUView : Monitor.WidgetResource {
     public SystemGPUView (IGPU _gpu) {
         gpu = _gpu;
 
-        title = gpu.name;
+        add_header_info (new Gtk.Label (gpu.name));
 
         gpu_chart = new Chart (1);
         gpu_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));

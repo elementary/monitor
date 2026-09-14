@@ -16,7 +16,8 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
 
     public SystemCPUView (CPU _cpu) {
         cpu = _cpu;
-        title = cpu.model_name;
+
+        add_header_info (new Gtk.Label (cpu.model_name));
 
         set_popover_more_info (new SystemCPUInfoPopover (cpu));
 
@@ -29,6 +30,8 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
     }
 
     construct {
+        title = (_("Processor"));
+
         cpu_temperature_chart = new Chart (1) {
             height_request = -1
         };
