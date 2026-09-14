@@ -29,5 +29,6 @@ test(
         project_config,
         dependencies: app_dependencies,
     ),
-    depends: copy_assets
+    depends: copy_assets,
+    suite: 'monitor-backend',
 )
