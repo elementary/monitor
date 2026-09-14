@@ -60,14 +60,8 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
         double up_bytes = network.bytes_out;
         double down_bytes = network.bytes_in;
         if (up_bytes >= 0 && down_bytes >= 0) {
-            network_download_label.text = ("%s %s/s").printf (
-                format_size ((uint64) down_bytes * Utils.BITS_IN_BYTES, BITS | IEC_UNITS | ONLY_VALUE),
-                format_size ((uint64) down_bytes * Utils.BITS_IN_BYTES, BITS | ONLY_UNIT)
-            );
-            network_upload_label.text = ("%s %s/s").printf (
-                format_size ((uint64) up_bytes * Utils.BITS_IN_BYTES, BITS | IEC_UNITS | ONLY_VALUE),
-                format_size ((uint64) up_bytes * Utils.BITS_IN_BYTES, BITS | ONLY_UNIT)
-            );
+            network_download_label.text = Utils.Strings.format_network_speed ((uint64) down_bytes);
+            network_upload_label.text = Utils.Strings.format_network_speed ((uint64) up_bytes);
             network_chart.update (0, up_bytes);
             network_chart.update (1, down_bytes);
         }

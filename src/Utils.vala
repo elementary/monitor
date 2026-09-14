@@ -51,6 +51,12 @@ public class Monitor.Utils.Strings {
         return pretty;
     }
 
+    public static string format_network_speed (uint64 speed) {
+        return ("%s %s/s").printf (
+            format_size (speed * Utils.BITS_IN_BYTES, BITS | IEC_UNITS | ONLY_VALUE),
+            format_size (speed * Utils.BITS_IN_BYTES, BITS | ONLY_UNIT)
+        );
+    }
 }
 
 public class Monitor.Utils.Colors : Object {
