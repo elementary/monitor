@@ -48,7 +48,6 @@ source_app_files = [
     # Services
     'Services/DBusServer.vala',
     'Services/Appearance.vala',
-    'Indicator/Services/DBusClient.vala',
 
     # Resources
     'Resources/Resources.vala',

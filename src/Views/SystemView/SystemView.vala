@@ -50,13 +50,6 @@ public class Monitor.SystemView : Gtk.Box {
         }
 
         append (scrolled_window);
-
-        unowned var dbusclient = DBusClient.get_default ();
-        dbusclient.interface.network_use_bits_state.connect ((state) => {
-            network_view.use_bits = state;
-        });
-        Settings settings = new Settings ("io.elementary.monitor.settings");
-        network_view.use_bits = settings.get_boolean ("network-use-bits-state");
     }
 
     public void update () {
