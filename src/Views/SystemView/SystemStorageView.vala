@@ -96,8 +96,8 @@ public class Monitor.SystemStorageView : Gtk.Box {
                 size = H3
             };
 
-            string size_string = format_size ((uint64) drive.size, IEC_UNITS);
-            string used_string = format_size ((uint64) (drive.size - drive.free), IEC_UNITS);
+            string size_string = format_size ((uint64) drive.size);
+            string used_string = format_size ((uint64) (drive.size - drive.free));
 
             string drive_block_name_and_size_string = "%s 𐄁 %s / %s".printf (drive.device, used_string, size_string);
 
