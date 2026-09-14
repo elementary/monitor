@@ -11,6 +11,6 @@ public class Monitor.IndicatorWidgetBandwidth : Monitor.IndicatorWidget {
     public override void update_label (Value value) {
         uint64 bandwidth = value.get_uint64 ();
 
-        label.label = format_size (bandwidth * Monitor.Utils.BITS_IN_BYTES, FormatSizeFlags.BITS);
+        label.label = format_size (bandwidth * Utils.BITS_IN_BYTES, BITS);
     }
 }
