@@ -106,11 +106,6 @@ public class Monitor.SystemStorageView : Gtk.Box {
             };
             drive_block_name_and_size_label.add_css_class (Granite.CssClass.DIM);
 
-            var drive_not_mounted_label = new Gtk.Label (_("Not mounted")) {
-                halign = START
-            };
-            drive_not_mounted_label.add_css_class (Granite.CssClass.DIM);
-
             var drive_box = new Gtk.Box (VERTICAL, 0) {
                 margin_top = 6,
                 margin_end = 12,
@@ -119,9 +114,6 @@ public class Monitor.SystemStorageView : Gtk.Box {
             };
             drive_box.append (drive_name_label);
             drive_box.append (drive_block_name_and_size_label);
-            if (drive.free == 0) {
-                drive_box.append (drive_not_mounted_label);
-            }
 
             add_css_class (Granite.CssClass.CARD);
             append (drive_box);
