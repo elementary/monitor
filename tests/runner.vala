@@ -4,6 +4,6 @@ void main (string[] args) {
     Gtk.init ();
 
     test_statusbar ();
-
+    test_process_drm ();
     Test.run ();
 }
