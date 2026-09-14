@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-27 22:01+0000\n"
-"PO-Revision-Date: 2025-07-13 12:55+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2026-09-07 10:02+0000\n"
+"Last-Translator: Chairul Akmal <chairulakmal@protonmail.com>\n"
 "Language-Team: Indonesian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/id/>\n"
 "Language: id\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: src/MainWindow.vala:14
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 #: src/MainWindow.vala:35
 msgid "Processes"
-msgstr ""
+msgstr "Proses"
 
 #: src/MainWindow.vala:36
 msgid "System"
@@ -33,11 +33,11 @@ msgstr "Sistem"
 
 #: src/MainWindow.vala:54
 msgid "Settings"
-msgstr ""
+msgstr "Pengaturan"
 
 #: src/MainWindow.vala:61
 msgid "Search process name or PID"
-msgstr ""
+msgstr "Cari nama proses atau PID"
 
 #. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:7
@@ -47,340 +47,341 @@ msgstr ""
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:80
 msgid "N/A"
-msgstr ""
+msgstr "T/A"
 
 #: src/Indicator/Widgets/IndicatorWidgetFrequency.vala:14
 #: src/Views/SystemView/SystemCPUView.vala:129
 #: src/Widgets/Statusbar/Statusbar.vala:71
 msgid "GHz"
-msgstr ""
+msgstr "GHz"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
-msgstr ""
+msgstr "Tampilkan Monitor"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:21
 msgid "Quit Monitor"
-msgstr ""
+msgstr "Keluar dari Monitor"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:55
 msgid "PID"
-msgstr ""
+msgstr "PID"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:47
 msgid "PRI"
-msgstr ""
+msgstr "PRI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:48
 msgid "THR"
-msgstr ""
+msgstr "THR"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:99
 msgid "The app is waiting in an uninterruptible disk sleep"
-msgstr ""
+msgstr "Aplikasi menunggu dalam tidur diska yang tidak dapat diinterupsi"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:101
 msgid "Idle kernel thread"
-msgstr ""
+msgstr "Utas kernel menganggur"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:103
 msgid "The process is running or runnable (on run queue)"
-msgstr ""
+msgstr "Proses sedang berjalan atau siap berjalan (dalam antrean jalan)"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:105
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
 msgstr ""
+"Proses dalam tidur yang dapat diinterupsi; menunggu suatu peristiwa selesai"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:107
 msgid "The process is stopped by a job control signal"
-msgstr ""
+msgstr "Proses dihentikan oleh sinyal kendali tugas"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:109
 msgid "The process is stopped by a debugger during the tracing"
-msgstr ""
+msgstr "Proses dihentikan oleh debugger selama penelusuran"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:111
 msgid "The app is terminated but not reaped by its parent"
-msgstr ""
+msgstr "Aplikasi telah dihentikan tetapi belum dibersihkan oleh induknya"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:14
 msgid "Read/Written"
-msgstr ""
+msgstr "Dibaca/Ditulis"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:19
 msgid "Cancelled write"
-msgstr ""
+msgstr "Penulisan dibatalkan"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:82
 msgid "Shut Down…"
-msgstr ""
+msgstr "Matikan…"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:87
 msgid "Force Quit…"
-msgstr ""
+msgstr "Hentikan Paksa…"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:55
 #, c-format
 msgid "CPU: %.1f%%"
-msgstr ""
+msgstr "CPU: %.1f%%"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:56
 #, c-format
 msgid "RAM: %.1f%%"
-msgstr ""
+msgstr "RAM: %.1f%%"
 
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:37
 msgid "Process Name"
-msgstr ""
+msgstr "Nama Proses"
 
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:43
 #: src/Widgets/Statusbar/Statusbar.vala:14
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:49
 #: src/Views/SystemView/SystemMemoryView.vala:21
 #: src/Widgets/Statusbar/Statusbar.vala:24
 msgid "Memory"
-msgstr ""
+msgstr "Memori"
 
 #: src/Views/PreferencesView.vala:17
 msgid "Update frequency"
-msgstr ""
+msgstr "Frekuensi pembaruan"
 
 #: src/Views/PreferencesView.vala:22 src/Views/PreferencesView.vala:52
 msgid "Requires restart"
-msgstr ""
+msgstr "Perlu dimulai ulang"
 
 #: src/Views/PreferencesView.vala:29
 msgid "1s"
-msgstr ""
+msgstr "1s"
 
 #: src/Views/PreferencesView.vala:30
 msgid "2s"
-msgstr ""
+msgstr "2s"
 
 #: src/Views/PreferencesView.vala:31
 msgid "3s"
-msgstr ""
+msgstr "3s"
 
 #: src/Views/PreferencesView.vala:32
 msgid "4s"
-msgstr ""
+msgstr "4s"
 
 #: src/Views/PreferencesView.vala:33
 msgid "5s"
-msgstr ""
+msgstr "5s"
 
 #: src/Views/PreferencesView.vala:49
 msgid "Start in background"
-msgstr ""
+msgstr "Mulai di latar belakang"
 
 #: src/Views/PreferencesView.vala:51
 msgid "Draw smooth lines on CPU chart"
-msgstr ""
+msgstr "Gambar garis halus pada grafik CPU"
 
 #: src/Views/PreferencesView.vala:57
 msgid "Show in panel"
-msgstr ""
+msgstr "Tampilkan di panel"
 
 #: src/Views/PreferencesView.vala:62
 msgid "CPU percentage"
-msgstr ""
+msgstr "Persentase CPU"
 
 #: src/Views/PreferencesView.vala:67
 msgid "CPU frequency"
-msgstr ""
+msgstr "Frekuensi CPU"
 
 #: src/Views/PreferencesView.vala:72
 msgid "CPU temperature"
-msgstr ""
+msgstr "Suhu CPU"
 
 #: src/Views/PreferencesView.vala:77
 msgid "RAM percentage"
-msgstr ""
+msgstr "Persentase RAM"
 
 #: src/Views/PreferencesView.vala:82
 msgid "Network upload"
-msgstr ""
+msgstr "Unggahan jaringan"
 
 #: src/Views/PreferencesView.vala:87
 msgid "Network download"
-msgstr ""
+msgstr "Unduhan jaringan"
 
 #: src/Views/PreferencesView.vala:92
 msgid "GPU percentage"
-msgstr ""
+msgstr "Persentase GPU"
 
 #: src/Views/PreferencesView.vala:97
 msgid "VRAM percentage"
-msgstr ""
+msgstr "Persentase VRAM"
 
 #: src/Views/PreferencesView.vala:102
 msgid "GPU temperature"
-msgstr ""
+msgstr "Suhu GPU"
 
 #: src/Views/SystemView/SystemCPUView.vala:39
 msgid "Frequency"
-msgstr ""
+msgstr "Frekuensi"
 
 #: src/Views/SystemView/SystemCPUView.vala:46
 msgid "Temperature"
-msgstr ""
+msgstr "Suhu"
 
 #: src/Views/SystemView/SystemCPUView.vala:83
 #: src/Views/SystemView/SystemGPUView.vala:92
 msgid "℃"
-msgstr ""
+msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:160
 msgid "THREADS"
-msgstr ""
+msgstr "UTAS"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:29
 msgid "General"
-msgstr ""
+msgstr "Umum"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:30
 msgid "Features"
-msgstr ""
+msgstr "Fitur"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:31
 msgid "Bugs"
-msgstr ""
+msgstr "Bugs"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:62
 msgid "Model:"
-msgstr ""
+msgstr "Model:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:63
 msgid "Family:"
-msgstr ""
+msgstr "Keluarga:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:64
 msgid "Microcode ver.:"
-msgstr ""
+msgstr "Mikrokode ver.:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:65
 msgid "Bogomips:"
-msgstr ""
+msgstr "Bogomips:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:69
 msgid "L1 Instruction cache: "
-msgstr ""
+msgstr "Singgahan instruksi L1: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:73
 msgid "L1 Data cache: "
-msgstr ""
+msgstr "Singgahan data L1: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:77
 msgid "L1 cache: "
-msgstr ""
+msgstr "Singgahan L1: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:80
 msgid "L2 Cache size: "
-msgstr ""
+msgstr "Ukuran singgahan L2: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:83
 msgid "L3 Cache size: "
-msgstr ""
+msgstr "Ukuran singgahan L3: "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:86
 msgid "Address sizes: "
-msgstr ""
+msgstr "Ukuran alamat: "
 
 #: src/Views/SystemView/SystemMemoryView.vala:11
 msgid "Buffered"
-msgstr ""
+msgstr "Tersangga"
 
 #: src/Views/SystemView/SystemMemoryView.vala:12
 msgid "Cached"
-msgstr ""
+msgstr "Tersinggah"
 
 #: src/Views/SystemView/SystemMemoryView.vala:13
 msgid "Locked"
-msgstr ""
+msgstr "Terkunci"
 
 #: src/Views/SystemView/SystemMemoryView.vala:14
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 #: src/Views/SystemView/SystemMemoryView.vala:15
 msgid "Used"
-msgstr ""
+msgstr "Terpakai"
 
 #: src/Views/SystemView/SystemMemoryView.vala:16
 msgid "Shared"
-msgstr ""
+msgstr "Bersama"
 
 #: src/Views/SystemView/SystemMemoryView.vala:17
 msgid "Swap Total"
-msgstr ""
+msgstr "Swap Total"
 
 #: src/Views/SystemView/SystemMemoryView.vala:18
 msgid "Swap Used"
-msgstr ""
+msgstr "Swap Terpakai"
 
 #: src/Views/SystemView/SystemNetworkView.vala:26
 msgid "Network"
-msgstr ""
+msgstr "Jaringan"
 
 #: src/Views/SystemView/SystemNetworkView.vala:28
 msgid "DOWN"
-msgstr ""
+msgstr "UNDUH"
 
 #: src/Views/SystemView/SystemNetworkView.vala:33
 msgid "UP"
-msgstr ""
+msgstr "UNGGAH"
 
 #: src/Views/SystemView/SystemStorageView.vala:18
 msgid "Storage"
-msgstr ""
+msgstr "Penyimpanan"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
 msgid "WRITE"
-msgstr ""
+msgstr "TULIS"
 
 #: src/Views/SystemView/SystemStorageView.vala:25
 msgid "READ"
-msgstr ""
+msgstr "BACA"
 
 #: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
-msgstr ""
+msgstr "Tidak dikaitkan"
 
 #: src/Views/SystemView/SystemGPUView.vala:17
 msgid "VRAM"
-msgstr ""
+msgstr "VRAM"
 
 #: src/Views/SystemView/SystemGPUView.vala:23
 msgid "TEMPERATURE"
-msgstr ""
+msgstr "SUHU"
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:27
 #: src/Widgets/Statusbar/Statusbar.vala:37
 #: src/Widgets/Statusbar/Statusbar.vala:47
 msgid "Calculating…"
-msgstr ""
+msgstr "Menghitung…"
 
 #: src/Widgets/Statusbar/Statusbar.vala:34
 msgid "Swap"
-msgstr ""
+msgstr "Swap"
 
 #: src/Widgets/Statusbar/Statusbar.vala:44
 msgid "GPU"
-msgstr ""
+msgstr "GPU"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
-msgstr ""
+msgstr "Pemakaian"
 
 #~ msgid "Force Quit"
 #~ msgstr "Hentikan Paksa"

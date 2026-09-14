@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-27 22:01+0000\n"
-"PO-Revision-Date: 2026-07-25 20:01+0000\n"
+"PO-Revision-Date: 2026-08-30 19:01+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: Greek <https://l10n.elementaryos.org/projects/desktop/monitor/"
 "el/>\n"
@@ -293,7 +293,7 @@ msgstr ""
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:86
 msgid "Address sizes: "
-msgstr ""
+msgstr "Μεγέθη διευθύνσεων: "
 
 #: src/Views/SystemView/SystemMemoryView.vala:11
 msgid "Buffered"

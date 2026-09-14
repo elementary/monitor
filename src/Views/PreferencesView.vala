@@ -122,8 +122,8 @@ public class Monitor.PreferencesView : Granite.Bin {
         indicator_options_box.append (gpu_memory_check);
         indicator_options_box.append (gpu_temp_check);
         indicator_options_box.append (new Gtk.Separator (HORIZONTAL));
-        indicator_options_box.append (network_upload_check);
         indicator_options_box.append (network_download_check);
+        indicator_options_box.append (network_upload_check);
 
         var indicator_options_revealer = new Gtk.Revealer () {
             child = indicator_options_box
