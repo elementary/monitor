@@ -1,10 +1,8 @@
-using Monitor;
-
 private void test_statusbar () {
 
     Test.add_func ("/Monitor/Widgets/Statusbar/Statusbar#Statusbar", () => {
 
-        var statusbar = new Statusbar ();
+        var statusbar = new Monitor.Statusbar ();
         ResourcesSerialized sysres = ResourcesSerialized () {
             cpu_percentage = 99,
             cpu_frequency = 1.44,
