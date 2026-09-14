@@ -25,7 +25,7 @@ private void test_process_drm () {
         int pid = 1;
         int update_interval = 2;
         string path_fdinfo = Monitor.TESTASSETSDIR + "fdinfo";
-        string path_fd = "";
+        string path_fd = Monitor.TESTASSETSDIR + "fd";
         var drm = new Monitor.MockProcessDRM.with_paths (pid, update_interval, path_fdinfo, path_fd);
 
         drm.update ();
