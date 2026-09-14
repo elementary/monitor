@@ -96,7 +96,7 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Box {
         append (gpu_widget);
         append (gpu_memory_widget);
         append (gpu_temperature_widget);
-        append (network_up_widget);
         append (network_down_widget);
+        append (network_up_widget);
     }
 }
