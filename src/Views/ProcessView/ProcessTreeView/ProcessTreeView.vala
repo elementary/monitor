@@ -61,7 +61,12 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             sorter = model.num_sorter ("gpu"),
             expand = false
         };
-        column_view.append_column (gpu_column);
+
+        // Prevent adding the GPU column, if GPU was not detected
+        var resources = Resources.get_default ();
+        if (resources.gpu_list.size > 0) {
+            column_view.append_column (gpu_column);
+        }
 
         var pid_column = new Gtk.ColumnViewColumn (_("PID"), pid_item_factory) {
             sorter = model.num_sorter ("pid"),
