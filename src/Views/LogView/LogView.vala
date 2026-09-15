@@ -4,7 +4,7 @@
  */
 
 public class Monitor.LogView : Granite.Bin {
-    private SystemdLogModel model;  
+    private SystemdLogModel model;
 
     construct {
 
