@@ -33,7 +33,7 @@ public class Monitor.LabelRoundy : Gtk.Box {
         val = new Gtk.Label (Utils.NO_DATA) {
             selectable = true
         };
-        val.add_css_class ("value");
+        val.add_css_class ("pill");
 
         var header_label = new Granite.HeaderLabel (title.up ()) {
             mnemonic_widget = val

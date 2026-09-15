@@ -27,7 +27,8 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
             halign = START,
             valign = END
         };
-        state.add_css_class ("state_badge");
+        state.add_css_class ("pill");
+        state.add_css_class ("state");
 
         var icon_container = new Gtk.Overlay () {
             child = icon

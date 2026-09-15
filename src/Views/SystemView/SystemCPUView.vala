@@ -99,29 +99,19 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
 
             cpu_prev_util = cpu_prev_util + core_percentage_reversed;
 
-            string percentage_formatted = ("% 3d%%").printf ((int) core_percentage);
-            core_label_list[i].set_text (percentage_formatted);
-
-            core_label_list[i].remove_css_class ("core_badge-mild-warning");
-            core_label_list[i].remove_css_class ("core_badge-strong-warning");
-            core_label_list[i].remove_css_class ("core_badge-critical-warning");
+            core_label_list[i].label = ("% 3d%%").printf ((int) core_percentage);
+            core_label_list[i].css_classes = {"pill", "core"};
 
             if (core_percentage > 75.0) {
-                core_label_list[i].add_css_class ("core_badge-mild-warning");
-                core_label_list[i].remove_css_class ("core_badge-strong-warning");
-                core_label_list[i].remove_css_class ("core_badge-critical-warning");
+                core_label_list[i].add_css_class ("warning");
             }
 
             if (core_percentage > 85.0) {
-                core_label_list[i].add_css_class ("core_badge-strong-warning");
-                core_label_list[i].remove_css_class ("core_badge-mild-warning");
-                core_label_list[i].remove_css_class ("core_badge-critical-warning");
+                core_label_list[i].add_css_class ("strong-warning");
             }
 
             if (core_percentage > 90.0) {
-                core_label_list[i].add_css_class ("core_badge-critical-warning");
-                core_label_list[i].remove_css_class ("core_badge-mild-warning");
-                core_label_list[i].remove_css_class ("core_badge-strong-warning");
+                core_label_list[i].add_css_class ("critical");
             }
         }
 
@@ -145,8 +135,6 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
             var core_label = new Gtk.Label (Utils.NO_DATA) {
                 width_chars = 4
             };
-            core_label.add_css_class ("core_badge");
-            // core_label.set_text (Utils.NO_DATA);
             core_label_list.add (core_label);
 
             grid.attach (core_label, column, row, 1, 1);
