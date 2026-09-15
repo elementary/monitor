@@ -27,12 +27,14 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
         var resources = new Resources ();
 
         process_view = new ProcessView ();
+        var log_view = new LogView ();
         var system_view = new SystemView (resources);
 
         var stack = new Gtk.Stack () {
             transition_type = SLIDE_LEFT_RIGHT
         };
         stack.add_titled (process_view, "process_view", _("Processes"));
+        stack.add_titled (log_view, "log-view", _("Logs"));
         stack.add_titled (system_view, "system_view", _("System"));
 
         var stack_switcher = new Gtk.StackSwitcher () {
