@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-27 22:01+0000\n"
+"POT-Creation-Date: 2026-09-15 13:40+0000\n"
 "PO-Revision-Date: 2024-10-09 20:00+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Occitan <https://l10n.elementary.io/projects/desktop/monitor/"
@@ -40,13 +40,20 @@ msgid "Search process name or PID"
 msgstr ""
 
 #. The total amount of the swap is 0 when it is unavailable
-#: src/Utils.vala:7
+#: src/Utils.vala:9
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:37
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:16
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:80
 msgid "N/A"
+msgstr ""
+
+#. /TRANSLATORS: The first param is the numeric value (as string) of network speed.
+#. /The second param with the appended "/s" is the network speed unit such as "Mb/s" for megabits per second.
+#: src/Utils.vala:57
+#, c-format
+msgid "%s %s/s"
 msgstr ""
 
 #: src/Indicator/Widgets/IndicatorWidgetFrequency.vala:14

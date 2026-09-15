@@ -1,9 +1,32 @@
-@import "_palette";
+// TODO: Remove when migrating to Granite 9
+:root {
+    --BANANA-100: #fff394;
+    --BANANA-300: #ffe16b;
+    --BANANA-700: #d48e15;
+    --BANANA-900: #ad5f00;
 
-// Text, images, and other foreground elements
-$fg-color: $BLACK_500;
+    --BLUEBERRY-100: #8cd5ff;
+    --BLUEBERRY-300: #64baff;
+    --BLUEBERRY-500: #3689e6;
 
-$text_color: $fg_color;
+    --GRAPE-500: #a56de2;
+
+    --LIME-300: #9bdb4d;
+
+    --ORANGE-100: #ffc27d;
+    --ORANGE-300: #ffa154;
+    --ORANGE-700: #cc3b02;
+    --ORANGE-900: #a62100;
+
+    --SILVER-100: #fafafa;
+    --SILVER-300: #d4d4d4;
+    --SILVER-500: #abacae;
+    --SILVER-700: #7e8087;
+    --SILVER-900: #555761;
+
+    --STRAWBERRY-300: #ed5353;
+}
+
 
 roundy-label,
 roundy-label:hover,
@@ -18,31 +41,30 @@ roundy-label:hover:selected {
         font-weight: 700;
         border-radius: 10px;
         padding: 0 6px;
+        background-color: var(--SILVER-300);
 
-        @if $color-scheme == "light" {
-            background-color: $SILVER_300;
-        } @else if $color-scheme == "dark" {
-            background-color: $SILVER_900;
+        @media (prefers-color-scheme: dark) {
+            background-color: var(--SILVER-900);
         }
     }
 
     &.green .value {
-        background-color: rgba($LIME_300, 0.6);
+        background-color: color-mix(in srgb, var(--LIME-300) 60%, transparent);
     }
 
     &.blue .value {
-        background-color: rgba($BLUEBERRY_300, 0.6);
+        background-color: color-mix(in srgb, var(--BLUEBERRY-300) 60%, transparent);
     }
 
     &.username {
         &-other .value {
-            background-color: $BANANA_300;
+            background-color: var(--BANANA-300);
             color: #381F00;
         }
 
         &-root .value {
-            background-color: $STRAWBERRY_300;
-            color: $SILVER_100;
+            background-color: var(--STRAWBERRY-300);
+            color: var(--SILVER-100);
         }
     }
 }
@@ -51,41 +73,30 @@ roundy-label:hover:selected {
     padding: 0;
     font-weight: bold;
     font-size: 9px;
+    color: grey;
 
-    @if $color-scheme == "light" {
-        color: grey;
-    } @else if $color-scheme == "dark" {
-        color: $SILVER_500;
-    }
-}
-
-.label-vertical {
-    &-val {
-        color: $text_color;
-        font-size: 30px;
-        font-weight: 200;
-        border-width: 0;
+    @media (prefers-color-scheme: dark) {
+        color: var(--SILVER-500);
     }
 }
 
 .grape_500 {
-    background-color: rgba($GRAPE_500, 0.6);
+    background-color: color-mix(in srgb, var(--GRAPE-500) 60%, transparent);
 }
 
 .blueberry_100 {
-    background-color: rgba($BLUEBERRY_100, 0.6);
+    background-color: color-mix(in srgb, var(--BLUEBERRY-100) 60%, transparent);
 }
 
 .usage-label-container {
     border-radius: 3px;
     margin: 6px;
+    background-color: color-mix(in srgb, var(--SILVER-100) 50%, transparent);
+    border: 1px solid var(--SILVER-300);
 
-    @if $color-scheme == "light" {
-        background-color: rgba($SILVER_100, 0.5);
-        border: 1px solid $SILVER_300;
-    } @else if $color-scheme == "dark" {
-        background-color: rgba($SILVER_900, 0.5);
-        border: 1px solid $SILVER_900;
+    @media (prefers-color-scheme: dark) {
+        background-color: color-mix(in srgb, var(--SILVER-900) 50%, transparent);
+        border: 1px solid var(--SILVER-900);
     }
 }
 
@@ -95,7 +106,7 @@ roundy-label:hover:selected {
 .state_badge:selected:focus,
 .state_badge:hover:selected {
     background-image: none;
-    background-color: $BLUEBERRY_500;
+    background-color: var(--BLUEBERRY-500);
     box-shadow: none;
     color: white;
     font-weight: 700;
@@ -110,53 +121,48 @@ roundy-label:hover:selected {
     padding-right: 4px;
     padding-left: 2px;
     font-size: 10px;
+    border: 1px solid var(--SILVER-300);
+    background-color: var(--SILVER-100);
 
-    @if $color-scheme == "light" {
-        border: 1px solid $SILVER_300;
-        background-color: $SILVER_100;
-    } @else if $color-scheme == "dark" {
-        border: 1px solid $SILVER_700;
-        background-color: $SILVER_900;
+    @media (prefers-color-scheme: dark) {
+        border: 1px solid var(--SILVER-700);
+        background-color: var(--SILVER-900);
     }
 
 
     &-mild-warning {
-        @if $color-scheme == "light" {
-            background-color: rgba($BANANA_100, 0.7);
-            color: $BANANA_900;
-            border: 1px solid rgba($BANANA_300, 0.7);
-        } @else if $color-scheme == "dark" {
-            background-color: rgba($BANANA_900, 0.7);
-            color: $BANANA_300;
-            border: 1px solid rgba($BANANA_700, 0.7);
+        background-color: color-mix(in srgb, var(--BANANA-100) 70%, transparent);
+        color: var(--BANANA-900);
+        border: 1px solid color-mix(in srgb, var(--BANANA-300) 70%, transparent);
+
+        @media (prefers-color-scheme: dark) {
+            background-color: color-mix(in srgb, var(--BANANA-900) 70%, transparent);
+            color: var(--BANANA-300);
+            border: 1px solid color-mix(in srgb, var(--BANANA-700) 70%, transparent);
         }
     }
 
     &-strong-warning {
-        @if $color-scheme == "light" {
-            background-color: rgba($ORANGE_100, 0.7);
-            color: $ORANGE_900;
-            border: 1px solid rgba($ORANGE_300, 0.7);
-        } @else if $color-scheme == "dark" {
-            background-color: rgba($ORANGE_900, 0.7);
-            color: $ORANGE_300;
-            border: 1px solid rgba($ORANGE_700, 0.7);
+        background-color: color-mix(in srgb, var(--ORANGE-100) 70%, transparent);
+        color: var(--ORANGE-900);
+        border: 1px solid color-mix(in srgb, var(--ORANGE-300) 70%, transparent);
+
+        @media (prefers-color-scheme: dark) {
+            background-color: color-mix(in srgb, var(--ORANGE-900) 70%, transparent);
+            color: var(--ORANGE-300);
+            border: 1px solid color-mix(in srgb, var(--ORANGE-700) 70%, transparent);
         }
     }
 
     &-critical-warning {
-        background-color: $STRAWBERRY_100;
-        color: $STRAWBERRY_700;
-        border: 1px solid $STRAWBERRY_300;
+        background-color: color-mix(in srgb, var(--STRAWBERRY-100) 70%, transparent);
+        color: var(--STRAWBERRY-700);
+        border: 1px solid color-mix(in srgb, var(--STRAWBERRY-300) 70%, transparent);
 
-        @if $color-scheme == "light" {
-            background-color: rgba($STRAWBERRY_100, 0.7);
-            color: $STRAWBERRY_700;
-            border: 1px solid rgba($STRAWBERRY_300, 0.7);
-        } @else if $color-scheme == "dark" {
-            background-color: rgba($STRAWBERRY_900, 0.7);
-            color: $STRAWBERRY_100;
-            border: 1px solid rgba($STRAWBERRY_700, 0.7);
+        @media (prefers-color-scheme: dark) {
+            background-color: color-mix(in srgb, var(--STRAWBERRY-900) 70%, transparent);
+            color: var(--STRAWBERRY-100);
+            border: 1px solid color-mix(in srgb, var(--STRAWBERRY-700) 70%, transparent);
         }
     }
 }
@@ -171,7 +177,9 @@ roundy-label:hover:selected {
 .command_wrapper {
     background-color: #fdf6e3;
     border-radius: 3px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.20);
+    box-shadow:
+        0 1px 1px color-mix(in srgb, black 12%, transparent),
+        0 1px 2px color-mix(in srgb, black 20%, transparent);
     padding: 5px;
 }
 
@@ -185,39 +193,37 @@ roundy-label:hover:selected {
 
 .graph {
     border-radius: 6px;
+    border: 1px var(--SILVER-300) solid;
 
-    @if $color-scheme == "light" {
-        border: 1px $SILVER_300 solid;
-    } @else if $color-scheme == "dark" {
-        border: 1px $SILVER_900 solid;
+    @media (prefers-color-scheme: dark) {
+        border: 1px var(--SILVER-900) solid;
     }
 }
 
 .open_files_list_box_wrapper {
-    @if $color-scheme == "light" {
-        border: 1px $SILVER_300 solid;
-    } @else if $color-scheme == "dark" {
-        border: 1px $SILVER_900 solid;
+    border: 1px var(--SILVER-300) solid;
+
+    @media (prefers-color-scheme: dark) {
+        border: 1px var(--SILVER-900) solid;
     }
 }
 
 .open_files_list_box {
     &_row {
-        @if $color-scheme == "light" {
-            border-bottom: 1px $SILVER_100 solid;
-        } @else if $color-scheme == "dark" {
-            border-bottom: 1px $SILVER_900 solid;
+        border-bottom: 1px var(--SILVER-100) solid;
+
+        @media (prefers-color-scheme: dark) {
+            border-bottom: 1px var(--SILVER-900) solid;
         }
 
         label {
             font-family: monospace;
-            /* background-color: $SILVER_300; */
             padding: 6px 2px 2px;
             border-radius: 4px;
         }
 
         image {
-            color: $SILVER_700;
+            color: var(--SILVER-700);
             margin: 6px;
         }
     }
@@ -228,5 +234,5 @@ roundy-label:hover:selected {
 }
 
 .text-secondary {
-    color: $SILVER_700;
+    color: var(--SILVER-700);
 }
