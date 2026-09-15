@@ -50,24 +50,16 @@ public class Monitor.Utils.Strings {
     }
 
     public static string format_frequency (double mhz) {
-        double frequency = mhz;
-        string unit = _("Mhz");
-        string format_value = "%.0f";
-
         if (mhz >= 1000.0) {
-            frequency = mhz / 1000.0;
-            unit = _("Ghz");
-            format_value = "%.2f";
+            mhz /= 1000.0;
+            ///TRANSLATORS: The first param is the cpu frequency speed value and
+            ///the second param is the cpu frequency speed unit viz. "Ghz" for gigahertz.
+            return "%1$.2f %2$s".printf (mhz, _("Ghz"));
         }
 
-        string format = format_value + " %s";
-
-        if (Gtk.Widget.get_default_direction () == Gtk.TextDirection.LTR) {
-            return format.printf (frequency, unit);
-        } else {
-            format = "%s " + format_value;
-            return format.printf (unit, frequency);
-        }
+        ///TRANSLATORS: The first param is the cpu frequency speed value and
+        ///the second param is the cpu frequency speed unit viz. "Mhz" for megahertz.
+        return "%1$.0f %2$s".printf (mhz, _("Mhz"));
     }
 }
 
