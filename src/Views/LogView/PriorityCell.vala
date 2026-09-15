@@ -15,7 +15,7 @@ public class Monitor.PriorityCell : Granite.Bin {
     public void bind (SystemdLogEntry entry) {
         switch (entry.priority) {
             case INFO:
-                image.icon_name = "dialog-information-symbolic";
+                image.icon_name = "process-information-symbolic";
                 image.tooltip_text = _("Information");
                 image.css_classes = {"accent", "blue"};
                 break;
