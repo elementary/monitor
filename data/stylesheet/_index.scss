@@ -87,11 +87,13 @@ roundy-label:hover:selected {
         background-color: color-mix(in srgb, var(--SILVER-900) 50%, transparent);
         border: 1px solid var(--SILVER-900);
     }
+}
 
-    header {
-        margin: 0;
-        text-transform: uppercase;
-    }
+header.small-label {
+    margin: 0;
+    padding: 0;
+    font-size: 0.75em;
+    text-transform: uppercase;
 }
 
 .state_badge,

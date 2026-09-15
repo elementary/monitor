@@ -157,7 +157,10 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
                 row = 0;
             }
         }
-        var threads_label = new Granite.HeaderLabel (_("Threads"));
+        var threads_label = new Granite.HeaderLabel (_("Threads")) {
+            halign = CENTER
+        };
+        threads_label.add_css_class (Granite.CssClass.DIM);
         threads_label.add_css_class (Granite.CssClass.SMALL);
 
         grid.attach (threads_label, 0, -1, column, 1);
