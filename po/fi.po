@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 13:40+0000\n"
+"POT-Creation-Date: 2026-09-15 17:17+0000\n"
 "PO-Revision-Date: 2026-03-22 15:55+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementaryos.org/projects/desktop/"
@@ -247,7 +247,7 @@ msgid "℃"
 msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:160
-msgid "THREADS"
+msgid "Threads"
 msgstr ""
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:29
@@ -351,12 +351,12 @@ msgid "Storage"
 msgstr "Tallennustila"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
-msgid "WRITE"
-msgstr "KIRJOITUS"
+msgid "Write"
+msgstr ""
 
 #: src/Views/SystemView/SystemStorageView.vala:25
-msgid "READ"
-msgstr "LUKEMINEN"
+msgid "Read"
+msgstr ""
 
 #: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
@@ -388,6 +388,12 @@ msgstr ""
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr "Käyttö"
+
+#~ msgid "WRITE"
+#~ msgstr "KIRJOITUS"
+
+#~ msgid "READ"
+#~ msgstr "LUKEMINEN"
 
 #~ msgid "KiB"
 #~ msgstr "KiB"
