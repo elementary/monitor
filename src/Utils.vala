@@ -52,17 +52,12 @@ public class Monitor.Utils.Strings {
     }
 
     public static string format_network_speed (uint64 speed) {
-        if (Gtk.Widget.get_default_direction () == Gtk.TextDirection.LTR) {
-            return ("%s %s/s").printf (
-                format_size (speed * Utils.BITS_IN_BYTES, BITS | IEC_UNITS | ONLY_VALUE),
-                format_size (speed * Utils.BITS_IN_BYTES, BITS | ONLY_UNIT)
-            );
-        } else {
-            return ("%s/s %s").printf (
-                format_size (speed * Utils.BITS_IN_BYTES, BITS | ONLY_UNIT),
-                format_size (speed * Utils.BITS_IN_BYTES, BITS | IEC_UNITS | ONLY_VALUE)
-            );
-        }
+        ///TRANSLATORS: The first param is the numeric value (as string) of network speed.
+        ///The second param with the appended "/s" is the network speed unit such as "Mb/s" for megabits per second.
+        return _("%1$s %2$s/s").printf (
+            format_size (speed * Utils.BITS_IN_BYTES, BITS | IEC_UNITS | ONLY_VALUE),
+            format_size (speed * Utils.BITS_IN_BYTES, BITS | ONLY_UNIT)
+        );
     }
 }
 
