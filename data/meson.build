@@ -59,18 +59,10 @@ sass_command = [
     '@OUTPUT@'
 ]
 
-stylesheet_light = custom_target(
-    'theme-monitor-light',
-    input : './stylesheet/monitor-light.scss',
-    output : 'monitor-light.css',
-    command : sass_command,
-    build_by_default: true
-)
-
-stylesheet_dark = custom_target(
-    'theme-monitor-dark',
-    input : './stylesheet/monitor-dark.scss',
-    output : 'monitor-dark.css',
+stylesheet = custom_target(
+    'theme-monitor',
+    input : './stylesheet/_index.scss',
+    output : 'application.css',
     command : sass_command,
     build_by_default: true
 )
@@ -80,6 +72,5 @@ css_gresource = gnome.compile_resources(
     'css.gresource.xml',
     source_dir: 'stylesheet',
     c_name: 'as2',
-    dependencies: [stylesheet_dark, stylesheet_light],
-
+    dependencies: [stylesheet]
 )
