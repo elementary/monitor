@@ -24,20 +24,16 @@ public class Monitor.WidgetResource : Gtk.Box {
 
     private Granite.HeaderLabel _title;
     private Gtk.Box charts_box;
+    private Gtk.Box header_box;
     private Gtk.Overlay main_overlay;
     private Gtk.Box info_box;
     private Granite.HeaderLabel main_metric_label;
-    private Gtk.Grid header_grid;
-    private Gtk.Label? header_info = null;
 
     construct {
         _title = new Granite.HeaderLabel (Utils.NO_DATA);
 
-        header_grid = new Gtk.Grid () {
-            row_spacing = 0,
-            column_spacing = 6,
-        };
-        header_grid.attach (_title, 0, 0);
+        header_box = new Gtk.Box (HORIZONTAL, 6);
+        header_box.append (_title);
 
         var main_metric_title = new Gtk.Label (_("Utilization").up ());
         main_metric_title.add_css_class (Granite.CssClass.DIM);
@@ -74,13 +70,8 @@ public class Monitor.WidgetResource : Gtk.Box {
         margin_start = 12;
 
         orientation = VERTICAL;
-        append (header_grid);
+        append (header_box);
         append (charts_box);
-    }
-
-    public void add_header_info (Gtk.Label label) {
-        header_grid.attach_next_to (label, _title, Gtk.PositionType.BOTTOM);
-        header_info = label;
     }
 
     public void set_main_chart_overlay (Gtk.Widget widget) {
@@ -106,7 +97,7 @@ public class Monitor.WidgetResource : Gtk.Box {
         };
         button_more_info.add_css_class (Granite.CssClass.CIRCULAR);
 
-        header_grid.attach_next_to (button_more_info, header_info, Gtk.PositionType.RIGHT);
+        header_box.append (button_more_info);
     }
 
 }
