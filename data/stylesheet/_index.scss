@@ -167,3 +167,13 @@ header.small-label {
         }
     }
 }
+
+columnview {
+    cell {
+        padding: 0.5em;
+    }
+
+    row:nth-child(odd) {
+        background: #{'@bg_color'};
+    }
+}
