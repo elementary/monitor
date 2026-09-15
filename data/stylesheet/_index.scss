@@ -24,7 +24,10 @@
     --SILVER-700: #7e8087;
     --SILVER-900: #555761;
 
+    --STRAWBERRY-100: #ff8c82;
     --STRAWBERRY-300: #ed5353;
+    --STRAWBERRY-700: #a10705;
+    --STRAWBERRY-900: #7a0000;
 }
 
 .pill {
@@ -61,37 +64,37 @@
 
     &.warning {
         background-color: color-mix(in srgb, var(--BANANA-100) 70%, transparent);
-        color: var(--BANANA-900);
         border: 1px solid color-mix(in srgb, var(--BANANA-300) 70%, transparent);
+        color: var(--BANANA-900);
 
         @media (prefers-color-scheme: dark) {
             background-color: color-mix(in srgb, var(--BANANA-900) 70%, transparent);
+            border-color: color-mix(in srgb, var(--BANANA-700) 70%, transparent);
             color: var(--BANANA-300);
-            border: 1px solid color-mix(in srgb, var(--BANANA-700) 70%, transparent);
         }
     }
 
     &.strong-warning {
         background-color: color-mix(in srgb, var(--ORANGE-100) 70%, transparent);
+        border-color: color-mix(in srgb, var(--ORANGE-300) 70%, transparent);
         color: var(--ORANGE-900);
-        border: 1px solid color-mix(in srgb, var(--ORANGE-300) 70%, transparent);
 
         @media (prefers-color-scheme: dark) {
             background-color: color-mix(in srgb, var(--ORANGE-900) 70%, transparent);
-            color: var(--ORANGE-300);
             border: 1px solid color-mix(in srgb, var(--ORANGE-700) 70%, transparent);
+            color: var(--ORANGE-300);
         }
     }
 
     &.critical {
         background-color: color-mix(in srgb, var(--STRAWBERRY-100) 70%, transparent);
+        border-color: color-mix(in srgb, var(--STRAWBERRY-300) 70%, transparent);
         color: var(--STRAWBERRY-700);
-        border: 1px solid color-mix(in srgb, var(--STRAWBERRY-300) 70%, transparent);
 
         @media (prefers-color-scheme: dark) {
             background-color: color-mix(in srgb, var(--STRAWBERRY-900) 70%, transparent);
-            color: var(--STRAWBERRY-100);
             border: 1px solid color-mix(in srgb, var(--STRAWBERRY-700) 70%, transparent);
+            color: var(--STRAWBERRY-100);
         }
     }
 }
