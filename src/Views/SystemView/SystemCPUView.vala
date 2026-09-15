@@ -54,7 +54,7 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
             height_request = -1
         };
         cpu_frequency_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
-        cpu_frequency_chart.config.y_axis.fixed_max = 7000.0;
+        cpu_frequency_chart.config.y_axis.fixed_max = 7.0;
 
         var freq_info_overlay = new Gtk.Overlay () {
             child = cpu_frequency_chart
@@ -77,7 +77,7 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
     }
 
     public void update () {
-        cpu_frequency_chart.update (0, cpu.frequency);
+        cpu_frequency_chart.update (0, cpu.frequency / Utils.MHZ_IN_GHZ);
 
         cpu_temperature_chart.update (0, cpu.temperature_mean);
         cpu_temperature_label.text = ("%.2f %s").printf (cpu.temperature_mean, _("℃"));
