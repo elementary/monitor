@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/io/elementary/monitor/icons">
+    <file compressed="true" preprocess="xml-stripblanks" alias="scalable/categories/bug-symbolic.svg">bug-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/devices/cpu-symbolic.svg">cpu-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/devices/gpu-symbolic.svg">gpu-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/devices/ram-symbolic.svg">ram-symbolic.svg</file>

@@ -7,15 +7,22 @@
     public string origin { get; construct; }
     public string message { get; construct; }
     public DateTime dt { get; construct; }
-    public string relative_time { get; construct; }
+    public Systemd.Journal.Priority priority { get; construct; }
 
+    public string relative_time { get; private set; }
     public uint section_start { get; set; }
 
-    public SystemdLogEntry (string origin, string message, DateTime time) {
+    public SystemdLogEntry (string origin, string message, DateTime time, Systemd.Journal.Priority priority) {
         Object (
-            origin: origin, message: message, dt: time,
-            relative_time: format_time (time)
+            origin: origin,
+            message: message,
+            dt: time,
+            priority: priority
         );
+    }
+
+    construct {
+        relative_time = format_time (dt);
     }
 
     public bool matches (string term) {

@@ -6,7 +6,8 @@
 public class Monitor.LogCell : Granite.Bin {
     public enum CellType {
         ORIGIN,
-        MESSAGE
+        MESSAGE,
+        PRIORITY
     }
 
     public CellType cell_type { get; construct; }
