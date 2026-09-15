@@ -59,6 +59,15 @@ public class Monitor.Utils.Strings {
             format_size (speed * Utils.BITS_IN_BYTES, BITS | ONLY_UNIT)
         );
     }
+
+    public static string format_memory_size (uint64 size_in_bytes) {
+        ///TRANSLATORS: The first param is the numeric value (as string) of memory size.
+        ///The second param is the memory size such as "MB" or "GB" for megabytes or gigabytes.
+        return _("%s %s").printf (
+            format_size (size_in_bytes, IEC_UNITS | ONLY_VALUE),
+            format_size (size_in_bytes, ONLY_UNIT)
+        );
+    }
 }
 
 public class Monitor.Utils.Colors : Object {
