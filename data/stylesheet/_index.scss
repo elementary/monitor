@@ -69,17 +69,6 @@ roundy-label:hover:selected {
     }
 }
 
-.small-label {
-    padding: 0;
-    font-weight: bold;
-    font-size: 9px;
-    color: grey;
-
-    @media (prefers-color-scheme: dark) {
-        color: var(--SILVER-500);
-    }
-}
-
 .grape_500 {
     background-color: color-mix(in srgb, var(--GRAPE-500) 60%, transparent);
 }
@@ -97,6 +86,11 @@ roundy-label:hover:selected {
     @media (prefers-color-scheme: dark) {
         background-color: color-mix(in srgb, var(--SILVER-900) 50%, transparent);
         border: 1px solid var(--SILVER-900);
+    }
+
+    header {
+        margin: 0;
+        text-transform: uppercase;
     }
 }
 
