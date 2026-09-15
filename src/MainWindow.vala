@@ -92,6 +92,13 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
         search_revealer.reveal_child = stack.visible_child == process_view;
         stack.notify["visible-child"].connect (() => {
+            if (stack.visible_child == process_view) {
+               toolbox.top_bar_style = RAISED;
+            } else {
+               toolbox.top_bar_style = FLAT;
+            }
+
+            toolbox.reveal_bottom_bars = stack.visible_child == process_view;
             search_revealer.reveal_child = stack.visible_child == process_view;
         });
 
