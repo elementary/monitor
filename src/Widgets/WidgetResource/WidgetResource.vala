@@ -10,6 +10,12 @@ public class Monitor.WidgetResource : Gtk.Box {
         }
     }
 
+    public string description {
+        set {
+            _title.secondary_text = value;
+        }
+    }
+
     public string main_metric_value {
         set {
             main_metric_label.label = value;

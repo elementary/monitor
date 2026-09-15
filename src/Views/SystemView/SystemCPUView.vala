@@ -16,7 +16,9 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
 
     public SystemCPUView (CPU _cpu) {
         cpu = _cpu;
-        title = cpu.model_name;
+
+        title = _("Processor");
+        description = cpu.model_name;
 
         set_popover_more_info (new SystemCPUInfoPopover (cpu));
 
