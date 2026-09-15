@@ -50,16 +50,17 @@ public class Monitor.Utils.Strings {
     }
 
     public static string format_frequency (double mhz) {
-        if (mhz >= 1000.0) {
-            mhz /= 1000.0;
+        var frequency = mhz;
+        if (frequency >= 1000) {
+            frequency /= 1000;
             ///TRANSLATORS: The first param is the cpu frequency speed value and
             ///the second param is the cpu frequency speed unit viz. "Ghz" for gigahertz.
-            return "%.2f %s".printf (mhz, _("Ghz"));
+            return _("%.2f Ghz").printf (frequency);
         }
 
         ///TRANSLATORS: The first param is the cpu frequency speed value and
         ///the second param is the cpu frequency speed unit viz. "Mhz" for megahertz.
-        return "%.0f %s".printf (mhz, _("Mhz"));
+        return _("%.0f Mhz").printf (frequency);
     }
 }
 
