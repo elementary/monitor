@@ -31,15 +31,16 @@
 }
 
 .pill {
-    border: 1px solid var(--SILVER-300);
-    background-color: var(--SILVER-100);
+    border: 1px solid #{'@menu_separator'};
+    background-color: #{'@base_color'};
+    box-shadow: 0 1px 0 0 #{'color-mix(in srgb, @highlight_color 30%, transparent)'};
 
-    @media (prefers-color-scheme: dark) {
-        border: 1px solid var(--SILVER-700);
-        background-color: var(--SILVER-900);
+    @media (prefers-color-scheme: light) {
+        background-clip: padding-box;
     }
 
-    border-radius: 1rem;
+    // Avoid a GTK bug where borders overlap
+    border-radius: 0.67em;
     font-feature-settings: "tnum";
     padding: 0 0.5em;
 
@@ -64,37 +65,31 @@
 
     &.warning {
         background-color: color-mix(in srgb, var(--BANANA-100) 70%, transparent);
-        border: 1px solid color-mix(in srgb, var(--BANANA-300) 70%, transparent);
+        border-color: color-mix(in srgb, var(--BANANA-900) 30%, transparent);
         color: var(--BANANA-900);
 
         @media (prefers-color-scheme: dark) {
-            background-color: color-mix(in srgb, var(--BANANA-900) 70%, transparent);
-            border-color: color-mix(in srgb, var(--BANANA-700) 70%, transparent);
-            color: var(--BANANA-300);
+            border-color: color-mix(in srgb, var(--BANANA-300) 50%, transparent);
         }
     }
 
     &.strong-warning {
         background-color: color-mix(in srgb, var(--ORANGE-100) 70%, transparent);
-        border-color: color-mix(in srgb, var(--ORANGE-300) 70%, transparent);
+        border-color: color-mix(in srgb, var(--ORANGE-700) 40%, transparent);
         color: var(--ORANGE-900);
 
         @media (prefers-color-scheme: dark) {
-            background-color: color-mix(in srgb, var(--ORANGE-900) 70%, transparent);
-            border: 1px solid color-mix(in srgb, var(--ORANGE-700) 70%, transparent);
-            color: var(--ORANGE-300);
+            border-color: color-mix(in srgb, var(--ORANGE-300) 70%, transparent);
         }
     }
 
     &.critical {
         background-color: color-mix(in srgb, var(--STRAWBERRY-100) 70%, transparent);
-        border-color: color-mix(in srgb, var(--STRAWBERRY-300) 70%, transparent);
+        border-color: color-mix(in srgb, var(--STRAWBERRY-700) 50%, transparent);
         color: var(--STRAWBERRY-700);
 
         @media (prefers-color-scheme: dark) {
-            background-color: color-mix(in srgb, var(--STRAWBERRY-900) 70%, transparent);
-            border: 1px solid color-mix(in srgb, var(--STRAWBERRY-700) 70%, transparent);
-            color: var(--STRAWBERRY-100);
+            border-color: color-mix(in srgb, var(--STRAWBERRY-300) 70%, transparent);
         }
     }
 }
