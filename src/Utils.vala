@@ -4,6 +4,8 @@
  */
 
 namespace Monitor.Utils {
+    const int BITS_IN_BYTES = 8;
+
     const string NOT_AVAILABLE = (_("N/A"));
     const string NO_DATA = "\u2014";
 
@@ -49,6 +51,14 @@ public class Monitor.Utils.Strings {
         return pretty;
     }
 
+    public static string format_network_speed (uint64 speed) {
+        ///TRANSLATORS: The first param is the numeric value (as string) of network speed.
+        ///The second param with the appended "/s" is the network speed unit such as "Mb/s" for megabits per second.
+        return _("%s %s/s").printf (
+            format_size (speed * Utils.BITS_IN_BYTES, BITS | IEC_UNITS | ONLY_VALUE),
+            format_size (speed * Utils.BITS_IN_BYTES, BITS | ONLY_UNIT)
+        );
+    }
 }
 
 public class Monitor.Utils.Colors : Object {

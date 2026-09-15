@@ -29,7 +29,7 @@ add_project_arguments(vala_flags, language: 'vala')
 app_dependencies = [
     dependency('granite-7', version: '>=7.7.0'),
     dependency('glib-2.0'),
-    dependency('gtk4'),
+    dependency('gtk4', version: '>=4.20'),
     dependency('gee-0.8'),
     dependency('gio-2.0'),
     dependency('gobject-2.0'),
