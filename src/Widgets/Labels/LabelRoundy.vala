@@ -29,17 +29,18 @@ public class Monitor.LabelRoundy : Gtk.Box {
     }
 
     construct {
-        halign = Gtk.Align.START;
         val = new Gtk.Label (Utils.NO_DATA) {
             selectable = true
         };
         val.add_css_class ("pill");
 
-        var header_label = new Granite.HeaderLabel (title.up ()) {
+        var header_label = new Granite.HeaderLabel (title) {
             mnemonic_widget = val
         };
+        header_label.add_css_class (Granite.CssClass.DIM);
         header_label.add_css_class (Granite.CssClass.SMALL);
 
+        halign = START;
         orientation = VERTICAL;
         append (header_label);
         append (val);
