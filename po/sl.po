@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 13:40+0000\n"
+"POT-Creation-Date: 2026-09-15 17:17+0000\n"
 "PO-Revision-Date: 2026-01-19 16:55+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
 "Language-Team: Slovenian <https://l10n.elementaryos.org/projects/desktop/"
@@ -248,8 +248,8 @@ msgid "℃"
 msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:160
-msgid "THREADS"
-msgstr "NITI"
+msgid "Threads"
+msgstr ""
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:29
 msgid "General"
@@ -352,12 +352,12 @@ msgid "Storage"
 msgstr "Shranjevanje"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
-msgid "WRITE"
-msgstr "PISANJE"
+msgid "Write"
+msgstr ""
 
 #: src/Views/SystemView/SystemStorageView.vala:25
-msgid "READ"
-msgstr "BRANJE"
+msgid "Read"
+msgstr ""
 
 #: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
@@ -389,6 +389,15 @@ msgstr "GPU"
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr "Uporaba"
+
+#~ msgid "THREADS"
+#~ msgstr "NITI"
+
+#~ msgid "WRITE"
+#~ msgstr "PISANJE"
+
+#~ msgid "READ"
+#~ msgstr "BRANJE"
 
 #~ msgid "KiB"
 #~ msgstr "KiB"
