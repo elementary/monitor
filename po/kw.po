@@ -7,22 +7,31 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-27 22:01+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2026-09-15 13:40+0000\n"
+"PO-Revision-Date: 2026-09-15 13:03+0000\n"
+"Last-Translator: Flynn <flynn@users.noreply.l10n.elementaryos.org>\n"
+"Language-Team: Cornish <https://l10n.elementaryos.org/projects/desktop/"
+"monitor/kw/>\n"
 "Language: kw\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n == 0) ? 0 : ((n == 1) ? 1 : (((n % 100 "
+"== 2 || n % 100 == 22 || n % 100 == 42 || n % 100 == 62 || n % 100 == 82) || "
+"n % 1000 == 0 && (n % 100000 >= 1000 && n % 100000 <= 20000 || n % 100000 == "
+"40000 || n % 100000 == 60000 || n % 100000 == 80000) || n != 0 && n % "
+"1000000 == 100000) ? 2 : ((n % 100 == 3 || n % 100 == 23 || n % 100 == 43 || "
+"n % 100 == 63 || n % 100 == 83) ? 3 : ((n != 1 && (n % 100 == 1 || n % 100 "
+"== 21 || n % 100 == 41 || n % 100 == 61 || n % 100 == 81)) ? 4 : 5))));\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: src/MainWindow.vala:14
 msgid "Monitor"
-msgstr ""
+msgstr "Gorwolyas"
 
 #: src/MainWindow.vala:35
 msgid "Processes"
-msgstr ""
+msgstr "Argerdhow"
 
 #: src/MainWindow.vala:36
 msgid "System"
@@ -37,13 +46,20 @@ msgid "Search process name or PID"
 msgstr ""
 
 #. The total amount of the swap is 0 when it is unavailable
-#: src/Utils.vala:7
+#: src/Utils.vala:9
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:37
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:16
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:80
 msgid "N/A"
+msgstr ""
+
+#. /TRANSLATORS: The first param is the numeric value (as string) of network speed.
+#. /The second param with the appended "/s" is the network speed unit such as "Mb/s" for megabits per second.
+#: src/Utils.vala:57
+#, c-format
+msgid "%s %s/s"
 msgstr ""
 
 #: src/Indicator/Widgets/IndicatorWidgetFrequency.vala:14
