@@ -24,10 +24,14 @@ public class Monitor.PriorityCell : Granite.Bin {
                 image.tooltip_text = _("Debug");
                 image.css_classes = {"accent", "purple"};
                 break;
-            case ALERT:
             case NOTICE:
-                image.icon_name = "mail-important-symbolic";
-                image.tooltip_text = _("Attention");
+                image.icon_name = "process-attention-symbolic";
+                image.tooltip_text = _("Notice");
+                image.css_classes = {"accent", "purple"};
+                break;
+            case ALERT:
+                image.icon_name = "process-attention-symbolic";
+                image.tooltip_text = _("Alert");    
                 image.css_classes = {"accent", "yellow"};
                 break;
             case WARNING:
