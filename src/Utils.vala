@@ -54,12 +54,12 @@ public class Monitor.Utils.Strings {
             mhz /= 1000.0;
             ///TRANSLATORS: The first param is the cpu frequency speed value and
             ///the second param is the cpu frequency speed unit viz. "Ghz" for gigahertz.
-            return "%1$.2f %2$s".printf (mhz, _("Ghz"));
+            return "%.2f %s".printf (mhz, _("Ghz"));
         }
 
         ///TRANSLATORS: The first param is the cpu frequency speed value and
         ///the second param is the cpu frequency speed unit viz. "Mhz" for megahertz.
-        return "%1$.0f %2$s".printf (mhz, _("Mhz"));
+        return "%.0f %s".printf (mhz, _("Mhz"));
     }
 }
 
