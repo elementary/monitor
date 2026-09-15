@@ -66,12 +66,12 @@ public class Monitor.Utils.Strings {
         return _("%.0f Mhz").printf (frequency);
     }
 
-    public static string format_network_speed (uint64 speed) {
+    public static string format_network_speed (uint64 speed_in_bytes_per_second) {
         ///TRANSLATORS: The first param is the numeric value (as string) of network speed.
         ///The second param with the appended "/s" is the network speed unit such as "Mb/s" for megabits per second.
         return _("%s %s/s").printf (
-            format_size (speed * Utils.BITS_IN_BYTES, BITS | IEC_UNITS | ONLY_VALUE),
-            format_size (speed * Utils.BITS_IN_BYTES, BITS | ONLY_UNIT)
+            format_size (speed_in_bytes_per_second * BITS_IN_BYTES, BITS | IEC_UNITS | ONLY_VALUE),
+            format_size (speed_in_bytes_per_second * BITS_IN_BYTES, BITS | ONLY_UNIT)
         );
     }
 }
