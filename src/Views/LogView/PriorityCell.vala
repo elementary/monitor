@@ -26,12 +26,12 @@ public class Monitor.PriorityCell : Granite.Bin {
                 break;
             case NOTICE:
                 image.icon_name = "process-attention-symbolic";
-                image.tooltip_text = _("Notice");
+                image.tooltip_text = _("Message");
                 image.css_classes = {"accent", "purple"};
                 break;
             case ALERT:
                 image.icon_name = "process-attention-symbolic";
-                image.tooltip_text = _("Alert");    
+                image.tooltip_text = _("Alert");
                 image.css_classes = {"accent", "yellow"};
                 break;
             case WARNING:
@@ -44,9 +44,8 @@ public class Monitor.PriorityCell : Granite.Bin {
                 break;
             case CRIT:
             case EMERG:
-                image.icon_name = "alarm-symbolic";
-                image.tooltip_text = _("Emergency");
-                image.css_classes = {"error"};
+                image.icon_name = "process-critical-symbolic";
+                image.tooltip_text = _("Critical");
                 break;
         }
     }
