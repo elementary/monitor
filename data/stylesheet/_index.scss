@@ -144,15 +144,9 @@ roundy-label:hover:selected {
 }
 
 .usage-label-container {
-    border-radius: 3px;
-    margin: 6px;
-    background-color: color-mix(in srgb, var(--SILVER-100) 50%, transparent);
-    border: 1px solid var(--SILVER-300);
-
-    @media (prefers-color-scheme: dark) {
-        background-color: color-mix(in srgb, var(--SILVER-900) 50%, transparent);
-        border: 1px solid var(--SILVER-900);
-    }
+    backdrop-filter: blur(12px);
+    background-color: #{'color-mix(in srgb, @base_color 20%, transparent)'};
+    margin: 0.5rem;
 }
 
 header.small-label {
@@ -180,12 +174,8 @@ header.small-label {
 }
 
 .graph {
-    border-radius: 6px;
-    border: 1px var(--SILVER-300) solid;
-
-    @media (prefers-color-scheme: dark) {
-        border: 1px var(--SILVER-900) solid;
-    }
+    border: 1px solid #{'@borders'};
+    border-radius: 0.75rem;
 }
 
 .open_files_list_box_wrapper {

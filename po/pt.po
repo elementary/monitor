@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 13:40+0000\n"
+"POT-Creation-Date: 2026-09-15 17:17+0000\n"
 "PO-Revision-Date: 2025-11-11 13:55+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementaryos.org/projects/desktop/"
@@ -251,8 +251,8 @@ msgid "℃"
 msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:160
-msgid "THREADS"
-msgstr "THREADS"
+msgid "Threads"
+msgstr "Threads"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:29
 msgid "General"
@@ -359,12 +359,12 @@ msgid "Storage"
 msgstr "Armazenamento"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
-msgid "WRITE"
-msgstr "GRAVAR"
+msgid "Write"
+msgstr ""
 
 #: src/Views/SystemView/SystemStorageView.vala:25
-msgid "READ"
-msgstr "LER"
+msgid "Read"
+msgstr ""
 
 #: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
@@ -396,6 +396,15 @@ msgstr "GPU"
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr "Utilização"
+
+#~ msgid "THREADS"
+#~ msgstr "THREADS"
+
+#~ msgid "WRITE"
+#~ msgstr "GRAVAR"
+
+#~ msgid "READ"
+#~ msgstr "LER"
 
 #~ msgid "KiB"
 #~ msgstr "KiB"
@@ -477,9 +486,6 @@ msgstr "Utilização"
 
 #~ msgid "Show detailed info"
 #~ msgstr "Mostrar informação detalhada"
-
-#~ msgid "Threads"
-#~ msgstr "Threads"
 
 #~ msgid "Peace"
 #~ msgstr "Paz"

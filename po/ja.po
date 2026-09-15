@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 13:40+0000\n"
+"POT-Creation-Date: 2026-09-15 17:17+0000\n"
 "PO-Revision-Date: 2025-11-18 07:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/desktop/"
@@ -247,8 +247,8 @@ msgid "℃"
 msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:160
-msgid "THREADS"
-msgstr "スレッド"
+msgid "Threads"
+msgstr ""
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:29
 msgid "General"
@@ -351,12 +351,12 @@ msgid "Storage"
 msgstr "ストレージ"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
-msgid "WRITE"
-msgstr "書き込み"
+msgid "Write"
+msgstr ""
 
 #: src/Views/SystemView/SystemStorageView.vala:25
-msgid "READ"
-msgstr "読み込み"
+msgid "Read"
+msgstr ""
 
 #: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
@@ -388,6 +388,15 @@ msgstr "GPU"
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr "使用率"
+
+#~ msgid "THREADS"
+#~ msgstr "スレッド"
+
+#~ msgid "WRITE"
+#~ msgstr "書き込み"
+
+#~ msgid "READ"
+#~ msgstr "読み込み"
 
 #~ msgid "KiB"
 #~ msgstr "KiB"

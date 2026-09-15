@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 13:40+0000\n"
+"POT-Creation-Date: 2026-09-15 17:17+0000\n"
 "PO-Revision-Date: 2025-11-19 09:55+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementaryos.org/projects/desktop/"
@@ -249,8 +249,8 @@ msgid "℃"
 msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:160
-msgid "THREADS"
-msgstr "SZÁLAK"
+msgid "Threads"
+msgstr ""
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:29
 msgid "General"
@@ -353,12 +353,12 @@ msgid "Storage"
 msgstr "Tárhely"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
-msgid "WRITE"
-msgstr "ÍRÁS"
+msgid "Write"
+msgstr ""
 
 #: src/Views/SystemView/SystemStorageView.vala:25
-msgid "READ"
-msgstr "OLVASÁS"
+msgid "Read"
+msgstr ""
 
 #: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
@@ -390,6 +390,15 @@ msgstr "GPU"
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr "Kihasználtság"
+
+#~ msgid "THREADS"
+#~ msgstr "SZÁLAK"
+
+#~ msgid "WRITE"
+#~ msgstr "ÍRÁS"
+
+#~ msgid "READ"
+#~ msgstr "OLVASÁS"
 
 #~ msgid "KiB"
 #~ msgstr "KiB"
