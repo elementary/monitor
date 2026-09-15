@@ -5,6 +5,7 @@
 
 namespace Monitor.Utils {
     const int BITS_IN_BYTES = 8;
+    const int MHZ_IN_GHZ = 1000;
 
     const string NOT_AVAILABLE = (_("N/A"));
     const string NO_DATA = "\u2014";
@@ -53,8 +54,8 @@ public class Monitor.Utils.Strings {
 
     public static string format_frequency (double mhz) {
         var frequency = mhz;
-        if (frequency >= 1000) {
-            frequency /= 1000;
+        if (frequency >= MHZ_IN_GHZ) {
+            frequency /= MHZ_IN_GHZ;
             ///TRANSLATORS: The first param is the cpu frequency speed value and
             ///the second param is the cpu frequency speed unit viz. "Ghz" for gigahertz.
             return _("%.2f Ghz").printf (frequency);
