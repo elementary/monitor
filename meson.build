@@ -62,8 +62,9 @@ app_dependencies = [
 
 config_data = configuration_data()
 config_data.set('GETTEXT_PACKAGE', meson.project_name())
-
 subdir('data')
+
+config_data.set('TESTASSETSDIR', meson.project_build_root () / 'tests/assets/')
 
 config_data.set('VCS_TAG', '@VCS_TAG@')
 project_config = vcs_tag(

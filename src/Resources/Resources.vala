@@ -4,6 +4,12 @@
  */
 
 public class Monitor.Resources : Object {
+
+    private static GLib.Once<Resources> instance;
+    public static unowned Resources get_default () {
+        return instance.once (() => { return new Resources (); });
+    }
+
     public CPU cpu;
     public Memory memory;
     public Swap swap;
