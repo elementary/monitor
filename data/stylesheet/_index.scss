@@ -69,17 +69,6 @@ roundy-label:hover:selected {
     }
 }
 
-.small-label {
-    padding: 0;
-    font-weight: bold;
-    font-size: 9px;
-    color: grey;
-
-    @media (prefers-color-scheme: dark) {
-        color: var(--SILVER-500);
-    }
-}
-
 .grape_500 {
     background-color: color-mix(in srgb, var(--GRAPE-500) 60%, transparent);
 }
@@ -92,6 +81,13 @@ roundy-label:hover:selected {
     backdrop-filter: blur(12px);
     background-color: #{'color-mix(in srgb, @base_color 20%, transparent)'};
     margin: 0.5rem;
+}
+
+header.small-label {
+    margin: 0;
+    padding: 0;
+    font-size: 0.75em;
+    text-transform: uppercase;
 }
 
 .state_badge,

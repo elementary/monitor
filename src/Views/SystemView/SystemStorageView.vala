@@ -17,12 +17,12 @@ public class Monitor.SystemStorageView : Gtk.Box {
     construct {
         var storage_name_label = new Granite.HeaderLabel (_("Storage"));
 
-        storage_write_label = new LabelRoundy (_("WRITE")) {
+        storage_write_label = new LabelRoundy (_("Write")) {
             width_chars = 7
         };
         storage_write_label.add_css_class ("blue");
 
-        storage_read_label = new LabelRoundy (_("READ")) {
+        storage_read_label = new LabelRoundy (_("Read")) {
             width_chars = 7
         };
         storage_read_label.add_css_class ("green");
