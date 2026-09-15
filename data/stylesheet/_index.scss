@@ -153,15 +153,6 @@ header.small-label {
 
 }
 
-.command_wrapper {
-    background-color: #fdf6e3;
-    border-radius: 3px;
-    box-shadow:
-        0 1px 1px color-mix(in srgb, black 12%, transparent),
-        0 1px 2px color-mix(in srgb, black 20%, transparent);
-    padding: 5px;
-}
-
 .command {
     font-family: monospace;
 
@@ -173,14 +164,6 @@ header.small-label {
 .graph {
     border: 1px solid #{'@borders'};
     border-radius: 0.75rem;
-}
-
-.open_files_list_box_wrapper {
-    border: 1px var(--SILVER-300) solid;
-
-    @media (prefers-color-scheme: dark) {
-        border: 1px var(--SILVER-900) solid;
-    }
 }
 
 .open_files_list_box {
