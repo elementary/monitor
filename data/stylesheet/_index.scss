@@ -5,11 +5,8 @@
     --BANANA-700: #d48e15;
     --BANANA-900: #ad5f00;
 
-    --BLUEBERRY-100: #8cd5ff;
     --BLUEBERRY-300: #64baff;
     --BLUEBERRY-500: #3689e6;
-
-    --GRAPE-500: #a56de2;
 
     --LIME-300: #9bdb4d;
 
@@ -67,14 +64,6 @@ roundy-label:hover:selected {
             color: var(--SILVER-100);
         }
     }
-}
-
-.grape_500 {
-    background-color: color-mix(in srgb, var(--GRAPE-500) 60%, transparent);
-}
-
-.blueberry_100 {
-    background-color: color-mix(in srgb, var(--BLUEBERRY-100) 60%, transparent);
 }
 
 .usage-label-container {
