@@ -20,6 +20,11 @@ source_app_files = [
     'Views/SystemView/SystemStorageView.vala',
     'Views/SystemView/SystemGPUView.vala',
 
+    'Views/LogView/LogCell.vala',
+    'Views/LogView/LogView.vala',
+    'Views/LogView/SystemdLogEntry.vala',
+    'Views/LogView/SystemdLogModel.vala',
+
     # Widgets related only to ProcessInfoView
     'Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala',
     'Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala',
