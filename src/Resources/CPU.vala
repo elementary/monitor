@@ -16,6 +16,9 @@ public class Monitor.CPU : Object {
     public uint ? revision;
 
     public string ? model_name;
+    public uint physical_cpus;
+    public uint physical_cores_per_cpu;
+    public uint logical_threads_per_cpu;
     public string ? model;
     public string ? family;
     public string ? microcode;
@@ -77,7 +80,7 @@ public class Monitor.CPU : Object {
 
         parse_cpuinfo ();
 
-        model_name = get_cpu_info ();
+        model_name = get_cpu_info (out physical_cpus, out physical_cores_per_cpu, out logical_threads_per_cpu);
 
         debug ("CPU name: %s", model_name);
 
@@ -259,7 +262,7 @@ public class Monitor.CPU : Object {
     }
 
     // straight from elementary about-plug
-    private string ? get_cpu_info () {
+    private string ? get_cpu_info (out uint cpus, out uint cores, out uint threads) {
         unowned GTop.SysInfo ? info = GTop.glibtop_get_sysinfo ();
 
         if (info == null) {
@@ -307,20 +310,13 @@ public class Monitor.CPU : Object {
 
         string result = "";
         foreach (var cpu in counts.entries) {
-            if (result.length > 0) {
-                result += "\n";
-            }
-
-            if (cpu.@value == 2) {
-                result += _("Dual-Core %s").printf ((cpu.key));
-            } else if (cpu.@value == 4) {
-                result += _("Quad-Core %s").printf ((cpu.key));
-            } else if (cpu.@value == 6) {
-                result += _("Hexa-Core %s").printf ((cpu.key));
-            } else {
-                result += "%u\u00D7 %s ".printf (cpu.@value, (cpu.key));
-            }
+            result += "%s".printf ((cpu.key));
+            cores = cpu.@value;
+            break;
         }
+
+        cpus = counts.size;
+        threads = (uint) info.ncpu / cpus;
 
         return Utils.Strings.beautify (result);
     }
