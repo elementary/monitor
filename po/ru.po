@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 13:40+0000\n"
+"POT-Creation-Date: 2026-09-15 17:17+0000\n"
 "PO-Revision-Date: 2025-11-23 11:55+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementaryos.org/projects/desktop/"
@@ -243,8 +243,8 @@ msgid "℃"
 msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:160
-msgid "THREADS"
-msgstr "ПОТОКИ"
+msgid "Threads"
+msgstr ""
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:29
 msgid "General"
@@ -347,12 +347,12 @@ msgid "Storage"
 msgstr "Устройства хранения"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
-msgid "WRITE"
-msgstr "ЗАПИСЬ"
+msgid "Write"
+msgstr ""
 
 #: src/Views/SystemView/SystemStorageView.vala:25
-msgid "READ"
-msgstr "ЧТЕНИЕ"
+msgid "Read"
+msgstr ""
 
 #: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
@@ -384,6 +384,15 @@ msgstr "Графический процессор"
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr "Использование"
+
+#~ msgid "THREADS"
+#~ msgstr "ПОТОКИ"
+
+#~ msgid "WRITE"
+#~ msgstr "ЗАПИСЬ"
+
+#~ msgid "READ"
+#~ msgstr "ЧТЕНИЕ"
 
 #~ msgid "KiB"
 #~ msgstr "КиБ"
