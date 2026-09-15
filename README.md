@@ -25,7 +25,7 @@ sudo apt install sassc valac libgtk-4-dev libgee-0.8-dev libgranite-7-dev libgto
 Alternatively, if you plan to install WITHOUT a wingpanel-indicator
 
 ```bash
-sudo apt install sassc valac libgtk-4-dev libgee-0.8-dev libgranite-7-dev libgtop2-dev libadwaita-1-dev libudisks2-dev libjson-glib-dev libflatpak-dev libxnvctrl-dev liblivechart-2-dev libpci-dev meson
+sudo apt install sassc valac libgtk-4-dev libgee-0.8-dev libgranite-7-dev libgtop2-dev libgudev-1.0-dev libadwaita-1-dev libudisks2-dev libjson-glib-dev libflatpak-dev libxnvctrl-dev liblivechart-2-dev libpci-dev meson
 ```
 
 
