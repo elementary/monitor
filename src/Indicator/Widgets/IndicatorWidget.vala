@@ -8,6 +8,7 @@ public class Monitor.IndicatorWidget : Gtk.Box {
     public string icon_name { get; construct; }
 
     protected Gtk.Label label;
+    protected Gtk.Label secondary_label;
 
     public IndicatorWidget (string icon_name) {
         Object (
@@ -26,6 +27,15 @@ public class Monitor.IndicatorWidget : Gtk.Box {
             margin_top = 2,
             margin_bottom = 2,
             width_chars = 4,
+        };
+
+        secondary_label = new Gtk.Label (Utils.NOT_AVAILABLE) {
+            margin_start = 2,
+            margin_end = 2,
+            margin_top = 2,
+            margin_bottom = 2,
+            width_chars = 4,
+            visible = false,
         };
 
         append (icon);

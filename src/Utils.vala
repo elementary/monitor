@@ -6,6 +6,7 @@
 namespace Monitor.Utils {
     const int BITS_IN_BYTES = 8;
     const int MHZ_IN_GHZ = 1000;
+    const int IEC_UNIT_BASE = 1024;
 
     const string NOT_AVAILABLE = (_("N/A"));
     const string NO_DATA = "\u2014";
@@ -52,27 +53,39 @@ public class Monitor.Utils.Strings {
         return pretty;
     }
 
-    public static string format_frequency (double mhz) {
+    public static void format_frequency (double mhz, out string frequency_value, out string frequency_unit) {
         var frequency = mhz;
         if (frequency >= MHZ_IN_GHZ) {
             frequency /= MHZ_IN_GHZ;
             ///TRANSLATORS: The first param is the cpu frequency speed value and
             ///the second param is the cpu frequency speed unit viz. "Ghz" for gigahertz.
-            return _("%.2f Ghz").printf (frequency);
+            frequency_value = _("%.2f").printf (frequency);
+            frequency_unit = _("Ghz");
+            return;
         }
 
         ///TRANSLATORS: The first param is the cpu frequency speed value and
         ///the second param is the cpu frequency speed unit viz. "Mhz" for megahertz.
-        return _("%.0f Mhz").printf (frequency);
+        frequency_value = _("%.0f").printf (frequency);
+        frequency_unit = _("Mhz");
     }
 
-    public static string format_network_speed (uint64 speed_in_bytes_per_second) {
-        ///TRANSLATORS: The first param is the numeric value (as string) of network speed.
-        ///The second param with the appended "/s" is the network speed unit such as "Mb/s" for megabits per second.
-        return _("%s %s/s").printf (
-            format_size (speed_in_bytes_per_second * BITS_IN_BYTES, BITS | IEC_UNITS | ONLY_VALUE),
-            format_size (speed_in_bytes_per_second * BITS_IN_BYTES, BITS | ONLY_UNIT)
-        );
+    public static void format_network_speed (uint64 speed_in_bytes_per_second, out string speed_value, out string speed_unit) {
+        ///TRANSLATORS: These are the network speed unit such as "Mbps" for "megabits per second".
+        string[] UNITS = {_("bps"), _("Kbps"), _("Mbps"), _("Gbps"), _("Tbps")};
+
+        var speed_in_bits_per_second = speed_in_bytes_per_second * BITS_IN_BYTES;
+
+        int unit_index = 0;
+        while ((speed_in_bits_per_second / IEC_UNIT_BASE) > 0 && (unit_index < UNITS.length)) {
+            unit_index++;
+            speed_in_bits_per_second /= IEC_UNIT_BASE;
+        }
+
+        ///TRANSLATORS: This is the numeric value of network speed.
+        speed_value = _("%llu").printf (speed_in_bits_per_second);
+
+        speed_unit = UNITS[unit_index];
     }
 }
 

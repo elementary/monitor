@@ -9,15 +9,20 @@ public class Monitor.IndicatorWidgetFrequency : Monitor.IndicatorWidget {
     }
 
     construct {
-        label.use_markup = true;
+        secondary_label.width_chars = 3;
+        secondary_label.margin_start = 0;
+        secondary_label.visible = true;
+        append (secondary_label);
     }
 
     public override void update_label (Value value) {
         double frequency = value.get_double ();
 
-        label.label = GLib.Markup.printf_escaped (
-            "<span font_features='tnum'>%s</span>",
-            Utils.Strings.format_frequency (frequency)
-        );
+        string frequency_value;
+        string frequency_unit;
+        Utils.Strings.format_frequency (frequency, out frequency_value, out frequency_unit);
+
+        label.label = frequency_value;
+        secondary_label.label = frequency_unit;
     }
 }
