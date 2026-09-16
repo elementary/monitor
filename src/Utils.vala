@@ -72,12 +72,12 @@ public class Monitor.Utils.Strings {
 
     public static void format_network_speed (uint64 speed_in_bytes_per_second, out string speed_value, out string speed_unit) {
         ///TRANSLATORS: These are the network speed unit such as "Mbps" for "megabits per second".
-        string[] UNITS = {_("bps"), _("Kbps"), _("Mbps"), _("Gbps"), _("Tbps")};
+        string[] units = {_("bps"), _("Kbps"), _("Mbps"), _("Gbps"), _("Tbps")};
 
         var speed_in_bits_per_second = speed_in_bytes_per_second * BITS_IN_BYTES;
 
         int unit_index = 0;
-        while ((speed_in_bits_per_second / IEC_UNIT_BASE) > 0 && (unit_index < UNITS.length)) {
+        while ((speed_in_bits_per_second / IEC_UNIT_BASE) > 0 && (unit_index < units.length)) {
             unit_index++;
             speed_in_bits_per_second /= IEC_UNIT_BASE;
         }
@@ -85,7 +85,7 @@ public class Monitor.Utils.Strings {
         ///TRANSLATORS: This is the numeric value of network speed.
         speed_value = _("%llu").printf (speed_in_bits_per_second);
 
-        speed_unit = UNITS[unit_index];
+        speed_unit = units[unit_index];
     }
 }
 
