@@ -5,14 +5,15 @@
 
 public class Monitor.LogView : Granite.Bin {
     private SystemdLogModel model;
+    private Gtk.ProgressBar refresh_progress;
+    private Gtk.Revealer refresh_revealer;
+    private uint refresh_timeout = -1;
 
     construct {
+        refresh_progress = new Gtk.ProgressBar ();
 
-        var refresh_button = new Gtk.Button.from_icon_name ("view-refresh-symbolic") {
-            margin_top = 12,
-            margin_end = 12,
-            margin_start = 12,
-            tooltip_text = _("Load new entries")
+        refresh_revealer = new Gtk.Revealer () {
+            child = refresh_progress
         };
 
         model = new SystemdLogModel ();
@@ -49,14 +50,14 @@ public class Monitor.LogView : Granite.Bin {
             child = column_view
         };
 
-        var box = new Granite.Box (VERTICAL);
-        box.append (refresh_button);
+        var box = new Granite.Box (VERTICAL, NONE);
+        box.append (refresh_revealer);
         box.append (scrolled);
 
         child = box;
 
-        refresh_button.clicked.connect (model.refresh);
         scrolled.edge_reached.connect (on_edge_reached);
+        scrolled.edge_overshot.connect (on_edge_overshot);
     }
 
     private void setup_header (Object obj) {
@@ -96,5 +97,29 @@ public class Monitor.LogView : Granite.Bin {
         if (pos == BOTTOM) {
             model.load_chunk ();
         }
+    }
+
+    private void on_edge_overshot (Gtk.PositionType pos) {
+        if (pos == TOP) {
+            if (refresh_timeout == -1) {
+                refresh_timeout = Timeout.add_once (200, () => {
+                    reset_refresh_progress ();
+                });
+            }
+
+            refresh_revealer.reveal_child = true;
+            refresh_progress.fraction += 0.25;
+
+            if (refresh_progress.fraction >= 1) {
+                model.refresh ();
+                reset_refresh_progress ();
+            }
+        }
+    }
+
+    private void reset_refresh_progress () {
+        refresh_revealer.reveal_child = false;
+        refresh_progress.fraction = 0;
+        refresh_timeout = -1;
     }
 }
