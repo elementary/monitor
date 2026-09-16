@@ -71,25 +71,30 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
             overflow = VISIBLE
         };
 
-        var headerbar = new Adw.HeaderBar ();
+        var headerbar = new Gtk.HeaderBar () {
+            title_widget = stack_switcher
+        };
         headerbar.pack_start (search_revealer);
-        headerbar.set_title_widget (stack_switcher);
         headerbar.pack_end (preferences_button);
 
         var statusbar = new Statusbar ();
 
-        var main_container = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        var toolbox = new Adw.ToolbarView () {
+            content = stack,
+            top_bar_style = RAISED,
+            bottom_bar_style = RAISED_BORDER
+        };
+        toolbox.add_top_bar (headerbar);
+        toolbox.add_bottom_bar (statusbar);
 
-        set_titlebar (headerbar);
-        main_container.append (stack);
-        main_container.append (statusbar);
-
-        child = main_container;
+        child = toolbox;
+        titlebar = new Gtk.Grid () { visible = false };
 
         var dbusserver = DBusServer.get_default ();
 
         search_revealer.reveal_child = stack.visible_child == process_view;
         stack.notify["visible-child"].connect (() => {
+            toolbox.reveal_bottom_bars = stack.visible_child == process_view;
             search_revealer.reveal_child = stack.visible_child == process_view;
         });
 
