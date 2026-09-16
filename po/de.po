@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-27 22:01+0000\n"
+"POT-Creation-Date: 2026-09-15 22:58+0000\n"
 "PO-Revision-Date: 2025-07-13 12:55+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: German <https://l10n.elementaryos.org/projects/desktop/"
@@ -36,20 +36,35 @@ msgid "Search process name or PID"
 msgstr "Geben Sie den zu suchenden Prozessnamen oder die PID ein"
 
 #. The total amount of the swap is 0 when it is unavailable
-#: src/Utils.vala:7
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:37
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
+#: src/Utils.vala:10
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:38
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:42
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:16
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:80
 msgid "N/A"
 msgstr "­"
 
-#: src/Indicator/Widgets/IndicatorWidgetFrequency.vala:14
-#: src/Views/SystemView/SystemCPUView.vala:129
-#: src/Widgets/Statusbar/Statusbar.vala:71
-msgid "GHz"
-msgstr "GHz"
+#. /TRANSLATORS: The first param is the cpu frequency speed value and
+#. /the second param is the cpu frequency speed unit viz. "Ghz" for gigahertz.
+#: src/Utils.vala:61
+#, c-format
+msgid "%.2f Ghz"
+msgstr ""
+
+#. /TRANSLATORS: The first param is the cpu frequency speed value and
+#. /the second param is the cpu frequency speed unit viz. "Mhz" for megahertz.
+#: src/Utils.vala:66
+#, c-format
+msgid "%.0f Mhz"
+msgstr ""
+
+#. /TRANSLATORS: The first param is the numeric value (as string) of network speed.
+#. /The second param with the appended "/s" is the network speed unit such as "Mb/s" for megabits per second.
+#: src/Utils.vala:72
+#, c-format
+msgid "%s %s/s"
+msgstr ""
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
@@ -59,53 +74,53 @@ msgstr "Systemaufsicht anzeigen"
 msgid "Quit Monitor"
 msgstr "Systemaufsicht beenden"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:55
 msgid "PID"
 msgstr "PID"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:47
 msgid "NI"
 msgstr "NI"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:47
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:48
 msgid "PRI"
 msgstr "PRI"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:48
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:49
 msgid "THR"
 msgstr "THR"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:99
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:100
 msgid "The app is waiting in an uninterruptible disk sleep"
 msgstr "Die Anwendung wartet in einem nicht unterbrechungsfähigen Ruhezustand"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:101
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:102
 msgid "Idle kernel thread"
 msgstr "Inaktiver Kernel-Thread"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:103
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:104
 msgid "The process is running or runnable (on run queue)"
 msgstr ""
 "Der Prozess wird ausgeführt oder kann ausgeführt werden (in "
 "Ausführungswarteschlange)"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:105
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:106
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
 msgstr ""
 "Der Prozess befindet sichin einem unterbrechbaren Bereitschaftsmodus und "
 "wartet auf ein Ereignis, um fortzufahren"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:107
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:108
 msgid "The process is stopped by a job control signal"
 msgstr "Der Prozess wurde vom einem Job-Control-Signal angehalten"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:109
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:110
 msgid "The process is stopped by a debugger during the tracing"
 msgstr "Der Prozess wurde während des Tracings durch einen Debugger angehalten"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:111
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:112
 msgid "The app is terminated but not reaped by its parent"
 msgstr ""
 "Die Anwendung wurde beendet, aber nicht durch ihren Elternprozess aus der "
@@ -241,9 +256,9 @@ msgstr "Temperatur"
 msgid "℃"
 msgstr "℃"
 
-#: src/Views/SystemView/SystemCPUView.vala:160
-msgid "THREADS"
-msgstr "THREADS"
+#: src/Views/SystemView/SystemCPUView.vala:148
+msgid "Threads"
+msgstr ""
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:29
 msgid "General"
@@ -350,12 +365,12 @@ msgid "Storage"
 msgstr "Massenspeicher"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
-msgid "WRITE"
-msgstr "SCHREIBEN"
+msgid "Write"
+msgstr ""
 
 #: src/Views/SystemView/SystemStorageView.vala:25
-msgid "READ"
-msgstr "LESEN"
+msgid "Read"
+msgstr ""
 
 #: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
@@ -384,9 +399,22 @@ msgstr "Swap"
 msgid "GPU"
 msgstr "GPU"
 
+#: src/Widgets/Statusbar/Statusbar.vala:71
+msgid "GHz"
+msgstr "GHz"
+
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr ""
+
+#~ msgid "THREADS"
+#~ msgstr "THREADS"
+
+#~ msgid "WRITE"
+#~ msgstr "SCHREIBEN"
+
+#~ msgid "READ"
+#~ msgstr "LESEN"
 
 #~ msgid "KiB"
 #~ msgstr "KiB"
