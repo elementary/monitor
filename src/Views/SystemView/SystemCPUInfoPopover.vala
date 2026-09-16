@@ -133,13 +133,10 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
         var flag_label = new Gtk.Label (flag) {
             halign = Gtk.Align.START,
             valign = Gtk.Align.CENTER,
-            wrap = true,
-            margin_top = 6,
-            margin_bottom = 6,
-            margin_start = 6,
-            margin_end = 6,
+            wrap = true
         };
-        flag_label.add_css_class ("flags_badge");
+        flag_label.add_css_class ("pill");
+        flag_label.add_css_class ("flags");
 
 
         grid.attach (flag_label, 0, 0, 1, 1);
