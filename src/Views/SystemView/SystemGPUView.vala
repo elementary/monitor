@@ -60,7 +60,7 @@ public class Monitor.SystemGPUView : Monitor.WidgetResource {
     public SystemGPUView (IGPU _gpu) {
         gpu = _gpu;
 
-        title = (_("Graphics"));
+        title = _("Graphics");
         description = gpu.name;
 
         gpu_chart = new Chart (1);
