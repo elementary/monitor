@@ -17,7 +17,6 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         var name_item_factory = new Gtk.SignalListItemFactory ();
         name_item_factory.setup.connect (name_item_factory_setup);
         name_item_factory.bind.connect (name_item_factory_bind);
-        name_item_factory.unbind.connect (name_item_factory_unbind);
 
         var cpu_item_factory = new Gtk.SignalListItemFactory ();
         cpu_item_factory.setup.connect (generic_item_factory_setup);
@@ -73,36 +72,21 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         cell.child = label;
     }
 
+    private void setup_origin (Object obj) {
+        var item = (Gtk.ListItem) obj;
+        item.child = new LogCell (ORIGIN);
+    }
+
     private void name_item_factory_setup (Object object) {
-        var cell = (Gtk.ColumnViewCell) object;
-        var name_cell = new ProcessTreeViewNameCell ();
-        cell.child = name_cell;
+        var item = (Gtk.ListItem) object;
+        item.child = new ProcessTreeViewNameCell ();
     }
 
     private void name_item_factory_bind (Object object) {
-        var cell = (Gtk.ColumnViewCell) object;
-        var name_cell = (ProcessTreeViewNameCell) cell.child;
-        var label = name_cell.label;
-        var icon = name_cell.icon;
-
-        var item = (ProcessRowData) cell.item;
-
-        var binding_name = item.bind_property ("name", label, "label", SYNC_CREATE);
-        item.bindings.set ("name", binding_name);
-
-        var binding_icon = item.bind_property ("icon", icon, "gicon", SYNC_CREATE);
-        item.bindings.set ("icon", binding_icon);
-    }
-
-    private void name_item_factory_unbind (Object object) {
-        var cell = (Gtk.ColumnViewCell) object;
-        var name_cell = (ProcessTreeViewNameCell) cell.child;
-        var label = name_cell.label;
-        var icon = name_cell.icon;
-        label.label = null;
-        icon.gicon = null;
-        ((ProcessRowData) cell.item).bindings["name"].unbind ();
-        ((ProcessRowData) cell.item).bindings["icon"].unbind ();
+        var item = (Gtk.ListItem) object;
+        var process_row_data = (ProcessRowData) item.item;
+        var cell = (ProcessTreeViewNameCell) item.child;
+        cell.bind (process_row_data);
     }
 
     private void cpu_item_factory_bind (Object object) {
