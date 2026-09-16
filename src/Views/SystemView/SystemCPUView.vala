@@ -119,7 +119,9 @@ public class Monitor.SystemCPUView : Monitor.WidgetResource {
         string frequency_value;
         string frequency_unit;
         Utils.Strings.format_frequency (cpu.frequency, out frequency_value, out frequency_unit);
-        cpu_frequency_label.text = "%s %s".printf (frequency_value, frequency_unit);
+        ///TRANSLATORS: The first param is the cpu frequency speed value (as a string) and
+        ///the second param is the cpu frequency speed unit such as "Ghz" for "gigahertz" or "Mhz" for "megahertz".
+        cpu_frequency_label.text = _("%s %s").printf (frequency_value, frequency_unit);
     }
 
     private Gtk.Grid grid_core_labels () {

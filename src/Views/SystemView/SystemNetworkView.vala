@@ -63,9 +63,13 @@ public class Monitor.SystemNetworkView : Gtk.Grid {
             string speed_value;
             string speed_unit;
             Utils.Strings.format_frequency ((uint64) down_bytes, out speed_value, out speed_unit);
-            network_download_label.text = "%s %s".printf (speed_value, speed_unit);
+            ///TRANSLATORS: The first param is the numeric value (as string) of network speed.
+            ///The second param is the network speed unit such as "Mbps" for "megabits per second".
+            network_download_label.text = _("%s %s").printf (speed_value, speed_unit);
             Utils.Strings.format_frequency ((uint64) up_bytes, out speed_value, out speed_unit);
-            network_upload_label.text = "%s %s".printf (speed_value, speed_unit);
+            ///TRANSLATORS: The first param is the numeric value (as string) of network speed.
+            ///The second param is the network speed unit such as "Mbps" for "megabits per second".
+            network_upload_label.text = _("%s %s").printf (speed_value, speed_unit);
             network_chart.update (0, up_bytes);
             network_chart.update (1, down_bytes);
         }
