@@ -59,7 +59,8 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
             tooltip_markup = ("%s\n" + Granite.TOOLTIP_SECONDARY_TEXT_MARKUP).printf (
                 _("Settings"),
                 "F10"
-            )
+            ),
+            valign = CENTER
         };
 
         var search_entry = new Gtk.SearchEntry () {
