@@ -38,7 +38,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
         stack.add_titled (process_view, "process_view", _("Processes"));
 
         stack.get_page (system_view).set_property ("icon-name", "view-monitor-symbolic");
-        stack.get_page (log_view).set_property ("icon-name", "media-tape-symbolic");
+        stack.get_page (log_view).set_property ("icon-name", "view-log-symbolic");
         stack.get_page (process_view).set_property ("icon-name", "panel-right-symbolic");
 
         var stack_switcher = new Gtk.StackSwitcher () {
