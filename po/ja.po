@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 13:40+0000\n"
+"POT-Creation-Date: 2026-09-15 22:58+0000\n"
 "PO-Revision-Date: 2025-11-18 07:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/desktop/"
@@ -40,27 +40,35 @@ msgid "Search process name or PID"
 msgstr "プロセス名か PID を検索"
 
 #. The total amount of the swap is 0 when it is unavailable
-#: src/Utils.vala:9
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:37
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
+#: src/Utils.vala:10
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:38
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:42
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:16
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:80
 msgid "N/A"
 msgstr "N/A"
 
+#. /TRANSLATORS: The first param is the cpu frequency speed value and
+#. /the second param is the cpu frequency speed unit viz. "Ghz" for gigahertz.
+#: src/Utils.vala:61
+#, c-format
+msgid "%.2f Ghz"
+msgstr ""
+
+#. /TRANSLATORS: The first param is the cpu frequency speed value and
+#. /the second param is the cpu frequency speed unit viz. "Mhz" for megahertz.
+#: src/Utils.vala:66
+#, c-format
+msgid "%.0f Mhz"
+msgstr ""
+
 #. /TRANSLATORS: The first param is the numeric value (as string) of network speed.
 #. /The second param with the appended "/s" is the network speed unit such as "Mb/s" for megabits per second.
-#: src/Utils.vala:57
+#: src/Utils.vala:72
 #, c-format
 msgid "%s %s/s"
 msgstr ""
-
-#: src/Indicator/Widgets/IndicatorWidgetFrequency.vala:14
-#: src/Views/SystemView/SystemCPUView.vala:129
-#: src/Widgets/Statusbar/Statusbar.vala:71
-msgid "GHz"
-msgstr "GHz"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
@@ -70,49 +78,49 @@ msgstr "モニターを表示"
 msgid "Quit Monitor"
 msgstr "モニターを終了"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:55
 msgid "PID"
 msgstr "PID"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:47
 msgid "NI"
 msgstr "NICE 値"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:47
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:48
 msgid "PRI"
 msgstr "優先度"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:48
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:49
 msgid "THR"
 msgstr "スレッド数"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:99
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:100
 msgid "The app is waiting in an uninterruptible disk sleep"
 msgstr "割り込み不能なディスクの入出力待ち"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:101
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:102
 msgid "Idle kernel thread"
 msgstr "アイドル状態のカーネルスレッド"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:103
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:104
 msgid "The process is running or runnable (on run queue)"
 msgstr "実行状態または実行可能状態のプロセス (実行キューに存在)"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:105
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:106
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
 msgstr "割り込み不能な待ち状態 (イベント完了待ち) のプロセス"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:107
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:108
 msgid "The process is stopped by a job control signal"
 msgstr "ジョブ管理シグナルによって停止されたプロセス"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:109
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:110
 msgid "The process is stopped by a debugger during the tracing"
 msgstr "トレース中にデバッガーによって停止されたプロセス"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:111
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:112
 msgid "The app is terminated but not reaped by its parent"
 msgstr "終了したが、親プロセスによって回収されなかった子プロセス"
 
@@ -246,9 +254,9 @@ msgstr "温度"
 msgid "℃"
 msgstr "℃"
 
-#: src/Views/SystemView/SystemCPUView.vala:160
-msgid "THREADS"
-msgstr "スレッド"
+#: src/Views/SystemView/SystemCPUView.vala:148
+msgid "Threads"
+msgstr ""
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:29
 msgid "General"
@@ -351,12 +359,12 @@ msgid "Storage"
 msgstr "ストレージ"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
-msgid "WRITE"
-msgstr "書き込み"
+msgid "Write"
+msgstr ""
 
 #: src/Views/SystemView/SystemStorageView.vala:25
-msgid "READ"
-msgstr "読み込み"
+msgid "Read"
+msgstr ""
 
 #: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
@@ -385,9 +393,22 @@ msgstr "スワップ"
 msgid "GPU"
 msgstr "GPU"
 
+#: src/Widgets/Statusbar/Statusbar.vala:71
+msgid "GHz"
+msgstr "GHz"
+
 #: src/Widgets/WidgetResource/WidgetResource.vala:38
 msgid "Utilization"
 msgstr "使用率"
+
+#~ msgid "THREADS"
+#~ msgstr "スレッド"
+
+#~ msgid "WRITE"
+#~ msgstr "書き込み"
+
+#~ msgid "READ"
+#~ msgstr "読み込み"
 
 #~ msgid "KiB"
 #~ msgstr "KiB"
