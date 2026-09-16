@@ -28,14 +28,7 @@ public class Monitor.SystemMemoryView : Monitor.WidgetResource {
 
         memory_chart = new Chart (1);
         memory_chart.set_serie_color (0, Utils.Colors.get_rgba_color (Utils.Colors.LIME_300));
-        // memory_used_label.set_color ("grape_500");
 
-        // memory_chart.set_serie_color (1, Utils.Colors.get_rgba_color (Utils.Colors.LIME_300));
-        // memory_shared_label.set_color ("blueberry_100");
-
-        // memory_chart.set_serie_color (2, Utils.Colors.get_rgba_color (Utils.Colors.LIME_500));
-        // memory_chart.set_serie_color (3, Utils.Colors.get_rgba_color (Utils.Colors.LIME_700));
-        // memory_chart.set_serie_color (4, Utils.Colors.get_rgba_color (Utils.Colors.LIME_900));
         main_chart = memory_chart;
 
         set_main_chart_overlay (memory_usage_grid ());

@@ -8,6 +8,8 @@ public class Monitor.Appearance : Object {
 
     public static void set_prefered_style () {
         provider = new Gtk.CssProvider ();
+        provider.load_from_resource ("/io/elementary/monitor/application.css");
+
         Gtk.StyleContext.add_provider_for_display (Gdk.Display.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         var granite_settings = Granite.Settings.get_default ();
@@ -21,9 +23,9 @@ public class Monitor.Appearance : Object {
 
     private static void update_style_provider (Granite.Settings.ColorScheme color_scheme) {
         if (color_scheme == DARK) {
-            provider.load_from_resource ("/io/elementary/monitor/monitor-dark.css");
+            provider.prefers_color_scheme = DARK;
         } else {
-            provider.load_from_resource ("/io/elementary/monitor/monitor-light.css");
+            provider.prefers_color_scheme = DEFAULT;
         }
     }
 }
