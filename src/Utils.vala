@@ -5,6 +5,7 @@
 
 namespace Monitor.Utils {
     const int BITS_IN_BYTES = 8;
+    const int MHZ_IN_GHZ = 1000;
 
     const string NOT_AVAILABLE = (_("N/A"));
     const string NO_DATA = "\u2014";
@@ -51,12 +52,26 @@ public class Monitor.Utils.Strings {
         return pretty;
     }
 
-    public static string format_network_speed (uint64 speed) {
+    public static string format_frequency (double mhz) {
+        var frequency = mhz;
+        if (frequency >= MHZ_IN_GHZ) {
+            frequency /= MHZ_IN_GHZ;
+            ///TRANSLATORS: The first param is the cpu frequency speed value and
+            ///the second param is the cpu frequency speed unit viz. "Ghz" for gigahertz.
+            return _("%.2f Ghz").printf (frequency);
+        }
+
+        ///TRANSLATORS: The first param is the cpu frequency speed value and
+        ///the second param is the cpu frequency speed unit viz. "Mhz" for megahertz.
+        return _("%.0f Mhz").printf (frequency);
+    }
+
+    public static string format_network_speed (uint64 speed_in_bytes_per_second) {
         ///TRANSLATORS: The first param is the numeric value (as string) of network speed.
         ///The second param with the appended "/s" is the network speed unit such as "Mb/s" for megabits per second.
         return _("%s %s/s").printf (
-            format_size (speed * Utils.BITS_IN_BYTES, BITS | IEC_UNITS | ONLY_VALUE),
-            format_size (speed * Utils.BITS_IN_BYTES, BITS | ONLY_UNIT)
+            format_size (speed_in_bytes_per_second * BITS_IN_BYTES, BITS | IEC_UNITS | ONLY_VALUE),
+            format_size (speed_in_bytes_per_second * BITS_IN_BYTES, BITS | ONLY_UNIT)
         );
     }
 }

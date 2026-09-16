@@ -44,8 +44,8 @@ public class Monitor.CPU : Object {
     private double _frequency;
     public double frequency {
         get {
-            // Convert kHz to GHz
-            return (double) (_frequency / 1000000);
+            // Convert kHz to MHz
+            return (double) (_frequency / 1000);
         }
     }
     public double temperature_mean {
