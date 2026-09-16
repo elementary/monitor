@@ -39,7 +39,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
         stack.get_page (system_view).set_property ("icon-name", "view-monitor-symbolic");
         stack.get_page (log_view).set_property ("icon-name", "view-log-symbolic");
-        stack.get_page (process_view).set_property ("icon-name", "panel-right-symbolic");
+        stack.get_page (process_view).set_property ("icon-name", "system-run-symbolic");
 
         var stack_switcher = new Gtk.StackSwitcher () {
             stack = stack,
