@@ -21,6 +21,7 @@ source_app_files = [
     'Views/SystemView/SystemGPUView.vala',
 
     'Views/LogView/LogCell.vala',
+    'Views/LogView/PriorityCell.vala',
     'Views/LogView/LogView.vala',
     'Views/LogView/SystemdLogEntry.vala',
     'Views/LogView/SystemdLogModel.vala',

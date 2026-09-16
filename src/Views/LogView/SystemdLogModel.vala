@@ -135,6 +135,8 @@ public class Monitor.SystemdLogModel : GLib.Object, GLib.ListModel, Gtk.SectionM
 
         unowned uint8[] data;
         unowned uint8[] comm_data;
+        unowned uint8[] priority_data;
+
         res = journal.get_data ("MESSAGE", out data);
         if (res != 0) {
             critical ("Failed to get message: %s", strerror (-res));
@@ -146,8 +148,11 @@ public class Monitor.SystemdLogModel : GLib.Object, GLib.ListModel, Gtk.SectionM
             comm_data = "_COMM=kernel".data;
         }
 
+        res = journal.get_data ("PRIORITY", out priority_data);
+
         var origin = ((string) comm_data).offset ("_COMM=".length);
         var message = ((string) data).offset ("MESSAGE=".length);
+        var priority = ((string) priority_data).offset ("PRIORITY=".length);
 
         uint64 time;
         res = journal.get_realtime_usec (out time);
@@ -158,7 +163,7 @@ public class Monitor.SystemdLogModel : GLib.Object, GLib.ListModel, Gtk.SectionM
 
         var dt = new DateTime.from_unix_utc ((int64) (time / TimeSpan.SECOND));
 
-        var entry = new SystemdLogEntry (origin, message, dt);
+        var entry = new SystemdLogEntry (origin, message, dt, (Systemd.Journal.Priority) priority.to_int ());
 
         // Filter if we're searching. We drop them and don't add them and use a filter model
         // because when searching for e.g. a non existent term this would fill up memory *quick*

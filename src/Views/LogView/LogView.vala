@@ -28,7 +28,13 @@ public class Monitor.LogView : Granite.Bin {
         origin_factory.setup.connect (setup_origin);
         origin_factory.bind.connect (bind);
 
+        var priority_factory = new Gtk.SignalListItemFactory ();
+        priority_factory.setup.connect (setup_priority);
+        priority_factory.bind.connect (bind_priority);
+
         var origin_column = new Gtk.ColumnViewColumn (_("Sender"), origin_factory);
+
+        var priority_column = new Gtk.ColumnViewColumn (null, priority_factory);
 
         var message_factory = new Gtk.SignalListItemFactory ();
         message_factory.setup.connect (setup_message);
@@ -44,6 +50,7 @@ public class Monitor.LogView : Granite.Bin {
             vexpand = true
         };
         column_view.append_column (origin_column);
+        column_view.append_column (priority_column);
         column_view.append_column (message_column);
 
         var scrolled = new Gtk.ScrolledWindow () {
@@ -80,6 +87,18 @@ public class Monitor.LogView : Granite.Bin {
     private void setup_message (Object obj) {
         var item = (Gtk.ListItem) obj;
         item.child = new LogCell (MESSAGE);
+    }
+
+    private void setup_priority (Object obj) {
+        var item = (Gtk.ListItem) obj;
+        item.child = new PriorityCell ();
+    }
+
+    private void bind_priority (Object obj) {
+        var item = (Gtk.ListItem) obj;
+        var entry = (SystemdLogEntry) item.item;
+        var cell = (PriorityCell) item.child;
+        cell.bind (entry);
     }
 
     private void bind (Object obj) {
