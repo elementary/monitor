@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-15 22:58+0000\n"
-"PO-Revision-Date: 2025-11-23 11:55+0000\n"
+"PO-Revision-Date: 2026-09-17 17:03+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/ru/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: src/MainWindow.vala:14
 msgid "Monitor"
@@ -50,21 +50,21 @@ msgstr "Н/Д"
 #: src/Utils.vala:61
 #, c-format
 msgid "%.2f Ghz"
-msgstr ""
+msgstr "%.2f ГГц"
 
 #. /TRANSLATORS: The first param is the cpu frequency speed value and
 #. /the second param is the cpu frequency speed unit viz. "Mhz" for megahertz.
 #: src/Utils.vala:66
 #, c-format
 msgid "%.0f Mhz"
-msgstr ""
+msgstr "%.0f МГц"
 
 #. /TRANSLATORS: The first param is the numeric value (as string) of network speed.
 #. /The second param with the appended "/s" is the network speed unit such as "Mb/s" for megabits per second.
 #: src/Utils.vala:72
 #, c-format
 msgid "%s %s/s"
-msgstr ""
+msgstr "%s %s/с"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
@@ -252,7 +252,7 @@ msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:148
 msgid "Threads"
-msgstr ""
+msgstr "Потоки"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:29
 msgid "General"
@@ -356,11 +356,11 @@ msgstr "Устройства хранения"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
 msgid "Write"
-msgstr ""
+msgstr "Запись"
 
 #: src/Views/SystemView/SystemStorageView.vala:25
 msgid "Read"
-msgstr ""
+msgstr "Чтение"
 
 #: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
