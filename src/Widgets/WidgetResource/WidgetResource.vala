@@ -55,6 +55,7 @@ public class Monitor.WidgetResource : Gtk.Box {
             halign = START,
             valign = START
         };
+        info_box.add_css_class (Granite.CssClass.CARD);
         info_box.add_css_class ("usage-label-container");
         info_box.append (main_metric_box);
 

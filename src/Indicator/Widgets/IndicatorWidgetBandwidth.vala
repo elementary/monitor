@@ -17,6 +17,9 @@ public class Monitor.IndicatorWidgetBandwidth : Monitor.IndicatorWidget {
     public override void update_label (Value value) {
         uint64 bandwidth = value.get_uint64 ();
 
-        label.label = GLib.Markup.printf_escaped ("<span font_features='tnum'>%s</span>", format_size (bandwidth));
+        label.label = GLib.Markup.printf_escaped (
+            "<span font_features='tnum'>%s</span>",
+            Utils.Strings.format_network_speed (bandwidth)
+        );
     }
 }

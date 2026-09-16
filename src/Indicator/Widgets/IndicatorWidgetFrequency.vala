@@ -15,6 +15,9 @@ public class Monitor.IndicatorWidgetFrequency : Monitor.IndicatorWidget {
     public override void update_label (Value value) {
         double frequency = value.get_double ();
 
-        label.label = ("<span font-features='tnum'>%.2f %s</span>").printf (frequency, _("GHz"));
+        label.label = GLib.Markup.printf_escaped (
+            "<span font_features='tnum'>%s</span>",
+            Utils.Strings.format_frequency (frequency)
+        );
     }
 }
