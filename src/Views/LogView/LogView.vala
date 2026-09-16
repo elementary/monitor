@@ -8,22 +8,12 @@ public class Monitor.LogView : Granite.Bin {
 
     construct {
 
-        var search_entry = new Gtk.SearchEntry () {
-            hexpand = true,
-            placeholder_text = _("Search")
-        };
-
         var refresh_button = new Gtk.Button.from_icon_name ("view-refresh-symbolic") {
-            tooltip_text = _("Load new entries")
-        };
-
-        var top_box = new Granite.Box (HORIZONTAL) {
             margin_top = 12,
             margin_end = 12,
-            margin_start = 12
+            margin_start = 12,
+            tooltip_text = _("Load new entries")
         };
-        top_box.append (search_entry);
-        top_box.append (refresh_button);
 
         model = new SystemdLogModel ();
 
@@ -60,14 +50,12 @@ public class Monitor.LogView : Granite.Bin {
         };
 
         var box = new Granite.Box (VERTICAL);
-        box.append (top_box);
-        box.append (search_entry);
+        box.append (refresh_button);
         box.append (scrolled);
 
         child = box;
 
         refresh_button.clicked.connect (model.refresh);
-        search_entry.search_changed.connect (on_search_changed);
         scrolled.edge_reached.connect (on_edge_reached);
     }
 
@@ -100,8 +88,8 @@ public class Monitor.LogView : Granite.Bin {
         cell.bind (entry);
     }
 
-    private void on_search_changed (Gtk.SearchEntry entry) {
-        model.search (entry.text);
+    public void on_search_changed (string needle) {
+        model.search (needle);
     }
 
     private void on_edge_reached (Gtk.PositionType pos) {

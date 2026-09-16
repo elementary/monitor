@@ -92,10 +92,10 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
         var dbusserver = DBusServer.get_default ();
 
-        search_revealer.reveal_child = stack.visible_child == process_view;
+        search_revealer.reveal_child = stack.visible_child != system_view;
         stack.notify["visible-child"].connect (() => {
             toolbox.reveal_bottom_bars = stack.visible_child == process_view;
-            search_revealer.reveal_child = stack.visible_child == process_view;
+            search_revealer.reveal_child = stack.visible_child != system_view;
         });
 
         new Thread<void> ("upd", () => {
@@ -120,6 +120,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
         search_entry.search_changed.connect (() => {
             process_view.treeview_model.filtered.needle = search_entry.text;
+            log_view.on_search_changed (search_entry.text);
             search_entry.grab_focus ();
         });
 
