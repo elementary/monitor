@@ -8,17 +8,18 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-17 20:55+0000\n"
-"PO-Revision-Date: 2024-10-09 20:00+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
-"Language-Team: Arabic <https://l10n.elementary.io/projects/desktop/monitor/"
-"ar/>\n"
+"PO-Revision-Date: 2026-09-18 04:08+0000\n"
+"Last-Translator: Automatic translation add-on <noreply-addon-"
+"autotranslate@weblate.org>\n"
+"Language-Team: Arabic <https://l10n.elementaryos.org/projects/desktop/"
+"monitor/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: src/MainWindow.vala:14
 msgid "Monitor"
@@ -93,7 +94,7 @@ msgstr ""
 
 #: src/Views/LogView/SystemdLogEntry.vala:35
 msgid "Now"
-msgstr ""
+msgstr "الآن"
 
 #: src/Views/LogView/SystemdLogEntry.vala:38
 #, c-format
@@ -110,12 +111,12 @@ msgstr[5] ""
 #, c-format
 msgid "%dm ago"
 msgid_plural "%dm ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "منذ %dm"
+msgstr[1] "منذ %dm"
+msgstr[2] "منذ %dm"
+msgstr[3] "منذ %dm"
+msgstr[4] "منذ %dm"
+msgstr[5] "منذ %dm"
 
 #. I think the plural form is according to the last one??
 #: src/Views/LogView/SystemdLogEntry.vala:48
