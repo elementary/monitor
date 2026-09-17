@@ -8,8 +8,9 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-17 20:55+0000\n"
-"PO-Revision-Date: 2026-01-31 23:55+0000\n"
-"Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
+"PO-Revision-Date: 2026-09-18 04:08+0000\n"
+"Last-Translator: Automatic translation add-on <noreply-addon-"
+"autotranslate@weblate.org>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/uk/>\n"
 "Language: uk\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: src/MainWindow.vala:14
 msgid "Monitor"
@@ -92,10 +93,8 @@ msgid "Message"
 msgstr ""
 
 #: src/Views/LogView/SystemdLogEntry.vala:35
-#, fuzzy
-#| msgid "No"
 msgid "Now"
-msgstr "Ні"
+msgstr "Зараз"
 
 #: src/Views/LogView/SystemdLogEntry.vala:38
 #, c-format
@@ -109,9 +108,9 @@ msgstr[2] ""
 #, c-format
 msgid "%dm ago"
 msgid_plural "%dm ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%dхв тому"
+msgstr[1] "%dхв тому"
+msgstr[2] "%dхв тому"
 
 #. I think the plural form is according to the last one??
 #: src/Views/LogView/SystemdLogEntry.vala:48
