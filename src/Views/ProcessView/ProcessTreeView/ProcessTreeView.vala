@@ -4,7 +4,7 @@
  */
 
 public class Monitor.ProcessTreeView : Granite.Bin {
-    public TreeViewModel model { get; construct; }
+    public TreeViewModel model { private get; construct; }
 
     public ProcessTreeView (TreeViewModel model) {
         Object (model: model);
