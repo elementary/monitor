@@ -3,8 +3,9 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-17 20:55+0000\n"
-"PO-Revision-Date: 2026-09-17 17:03+0000\n"
-"Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
+"PO-Revision-Date: 2026-09-18 04:08+0000\n"
+"Last-Translator: Automatic translation add-on <noreply-addon-"
+"autotranslate@weblate.org>\n"
 "Language-Team: Russian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/ru/>\n"
 "Language: ru\n"
@@ -87,10 +88,8 @@ msgid "Message"
 msgstr ""
 
 #: src/Views/LogView/SystemdLogEntry.vala:35
-#, fuzzy
-#| msgid "No"
 msgid "Now"
-msgstr "Нет"
+msgstr "Сейчас"
 
 #: src/Views/LogView/SystemdLogEntry.vala:38
 #, c-format
@@ -104,9 +103,9 @@ msgstr[2] ""
 #, c-format
 msgid "%dm ago"
 msgid_plural "%dm ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d м назад"
+msgstr[1] "%d м назад"
+msgstr[2] "%d м назад"
 
 #. I think the plural form is according to the last one??
 #: src/Views/LogView/SystemdLogEntry.vala:48
