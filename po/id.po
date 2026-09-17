@@ -8,8 +8,9 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-17 20:55+0000\n"
-"PO-Revision-Date: 2026-09-07 10:02+0000\n"
-"Last-Translator: Chairul Akmal <chairulakmal@protonmail.com>\n"
+"PO-Revision-Date: 2026-09-18 04:08+0000\n"
+"Last-Translator: Automatic translation add-on <noreply-addon-"
+"autotranslate@weblate.org>\n"
 "Language-Team: Indonesian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/id/>\n"
 "Language: id\n"
@@ -92,7 +93,7 @@ msgstr ""
 
 #: src/Views/LogView/SystemdLogEntry.vala:35
 msgid "Now"
-msgstr ""
+msgstr "Sekarang"
 
 #: src/Views/LogView/SystemdLogEntry.vala:38
 #, c-format
@@ -104,7 +105,7 @@ msgstr[0] ""
 #, c-format
 msgid "%dm ago"
 msgid_plural "%dm ago"
-msgstr[0] ""
+msgstr[0] "%dm yang lalu"
 
 #. I think the plural form is according to the last one??
 #: src/Views/LogView/SystemdLogEntry.vala:48
