@@ -8,8 +8,9 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-17 20:55+0000\n"
-"PO-Revision-Date: 2025-07-13 12:55+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2026-09-18 04:08+0000\n"
+"Last-Translator: Automatic translation add-on <noreply-addon-"
+"autotranslate@weblate.org>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementaryos.org/projects/"
 "desktop/monitor/nb/>\n"
 "Language: nb\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: src/MainWindow.vala:14
 msgid "Monitor"
@@ -92,7 +93,7 @@ msgstr ""
 
 #: src/Views/LogView/SystemdLogEntry.vala:35
 msgid "Now"
-msgstr ""
+msgstr "Nå"
 
 #: src/Views/LogView/SystemdLogEntry.vala:38
 #, c-format
@@ -105,8 +106,8 @@ msgstr[1] ""
 #, c-format
 msgid "%dm ago"
 msgid_plural "%dm ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "for %dm siden"
+msgstr[1] "for %dm siden"
 
 #. I think the plural form is according to the last one??
 #: src/Views/LogView/SystemdLogEntry.vala:48
