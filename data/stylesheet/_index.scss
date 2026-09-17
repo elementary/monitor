@@ -8,10 +8,13 @@
     --BLUEBERRY-300: #64baff;
     --BLUEBERRY-500: #3689e6;
 
+    --GRAPE-500: #a56de2;
+
     --LIME-300: #9bdb4d;
 
     --ORANGE-100: #ffc27d;
     --ORANGE-300: #ffa154;
+    --ORANGE-500: #f37329;
     --ORANGE-700: #cc3b02;
     --ORANGE-900: #a62100;
 
@@ -48,15 +51,6 @@
     // SystemCPUInfoPopover
     &.flags {
         margin: 0.5em;
-    }
-
-    // ProcessInfoHeader
-    &.state {
-        background-color: var(--BLUEBERRY-500);
-        border: none;
-        color: white;
-        font-weight: 700;
-        margin: 0 0.25em;
     }
 
     &.warning {
@@ -175,5 +169,27 @@ columnview {
 
     row:nth-child(odd) {
         background: #{'@bg_color'};
+    }
+}
+
+// ProcessInfoHeader
+image.state {
+    background-color: var(--BLUEBERRY-500);
+    box-shadow: 0 1px 2px 1px color-mix(in srgb, black 10%, transparent);
+    color: white;
+    min-height: 24px;
+    min-width: 24px;
+    padding: 0.25em;
+
+    &.R {
+        background-color: var(--ORANGE-500);
+    }
+
+    &.S {
+        background-color: var(--GRAPE-500);
+    }
+
+    &.Z {
+        background-color: #{'@error_color'};
     }
 }
