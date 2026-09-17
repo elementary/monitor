@@ -12,7 +12,9 @@
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/devices/temperature-gpu-symbolic.svg">temperature-gpu-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/status/process-attention-symbolic.svg">process-attention-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/status/process-emergency-symbolic.svg">process-critical-symbolic.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="scalable/status/process-fail-symbolic.svg">process-fail-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/status/process-information-symbolic.svg">process-information-symbolic.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="scalable/status/process-sleep-symbolic.svg">process-sleep-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="16x16/actions/bash.svg">extra/16/bash.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="48x48/actions/bash.svg">extra/48/bash.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="64x64/actions/bash.svg">extra/64/bash.svg</file>
