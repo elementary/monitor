@@ -9,8 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-17 20:55+0000\n"
 "PO-Revision-Date: 2026-09-18 04:08+0000\n"
-"Last-Translator: Automatic translation add-on <noreply-addon-"
-"autotranslate@weblate.org>\n"
+"Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/uk/>\n"
 "Language: uk\n"
@@ -31,7 +30,7 @@ msgstr "Процеси"
 
 #: src/MainWindow.vala:37
 msgid "Logs"
-msgstr ""
+msgstr "Журнали"
 
 #: src/MainWindow.vala:38
 msgid "System"
@@ -60,21 +59,21 @@ msgstr "Н/Д"
 #: src/Utils.vala:61
 #, c-format
 msgid "%.2f Ghz"
-msgstr ""
+msgstr "%.2f ГГц"
 
 #. /TRANSLATORS: The first param is the cpu frequency speed value and
 #. /the second param is the cpu frequency speed unit viz. "Mhz" for megahertz.
 #: src/Utils.vala:66
 #, c-format
 msgid "%.0f Mhz"
-msgstr ""
+msgstr "%.0f МГц"
 
 #. /TRANSLATORS: The first param is the numeric value (as string) of network speed.
 #. /The second param with the appended "/s" is the network speed unit such as "Mb/s" for megabits per second.
 #: src/Utils.vala:72
 #, c-format
 msgid "%s %s/s"
-msgstr ""
+msgstr "%s %s/с"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
@@ -86,11 +85,11 @@ msgstr "Вийти"
 
 #: src/Views/LogView/LogView.vala:35
 msgid "Sender"
-msgstr ""
+msgstr "Відпраник"
 
 #: src/Views/LogView/LogView.vala:43
 msgid "Message"
-msgstr ""
+msgstr "Повідомлення"
 
 #: src/Views/LogView/SystemdLogEntry.vala:35
 msgid "Now"
@@ -100,9 +99,9 @@ msgstr "Зараз"
 #, c-format
 msgid "%ds ago"
 msgid_plural "%ds ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d с тому"
+msgstr[1] "%d с тому"
+msgstr[2] "%d с тому"
 
 #: src/Views/LogView/SystemdLogEntry.vala:44
 #, c-format
@@ -117,9 +116,9 @@ msgstr[2] "%dхв тому"
 #, c-format
 msgid "%dm %ds ago"
 msgid_plural "%dm %ds ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%dхв %dс тому"
+msgstr[1] "%dхв %dс тому"
+msgstr[2] "%dхв %dс тому"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:55
@@ -403,11 +402,11 @@ msgstr "Сховище"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
 msgid "Write"
-msgstr ""
+msgstr "Запис"
 
 #: src/Views/SystemView/SystemStorageView.vala:25
 msgid "Read"
-msgstr ""
+msgstr "Читання"
 
 #: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
