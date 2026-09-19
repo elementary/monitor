@@ -130,7 +130,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         var label = (Gtk.Label) cell.child;
         var item = (ProcessRowData) cell.item;
         var binding_memory = item.bind_property ("memory", label, "label", SYNC_CREATE, (_, from_val, ref to_val) => {
-            to_val.set_string (format_size (from_val.get_uint64 () * 1024, IEC_UNITS));
+            to_val.set_string (Utils.Strings.format_memory_size (from_val.get_uint64 () * 1024));
             return true;
         });
         item.bindings.set ("memory", binding_memory);
