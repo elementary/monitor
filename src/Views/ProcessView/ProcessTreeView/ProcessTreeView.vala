@@ -126,8 +126,8 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         var label = (Gtk.Label) cell.child;
         var item = (ProcessRowData) cell.item;
         var binding_cpu = item.bind_property ("cpu", label, "label", SYNC_CREATE, (_, from_val, ref to_val) => {
-            int percentage = from_val.get_int ();
-            to_val.set_string ("%.0f%%".printf (percentage));
+            double percentage = from_val.get_double ();
+            to_val.set_string ("%.2f%%".printf (percentage));
             return true;
         });
         item.bindings.set ("cpu", binding_cpu);
@@ -165,8 +165,8 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         var label = (Gtk.Label) cell.child;
         var item = (ProcessRowData) cell.item;
         var binding_gpu = item.bind_property ("gpu", label, "label", SYNC_CREATE, (_, from_val, ref to_val) => {
-            int percentage = from_val.get_int ();
-            to_val.set_string ("%.0f%%".printf (percentage));
+            double percentage = from_val.get_double ();
+            to_val.set_string ("%.2f%%".printf (percentage));
             return true;
         });
         item.bindings.set ("gpu", binding_gpu);
