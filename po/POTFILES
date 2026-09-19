@@ -3,6 +3,10 @@ src/MainWindow.vala
 src/Utils.vala
 src/Indicator/Widgets/IndicatorWidgetFrequency.vala
 src/Indicator/Widgets/PopoverWidget.vala
+src/Views/LogView/LogCell.vala
+src/Views/LogView/LogView.vala
+src/Views/LogView/SystemdLogEntry.vala
+src/Views/LogView/SystemdLogModel.vala
 src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala
 src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala
 src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala
