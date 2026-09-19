@@ -121,13 +121,13 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
         search_entry.search_changed.connect (() => {
             process_view.treeview_model.filtered.needle = search_entry.text;
             log_view.on_search_changed (search_entry.text);
-            search_entry.grab_focus ();
         });
 
         var search_action = new GLib.SimpleAction ("search", null);
         search_action.activate.connect (() => {
             search_entry.text = "";
             search_entry.search_changed ();
+            search_entry.grab_focus ();
         });
 
         add_action (search_action);
