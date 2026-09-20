@@ -1,0 +1,31 @@
+<svg
+        xmlns='http://www.w3.org/2000/svg'
+        xmlns:svg='http://www.w3.org/2000/svg'
+        xmlns:gpa='https://www.gtk.org/grappa'
+        gpa:version='1'
+        gpa:state='0'
+        id='svg3'
+        width='16'
+        height='16'>
+  <path
+          id='path1'
+          class='foreground foreground-fill'
+          fill='#f9c440'
+          fill-opacity='1'
+          fill-rule='nonzero'
+          stroke='none'
+          stroke-opacity='1'
+          stroke-width='1'
+          stroke-linecap='butt'
+          stroke-linejoin='miter'
+          stroke-miterlimit='4'
+          stroke-dasharray='none'
+          stroke-dashoffset='0'
+          marker-start='none'
+          marker-mid='none'
+          marker-end='none'
+          d='M 1 4 L 1 12 A 3 3 45 0 0 4 15 L 8 15 A 6.06873 6.06873 153.695 0 0 12.8217 12.6164 L 15.7428 8.79452 A 1.30841 1.30841 90 0 0 15.7428 7.20548 L 12.8217 3.38356 A 6.06873 6.06873 26.3049 0 0 8 1 L 4 1 A 3 3 135 0 0 1 4 Z'
+          gpa:animation-repeat='0'
+          gpa:animation-segment='0'>
+  </path>
+</svg>
