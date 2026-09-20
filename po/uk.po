@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-20 11:01+0000\n"
-"PO-Revision-Date: 2026-09-18 04:08+0000\n"
+"PO-Revision-Date: 2026-09-22 00:04+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/uk/>\n"
@@ -284,10 +284,8 @@ msgid "GPU temperature"
 msgstr "Температура GPU"
 
 #: src/Views/SystemView/SystemCPUView.vala:20
-#, fuzzy
-#| msgid "Processes"
 msgid "Processor"
-msgstr "Процеси"
+msgstr "Процесор"
 
 #: src/Views/SystemView/SystemCPUView.vala:41
 msgid "Frequency"
@@ -428,7 +426,7 @@ msgstr "ТЕМПЕРАТУРА"
 
 #: src/Views/SystemView/SystemGPUView.vala:63
 msgid "Graphics"
-msgstr ""
+msgstr "Графіка"
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:27
