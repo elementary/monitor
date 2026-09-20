@@ -97,8 +97,13 @@ public class Monitor.SystemStorageView : Gtk.Box {
             };
 
             string size_string = format_size ((uint64) drive.size);
+            string used_string = format_size ((uint64) (drive.size - drive.free));
 
-            string drive_block_name_and_size_string = "%s 𐄁 %s".printf (drive.device, size_string);
+            string drive_block_name_and_size_string = "%s 𐄁 %s / %s".printf (drive.device, used_string, size_string);
+
+            if (drive.free == 0) {
+                drive_block_name_and_size_string = "%s 𐄁 %s".printf (drive.device, size_string);
+            }
 
             var drive_block_name_and_size_label = new Gtk.Label (drive_block_name_and_size_string) {
                 halign = START,
@@ -111,6 +116,14 @@ public class Monitor.SystemStorageView : Gtk.Box {
             };
             drive_not_mounted_label.add_css_class (Granite.CssClass.DIM);
 
+            var usagebar = new Gtk.LevelBar () {
+                max_value = 100.0,
+                min_value = 0.0,
+                margin_bottom = 6
+            };
+            usagebar.add_css_class (Granite.STYLE_CLASS_FLAT);
+            usagebar.set_value (100.0 * (drive.size - drive.free) / drive.size);
+
             var drive_box = new Gtk.Box (VERTICAL, 0) {
                 margin_top = 6,
                 margin_end = 12,
@@ -121,6 +134,8 @@ public class Monitor.SystemStorageView : Gtk.Box {
             drive_box.append (drive_block_name_and_size_label);
             if (drive.free == 0) {
                 drive_box.append (drive_not_mounted_label);
+            } else {
+                drive_box.append (usagebar);
             }
 
             add_css_class (Granite.CssClass.CARD);
