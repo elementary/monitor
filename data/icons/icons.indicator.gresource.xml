@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/io/elementary/monitor/icons">
+    <file compressed="true" preprocess="xml-stripblanks" alias="scalable/categories/bug-symbolic.svg">bug-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/devices/cpu-symbolic.svg">cpu-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/devices/gpu-symbolic.svg">gpu-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/devices/ram-symbolic.svg">ram-symbolic.svg</file>
@@ -9,6 +10,9 @@
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/mimetypes/file-deleted-symbolic.svg">file-deleted-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/devices/temperature-sensor-symbolic.svg">temperature-sensor-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/devices/temperature-gpu-symbolic.svg">temperature-gpu-symbolic.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="scalable/status/process-attention-symbolic.svg">process-attention-symbolic.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="scalable/status/process-emergency-symbolic.svg">process-critical-symbolic.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="scalable/status/process-information-symbolic.svg">process-information-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="16x16/actions/bash.svg">extra/16/bash.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="48x48/actions/bash.svg">extra/48/bash.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="64x64/actions/bash.svg">extra/64/bash.svg</file>
