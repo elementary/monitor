@@ -83,8 +83,15 @@ public class Monitor.Utils.Strings {
             unit *= IEC_UNIT_BASE;
         }
 
+        // Adjust size for the second glib format_size () call with ONLY_UNIT flag set and IEC_UNITS flag excluded.
+        // Prevents mismatch between unit and value due to borderline overlap between IEC_UNIT_BASE (1024) and
+        // NON_IEC_UNIT_BASE (1000) values, say, if size is somewhere between 1000 and 1024 the result would be
+        // erroneously shown eg. for size 1020 MB it would have been "1020 GB" this adjustment corrects it
+        // by avoiding the mismatch thus showing "1020 MB" as intended.
         var size_adjusted_for_non_iec_units = size_in_bytes * NON_IEC_UNIT_BASE / IEC_UNIT_BASE;
 
+        // If size is a perfect multiple/factor of IEC_UNIT_BASE (1024) then print it as a whole number
+        // else fall through to use standard glib format_size () to print with one decimal place.
         if (size_in_bytes % unit == 0) {
             ///TRANSLATORS: The first param is the numeric value of memory size.
             ///The second param is the memory size such as "MB" or "GB" for megabytes or gigabytes.
