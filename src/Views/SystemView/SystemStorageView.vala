@@ -97,7 +97,7 @@ public class Monitor.SystemStorageView : Gtk.Box {
             };
 
             string size_string = format_size ((uint64) drive.size);
-            string used_string = format_size ((uint64) (drive.size - drive.free));
+            string used_string = format_size ((uint64) (drive.size_mounted - drive.free));
 
             string drive_block_name_and_size_string = "%s 𐄁 %s / %s".printf (drive.device, used_string, size_string);
 
@@ -122,7 +122,7 @@ public class Monitor.SystemStorageView : Gtk.Box {
                 margin_bottom = 6
             };
             usagebar.add_css_class (Granite.STYLE_CLASS_FLAT);
-            usagebar.set_value (100.0 * (drive.size - drive.free) / drive.size);
+            usagebar.set_value (100.0 * (drive.size_mounted - drive.free) / drive.size_mounted);
 
             var drive_box = new Gtk.Box (VERTICAL, 0) {
                 margin_top = 6,

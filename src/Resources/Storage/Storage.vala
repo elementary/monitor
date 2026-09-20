@@ -110,6 +110,7 @@
                         Posix.statvfs buf;
                         Posix.statvfs_exec (block_fs.mount_points[0], out buf);
                         current_volume.free = (uint64) buf.f_bfree * (uint64) buf.f_bsize;
+                        current_volume.size_mounted = (uint64) buf.f_blocks * (uint64) buf.f_bsize;
 
                     // } else {
                     //     current_volume.mount_point = "";
