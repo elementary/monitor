@@ -7,10 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 20:55+0000\n"
-"PO-Revision-Date: 2026-09-18 04:08+0000\n"
-"Last-Translator: Automatic translation add-on <noreply-addon-"
-"autotranslate@weblate.org>\n"
+"POT-Creation-Date: 2026-09-20 11:01+0000\n"
+"PO-Revision-Date: 2026-09-20 11:01+0000\n"
+"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/ja/>\n"
 "Language: ja\n"
@@ -30,7 +29,7 @@ msgstr "プロセス"
 
 #: src/MainWindow.vala:37
 msgid "Logs"
-msgstr ""
+msgstr "ログ"
 
 #: src/MainWindow.vala:38
 msgid "System"
@@ -59,21 +58,21 @@ msgstr "N/A"
 #: src/Utils.vala:61
 #, c-format
 msgid "%.2f Ghz"
-msgstr ""
+msgstr "%.2f GHz"
 
 #. /TRANSLATORS: The first param is the cpu frequency speed value and
 #. /the second param is the cpu frequency speed unit viz. "Mhz" for megahertz.
 #: src/Utils.vala:66
 #, c-format
 msgid "%.0f Mhz"
-msgstr ""
+msgstr "%.0f MHz"
 
 #. /TRANSLATORS: The first param is the numeric value (as string) of network speed.
 #. /The second param with the appended "/s" is the network speed unit such as "Mb/s" for megabits per second.
 #: src/Utils.vala:72
 #, c-format
 msgid "%s %s/s"
-msgstr ""
+msgstr "%s %s/秒"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
@@ -85,11 +84,11 @@ msgstr "モニターを終了"
 
 #: src/Views/LogView/LogView.vala:35
 msgid "Sender"
-msgstr ""
+msgstr "送信者"
 
 #: src/Views/LogView/LogView.vala:43
 msgid "Message"
-msgstr ""
+msgstr "メッセージ"
 
 #: src/Views/LogView/SystemdLogEntry.vala:35
 msgid "Now"
@@ -99,7 +98,7 @@ msgstr "たった今"
 #, c-format
 msgid "%ds ago"
 msgid_plural "%ds ago"
-msgstr[0] ""
+msgstr[0] "%d 秒前"
 
 #: src/Views/LogView/SystemdLogEntry.vala:44
 #, c-format
@@ -112,7 +111,7 @@ msgstr[0] "%d 分前"
 #, c-format
 msgid "%dm %ds ago"
 msgid_plural "%dm %ds ago"
-msgstr[0] ""
+msgstr[0] "%d 分 %d 秒前"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:55
@@ -277,22 +276,28 @@ msgstr "VRAM 使用率"
 msgid "GPU temperature"
 msgstr "GPU 温度"
 
-#: src/Views/SystemView/SystemCPUView.vala:39
+#: src/Views/SystemView/SystemCPUView.vala:20
+#, fuzzy
+#| msgid "Processes"
+msgid "Processor"
+msgstr "プロセス"
+
+#: src/Views/SystemView/SystemCPUView.vala:41
 msgid "Frequency"
 msgstr "周波数"
 
-#: src/Views/SystemView/SystemCPUView.vala:46
+#: src/Views/SystemView/SystemCPUView.vala:48
 msgid "Temperature"
 msgstr "温度"
 
-#: src/Views/SystemView/SystemCPUView.vala:83
-#: src/Views/SystemView/SystemGPUView.vala:92
+#: src/Views/SystemView/SystemCPUView.vala:85
+#: src/Views/SystemView/SystemGPUView.vala:93
 msgid "℃"
 msgstr "℃"
 
-#: src/Views/SystemView/SystemCPUView.vala:148
+#: src/Views/SystemView/SystemCPUView.vala:150
 msgid "Threads"
-msgstr ""
+msgstr "スレッド"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:29
 msgid "General"
@@ -396,11 +401,11 @@ msgstr "ストレージ"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
 msgid "Write"
-msgstr ""
+msgstr "読み込み"
 
 #: src/Views/SystemView/SystemStorageView.vala:25
 msgid "Read"
-msgstr ""
+msgstr "書き込み"
 
 #: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
@@ -413,6 +418,10 @@ msgstr "VRAM"
 #: src/Views/SystemView/SystemGPUView.vala:23
 msgid "TEMPERATURE"
 msgstr "温度"
+
+#: src/Views/SystemView/SystemGPUView.vala:63
+msgid "Graphics"
+msgstr ""
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:27
@@ -433,7 +442,7 @@ msgstr "GPU"
 msgid "GHz"
 msgstr "GHz"
 
-#: src/Widgets/WidgetResource/WidgetResource.vala:38
+#: src/Widgets/WidgetResource/WidgetResource.vala:44
 msgid "Utilization"
 msgstr "使用率"
 
