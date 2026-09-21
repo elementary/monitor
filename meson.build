@@ -35,6 +35,7 @@ app_dependencies = [
     dependency('gobject-2.0'),
     dependency('libgtop-2.0'),
     dependency('libadwaita-1', version: '>=1.0.0'),
+    dependency('libsystemd'),
     dependency('gtk4-x11'),
     dependency('udisks2'),
     dependency('json-glib-1.0'),

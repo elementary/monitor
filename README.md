@@ -6,7 +6,7 @@
 <h4 align="left">Manage processes and monitor system resources</h4>
 
 [![](https://img.shields.io/github/release/elementary/monitor.svg)]()
-[![Github Workflow Status](https://github.com/elementary/monitor/actions/workflows/ci.yml/badge.svg)]()
+[![GitHub Workflow Status](https://github.com/elementary/monitor/actions/workflows/ci.yml/badge.svg)](https://github.com/elementary/monitor/actions/workflows/ci.yml)
 [![Translation status](https://l10n.elementary.io/widget/desktop/monitor/svg-badge.svg)](https://l10n.elementary.io/engage/desktop/)
 
 ![Monitor Screenshot](https://github.com/elementary/monitor/raw/main/data/screenshots/monitor-processes.png)
@@ -15,19 +15,27 @@
 ## Development
 
 ### Install dependencies
-
-If you plan to install WITH a wingpanel-indicator
-
-```bash
-sudo apt install sassc valac libgtk-4-dev libgee-0.8-dev libgranite-7-dev libgtop2-dev libadwaita-1-dev libudisks2-dev libjson-glib-dev libflatpak-dev libxnvctrl-dev liblivechart-2-dev libpci-dev libwingpanel-9-dev meson
+You'll need the following dependencies:
+```
+sassc
+valac
+libgtk-4-dev
+libgee-0.8-dev
+libgranite-7-dev
+libgtop2-dev
+libadwaita-1-dev
+libudisks2-dev
+libjson-glib-dev
+libflatpak-dev
+libsystemd-dev
+libxnvctrl-dev
+liblivechart-2-dev
+libpci-dev
+libwingpanel-9-dev
+meson
 ```
 
-Alternatively, if you plan to install WITHOUT a wingpanel-indicator
-
-```bash
-sudo apt install sassc valac libgtk-4-dev libgee-0.8-dev libgranite-7-dev libgtop2-dev libadwaita-1-dev libudisks2-dev libjson-glib-dev libflatpak-dev libxnvctrl-dev liblivechart-2-dev libpci-dev meson
-```
-
+If you plan to install WITHOUT the Wingpanel extension, you can remove `libwingpanel-9-dev`
 
 ### Clone, Build & Install
 

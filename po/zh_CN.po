@@ -7,55 +7,75 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-27 22:01+0000\n"
-"PO-Revision-Date: 2025-08-02 20:55+0000\n"
-"Last-Translator: JieXu <xujie0739@qq.com>\n"
+"POT-Creation-Date: 2026-09-20 11:01+0000\n"
+"PO-Revision-Date: 2026-09-18 04:09+0000\n"
+"Last-Translator: Automatic translation add-on <noreply-addon-"
+"autotranslate@weblate.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
-"l10n.elementaryos.org/projects/desktop/monitor/zh_Hans/>\n"
+"l10n.elementaryos.org/projects/desktop/monitor/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: src/MainWindow.vala:14
 msgid "Monitor"
 msgstr "监视器"
 
-#: src/MainWindow.vala:35
+#: src/MainWindow.vala:36
 msgid "Processes"
 msgstr "进程"
 
-#: src/MainWindow.vala:36
+#: src/MainWindow.vala:37
+msgid "Logs"
+msgstr ""
+
+#: src/MainWindow.vala:38
 msgid "System"
 msgstr "系统"
 
-#: src/MainWindow.vala:54
+#: src/MainWindow.vala:56
 msgid "Settings"
 msgstr "设置"
 
-#: src/MainWindow.vala:61
+#: src/MainWindow.vala:63
 #, fuzzy
 #| msgid "Type process name or PID to search"
 msgid "Search process name or PID"
 msgstr "输入进程名称或者 PID 来搜索"
 
 #. The total amount of the swap is 0 when it is unavailable
-#: src/Utils.vala:7
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:37
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:41
+#: src/Utils.vala:10
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:38
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:42
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:16
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:80
 msgid "N/A"
 msgstr "N/A"
 
-#: src/Indicator/Widgets/IndicatorWidgetFrequency.vala:14
-#: src/Views/SystemView/SystemCPUView.vala:129
-#: src/Widgets/Statusbar/Statusbar.vala:71
-msgid "GHz"
-msgstr "GHz"
+#. /TRANSLATORS: The first param is the cpu frequency speed value and
+#. /the second param is the cpu frequency speed unit viz. "Ghz" for gigahertz.
+#: src/Utils.vala:61
+#, c-format
+msgid "%.2f Ghz"
+msgstr ""
+
+#. /TRANSLATORS: The first param is the cpu frequency speed value and
+#. /the second param is the cpu frequency speed unit viz. "Mhz" for megahertz.
+#: src/Utils.vala:66
+#, c-format
+msgid "%.0f Mhz"
+msgstr ""
+
+#. /TRANSLATORS: The first param is the numeric value (as string) of network speed.
+#. /The second param with the appended "/s" is the network speed unit such as "Mb/s" for megabits per second.
+#: src/Utils.vala:72
+#, c-format
+msgid "%s %s/s"
+msgstr ""
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
@@ -65,49 +85,80 @@ msgstr "显示监视器"
 msgid "Quit Monitor"
 msgstr "退出监视器"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:45
+#: src/Views/LogView/LogView.vala:35
+msgid "Sender"
+msgstr ""
+
+#: src/Views/LogView/LogView.vala:43
+msgid "Message"
+msgstr ""
+
+#: src/Views/LogView/SystemdLogEntry.vala:35
+msgid "Now"
+msgstr "现在"
+
+#: src/Views/LogView/SystemdLogEntry.vala:38
+#, c-format
+msgid "%ds ago"
+msgid_plural "%ds ago"
+msgstr[0] ""
+
+#: src/Views/LogView/SystemdLogEntry.vala:44
+#, c-format
+msgid "%dm ago"
+msgid_plural "%dm ago"
+msgstr[0] "%d 分钟前"
+
+#. I think the plural form is according to the last one??
+#: src/Views/LogView/SystemdLogEntry.vala:48
+#, c-format
+msgid "%dm %ds ago"
+msgid_plural "%dm %ds ago"
+msgstr[0] ""
+
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:55
 msgid "PID"
 msgstr "PID"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:47
 msgid "NI"
 msgstr "NICE值"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:47
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:48
 msgid "PRI"
 msgstr "优先度"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:48
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:49
 msgid "THR"
 msgstr "线程数量"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:99
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:100
 msgid "The app is waiting in an uninterruptible disk sleep"
 msgstr "进程正在等待不可中断的磁盘操作"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:101
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:102
 msgid "Idle kernel thread"
 msgstr "空闲内核线程"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:103
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:104
 msgid "The process is running or runnable (on run queue)"
 msgstr "进程正在运行或可运行（位于运行队列中）"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:105
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:106
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
 msgstr "进程处于可中断的睡眠状态，正在等待某个事件完成"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:107
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:108
 msgid "The process is stopped by a job control signal"
 msgstr "进程已被作业控制信号停止"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:109
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:110
 msgid "The process is stopped by a debugger during the tracing"
 msgstr "进程在跟踪期间被调试器停止"
 
-#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:111
+#: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:112
 msgid "The app is terminated but not reaped by its parent"
 msgstr "应用程序已终止，但父进程尚未对其进行回收"
 
@@ -228,22 +279,28 @@ msgstr "VRAM 使用率"
 msgid "GPU temperature"
 msgstr "GPU 温度"
 
-#: src/Views/SystemView/SystemCPUView.vala:39
+#: src/Views/SystemView/SystemCPUView.vala:20
+#, fuzzy
+#| msgid "Processes"
+msgid "Processor"
+msgstr "进程"
+
+#: src/Views/SystemView/SystemCPUView.vala:41
 msgid "Frequency"
 msgstr "频率"
 
-#: src/Views/SystemView/SystemCPUView.vala:46
+#: src/Views/SystemView/SystemCPUView.vala:48
 msgid "Temperature"
 msgstr "温度"
 
-#: src/Views/SystemView/SystemCPUView.vala:83
-#: src/Views/SystemView/SystemGPUView.vala:92
+#: src/Views/SystemView/SystemCPUView.vala:85
+#: src/Views/SystemView/SystemGPUView.vala:93
 msgid "℃"
 msgstr "℃"
 
-#: src/Views/SystemView/SystemCPUView.vala:160
-msgid "THREADS"
-msgstr "线程"
+#: src/Views/SystemView/SystemCPUView.vala:150
+msgid "Threads"
+msgstr ""
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:29
 msgid "General"
@@ -350,12 +407,12 @@ msgid "Storage"
 msgstr "存储设备"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
-msgid "WRITE"
-msgstr "写入"
+msgid "Write"
+msgstr ""
 
 #: src/Views/SystemView/SystemStorageView.vala:25
-msgid "READ"
-msgstr "读取"
+msgid "Read"
+msgstr ""
 
 #: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
@@ -368,6 +425,10 @@ msgstr "显存"
 #: src/Views/SystemView/SystemGPUView.vala:23
 msgid "TEMPERATURE"
 msgstr "温度"
+
+#: src/Views/SystemView/SystemGPUView.vala:63
+msgid "Graphics"
+msgstr ""
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:27
@@ -384,9 +445,22 @@ msgstr "交换空间"
 msgid "GPU"
 msgstr "GPU"
 
-#: src/Widgets/WidgetResource/WidgetResource.vala:38
+#: src/Widgets/Statusbar/Statusbar.vala:71
+msgid "GHz"
+msgstr "GHz"
+
+#: src/Widgets/WidgetResource/WidgetResource.vala:44
 msgid "Utilization"
 msgstr ""
+
+#~ msgid "THREADS"
+#~ msgstr "线程"
+
+#~ msgid "WRITE"
+#~ msgstr "写入"
+
+#~ msgid "READ"
+#~ msgstr "读取"
 
 #~ msgid "KiB"
 #~ msgstr "KiB"
