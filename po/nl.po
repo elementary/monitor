@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 20:55+0000\n"
+"POT-Creation-Date: 2026-09-20 11:01+0000\n"
 "PO-Revision-Date: 2026-09-18 04:08+0000\n"
 "Last-Translator: Automatic translation add-on <noreply-addon-"
 "autotranslate@weblate.org>\n"
@@ -279,20 +279,26 @@ msgstr "VRAM-percentage"
 msgid "GPU temperature"
 msgstr "GPU-Temperatuur"
 
-#: src/Views/SystemView/SystemCPUView.vala:39
+#: src/Views/SystemView/SystemCPUView.vala:20
+#, fuzzy
+#| msgid "Processes"
+msgid "Processor"
+msgstr "Processen"
+
+#: src/Views/SystemView/SystemCPUView.vala:41
 msgid "Frequency"
 msgstr "Frequentie"
 
-#: src/Views/SystemView/SystemCPUView.vala:46
+#: src/Views/SystemView/SystemCPUView.vala:48
 msgid "Temperature"
 msgstr "Temperatuur"
 
-#: src/Views/SystemView/SystemCPUView.vala:83
-#: src/Views/SystemView/SystemGPUView.vala:92
+#: src/Views/SystemView/SystemCPUView.vala:85
+#: src/Views/SystemView/SystemGPUView.vala:93
 msgid "℃"
 msgstr "℃"
 
-#: src/Views/SystemView/SystemCPUView.vala:148
+#: src/Views/SystemView/SystemCPUView.vala:150
 msgid "Threads"
 msgstr ""
 
@@ -416,6 +422,10 @@ msgstr "VRAM"
 msgid "TEMPERATURE"
 msgstr "TEMPERATUUR"
 
+#: src/Views/SystemView/SystemGPUView.vala:63
+msgid "Graphics"
+msgstr ""
+
 #: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:27
 #: src/Widgets/Statusbar/Statusbar.vala:37
@@ -435,7 +445,7 @@ msgstr "GPU"
 msgid "GHz"
 msgstr "GHz"
 
-#: src/Widgets/WidgetResource/WidgetResource.vala:38
+#: src/Widgets/WidgetResource/WidgetResource.vala:44
 msgid "Utilization"
 msgstr "Gebruik"
 
