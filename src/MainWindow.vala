@@ -27,12 +27,14 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
         var resources = new Resources ();
 
         process_view = new ProcessView ();
+        var log_view = new LogView ();
         var system_view = new SystemView (resources);
 
         var stack = new Gtk.Stack () {
             transition_type = SLIDE_LEFT_RIGHT
         };
         stack.add_titled (process_view, "process_view", _("Processes"));
+        stack.add_titled (log_view, "log_view", _("Logs"));
         stack.add_titled (system_view, "system_view", _("System"));
 
         var stack_switcher = new Gtk.StackSwitcher () {
@@ -90,10 +92,10 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
         var dbusserver = DBusServer.get_default ();
 
-        search_revealer.reveal_child = stack.visible_child == process_view;
+        search_revealer.reveal_child = stack.visible_child != system_view;
         stack.notify["visible-child"].connect (() => {
             toolbox.reveal_bottom_bars = stack.visible_child == process_view;
-            search_revealer.reveal_child = stack.visible_child == process_view;
+            search_revealer.reveal_child = stack.visible_child != system_view;
         });
 
         new Thread<void> ("upd", () => {
@@ -118,13 +120,14 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
         search_entry.search_changed.connect (() => {
             process_view.treeview_model.filtered.needle = search_entry.text;
-            search_entry.grab_focus ();
+            log_view.on_search_changed (search_entry.text);
         });
 
         var search_action = new GLib.SimpleAction ("search", null);
         search_action.activate.connect (() => {
             search_entry.text = "";
             search_entry.search_changed ();
+            search_entry.grab_focus ();
         });
 
         add_action (search_action);
