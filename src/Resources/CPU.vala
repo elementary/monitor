@@ -44,8 +44,8 @@ public class Monitor.CPU : Object {
     private double _frequency;
     public double frequency {
         get {
-            // Convert kHz to GHz
-            return (double) (_frequency / 1000000);
+            // Convert kHz to MHz
+            return (double) (_frequency / 1000);
         }
     }
     public double temperature_mean {
@@ -139,13 +139,11 @@ public class Monitor.CPU : Object {
         last_total = total;
     }
 
-    // From https://github.com/PlugaruT/wingpanel-monitor/blob/edcfea6a31f794aa44da6d8b997378ea1a8d8fa3/src/Services/Cpu.vala#L61-L85
     private void update_frequency () {
-        // using harmonic mean to calculate frequency values
-        double inverse_sum = 0;
-        double freq_value = 0 ;
+        double sum = 0;
 
         int core_total_number = (int) get_num_processors ();
+        int cores_counted = 0;
 
         for (uint cpu_id = 0; cpu_id < core_total_number; ++cpu_id) {
             string cur_content;
@@ -153,12 +151,12 @@ public class Monitor.CPU : Object {
                 FileUtils.get_contents ("/sys/devices/system/cpu/cpu%u/cpufreq/scaling_cur_freq".printf (cpu_id), out cur_content);
             } catch (Error e) {
                 warning (e.message);
-                cur_content = "0";
+                continue;
             }
-            freq_value = double.parse (cur_content);
-            inverse_sum += 1 / freq_value;
+            sum += double.parse (cur_content);
+            cores_counted++;
         }
-        _frequency = (double) core_total_number / inverse_sum ;
+        _frequency = sum / cores_counted;
     }
 
     // private void get_cache () {
