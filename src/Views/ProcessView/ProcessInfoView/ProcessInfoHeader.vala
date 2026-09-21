@@ -5,7 +5,7 @@
 
 public class Monitor.ProcessInfoHeader : Gtk.Grid {
     private Gtk.Image icon;
-    public Gtk.Label state;
+    private Gtk.Image state_image;
     public Gtk.Label application_name;
     public LabelRoundy pid;
 
@@ -23,17 +23,15 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
             pixel_size = 64
         };
 
-        state = new Gtk.Label ("?") {
+        state_image = new Gtk.Image.from_icon_name ("state-unknown-symbolic") {
             halign = START,
             valign = END
         };
-        state.add_css_class ("pill");
-        state.add_css_class ("state");
 
         var icon_container = new Gtk.Overlay () {
             child = icon
         };
-        icon_container.add_overlay (state);
+        icon_container.add_overlay (state_image);
 
         application_name = new Gtk.Label (_("N/A")) {
             ellipsize = END,
@@ -88,30 +86,46 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
 
         num_threads.text = process.stat.num_threads.to_string ();
 
-        state.label = process.stat.state;
-        state.tooltip_text = set_state_tooltip ();
+        update_state (process.stat.state);
 
         icon.gicon = process.icon;
     }
 
-    private string set_state_tooltip () {
-        switch (state.label) {
-        case "D":
-            return _("The app is waiting in an uninterruptible disk sleep");
-        case "I":
-            return _("Idle kernel thread");
-        case "R":
-            return _("The process is running or runnable (on run queue)");
-        case "S":
-            return _("The process is in an interruptible sleep; waiting for an event to complete");
-        case "T":
-            return _("The process is stopped by a job control signal");
-        case "t":
-            return _("The process is stopped by a debugger during the tracing");
-        case "Z":
-            return _("The app is terminated but not reaped by its parent");
-        default:
-            return "";
+    private void update_state (string state) {
+        state_image.css_classes = {Granite.CssClass.CIRCULAR, "state", state};
+        switch (state) {
+            case "D":
+                state_image.icon_name = "media-playback-pause-symbolic";
+                state_image.tooltip_text = _("The app is waiting in an uninterruptible disk sleep");
+                break;
+            case "I":
+                state_image.icon_name = "";
+                state_image.tooltip_text = _("Idle kernel thread");
+                break;
+            case "R":
+                state_image.icon_name = "media-playback-start-symbolic";
+                state_image.tooltip_text = _("The process is running or runnable (on run queue)");
+                break;
+            case "S":
+                state_image.icon_name = "process-sleep";
+                state_image.tooltip_text = _("The process is in an interruptible sleep; waiting for an event to complete");
+                break;
+            case "T":
+                state_image.icon_name = "media-playback-stop-symbolic";
+                state_image.tooltip_text = _("The process is stopped by a job control signal");
+                break;
+            case "t":
+                state_image.icon_name = "media-playback-stop-symbolic";
+                state_image.tooltip_text = _("The process is stopped by a debugger during the tracing");
+                break;
+            case "Z":
+                state_image.icon_name = "process-fail-symbolic";
+                state_image.tooltip_text = _("The app is terminated but not reaped by its parent");
+                break;
+            default:
+                state_image.icon_name = "state-unknown-symbolic";
+                state_image.tooltip_text = "";
+                break;
         }
     }
 
