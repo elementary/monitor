@@ -6,7 +6,7 @@
 <h4 align="left">Manage processes and monitor system resources</h4>
 
 [![](https://img.shields.io/github/release/elementary/monitor.svg)]()
-[![Github Workflow Status](https://github.com/elementary/monitor/actions/workflows/ci.yml/badge.svg)]()
+[![GitHub Workflow Status](https://github.com/elementary/monitor/actions/workflows/ci.yml/badge.svg)](https://github.com/elementary/monitor/actions/workflows/ci.yml)
 [![Translation status](https://l10n.elementary.io/widget/desktop/monitor/svg-badge.svg)](https://l10n.elementary.io/engage/desktop/)
 
 ![Monitor Screenshot](https://github.com/elementary/monitor/raw/main/data/screenshots/monitor-processes.png)
