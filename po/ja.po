@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-20 11:01+0000\n"
-"PO-Revision-Date: 2026-09-20 11:01+0000\n"
+"PO-Revision-Date: 2026-09-22 00:04+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/ja/>\n"
@@ -277,10 +277,8 @@ msgid "GPU temperature"
 msgstr "GPU 温度"
 
 #: src/Views/SystemView/SystemCPUView.vala:20
-#, fuzzy
-#| msgid "Processes"
 msgid "Processor"
-msgstr "プロセス"
+msgstr "プロセッサー"
 
 #: src/Views/SystemView/SystemCPUView.vala:41
 msgid "Frequency"
@@ -421,7 +419,7 @@ msgstr "温度"
 
 #: src/Views/SystemView/SystemGPUView.vala:63
 msgid "Graphics"
-msgstr ""
+msgstr "グラフィックス"
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:27
