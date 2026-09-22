@@ -8,9 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 20:55+0000\n"
-"PO-Revision-Date: 2025-11-18 07:55+0000\n"
-"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
+"POT-Creation-Date: 2026-09-20 11:01+0000\n"
+"PO-Revision-Date: 2026-09-18 04:08+0000\n"
+"Last-Translator: Automatic translation add-on <noreply-addon-"
+"autotranslate@weblate.org>\n"
 "Language-Team: French <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/fr/>\n"
 "Language: fr\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: src/MainWindow.vala:14
 msgid "Monitor"
@@ -92,10 +93,8 @@ msgid "Message"
 msgstr ""
 
 #: src/Views/LogView/SystemdLogEntry.vala:35
-#, fuzzy
-#| msgid "No"
 msgid "Now"
-msgstr "Non"
+msgstr "Maintenant"
 
 #: src/Views/LogView/SystemdLogEntry.vala:38
 #, c-format
@@ -286,20 +285,26 @@ msgstr "Pourcentage d'utilisation de la VRAM"
 msgid "GPU temperature"
 msgstr "Température de la carte graphique"
 
-#: src/Views/SystemView/SystemCPUView.vala:39
+#: src/Views/SystemView/SystemCPUView.vala:20
+#, fuzzy
+#| msgid "Processes"
+msgid "Processor"
+msgstr "Processus"
+
+#: src/Views/SystemView/SystemCPUView.vala:41
 msgid "Frequency"
 msgstr "Fréquence"
 
-#: src/Views/SystemView/SystemCPUView.vala:46
+#: src/Views/SystemView/SystemCPUView.vala:48
 msgid "Temperature"
 msgstr "Température"
 
-#: src/Views/SystemView/SystemCPUView.vala:83
-#: src/Views/SystemView/SystemGPUView.vala:92
+#: src/Views/SystemView/SystemCPUView.vala:85
+#: src/Views/SystemView/SystemGPUView.vala:93
 msgid "℃"
 msgstr "℃"
 
-#: src/Views/SystemView/SystemCPUView.vala:148
+#: src/Views/SystemView/SystemCPUView.vala:150
 msgid "Threads"
 msgstr ""
 
@@ -423,6 +428,10 @@ msgstr "VRAM"
 msgid "TEMPERATURE"
 msgstr "TEMPÉRATURE"
 
+#: src/Views/SystemView/SystemGPUView.vala:63
+msgid "Graphics"
+msgstr ""
+
 #: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:27
 #: src/Widgets/Statusbar/Statusbar.vala:37
@@ -442,7 +451,7 @@ msgstr "Carte graphique"
 msgid "GHz"
 msgstr "GHz"
 
-#: src/Widgets/WidgetResource/WidgetResource.vala:38
+#: src/Widgets/WidgetResource/WidgetResource.vala:44
 msgid "Utilization"
 msgstr "Utilisation"
 
