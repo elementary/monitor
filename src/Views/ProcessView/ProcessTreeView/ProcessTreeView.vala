@@ -4,147 +4,129 @@
  */
 
 public class Monitor.ProcessTreeView : Granite.Bin {
+    public TreeViewModel model { private get; construct; }
 
     public ProcessTreeView (TreeViewModel model) {
-        var column_view = new Gtk.ColumnView (model.selection_model) {
-            name = "monitor-process-column-view",
-            reorderable = false,
-            hexpand = true,
-            vexpand = true
-        };
-        model.sorter = column_view.sorter;
+        Object (model: model);
+    }
 
+    construct {
         var name_item_factory = new Gtk.SignalListItemFactory ();
-        name_item_factory.setup.connect (name_item_factory_setup);
-        name_item_factory.bind.connect (name_item_factory_bind);
+        name_item_factory.setup.connect (setup_name_item);
+        name_item_factory.bind.connect (bind_name_item);
 
         var cpu_item_factory = new Gtk.SignalListItemFactory ();
-        cpu_item_factory.setup.connect (generic_item_factory_setup);
-        cpu_item_factory.bind.connect (cpu_item_factory_bind);
-        cpu_item_factory.unbind.connect (cpu_item_factory_unbind);
+        cpu_item_factory.setup.connect (setup_label_item);
+        cpu_item_factory.bind.connect (bind_cpu_item);
+        cpu_item_factory.unbind.connect ((obj) => unbind_label_item (obj, "cpu"));
 
         var memory_item_factory = new Gtk.SignalListItemFactory ();
-        memory_item_factory.setup.connect (generic_item_factory_setup);
-        memory_item_factory.bind.connect (memory_item_factory_bind);
-        memory_item_factory.unbind.connect (memory_item_factory_unbind);
+        memory_item_factory.setup.connect (setup_label_item);
+        memory_item_factory.bind.connect (bind_memory_item);
+        memory_item_factory.unbind.connect ((obj) => unbind_label_item (obj, "memory"));
 
         var pid_item_factory = new Gtk.SignalListItemFactory ();
-        pid_item_factory.setup.connect (generic_item_factory_setup);
-        pid_item_factory.bind.connect (pid_item_factory_bind);
-        pid_item_factory.unbind.connect (pid_item_factory_unbind);
+        pid_item_factory.setup.connect (setup_label_item);
+        pid_item_factory.bind.connect (bind_pid_item);
+        pid_item_factory.unbind.connect ((obj) => unbind_label_item (obj, "pid"));
 
         var name_column = new Gtk.ColumnViewColumn (_("Process Name"), name_item_factory) {
             sorter = model.str_sorter ("name"),
             expand = true
         };
-        column_view.append_column (name_column);
 
         var cpu_column = new Gtk.ColumnViewColumn (_("CPU"), cpu_item_factory) {
-            sorter = model.num_sorter ("cpu"),
-            expand = false
+            sorter = model.num_sorter ("cpu")
         };
-        column_view.append_column (cpu_column);
 
         var mem_column = new Gtk.ColumnViewColumn (_("Memory"), memory_item_factory) {
-            sorter = model.num_sorter ("memory"),
-            expand = false
+            sorter = model.num_sorter ("memory")
         };
-        column_view.append_column (mem_column);
 
         var pid_column = new Gtk.ColumnViewColumn (_("PID"), pid_item_factory) {
-            sorter = model.num_sorter ("pid"),
-            expand = false
+            sorter = model.num_sorter ("pid")
         };
+
+        var column_view = new Gtk.ColumnView (model.selection_model) {
+            reorderable = false
+        };
+        column_view.append_column (name_column);
+        column_view.append_column (cpu_column);
+        column_view.append_column (mem_column);
         column_view.append_column (pid_column);
+
+        model.sorter = column_view.sorter;
 
         var scrolled_window = new Gtk.ScrolledWindow () {
             child = column_view
         };
+
         child = scrolled_window;
     }
 
-    private void generic_item_factory_setup (Object object) {
+    private void setup_name_item (Object object) {
         var cell = (Gtk.ColumnViewCell) object;
-        var label = new Gtk.Label (Utils.NO_DATA) {
-            hexpand = true,
-            halign = START
-        };
-        cell.child = label;
+        cell.child = new ProcessTreeViewNameCell ();
     }
 
-    private void setup_origin (Object obj) {
-        var item = (Gtk.ListItem) obj;
-        item.child = new LogCell (ORIGIN);
-    }
-
-    private void name_item_factory_setup (Object object) {
-        var item = (Gtk.ListItem) object;
-        item.child = new ProcessTreeViewNameCell ();
-    }
-
-    private void name_item_factory_bind (Object object) {
+    private void bind_name_item (Object object) {
         var item = (Gtk.ListItem) object;
         var process_row_data = (ProcessRowData) item.item;
         var cell = (ProcessTreeViewNameCell) item.child;
         cell.bind (process_row_data);
     }
 
-    private void cpu_item_factory_bind (Object object) {
+    private void setup_label_item (Object object) {
+        var label = new Gtk.Label (Utils.NO_DATA) {
+            halign = START
+        };
+        label.add_css_class (Granite.CssClass.NUMERIC);
+
+        var cell = (Gtk.ColumnViewCell) object;
+        cell.child = label;
+    }
+
+    private void bind_cpu_item (Object object) {
         var cell = (Gtk.ColumnViewCell) object;
         var label = (Gtk.Label) cell.child;
         var item = (ProcessRowData) cell.item;
-        var binding_cpu = item.bind_property ("cpu", label, "label", SYNC_CREATE, (_, from_val, ref to_val) => {
+
+        item.bindings.set ("cpu", item.bind_property ("cpu", label, "label", SYNC_CREATE, (_, from_val, ref to_val) => {
             int percentage = from_val.get_int ();
             to_val.set_string ("%.0f%%".printf (percentage));
             return true;
-        });
-        item.bindings.set ("cpu", binding_cpu);
+        }));
     }
 
-    private void cpu_item_factory_unbind (Object object) {
+    private void bind_memory_item (Object object) {
         var cell = (Gtk.ColumnViewCell) object;
         var label = (Gtk.Label) cell.child;
         var item = (ProcessRowData) cell.item;
-        label.label = null;
-        item.bindings["cpu"].unbind ();
-    }
 
-    private void memory_item_factory_bind (Object object) {
-        var cell = (Gtk.ColumnViewCell) object;
-        var label = (Gtk.Label) cell.child;
-        var item = (ProcessRowData) cell.item;
-        var binding_memory = item.bind_property ("memory", label, "label", SYNC_CREATE, (_, from_val, ref to_val) => {
+        item.bindings.set ("memory", item.bind_property ("memory", label, "label", SYNC_CREATE, (_, from_val, ref to_val) => {
             to_val.set_string (format_size (from_val.get_uint64 () * 1024, IEC_UNITS));
             return true;
-        });
-        item.bindings.set ("memory", binding_memory);
+        }));
     }
 
-    private void memory_item_factory_unbind (Object object) {
+    private void bind_pid_item (Object object) {
         var cell = (Gtk.ColumnViewCell) object;
         var label = (Gtk.Label) cell.child;
         var item = (ProcessRowData) cell.item;
-        label.label = null;
-        item.bindings["memory"].unbind ();
-    }
 
-    private void pid_item_factory_bind (Object object) {
-        var cell = (Gtk.ColumnViewCell) object;
-        var label = (Gtk.Label) cell.child;
-        var item = (ProcessRowData) cell.item;
-        var binding_pid = item.bind_property ("pid", label, "label", SYNC_CREATE, (_, from_val, ref to_val) => {
+        item.bindings.set ("pid", item.bind_property ("pid", label, "label", SYNC_CREATE, (_, from_val, ref to_val) => {
             to_val.set_string ("%d".printf (from_val.get_int ()));
             return true;
-        });
-        item.bindings.set ("pid", binding_pid);
+        }));
     }
 
-    private void pid_item_factory_unbind (Object object) {
+    private void unbind_label_item (Object object, string key) {
         var cell = (Gtk.ColumnViewCell) object;
-        var label = (Gtk.Label) cell.child;
-        var item = (ProcessRowData) cell.item;
-        label.label = null;
-        item.bindings["pid"].unbind ();
-    }
 
+        var item = (ProcessRowData) cell.item;
+        item.bindings[key].unbind ();
+
+        var label = (Gtk.Label) cell.child;
+        label.label = Utils.NO_DATA;
+    }
 }
