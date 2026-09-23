@@ -141,6 +141,9 @@
                             foreach (var slave_name in slaves_names) {
                                 current_volume.add_slave (slave_name);
                             }
+                            if (logical_volumes.keys.contains (current_volume.device)) {
+                                continue;
+                            }
                             logical_volumes.set (current_volume.device, current_volume);
 
                             // if all slave volumes are coming from a single drive,
@@ -151,6 +154,7 @@
                                 var affiliated_disk = disks.get ("/dev/" + affiliated_disk_device);
                                 if (affiliated_disk != null) {
                                     affiliated_disk.free = affiliated_disk.free + current_volume.free;
+                                    affiliated_disk.size_mounted += current_volume.size_mounted;
                                 }
                             }
                         }
