@@ -104,7 +104,7 @@ public class Monitor.SystemStorageView : Gtk.Box {
 
             ///TRANSLATORS: Only the words "Used" and "available" need to be translated,
             ///the positional strings placeholders are already translated by the GLib.format_string () function.
-            var drive_usage_string = _("Used %s of %s available").printf (used_string, available_string);
+            var drive_usage_string = _("Used %s of %s mounted").printf (used_string, available_string);
             var drive_usage_label = new Gtk.Label (drive_usage_string) {
                 halign = START,
                 margin_top = 6,
