@@ -21,7 +21,6 @@ public class Monitor.ProcessTreeViewNameCell : Granite.Box {
 
         label = new Gtk.Label (Utils.NO_DATA);
 
-        halign = START;
         append (icon);
         append (label);
     }
