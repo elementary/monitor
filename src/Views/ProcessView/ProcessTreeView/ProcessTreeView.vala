@@ -144,7 +144,7 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         var label = (Gtk.Label) cell.child;
         var item = (ProcessRowData) cell.item;
         item.bindings.set ("gpu", item.bind_property ("gpu", label, "label", SYNC_CREATE, (_, from_val, ref to_val) => {
-            double percentage = from_val.double ();
+            double percentage = from_val.get_double ();
             to_val.set_string ("%.2f%%".printf (percentage));
             return true;
         }));
