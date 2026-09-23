@@ -8,9 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Monitor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 20:55+0000\n"
-"PO-Revision-Date: 2025-11-11 13:55+0000\n"
-"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
+"POT-Creation-Date: 2026-09-20 11:01+0000\n"
+"PO-Revision-Date: 2026-09-18 04:08+0000\n"
+"Last-Translator: Automatic translation add-on <noreply-addon-"
+"autotranslate@weblate.org>\n"
 "Language-Team: Portuguese <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/pt/>\n"
 "Language: pt\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: src/MainWindow.vala:14
 msgid "Monitor"
@@ -92,10 +93,8 @@ msgid "Message"
 msgstr ""
 
 #: src/Views/LogView/SystemdLogEntry.vala:35
-#, fuzzy
-#| msgid "No"
 msgid "Now"
-msgstr "Não"
+msgstr "Agora"
 
 #: src/Views/LogView/SystemdLogEntry.vala:38
 #, c-format
@@ -108,8 +107,8 @@ msgstr[1] ""
 #, c-format
 msgid "%dm ago"
 msgid_plural "%dm ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%dm atrás"
+msgstr[1] "%dm atrás"
 
 #. I think the plural form is according to the last one??
 #: src/Views/LogView/SystemdLogEntry.vala:48
@@ -285,20 +284,26 @@ msgstr "Percentagem da VRAM"
 msgid "GPU temperature"
 msgstr "Temperatura da GPU"
 
-#: src/Views/SystemView/SystemCPUView.vala:39
+#: src/Views/SystemView/SystemCPUView.vala:20
+#, fuzzy
+#| msgid "Processes"
+msgid "Processor"
+msgstr "Processos"
+
+#: src/Views/SystemView/SystemCPUView.vala:41
 msgid "Frequency"
 msgstr "Frequência"
 
-#: src/Views/SystemView/SystemCPUView.vala:46
+#: src/Views/SystemView/SystemCPUView.vala:48
 msgid "Temperature"
 msgstr "Temperatura"
 
-#: src/Views/SystemView/SystemCPUView.vala:83
-#: src/Views/SystemView/SystemGPUView.vala:92
+#: src/Views/SystemView/SystemCPUView.vala:85
+#: src/Views/SystemView/SystemGPUView.vala:93
 msgid "℃"
 msgstr "℃"
 
-#: src/Views/SystemView/SystemCPUView.vala:148
+#: src/Views/SystemView/SystemCPUView.vala:150
 msgid "Threads"
 msgstr "Threads"
 
@@ -426,6 +431,10 @@ msgstr "VRAM"
 msgid "TEMPERATURE"
 msgstr "TEMPERATURA"
 
+#: src/Views/SystemView/SystemGPUView.vala:63
+msgid "Graphics"
+msgstr ""
+
 #: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:27
 #: src/Widgets/Statusbar/Statusbar.vala:37
@@ -445,7 +454,7 @@ msgstr "GPU"
 msgid "GHz"
 msgstr "GHz"
 
-#: src/Widgets/WidgetResource/WidgetResource.vala:38
+#: src/Widgets/WidgetResource/WidgetResource.vala:44
 msgid "Utilization"
 msgstr "Utilização"
 
