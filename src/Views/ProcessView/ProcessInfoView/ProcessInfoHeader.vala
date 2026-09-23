@@ -3,22 +3,25 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-public class Monitor.ProcessInfoHeader : Gtk.Grid {
+public class Monitor.ProcessInfoHeader : Granite.Box {
     private Gtk.Image icon;
-    public Gtk.Label state;
-    public Gtk.Label application_name;
-    public LabelRoundy pid;
+    private Gtk.Label state;
+    private Granite.HeaderLabel application_name;
+    private LabelRoundy pid;
 
-    public LabelRoundy ppid;
-    public LabelRoundy pgrp;
-    public LabelRoundy nice;
-    public LabelRoundy priority;
-    public LabelRoundy num_threads;
-    public LabelRoundy username;
+    private LabelRoundy nice;
+    private LabelRoundy priority;
+    private LabelRoundy num_threads;
+    private LabelRoundy username;
+
+    public ProcessInfoHeader () {
+        Object (
+            child_spacing: Granite.Box.Spacing.SINGLE,
+            orientation: Gtk.Orientation.HORIZONTAL
+        );
+    }
 
     construct {
-        column_spacing = 12;
-
         icon = new Gtk.Image.from_icon_name ("application-x-executable") {
             pixel_size = 64
         };
@@ -35,22 +38,16 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         };
         icon_container.add_overlay (state);
 
-        application_name = new Gtk.Label (_("N/A")) {
-            ellipsize = END,
-            halign = START,
-            valign = START,
-            tooltip_text = _("N/A")
+        application_name = new Granite.HeaderLabel (_("N/A")) {
+            size = H2,
+            ellipsize = END
         };
-        application_name.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
 
         pid = new LabelRoundy (_("PID"));
         nice = new LabelRoundy (_("NI"));
         priority = new LabelRoundy (_("PRI"));
         num_threads = new LabelRoundy (_("THR"));
-        // ppid = new LabelRoundy (_("PPID"));
-        // pgrp = new LabelRoundy (_("PGRP"));
 
-        // TODO: tooltip_text UID
         username = new LabelRoundy ("");
 
         var wrapper = new Gtk.Box (HORIZONTAL, 0);
@@ -60,27 +57,27 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         wrapper.append (num_threads);
         wrapper.append (username);
 
-        attach (icon_container, 0, 0, 1, 2);
-        attach (application_name, 1, 0, 3, 1);
-        attach (wrapper, 1, 1);
+        var label_box = new Granite.Box (VERTICAL);
+        label_box.append (application_name);
+        label_box.append (wrapper);
+
+        append (icon_container);
+        append (label_box);
     }
 
     public void update (Process process) {
         application_name.label = process.application_name;
-        application_name.tooltip_text = process.command;
+        application_name.secondary_text = process.command;
         pid.text = process.stat.pid.to_string ();
         nice.text = process.stat.nice.to_string ();
         priority.text = process.stat.priority.to_string ();
 
         if (process.uid == 0) {
-            username.add_css_class ("username-root");
-            username.remove_css_class ("username-other");
+            username.css_classes = {"username-root"};
         } else if (process.uid == (int) Posix.getuid ()) {
-            username.remove_css_class ("username-other");
-            username.remove_css_class ("username-root");
+            username.css_classes = {""};
         } else {
-            username.add_css_class ("username-other");
-            username.remove_css_class ("username-root");
+            username.css_classes = {"username-other"};
         }
 
         username.text = process.username;
@@ -89,13 +86,13 @@ public class Monitor.ProcessInfoHeader : Gtk.Grid {
         num_threads.text = process.stat.num_threads.to_string ();
 
         state.label = process.stat.state;
-        state.tooltip_text = set_state_tooltip ();
+        state.tooltip_text = set_state_tooltip (process.stat.state);
 
         icon.gicon = process.icon;
     }
 
-    private string set_state_tooltip () {
-        switch (state.label) {
+    private string set_state_tooltip (string state) {
+        switch (state) {
         case "D":
             return _("The app is waiting in an uninterruptible disk sleep");
         case "I":
