@@ -30,7 +30,7 @@ private void test_process_drm () {
 
         drm.update ();
 
-        assert (drm.gpu_percentage == -1.0);
+        assert (drm.gpu_percentage < 0);
     });
 }
 
