@@ -87,12 +87,10 @@ public class Monitor.ProcessTreeView : Granite.Bin {
     }
 
     private void bind_name_item (Object object) {
-        var cell = (Gtk.ColumnViewCell) object;
-        var item = (ProcessRowData) cell.item;
-
-        var name_cell = (ProcessTreeViewNameCell) cell.child;
-        name_cell.label.label = item.name;
-        name_cell.icon.gicon = item.icon;
+        var item = (Gtk.ListItem) object;
+        var process_row_data = (ProcessRowData) item.item;
+        var cell = (ProcessTreeViewNameCell) item.child;
+        cell.bind (process_row_data);
     }
 
     private void setup_label_item (Object object) {
