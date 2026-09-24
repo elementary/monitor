@@ -9,10 +9,9 @@ public class Monitor.IndicatorWidget : Gtk.Box {
 
     protected Gtk.Label label;
 
-    public IndicatorWidget (string icon_name) {
+    public IndicatorWidget () {
         Object (
             orientation: Gtk.Orientation.HORIZONTAL,
-            icon_name: icon_name,
             visible: false
             );
     }
@@ -26,9 +25,9 @@ public class Monitor.IndicatorWidget : Gtk.Box {
             margin_top = 2,
             margin_bottom = 2,
             width_chars = 4,
+            use_markup = true,
         };
 
-        append (icon);
         append (label);
     }
 
