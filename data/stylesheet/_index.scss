@@ -173,7 +173,7 @@ columnview {
         padding: 0.5em;
     }
 
-    row:nth-child(odd) {
-        background: #{'@bg_color'};
+    row:nth-child(odd):not(:focus) {
+        background-color: #{'@bg_color'};
     }
 }
