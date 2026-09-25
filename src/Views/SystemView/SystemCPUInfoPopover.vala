@@ -61,8 +61,7 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
 
         listbox.append (label (_("CPUs:") + " %u".printf (cpu.physical_cpus)));
         listbox.append (label (_("Cores per CPU:") + " %u".printf (cpu.physical_cores_per_cpu)));
-        listbox.append (label (_("Threads per CPU:") + " %u".printf (cpu.logical_threads_per_cpu)));
-        listbox.append (label (_("Model:") + " " + cpu.model));
+        listbox.append (label (_("Threads per core:") + " %u".printf (cpu.logical_threads_per_core)));
         listbox.append (label (_("Model:") + " " + cpu.model));
         listbox.append (label (_("Family:") + " " + cpu.family));
         listbox.append (label (_("Microcode ver.:") + " " + cpu.microcode));

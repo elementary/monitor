@@ -18,7 +18,7 @@ public class Monitor.CPU : Object {
     public string ? model_name;
     public uint physical_cpus;
     public uint physical_cores_per_cpu;
-    public uint logical_threads_per_cpu;
+    public uint logical_threads_per_core;
     public string ? model;
     public string ? family;
     public string ? microcode;
@@ -80,7 +80,7 @@ public class Monitor.CPU : Object {
 
         parse_cpuinfo ();
 
-        model_name = get_cpu_info (out physical_cpus, out physical_cores_per_cpu, out logical_threads_per_cpu);
+        model_name = get_cpu_info (out physical_cpus, out physical_cores_per_cpu, out logical_threads_per_core);
 
         debug ("CPU name: %s", model_name);
 
@@ -259,27 +259,26 @@ public class Monitor.CPU : Object {
         }
     }
 
-    // straight from elementary about-plug
-    private string ? get_cpu_info (out uint cpus, out uint cores, out uint threads) {
+    private string ? get_cpu_info (out uint cpus, out uint cores_per_cpu, out uint threads_per_core) {
         unowned GTop.SysInfo ? info = GTop.glibtop_get_sysinfo ();
 
         if (info == null) {
             return null;
         }
 
-        var counts = new Gee.HashMap<string, uint> ();
-        const string[] KEYS = { "model name", "cpu", "Processor" };
+        cpus = 1;
+        cores_per_cpu = 1;
+        threads_per_core = 1;
+
+        string ? model = null;
+
+        var core_ids = new Gee.HashSet<string> ();
+        var physical_ids = new Gee.HashSet<string> ();
 
         for (int i = 0; i < info.ncpu; i++) {
             unowned GLib.HashTable<string, string> values = info.cpuinfo[i].values;
-            string ? model = null;
-            foreach (var key in KEYS) {
-                model = values.lookup (key);
 
-                if (model != null) {
-                    break;
-                }
-            }
+            model = values.lookup ("model name");
 
             if (model == null) {
                 debug ("Try ARM decoding for CPU %d", i);
@@ -289,33 +288,18 @@ public class Monitor.CPU : Object {
                 }
             }
 
-            string ? core_count = values.lookup ("cpu cores");
-            if (core_count != null) {
-                counts.@set (model, int.parse (core_count));
-                continue;
-            }
-
-            if (!counts.has_key (model)) {
-                counts.@set (model, 1);
-            } else {
-                counts.@set (model, counts.@get (model) + 1);
-            }
+            core_ids.add (values.lookup ("core id"));
+            physical_ids.add (values.lookup ("physical id"));
         }
 
-        if (counts.size == 0) {
-            return null;
+        if (model == null) {
+            return "unknown";
         }
 
-        string result = "";
-        foreach (var cpu in counts.entries) {
-            result += "%s".printf ((cpu.key));
-            cores = cpu.@value;
-            break;
-        }
+        cpus = physical_ids.size;
+        cores_per_cpu = core_ids.size;
+        threads_per_core = (uint) info.ncpu / cores_per_cpu / cpus;
 
-        cpus = counts.size;
-        threads = (uint) info.ncpu / cpus;
-
-        return Utils.Strings.beautify (result);
+        return Utils.Strings.beautify (model);
     }
 }
