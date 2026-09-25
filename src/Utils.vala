@@ -72,6 +72,7 @@ public class Monitor.Utils.Strings {
 
     public static void format_network_speed (uint64 speed_in_bytes_per_second, out string speed_value, out string speed_unit) {
         ///TRANSLATORS: These are the network speed unit such as "Mbps" for "megabits per second".
+        ///Languages in some regions like Poland show "Mb/s" instead of "Mbps" for example.
         string[] units = {_("bps"), _("Kbps"), _("Mbps"), _("Gbps"), _("Tbps")};
 
         var speed_in_bits_per_second = speed_in_bytes_per_second * BITS_IN_BYTES;
