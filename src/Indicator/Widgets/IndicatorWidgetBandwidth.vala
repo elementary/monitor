@@ -4,13 +4,11 @@
  */
 
 public class Monitor.IndicatorWidgetBandwidth : Monitor.IndicatorWidget {
-    public IndicatorWidgetBandwidth (string icon_name) {
-        base (icon_name);
-    }
 
     public override void update_label (Value value) {
         uint64 bandwidth = value.get_uint64 ();
 
-        label.label = Utils.Strings.format_network_speed (bandwidth);
+        label.width_chars = 9;
+        label.label = "<span font-features='tnum'>%s</span>".printf (Utils.Strings.format_network_speed (bandwidth));
     }
 }

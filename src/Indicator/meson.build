@@ -3,6 +3,7 @@ source_indicator_files = [
     'Services/DBusClient.vala',
     'Widgets/DisplayWidget.vala',
     'Widgets/IndicatorWidget.vala',
+    'Widgets/IndicatorGroupWidget.vala',
     'Widgets/IndicatorWidgetPercentage.vala',
     'Widgets/IndicatorWidgetTemperature.vala',
     'Widgets/IndicatorWidgetFrequency.vala',
