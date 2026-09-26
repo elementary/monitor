@@ -61,9 +61,9 @@ public class Monitor.SystemCPUInfoPopover : Gtk.Box {
 
         var total_cores = cpu.physical_cores_per_cpu * cpu.physical_cpus;
         var total_threads = cpu.logical_threads_per_core * total_cores;
-        listbox.append (label (_("CPUs: %u").printf (cpu.physical_cpus)));
-        listbox.append (label (_("Cores: %u").printf (total_cores)));
-        listbox.append (label (_("Threads: %u").printf (total_threads)));
+        listbox.append (label (_("Total CPUs: %u").printf (cpu.physical_cpus)));
+        listbox.append (label (_("Total cores: %u").printf (total_cores)));
+        listbox.append (label (_("Total threads: %u").printf (total_threads)));
         listbox.append (label (_("Model:") + " " + cpu.model));
         listbox.append (label (_("Family:") + " " + cpu.family));
         listbox.append (label (_("Microcode ver.:") + " " + cpu.microcode));
