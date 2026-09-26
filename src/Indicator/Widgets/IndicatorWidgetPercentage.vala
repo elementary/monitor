@@ -5,7 +5,6 @@
 
 public class Monitor.IndicatorWidgetPercentage : Monitor.IndicatorWidget {
 
-
     public override void update_label (Value value) {
         uint percentage = value.get_uint ();
 

@@ -18,7 +18,10 @@ public class Monitor.IndicatorGroupWidget : Gtk.Box {
     }
 
     construct {
-        var icon = new Gtk.Image.from_icon_name (icon_name);
+        var icon = new Gtk.Image.from_icon_name (icon_name) {
+            margin_start = 6,
+            margin_end = 2,
+        };
         append (icon);
     }
 

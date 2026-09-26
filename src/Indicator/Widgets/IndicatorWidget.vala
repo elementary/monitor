@@ -5,8 +5,6 @@
 
 public class Monitor.IndicatorWidget : Gtk.Box {
 
-    public string icon_name { get; construct; }
-
     protected Gtk.Label label;
 
     public IndicatorWidget () {
@@ -17,8 +15,6 @@ public class Monitor.IndicatorWidget : Gtk.Box {
     }
 
     construct {
-        var icon = new Gtk.Image.from_icon_name (icon_name);
-
         label = new Gtk.Label (Utils.NOT_AVAILABLE) {
             margin_start = 2,
             margin_end = 2,
