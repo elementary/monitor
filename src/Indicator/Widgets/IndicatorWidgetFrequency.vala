@@ -10,6 +10,5 @@ public override void update_label (Value value) {
 
         label.width_chars = 7;
         label.label = "<span font-features='tnum'>%s</span>".printf (Utils.Strings.format_frequency (frequency));
-
     }
 }

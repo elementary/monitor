@@ -15,17 +15,14 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Box {
         var memory_group_widget = new IndicatorGroupWidget ("ram-symbolic");
         var memory_widget = new IndicatorWidgetPercentage ();
 
-        // var network_up_widget = new IndicatorWidgetBandwidth ("go-up-symbolic");
-        // var network_down_widget = new IndicatorWidgetBandwidth ("go-down-symbolic");
-
         var gpu_group_widget = new IndicatorGroupWidget ("gpu-symbolic");
         var gpu_widget = new IndicatorWidgetPercentage ();
         var gpu_memory_widget = new IndicatorWidgetPercentage ();
         var gpu_temperature_widget = new IndicatorWidgetTemperature ();
-        
-        // var gpu_widget = new IndicatorWidgetPercentage ("gpu-symbolic");
-        // var gpu_memory_widget = new IndicatorWidgetPercentage ("gpu-vram-symbolic");
-        // var gpu_temperature_widget = new IndicatorWidgetTemperature ("temperature-gpu-symbolic");
+
+        var network_group_widget = new IndicatorGroupWidget ("network-symbolic");
+        var network_up_widget = new IndicatorWidgetBandwidth ();
+        var network_down_widget = new IndicatorWidgetBandwidth ();
 
         unowned var dbusclient = DBusClient.get_default ();
 
@@ -38,8 +35,9 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Box {
             memory_widget.visible = Indicator.settings.get_boolean ("indicator-memory-state");
             memory_group_widget.visible = memory_widget.visible;
 
-            // network_up_widget.visible = Indicator.settings.get_boolean ("indicator-network-upload-state");
-            // network_down_widget.visible = Indicator.settings.get_boolean ("indicator-network-download-state");
+            network_up_widget.visible = Indicator.settings.get_boolean ("indicator-network-upload-state");
+            network_down_widget.visible = Indicator.settings.get_boolean ("indicator-network-download-state");
+            network_group_widget.visible = network_up_widget.visible || network_down_widget.visible;
             
             gpu_widget.visible = Indicator.settings.get_boolean ("indicator-gpu-state");
             gpu_memory_widget.visible = Indicator.settings.get_boolean ("indicator-gpu-memory-state");
@@ -66,9 +64,7 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Box {
             memory_widget.visible = state;
             memory_group_widget.visible = memory_widget.visible;
         });
-        // dbusclient.interface.indicator_network_up_state.connect ((state) => network_up_widget.visible = state);
-        // dbusclient.interface.indicator_network_down_state.connect ((state) => network_down_widget.visible = state);
-        
+
         dbusclient.interface.indicator_gpu_state.connect ((state) => {
             gpu_widget.visible = state;
             gpu_group_widget.visible = gpu_widget.visible || gpu_memory_widget.visible || gpu_temperature_widget.visible;
@@ -80,6 +76,15 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Box {
         dbusclient.interface.indicator_gpu_temperature_state.connect ((state) => {
             gpu_temperature_widget.visible = state;
             gpu_group_widget.visible = gpu_widget.visible || gpu_memory_widget.visible || gpu_temperature_widget.visible;
+        });
+
+        dbusclient.interface.indicator_network_up_state.connect ((state) => {
+            network_up_widget.visible = state;
+            network_group_widget.visible = network_up_widget.visible || network_down_widget.visible;
+        });
+        dbusclient.interface.indicator_network_down_state.connect ((state) => {
+            network_down_widget.visible = state;
+            network_group_widget.visible = network_up_widget.visible || network_down_widget.visible;
         });
 
         dbusclient.interface.update.connect ((sysres) => {
@@ -99,14 +104,6 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Box {
             memory_percentage.set_uint (sysres.memory_percentage);
             memory_widget.update_label (memory_percentage);
 
-            // var network_up = Value (typeof (uint64));
-            // network_up.set_uint64 (sysres.network_up);
-            // network_up_widget.update_label (network_up);
-
-            // var network_down = Value (typeof (uint64));
-            // network_down.set_uint64 (sysres.network_down);
-            // network_down_widget.update_label (network_down);
-
             var gpu_percentage = Value (typeof (uint));
             gpu_percentage.set_uint (sysres.gpu_percentage);
             gpu_widget.update_label (gpu_percentage);
@@ -118,8 +115,16 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Box {
             var gpu_temperature = Value (typeof (int));
             gpu_temperature.set_int ((int) Math.round (sysres.gpu_temperature));
             gpu_temperature_widget.update_label (gpu_temperature);
-        });
 
+            var network_up = Value (typeof (uint64));
+            network_up.set_uint64 (sysres.network_up);
+            network_up_widget.update_label (network_up);
+
+            var network_down = Value (typeof (uint64));
+            network_down.set_uint64 (sysres.network_down);
+            network_down_widget.update_label (network_down);
+
+        });
 
         cpu_group_widget.append (cpu_widget);
         cpu_group_widget.append (cpu_frequency_widget);
@@ -134,7 +139,8 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Box {
         gpu_group_widget.append (gpu_temperature_widget);
         append (gpu_group_widget);
 
-        // append (network_down_widget);
-        // append (network_up_widget);
+        network_group_widget.append (network_up_widget);
+        network_group_widget.append (network_down_widget);
+        append (network_group_widget);
     }
 }
