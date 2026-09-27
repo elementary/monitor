@@ -6,15 +6,15 @@
 public class Monitor.IndicatorGroupWidget : Gtk.Box {
 
     public string icon_name { get; construct; }
+    public bool revealed { get; set; }
 
     protected Gtk.Label label;
 
     public IndicatorGroupWidget (string icon_name) {
         Object (
             orientation: Gtk.Orientation.HORIZONTAL,
-            icon_name: icon_name,
-            visible: false
-            );
+            icon_name: icon_name
+           );
     }
 
     construct {
@@ -22,7 +22,16 @@ public class Monitor.IndicatorGroupWidget : Gtk.Box {
             margin_start = 6,
             margin_end = 2,
         };
-        append (icon);
+        base.append (icon);
+    }
+
+    public new void append (IndicatorWidget widget) {
+        var revealer = new Gtk.Revealer () {
+            child = widget,
+            transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT,
+        };
+        widget.bind_property ("revealed", revealer, "reveal-child", DEFAULT);
+        base.append (revealer);
     }
 
 }

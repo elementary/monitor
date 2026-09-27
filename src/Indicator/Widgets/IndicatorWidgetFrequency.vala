@@ -5,6 +5,12 @@
 
 public class Monitor.IndicatorWidgetFrequency : Monitor.IndicatorWidget {
 
+// public IndicatorWidgetFrequency () {
+//     Object (
+//         revealed: false
+//     );
+// }
+
 public override void update_label (Value value) {
         double frequency = value.get_double ();
 

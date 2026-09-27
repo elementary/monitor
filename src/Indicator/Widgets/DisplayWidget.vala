@@ -27,64 +27,64 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Box {
         unowned var dbusclient = DBusClient.get_default ();
 
         dbusclient.monitor_appeared.connect (() => {
-            cpu_widget.visible = Indicator.settings.get_boolean ("indicator-cpu-state");
-            cpu_frequency_widget.visible = Indicator.settings.get_boolean ("indicator-cpu-frequency-state");
-            cpu_temperature_widget.visible = Indicator.settings.get_boolean ("indicator-cpu-temperature-state");
-            cpu_group_widget.visible = cpu_widget.visible || cpu_frequency_widget.visible || cpu_temperature_widget.visible;
-            
-            memory_widget.visible = Indicator.settings.get_boolean ("indicator-memory-state");
-            memory_group_widget.visible = memory_widget.visible;
+            cpu_widget.revealed = Indicator.settings.get_boolean ("indicator-cpu-state");
+            cpu_frequency_widget.revealed = Indicator.settings.get_boolean ("indicator-cpu-frequency-state");
+            cpu_temperature_widget.revealed = Indicator.settings.get_boolean ("indicator-cpu-temperature-state");
+            cpu_group_widget.revealed = cpu_widget.revealed || cpu_frequency_widget.revealed || cpu_temperature_widget.revealed;
 
-            network_up_widget.visible = Indicator.settings.get_boolean ("indicator-network-upload-state");
-            network_down_widget.visible = Indicator.settings.get_boolean ("indicator-network-download-state");
-            network_group_widget.visible = network_up_widget.visible || network_down_widget.visible;
+            memory_widget.revealed = Indicator.settings.get_boolean ("indicator-memory-state");
+            memory_group_widget.revealed = memory_widget.revealed;
+
+            network_up_widget.revealed = Indicator.settings.get_boolean ("indicator-network-upload-state");
+            network_down_widget.revealed = Indicator.settings.get_boolean ("indicator-network-download-state");
+            network_group_widget.revealed = network_up_widget.revealed || network_down_widget.revealed;
             
-            gpu_widget.visible = Indicator.settings.get_boolean ("indicator-gpu-state");
-            gpu_memory_widget.visible = Indicator.settings.get_boolean ("indicator-gpu-memory-state");
-            gpu_temperature_widget.visible = Indicator.settings.get_boolean ("indicator-gpu-temperature-state");
-            gpu_group_widget.visible = gpu_widget.visible || gpu_memory_widget.visible || gpu_temperature_widget.visible;
+            gpu_widget.revealed = Indicator.settings.get_boolean ("indicator-gpu-state");
+            gpu_memory_widget.revealed = Indicator.settings.get_boolean ("indicator-gpu-memory-state");
+            gpu_temperature_widget.revealed = Indicator.settings.get_boolean ("indicator-gpu-temperature-state");
+            gpu_group_widget.revealed = gpu_widget.revealed || gpu_memory_widget.revealed || gpu_temperature_widget.revealed;
         });
 
         dbusclient.interface.indicator_cpu_state.connect ((state) => {
-            cpu_widget.visible = state;
-            cpu_group_widget.visible = cpu_widget.visible || cpu_frequency_widget.visible || cpu_temperature_widget.visible;
+            cpu_widget.revealed = state;
+            cpu_group_widget.revealed = cpu_widget.revealed || cpu_frequency_widget.revealed || cpu_temperature_widget.revealed;
 
         });
         dbusclient.interface.indicator_cpu_frequency_state.connect ((state) => {
-            cpu_frequency_widget.visible = state;
-            cpu_group_widget.visible = cpu_widget.visible || cpu_frequency_widget.visible || cpu_temperature_widget.visible;
+            cpu_frequency_widget.revealed = state;
+            cpu_group_widget.revealed = cpu_widget.revealed || cpu_frequency_widget.revealed || cpu_temperature_widget.revealed;
         });
 
         dbusclient.interface.indicator_cpu_temperature_state.connect ((state) => {
-            cpu_temperature_widget.visible = state;
-            cpu_group_widget.visible = cpu_widget.visible || cpu_frequency_widget.visible || cpu_temperature_widget.visible;
+            cpu_temperature_widget.revealed = state;
+            cpu_group_widget.revealed = cpu_widget.revealed || cpu_frequency_widget.revealed || cpu_temperature_widget.revealed;
         });
 
         dbusclient.interface.indicator_memory_state.connect ((state) => {
-            memory_widget.visible = state;
-            memory_group_widget.visible = memory_widget.visible;
+            memory_widget.revealed = state;
+            memory_group_widget.revealed = memory_widget.revealed;
         });
 
         dbusclient.interface.indicator_gpu_state.connect ((state) => {
-            gpu_widget.visible = state;
-            gpu_group_widget.visible = gpu_widget.visible || gpu_memory_widget.visible || gpu_temperature_widget.visible;
+            gpu_widget.revealed = state;
+            gpu_group_widget.revealed = gpu_widget.revealed || gpu_memory_widget.revealed || gpu_temperature_widget.revealed;
         });
         dbusclient.interface.indicator_gpu_memory_state.connect ((state) => {
-            gpu_memory_widget.visible = state;
-            gpu_group_widget.visible = gpu_widget.visible || gpu_memory_widget.visible || gpu_temperature_widget.visible;
+            gpu_memory_widget.revealed = state;
+            gpu_group_widget.revealed = gpu_widget.revealed || gpu_memory_widget.revealed || gpu_temperature_widget.revealed;
         });
         dbusclient.interface.indicator_gpu_temperature_state.connect ((state) => {
-            gpu_temperature_widget.visible = state;
-            gpu_group_widget.visible = gpu_widget.visible || gpu_memory_widget.visible || gpu_temperature_widget.visible;
+            gpu_temperature_widget.revealed = state;
+            gpu_group_widget.revealed = gpu_widget.revealed || gpu_memory_widget.revealed || gpu_temperature_widget.revealed;
         });
 
         dbusclient.interface.indicator_network_up_state.connect ((state) => {
-            network_up_widget.visible = state;
-            network_group_widget.visible = network_up_widget.visible || network_down_widget.visible;
+            network_up_widget.revealed = state;
+            network_group_widget.revealed = network_up_widget.revealed || network_down_widget.revealed;
         });
         dbusclient.interface.indicator_network_down_state.connect ((state) => {
-            network_down_widget.visible = state;
-            network_group_widget.visible = network_up_widget.visible || network_down_widget.visible;
+            network_down_widget.revealed = state;
+            network_group_widget.revealed = network_up_widget.revealed || network_down_widget.revealed;
         });
 
         dbusclient.interface.update.connect ((sysres) => {
@@ -126,6 +126,7 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Box {
 
         });
 
+
         cpu_group_widget.append (cpu_widget);
         cpu_group_widget.append (cpu_frequency_widget);
         cpu_group_widget.append (cpu_temperature_widget);
@@ -143,4 +144,14 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Box {
         network_group_widget.append (network_down_widget);
         append (network_group_widget);
     }
+
+    public new void append (IndicatorGroupWidget widget) {
+        var revealer = new Gtk.Revealer () {
+            child = widget,
+            transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT,
+        };
+        widget.bind_property ("revealed", revealer, "reveal-child", DEFAULT);
+        base.append (revealer);
+    }
+
 }

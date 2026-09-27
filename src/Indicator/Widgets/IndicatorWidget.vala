@@ -6,11 +6,11 @@
 public class Monitor.IndicatorWidget : Gtk.Box {
 
     protected Gtk.Label label;
+    public bool revealed { get; set; }
 
     public IndicatorWidget () {
         Object (
-            orientation: Gtk.Orientation.HORIZONTAL,
-            visible: false
+            orientation: Gtk.Orientation.HORIZONTAL
             );
     }
 
