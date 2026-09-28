@@ -5,30 +5,25 @@
 
 public class Monitor.IndicatorWidget : Gtk.Box {
 
-    public string icon_name { get; construct; }
-
     protected Gtk.Label label;
+    public bool revealed { get; set; }
 
-    public IndicatorWidget (string icon_name) {
+    public IndicatorWidget () {
         Object (
-            orientation: Gtk.Orientation.HORIZONTAL,
-            icon_name: icon_name,
-            visible: false
+            orientation: Gtk.Orientation.HORIZONTAL
             );
     }
 
     construct {
-        var icon = new Gtk.Image.from_icon_name (icon_name);
-
         label = new Gtk.Label (Utils.NOT_AVAILABLE) {
             margin_start = 2,
             margin_end = 2,
             margin_top = 2,
             margin_bottom = 2,
             width_chars = 4,
+            use_markup = true,
         };
 
-        append (icon);
         append (label);
     }
 

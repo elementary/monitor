@@ -3,6 +3,7 @@ source_indicator_files = [
     'Services/DBusClient.vala',
     'Widgets/DisplayWidget.vala',
     'Widgets/IndicatorWidget.vala',
+    'Widgets/IndicatorGroupWidget.vala',
     'Widgets/IndicatorWidgetPercentage.vala',
     'Widgets/IndicatorWidgetTemperature.vala',
     'Widgets/IndicatorWidgetFrequency.vala',
@@ -14,11 +15,11 @@ source_indicator_files = [
 ]
 
 wingpanel_dep = dependency('wingpanel-9')
-gtk_dep = dependency('gtk4', version: '>= 4.12')
 
 indicator_dependencies = [
     wingpanel_dep,
-    gtk_dep
+    dependency('gtk4', version: '>= 4.12'),
+    dependency('granite-7', version: '>=7.7.0'),
 ]
 
 shared_module(

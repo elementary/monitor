@@ -4,14 +4,13 @@
  */
 
 public class Monitor.IndicatorWidgetPercentage : Monitor.IndicatorWidget {
-    public IndicatorWidgetPercentage (string icon_name) {
-        base (icon_name);
-    }
 
     public override void update_label (Value value) {
         uint percentage = value.get_uint ();
 
+        label.add_css_class (Granite.CssClass.NUMERIC);
         label.label = "%u%%".printf (percentage);
+
         label.remove_css_class ("monitor-indicator-label-warning");
         label.remove_css_class ("monitor-indicator-label-critical");
 
