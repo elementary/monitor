@@ -8,8 +8,9 @@ public class Monitor.IndicatorWidgetPercentage : Monitor.IndicatorWidget {
     public override void update_label (Value value) {
         uint percentage = value.get_uint ();
 
-        label.label = "<span font-features='tnum'>%u%%</span>".printf (percentage);
-        
+        label.add_css_class (Granite.CssClass.NUMERIC);
+        label.label = "%u%%".printf (percentage);
+
         label.remove_css_class ("monitor-indicator-label-warning");
         label.remove_css_class ("monitor-indicator-label-critical");
 

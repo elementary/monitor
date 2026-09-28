@@ -5,16 +5,11 @@
 
 public class Monitor.IndicatorWidgetFrequency : Monitor.IndicatorWidget {
 
-// public IndicatorWidgetFrequency () {
-//     Object (
-//         revealed: false
-//     );
-// }
-
 public override void update_label (Value value) {
         double frequency = value.get_double ();
 
+        label.add_css_class (Granite.CssClass.NUMERIC);
         label.width_chars = 7;
-        label.label = "<span font-features='tnum'>%s</span>".printf (Utils.Strings.format_frequency (frequency));
+        label.label = "%s".printf (Utils.Strings.format_frequency (frequency));
     }
 }

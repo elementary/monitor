@@ -38,7 +38,7 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Box {
             network_up_widget.revealed = Indicator.settings.get_boolean ("indicator-network-upload-state");
             network_down_widget.revealed = Indicator.settings.get_boolean ("indicator-network-download-state");
             network_group_widget.revealed = network_up_widget.revealed || network_down_widget.revealed;
-            
+
             gpu_widget.revealed = Indicator.settings.get_boolean ("indicator-gpu-state");
             gpu_memory_widget.revealed = Indicator.settings.get_boolean ("indicator-gpu-memory-state");
             gpu_temperature_widget.revealed = Indicator.settings.get_boolean ("indicator-gpu-temperature-state");

@@ -8,7 +8,8 @@ public class Monitor.IndicatorWidgetBandwidth : Monitor.IndicatorWidget {
     public override void update_label (Value value) {
         uint64 bandwidth = value.get_uint64 ();
 
+        label.add_css_class (Granite.CssClass.NUMERIC);
         label.width_chars = 9;
-        label.label = "<span font-features='tnum'>%s</span>".printf (Utils.Strings.format_network_speed (bandwidth));
+        label.label = "%s".printf (Utils.Strings.format_network_speed (bandwidth));
     }
 }
