@@ -21,7 +21,6 @@ public class Monitor.IndicatorWidget : Gtk.Box {
             margin_top = 2,
             margin_bottom = 2,
             width_chars = 4,
-            use_markup = true,
         };
 
         append (label);

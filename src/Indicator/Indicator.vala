@@ -82,6 +82,10 @@ public class Monitor.Indicator : Wingpanel.Indicator {
         .composited-indicator > revealer label.monitor-indicator-label-critical {
             color: @error_color;
         }
+        .monitor-indicator-icon {
+            margin-right: 0.4em;
+            margin-left: 0.7em;
+        }
         """;
         provider.load_from_string (css);
 
