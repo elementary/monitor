@@ -173,7 +173,15 @@ columnview {
         padding: 0.5em;
     }
 
-    row:nth-child(odd) {
+    row:nth-child(odd):not(:selected):not(:focus-visible) {
         background: #{'@bg_color'};
+    }
+    
+    // Highlight selected rows with the accent color, like the theme does
+    // for keyboard navigation, so mouse and keyboard selection look the same
+    listview row:selected,
+    listview row:focus-visible:selected {
+        background: #{'@selected_bg_color'};
+        color: #{'@selected_fg_color'};
     }
 }
