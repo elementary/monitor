@@ -7,6 +7,7 @@
 public class Monitor.Disk : GLib.Object {
     public string model;
     public uint64 size;
+    public uint64 size_mounted;
     public uint64 free;
     public string revision;
     public string id;
@@ -22,11 +23,13 @@ public class Monitor.Disk : GLib.Object {
         revision = drive.revision;
         id = drive.id;
         free = 0;
+        size_mounted = 0;
     }
 
     public void add_volume (Volume vol) {
         volumes.add (vol);
         free = free + vol.free;
+        size_mounted = size_mounted + vol.size_mounted;
     }
 
     public Gee.ArrayList<Volume?> get_volumes () {
