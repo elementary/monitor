@@ -52,13 +52,22 @@ public class Monitor.CPU : Object {
         get {
             double summed = 0;
             int number_of_temperatures = temperatures.size;
-            if (number_of_temperatures == 0) return 0.0;
+            if (number_of_temperatures == 0) {
+                return 0.0;
+            }
+
+            // The newer AMD Ryzen CPU's requires the zenpower module to provide the Tdie temperature value.
+            if (temperatures.has_key ("Tdie")) {
+                return double.parse (temperatures["Tdie"].input) / 1000;
+            }
+
+            // The k10temp module does not expose Tdie, so use the Tctl temperature value as fallback.
+            if (temperatures.has_key ("Tctl")) {
+                return double.parse (temperatures["Tctl"].input) / 1000;
+            }
+
+            // Intel we want only temperatures of cores.
             foreach (var temperature in temperatures.values) {
-
-                // checking if AMD Ryzen; in AMD Ryzen we only want Tdie
-                if (temperature.label == "Tdie") return double.parse (temperature.input) / 1000;
-
-                // for Intel we want only temperatures of cores
                 if (temperature.label.contains ("Package")) {
                     number_of_temperatures--;
                     continue;

@@ -18,7 +18,10 @@ public class Monitor.LogView : Granite.Bin {
 
         model = new SystemdLogModel ();
 
-        var selection_model = new Gtk.NoSelection (model);
+        var selection_model = new Gtk.SingleSelection (model) {
+            autoselect = false,
+            can_unselect = true
+        };
 
         var header_factory = new Gtk.SignalListItemFactory ();
         header_factory.setup.connect (setup_header);

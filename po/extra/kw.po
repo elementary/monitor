@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-20 11:01+0000\n"
-"PO-Revision-Date: 2026-09-15 13:03+0000\n"
+"PO-Revision-Date: 2026-10-03 18:04+0000\n"
 "Last-Translator: Flynn <flynn@users.noreply.l10n.elementaryos.org>\n"
 "Language-Team: Cornish <https://l10n.elementaryos.org/projects/desktop/"
 "monitor-extra/kw/>\n"
@@ -39,17 +39,17 @@ msgstr ""
 
 #: data/io.elementary.monitor.metainfo.xml.in:26
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
 
 #: data/io.elementary.monitor.metainfo.xml.in:39
 #: data/io.elementary.monitor.metainfo.xml.in:53
 msgid "Other Improvements:"
-msgstr ""
+msgstr "Gwellheansow Erel:"
 
 #: data/io.elementary.monitor.metainfo.xml.in:41
 #: data/io.elementary.monitor.metainfo.xml.in:55
 msgid "Updated translations"
-msgstr ""
+msgstr "Treylyansow nowedhys"
 
 #: data/io.elementary.monitor.metainfo.xml.in:76
 msgid "Add info about drives (based on Dirli's code)"

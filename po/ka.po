@@ -8,9 +8,8 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-20 11:01+0000\n"
-"PO-Revision-Date: 2026-09-18 04:08+0000\n"
-"Last-Translator: Automatic translation add-on <noreply-addon-"
-"autotranslate@weblate.org>\n"
+"PO-Revision-Date: 2026-09-25 03:03+0000\n"
+"Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/ka/>\n"
 "Language: ka\n"
@@ -30,7 +29,7 @@ msgstr "პროცესები"
 
 #: src/MainWindow.vala:37
 msgid "Logs"
-msgstr ""
+msgstr "ჟურნალი"
 
 #: src/MainWindow.vala:38
 msgid "System"
@@ -85,11 +84,11 @@ msgstr ""
 
 #: src/Views/LogView/LogView.vala:35
 msgid "Sender"
-msgstr ""
+msgstr "გამგზავნი"
 
 #: src/Views/LogView/LogView.vala:43
 msgid "Message"
-msgstr ""
+msgstr "შეტყობინება"
 
 #: src/Views/LogView/SystemdLogEntry.vala:35
 msgid "Now"
@@ -205,10 +204,8 @@ msgid "Memory"
 msgstr "მეხსიერება"
 
 #: src/Views/PreferencesView.vala:17
-#, fuzzy
-#| msgid "Frequency"
 msgid "Update frequency"
-msgstr "სიხშირე"
+msgstr "განახლების სიხშირე"
 
 #: src/Views/PreferencesView.vala:22 src/Views/PreferencesView.vala:52
 msgid "Requires restart"
@@ -251,32 +248,24 @@ msgid "CPU percentage"
 msgstr ""
 
 #: src/Views/PreferencesView.vala:67
-#, fuzzy
-#| msgid "Frequency"
 msgid "CPU frequency"
-msgstr "სიხშირე"
+msgstr "CPU-ის სიხშირე"
 
 #: src/Views/PreferencesView.vala:72
-#, fuzzy
-#| msgid "Temperature"
 msgid "CPU temperature"
-msgstr "ტემპერატურა"
+msgstr "CPU-ის ტემპერატურა"
 
 #: src/Views/PreferencesView.vala:77
 msgid "RAM percentage"
 msgstr ""
 
 #: src/Views/PreferencesView.vala:82
-#, fuzzy
-#| msgid "Network"
 msgid "Network upload"
-msgstr "ქსელი"
+msgstr "ქსელში ატვირთვა"
 
 #: src/Views/PreferencesView.vala:87
-#, fuzzy
-#| msgid "Network"
 msgid "Network download"
-msgstr "ქსელი"
+msgstr "ქსელიდან გადმოწერა"
 
 #: src/Views/PreferencesView.vala:92
 msgid "GPU percentage"
@@ -287,16 +276,12 @@ msgid "VRAM percentage"
 msgstr ""
 
 #: src/Views/PreferencesView.vala:102
-#, fuzzy
-#| msgid "Temperature"
 msgid "GPU temperature"
-msgstr "ტემპერატურა"
+msgstr "GPU-ის ტემპერატურა"
 
 #: src/Views/SystemView/SystemCPUView.vala:20
-#, fuzzy
-#| msgid "Processes"
 msgid "Processor"
-msgstr "პროცესები"
+msgstr "პროცესორი"
 
 #: src/Views/SystemView/SystemCPUView.vala:41
 msgid "Frequency"
@@ -313,7 +298,7 @@ msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:150
 msgid "Threads"
-msgstr ""
+msgstr "ნაკადები"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:29
 msgid "General"
@@ -392,16 +377,12 @@ msgid "Shared"
 msgstr "გაზიარებული"
 
 #: src/Views/SystemView/SystemMemoryView.vala:17
-#, fuzzy
-#| msgid "Total"
 msgid "Swap Total"
-msgstr "ჯამში"
+msgstr "სვოპი ჯამში"
 
 #: src/Views/SystemView/SystemMemoryView.vala:18
-#, fuzzy
-#| msgid "Used"
 msgid "Swap Used"
-msgstr "გამოყენებული"
+msgstr "გამოყენებული სვოპი"
 
 #: src/Views/SystemView/SystemNetworkView.vala:26
 msgid "Network"
@@ -421,11 +402,11 @@ msgstr "საცავი"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
 msgid "Write"
-msgstr ""
+msgstr "ჩაწერა"
 
 #: src/Views/SystemView/SystemStorageView.vala:25
 msgid "Read"
-msgstr ""
+msgstr "კითხვა"
 
 #: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
@@ -441,7 +422,7 @@ msgstr "ტემპერატურა"
 
 #: src/Views/SystemView/SystemGPUView.vala:63
 msgid "Graphics"
-msgstr ""
+msgstr "გრაფიკა"
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:27
@@ -464,7 +445,7 @@ msgstr "გჰც"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:44
 msgid "Utilization"
-msgstr ""
+msgstr "გამოყენება"
 
 #~ msgid "THREADS"
 #~ msgstr "ნაკადები"
