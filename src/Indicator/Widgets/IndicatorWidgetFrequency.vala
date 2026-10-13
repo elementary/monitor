@@ -10,6 +10,6 @@ public class Monitor.IndicatorWidgetFrequency : Monitor.IndicatorWidget {
 
     public override void update_label (Value value) {
         double frequency = value.get_double ();
-        label.label = "%s".printf (Utils.Strings.format_frequency (frequency));
+        label.label = Utils.Strings.format_frequency (frequency);
     }
 }
