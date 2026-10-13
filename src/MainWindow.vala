@@ -33,9 +33,13 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
         var stack = new Gtk.Stack () {
             transition_type = SLIDE_LEFT_RIGHT
         };
-        stack.add_titled (process_view, "process_view", _("Processes"));
-        stack.add_titled (log_view, "log_view", _("Logs"));
         stack.add_titled (system_view, "system_view", _("System"));
+        stack.add_titled (log_view, "log_view", _("Logs"));
+        stack.add_titled (process_view, "process_view", _("Processes"));
+
+        stack.get_page (system_view).set_property ("icon-name", "view-monitor-symbolic");
+        stack.get_page (log_view).set_property ("icon-name", "view-log-symbolic");
+        stack.get_page (process_view).set_property ("icon-name", "system-run-symbolic");
 
         var stack_switcher = new Gtk.StackSwitcher () {
             stack = stack,
@@ -49,32 +53,37 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
         };
 
         var preferences_button = new Gtk.MenuButton () {
-            icon_name = "open-menu",
+            icon_name = "open-menu-symbolic",
             primary = true,
             popover = preferences_popover,
             tooltip_markup = ("%s\n" + Granite.TOOLTIP_SECONDARY_TEXT_MARKUP).printf (
                 _("Settings"),
                 "F10"
-            )
+            ),
+            valign = CENTER
         };
-        preferences_button.add_css_class (Granite.STYLE_CLASS_LARGE_ICONS);
 
         var search_entry = new Gtk.SearchEntry () {
+            hexpand = true,
             placeholder_text = _("Search process name or PID"),
             valign = CENTER
         };
         search_entry.set_key_capture_widget (this);
 
+        var search_clamp = new Adw.Clamp () {
+            child = search_entry
+        };
+
         var search_revealer = new Gtk.Revealer () {
-            child = search_entry,
-            transition_type = SLIDE_LEFT,
+            child = search_clamp,
+            transition_type = CROSSFADE,
             overflow = VISIBLE
         };
 
         var headerbar = new Gtk.HeaderBar () {
-            title_widget = stack_switcher
+            title_widget = search_revealer
         };
-        headerbar.pack_start (search_revealer);
+        headerbar.pack_start (stack_switcher);
         headerbar.pack_end (preferences_button);
 
         var statusbar = new Statusbar ();
@@ -92,6 +101,7 @@ public class Monitor.MainWindow : Gtk.ApplicationWindow {
 
         var dbusserver = DBusServer.get_default ();
 
+        toolbox.reveal_bottom_bars = stack.visible_child == process_view;
         search_revealer.reveal_child = stack.visible_child != system_view;
         stack.notify["visible-child"].connect (() => {
             toolbox.reveal_bottom_bars = stack.visible_child == process_view;
