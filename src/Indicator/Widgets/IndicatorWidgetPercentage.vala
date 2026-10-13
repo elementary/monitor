@@ -10,12 +10,12 @@ public class Monitor.IndicatorWidgetPercentage : Monitor.IndicatorWidget {
         label.label = "%u%%".printf (percentage);
 
         if (percentage > 90) {
-            label.css_classes = {"Granite.CssClass.ERROR"};
+            label.css_classes = {Granite.CssClass.ERROR};
             return;
         }
 
         if (percentage > 80) {
-            label.css_classes = {"Granite.CssClass.WARNING"};
+            label.css_classes = {Granite.CssClass.WARNING};
             return;
         }
 
