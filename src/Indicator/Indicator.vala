@@ -80,19 +80,21 @@ public class Monitor.Indicator : Wingpanel.Indicator {
                 font-size: 0.9rem;
             }
 
-            monitor-indicator-group image:dir(ltr) {
-                margin-right: 0.5em;
+            monitor-indicator-group:dir(ltr) {
+                margin-left: 1em;
             }
 
+            monitor-indicator-group:dir(rtl) {
+                margin-right: 1em;
+            }
+
+            monitor-indicator-group label:dir(ltr),
             monitor-indicator-group image:dir(rtl) {
                 margin-left: 0.5em;
             }
 
-            monitor-indicator-group label:dir(ltr) {
-                margin-left: 0.5em;
-            }
-
-            monitor-indicator-group label:dir(rtl) {
+            monitor-indicator-group label:dir(rtl),
+            monitor-indicator-group image:dir(ltr) {
                 margin-right: 0.5em;
             }
         """;
