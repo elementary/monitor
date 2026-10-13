@@ -7,41 +7,56 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Box {
     construct {
         valign = Gtk.Align.CENTER;
 
-        var cpu_widget = new IndicatorWidgetPercentage ();
-        var cpu_frequency_widget = new IndicatorWidgetFrequency ();
-        var cpu_temperature_widget = new IndicatorWidgetTemperature ();
-
-        var cpu_group_widget = new IndicatorGroupWidget ("cpu-symbolic") {
-            tooltip_text = _("Processor")
+        var cpu_widget = new IndicatorWidgetPercentage () {
+            tooltip_text = _("Processor usage")
         };
+
+        var cpu_frequency_widget = new IndicatorWidgetFrequency () {
+            tooltip_text =  _("Processor frequency")
+        };
+
+        var cpu_temperature_widget = new IndicatorWidgetTemperature () {
+            tooltip_text =  _("Processor temperature")
+        };
+
+        var cpu_group_widget = new IndicatorGroupWidget ("cpu-symbolic");
         cpu_group_widget.append (cpu_widget);
         cpu_group_widget.append (cpu_frequency_widget);
         cpu_group_widget.append (cpu_temperature_widget);
 
-        var memory_widget = new IndicatorWidgetPercentage ();
-
-        var memory_group_widget = new IndicatorGroupWidget ("ram-symbolic") {
-            tooltip_text = _("Memory")
+        var memory_widget = new IndicatorWidgetPercentage () {
+            tooltip_text = _("Memory usage")
         };
+
+        var memory_group_widget = new IndicatorGroupWidget ("ram-symbolic");
         memory_group_widget.append (memory_widget);
 
-        var gpu_widget = new IndicatorWidgetPercentage ();
-        var gpu_memory_widget = new IndicatorWidgetPercentage ();
-        var gpu_temperature_widget = new IndicatorWidgetTemperature ();
-
-        var gpu_group_widget = new IndicatorGroupWidget ("gpu-symbolic") {
-            tooltip_text = _("Graphics Processor")
+        var gpu_widget = new IndicatorWidgetPercentage () {
+            tooltip_text = _("Graphics processor usage")
         };
+
+        var gpu_memory_widget = new IndicatorWidgetPercentage () {
+            tooltip_text = _("Graphics memory usage")
+        };
+
+        var gpu_temperature_widget = new IndicatorWidgetTemperature () {
+            tooltip_text = _("Graphics processor temperature")
+        };
+
+        var gpu_group_widget = new IndicatorGroupWidget ("gpu-symbolic");
         gpu_group_widget.append (gpu_widget);
         gpu_group_widget.append (gpu_memory_widget);
         gpu_group_widget.append (gpu_temperature_widget);
 
-        var network_up_widget = new IndicatorWidgetBandwidth ();
-        var network_down_widget = new IndicatorWidgetBandwidth ();
-
-        var network_group_widget = new IndicatorGroupWidget ("network-symbolic") {
-            tooltip_text = _("Bandwidth")
+        var network_up_widget = new IndicatorWidgetBandwidth () {
+            tooltip_text = _("Network upload speed")
         };
+
+        var network_down_widget = new IndicatorWidgetBandwidth () {
+            tooltip_text = _("Network download speed")
+        };
+
+        var network_group_widget = new IndicatorGroupWidget ("network-symbolic");
         network_group_widget.append (network_up_widget);
         network_group_widget.append (network_down_widget);
 
