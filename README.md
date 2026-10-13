@@ -23,6 +23,7 @@ libgtk-4-dev
 libgee-0.8-dev
 libgranite-7-dev
 libgtop2-dev
+libgudev-1.0-dev
 libadwaita-1-dev
 libudisks2-dev
 libjson-glib-dev
