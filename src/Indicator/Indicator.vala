@@ -76,16 +76,25 @@ public class Monitor.Indicator : Wingpanel.Indicator {
     public void apply_custom_styles () throws GLib.Error {
         var provider = new Gtk.CssProvider ();
         string css = """
-        .composited-indicator > revealer label.monitor-indicator-label-warning {
-            color: @warning_color;
-        }
-        .composited-indicator > revealer label.monitor-indicator-label-critical {
-            color: @error_color;
-        }
-        .monitor-indicator-icon {
-            margin-right: 0.4em;
-            margin-left: 0.7em;
-        }
+            monitor-indicator-group {
+                font-size: 0.9rem;
+            }
+
+            monitor-indicator-group image:dir(ltr) {
+                margin-right: 0.5em;
+            }
+
+            monitor-indicator-group image:dir(rtl) {
+                margin-left: 0.5em;
+            }
+
+            monitor-indicator-group label:dir(ltr) {
+                margin-left: 0.5em;
+            }
+
+            monitor-indicator-group label:dir(rtl) {
+                margin-right: 0.5em;
+            }
         """;
         provider.load_from_string (css);
 

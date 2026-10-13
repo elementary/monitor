@@ -3,7 +3,14 @@
  * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
  */
 
-public class Monitor.Widgets.DisplayWidget : Gtk.Box {
+public class Monitor.Widgets.DisplayWidget : Granite.Box {
+    public DisplayWidget () {
+        Object (
+            child_spacing: Granite.Box.Spacing.SINGLE,
+            orientation: Gtk.Orientation.HORIZONTAL
+        );
+    }
+
     construct {
         valign = Gtk.Align.CENTER;
 
