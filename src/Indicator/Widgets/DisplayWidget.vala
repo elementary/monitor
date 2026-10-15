@@ -7,22 +7,63 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Box {
     construct {
         valign = Gtk.Align.CENTER;
 
+        var cpu_widget = new IndicatorWidgetPercentage () {
+            tooltip_text = _("Processor usage")
+        };
+
+        var cpu_frequency_widget = new IndicatorWidgetFrequency () {
+            tooltip_text =  _("Processor frequency")
+        };
+
+        var cpu_temperature_widget = new IndicatorWidgetTemperature () {
+            tooltip_text =  _("Processor temperature")
+        };
+
         var cpu_group_widget = new IndicatorGroupWidget ("cpu-symbolic");
-        var cpu_widget = new IndicatorWidgetPercentage ();
-        var cpu_frequency_widget = new IndicatorWidgetFrequency ();
-        var cpu_temperature_widget = new IndicatorWidgetTemperature ();
+        cpu_group_widget.append (cpu_widget);
+        cpu_group_widget.append (cpu_frequency_widget);
+        cpu_group_widget.append (cpu_temperature_widget);
+
+        var memory_widget = new IndicatorWidgetPercentage () {
+            tooltip_text = _("Memory usage")
+        };
 
         var memory_group_widget = new IndicatorGroupWidget ("ram-symbolic");
-        var memory_widget = new IndicatorWidgetPercentage ();
+        memory_group_widget.append (memory_widget);
+
+        var gpu_widget = new IndicatorWidgetPercentage () {
+            tooltip_text = _("Graphics processor usage")
+        };
+
+        var gpu_memory_widget = new IndicatorWidgetPercentage () {
+            tooltip_text = _("Graphics memory usage")
+        };
+
+        var gpu_temperature_widget = new IndicatorWidgetTemperature () {
+            tooltip_text = _("Graphics processor temperature")
+        };
 
         var gpu_group_widget = new IndicatorGroupWidget ("gpu-symbolic");
-        var gpu_widget = new IndicatorWidgetPercentage ();
-        var gpu_memory_widget = new IndicatorWidgetPercentage ();
-        var gpu_temperature_widget = new IndicatorWidgetTemperature ();
+        gpu_group_widget.append (gpu_widget);
+        gpu_group_widget.append (gpu_memory_widget);
+        gpu_group_widget.append (gpu_temperature_widget);
+
+        var network_up_widget = new IndicatorWidgetBandwidth () {
+            tooltip_text = _("Network upload speed")
+        };
+
+        var network_down_widget = new IndicatorWidgetBandwidth () {
+            tooltip_text = _("Network download speed")
+        };
 
         var network_group_widget = new IndicatorGroupWidget ("network-symbolic");
-        var network_up_widget = new IndicatorWidgetBandwidth ();
-        var network_down_widget = new IndicatorWidgetBandwidth ();
+        network_group_widget.append (network_up_widget);
+        network_group_widget.append (network_down_widget);
+
+        append (cpu_group_widget);
+        append (memory_group_widget);
+        append (gpu_group_widget);
+        append (network_group_widget);
 
         unowned var dbusclient = DBusClient.get_default ();
 
@@ -125,24 +166,6 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Box {
             network_down_widget.update_label (network_down);
 
         });
-
-
-        cpu_group_widget.append (cpu_widget);
-        cpu_group_widget.append (cpu_frequency_widget);
-        cpu_group_widget.append (cpu_temperature_widget);
-        append (cpu_group_widget);
-
-        memory_group_widget.append (memory_widget);
-        append (memory_group_widget);
-
-        gpu_group_widget.append (gpu_widget);
-        gpu_group_widget.append (gpu_memory_widget);
-        gpu_group_widget.append (gpu_temperature_widget);
-        append (gpu_group_widget);
-
-        network_group_widget.append (network_up_widget);
-        network_group_widget.append (network_down_widget);
-        append (network_group_widget);
     }
 
     public new void append (IndicatorGroupWidget widget) {
