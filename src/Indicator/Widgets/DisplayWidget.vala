@@ -12,11 +12,11 @@ public class Monitor.Widgets.DisplayWidget : Gtk.Box {
         };
 
         var cpu_frequency_widget = new IndicatorWidgetFrequency () {
-            tooltip_text =  _("Processor frequency")
+            tooltip_text = _("Processor frequency")
         };
 
         var cpu_temperature_widget = new IndicatorWidgetTemperature () {
-            tooltip_text =  _("Processor temperature")
+            tooltip_text = _("Processor temperature")
         };
 
         var cpu_group_widget = new IndicatorGroupWidget ("cpu-symbolic");
