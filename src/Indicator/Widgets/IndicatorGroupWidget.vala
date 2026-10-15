@@ -4,32 +4,31 @@
  */
 
 public class Monitor.IndicatorGroupWidget : Gtk.Box {
-
     public string icon_name { get; construct; }
     public bool revealed { get; set; }
 
     protected Gtk.Label label;
 
     public IndicatorGroupWidget (string icon_name) {
-        Object (
-            orientation: Gtk.Orientation.HORIZONTAL,
-            icon_name: icon_name
-           );
+        Object (icon_name: icon_name);
+    }
+
+    class construct {
+        set_css_name ("monitor-indicator-group");
     }
 
     construct {
         var icon = new Gtk.Image.from_icon_name (icon_name);
-        icon.add_css_class ("monitor-indicator-icon");
         base.append (icon);
     }
 
     public new void append (IndicatorWidget widget) {
         var revealer = new Gtk.Revealer () {
             child = widget,
-            transition_type = Gtk.RevealerTransitionType.SLIDE_LEFT,
+            transition_type = SLIDE_LEFT,
         };
         widget.bind_property ("revealed", revealer, "reveal-child", DEFAULT);
+
         base.append (revealer);
     }
-
 }
