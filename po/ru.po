@@ -3,9 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-20 11:01+0000\n"
-"PO-Revision-Date: 2026-09-18 04:08+0000\n"
-"Last-Translator: Automatic translation add-on <noreply-addon-"
-"autotranslate@weblate.org>\n"
+"PO-Revision-Date: 2026-10-22 02:35+0000\n"
+"Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/ru/>\n"
 "Language: ru\n"
@@ -26,7 +25,7 @@ msgstr "Процессы"
 
 #: src/MainWindow.vala:37
 msgid "Logs"
-msgstr ""
+msgstr "Журналы"
 
 #: src/MainWindow.vala:38
 msgid "System"
@@ -81,11 +80,11 @@ msgstr "Выход"
 
 #: src/Views/LogView/LogView.vala:35
 msgid "Sender"
-msgstr ""
+msgstr "Отправитель"
 
 #: src/Views/LogView/LogView.vala:43
 msgid "Message"
-msgstr ""
+msgstr "Сообщение"
 
 #: src/Views/LogView/SystemdLogEntry.vala:35
 msgid "Now"
@@ -95,26 +94,26 @@ msgstr "Сейчас"
 #, c-format
 msgid "%ds ago"
 msgid_plural "%ds ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d с назад"
+msgstr[1] "%d с назад"
+msgstr[2] "%d с назад"
 
 #: src/Views/LogView/SystemdLogEntry.vala:44
 #, c-format
 msgid "%dm ago"
 msgid_plural "%dm ago"
-msgstr[0] "%d м назад"
-msgstr[1] "%d м назад"
-msgstr[2] "%d м назад"
+msgstr[0] "%d мин назад"
+msgstr[1] "%d мин назад"
+msgstr[2] "%d мин назад"
 
 #. I think the plural form is according to the last one??
 #: src/Views/LogView/SystemdLogEntry.vala:48
 #, c-format
 msgid "%dm %ds ago"
 msgid_plural "%dm %ds ago"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d мин %d с назад"
+msgstr[1] "%d мин %d с назад"
+msgstr[2] "%d мин %d с назад"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:55
@@ -280,10 +279,8 @@ msgid "GPU temperature"
 msgstr "Температура граф. процессора"
 
 #: src/Views/SystemView/SystemCPUView.vala:20
-#, fuzzy
-#| msgid "Processes"
 msgid "Processor"
-msgstr "Процессы"
+msgstr "Процесс"
 
 #: src/Views/SystemView/SystemCPUView.vala:41
 msgid "Frequency"
@@ -424,7 +421,7 @@ msgstr "ТЕМПЕРАТУРА"
 
 #: src/Views/SystemView/SystemGPUView.vala:63
 msgid "Graphics"
-msgstr ""
+msgstr "Графика"
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:27
