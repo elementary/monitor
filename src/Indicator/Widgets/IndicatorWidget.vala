@@ -4,31 +4,15 @@
  */
 
 public class Monitor.IndicatorWidget : Gtk.Box {
-
-    public string icon_name { get; construct; }
-
     protected Gtk.Label label;
-
-    public IndicatorWidget (string icon_name) {
-        Object (
-            orientation: Gtk.Orientation.HORIZONTAL,
-            icon_name: icon_name,
-            visible: false
-            );
-    }
+    public bool revealed { get; set; }
 
     construct {
-        var icon = new Gtk.Image.from_icon_name (icon_name);
-
         label = new Gtk.Label (Utils.NOT_AVAILABLE) {
-            margin_start = 2,
-            margin_end = 2,
-            margin_top = 2,
-            margin_bottom = 2,
-            width_chars = 4,
+            valign = BASELINE_CENTER
         };
+        label.add_css_class (Granite.CssClass.NUMERIC);
 
-        append (icon);
         append (label);
     }
 

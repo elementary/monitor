@@ -4,13 +4,12 @@
  */
 
 public class Monitor.IndicatorWidgetFrequency : Monitor.IndicatorWidget {
-    public IndicatorWidgetFrequency (string icon_name) {
-        base (icon_name);
+    construct {
+        label.width_chars = 7;
     }
 
     public override void update_label (Value value) {
         double frequency = value.get_double ();
-
         label.label = Utils.Strings.format_frequency (frequency);
     }
 }
