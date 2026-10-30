@@ -1,0 +1,44 @@
+<svg
+        xmlns='http://www.w3.org/2000/svg'
+        xmlns:svg='http://www.w3.org/2000/svg'
+        xmlns:gpa='https://www.gtk.org/grappa'
+        gpa:version='1'
+        gpa:state='0'
+        id='svg6'
+        width='16'
+        height='16'>
+  <path
+          id='path1'
+          class='foreground foreground-fill'
+          style='baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill-opacity:0.2;enable-background:accumulate;stop-color:#000000'
+          fill='url(#gpa:foreground) rgb(0,0,0)'
+          fill-opacity='0.2'
+          fill-rule='nonzero'
+          d='M 4.5 1.5 A 2 2 0 0 0 2.5 3.5 L 2.5 12 A 1.5 1.5 0 0 1 4 10.5 L 13.5 10.5 L 13.5 2.5 A 1 1 0 0 0 12.5 1.5 Z'>
+  </path>
+  <path
+          id='path2'
+          class='foreground foreground-fill'
+          style='baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;enable-background:accumulate;stop-color:#000000'
+          fill='url(#gpa:foreground) rgb(0,0,0)'
+          fill-opacity='1'
+          fill-rule='nonzero'
+          d='M 4.5 1 C 3.12521 1, 2 2.12521, 2 3.5 L 2 12 L 2 13 C 2 13.9281, 2.6439 14.7154, 3.50586 14.9375 C 3.77263 15.0063, 4 14.7761, 4 14.5 C 4 14.2239, 3.76004 14.0108, 3.51953 13.8809 C 3.2081 13.7128, 3 13.3834, 3 13 L 3 12 C 3 11.9651, 3.00249 11.9304, 3.00586 11.8965 C 3.05646 11.388, 3.47669 11, 4 11 L 13 11 L 13 13.5 C 13 13.7821, 12.7821 14, 12.5 14 L 10.5 14 A 0.5 0.5 0 0 0 10 14.5 A 0.5 0.5 0 0 0 10.5 15 L 12.5 15 C 13.3225 15, 14 14.3225, 14 13.5 L 14 11 L 14 10 L 14 2.5 C 14 1.6775, 13.3225 1, 12.5 1 L 4.5 1 Z M 4.5 2 L 12.5 2 C 12.7821 2, 13 2.21794, 13 2.5 L 13 10 L 4 10 C 3.95138 10, 3.90353 10.0033, 3.85742 10.0098 C 3.5478 10.0322, 3.25548 10.1206, 3 10.2695 L 3 3.5 C 3 2.66565, 3.66565 2, 4.5 2 Z'>
+  </path>
+  <path
+          id='path3-5'
+          class=''
+          fill='url(#gpa:foreground) rgb(0,0,0)'
+          fill-opacity='1'
+          fill-rule='nonzero'
+          stroke='none'
+          stroke-opacity='1'
+          stroke-width='1'
+          stroke-linecap='butt'
+          stroke-linejoin='miter'
+          stroke-miterlimit='4'
+          d='M 5.5 12 C 5.22387 12, 5.00003 12.2239, 5 12.5 L 5 15.5 C 4.99889 15.9814, 5.61194 16.1862, 5.90039 15.8008 L 7 14.334 L 8.09961 15.8008 C 8.38806 16.1862, 9.00111 15.9814, 9 15.5 L 9 12.5 C 8.99997 12.2239, 8.77613 12, 8.5 12 Z'
+          gpa:stroke-minwidth='25%'
+          gpa:stroke-maxwidth='150%'>
+  </path>
+</svg>
