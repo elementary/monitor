@@ -64,16 +64,16 @@ public class Monitor.SystemMemoryView : Monitor.WidgetResource {
         // memory_chart.update (3, memory.shared_percentage + memory.buffer_percentage + memory.cached_percentage);
         // memory_chart.update (3, memory.shared_percentage + memory.buffer_percentage + memory.cached_percentage + memory.locked_percentage);
 
-        memory_total_label.text = format_size ((uint64) memory.total, IEC_UNITS);
-        memory_used_label.text = format_size ((uint64) memory.used, IEC_UNITS);
-        memory_buffered_label.text = format_size ((uint64) memory.buffer, IEC_UNITS);
-        memory_cached_label.text = format_size ((uint64) memory.cached, IEC_UNITS);
-        memory_locked_label.text = format_size ((uint64) memory.locked, IEC_UNITS);
+        memory_total_label.text = Utils.Strings.format_memory_size ((uint64) memory.total);
+        memory_used_label.text = Utils.Strings.format_memory_size ((uint64) memory.used);
+        memory_buffered_label.text = Utils.Strings.format_memory_size ((uint64) memory.buffer);
+        memory_cached_label.text = Utils.Strings.format_memory_size ((uint64) memory.cached);
+        memory_locked_label.text = Utils.Strings.format_memory_size ((uint64) memory.locked);
 
-        memory_shared_label.text = format_size ((uint64) memory.shared, IEC_UNITS);
+        memory_shared_label.text = Utils.Strings.format_memory_size ((uint64) memory.shared);
 
-        swap_total_label.text = format_size ((uint64) swap.total, IEC_UNITS);
-        swap_used_label.text = format_size ((uint64) swap.used, IEC_UNITS);
+        swap_total_label.text = Utils.Strings.format_memory_size ((uint64) swap.total);
+        swap_used_label.text = Utils.Strings.format_memory_size ((uint64) swap.used);
     }
 
 }

@@ -46,7 +46,8 @@ namespace Monitor {
 
         public void update () {
             GTop.get_mem (out mem);
-            total = (double) (mem.total);
+            var total_physical_memory = get_total_physical_memory ();
+            total = (double) (total_physical_memory > 0 ? total_physical_memory : mem.total);
             used = (double) mem.user;
             shared = (double) (mem.shared);
             buffer = (double) (mem.buffer);
@@ -54,5 +55,20 @@ namespace Monitor {
             locked = (double) (mem.locked);
         }
 
+        private uint64 get_total_physical_memory () {
+            uint64 mem_total = 0;
+
+            GUdev.Client client = new GUdev.Client ({"dmi"});
+            GUdev.Device? device = client.query_by_sysfs_path ("/sys/devices/virtual/dmi/id");
+
+            if (device != null) {
+                uint64 devices = device.get_property_as_uint64 ("MEMORY_ARRAY_NUM_DEVICES");
+                for (int item = 0; item < devices; item++) {
+                    mem_total += device.get_property_as_uint64 ("MEMORY_DEVICE_%d_SIZE".printf (item));
+                }
+            }
+
+            return mem_total;
+        }
     }
 }

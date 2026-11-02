@@ -6,6 +6,8 @@
 namespace Monitor.Utils {
     const int BITS_IN_BYTES = 8;
     const int MHZ_IN_GHZ = 1000;
+    const int IEC_UNIT_BASE = 1024;
+    const int NON_IEC_UNIT_BASE = 1000;
 
     const string NOT_AVAILABLE = (_("N/A"));
     const string NO_DATA = "\u2014";
@@ -72,6 +74,38 @@ public class Monitor.Utils.Strings {
         return _("%s %s/s").printf (
             format_size (speed_in_bytes_per_second * BITS_IN_BYTES, BITS | IEC_UNITS | ONLY_VALUE),
             format_size (speed_in_bytes_per_second * BITS_IN_BYTES, BITS | ONLY_UNIT)
+        );
+    }
+
+    public static string format_memory_size (uint64 size_in_bytes) {
+        uint64 unit = 1;
+        while (size_in_bytes >= unit * IEC_UNIT_BASE) {
+            unit *= IEC_UNIT_BASE;
+        }
+
+        // Adjust size for the second glib format_size () call with ONLY_UNIT flag set and IEC_UNITS flag excluded.
+        // Prevents mismatch between unit and value due to borderline overlap between IEC_UNIT_BASE (1024) and
+        // NON_IEC_UNIT_BASE (1000) values, say, if size is somewhere between 1000 and 1024 the result would be
+        // erroneously shown eg. for size 1020 MB it would have been "1020 GB" this adjustment corrects it
+        // by avoiding the mismatch thus showing "1020 MB" as intended.
+        var size_adjusted_for_non_iec_units = size_in_bytes * NON_IEC_UNIT_BASE / IEC_UNIT_BASE;
+
+        // If size is a perfect multiple/factor of IEC_UNIT_BASE (1024) then print it as a whole number
+        // else fall through to use standard glib format_size () to print with one decimal place.
+        if (size_in_bytes % unit == 0) {
+            ///TRANSLATORS: The first param is the numeric value of memory size.
+            ///The second param is the memory size such as "MB" or "GB" for megabytes or gigabytes.
+            return _("%llu %s").printf (
+                size_in_bytes / unit,
+                format_size (size_adjusted_for_non_iec_units, ONLY_UNIT)
+            );
+        }
+
+        ///TRANSLATORS: The first param is the numeric value (as string) of memory size.
+        ///The second param is the memory size such as "MB" or "GB" for megabytes or gigabytes.
+        return _("%s %s").printf (
+            format_size (size_in_bytes, IEC_UNITS | ONLY_VALUE),
+            format_size (size_adjusted_for_non_iec_units, ONLY_UNIT)
         );
     }
 }
