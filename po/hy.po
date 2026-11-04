@@ -8,13 +8,16 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-20 11:01+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-11-05 20:04+0000\n"
+"Last-Translator: Davit Yedigaryan <davit.yedigaryan.1993@gmail.com>\n"
+"Language-Team: Armenian <https://l10n.elementaryos.org/projects/desktop/"
+"monitor/hy/>\n"
 "Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: src/MainWindow.vala:14
 msgid "Monitor"
@@ -22,23 +25,23 @@ msgstr ""
 
 #: src/MainWindow.vala:36
 msgid "Processes"
-msgstr ""
+msgstr "undefined"
 
 #: src/MainWindow.vala:37
 msgid "Logs"
-msgstr ""
+msgstr "undefined"
 
 #: src/MainWindow.vala:38
 msgid "System"
-msgstr ""
+msgstr "undefined"
 
 #: src/MainWindow.vala:56
 msgid "Settings"
-msgstr ""
+msgstr "undefined"
 
 #: src/MainWindow.vala:63
 msgid "Search process name or PID"
-msgstr ""
+msgstr "undefined"
 
 #. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:10
@@ -55,14 +58,14 @@ msgstr ""
 #: src/Utils.vala:61
 #, c-format
 msgid "%.2f Ghz"
-msgstr ""
+msgstr "undefined"
 
 #. /TRANSLATORS: The first param is the cpu frequency speed value and
 #. /the second param is the cpu frequency speed unit viz. "Mhz" for megahertz.
 #: src/Utils.vala:66
 #, c-format
 msgid "%.0f Mhz"
-msgstr ""
+msgstr "undefined"
 
 #. /TRANSLATORS: The first param is the numeric value (as string) of network speed.
 #. /The second param with the appended "/s" is the network speed unit such as "Mb/s" for megabits per second.
@@ -73,36 +76,36 @@ msgstr ""
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
-msgstr ""
+msgstr "undefined"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:21
 msgid "Quit Monitor"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/LogView/LogView.vala:35
 msgid "Sender"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/LogView/LogView.vala:43
 msgid "Message"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/LogView/SystemdLogEntry.vala:35
 msgid "Now"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/LogView/SystemdLogEntry.vala:38
 #, c-format
 msgid "%ds ago"
 msgid_plural "%ds ago"
-msgstr[0] ""
+msgstr[0] "undefined"
 msgstr[1] ""
 
 #: src/Views/LogView/SystemdLogEntry.vala:44
 #, c-format
 msgid "%dm ago"
 msgid_plural "%dm ago"
-msgstr[0] ""
+msgstr[0] "undefined"
 msgstr[1] ""
 
 #. I think the plural form is according to the last one??
@@ -110,7 +113,7 @@ msgstr[1] ""
 #, c-format
 msgid "%dm %ds ago"
 msgid_plural "%dm %ds ago"
-msgstr[0] ""
+msgstr[0] "undefined"
 msgstr[1] ""
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
@@ -132,48 +135,48 @@ msgstr ""
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:100
 msgid "The app is waiting in an uninterruptible disk sleep"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:102
 msgid "Idle kernel thread"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:104
 msgid "The process is running or runnable (on run queue)"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:106
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:108
 msgid "The process is stopped by a job control signal"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:110
 msgid "The process is stopped by a debugger during the tracing"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:112
 msgid "The app is terminated but not reaped by its parent"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:14
 msgid "Read/Written"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:19
 msgid "Cancelled write"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:82
 msgid "Shut Down…"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:87
 msgid "Force Quit…"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:55
 #, c-format
@@ -187,7 +190,7 @@ msgstr ""
 
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:37
 msgid "Process Name"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:43
 #: src/Widgets/Statusbar/Statusbar.vala:14
@@ -198,95 +201,95 @@ msgstr ""
 #: src/Views/SystemView/SystemMemoryView.vala:21
 #: src/Widgets/Statusbar/Statusbar.vala:24
 msgid "Memory"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/PreferencesView.vala:17
 msgid "Update frequency"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/PreferencesView.vala:22 src/Views/PreferencesView.vala:52
 msgid "Requires restart"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/PreferencesView.vala:29
 msgid "1s"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/PreferencesView.vala:30
 msgid "2s"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/PreferencesView.vala:31
 msgid "3s"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/PreferencesView.vala:32
 msgid "4s"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/PreferencesView.vala:33
 msgid "5s"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/PreferencesView.vala:49
 msgid "Start in background"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/PreferencesView.vala:51
 msgid "Draw smooth lines on CPU chart"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/PreferencesView.vala:57
 msgid "Show in panel"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/PreferencesView.vala:62
 msgid "CPU percentage"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/PreferencesView.vala:67
 msgid "CPU frequency"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/PreferencesView.vala:72
 msgid "CPU temperature"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/PreferencesView.vala:77
 msgid "RAM percentage"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/PreferencesView.vala:82
 msgid "Network upload"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/PreferencesView.vala:87
 msgid "Network download"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/PreferencesView.vala:92
 msgid "GPU percentage"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/PreferencesView.vala:97
 msgid "VRAM percentage"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/PreferencesView.vala:102
 msgid "GPU temperature"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemCPUView.vala:20
 msgid "Processor"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemCPUView.vala:41
 msgid "Frequency"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemCPUView.vala:48
 msgid "Temperature"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemCPUView.vala:85
 #: src/Views/SystemView/SystemGPUView.vala:93
@@ -295,31 +298,31 @@ msgstr ""
 
 #: src/Views/SystemView/SystemCPUView.vala:150
 msgid "Threads"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:29
 msgid "General"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:30
 msgid "Features"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:31
 msgid "Bugs"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:62
 msgid "Model:"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:63
 msgid "Family:"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:64
 msgid "Microcode ver.:"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:65
 msgid "Bogomips:"
@@ -327,87 +330,87 @@ msgstr ""
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:69
 msgid "L1 Instruction cache: "
-msgstr ""
+msgstr "undefined "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:73
 msgid "L1 Data cache: "
-msgstr ""
+msgstr "undefined "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:77
 msgid "L1 cache: "
-msgstr ""
+msgstr "undefined "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:80
 msgid "L2 Cache size: "
-msgstr ""
+msgstr "undefined "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:83
 msgid "L3 Cache size: "
-msgstr ""
+msgstr "undefined "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:86
 msgid "Address sizes: "
-msgstr ""
+msgstr "undefined "
 
 #: src/Views/SystemView/SystemMemoryView.vala:11
 msgid "Buffered"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemMemoryView.vala:12
 msgid "Cached"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemMemoryView.vala:13
 msgid "Locked"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemMemoryView.vala:14
 msgid "Total"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemMemoryView.vala:15
 msgid "Used"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemMemoryView.vala:16
 msgid "Shared"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemMemoryView.vala:17
 msgid "Swap Total"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemMemoryView.vala:18
 msgid "Swap Used"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemNetworkView.vala:26
 msgid "Network"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemNetworkView.vala:28
 msgid "DOWN"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemNetworkView.vala:33
 msgid "UP"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemStorageView.vala:18
 msgid "Storage"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
 msgid "Write"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemStorageView.vala:25
 msgid "Read"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemGPUView.vala:17
 msgid "VRAM"
@@ -415,18 +418,18 @@ msgstr ""
 
 #: src/Views/SystemView/SystemGPUView.vala:23
 msgid "TEMPERATURE"
-msgstr ""
+msgstr "undefined"
 
 #: src/Views/SystemView/SystemGPUView.vala:63
 msgid "Graphics"
-msgstr ""
+msgstr "undefined"
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:27
 #: src/Widgets/Statusbar/Statusbar.vala:37
 #: src/Widgets/Statusbar/Statusbar.vala:47
 msgid "Calculating…"
-msgstr ""
+msgstr "undefined"
 
 #: src/Widgets/Statusbar/Statusbar.vala:34
 msgid "Swap"
@@ -442,4 +445,4 @@ msgstr ""
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:44
 msgid "Utilization"
-msgstr ""
+msgstr "undefined"
