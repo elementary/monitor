@@ -8,9 +8,8 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-20 11:01+0000\n"
-"PO-Revision-Date: 2026-09-18 04:08+0000\n"
-"Last-Translator: Automatic translation add-on <noreply-addon-"
-"autotranslate@weblate.org>\n"
+"PO-Revision-Date: 2026-10-18 20:04+0000\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
 "l10n.elementaryos.org/projects/desktop/monitor/zh_TW/>\n"
 "Language: zh_TW\n"
@@ -30,7 +29,7 @@ msgstr "程序"
 
 #: src/MainWindow.vala:37
 msgid "Logs"
-msgstr ""
+msgstr "紀錄"
 
 #: src/MainWindow.vala:38
 msgid "System"
@@ -59,21 +58,21 @@ msgstr "N/A"
 #: src/Utils.vala:61
 #, c-format
 msgid "%.2f Ghz"
-msgstr ""
+msgstr "%.2f GHz"
 
 #. /TRANSLATORS: The first param is the cpu frequency speed value and
 #. /the second param is the cpu frequency speed unit viz. "Mhz" for megahertz.
 #: src/Utils.vala:66
 #, c-format
 msgid "%.0f Mhz"
-msgstr ""
+msgstr "%.0f MHz"
 
 #. /TRANSLATORS: The first param is the numeric value (as string) of network speed.
 #. /The second param with the appended "/s" is the network speed unit such as "Mb/s" for megabits per second.
 #: src/Utils.vala:72
 #, c-format
 msgid "%s %s/s"
-msgstr ""
+msgstr "%s %s/秒"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
@@ -85,11 +84,11 @@ msgstr "離開《監控》"
 
 #: src/Views/LogView/LogView.vala:35
 msgid "Sender"
-msgstr ""
+msgstr "送出者"
 
 #: src/Views/LogView/LogView.vala:43
 msgid "Message"
-msgstr ""
+msgstr "訊息"
 
 #: src/Views/LogView/SystemdLogEntry.vala:35
 msgid "Now"
@@ -99,7 +98,7 @@ msgstr "現在"
 #, c-format
 msgid "%ds ago"
 msgid_plural "%ds ago"
-msgstr[0] ""
+msgstr[0] "%d 秒前"
 
 #: src/Views/LogView/SystemdLogEntry.vala:44
 #, c-format
@@ -112,7 +111,7 @@ msgstr[0] "%d 分鐘前"
 #, c-format
 msgid "%dm %ds ago"
 msgid_plural "%dm %ds ago"
-msgstr[0] ""
+msgstr[0] "%d 分 %d 秒前"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:55
@@ -278,10 +277,8 @@ msgid "GPU temperature"
 msgstr "GPU 溫度"
 
 #: src/Views/SystemView/SystemCPUView.vala:20
-#, fuzzy
-#| msgid "Processes"
 msgid "Processor"
-msgstr "程序"
+msgstr "處理器"
 
 #: src/Views/SystemView/SystemCPUView.vala:41
 msgid "Frequency"
@@ -298,7 +295,7 @@ msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:150
 msgid "Threads"
-msgstr ""
+msgstr "執行緒"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:29
 msgid "General"
@@ -402,11 +399,11 @@ msgstr "儲存裝置"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
 msgid "Write"
-msgstr ""
+msgstr "寫入"
 
 #: src/Views/SystemView/SystemStorageView.vala:25
 msgid "Read"
-msgstr ""
+msgstr "讀取"
 
 #: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
@@ -422,7 +419,7 @@ msgstr "溫度"
 
 #: src/Views/SystemView/SystemGPUView.vala:63
 msgid "Graphics"
-msgstr ""
+msgstr "圖形"
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:27

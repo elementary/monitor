@@ -9,9 +9,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-20 11:01+0000\n"
-"PO-Revision-Date: 2026-09-18 04:08+0000\n"
-"Last-Translator: Automatic translation add-on <noreply-addon-"
-"autotranslate@weblate.org>\n"
+"PO-Revision-Date: 2026-10-20 21:04+0000\n"
+"Last-Translator: Italo Felipe Capasso Ballesteros <italo@gp-mail.com>\n"
 "Language-Team: Spanish <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/es/>\n"
 "Language: es\n"
@@ -31,7 +30,7 @@ msgstr "Procesos"
 
 #: src/MainWindow.vala:37
 msgid "Logs"
-msgstr ""
+msgstr "Registros"
 
 #: src/MainWindow.vala:38
 msgid "System"
@@ -60,21 +59,21 @@ msgstr "N/A"
 #: src/Utils.vala:61
 #, c-format
 msgid "%.2f Ghz"
-msgstr ""
+msgstr "%.2f GHz"
 
 #. /TRANSLATORS: The first param is the cpu frequency speed value and
 #. /the second param is the cpu frequency speed unit viz. "Mhz" for megahertz.
 #: src/Utils.vala:66
 #, c-format
 msgid "%.0f Mhz"
-msgstr ""
+msgstr "%.0f MHz"
 
 #. /TRANSLATORS: The first param is the numeric value (as string) of network speed.
 #. /The second param with the appended "/s" is the network speed unit such as "Mb/s" for megabits per second.
 #: src/Utils.vala:72
 #, c-format
 msgid "%s %s/s"
-msgstr ""
+msgstr "%s %s/s"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
@@ -86,11 +85,11 @@ msgstr "Cerrar Monitor"
 
 #: src/Views/LogView/LogView.vala:35
 msgid "Sender"
-msgstr ""
+msgstr "Remitente"
 
 #: src/Views/LogView/LogView.vala:43
 msgid "Message"
-msgstr ""
+msgstr "Mensaje"
 
 #: src/Views/LogView/SystemdLogEntry.vala:35
 msgid "Now"
@@ -100,8 +99,8 @@ msgstr "Ahora"
 #, c-format
 msgid "%ds ago"
 msgid_plural "%ds ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "hace %d segundo"
+msgstr[1] "hace %d segundos"
 
 #: src/Views/LogView/SystemdLogEntry.vala:44
 #, c-format
@@ -115,8 +114,8 @@ msgstr[1] "hace %d minutos"
 #, c-format
 msgid "%dm %ds ago"
 msgid_plural "%dm %ds ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "hace %dm %ds"
+msgstr[1] "hace %dm %ds"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:55
@@ -289,10 +288,8 @@ msgid "GPU temperature"
 msgstr "Temperatura de la GPU"
 
 #: src/Views/SystemView/SystemCPUView.vala:20
-#, fuzzy
-#| msgid "Processes"
 msgid "Processor"
-msgstr "Procesos"
+msgstr "Procesador"
 
 #: src/Views/SystemView/SystemCPUView.vala:41
 msgid "Frequency"
@@ -309,7 +306,7 @@ msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:150
 msgid "Threads"
-msgstr ""
+msgstr "Hilos"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:29
 msgid "General"
@@ -413,11 +410,11 @@ msgstr "Almacenamiento"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
 msgid "Write"
-msgstr ""
+msgstr "Escritura"
 
 #: src/Views/SystemView/SystemStorageView.vala:25
 msgid "Read"
-msgstr ""
+msgstr "Lectura"
 
 #: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
@@ -433,7 +430,7 @@ msgstr "TEMPERATURA"
 
 #: src/Views/SystemView/SystemGPUView.vala:63
 msgid "Graphics"
-msgstr ""
+msgstr "Gráficos"
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:27

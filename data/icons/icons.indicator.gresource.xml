@@ -4,12 +4,10 @@
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/categories/bug-symbolic.svg">bug-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/devices/cpu-symbolic.svg">cpu-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/devices/gpu-symbolic.svg">gpu-symbolic.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="scalable/devices/network-symbolic.svg">network-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/devices/ram-symbolic.svg">ram-symbolic.svg</file>
-    <file compressed="true" preprocess="xml-stripblanks" alias="scalable/devices/gpu-vram-symbolic.svg">gpu-vram-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/devices/swap-symbolic.svg">swap-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/mimetypes/file-deleted-symbolic.svg">file-deleted-symbolic.svg</file>
-    <file compressed="true" preprocess="xml-stripblanks" alias="scalable/devices/temperature-sensor-symbolic.svg">temperature-sensor-symbolic.svg</file>
-    <file compressed="true" preprocess="xml-stripblanks" alias="scalable/devices/temperature-gpu-symbolic.svg">temperature-gpu-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/status/process-attention-symbolic.svg">process-attention-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/status/process-emergency-symbolic.svg">process-critical-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="scalable/status/process-information-symbolic.svg">process-information-symbolic.svg</file>

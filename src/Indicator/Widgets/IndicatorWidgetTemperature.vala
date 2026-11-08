@@ -4,13 +4,12 @@
  */
 
 public class Monitor.IndicatorWidgetTemperature : Monitor.IndicatorWidget {
-    public IndicatorWidgetTemperature (string icon_name) {
-        base (icon_name);
+    construct {
+        label.width_chars = 3;
     }
 
     public override void update_label (Value value) {
         int temperature = value.get_int ();
-
         label.label = "%i℃".printf (temperature);
     }
 }
