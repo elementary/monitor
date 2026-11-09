@@ -163,7 +163,13 @@ public class Monitor.SystemdLogModel : GLib.Object, GLib.ListModel, Gtk.SectionM
 
         var dt = new DateTime.from_unix_utc ((int64) (time / TimeSpan.SECOND));
 
-        var entry = new SystemdLogEntry (origin, message, dt, (Systemd.Journal.Priority) int.parse (priority));
+        int numeric_priority = -1;
+        if (priority != null) {
+            numeric_priority = int.parse (priority);
+        } else {
+            debug ("Unable to read priority from: %s (message: %s)", origin, message);
+        }
+        var entry = new SystemdLogEntry (origin, message, dt, (Systemd.Journal.Priority) numeric_priority);
 
         // Filter if we're searching. We drop them and don't add them and use a filter model
         // because when searching for e.g. a non existent term this would fill up memory *quick*
