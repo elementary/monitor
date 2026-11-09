@@ -48,7 +48,7 @@ namespace Monitor {
                 // if (id != null)
                 // appid_map.insert (id, info);
                 // }
-                if (commandline == null)
+                if (commandline == null || commandline.strip () == "")
                     continue;
 
                 apps_info_list.set (commandline, app_info);
