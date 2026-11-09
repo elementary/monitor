@@ -188,7 +188,7 @@ namespace Monitor {
             }
 
             foreach (var key in apps_info_list.keys) {
-                if (apps_info_list.get (key).get_executable () == command_sanitized) {
+                if (Path.get_basename (apps_info_list.get (key).get_executable ()) == command_sanitized_basename) {
                     process.application_name = apps_info_list.get (key).get_name ();
                     process.icon = apps_info_list.get (key).get_icon ();
                 } else if (apps_info_list.get (key).get_executable () == process.command.split (" ")[1]) {
