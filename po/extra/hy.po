@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-20 11:01+0000\n"
-"PO-Revision-Date: 2026-11-09 21:04+0000\n"
+"PO-Revision-Date: 2026-11-13 20:04+0000\n"
 "Last-Translator: Davit Yedigaryan <davit.yedigaryan.1993@gmail.com>\n"
 "Language-Team: Armenian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor-extra/hy/>\n"
@@ -38,7 +38,7 @@ msgstr "elementary, Inc."
 #: data/io.elementary.monitor.metainfo.xml.in:39
 #: data/io.elementary.monitor.metainfo.xml.in:53
 msgid "Other Improvements:"
-msgstr ""
+msgstr "Այլ բարելավումներ՝"
 
 #: data/io.elementary.monitor.metainfo.xml.in:41
 #: data/io.elementary.monitor.metainfo.xml.in:55
