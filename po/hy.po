@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-20 11:01+0000\n"
-"PO-Revision-Date: 2026-11-05 20:04+0000\n"
+"PO-Revision-Date: 2026-11-20 16:04+0000\n"
 "Last-Translator: Davit Yedigaryan <davit.yedigaryan.1993@gmail.com>\n"
 "Language-Team: Armenian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/hy/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: src/MainWindow.vala:14
 msgid "Monitor"
-msgstr ""
+msgstr "Մոնիտոր"
 
 #: src/MainWindow.vala:36
 msgid "Processes"
@@ -51,7 +51,7 @@ msgstr "undefined"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:80
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #. /TRANSLATORS: The first param is the cpu frequency speed value and
 #. /the second param is the cpu frequency speed unit viz. "Ghz" for gigahertz.
@@ -72,7 +72,7 @@ msgstr "undefined"
 #: src/Utils.vala:72
 #, c-format
 msgid "%s %s/s"
-msgstr ""
+msgstr "%s %s/s"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
@@ -119,19 +119,19 @@ msgstr[1] ""
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:55
 msgid "PID"
-msgstr ""
+msgstr "PID"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:47
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:48
 msgid "PRI"
-msgstr ""
+msgstr "PRI"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:49
 msgid "THR"
-msgstr ""
+msgstr "THR"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:100
 msgid "The app is waiting in an uninterruptible disk sleep"
@@ -181,12 +181,12 @@ msgstr "undefined"
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:55
 #, c-format
 msgid "CPU: %.1f%%"
-msgstr ""
+msgstr "CPU: %.1f%%"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:56
 #, c-format
 msgid "RAM: %.1f%%"
-msgstr ""
+msgstr "RAM: %.1f%%"
 
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:37
 msgid "Process Name"
@@ -195,7 +195,7 @@ msgstr "undefined"
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:43
 #: src/Widgets/Statusbar/Statusbar.vala:14
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:49
 #: src/Views/SystemView/SystemMemoryView.vala:21
@@ -294,7 +294,7 @@ msgstr "undefined"
 #: src/Views/SystemView/SystemCPUView.vala:85
 #: src/Views/SystemView/SystemGPUView.vala:93
 msgid "℃"
-msgstr ""
+msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:150
 msgid "Threads"
@@ -326,7 +326,7 @@ msgstr "undefined"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:65
 msgid "Bogomips:"
-msgstr ""
+msgstr "Bogomips:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:69
 msgid "L1 Instruction cache: "
@@ -414,7 +414,7 @@ msgstr "undefined"
 
 #: src/Views/SystemView/SystemGPUView.vala:17
 msgid "VRAM"
-msgstr ""
+msgstr "VRAM"
 
 #: src/Views/SystemView/SystemGPUView.vala:23
 msgid "TEMPERATURE"
@@ -433,15 +433,15 @@ msgstr "undefined"
 
 #: src/Widgets/Statusbar/Statusbar.vala:34
 msgid "Swap"
-msgstr ""
+msgstr "Swap"
 
 #: src/Widgets/Statusbar/Statusbar.vala:44
 msgid "GPU"
-msgstr ""
+msgstr "GPU"
 
 #: src/Widgets/Statusbar/Statusbar.vala:71
 msgid "GHz"
-msgstr ""
+msgstr "GHz"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:44
 msgid "Utilization"
