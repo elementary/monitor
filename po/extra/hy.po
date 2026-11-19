@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-20 11:01+0000\n"
-"PO-Revision-Date: 2026-11-13 20:04+0000\n"
+"PO-Revision-Date: 2026-11-20 16:04+0000\n"
 "Last-Translator: Davit Yedigaryan <davit.yedigaryan.1993@gmail.com>\n"
 "Language-Team: Armenian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor-extra/hy/>\n"
@@ -21,15 +21,17 @@ msgstr ""
 
 #: data/io.elementary.monitor.metainfo.xml.in:9 data/monitor.desktop.in:5
 msgid "Monitor"
-msgstr ""
+msgstr "Մոնիտոր"
 
 #: data/io.elementary.monitor.metainfo.xml.in:10
 msgid "Manage processes and monitor system resources"
-msgstr ""
+msgstr "Կառավարեք պրոցեսները և հետևեք համակարգի ռեսուրսներին"
 
 #: data/io.elementary.monitor.metainfo.xml.in:12
 msgid "Display usage of system resources, filter and manage processes."
 msgstr ""
+"Ցուցադրում է համակարգի ռեսուրսների օգտագործումը, զտում և կառավարում "
+"պրոցեսները։"
 
 #: data/io.elementary.monitor.metainfo.xml.in:26
 msgid "elementary, Inc."
@@ -47,266 +49,281 @@ msgstr "Թարմացված թարգմանություններ"
 
 #: data/io.elementary.monitor.metainfo.xml.in:76
 msgid "Add info about drives (based on Dirli's code)"
-msgstr ""
+msgstr "Ավելացվել է տեղեկատվություն կրիչների մասին (հիմնված է Dirli-ի կոդի վրա)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:81
 msgid "Adds dark theme 🌚"
-msgstr ""
+msgstr "Ավելացվել է մուգ թեմա 🌚"
 
 #: data/io.elementary.monitor.metainfo.xml.in:86
 msgid "Uses Wingpanel v3; New *.deb package maintainer: Kristopher Ives"
 msgstr ""
+"Օգտագործում է Wingpanel v3-ը։ *.deb փաթեթի նոր սպասարկող՝ Kristopher Ives"
 
 #: data/io.elementary.monitor.metainfo.xml.in:91
 msgid "🐛 Should fix empty Indicator. Please reboot after installation ⚡️"
 msgstr ""
+"🐛 Պետք է շտկվի դատարկ ինդիկատորի խնդիրը։ Տեղադրումից հետո վերագործարկեք "
+"համակարգը ⚡️"
 
 #: data/io.elementary.monitor.metainfo.xml.in:97
 msgid "🐛 Try to fix frequent GUI hangs 🥶"
-msgstr ""
+msgstr "🐛 Փորձ է արվել շտկել ինտերֆեյսի հաճախակի սառեցումները 🥶"
 
 #: data/io.elementary.monitor.metainfo.xml.in:98
 msgid "🇳🇱 Update Dutch translation (@Vistaus)"
-msgstr ""
+msgstr "🇳🇱 Թարմացվել է հոլանդերեն թարգմանությունը (@Vistaus)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:99
 msgid "🇵🇹 Update Portuguese translation (@hugok79)"
-msgstr ""
+msgstr "🇵🇹 Թարմացվել է պորտուգալերեն թարգմանությունը (@hugok79)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:100
 msgid "🇷🇴 Add Romanian translation (@tiberiufrat)"
-msgstr ""
+msgstr "🇷🇴 Ավելացվել է ռումիներեն թարգմանությունը (@tiberiufrat)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:107
 msgid "Display Storage usage"
-msgstr ""
+msgstr "Ցուցադրվում է պահոցի օգտագործումը"
 
 #: data/io.elementary.monitor.metainfo.xml.in:108
 msgid "Update Russian translation (@camellan)"
-msgstr ""
+msgstr "Թարմացվել է ռուսերեն թարգմանությունը (@camellan)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:109
 msgid "Update Portuguese translation (@hugok79)"
-msgstr ""
+msgstr "Թարմացվել է պորտուգալերեն թարգմանությունը (@hugok79)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:110
 msgid "Different colours for Upload and Download"
-msgstr ""
+msgstr "Տարբեր գույներ վերբեռնման և ներբեռնման համար"
 
 #: data/io.elementary.monitor.metainfo.xml.in:117
 #: data/io.elementary.monitor.metainfo.xml.in:129
 msgid "Update Portuguese translation (@rottenpants466)"
-msgstr ""
+msgstr "Թարմացվել է պորտուգալերեն թարգմանությունը (@rottenpants466)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:118
 msgid "Update Dutch translation (@Vistaus)"
-msgstr ""
+msgstr "Թարմացվել է հոլանդերեն թարգմանությունը (@Vistaus)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:119
 msgid "Smoother animations (@DevAlien)"
-msgstr ""
+msgstr "Ավելի սահուն անիմացիաներ (@DevAlien)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:120
 msgid "Preselect first entry so that the info panel is always open (@DevAlien)"
 msgstr ""
+"Առաջին գրառումը նախօրոք ընտրվում է, որպեսզի տեղեկատվական վահանակը միշտ բաց "
+"լինի (@DevAlien)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:121
 msgid "Show CPU temperature in the Indicator"
-msgstr ""
+msgstr "Ինդիկատորում ցուցադրվում է CPU-ի ջերմաստիճանը"
 
 #: data/io.elementary.monitor.metainfo.xml.in:128
 msgid "Better System Tab"
-msgstr ""
+msgstr "Բարելավված «Համակարգ» ներդիր"
 
 #: data/io.elementary.monitor.metainfo.xml.in:130
 msgid "Save last opened view (@ryonakano)"
-msgstr ""
+msgstr "Պահվում է վերջին բացված տեսքը (@ryonakano)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:137
 #: data/io.elementary.monitor.metainfo.xml.in:200
 msgid "Update Japanese translation (Ryo Nakano)"
-msgstr ""
+msgstr "Թարմացվել է ճապոներեն թարգմանությունը (Ryo Nakano)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:138
 msgid "Disable search entry, when System tab is active"
-msgstr ""
+msgstr "Որոնման դաշտն անջատվում է, երբ «Համակարգ» ներդիրն ակտիվ է"
 
 #: data/io.elementary.monitor.metainfo.xml.in:139
 msgid "Add screenshots"
-msgstr ""
+msgstr "Ավելացվել են էկրանի նկարներ"
 
 #: data/io.elementary.monitor.metainfo.xml.in:146
 msgid "Add System resources tab"
-msgstr ""
+msgstr "Ավելացվել է «Համակարգի ռեսուրսներ» ներդիրը"
 
 #: data/io.elementary.monitor.metainfo.xml.in:153
 msgid "Added tooltips to process state label (Ryo Nakano)"
-msgstr ""
+msgstr "Պրոցեսի վիճակի պիտակին ավելացվել են հուշումներ (Ryo Nakano)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:154
 msgid "Small bugfix"
-msgstr ""
+msgstr "Փոքր շտկում"
 
 #: data/io.elementary.monitor.metainfo.xml.in:161
 msgid "Fix sorting arrows"
-msgstr ""
+msgstr "Շտկվել են դասավորման սլաքները"
 
 #: data/io.elementary.monitor.metainfo.xml.in:162
 #: data/io.elementary.monitor.metainfo.xml.in:198
 #: data/io.elementary.monitor.metainfo.xml.in:212
 msgid "Update Russian translation (camellan)"
-msgstr ""
+msgstr "Թարմացվել է ռուսերեն թարգմանությունը (camellan)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:163
 msgid "Add Turkish translation (Harun Yasar)"
-msgstr ""
+msgstr "Ավելացվել է թուրքերեն թարգմանությունը (Harun Yasar)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:164
 msgid ""
 "Use newest version of live-chart (Laurent Callarec) ← Check his lib for "
 "creating charts, it's amazing!"
 msgstr ""
+"Օգտագործվում է live-chart-ի նորագույն տարբերակը (Laurent Callarec) ← "
+"Ծանոթացեք նրա գրադարանին գրաֆիկներ ստեղծելու համար, այն հիանալի է։"
 
 #: data/io.elementary.monitor.metainfo.xml.in:171
 msgid "Detailed process info in sidebar"
-msgstr ""
+msgstr "Մանրամասն տեղեկատվություն պրոցեսի մասին կողագոտում"
 
 #: data/io.elementary.monitor.metainfo.xml.in:172
 msgid "CPU frequency in tooltip (Ryo Nakano)"
-msgstr ""
+msgstr "CPU-ի հաճախականությունը հուշման մեջ (Ryo Nakano)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:179
 msgid "Bugfix (potential) of crushes and high CPU usage"
-msgstr ""
+msgstr "Շտկվել են (հնարավոր) վթարները և CPU-ի բարձր օգտագործումը"
 
 #: data/io.elementary.monitor.metainfo.xml.in:180
 msgid "Update German translation (Carsten Dietrich)"
-msgstr ""
+msgstr "Թարմացվել է գերմաներեն թարգմանությունը (Carsten Dietrich)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:187
 msgid "Update Portuguese translation (Hugo Carvalho)"
-msgstr ""
+msgstr "Թարմացվել է պորտուգալերեն թարգմանությունը (Hugo Carvalho)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:188
 msgid "Update French translation (Nathan Bonnemains and Skeudwenn)"
-msgstr ""
+msgstr "Թարմացվել է ֆրանսերեն թարգմանությունը (Nathan Bonnemains և Skeudwenn)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:189
 msgid "Fix: Don't show swap percentage when it's not available (Ryo Nakano)"
 msgstr ""
+"Շտկվել է՝ swap-ի տոկոսը չի ցուցադրվում, երբ այն հասանելի չէ (Ryo Nakano)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:196
 msgid "Update Italian translation (Mirko Brombin)"
-msgstr ""
+msgstr "Թարմացվել է իտալերեն թարգմանությունը (Mirko Brombin)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:197
 msgid "Show swap usage (Ryo Nakano)"
-msgstr ""
+msgstr "Ցուցադրվում է swap-ի օգտագործումը (Ryo Nakano)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:199
 msgid "Code refactoring (Ryo Nakano)"
-msgstr ""
+msgstr "Կոդի վերակազմավորում (Ryo Nakano)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:207
 msgid "Fix contents of the window are not shown (Ryo Nakano)"
-msgstr ""
+msgstr "Շտկվել է պատուհանի բովանդակության չցուցադրվելը (Ryo Nakano)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:208
 msgid ""
 "ix no row is still selected when indicator options are enabled (Ryo Nakano)"
 msgstr ""
+"Շտկվել է՝ ինդիկատորի ընտրանքները միացնելիս որևէ տող այլևս ընտրված չէ (Ryo "
+"Nakano)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:209
 msgid ""
 "Fix the app crashes by clicking the \"End/Kill Process\" buttons when no "
 "process is selected (Ryo Nakano)"
 msgstr ""
+"Շտկվել է հավելվածի վթարը «Ավարտել/Ստիպողաբար փակել պրոցեսը» կոճակներին "
+"սեղմելիս, երբ պրոցես ընտրված չէ (Ryo Nakano)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:210
 msgid "Added buttons to either \"kill\" or \"end\" a process. (Evan Buss)"
 msgstr ""
+"Ավելացվել են կոճակներ պրոցեսը «ստիպողաբար փակելու» կամ «ավարտելու» համար։ "
+"(Evan Buss)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:211
 msgid "Change screenshot to English (Christopher Crouse)"
-msgstr ""
+msgstr "Էկրանի նկարը փոխվել է անգլերենի (Christopher Crouse)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:213
 msgid "Check if the default display is a X11 display (Hannes Schulze)"
-msgstr ""
+msgstr "Ստուգվում է՝ լռելյայն էկրանը X11 էկրան է, թե ոչ (Hannes Schulze)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:214
 msgid "Update Spanish translation (Mario Rodrigo)"
-msgstr ""
+msgstr "Թարմացվել է իսպաներեն թարգմանությունը (Mario Rodrigo)"
 
 #: data/io.elementary.monitor.metainfo.xml.in:221
 msgid "Add start-in-background option to UI"
-msgstr ""
+msgstr "Ինտերֆեյսին ավելացվել է ֆոնային գործարկման ընտրանի"
 
 #: data/io.elementary.monitor.metainfo.xml.in:228
 msgid "Add start-in-background command line option"
-msgstr ""
+msgstr "Հրամանի տողին ավելացվել է ֆոնային գործարկման ընտրանի"
 
 #: data/io.elementary.monitor.metainfo.xml.in:229
 msgid "Add Italian and Portuguese translations"
-msgstr ""
+msgstr "Ավելացվել են իտալերեն և պորտուգալերեն թարգմանությունները"
 
 #: data/io.elementary.monitor.metainfo.xml.in:230
 msgid "Update Dutch, French and Spanish translations"
-msgstr ""
+msgstr "Թարմացվել են հոլանդերեն, ֆրանսերեն և իսպաներեն թարգմանությունները"
 
 #: data/io.elementary.monitor.metainfo.xml.in:231
 msgid "Fix Japanese translation"
-msgstr ""
+msgstr "Շտկվել է ճապոներեն թարգմանությունը"
 
 #: data/io.elementary.monitor.metainfo.xml.in:238
 msgid "Minor bug fix"
-msgstr ""
+msgstr "Փոքր վրիպակի շտկում"
 
 #: data/io.elementary.monitor.metainfo.xml.in:239
 msgid "Make End process button red"
-msgstr ""
+msgstr "«Ավարտել պրոցեսը» կոճակը դարձվել է կարմիր"
 
 #: data/io.elementary.monitor.metainfo.xml.in:240
 msgid "Add Japanese translation"
-msgstr ""
+msgstr "Ավելացվել է ճապոներեն թարգմանությունը"
 
 #: data/io.elementary.monitor.metainfo.xml.in:247
 msgid "Add CPU and RAM icons"
-msgstr ""
+msgstr "Ավելացվել են CPU-ի և RAM-ի պատկերակներ"
 
 #: data/io.elementary.monitor.metainfo.xml.in:248
 msgid "Fix bug, that caused hanging"
-msgstr ""
+msgstr "Շտկվել է սառեցում առաջացնող վրիպակը"
 
 #: data/io.elementary.monitor.metainfo.xml.in:249
 msgid "Update Polish and Russian translation"
-msgstr ""
+msgstr "Թարմացվել են լեհերեն և ռուսերեն թարգմանությունները"
 
 #: data/io.elementary.monitor.metainfo.xml.in:256
 msgid "Add Monitor indicator"
-msgstr ""
+msgstr "Ավելացվել է Մոնիտոր ինդիկատորը"
 
 #: data/io.elementary.monitor.metainfo.xml.in:257
 msgid "Add missing extra French translations"
-msgstr ""
+msgstr "Ավելացվել են բացակայող լրացուցիչ ֆրանսերեն թարգմանությունները"
 
 #: data/io.elementary.monitor.metainfo.xml.in:258
 msgid ""
 "Fix: if icon missing for the process, icon is taken from previous process"
 msgstr ""
+"Շտկվել է՝ եթե պրոցեսի պատկերակը բացակայում է, այն վերցվում է նախորդ պրոցեսից"
 
 #: data/io.elementary.monitor.metainfo.xml.in:259
 msgid "Fix: search erases my input while I'm typing"
-msgstr ""
+msgstr "Շտկվել է՝ որոնումը ջնջում է մուտքագրվածը տպելու ընթացքում"
 
 #: data/io.elementary.monitor.metainfo.xml.in:260
 msgid "Fix POTFILES"
-msgstr ""
+msgstr "Շտկվել է POTFILES-ը"
 
 #: data/monitor.desktop.in:6
 msgid "Manage processes and monitor resource usage of the system"
-msgstr ""
+msgstr "Կառավարեք պրոցեսները և հետևեք համակարգի ռեսուրսների օգտագործմանը"
 
 #: data/monitor.desktop.in:8
 msgid "System monitor;System usage;Task manager;"
-msgstr ""
+msgstr "System monitor;System usage;Task manager;"
