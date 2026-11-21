@@ -6,6 +6,8 @@
 namespace Monitor.Utils {
     const int BITS_IN_BYTES = 8;
     const int MHZ_IN_GHZ = 1000;
+    const int IEC_UNIT_BASE = 1024;
+    const int NON_IEC_UNIT_BASE = 1000;
 
     const string NOT_AVAILABLE = (_("N/A"));
     const string NO_DATA = "\u2014";
@@ -67,11 +69,14 @@ public class Monitor.Utils.Strings {
     }
 
     public static string format_network_speed (uint64 speed_in_bytes_per_second) {
+        var speed_for_iec_units = speed_in_bytes_per_second * BITS_IN_BYTES;
+        var speed_adjusted_for_non_iec_units = speed_for_iec_units * NON_IEC_UNIT_BASE / IEC_UNIT_BASE;
+
         ///TRANSLATORS: The first param is the numeric value (as string) of network speed.
         ///The second param with the appended "/s" is the network speed unit such as "Mb/s" for megabits per second.
         return _("%s %s/s").printf (
-            format_size (speed_in_bytes_per_second * BITS_IN_BYTES, BITS | IEC_UNITS | ONLY_VALUE),
-            format_size (speed_in_bytes_per_second * BITS_IN_BYTES, BITS | ONLY_UNIT)
+            format_size (speed_for_iec_units, BITS | IEC_UNITS | ONLY_VALUE),
+            format_size (speed_adjusted_for_non_iec_units, BITS | ONLY_UNIT)
         );
     }
 }
