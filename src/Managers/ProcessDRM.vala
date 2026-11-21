@@ -30,7 +30,7 @@ public class Monitor.ProcessDRM : GLib.Object {
     private uint64 delta_ccs = 0;
     private uint64 delta_total_ccs = 0;
 
-    public double gpu_percentage { get; private set; }
+    public double gpu_percentage { get; private set; default = 0; }
 
     private int pid;
     private int update_interval;
@@ -99,7 +99,6 @@ public class Monitor.ProcessDRM : GLib.Object {
 
     public void update () {
         if (drm_files.size == 0) {
-            gpu_percentage = 0;
             return;
         }
 
@@ -138,7 +137,7 @@ public class Monitor.ProcessDRM : GLib.Object {
     }
 
     private void calculate_percentage_ns (ref uint64 engine, ref uint64 last_engine) {
-        if (last_engine != 0) {
+        if (last_engine != 0 && engine >= last_engine) {
             // Since values in the files are in nanoseconds, it is also needed to convert
             // the interval to nanoseconds (10^9)
             gpu_percentage = 100 * ((double) (engine - last_engine)) / (update_interval * 1e9);
