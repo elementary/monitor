@@ -34,6 +34,7 @@ app_dependencies = [
     dependency('gio-2.0'),
     dependency('gobject-2.0'),
     dependency('libgtop-2.0'),
+    dependency('gudev-1.0'),
     dependency('libadwaita-1', version: '>=1.0.0'),
     dependency('libsystemd'),
     dependency('gtk4-x11'),
