@@ -96,22 +96,24 @@ public class Monitor.SystemStorageView : Gtk.Box {
                 size = H3
             };
 
-            string size_string = format_size ((uint64) drive.size, IEC_UNITS);
-            string used_string = format_size ((uint64) (drive.size - drive.free), IEC_UNITS);
+            var size_string = format_size ((uint64) drive.size);
+            var used_string = format_size ((uint64) (drive.size_mounted - drive.free));
+            var available_string = format_size ((uint64) drive.size_mounted);
 
-            string drive_block_name_and_size_string = "%s 𐄁 %s / %s".printf (drive.device, used_string, size_string);
+            drive_name_label.secondary_text = "%s 𐄁 %s".printf (drive.device, size_string);
 
-            if (drive.free == 0) {
-                drive_block_name_and_size_string = "%s 𐄁 %s".printf (drive.device, size_string);
-            }
-
-            var drive_block_name_and_size_label = new Gtk.Label (drive_block_name_and_size_string) {
+            ///TRANSLATORS: Only the words "Used" and "available" need to be translated,
+            ///the positional strings placeholders are already translated by the GLib.format_string () function.
+            var drive_usage_string = _("Used %s of %s mounted").printf (used_string, available_string);
+            var drive_usage_label = new Gtk.Label (drive_usage_string) {
                 halign = START,
+                margin_top = 6,
                 margin_bottom = 6
             };
-            drive_block_name_and_size_label.add_css_class (Granite.CssClass.DIM);
+            drive_usage_label.add_css_class (Granite.CssClass.DIM);
 
             var drive_not_mounted_label = new Gtk.Label (_("Not mounted")) {
+                margin_top = 6,
                 halign = START
             };
             drive_not_mounted_label.add_css_class (Granite.CssClass.DIM);
@@ -122,7 +124,6 @@ public class Monitor.SystemStorageView : Gtk.Box {
                 margin_bottom = 6
             };
             usagebar.add_css_class (Granite.STYLE_CLASS_FLAT);
-            usagebar.set_value (100.0 * (drive.size - drive.free) / drive.size);
 
             var drive_box = new Gtk.Box (VERTICAL, 0) {
                 margin_top = 6,
@@ -131,10 +132,11 @@ public class Monitor.SystemStorageView : Gtk.Box {
                 margin_start = 12
             };
             drive_box.append (drive_name_label);
-            drive_box.append (drive_block_name_and_size_label);
-            if (drive.free == 0) {
+            if (drive.size_mounted == 0) {
                 drive_box.append (drive_not_mounted_label);
             } else {
+                drive_box.append (drive_usage_label);
+                usagebar.set_value (100.0 * (drive.size_mounted - drive.free) / drive.size_mounted);
                 drive_box.append (usagebar);
             }
 

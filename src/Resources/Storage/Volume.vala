@@ -10,6 +10,7 @@ public class Monitor.Volume : Object {
     public string uuid;
     public string mount_point;
     public uint64 size;
+    public uint64 size_mounted;
     public uint64 free;
     public uint64 offset;
 
@@ -25,6 +26,7 @@ public class Monitor.Volume : Object {
         type = block.id_type;
         size = block.size;
         uuid = block.id_uuid;
+        size_mounted = 0;
     }
 
     public void add_slave (string? new_slave) {
