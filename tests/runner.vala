@@ -4,6 +4,5 @@ void main (string[] args) {
     Gtk.init ();
 
     test_statusbar ();
-
     Test.run ();
 }

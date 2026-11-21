@@ -25,6 +25,11 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         memory_item_factory.bind.connect (bind_memory_item);
         memory_item_factory.unbind.connect ((obj) => unbind_label_item (obj, "memory"));
 
+        var gpu_item_factory = new Gtk.SignalListItemFactory ();
+        gpu_item_factory.setup.connect (setup_label_item);
+        gpu_item_factory.bind.connect (bind_gpu_item);
+        gpu_item_factory.unbind.connect ((obj) => unbind_label_item (obj, "gpu"));
+
         var pid_item_factory = new Gtk.SignalListItemFactory ();
         pid_item_factory.setup.connect (setup_label_item);
         pid_item_factory.bind.connect (bind_pid_item);
@@ -43,6 +48,11 @@ public class Monitor.ProcessTreeView : Granite.Bin {
             sorter = model.num_sorter ("memory")
         };
 
+        var gpu_column = new Gtk.ColumnViewColumn (_("GPU"), gpu_item_factory) {
+            sorter = model.num_sorter ("gpu"),
+            expand = false
+        };
+
         var pid_column = new Gtk.ColumnViewColumn (_("PID"), pid_item_factory) {
             sorter = model.num_sorter ("pid")
         };
@@ -53,6 +63,13 @@ public class Monitor.ProcessTreeView : Granite.Bin {
         column_view.append_column (name_column);
         column_view.append_column (cpu_column);
         column_view.append_column (mem_column);
+
+        // Prevent adding the GPU column, if GPU was not detected
+        var resources = Resources.get_default ();
+        if (resources.gpu_list.size > 0) {
+            column_view.append_column (gpu_column);
+        }
+
         column_view.append_column (pid_column);
 
         model.sorter = column_view.sorter;
@@ -116,6 +133,17 @@ public class Monitor.ProcessTreeView : Granite.Bin {
 
         item.bindings.set ("pid", item.bind_property ("pid", label, "label", SYNC_CREATE, (_, from_val, ref to_val) => {
             to_val.set_string ("%d".printf (from_val.get_int ()));
+            return true;
+        }));
+    }
+
+    private void bind_gpu_item (Object object) {
+        var cell = (Gtk.ColumnViewCell) object;
+        var label = (Gtk.Label) cell.child;
+        var item = (ProcessRowData) cell.item;
+        item.bindings.set ("gpu", item.bind_property ("gpu", label, "label", SYNC_CREATE, (_, from_val, ref to_val) => {
+            int percentage = from_val.get_int ();
+            to_val.set_string ("%.0f%%".printf (percentage));
             return true;
         }));
     }
