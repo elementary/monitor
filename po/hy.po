@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: io.elementary.monitor\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-20 11:01+0000\n"
-"PO-Revision-Date: 2026-11-20 16:04+0000\n"
+"PO-Revision-Date: 2026-11-24 21:04+0000\n"
 "Last-Translator: Davit Yedigaryan <davit.yedigaryan.1993@gmail.com>\n"
 "Language-Team: Armenian <https://l10n.elementaryos.org/projects/desktop/"
 "monitor/hy/>\n"
@@ -25,23 +25,23 @@ msgstr "Մոնիտոր"
 
 #: src/MainWindow.vala:36
 msgid "Processes"
-msgstr "undefined"
+msgstr "Պրոցեսներ"
 
 #: src/MainWindow.vala:37
 msgid "Logs"
-msgstr "undefined"
+msgstr "Տեղեկամատյաններ"
 
 #: src/MainWindow.vala:38
 msgid "System"
-msgstr "undefined"
+msgstr "Համակարգ"
 
 #: src/MainWindow.vala:56
 msgid "Settings"
-msgstr "undefined"
+msgstr "Կարգավորումներ"
 
 #: src/MainWindow.vala:63
 msgid "Search process name or PID"
-msgstr "undefined"
+msgstr "Որոնել պրոցեսի անունով կամ PID-ով"
 
 #. The total amount of the swap is 0 when it is unavailable
 #: src/Utils.vala:10
@@ -58,14 +58,14 @@ msgstr "N/A"
 #: src/Utils.vala:61
 #, c-format
 msgid "%.2f Ghz"
-msgstr "undefined"
+msgstr "%.2f ԳՀց"
 
 #. /TRANSLATORS: The first param is the cpu frequency speed value and
 #. /the second param is the cpu frequency speed unit viz. "Mhz" for megahertz.
 #: src/Utils.vala:66
 #, c-format
 msgid "%.0f Mhz"
-msgstr "undefined"
+msgstr "%.0f ՄՀց"
 
 #. /TRANSLATORS: The first param is the numeric value (as string) of network speed.
 #. /The second param with the appended "/s" is the network speed unit such as "Mb/s" for megabits per second.
@@ -76,45 +76,45 @@ msgstr "%s %s/s"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:18
 msgid "Show Monitor"
-msgstr "undefined"
+msgstr "Ցուցադրել մոնիտորը"
 
 #: src/Indicator/Widgets/PopoverWidget.vala:21
 msgid "Quit Monitor"
-msgstr "undefined"
+msgstr "Փակել մոնիտորը"
 
 #: src/Views/LogView/LogView.vala:35
 msgid "Sender"
-msgstr "undefined"
+msgstr "Ուղարկող"
 
 #: src/Views/LogView/LogView.vala:43
 msgid "Message"
-msgstr "undefined"
+msgstr "Հաղորդագրություն"
 
 #: src/Views/LogView/SystemdLogEntry.vala:35
 msgid "Now"
-msgstr "undefined"
+msgstr "Հիմա"
 
 #: src/Views/LogView/SystemdLogEntry.vala:38
 #, c-format
 msgid "%ds ago"
 msgid_plural "%ds ago"
-msgstr[0] "undefined"
-msgstr[1] ""
+msgstr[0] "%d վրկ առաջ"
+msgstr[1] "%d վրկ առաջ"
 
 #: src/Views/LogView/SystemdLogEntry.vala:44
 #, c-format
 msgid "%dm ago"
 msgid_plural "%dm ago"
-msgstr[0] "undefined"
-msgstr[1] ""
+msgstr[0] "%d ր առաջ"
+msgstr[1] "%d ր առաջ"
 
 #. I think the plural form is according to the last one??
 #: src/Views/LogView/SystemdLogEntry.vala:48
 #, c-format
 msgid "%dm %ds ago"
 msgid_plural "%dm %ds ago"
-msgstr[0] "undefined"
-msgstr[1] ""
+msgstr[0] "%d ր %d վրկ առաջ"
+msgstr[1] "%d ր %d վրկ առաջ"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:46
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:55
@@ -135,48 +135,48 @@ msgstr "THR"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:100
 msgid "The app is waiting in an uninterruptible disk sleep"
-msgstr "undefined"
+msgstr "Հավելվածը սպասում է սկավառակի ընդհատման ենթակա չլինող քնի ռեժիմում"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:102
 msgid "Idle kernel thread"
-msgstr "undefined"
+msgstr "Պարապուրդի միջուկային շղթա"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:104
 msgid "The process is running or runnable (on run queue)"
-msgstr "undefined"
+msgstr "Պրոցեսը աշխատում է կամ պատրաստ է աշխատելու (գործարկման հերթում)"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:106
 msgid ""
 "The process is in an interruptible sleep; waiting for an event to complete"
-msgstr "undefined"
+msgstr "Պրոցեսը ընդհատվող քնի ռեժիմում է և սպասում է իրադարձության ավարտին"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:108
 msgid "The process is stopped by a job control signal"
-msgstr "undefined"
+msgstr "Պրոցեսը կանգնեցվել է առաջադրանքների կառավարման ազդանշանով"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:110
 msgid "The process is stopped by a debugger during the tracing"
-msgstr "undefined"
+msgstr "Պրոցեսը կանգնեցվել է վրիպազերծիչի կողմից հետագծման ժամանակ"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoHeader.vala:112
 msgid "The app is terminated but not reaped by its parent"
-msgstr "undefined"
+msgstr "Հավելվածը ավարտվել է, բայց ծնող պրոցեսը դեռ չի հավաքել արդյունքը"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:14
 msgid "Read/Written"
-msgstr "undefined"
+msgstr "Կարդացված/Գրված"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoIOStats.vala:19
 msgid "Cancelled write"
-msgstr "undefined"
+msgstr "Գրառումը չեղարկվեց"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:82
 msgid "Shut Down…"
-msgstr "undefined"
+msgstr "Անջատել…"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoView.vala:87
 msgid "Force Quit…"
-msgstr "undefined"
+msgstr "Ստիպողաբար փակել…"
 
 #: src/Views/ProcessView/ProcessInfoView/ProcessInfoCPURAM.vala:55
 #, c-format
@@ -190,7 +190,7 @@ msgstr "RAM: %.1f%%"
 
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:37
 msgid "Process Name"
-msgstr "undefined"
+msgstr "Պրոցեսի անուն"
 
 #: src/Views/ProcessView/ProcessTreeView/ProcessTreeView.vala:43
 #: src/Widgets/Statusbar/Statusbar.vala:14
@@ -201,95 +201,95 @@ msgstr "CPU"
 #: src/Views/SystemView/SystemMemoryView.vala:21
 #: src/Widgets/Statusbar/Statusbar.vala:24
 msgid "Memory"
-msgstr "undefined"
+msgstr "Հիշողություն"
 
 #: src/Views/PreferencesView.vala:17
 msgid "Update frequency"
-msgstr "undefined"
+msgstr "Թարմացման հաճախականություն"
 
 #: src/Views/PreferencesView.vala:22 src/Views/PreferencesView.vala:52
 msgid "Requires restart"
-msgstr "undefined"
+msgstr "Պահանջվում է վերագործարկում"
 
 #: src/Views/PreferencesView.vala:29
 msgid "1s"
-msgstr "undefined"
+msgstr "1 վրկ"
 
 #: src/Views/PreferencesView.vala:30
 msgid "2s"
-msgstr "undefined"
+msgstr "2 վրկ"
 
 #: src/Views/PreferencesView.vala:31
 msgid "3s"
-msgstr "undefined"
+msgstr "3 վրկ"
 
 #: src/Views/PreferencesView.vala:32
 msgid "4s"
-msgstr "undefined"
+msgstr "4 վրկ"
 
 #: src/Views/PreferencesView.vala:33
 msgid "5s"
-msgstr "undefined"
+msgstr "5 վրկ"
 
 #: src/Views/PreferencesView.vala:49
 msgid "Start in background"
-msgstr "undefined"
+msgstr "Գործարկել ֆոնային ռեժիմում"
 
 #: src/Views/PreferencesView.vala:51
 msgid "Draw smooth lines on CPU chart"
-msgstr "undefined"
+msgstr "Պրոցեսորի գծապատկերում գծել հարթ գծեր"
 
 #: src/Views/PreferencesView.vala:57
 msgid "Show in panel"
-msgstr "undefined"
+msgstr "Ցուցադրել վահանակում"
 
 #: src/Views/PreferencesView.vala:62
 msgid "CPU percentage"
-msgstr "undefined"
+msgstr "Պրոցեսորի ծանրաբեռնվածություն"
 
 #: src/Views/PreferencesView.vala:67
 msgid "CPU frequency"
-msgstr "undefined"
+msgstr "Պրոցեսորի հաճախականություն"
 
 #: src/Views/PreferencesView.vala:72
 msgid "CPU temperature"
-msgstr "undefined"
+msgstr "Պրոցեսորի ջերմաստիճան"
 
 #: src/Views/PreferencesView.vala:77
 msgid "RAM percentage"
-msgstr "undefined"
+msgstr "Օպերատիվ հիշողության ծանրաբեռնվածություն"
 
 #: src/Views/PreferencesView.vala:82
 msgid "Network upload"
-msgstr "undefined"
+msgstr "Ցանցային վերբեռնում"
 
 #: src/Views/PreferencesView.vala:87
 msgid "Network download"
-msgstr "undefined"
+msgstr "Ցանցային ներբեռնում"
 
 #: src/Views/PreferencesView.vala:92
 msgid "GPU percentage"
-msgstr "undefined"
+msgstr "Գրաֆիկական պրոցեսորի ծանրաբեռնվածություն"
 
 #: src/Views/PreferencesView.vala:97
 msgid "VRAM percentage"
-msgstr "undefined"
+msgstr "Վիդեոհիշողության ծանրաբեռնվածություն"
 
 #: src/Views/PreferencesView.vala:102
 msgid "GPU temperature"
-msgstr "undefined"
+msgstr "Գրաֆիկական պրոցեսորի ջերմաստիճան"
 
 #: src/Views/SystemView/SystemCPUView.vala:20
 msgid "Processor"
-msgstr "undefined"
+msgstr "Պրոցեսոր"
 
 #: src/Views/SystemView/SystemCPUView.vala:41
 msgid "Frequency"
-msgstr "undefined"
+msgstr "Հաճախականություն"
 
 #: src/Views/SystemView/SystemCPUView.vala:48
 msgid "Temperature"
-msgstr "undefined"
+msgstr "Ջերմաստիճան"
 
 #: src/Views/SystemView/SystemCPUView.vala:85
 #: src/Views/SystemView/SystemGPUView.vala:93
@@ -298,31 +298,31 @@ msgstr "℃"
 
 #: src/Views/SystemView/SystemCPUView.vala:150
 msgid "Threads"
-msgstr "undefined"
+msgstr "Շղթաներ"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:29
 msgid "General"
-msgstr "undefined"
+msgstr "Ընդհանուր"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:30
 msgid "Features"
-msgstr "undefined"
+msgstr "Հնարավորություններ"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:31
 msgid "Bugs"
-msgstr "undefined"
+msgstr "Սխալներ"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:62
 msgid "Model:"
-msgstr "undefined"
+msgstr "Մոդել՝"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:63
 msgid "Family:"
-msgstr "undefined"
+msgstr "Ընտանիք՝"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:64
 msgid "Microcode ver.:"
-msgstr "undefined"
+msgstr "Միկրոկոդի տարբերակ՝"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:65
 msgid "Bogomips:"
@@ -330,87 +330,87 @@ msgstr "Bogomips:"
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:69
 msgid "L1 Instruction cache: "
-msgstr "undefined "
+msgstr "L1 հրահանգների քեշ՝ "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:73
 msgid "L1 Data cache: "
-msgstr "undefined "
+msgstr "L1 տվյալների քեշ՝ "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:77
 msgid "L1 cache: "
-msgstr "undefined "
+msgstr "L1 քեշ՝ "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:80
 msgid "L2 Cache size: "
-msgstr "undefined "
+msgstr "L2 քեշի չափ՝ "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:83
 msgid "L3 Cache size: "
-msgstr "undefined "
+msgstr "L3 քեշի չափ՝ "
 
 #: src/Views/SystemView/SystemCPUInfoPopover.vala:86
 msgid "Address sizes: "
-msgstr "undefined "
+msgstr "Հասցեների չափեր՝ "
 
 #: src/Views/SystemView/SystemMemoryView.vala:11
 msgid "Buffered"
-msgstr "undefined"
+msgstr "Բուֆերավորված"
 
 #: src/Views/SystemView/SystemMemoryView.vala:12
 msgid "Cached"
-msgstr "undefined"
+msgstr "Քեշավորված"
 
 #: src/Views/SystemView/SystemMemoryView.vala:13
 msgid "Locked"
-msgstr "undefined"
+msgstr "Արգելափակված"
 
 #: src/Views/SystemView/SystemMemoryView.vala:14
 msgid "Total"
-msgstr "undefined"
+msgstr "Ընդամենը"
 
 #: src/Views/SystemView/SystemMemoryView.vala:15
 msgid "Used"
-msgstr "undefined"
+msgstr "Օգտագործված"
 
 #: src/Views/SystemView/SystemMemoryView.vala:16
 msgid "Shared"
-msgstr "undefined"
+msgstr "Ընդհանուր օգտագործման"
 
 #: src/Views/SystemView/SystemMemoryView.vala:17
 msgid "Swap Total"
-msgstr "undefined"
+msgstr "Swap-ի ընդհանուր ծավալ"
 
 #: src/Views/SystemView/SystemMemoryView.vala:18
 msgid "Swap Used"
-msgstr "undefined"
+msgstr "Swap-ի օգտագործված ծավալ"
 
 #: src/Views/SystemView/SystemNetworkView.vala:26
 msgid "Network"
-msgstr "undefined"
+msgstr "Ցանց"
 
 #: src/Views/SystemView/SystemNetworkView.vala:28
 msgid "DOWN"
-msgstr "undefined"
+msgstr "ՆԵՐՔԵՎ"
 
 #: src/Views/SystemView/SystemNetworkView.vala:33
 msgid "UP"
-msgstr "undefined"
+msgstr "ՎԵՐԵՎ"
 
 #: src/Views/SystemView/SystemStorageView.vala:18
 msgid "Storage"
-msgstr "undefined"
+msgstr "Պահոց"
 
 #: src/Views/SystemView/SystemStorageView.vala:20
 msgid "Write"
-msgstr "undefined"
+msgstr "Գրել"
 
 #: src/Views/SystemView/SystemStorageView.vala:25
 msgid "Read"
-msgstr "undefined"
+msgstr "Կարդալ"
 
 #: src/Views/SystemView/SystemStorageView.vala:114
 msgid "Not mounted"
-msgstr "undefined"
+msgstr "Միացված չէ"
 
 #: src/Views/SystemView/SystemGPUView.vala:17
 msgid "VRAM"
@@ -418,18 +418,18 @@ msgstr "VRAM"
 
 #: src/Views/SystemView/SystemGPUView.vala:23
 msgid "TEMPERATURE"
-msgstr "undefined"
+msgstr "ՋԵՐՄԱՍՏԻՃԱՆ"
 
 #: src/Views/SystemView/SystemGPUView.vala:63
 msgid "Graphics"
-msgstr "undefined"
+msgstr "Գրաֆիկա"
 
 #: src/Widgets/Statusbar/Statusbar.vala:17
 #: src/Widgets/Statusbar/Statusbar.vala:27
 #: src/Widgets/Statusbar/Statusbar.vala:37
 #: src/Widgets/Statusbar/Statusbar.vala:47
 msgid "Calculating…"
-msgstr "undefined"
+msgstr "Հաշվարկվում է…"
 
 #: src/Widgets/Statusbar/Statusbar.vala:34
 msgid "Swap"
@@ -445,4 +445,4 @@ msgstr "GHz"
 
 #: src/Widgets/WidgetResource/WidgetResource.vala:44
 msgid "Utilization"
-msgstr "undefined"
+msgstr "Օգտագործում"
